@@ -1,0 +1,32 @@
+\textcolor{red}{A revoir}
+\begin{tcolorbox}
+    L'intégrale de \textsc{Dirichlet} (1829) est l'intégrale de la fonction sinus cardinal sur la demi-droite des réels positifs
+    $$\int_{0}^{+\infty} \frac{\sin x}{x}\ \d x = \frac{\pi}{2}.$$
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item Montrer que $\int_{0}^{1} \frac{\sin (t)}{t}\ \d t$ est convergente. 
+    \item Deux méthodes.
+    \begin{itemize}
+        \item Montrer que la série de terme général $\int_{n \pi}^{(n+1) \pi} \frac{\sin(t)}{t}\ \d t$ est convergente. En déduire que $\int_{1}^{+ \infty} \frac{\sin(t)}{t}\ \d t$ converge. 
+        \begin{enumerate}
+            \item Montrer que $u_n = \int_{n \pi}^{(n+1) \pi} \frac{\sin(t)}{t}\ \d t$ est le terme général d'une série alternée. Donc $\sum u_n$ converge.\\
+            Attention: on ne peut pas en déduire directement que $\sum\limits_{n=0}^{+ \infty} \int_{n \pi}^{(n+1) \pi} \frac{\sin(t)}{t}\ \d t = \int_{1}^{+ \infty} \frac{\sin(t)}{t}\ \d t$ car on n'a pas encore démontrer la convergence du deuxième membre (c.f. relation de \textsc{Chasles}).\\
+            \item Il faut montrer la convergence de $\int_{\pi}^{x} \frac{\sin (t)}{t}\ \d t$. \textcolor{green}{A compléter.}
+        \end{enumerate}
+        \item On peut aussi procéder par intégration par parties en posant
+        $$
+        \begin{drcases}                
+            u(t) = \frac{1}{t}\\
+            v(t) = - \cos(t)
+        \end{drcases}
+        \mathscr{C}^1 \text{ sur } [1, +\infty].
+        $$
+        Bien présicer que $u(t)v(t)=-\frac{\cos(t)}{t}$ admet une limite finie en 1 et en $+ \infty$.\\
+        \textcolor{red}{Les IPP préservent la régularité de l'intégrale MAIS ne préservent pas l'intégrabilité.}
+    \end{itemize}
+    \item On en déduit immédiatement que $\int_{0}^{+ \infty} \frac{\sin (t)}{t}\ \d t$ converge.
+    \item De plus, on peut montrer que cette intégrale est semi-convergente (i.e. elle n'est pas intégrable sur $\Rp$). Pour cela, montrer que pour tout entier naturel $n$, $\int_{n \pi}^{(n+1) \pi} \frac{\sin(t)}{t}\ \d t \geqslant \frac{2}{(n+1) \pi}$. 
+\end{enumerate}
+    
+\underline{Remarque:} La fonction sinus cardinal \textbf{n'est pas intégrable} sur $\Rpe$ (cf. le prochain exercice).

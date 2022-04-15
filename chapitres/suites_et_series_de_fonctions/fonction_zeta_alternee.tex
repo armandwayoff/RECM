@@ -1,0 +1,21 @@
+\emph{Exercice 13. TD VIII}\\
+
+On définit la fonction $\zeta$ alternée $F$ comme suit
+$$\boxed{F(x) = \sum_{n=1}^{+ \infty} \frac{(-1)^{n-1}}{n^x}}.$$
+\begin{itemize}
+    \item Déterminer l'ensemble de défintion de $F$ et trouver une relation entre $F$ et $\zeta$.
+    \begin{itemize}
+        \item Calculer $\zeta(x) - F(x)$ pour trouver que $\zeta(x) = \frac{1}{1-2^{1-x}} F(x)$.
+    \end{itemize}
+    \item Déterminer $\displaystyle \lim_{x \to 1} (x-1) \zeta(x)$.
+    \begin{itemize}
+        \item En comparant $\zeta$ à une intégrale, on peut montrer que $\frac{1}{1-x} \leqslant \zeta(x) \leqslant \frac{1}{1-x} + 1$.
+    \end{itemize}
+    \item On peut aussi procéder de la manière suivante: $\zeta$ est décroissante sur $]1, +\infty[$ donc $\zeta$ admet une limite $\ell \in \Rp \cup \{ + \infty \}$ en $1$.\\
+        $\blacktriangleright$ Si $\ell \in \Rp$, par passage à la limite dans l'inégalité $\zeta(x) \geqslant \sum\limits_{n=1}^{N} \frac{1}{n^x}$, $$\ell \geqslant \sum\limits_{n=1}^{N} \frac{1}{n} \xrightarrow[N \to + \infty]{} +\infty.$$ 
+        Donc $\ell = + \infty$ et $\displaystyle \lim_{x \to 1} \zeta(x) = +\infty$. 
+    \item Déterminer $\displaystyle \lim_{x \to +\infty} F(x)$ ainsi qu'un équivalent de $\zeta$ en $+\infty$.
+    \begin{itemize}
+        \item On peut montrer que (\textcolor{green}{à détailler}) $\zeta(x) \sim_{+ \infty} 1$.
+    \end{itemize}
+\end{itemize}

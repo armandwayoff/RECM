@@ -1,0 +1,35 @@
+\begin{tcolorbox}
+    Soit $A = (a_{i,j}) \in \M_n(\K)$. On dit que $A$ est 
+    \begin{itemize}
+        \item à \emph{diagonale dominante} si
+        $$\forall i \in \llbracket 1, n \rrbracket,\ |a_{i,i}| \geqslant \sum_{k \not = i} |a_{i,k}|,$$
+        \item à \emph{diagonale fortement dominante} si de plus l'inégalité est stricte pour une valeur de $i$ au moins,
+        \item à \emph{diagonale strictement dominante} si l'inégalité est stricte pour tout $i$. 
+    \end{itemize}
+\end{tcolorbox}
+
+\begin{box_titre}{Lemme d'\textsc{Hadamard} \label{lemme_hadamard}}
+    Toute matrice à diagonale strictement dominante (DSD) est inversible.
+\end{box_titre}
+\begin{enumerate}
+    \item Démonstration du lemme:
+    \begin{itemize}
+        \item Raisonner par l'absurde en supposant qu'il existe un vecteur colonne $X = \Trsp{(x_1, \dots, x_n)}$ non nul appartenant au noyau de la matrice. 
+        \item Poser $\boxed{\displaystyle \left |x_{i_0} \right|= \max_{1 \leqslant i \leqslant n} |x_i|}$ et étudier la ligne $i_0$ \sidenote{Cette méthode revient souvent dans ce genre d'étude.} de la matrice pour aboutir à une contradiction:
+        $$-a_{i_0, i_0} x_{i_0} = \sum_{j \not = i_0} a_{i_0,j} x_j$$
+        d'où
+        $$|a_{i_0, i_0}| |x_{i_0}| \leqslant \sum_{j \not = i_0} |a_{i_0,j}| |x_j| \leqslant |x_{i_0}| \sum_{j \not = i_0} |a_{i_0, j}|.$$
+        Comme $|a_{i_0, i_0}| > \sum\limits_{j \not = i_0} |a_{i_0, j}|$, on en déduit que $|x_{i_0}| = 0$, autrement dit $X = 0$. \\
+        Pour une autre démonstration voir \cite{matrices} page 51. 
+    \end{itemize}
+    
+    \item Soit $A \in \M_n(\K)$ quelconque. Montrer que  $\boxed{\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \left( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \right)}$. \\
+    Ce disque est nommé le \href{https://fr.wikipedia.org/wiki/Théorème_de_Gerschgorin}{disque de \textsc{Gerschgorin}} (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes}).
+    \begin{itemize}
+        \item Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible donc n'est pas à DSD...
+    \end{itemize}
+    \item Soit $A \in \M_n(\R)$ à DSD telle que $a_{i,i} > 0$ pour tout $i \in \llbracket 1, n \rrbracket$. Montrer que $\mathrm{det}(A) > 0$. 
+    \begin{itemize}
+        \item $\det(A) = \prod\limits_{\lambda \in \Sp(A)} \lambda$. Distinguer les vap complexes et réelles. 
+    \end{itemize}
+\end{enumerate}

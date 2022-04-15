@@ -1,0 +1,26 @@
+\begin{box_titre}{Polynômes de \textsc{Tchebychev} de première espèce}
+    Les polynômes de \textsc{Tchebychev} de première espèce sont les \textbf{uniques} polynômes $(\Tcheby_n)_{n \geqslant 0}$ définis sur $]-1, 1[$ par
+    $$\forall \theta \in \R,\ \Tcheby_n (\cos \theta) = \cos(n \theta).$$
+\end{box_titre}
+
+\underline{Relation de récurrence:}
+$$\boxed{\Tcheby_{n+2} = 2X \Tcheby_{n+1} - \Tcheby_n}$$
+Cette relation permet de montrer l'existence de ces polynômes. \\
+L'unicité de $\Tcheby_n$ pour $n$ fixé est garantie pas l'identification de \textbf{deux polynômes coïncidant} sur $]-1, 1[$. \\
+Les polynômes de \textsc{Tchebychev} forment une famille orthogonale pour le produit scalaire
+$$\langle P, Q \rangle = \int_{-1}^{1} P(t) Q(t) \frac{1}{\sqrt{1-t^2}}\ \d t.$$
+
+\begin{marginfigure}[-8.5cm]
+	\input{illustrations/i_polynomes_tchebychev}
+	\caption{Polynômes de \textsc{Tchebychev} de première espèce}
+	\begin{flushright}
+	{\scriptsize
+	\color{blue} $\Tcheby_0 = 1$ \\ 
+	\color{red} $\Tcheby_1 = x$ \\
+	\color{green} $\Tcheby_2 = 2x^2-1$ \\
+	\color{purple} $\Tcheby_3 = 4x^3-3x$ \\
+	\color{black} $\Tcheby_4 = 8x^4-8x^2+1$ \\
+	\color{orange} $\Tcheby_5 = 16x^5-20x^3+5x$
+	}
+	\end{flushright}
+\end{marginfigure}

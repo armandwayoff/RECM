@@ -1,0 +1,13 @@
+Soit $E$ un espace vectoriel de dimension finie $n$ non nulle et $\varphi \in \mathscr{L}(E)$ un endomorphisme nilpotent d'indice de nilpotence égal à $p$. Montrer qu'il existe un vecteur $x_0 \in E$ tel que la famille $\mathscr{F}=(x_0, \varphi(x_0), \dots, \varphi^{p-1}(x_0))$ soit une famille libre. Montrer aussi que $p \leqslant n$. 
+
+\begin{itemize}
+    \item Première question:
+    \begin{enumerate}
+        \item Justifier l'existence de $x_0$.
+        \item Revenir à la définition d'une famille libre et supposer par l'absurde que les $\lambda_i$ ne sont pas tous nuls. 
+        \item En déduire une absurdité en composant l'expression par un endomorphisme bien choisi.
+    \end{enumerate}
+    \item Deuxième question:\\
+        D'après le théorème de \textsc{Cayley}-\textsc{Hamilton}, $\chi_{\varphi}(\varphi) = 0$. \\
+        Or comme $\varphi$ est nilpotent, $\Sp(\varphi) = \{0\}$. Donc $\chi_{\varphi}(\lambda) = \lambda^n$ et $\varphi^n = 0_{\Endo(E)}$. Enfin, l'ordre de nilpotence de $\varphi$ étant égal à $p$, $p \leqslant n$. 
+\end{itemize}

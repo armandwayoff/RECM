@@ -1,0 +1,26 @@
+\begin{tcolorbox}
+    Soient $(\alpha, \beta) \in  \R^2$ et $f:t \to \frac{1}{t^{\alpha} \ln^{\beta} (t)}$. Alors,
+    $$\int_{2}^{+ \infty} f \text{ converge si et seulement si }
+    \begin{cases}
+    \alpha > 1 \\
+    \text{ou}\\
+    \alpha = 1 \text{ et } \beta > 1
+    \end{cases}.
+    $$
+\end{tcolorbox}
+
+\begin{preuve}
+    \begin{enumerate}
+        \item Si $\alpha > 1$, on pose $\gamma \in ]1, \alpha[$. On peut montrer que $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
+        \item Si $\alpha < 1$, on pose $\gamma \in ]\alpha, 1[$. On peut montrer que 
+        $ t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty $
+        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} \geqslant 0$.
+        \item Si $\alpha = 1$, revenir aux intégrales partielles. Connaître la primitive de $t \mapsto \frac{1}{t \ln^{\beta} (t)}$:
+        $$\int_{2}^{X} \frac{1}{t \ln^{\beta} (t)}\ \d t = 
+        \begin{cases}
+            \left[ \frac{\ln ^{1-\beta} (t)}{1-\beta} \right]_2 ^X & \text{si } \beta \not = 1, \\
+            \left[\ln (\ln(t)) \right]_2 ^X & \text{si } \beta = 1.
+        \end{cases}
+        $$
+    \end{enumerate}
+\end{preuve}

@@ -1,0 +1,30 @@
+\emph{Exercice 10. TD VIII} \\
+\underline{Démonstration:} \cite{calcul_infinitesimal} page 159.
+
+\begin{tcolorbox}
+    Soit $f$ une fonction $k$-lipschitzienne sur $[0, 1]$. Le polynôme de \textsc{Bernstein} d'ordre $n$ associé à $f$ est le polynôme
+    $$\Bernstein_n(f)(x) = \sum_{k=0}^{n} f \left( \frac{k}{n} \right) \binom{n}{k} x^k (1-x)^{n-k}$$
+    La suite $(\Bernstein_n(f))_n$ des polynômes de \textsc{Bernstein} converge uniformément vers $f$ sur $[0, 1]$. \\
+    \textit{Ce résultat s'étend à toute fonction continue sur un segment à valeurs dans $\C$}.
+\end{tcolorbox}
+
+Le sujet X/ENS PSI 2018 propose une élégante démonstration de ce résultat d'analyse pure en passant par les probabilités. (Je crois que la version du TD est un peu différente).
+    
+\begin{box_enonce}
+    
+    Préciser les hypothèses sur $f$.
+        
+    Soit $x \in ]0, 1[$ et $n \in \Ne$. On considère $X_1, \dots, X_n$ des variables aléatoires mutuellement indépendantes et suivant toutes la même loi de \textsc{Bernoulli} de paramètre $x$. On pose
+    $$S_n = \frac{X_1 + \cdots + X_n}{n}.$$
+    \begin{enumerate}
+        \item Exprimer $\E(S_n)$, $\V(S_n)$ et $\E(f(S_n))$ en fonction de $x$, $n$ et du polynôme $\Bernstein_n(f)$.
+        \item En déduire les inégalités:
+        $$\sum_{k=0}^{n} \left| x- \frac{k}{n} \right| \binom{n}{k} x^k (1-x)^{n-k} \leqslant \V(S_n)^{1/2} \leqslant \frac{1}{2\sqrt{n}}.$$
+        \item Montrer que $\lambda^\alpha \leqslant 1+\lambda$ pour tout réel $\lambda > 0$ et en déduire l'inégalité:
+        $$\left|x-\frac{k}{n} \right|^\alpha \leqslant n^{-\alpha/2} \Bigg(1 + \sqrt{n} \left|x - \frac{k}{n} \right| \Bigg)$$
+        pour tout $x \in ]0, 1[, n \in \Ne$ et $k \in \llbracket 1, n \rrbracket$.
+        \item Soit $n \in \Ne$. Montrer que 
+        $$\Ninf{f-\Bernstein_n(f)} \leqslant \frac{3k}{2} \frac{1}{n^{\alpha/2}}.$$
+        Conclure.
+    \end{enumerate}
+\end{box_enonce}

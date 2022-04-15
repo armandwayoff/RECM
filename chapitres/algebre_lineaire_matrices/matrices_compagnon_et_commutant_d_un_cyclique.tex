@@ -1,0 +1,18 @@
+\begin{box_titre}{Matrice compagnon}
+    Soit $P(X) = X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X]$. On appelle \emph{matrice compagnon} de $P$ la matrice:
+    $$
+    \begin{pmatrix}
+        0 & 0 & \cdots & 0 & -c_0 \\
+        1 & 0 & \cdots & 0 & -c_1 \\
+        0 & 1 & \cdots & 0 & -c_2 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots \\
+        0 & 0 & \cdots & 1 & -c_{p-1}
+    \end{pmatrix}
+    $$
+\end{box_titre}
+
+\marginnote[-2mm]{Cette matrice apparaît dans la démonstration du théorème de \textsc{Cayley}-\textsc{Hamilton}.}
+
+\begin{enumerate}
+    \item Résultat: soit $f$ un endomorphisme cyclique. Tout endomorphisme qui commute avec $f$ est un polynôme en $f$.
+\end{enumerate}

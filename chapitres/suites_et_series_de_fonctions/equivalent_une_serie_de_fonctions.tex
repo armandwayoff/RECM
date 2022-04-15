@@ -1,0 +1,9 @@
+On pose $f(x) = \sum\limits_{n=1}^{+\infty}\frac{x}{n(1+nx^2)}$. Donner un équivalent de $f$ et $0^+$.\\
+\begin{itemize}
+    \item Effectuer une \textbf{comparaison série/intégrale} aux termes de la somme pour encadrer $f$ (ne pas oublier de justifier l'intégrabilité des fonctions sur $[1, +\infty[$):
+    $$\int_{2}^{+\infty} \frac{x}{t(1+tx^2)}\ \d t + \frac{x}{1+x^2} \leqslant f(x) \leqslant \int_{1}^{+\infty} \frac{x}{t(1+tx^2)}\ \d t + \frac{x}{1+x^2}$$ 
+    \item Décomposer les intégrandes en éléments simples et calculer les intégrales:
+    $$-2x \ln(x) + o_0(x\ln(x)) \leqslant f(x) \leqslant -2x \ln(x) + o_0(x\ln(x))$$
+    Finalement, 
+    $$\boxed{f(x) \sim_{0^+} -2x\ln(x)}$$
+\end{itemize}

@@ -1,0 +1,18 @@
+\begin{box_titre}{Contre-exemple historique fournit par Niels \textsc{Abel} à \textsc{Cauchy}}
+    \begin{alignat*}{2}
+        f_n\ :\ \R\ &\longrightarrow\ \R\\
+        x\ &\longmapsto\ f_n(x) = \frac{(-1)^n}{n}\sin(nx).
+    \end{alignat*}
+\end{box_titre}
+
+La démonstration consiste à effectuer une \nameref{transformation_abel} aux suites $(\varepsilon_n)_{n\geqslant1}$ et $(v_n)_{n\geqslant1}$ de termes généraux:
+$$\varepsilon_n = (-1)^n \sin(nx) = \sin(n(x + \pi)) \text{ et } v_n = \frac{1}{n}.$$
+\begin{itemize}
+    \item Pour montrer que $\sum \varepsilon_n$ est bornée, distinguer deux cas:\\
+    $\blacktriangleright x \in \pi \Z$\\
+    $\blacktriangleright x \not \in \pi \Z$:
+    $\sum\limits_{p=1}^{n} \varepsilon_n$ est la partie imaginaire de:\\
+    $$\sum_{p=1}^{n} \me^{\mi p(x+\pi)} = \frac{\sin\frac{n(x+\pi)}{2}}{\sin\frac{x+\pi}{2}}\me^{\mi (n+1)(x+\pi)/2}$$
+    donc:
+    $$\left| \sum_{p=1}^{n} \varepsilon_n \right| \leqslant \frac{1}{\left|\sin\frac{x+\pi}{2} \right|}.$$
+\end{itemize}

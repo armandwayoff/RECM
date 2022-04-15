@@ -1,0 +1,79 @@
+\begin{box_titre}{Matrice de \textsc{Hilbert}} \label{matrice_hilbert}
+    Une matrice de \textsc{Hilbert} est une matrice carrée de terme général
+    $$\Hilb_{i,j}={\frac {1}{i+j-1}}.$$
+\end{box_titre}
+
+\begin{box_titre}{Déterminant de \textsc{Cauchy}}
+    Le déterminant de \textsc{Cauchy} est un déterminant de taille $n$ et de terme général $\frac{1}{a_i+b_j}$, où les complexes $(a_1, \dots, a_n)$ et $(b_1, \dots, b_n)$ sont tels que pour tout $(i, j)$, $a_i+b_j \not= 0$ \footnote{\url{https://fr.wikipedia.org/wiki/Déterminant_de_Cauchy}}.
+    $$\Cauchy_n = \begin{vmatrix}
+        \frac{1}{a_1+b_1} & \frac{1}{a_1+b_2} & \cdots & \frac{1}{a_1+b_n} \\
+        \frac{1}{a_2+b_1} & \frac{1}{a_2+b_2} & \cdots & \frac{1}{a_2+b_n} \\
+        \vdots & \vdots & & \vdots \\
+        \frac{1}{a_n+b_1} & \frac{1}{a_n+b_2} & \cdots & \frac{1}{a_n+b_n}
+    \end{vmatrix}.$$
+    On remarque que le déterminant d'une matrice de \textsc{Hilbert} est un cas particulier du déterminant de \textsc{Cauchy}.
+\end{box_titre}
+
+\begin{itemize}
+    \item La méthode pour calculer ce genre de déterminants «compliqués» est toujours la même: 
+        \begin{enumerate}
+            \item Raisonner par récurrence.
+            \item Faire des opérations élémentaires sur les lignes/colonnes pour faire apparaître une ligne/colonne composée de 1. 
+            \item Soustraire les lignes/colonnes de manière à obtenir une ligne/colonne presque composée uniquement de 0 sauf pour un seul coefficient. 
+            \item Développer par rapport à cette dernière et obtenir une relation de récurrence sur le déterminant. 
+        \end{enumerate}
+    \item Démarche pour calculer le déterminant de \textsc{Cauchy}:
+    on procède par récurrence
+    \begin{enumerate}
+        \item Multiplier toutes les colonnes par $a_n+b_j$. \\
+        Par $n$-linéarité du déterminant,
+        $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+            \frac{a_n+b_1}{a_1+b_1} & \frac{a_n+b_2}{a_1+b_2} & \cdots & \frac{a_n+b_n}{a_1+b_n} \\
+            \vdots & \vdots & & \vdots \\
+            \frac{a_n+b_1}{a_{n-1}+b_1} & \frac{a_n+b_2}{a_{n-1}+b_2} & \cdots & \frac{a_n+b_n}{a_{n-1}+b_n} \\
+            1 & 1 & \cdots & 1
+        \end{vmatrix}.$$
+    
+    
+        \item Remarquer que $\frac{a_n+b_j}{a_i+b_j} = 1+\frac{a_n-a_i}{a_i+b_j}$
+        
+        $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+            1+\frac{a_n-a_1}{a_1+b_1} & 1+\frac{a_n-a_1}{a_1+b_2} & \cdots & 1+\frac{a_n-a_1}{a_1+b_n} \\
+            \vdots & \vdots & & \vdots \\
+            1+\frac{a_n-a_{n-1}}{a_{n-1}+b_1} & 1+\frac{a_n-a_{n-1}}{a_{n-1}+b_2} & \cdots & 1+\frac{a_n-a_{n-1}}{a_{n-1}+b_n} \\
+            1 & 1 & \cdots & 1
+        \end{vmatrix}.$$
+        
+        \item Soustraire la dernière colonne à toutes les autres.
+        
+        $$\forall (i,j) \in \llbracket 1, n-1 \rrbracket^2, \quad 1+\frac{a_n-a_i}{a_i+b_j} - \left( 1+\frac{a_n-a_i}{a_i+b_n} \right)  = \frac{a_n b_n - a_i b_n - a_n b_j + a_i b_j}{(a_i + b_j)(a_i + b_n)} = \frac{(a_n - a_i)(b_n-b_j)}{(a_i + b_j)(a_i + b_n)}$$
+        
+        Donc (en réécrivant la dernière colonne sous forme factorisée),
+        
+      %  $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+           % \frac{\textcolor{red}{(a_n - a_1)}\textcolor{green}{(b_n-b_1)}}{(a_1 + b_1)(a_1 + %)} & \frac{\textcolor{red}{(a_n - a_1)}(b_n-b_2)}{(a_1 + b_2)(a_1 + b_n)} & %\cdots & \frac{\textcolor{red}{(a_n - a_1)}(b_n-b_{n-1})}{(a_1 + b_{n-1})(a_1 + %b_n)} & \frac{a_n+b_n}{a_1+b_n} \\
+          %  \vdots & \vdots & & \vdots & \vdots \\
+           % \frac{\textcolor{orange}{(a_n - a_{n-1})}(b_n-b_1)}{(a_{n-1} + b_1)(a_{n-1} + %b_n)} & \frac{\textcolor{orange}{(a_n - a_{n-1})}(b_n-b_2)}{(a_{n-1} + %b_2)(a_{n-1} + b_n)} & \cdots & \frac{\textcolor{orange}{(a_n - %a_{n-1})}(b_n-b_{n-1})}{(a_{n-1} + b_{n-1})(a_{n-1} + b_n)} &% \frac{a_n+b_n}{a_{n-1}+b_n} \\
+        %    0 & 0 & \cdots & 0 & 1
+        %\end{vmatrix}.$$
+        
+        $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+            \frac{\textcolor{red}{(a_n - a_1)}\textcolor{blue}{(b_n-b_1)}}{(a_1 + b_1)(a_1 + b_n)} & \frac{\textcolor{red}{(a_n - a_1)}\textcolor{blue}{(b_n-b_1)}}{(a_1 + b_2)(a_1 + b_n)} & \cdots & \frac{\textcolor{red}{(a_n - a_1)}(b_n-b_{n-1})}{(a_1 + b_{n-1})(a_1 + b_n)} & \frac{a_n+b_n}{a_1+b_n} \\
+            \vdots & \vdots & & \vdots & \vdots \\
+            \frac{\textcolor{red}{(a_n - a_{n-1})}\textcolor{blue}{(b_n-b_1)}}{(a_{n-1} + b_1)(a_{n-1} + b_n)} & \frac{\textcolor{red}{(a_n - a_{n-1})}\textcolor{blue}{(b_n-b_1)}}{(a_{n-1} + b_2)(a_{n-1} + b_n)} & \cdots & \frac{\textcolor{red}{(a_n - a_{n-1})}(b_n-b_{n-1})}{(a_{n-1} + b_{n-1})(a_{n-1} + b_n)} & \frac{a_n+b_n}{a_{n-1}+b_n} \\
+            0 & 0 & \cdots & 0 & 1
+        \end{vmatrix}.$$
+        
+        \item Factoriser par les termes communs aux lignes et aux colonnes.
+        
+        $$\Cauchy_n =  \frac{\prod\limits_{i=1}^{n-1} (a_n - a_i) \prod\limits_{i = 1}^{n-1}(b_n - b_i)}{\prod\limits_{i=1}^{n}(a_n + b_i) \prod\limits_{i = 1}^{n - 1} (a_i + b_n)} \begin{vmatrix}
+            \frac{1}{a_1+b_1} & \frac{1}{a_1+b_2} & \cdots & \frac{1}{a_1+b_{n-1}} & \bigstar \\
+            \vdots & \vdots & & \vdots & \vdots \\
+            \frac{1}{a_{n-1}+b_1} & \frac{1}{a_{n-1}+b_2} & \cdots & \frac{1}{a_{n-1}+b_{n-1}} & \bigstar \\
+            0 & 0 & \cdots & 0 & 1
+        \end{vmatrix}.$$
+        
+        \item En développant par rapport à la dernière ligne on trouve la relation de récurrence:
+        $$\Cauchy_n =  \frac{1}{a_n + b_n} \prod\limits_{i = 1}^{n-1}\frac{(a_n - a_i)(b_n - b_i)}{(a_n + b_i)(a_i + b_n)} \Cauchy_{n-1}$$
+    \end{enumerate}
+\end{itemize}

@@ -1,0 +1,13 @@
+Soit $A \in \M_n(\K)$ et $B = \Trsp{\com(A)}$. Montrer que les vecteurs propres de $A$ sont des vecteurs propres de $B$. 
+$$\boxed{A \times\ \com(\Trsp{A}) = \com(\Trsp{A}) \times A = \det(A) \I_n}$$
+Soit $\lambda \in \Sp(A)$ et $X$ un vecteur propre associé. Alors $\lambda (BX) = \det(A) X$. 
+
+\begin{itemize}
+    \item $\lambda \not = 0$: $BX = \frac{\det(A)}{\lambda}X$. 
+    \item $\lambda = 0$: alors $\det(A) = 0$ et $\Rg(A) \leqslant n-1$. 
+    \begin{itemize}
+        \item $\Rg(A) \leqslant n-2$: supposer par l'absurde qu'il existe un déterminant mineur de $A$ non nul. 
+        \item $\Rg(A) = n-1$: $X \in \Ker(A)$ qui est une droite vectorielle. 
+        $$\boxed{A \text{ et } B \text{ commutent donc } \Ker(A) \text{ est stable par } B}$$
+    \end{itemize}
+\end{itemize}

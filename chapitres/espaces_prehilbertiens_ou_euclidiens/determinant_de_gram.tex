@@ -1,0 +1,61 @@
+\begin{tcolorbox}
+    Soit $E$ un espace euclidien et $(x_1, \dots, x_p)$ une famille d'éléments de $E$. On définit
+    $$\text{la matrice de \textsc{Gram} } \Gram = \left( \langle x_i, x_j \rangle \right)_{i,j \in \llbracket 1, p \rrbracket}$$
+    $$\text{le déterminant de \textsc{Gram} } \Gram(x_1, \dots, x_p) = \det \Gram.$$
+    On remarque que $\Gram$ est symétrique. 
+    Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'indépendance linéaire d'une famille de vecteurs.
+\end{tcolorbox}
+
+Résultats: à compléter à partir de \url{https://fr.wikipedia.org/wiki/Déterminant_de_Gram}
+\begin{itemize}
+    \item La matrice de \textsc{Gram} est toujours positive.
+    \item La famille $(x_1, \dots, x_p)$ et sa matrice de \textsc{Gram} ont le même rang.
+    \item La famille $(x_1, \dots, x_p)$ est liée si et seulement si $\det \Gram(x_1, \dots, x_p) = 0$.
+    \item Soit $F = \Vect(x_1, \dots, x_p)$,
+    $$\forall x \in E,\ \det \Gram(x, x_1, \dots, x_p) = d^2(x, F) \times \det \Gram(x_1, \dots, x_p)$$
+\end{itemize} 
+
+\begin{enumerate}
+    \item Montrer que la famille $(x_1, \dots, x_p)$ est liée si et seulement si $\Gram(x_1, \dots, x_p) = 0$. \\
+    $(\Rightarrow)$ Il existe une famille $(\lambda_1, \dots, \lambda_p)$ non nulle  de $\R^n$ telle que $\sum\limits_{i=1}^{p} \lambda_i x_i = 0$. On montre alors que pour tout ligne $L_i$ de $\Gram$, $\sum\limits_{i=1}^{p} \lambda_i L_i = 0$ ce qui permet de conclure. \\
+    $(\Leftarrow)$ Raisonner par contraposée, on suppose $\mathscr{F}$ libre. \\
+    Soit $\mathscr{B} = (\varepsilon_1, \dots, \varepsilon_n)$ une b.o.n. de $E$ et $H \in \M_{n, p} (\R)$ la matrice de $\mathscr{F} = (x_1, \dots, x_p)$ dans $\mathscr{B}$. \\
+    Alors $\boxed{\Trsp{H} H = G(x_1, \dots, x_p)}$. \\
+    Montrons la chaîne :
+    $$\Rg(G) = \underbrace{\Rg(\Trsp{H} H) = \Rg(H)}_{\text{à montrer}} = \Rg(\mathscr{F}) = p \not= 0$$
+    Montrer que $\Rg(\Trsp{H} H) = \Rg(H)$ en montrant que $\Ker(\Trsp{H} H) = \Ker(H)$. 
+    \begin{itemize}
+        \item $(\subset)$ oui
+        \item $(\supset)$ Soit $X \in \Ker(\Trsp{H}H)$. On montre que $\norme{BX} = 0 \Rightarrow BX = 0$. 
+    \end{itemize}
+    Par le \textbf{théorème du rang}, on obtient le résultat. 
+\end{enumerate}
+
+\begin{tcolorbox}
+    La matrice de \textsc{Gram} est symétrique positive.
+\end{tcolorbox}
+
+\begin{proof} \\
+
+    \begin{itemize}
+        \item La matrice de \textsc{Gram} est symétrique par symétrie du produit scalaire.
+        \item Montrons la positivité de $\Gram$. Soit $X = \Trsp{(\alpha_1 \cdots \alpha_n)} \in \M_{n,1}(\R)$. Montrons que $\Trsp{X} \Gram X \geqslant 0$. 
+        \begin{align*}
+            \Trsp{X} \Gram X &= \sum_{i=1}^{n} \sum_{j=1}^{n} \langle x_i, x_j \rangle \alpha_i \alpha_j \\ 
+            &= \sum_{i=1}^{n} \sum_{j=1}^{n} \langle \alpha_i x_i, \alpha_j x_j \rangle \\
+            &= \left\Vert \sum_{i=1}^{n}x_i \alpha_i \right\Vert^2 \geqslant 0.
+        \end{align*}
+    \end{itemize}
+   
+    Ce qui montre bien que $\Gram$ est symétrique positive.
+\end{proof}
+
+\marginnote[-4cm]{
+    \begin{kaobox}[frametitle=Matrices symétriques positives]
+        L'ensemble des \emph{matrices symétriques positives} est noté $\mathscr{S}_n^+(\R)$. Une matrice $M \in \mathscr{S}_n^+(\R)$ équivaut à chacune des propriétés suivantes:
+        \begin{itemize}
+            \item pour tout $X \in \M_n(\R), \Trsp{X} M X \geqslant 0$,
+            \item $\Sp(M) \subset \Rp.$
+        \end{itemize}
+    \end{kaobox}
+}

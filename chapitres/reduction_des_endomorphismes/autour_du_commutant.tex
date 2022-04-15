@@ -1,0 +1,36 @@
+\emph{Exercice 12 TD 11}
+
+\begin{tcolorbox}
+    Soient $A \in \M_n(\R)$ et $C(A) = \{ M \in \M_n(\R);\ MA = AM \}$.
+\end{tcolorbox}
+
+\emph{Toutes les questions ne sont pas abordées}
+
+\begin{enumerate}
+    \item \emph{Montrer que C(A) est un sous-espace vectoriel de $\M_n(\R)$.} \\
+    Au lieu de redémontrer les propriétés d'un sev, on peut voir $C(A)$ comme le \textbf{noyau de l'application linéaire} $M \mapsto MA - AM$ ce qui donne directement le résultat. 
+    \item \emph{Montrer que si $M \in C(A)$ et $M$ est inversible, alors $M^{-1} \in C(A)$.} \\
+    On veut montrer que $M^{-1} A = A M^{-1}$ i.e. $A = M A M^{-1}$ ce qui est vrai car $M A = A M$.
+    \item \emph{Soit $D$ une matrice diagonale dont les coefficients diagonaux notés $(d_i)_{i \in \llbracket 1, n \rrbracket}$ sont deux à deux distincts. Déterminer $C(D)$ et montrer que $\mathscr{B} = (I_n, D, \dots, D^{n-1})$ est une base de $C(D)$.}
+    \begin{itemize}
+        \item $C(D) = \mathscr{D}_n$ (l'ensemble des matrices diagonales de taille $n$) \textcolor{red}{(ne pas oublier de montrer la double inclusion)}.
+        \item Comme $| \mathscr{B} | = \dim C(D)$, il suffit de montrer la liberté de $\mathscr{B}$. \\
+        Soit $(\lambda_0, \dots, \lambda_{n-1}) \in \R^n$ tel que $\sum\limits_{k=0}^{n-1} \lambda_k D^k = 0_n$. \\
+        \textcolor{green}{Revoir le caractère générateur avec les polynômes d'interpolation.}
+        \begin{itemize}
+            \item Pour tout $i \in \llbracket 1, n \rrbracket$, $\sum\limits_{k=0}^{n-1} \lambda_k d_i = 0_n \quad (*)$. Donc le polynôme $P = \sum\limits_{k=0}^{n-1} \lambda_k X^k$ qui est de dégré $n-1$ et prossède $n$ racines distinctes et est donc le polynôme nul. On en déduit que les $\lambda_i$ sont tous nuls. La famille $\mathscr{B}$ est bien libre et forme une base de $C(D)$.
+            \item Les relations $(*)$ forment un système de \textsc{Vandermonde} de $n$ équations à $n$ inconnues. Comme les coefficients $d_i$ sont deux à deux distincts, le système est inversible et son unique solution est le vecteur colonne nul.
+        \end{itemize}
+    \end{itemize}
+    \item On se limite au cas $n = 2$. 
+    \begin{enumerate}
+        \item Déterminer les matrices $A$ telles que $\dim C(A) = 4$. \\
+        $C(A) = \M_2(\R)$ car $C(A) \subset \M_2(\R)$ et il y égalité des dimensions. \\
+        \textbf{Évaluer les commutant en les matrices de la base canoniques de $\M_2(\R)$}: on trouve que A est scalaire. \\
+        \textcolor{red}{Ne pas oublier de montrer la réciproque}. 
+        \item Montrer que $\dim C(A) \geqslant 2$. \\
+        Si $A$ est scalaire, cf. question précédente. \\
+        Sinon montrer que la famille $\{ \I_2, A \} \subset C(A)$ est libre. 
+        \item Enoncé... \\
+    \end{enumerate}
+\end{enumerate}

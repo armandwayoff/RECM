@@ -1,0 +1,25 @@
+\begin{tcolorbox}
+    Soit $n \in \N$. On considère $(n + 1)$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
+    Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un \textbf{unique} polynôme $\Lag_i \in \C_n[X]$ tel que 
+    $$\forall j \in \llbracket 0, n \rrbracket,\ \Lag_i(x_j) = \delta_{i,j}.$$
+    De plus,
+        $$\forall (i, j) \in \llbracket 1, n \rrbracket^2,\ \Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
+    La famille $(\Lag_0, \dots, \Lag_n)$ forme une base de $\C_n[X]$.
+\end{tcolorbox}
+
+\underline{Démonstration de l'existence et de l'unicité par deux méthodes:} 
+\begin{itemize}
+    \item Par construction...\cite{maths-france} \\
+    Soit $i \in \llbracket 1, n \rrbracket$. Le polynôme $\Lag_i$ est de degré au plus $n$ et admet les $n$ complexes deux à deux distincts $x_j$ pour racines. Par suite, nécessairement, il existe une constante $C$ telle que 
+    $$\Lag_i = C \prod_{i \not= j} (X-x_j).$$
+    L'égalité $\Lag_i(x_i) = 1$ fournit alors $C = \left[ \prod\limits_{j \not=i}(x_i - x_j) \right]^{-1}$ et donc nécessairement
+    $$\Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
+    Réciproquement, si pour tout $i \in \llbracket 0, n\rrbracket,\ \Lag_i = \prod\limits_{j \neq i} \frac{X-x_j}{x_i - x_j}$, alors $\Lag_i$ est bien défini car les $x_j$ sont deux à deux distincts, de degré $n$ exactement et enfin les polynômes $\Lag_i$ vérifient clairement les égalités de dualité.
+    \item En passant par un peu d'algèbre linéaire... \footnote{\url{https://www.youtube.com/watch?v=blB2SAYpobA}}
+    \begin{alignat*}{2}
+        \text{On considère l'application } \varphi\ :\ \R_n[X]\ &\longrightarrow\ \R^{n+1}\\
+        P\ &\longmapsto\ (P(x_0), \dots, P(x_n)).
+    \end{alignat*}
+    \textcolor{green}{La suite n'est pas très bien rédigée...} \\
+    L'application $\varphi$ est linéaire et injective (raisonner sur le nombre de racines distinctes d'un polynôme) ce qui assure \textbf{l'unicité} des polynômes interpolateurs de \textsc{Lagrange}. De plus, $\varphi$ est un isomorphisme (égalité des dimensions des espaces de départ et d'arrivée) donc $\varphi$ est sujective ce qui assure \textbf{existence} de ces polynômes. 
+\end{itemize}

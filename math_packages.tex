@@ -1,0 +1,100 @@
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+
+% \usepackage{quiver}
+
+% Pour la fonction Gamma
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+%
+
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\usepgfplotslibrary{fillbetween}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}  %...positioning nodes
+\usetikzlibrary{arrows}       %...customizing arrows
+\tikzset{node distance=4.5cm, % Minimum distance between two nodes. Change if necessary.
+         every state/.style={ % Sets the properties for each state
+         semithick,
+         fill=red!20},
+         initial text={},     % No label on start arrow
+         double distance=2pt, % Adjust appearance of accept states
+         every edge/.style={  % Sets the properties for each transition
+         draw,
+           ->,>=stealth',     % Makes edges directed with bold arrowheads
+           auto,
+           semithick}}
+
+\usepackage{fancyhdr}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xurl}
+
+% Notations comme les sujets de Centrale
+\usepackage[mathscr]{eucal}
+
+% Figures
+\usepackage{physics}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{extarrows}
+
+\newtheorem*{remarque}{Remarque}
+% \renewcommand\qedsymbol{$\blacksquare$}
+
+%\newenvironment{preuve}[1][\proofname]{%
+%  \begin{proof}[#1]$ $\par\nobreak\ignorespaces
+%}{%
+%  \end{proof}
+%}
+
+\newenvironment{preuve}{%
+  \begin{proof}
+}{%
+  \end{proof}
+}
+
+\newenvironment{solution}[1][\proofname]{%
+  \begin{proof}[#1]$ $\par\nobreak\ignorespaces
+}{%
+  \end{proof}
+}
+
+\usepackage[most]{tcolorbox}
+\tcbset{colbacktitle=blue!10!white,,coltitle=blue!70!black,colback=blue!2!white,colframe=gray}
+\newtcolorbox{box_titre}[2][]{
+                lower separated=false,
+                colback=blue!2!white,
+                colframe=gray,
+                colbacktitle=blue!20!white,
+                coltitle=black,
+                enhanced,
+                attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+                boxed title style={boxrule=0pt,colframe=white,},
+title=#2,#1}
+\newtcolorbox{box_enonce}[2][]{
+                lower separated=false,
+                colback=black!2!white,
+                colframe=gray,
+                colbacktitle=black!20!white,
+                coltitle=black,
+                enhanced,
+                attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+                boxed title style={boxrule=0pt,colframe=white,},
+title=Énoncé,#1}

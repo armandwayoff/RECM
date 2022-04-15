@@ -1,0 +1,23 @@
+\begin{tcolorbox}
+    La constante d'\textsc{Euler} $\gamma$ est définie par:
+    $$\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^{n} \frac{1}{k} - \ln(n) \right) \approx 0,577 215 664 \dots$$
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item Poser $v_n = H_n - \ln(n)$
+    \item Montrer que $v_{n+1}-v_n = \mathcal{O}\left(\frac{1}{n^2}\right)$\\
+    On peut aussi montrer...
+    \item ... la décroissance de la suite $(v_n)$. \\
+    Soit $n \in \N$. 
+    $$v_n - v_{n+1} = \ln(n+1) - \ln(n) - \frac{1}{n+1}$$
+    Deux méthodes:
+    \begin{itemize}
+        \item On transforme $\ln(n+1) - \ln(n)$ en intégrale:
+        $$v_n - v_{n+1} = \int_{n}^{n+1} \underbrace{\left( \frac{1}{t} - \frac{1}{n+1} \right)}_{\geqslant 0}\ \d t > 0.$$
+        \item D'après le \textbf{théorème des accroissements finis}, il existe $c \in ]n, n+1[$ tel que 
+        $$\ln(n+1) - \ln(n) = \ln'(c)((n+1) - n) = \frac{1}{c}$$
+        d'où l'on tire que 
+        $$v_n - v_{n+1} = \frac{1}{c} - \frac{1}{n+1} > 0.$$
+    \end{itemize}
+    \item ... que $\boxed{\forall n \in \Ne,\ \ln(n+1) \leqslant H_n \leqslant \ln(n) + 1}$ grâce à l'\textbf{encadrement de l'intégrale} sur $[k, k+1]$ de la fonction $t \mapsto \frac{1}{t}$.
+\end{enumerate}

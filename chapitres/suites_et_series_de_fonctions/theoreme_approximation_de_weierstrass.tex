@@ -1,0 +1,35 @@
+Aussi connu sous le nom  de \emph{théorème de \textsc{Stone-Weierstrass}}
+
+\begin{tcolorbox}
+    Toute fonction continue sur un segment $[a, b]$ de $\R$ à valeurs dans $\R$ ou $\C$ est limite uniforme sur $[a, b]$ d'une suite de polynômes.
+\end{tcolorbox}
+
+\underline{Démonstration:} \cite{calcul_infinitesimal} page 157. \\
+\emph{Exercice 5. TD Ch. VIII:}\\
+Cet exercice montre qu'il existe une suite de polynômes $(P_n)$ qui converge uniformément vers la fonction racine carrée sur $[0, 1]$.\\
+Soit la suite de fonctions définie pour tout $x \in [0, 1]$ par
+$$
+\begin{cases}
+    P_0(x) &= 0,\\
+    P_{n+1}(x) &= P_n (x) + \frac{1}{2}\left(x-P_n (x)^2 \right).
+\end{cases}
+$$
+Montrer que $(P_n)$ converge uniformément vers une fonction $f$ sur $[0, 1]$.
+
+\begin{marginfigure}[-5cm]
+	\input{illustrations/i_theoreme_approximation_de_weierstrass}
+\end{marginfigure}
+
+Peut-on génraliser à $\R$ ? ...
+
+\begin{tcolorbox}
+    Si $(P_n)_{n \in \N}$ est une suite de polynômes convergeant uniformément sur $\R$ vers une fonction $f$, alors $f$ est un polynôme.
+\end{tcolorbox}
+
+\begin{preuve}
+    Source : \cite{maths-france}. \\
+    Soit $(P_n)_{n \in \N}$ une suite de polynômes convergeant uniformément sur $\R$ vers une fonction $f$. \\
+    D'après la critère de \textsc{Cauchy} uniforme, il existe un entier $n_0$ tel que pour tout $n \geqslant n_0, p\geqslant n_0$ et $x$ réel,
+    $$|P_n(x) - P_p(x)| \leqslant 1,$$
+    ...
+\end{preuve}

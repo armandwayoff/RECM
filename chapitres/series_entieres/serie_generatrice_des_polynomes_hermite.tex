@@ -1,0 +1,13 @@
+\begin{tcolorbox}
+    La suite des polynômes d'\textsc{Hermite}, notée $(\Hermite_n)_n$, est définie comme l'unique suite de polynômes réels tels que:
+    $$\forall(x, t) \in \R^2,\ \exp(tx-t^2/2) = \sum_{n=0}^{+\infty} t^n \Hermite_n(x) \qquad (*)$$
+\end{tcolorbox}
+
+\begin{itemize}
+\item $\blacktriangleright$ L'existence se prouve en faisant le produit de \textsc{Cauchy} des développements en série entière de $\exp(tx)$ et de $\exp(-t^2/2)$.\\
+$\blacktriangleright$ L'unicité se justifie par l'unicité des coefficients d'un développement en série entière. 
+\item Pour montrer que pour tout $n \in \Ne,\ (n+1)\Hermite_{n+1}=X\Hermite_n-\Hermite_{n-1}$, il faut dériver $(*)$ par rapport à $t$, effectuer des changements d'indices et utiliser l'unicité des coefficients du DES. 
+\item On peut montrer en dérivant  la série de fonctions $\sum \left(x \mapsto t^n \Hermite_n(x) \right)$ terme à terme sur $\R$ que pour tout $n \in \Ne,\ \Hermite'_n=\Hermite_{n-1}$.\\
+La dérivation est justifiée par l'application du \textbf{théorème de dérivation terme à terme}, en particulier montrer soigneusement la CN de $\sum f'_n$ sur tout segment $[-a, a] \subset \R$ (qui entraîne la CU sur $\R$) $\left(|\Hermite'_n(x)| \leqslant \me^{|x|} \right)$.\\
+On en déduit que $(\Hermite_n)_n$ forme une base de $\R[X]$.\\
+\end{itemize}

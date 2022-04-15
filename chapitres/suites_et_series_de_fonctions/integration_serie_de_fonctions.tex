@@ -1,0 +1,12 @@
+Soit $S:x \to \sum\limits_{n=1}^{+\infty} \frac{(-1)^n}{1+n^2 x^2}$.
+\begin{itemize}
+    \item Donner l'ensemble de définition de $S$ et donner un équivalent en $+\infty$.\\
+    $\blacktriangleright$  $D_S = \Re$.\\
+    $\blacktriangleright$ On se doute que $S$ \textbf{se comporte comme} $\frac{1}{x^2}$ en $+\infty$. L'idée est donc de déterminer la limite de $x^2 S(x)$ en $+\infty$. Le \textbf{théorème d'interversion des limites} permet d'affirmer que cette limite est finie et qu'elle est égale à $c = \sum\limits_{n=1}^{+\infty} \frac{(-1)^n}{n^2}$. Une séparation des termes pairs et impairs de la somme (et le résultat du \href{https://fr.wikipedia.org/wiki/Problème_de_Bâle}{problème de Bâle}) permet de montrer que $c = -\frac{\pi^2}{12}$ et donc $S(x) \sim_{+\infty} -\frac{\pi^2}{12x^2}$.
+    \item Montrer que $S$ est intégrable sur $\Rpe$ et calculer $\int_0^{+\infty} S(t)\ \mathrm{d}t$.\\
+    $\blacktriangleright$ Comme $S$ est une série alternée, on peut lui appliquer le \textbf{théorème des séries alternées} et écrire que 
+    $$|S(x)| \leqslant \frac{1}{1+x^2} \text{ (majoration du reste d'ordre 1)}$$
+    L'intégrabilité du majorant sur $\Rpe$ assure celle de $S$ sur cet ensemble. \textcolor{green}{Est-ce que l'intégrabilité sur R+* des termes de la somme et leur CU vers $S$ impliquent l'ingrabilité de $S$ sur cet ensemble ? c.f. théorème de la convergence dominée peut-être...}\\
+    $\blacktriangleright$ L'interversion série/intégrale permet de montrer que $\int_0^{+\infty} S(t)\ \d t = \frac{\pi}{2} \sum\limits_{n=1}^{+\infty} \frac{(-1)^n}{n} = -\frac{\pi}{2} \ln(2)$ (c.f. \nameref{deux_sommes}).\\
+    \textcolor{green}{Dans la correction (p. 374), on effectue le calcul sur une somme partielle et on détermine ensuite la limite de cette somme. J'avais naïvement travailler avec l'intégrale jusqu'en +infini et la somme aussi, \textbf{est-ce licite ?}}.
+\end{itemize}

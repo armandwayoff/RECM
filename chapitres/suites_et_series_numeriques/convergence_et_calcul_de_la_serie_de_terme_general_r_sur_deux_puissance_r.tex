@@ -1,0 +1,7 @@
+Montrer la convergence de la série de terme général $\frac{r}{2^r}$ et prouver que $\sum\limits_{r=1}^{+ \infty} \frac{r}{2^r} = 2$. Deux méthodes de résolution sont possibles bien que la première soit plus élégante. 
+
+\begin{itemize}
+    \item La série $\sum \frac{1}{2^r}$ est une série géométrique absolument convergente. Ainsi, d'après le résultat sur les produits de \textsc{Cauchy}, 
+    $$4 = \left( \sum_{r=0}^{+ \infty} \frac{1}{2^r} \right)^2 = \sum_{r=0}^{+ \infty} \sum_{k=0}^{r} \frac{1}{2^k \cdot 2^{r-k}} = \sum_{r=0}^{+ \infty} \frac{r}{2^{r-1}}.$$
+    \item On peut également étudier la fonction $g : x \to \sum\limits_{r=0}^{n} \frac{x^r}{2^r}$.
+\end{itemize}

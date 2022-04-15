@@ -1,0 +1,33 @@
+Soient $u$ et $v$ deux endomorphismes d'un espace $E$ de dimension $n$.
+
+\begin{enumerate}
+    \item Montrer que $\Id_E-uv$ et $\Id_E-vu$ ont les mêmes valeurs prorpres.
+    \begin{itemize}
+        \item Montrer que ces deux endomorphismes ont même polynôme caractéristique en posant les deux matrices
+        $$
+        \boxed{
+        A = 
+        \begin{pmatrix}
+            U & \lambda \I_n \\
+            \I_n & V
+        \end{pmatrix}
+        \text{ et }
+        B = 
+        \begin{pmatrix}
+            V & -\lambda \I_n \\
+            -\I_n & 0_n
+        \end{pmatrix}
+        }.
+        $$
+        \begin{align*}
+            \det(AB) &= \det(BA) \\
+            (-\lambda)^n \det(AB - \lambda \I_n) &= (-\lambda)^n \det(BA - \lambda \I_n)
+        \end{align*}
+    \end{itemize}
+    \item En déduire que $\Id_E-uv$ est inversible si et seulement si $\Id_E-vu$ l'est, relier les inverses. 
+    \begin{itemize}
+        \item $f \in \Gl(E) \Longleftrightarrow 0 \not \in \Sp(f)$
+        \item Évaluer le résultat précédent en $\lambda = 1$.
+        \item Analogie avec l'inversion par sommation géométrique des endomorphismes nilpotents (cf. \nameref{indice_nilpotence})
+    \end{itemize}
+\end{enumerate}

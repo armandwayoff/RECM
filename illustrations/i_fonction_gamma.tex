@@ -1,0 +1,27 @@
+\begin{tikzpicture}[]
+
+\begin{axis}[
+xmin = -4.9, xmax = 5.1, 
+%ymin = -3.5, ymax = 3.5,  
+restrict y to domain=-6:6,
+axis lines = middle,
+axis line style={-latex},  
+xlabel={$x$}, 
+ylabel={$\Gamma(x)$},
+%enlarge x limits={upper={val=0.2}},
+enlarge y limits=0.05,
+x label style={at={(ticklabel* cs:1.00)}, inner sep=5pt, anchor=north},
+y label style={at={(ticklabel* cs:1.00)}, inner sep=2pt, anchor=south east},
+]
+
+\addplot[color=red, samples=222, smooth, 
+domain = 0:5] gnuplot{gamma(x)};
+
+\foreach[evaluate={\N=\n-1}] \n in {0,...,-5}{%
+\addplot[color=red, samples=555, smooth,  
+domain = \n:\N] gnuplot{gamma(x)};
+%
+\addplot [domain=-6:6, samples=2, densely dashed, thin] (\N, x);
+}%
+\end{axis}
+\end{tikzpicture}

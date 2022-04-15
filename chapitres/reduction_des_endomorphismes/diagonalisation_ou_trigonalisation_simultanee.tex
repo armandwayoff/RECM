@@ -1,0 +1,13 @@
+\begin{box_titre}{Endomorphismes codiagonalisables}
+    Soit $E$ un espace vectoriel de dimension finie. Soient $u$ et $v$ deux endomorphismes de $E$ diagonalisables. \\
+    On dit que $u$ et $v$ sont \emph{codiagonalisables} s'il existe une base $\mathscr{B}$ de $E$ telle que $\mathrm{Mat}_\mathscr{B}(u)$ et $\mathrm{Mat}_\mathscr{B}(v)$ sont diagonalisables. 
+    $$u, v \text{ sont codiagonalisables } \Longleftrightarrow u, v \text{ commutent}.$$
+\end{box_titre}
+
+\begin{itemize}
+    \item $(\Leftarrow)$ Indication: si $D$ et $\widetilde{D}$ sont diagonales, alors $D \times \widetilde{D} = \widetilde{D} \times D$.
+    \item $(\Rightarrow)$ Notons $\mathrm{Sp}(u) = \{ \lambda_i,\ i \in \llbracket1, p \rrbracket \}$. Comme $u$ est diagonalisable, alors $E = \bigoplus\limits_{i = 1}^{p} E_{\lambda_i}(u)$. \\
+    Soit $i \in \llbracket 1, p \rrbracket$. Comme $v$ commute avec $u - \lambda_i \mathrm{Id}_E$, $\boxed{E_{\lambda_i}(u) \text{ est stable par } v}$. \\
+    En notant $\boxed{v_i \text{ l'endomorphisme induit par } v \text{ sur } E_{\lambda_i}(u)}$, comme $v$ est diagonalisable, $\boxed{v_i \text{ est diagonalisable}}$. Ainsi, il existe $(e_{i, 1}, \dots, e_{i, r_i})$ une base de $E_{\lambda_i}(u)$ formée de vecteurs propres de $v_i$. De plus, $e_{i, j}$ est un vecteur propre de $u$. \\
+    Finalement, $\boxed{(e_{i, 1}, \dots, e_{i, r_i})_{1 \leqslant i \leqslant p}}$ est une base de $E$ constituée de vecteurs propres de $u$ et de $v$. Ainsi, $u$ et $v$ sont diagonalisables dans cette même base. 
+\end{itemize}

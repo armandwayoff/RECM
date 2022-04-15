@@ -1,0 +1,13 @@
+La fonction $f$ définie par:
+$$f(x) = \exp(x^2) \int_{x}^{+ \infty} \exp(-t^2)\ \d t$$
+est-elle développable en série entière ? Calculer les coefficients du développement en série entière à l'aide de factorielles, on utilisera que $\int_{0}^{+\infty} \exp(-t^2)\ \d t = \frac{\sqrt{\pi}}{2}$. 
+\begin{itemize}
+    \item Bien justifier l'existence de $f$ sur $\R$.
+    \item L'écriture de $f$ sous la forme:
+    $$\forall x \in \R,\ f(x) = \exp(x^2) \times \left(\int_{0}^{+ \infty} \exp(-t^2)\ \d t + \int_{0}^{x} \exp(-t^2)\ \d t\right)$$
+    permet de justifier que $f$ est DSE (comme primitive d'une fonction DSE et d'un produit de fonctions DSE).
+    \item Remarquer que $f$ vérifie
+    $$f' -2xf + 1 = 0$$
+    \item On en déduit que 
+    $$\forall p \in \N,\ a_{2p} = \frac{\sqrt{\pi}}{2p!} \text{ et } a_{2p+1} = -\frac{2^{2p} p!}{(2p+1)!}.$$
+\end{itemize}

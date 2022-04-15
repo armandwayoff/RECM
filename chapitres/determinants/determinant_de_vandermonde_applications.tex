@@ -1,0 +1,10 @@
+\begin{itemize}
+    \item Raisonner par \textbf{récurrence} sur la taille de la matrice. 
+    \item Poser $\boxed{P(X)=\prod\limits_{j=1}^{n-1} (X-x_j) = X^{n-1} + \sum\limits_{k=0}^{n-2} a_k X^k}$ et ajouter à la dernière colonne une combinaison linéaire de toutes les autres colonnes avec pour coefficients les $a_k$ .
+    \item Application: soient $\alpha_1 < \dots < \alpha_n$ des réels. Montrer que la famille des fonctions $f_j:t \mapsto \exp(i \alpha_j t)$, pour $j \in \llbracket 1; n \rrbracket$, est libre.
+    \begin{enumerate}
+        \item Revenir à la définition d'une famille libre.
+        \item Dériver successivement les relations et les sommer. 
+        \item Faire apparaître une matrice de \textsc{Vandermonde} et un système de \textsc{Cramer}. 
+    \end{enumerate}
+\end{itemize}

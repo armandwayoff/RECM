@@ -1,0 +1,40 @@
+\emph{Exercice 5, TD 11}
+
+\begin{tcolorbox}
+    Une matrice stochastique (matrice de transition d'une \nameref{chaîne_markov}) est une matrice $P \in \M_n([0, 1])$ telle que pour tout $i \in \segN{1,n}, \sum\limits_{j=1}^{n} p_{i,j} = 1$. \\ Autrement dit, chaque ligne de $P$ est une vecteur de probabilité. \\
+    On dit que $P$ est \emph{doublement stochastique} si $P$ et $\Trsp{P}$ sont stochastiques.
+\end{tcolorbox}
+
+%\begin{marginfigure}[-2cm]
+%    \input{illustrations/i_chaine_de_markov}
+%\end{marginfigure}
+\marginnote{
+$$
+\begin{pmatrix}
+    1/2 & 1/2 & 0 \\
+    3/4 & 1/8 & 1/8 \\
+    0 & 1/3 & 2/3
+\end{pmatrix}
+$$
+}
+
+L'objectif de l'exercice est de montrer que $\boxed{\Sp_{\C}(P) = \{1 \} }$.
+\begin{enumerate}
+    \item 1 est valeur propre évidente de $P$ de vecteur propre associé $v = (1, \dots, 1)^\top$.
+    \item Montrer que $\dim E_1 = 1$.
+    \begin{itemize}
+        \item Appliquer la même méthode que la démonstration du lemme d'\textsc{Hadamard}. \\
+        Soit $X = \Trsp{(x_1, \dots, x_n)} \in E_1$. Montrons que $X \in \Vect(v)$. \\
+        On montre que $|x_{i_0}| = \left| \sum\limits_{j=1}^{n} p_{i_0, j} x_j \right| = \sum\limits_{j=1}^{n} p_{i_0, j} |x_j|$ et on écrit $|x_{i_0}| = |x_{i_0}| \sum\limits_{j=1}^{n} p_{i_0, j}$. D'où, en faisant la différence, pour tout $j \in \llbracket 1, n \rrbracket,\ |x_{i_0}| = |x_j|$. De plus d'après la première relation, il y égalité dans l'inégalité triangulaire et donc les $v_j$ sont \emph{positivement liées}. Finalement, pour tout $j \in \llbracket1, n \rrbracket,\ v_j = v_{i_0}$ soit $\dim E_1 = 1$.
+    \end{itemize}
+    \item Montrer que si $\lambda \in \C$ est une valeur propre de $P$, alors $|\lambda| \leqslant 1$. \\
+    Poser $X = (x_1, \dots, x_n)^\top$ un vecteur propre associé et appliquer encore une fois la même méthode; poser $\displaystyle |x_{i_0}|= \max_{1 \leqslant i \leqslant n} |x_i|$, écrire en module la ligne $i_0$ de l'égalité $\lambda X = P X$, diviser par $|x_{i_0}|$ (qui est non nul d'après la question précédente) puis majorer par $1$. \\
+        
+    Pour les curieux, lire \cite{matrices} page 59. 
+    
+    \begin{tcolorbox}
+        Le \nameref{rayon_spectral} stochastique est égal à $1$.
+    \end{tcolorbox}
+
+    \item Les questions suivantes (à détailler éventuellement) consiste encore au même jeu avec la ligne $i_0$ et les propriétés de matrices stochastiques. 
+\end{enumerate}

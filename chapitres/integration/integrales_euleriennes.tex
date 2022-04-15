@@ -1,0 +1,51 @@
+\subsection{Fonction Gamma d'\textsc{Euler}}
+\begin{tcolorbox}
+    Pour tout $x$ > 0 réel, la \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
+    $$\Gamma(x) = \int_{0}^{+\infty} t^{x-1} \me^{-t}\ \d t.$$
+\end{tcolorbox}
+
+\marginnote[-2mm]{Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des nombres complexes (à l'exception des entiers négatifs).}
+
+\begin{marginfigure}[2.5cm]
+    \input{illustrations/i_fonction_gamma}
+    \caption{Graphe de la fonction Gamma}
+\end{marginfigure}
+
+\underline{Remarque:} À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. \\
+\underline{Propriétés principales:}
+\begin{itemize}
+    \item $\Gamma$ est définie si et seulement si $x>0$.
+    \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
+    \item En particulier, $\boxed{\forall n \in \N$, $\Gamma(n+1) = n!}$. 
+\end{itemize}
+\begin{preuve}
+    La fonction $\f:(x,t) \mapsto t^{x-1} \me^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
+    \begin{itemize}
+        \item En $+\infty:$ par croissances comparées, $t^{x-1} \me^{-t} = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f$ est intégrable au voisinage de $+\infty$.
+        \item En $0$: $f(x,t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $\boxed{x > 0}$.
+    \end{itemize}
+\end{preuve}
+\underline{Dérivées successives:} \\
+Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
+$$\varphi_k:t \mapsto 
+\begin{cases}
+    |\ln t |^k \me^{-t} t^{a-1}, & \text{si } t \in ]0, 1] \\
+    |\ln t |^k \me^{-t} t^{A-1}, & \text{si } t > 1
+\end{cases}
+$$
+$$\boxed{\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \me^{-t}\ \d t}$$
+
+\underline{Exercice:} \url{https://share.miple.co/content/t8BIcXSjdEslq}
+
+\subsection{Fonction bêta}
+\begin{itemize}
+    \item Pour tout $(p,q) \in \N^2$, on note 
+    $$I_{p,q} = \int_{0}^{1} x^p (1-x)^q\ \d x$$
+    \begin{enumerate}
+        \item Déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ grâce à une IPP.
+        \item En déduire l'expression de $I_{p,q}$ à l'aide de factorielles.
+        $$\boxed{I_{p,q} = \frac{p! q!}{(p + q + 1)!}}$$
+    \end{enumerate}
+\end{itemize}
+\url{https://fr.wikipedia.org/wiki/Intégrale_d'Euler} \\
+\cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.

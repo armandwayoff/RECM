@@ -1,0 +1,33 @@
+Deux résultats: une norme sur $\K^n$ et une généralisation de l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}. 
+\begin{box_titre}{Norme de \textsc{Hölder}}
+    Soit $\bm{v} \in \K^n$. Pour tout réel $p \geqslant 1$, l'application $\Vert \bm{\cdot} \Vert_p$ définie par
+    $$\Vert \bm{v} \Vert_p = \left (\sum_{k=1}^{n} |v_i|^p \right)^{1/p}$$
+    est une norme sur $\K^n$.
+\end{box_titre}
+
+\begin{box_titre}{Inégalité de \textsc{Hölder}}
+    Soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $\bm{u}, \bm{v} \in \K^n$
+    $$\sum_{k=1}^{n} |u_k v_k| \leqslant \Vert \bm{u} \Vert_p \Vert \bm{v} \Vert_q.$$
+\end{box_titre}
+
+\underline{Démonstration:} (lire aussi \emph{Chapitre 4 - Normes} page 39 \cite{matrices}) \\
+Exercice 4.81 page 377 \cite{oraux_x_ens_3}.
+\begin{enumerate}
+    \item Prouver que pour tous $a \geqslant 0, b \geqslant 0: ab \leqslant \frac{a^p}{p} + \frac{b^q}{q}$.
+    \begin{itemize}
+        \item Utiliser l'\textbf{inégalité de convexité de l'exponentielle}.
+    \end{itemize}
+    \item Démontrer l'inégalité de \textsc{Hölder}.
+    \begin{itemize}
+        \item Poser $u'_k = \frac{u_k}{\Vert \bm{u} \Vert_p}$ et $v'_k = \frac{v_k}{\Vert \bm{v} \Vert_p}$ et appliquer le résultat précédent. 
+    \end{itemize}
+    \item Montrer que $\Vert \bm{\cdot} \Vert$ définit une norme sur $\K^n$.
+    \begin{itemize}
+        \item Inégalité triangulaire: écrire $\boxed{|u_k + v_k|^p = |u_k| \times |u_k + v_k|^{p-1} + |v_k| \times |u_k + v_k|^{p-1}}$, sommer pour $k$ allant de $1$ à $n$. Appliquer le résultat précédent à chaque somme, factoriser et multiplier l'inégalité par une somme judicieuse. 
+    \end{itemize}
+\end{enumerate}
+    
+\begin{box_titre}{Proposition 4.1.3. \cite{matrices}}
+    Toutes les normes de $E = \K^n$ sont équivalentes. Par exemple:
+    $$\Vert x \Vert_\infty \leqslant \Vert x \Vert_p \leqslant p^{1/p} \Vert x \Vert_\infty$$
+\end{box_titre}
