@@ -1,32 +1,84 @@
 \begin{tcolorbox}
-Une \href{https://fr.wikipedia.org/wiki/Matrice_circulante}{\emph{matrice circulante}} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients. 
+Une \href{https://fr.wikipedia.org/wiki/Matrice_circulante}{\emph{matrice circulante}} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients:
 $$
-    C = \begin{pmatrix}
-        c_0 & c_1 & c_2 & \cdots & c_{n-1} \\
-        c_{n-1} & c_0 & c_1 & \cdots & c_{n-2} \\
-        c_{n-2} & c_{n-1} & c_0 & \cdots & c_{n-3} \\
-        \vdots & \vdots & \vdots & \ddots & \vdots \\
-        c_1 & c_2 & c_3 & \cdots & c_0
-    \end{pmatrix}.
+\mathrm{C}(c_0, \dots, c_{n-1})=
+\begin{pmatrix}
+c_0 & c_1 & c_2 & \cdots & c_{n-1} \\
+c_{n-1} & c_0 & c_1 & \cdots & c_{n-2} \\
+c_{n-2} & c_{n-1} & c_0 & \cdots & c_{n-3} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+c_1 & c_2 & c_3 & \cdots & c_0
+\end{pmatrix}.
 $$
-Une matrice circulante est un cas particulier de \href{https://fr.wikipedia.org/wiki/Matrice_de_Toeplitz}{matrice de \textsc{Toeplitz}}.  
 \end{tcolorbox}
-\begin{itemize}
-    \item Poser la matrice:
+
+\begin{remarque}
+    Une matrice circulante est un cas particulier de \href{https://fr.wikipedia.org/wiki/Matrice_de_Toeplitz}{matrice de \textsc{Toeplitz}}.
+\end{remarque}
+
+\begin{prop}
+On pose $\omega = \me^{\mi \frac{2 \pi}{n}}$.
+    $$\Sp(\mathrm{C}(c_0, \dots, c_{n-1})) = \left \{ \sum_{j=0}^{n-1} c_j \omega^j,\ k \in \llbracket 1, n-1 \rrbracket \right \}.$$
+\end{prop}
+
+\begin{preuve}
+    Pour alléger les notations, on pose $\mathrm{C} := \mathrm{C}(c_0, \dots, c_{n-1})$. \\
+    On pose 
     $$
-    \boxed{
-        J=\begin{pmatrix}
-            0 & \dots & 0 & 1\\
-            1 & & (0) & 0\\
-            & \ddots & & \vdots\\
-            (0) & & 1 & 0
-         \end{pmatrix}
-        }
+    \mathrm{J} = 
+    \begin{pmatrix}
+    0 & 1 & 0 & \cdots & 0 \\
+    \vdots  &   & \ddots & \\
+    0 & & & & 1 \\
+    1 & 0 & \cdots & \cdots & 0
+    \end{pmatrix}
     $$
-    La matrice circulante est un polynôme en $J$. 
-    $$C = \sum_{k = 0}^{n-1} c_k J^k.$$
-    L'ensemble des matrices circulantes est que l'algèbre commutative des polynômes en $J$.
-    \item Déterminer le polynôme caractéristique de $J$ et en déduire ses valeurs propres. On remarque que $J^n = \I_n$. Les valeurs propres de $J$ sont les racines $n$-ièmes de l'unité (cf. \textsc{Ensam} 24 de \cite{exos_oraux} p. 112).
-    \item $J$ est diagonalisable...
-    $$\det(A) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} \alpha_k \exp \left( \mi \frac{2kj \pi}{n} \right) \right).$$
-\end{itemize}
+    
+    (faire une remarque sur la structure de la matrice J et que J$^n = \I_n$) 
+    
+    $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}^k = \mathrm{P}_{\mathrm{C}}(\mathrm{J}).$$
+    
+    En développant par rapport à la première colonne, 
+    \begin{align*}
+        \chi_{\mathrm{J}}(X) &= 
+        \begin{vmatrix}
+            X & -1 & 0 & \cdots & 0 \\
+            \vdots  &   & \ddots & \\
+            0 & & & & -1 \\
+            -1 & 0 & \cdots & \cdots & X
+        \end{vmatrix} \\
+        &= X \times X^{n-1} + (-1) \times (-1)^{n+1} \times (-1)^{n-1} \\
+        \chi_{\mathrm{J}}(X) &= X^n-1. 
+    \end{align*}
+    Le polynôme caractéristique de $\mathrm{J}$ est scindé à racines simples sur $\C$ donc $\mathrm{J}$ est diagonalisable et en posant $\omega = \me^{\mi \frac{2 \pi}{n}}$, 
+    $$\Sp(\mathrm{J}) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
+    Ainsi, $\mathrm{J}$ est semblable à la matrice 
+    $$
+    \begin{pmatrix}
+    1 & & & & \\
+    & \omega & & & \\
+    & & \omega^2 & & \\
+    & & & \ddots & \\
+    & & & & \omega^{n-1} \\
+    \end{pmatrix}
+    $$
+    et donc comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J})$, la matrice $\mathrm{C}$ est semblable à  la matrice
+    $$
+    \begin{pmatrix}
+    \mathrm{P}(1) & & & & \\
+    & \mathrm{P}(\omega) & & & \\
+    & & \mathrm{P}(\omega^2) & & \\
+    & & & \ddots & \\
+    & & & & \mathrm{P}(\omega^{n-1}) \\
+    \end{pmatrix}.
+    $$
+    Ainsi, $\Sp(\mathrm{C}) = \left \{ \mathrm{P}(\omega^k),\ k \in \llbracket 0, n-1 \rrbracket \right \}$.
+\end{preuve}
+
+\begin{corol}
+    $$\det(\mathrm{C}(c_0, \dots, c_{n-1})) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right) \right).$$
+\end{corol}
+
+\begin{preuve}
+    Le déterminant d'une matrice est égal au produit de ses valeurs propres.
+\end{preuve}

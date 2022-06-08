@@ -1,0 +1,54 @@
+\begin{exercice}    
+    \emph{Exercice 5. Chap. VII}\\
+    Soit $X$ une variable aléatoire discrète réelle à valeurs dans $[a, b]$. Montrer que $\V(X) \leqslant \frac{(b-a)^2}{4}$ et discuter le cas d'égalité.
+\end{exercice}
+
+\begin{solution}
+    Deux méthodes sont introduites.\\
+    \underline{Méthode 1:}
+    \begin{itemize}
+        \item Poser la fonction $f:t \mapsto \E \left[(X-t)^2 \right]$.
+        \item $f$ atteint son minimum en $\E[X]$ et vaut $\V(X)$. 
+        \item Comparer $\V(X)$ à $f \left( \frac{a + b}{2} \right)$.
+        \item \url{https://stats.stackexchange.com/questions/45588/variance-of-a-bounded-random-variable}
+    \end{itemize}
+    
+    \underline{Méthode 2:} (vue en cours)
+    \begin{itemize}
+        \item Justifier l'existence de l'espérance et de la variance\\
+        $\sum \gamma^n \P(X=x_k)$ converge, avec $\boxed{\gamma = \max \{ |a|, |b| \}}$ \textcolor{red}{\emph{(ne pas oublier les valeurs absolues  car on ne connaît pas les signes de $a$ et de $b$)}}.
+        \item On remarque que $\V(X) = \V \left( X - \frac{a+b}{2} \right)$
+        \item Or comme $a \leqslant X \leqslant b$, $$\displaystyle \left| X - \frac{a+b}{2}\right| \leqslant \frac{b-a}{2} \text{ et } \displaystyle \left( X - \frac{a+b}{2} \right)^2 \leqslant \left(\frac{b-a}{2}\right)^2$$
+        \item Donc par le théorème de \textsc{König-Huygens}, 
+        \begin{align*}
+            \V \left(X - \frac{a+b}{2} \right) &= \E \Bigg[ \underbrace{\left(X - \frac{a+b}{2} \right)^2}_{\leqslant \left( \frac{b-a}{2} \right)^2} \Bigg] - \underbrace{\E \left[X-\frac{a+b}{2} \right]^2}_{\geqslant 0} \\
+            \V(X) &\leqslant \frac{(b-a)^2}{4} \text{ par croissance de l'espérance}
+        \end{align*}
+    \end{itemize}
+    
+    \textbf{Cas d'égalité}\\
+    D'après la majoration du premier terme et la minoration du deuxième terme de la relation ci-dessus, il y a égalité  si et seulement si
+    
+    \begin{align*}
+        \V(X) = \frac{(b-a)^2}{4} &\Longleftrightarrow
+        \begin{cases}
+            \E \left[ \left(X - \frac{a+b}{2} \right)^2 \right] = \frac{(b-a)^2}{4}\\
+            \text{et}\\
+            \E \left[X-\frac{a+b}{2} \right]^2 = 0
+        \end{cases}\\
+        &\Longleftrightarrow
+        \begin{cases}
+            \P \left( X - \left(\frac{a+b}{2} \right)^2  \left(\frac{b-a}{2} \right)^2 \right)= 1\\
+            \text{et}\\
+            \E [X] = \frac{a+b}{2}
+        \end{cases}\\
+        &\Longleftrightarrow
+        \begin{cases}
+            \P \left( \{ X=b \} \cup \{X=a\} \right)= 1\\
+            \text{et}\\
+            \E [X] = \frac{a+b}{2}
+        \end{cases}\\
+        \V(X) = \frac{(b-a)^2}{4} &\Longleftrightarrow \boxed{\P(X=a)=\P(X=b)=\frac{1}{2}}
+    \end{align*}
+\end{solution}
+

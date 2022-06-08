@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+    \begin{axis}[width=6.5cm,
+        axis lines=middle,
+        grid=major,
+        xmin=-1.1, xmax=1.1,
+        ymin=-1.1, ymax=1.1,
+        % xlabel=$x$, xlabel style={right},
+        % ylabel=$y$, ylabel style={above},
+        %tick style={thick},
+        %ticklabel style={font=\normalsize},
+        xtick=\empty, 
+        ytick=\empty
+    ]
+    
+    \def\a{-1.1}
+    \def\b{1.1}
+    \def\colour{BrickRed}
+
+    \addplot[\colour,mark=*] coordinates {(-7/8,-1/2)};
+    \addplot[\colour,mark=*] coordinates {(-5/8,-1/9)};
+    \addplot[\colour,mark=*] coordinates {(1/8,-1/8)};
+    \addplot[\colour,mark=*] coordinates {(1/2,1/2)};
+    \addplot[\colour,mark=*] coordinates {(4/5,2/9)};
+    
+    \addplot[red,thick,samples=100,domain=\a:\b] {
+    (x+5/8)*(x-1/8)*(x-1/2)*(x-4/5)/((-7/8+5/8)*(-7/8-1/8)*(-7/8-1/2)*(-7/8-4/5))*(-1/2)
+    + (x+7/8)*(x-1/8)*(x-1/2)*(x-4/5)/((-5/8+7/8)*(-5/8-1/8)*(-5/8-1/2)*(-5/8-4/5))*(-1/9)
+    + (x+7/8)*(x+5/8)*(x-1/2)*(x-4/5)/((1/8+7/8)*(1/8+5/8)*(1/8-1/2)*(1/8-4/5))*(-1/8)
+    + (x+7/8)*(x+5/8)*(x-1/8)*(x-4/5)/((1/2+7/8)*(1/2+5/8)*(1/2-1/8)*(1/2-4/5))*(1/2)
+    + (x+7/8)*(x+5/8)*(x-1/8)*(x-1/2)/((4/5+7/8)*(4/5+5/8)*(4/5-1/8)*(4/5-1/2))*(2/9)
+    };
+    \end{axis}
+\end{tikzpicture}

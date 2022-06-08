@@ -1,5 +1,31 @@
-Soit $f(x) = \sum\limits_{n=0}^{+\infty} a_n x^n$ une série entière de rayon de convergence égal à $1$.
-\begin{itemize}
-    \item \underline{Un théorème abélien:} si $\sum a_n$ est convergente, alors $f$ est définie et continue en $1$.
-    \item \underline{Un théorème taubérien:} si $(a_n)_n$ est à termes positifs et $f$ a une limite à gauche en $1$, alors $\sum a_n$ est convergente, de somme $\displaystyle \lim_{1^-}f$.
-\end{itemize}
+\cite{exos_oraux} p. 398.
+
+\begin{theo}
+
+Soit $f(x) = \sum\limits_{n=0}^{+\infty} a_n x^n$ une série entière de rayon de convergence égal à $1$. \\
+\underline{Un théorème abélien:} si $\sum a_n$ est convergente, alors $f$ est définie et continue en $1$. \\
+\underline{Un théorème taubérien:} si $(a_n)_n$ est à termes positifs et $f$ a une limite à gauche en $1$, alors $\sum a_n$ est convergente, de somme $\displaystyle \lim_{1^-}f$.
+\end{theo}
+
+\begin{preuve} \cite{exos_oraux} p. 398.
+    \underline{Un théorème abélien:} \\
+    Pour tout $n \in \N$, on note $R_n \defeq \sum\limits_{k = n+1}^{\infty} a_k$ de sorte que pour tout $n \in \Ne, a_n = R_{n-1} - R_n$. \\
+    On effectue une \emph{tranformation d'\textsc{Abel}} afin d'établir la convergence uniforme de la série de fonction $\sum f_n$ avec $f_n(x) \defeq a_n x^n$ sur $[0, 1]$. \\
+    Soient $p \leqslant q$ et $x \in [0,1]$,
+    \begin{align*}
+        \sum_{n=p+1}^q a_n x^n &= \sum_{n=p+1}^q (R_{n-1} -R_n) x^n \\
+        &= \sum_{n=p+1}^q R_{n-1} x^n - \sum_{n=p+1}^q R_n x^n \\
+    \text{par un changement de variable} &= \sum_{n=p}^{q-1} R_{n-1} x^n - \sum_{n=p+1}^q R_n x^n \\
+    &= R_px^{p+1} - R_q x^q + \sum_{n=p}^{q-1} R_{n-1} (x^{n+1}-x^n).
+    \end{align*}
+    Comme $R_n \xrightarrow[n \to +\infty]{}0$, pour $\varepsilon > 0$ il existe $n_0 \in \N$ tel que $|R_n| \leqslant \varepsilon$ si $n \geqslant n_0$. Alors pour $p \geqslant n_0$, 
+    \begin{align*}
+        \left| \sum_{n=p+1}^q a_n x^n \right| &\leqslant |R_p| + |R_q| + \sum_{n=p+1}^{q-1} |R_n||x^{n+1}-x^n| \\
+        &\leqslant 2 \varepsilon + \varepsilon \sum_{n=p+1}^{q-1} (x^n-x^{n+1}) \\
+        &\leqslant 2 \varepsilon + \varepsilon \underbrace{(x^{p+1}-x^q)}_{\leqslant 1} \\
+        &\leqslant 3 \varepsilon.
+    \end{align*}
+    Finalement, on a prouvé que
+    $$\forall \varepsilon > 0\ \exists n_0 \in \N | \forall(p,q) \in \N^2 (n_0 \leqslant p \leqslant q) \Rightarrow \sup_{x \in [0, 1]} \left| \sum_{n=p+1}^q a_n x^n \right| \leqslant 3 \varepsilon.$$
+    Ceci exprime la convergence uniforme sur $[0, 1]$ de la série de fonctions $\sum f_n$, dont le terme général est continu sur $[0,1]$; le somme $f$ est donc définie et continue sur $[0, 1]$.
+\end{preuve}

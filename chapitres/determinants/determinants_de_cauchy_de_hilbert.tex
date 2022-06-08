@@ -1,0 +1,83 @@
+\begin{defi}
+    Le déterminant de \textsc{Cauchy} est un déterminant de taille $n$ et de terme général $\frac{1}{a_i+b_j}$, où les complexes $(a_1, \dots, a_n)$ et $(b_1, \dots, b_n)$ sont tels que pour tout $(i, j)$, $a_i+b_j \not= 0$.
+    $$\Cauchy_n \defeq \begin{vmatrix}
+        \frac{1}{a_1+b_1} & \frac{1}{a_1+b_2} & \cdots & \frac{1}{a_1+b_n} \\
+        \frac{1}{a_2+b_1} & \frac{1}{a_2+b_2} & \cdots & \frac{1}{a_2+b_n} \\
+        \vdots & \vdots & & \vdots \\
+        \frac{1}{a_n+b_1} & \frac{1}{a_n+b_2} & \cdots & \frac{1}{a_n+b_n}
+    \end{vmatrix}.$$
+\end{defi}
+
+\begin{prop}
+    Le déterminant de \textsc{Cauchy} a pour expression
+    $$\Cauchy_n = \frac{\prod\limits_{i<j}(a_j-a_i) \prod\limits_{i<j}(b_j-b_i)}{\prod\limits_{i,j}(a_i+b_j)}.$$
+\end{prop}
+        
+\begin{preuve}
+    On raisonne par récurrence sur $n$. \\
+    Premièrement, faisons apparaître une ligne de 1 en multipliant toutes les colonnes par $a_n+b_j$. \\
+    Par $n$-linéarité du déterminant,
+    $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+        \frac{a_n+b_1}{a_1+b_1} & \cdots & \frac{a_n+b_n}{a_1+b_n} \\
+        \vdots & & \vdots \\
+        \frac{a_n+b_1}{a_{n-1}+b_1} & \cdots & \frac{a_n+b_n}{a_{n-1}+b_n} \\
+        1 & \cdots & 1
+    \end{vmatrix}.$$
+    
+    Ensuite, pour faire apparaître des 0 à la fin des $(n-1)$ premières colonnes, soustrayons la dernière colonne à toutes les autres. 
+    
+    $$
+        \forall (i,j) \in \llbracket 1, n-1 \rrbracket^2, \quad \frac{a_n+b_i}{a_i+b_j} - \frac{a_n+b_n}{a_i+b_n} = \frac{(a_n - a_i)(b_n-b_j)}{(a_i + b_j)(a_i + b_n)}
+    $$
+    $$\Cauchy_n = \frac{1}{\prod\limits_{i=1}^{n}(a_n + b_i)} \begin{vmatrix}
+        \frac{\textcolor{red}{(a_n - a_1)}\textcolor{blue}{(b_n-b_1)}}{(a_1 + b_1) \textcolor{green}{(a_1 + b_n)}} & \cdots & \frac{\textcolor{red}{(a_n - a_1)}\textcolor{blue}{(b_n-b_{n-1})}}{(a_1 + b_{n-1})\textcolor{green}{(a_1 + b_n)}} & \frac{a_n+b_n}{a_1+b_n} \\
+        \vdots & & \vdots & \vdots \\
+        \frac{\textcolor{red}{(a_n - a_{n-1})}\textcolor{blue}{(b_n-b_1)}}{(a_{n-1} + b_1)\textcolor{green}{(a_{n-1} + b_n)}} & \cdots & \frac{\textcolor{red}{(a_n - a_{n-1})}\textcolor{blue}{(b_n-b_{n-1})}}{(a_{n-1} + b_{n-1})\textcolor{green}{(a_{n-1} + b_n)}} & \frac{a_n+b_n}{a_{n-1}+b_n} \\
+        0 & \cdots & 0 & 1
+    \end{vmatrix}.$$
+        
+    Factorisons par les termes communs aux lignes et aux colonnes.
+        
+    $$\Cauchy_n =  \frac{\textcolor{red}{\prod\limits_{i=1}^{n-1} (a_n - a_i)} \textcolor{blue}{\prod\limits_{i = 1}^{n-1}(b_n - b_i)}}{\prod\limits_{i=1}^{n}(a_n + b_i) \textcolor{green}{\prod\limits_{i = 1}^{n - 1} (a_i + b_n)}} \begin{vmatrix}
+        \frac{1}{a_1+b_1} & \cdots & \frac{1}{a_1+b_{n-1}} & \bigstar \\
+        \vdots & & \vdots & \vdots \\
+        \frac{1}{a_{n-1}+b_1} & \cdots & \frac{1}{a_{n-1}+b_{n-1}} & \bigstar \\
+        0 & \cdots & 0 & 1
+    \end{vmatrix}.$$
+        
+    Finalement, en développant par rapport à la dernière ligne on trouve la relation de récurrence:
+    $$\Cauchy_n =  \frac{1}{a_n + b_n} \Bigg( \prod\limits_{i = 1}^{n-1}\frac{(a_n - a_i)(b_n - b_i)}{(a_n + b_i)(a_i + b_n)} \Bigg) \Cauchy_{n-1}$$
+    
+    Comme $\Cauchy_1 = \frac{1}{a_1+b_1}$, on obtient par récurrence
+    $$\Cauchy_n = \frac{\prod\limits_{i<j}(a_j-a_i) \prod\limits_{i<j}(b_j-b_i)}{\prod\limits_{i,j}(a_i+b_j)}.$$
+\end{preuve}
+
+\begin{remarque}
+    On peut aussi écrire
+    $$\Cauchy_n = \frac{\Vandermonde(a_1, \dots, a_n) \Vandermonde(b_1, \dots, b_n)}{\prod\limits_{i,j}(a_i+b_j)}$$
+    en notant $\Vandermonde(\alpha_1, \dots, \alpha_n)$ le déterminant de la matrice de \textsc{Vandermonde} de la famille $(\alpha_1, \dots, \alpha_n)$.
+\end{remarque}
+
+\begin{methode}
+    La méthode pour calculer ce genre de déterminants \say{ compliqués } est toujours la même: 
+    \begin{enumerate}
+        \item Raisonner par récurrence sur la taille de la matrice.
+        \item Faire des opérations élémentaires sur les lignes/colonnes pour faire apparaître une ligne/colonne composée de 1. 
+        \item Soustraire les lignes/colonnes de manière à obtenir une ligne/colonne presque composée uniquement de 0 sauf pour un seul coefficient. 
+        \item Développer par rapport à cette dernière et obtenir une relation de récurrence sur le déterminant. 
+    \end{enumerate}
+\end{methode}
+
+\begin{box_titre}{Matrice de \textsc{Hilbert}} \label{matrice_hilbert}
+    Une matrice de \textsc{Hilbert} est une matrice carrée de terme général
+    $$\Hilb_{i,j} \defeq {\frac {1}{i+j-1}}.$$
+\end{box_titre}
+
+\begin{remarque}
+    Le déterminant d'une matrice de \textsc{Hilbert} est un cas particulier du déterminant de \textsc{Cauchy}.
+\end{remarque}
+
+\begin{remarque}
+    \cite{exos_oraux} p. 82 \\
+    Les matrices de \textsc{Hilbert} sont souvent utilisées pour tester des ordinateurs ou leurs programmes censés inverser des matrices. Le fait que leur déterminant soit rapidement très petit rend l'inversion de la matrice numériquement difficile et c'est ce qui fait la qualité du test. 
+\end{remarque}

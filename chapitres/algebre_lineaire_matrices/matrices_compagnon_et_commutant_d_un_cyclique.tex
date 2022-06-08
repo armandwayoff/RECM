@@ -1,18 +1,79 @@
-\begin{box_titre}{Matrice compagnon}
+\begin{defi}
     Soit $P(X) = X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X]$. On appelle \emph{matrice compagnon} de $P$ la matrice:
-    $$
+    $$ C_P \defeq
     \begin{pmatrix}
-        0 & 0 & \cdots & 0 & -c_0 \\
-        1 & 0 & \cdots & 0 & -c_1 \\
-        0 & 1 & \cdots & 0 & -c_2 \\
-        \vdots & \vdots & \ddots & \vdots & \vdots \\
-        0 & 0 & \cdots & 1 & -c_{p-1}
+    0 & 0 & \cdots & 0 & -c_0 \\
+    1 & 0 & \cdots & 0 & -c_1 \\
+    0 & 1 & \cdots & 0 & -c_2 \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \cdots & 1 & -c_{p-1}
     \end{pmatrix}
     $$
-\end{box_titre}
+\end{defi}
 
-\marginnote[-2mm]{Cette matrice apparaît dans la démonstration du théorème de \textsc{Cayley}-\textsc{Hamilton}.}
+\begin{theo}
+    Théorème de \textsc{Cayley}-\textsc{Hamilton}.
+    $$\chi_{C_P}(X) = P(X)$$
+\end{theo}    
+
+\begin{preuve}
+    On a :
+    $$
+    \det(X \I_d - C_P) = 
+    \begin{vmatrix}
+        X & \cdots & \cdots & 0 & a_0 \\
+        -1 & X & & \vdots & a_1 \\
+        0 & -1 & \ddots & \vdots & \vdots \\
+        \vdots & \ddots & \ddots & 0 & a_{d-2} \\
+        0 & \cdots & 0 & -1 & X + a_{d-1}
+    \end{vmatrix}.
+    $$
+    Notons $D_d(X, a_0, \dots, a_{d-1})$ ce déterminant. \\
+    Le $(1,1)$-cofacteur de $(X \I_d - C_P)$ est $D_{d-1}(X, a_1, \dots, a_{d-1})$ et son $(1,d)$-cofacteur est $(-1)^{d+1} \delta$ où $\delta$ est le déterminant d'une matrice triangulaire supérieure de taille $d-1$ et dont tous les éléments valent $-1$; ainsi $\delta = (-1)^{d-1}$ et ce $(1,d)$-cofacteur vaut $1$. Le développement du déterminant $D_d(X, a_0, \dots, a_{d-1})$ par rapport à sa première ligne fournit donc la relation:
+    $$D_d(X, a_0, \dots, a_{d-1}) = X D_{d-1}(X, a_1, \dots, a_{d-1}) + a_0.$$
+    Comme $D_1(X, a_{d-1}) = X + a_{d-1}$,
+    $$\det(X \I_d - C_P) = X(X(\cdots(X(X+a_{d-1}) + a_{d-2}) + \cdots) + a_0.$$
+    On reconnaît la construction de $P$ par le schéma de \textsc{Horner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
+\end{preuve} 
 
 \begin{enumerate}
     \item Résultat: soit $f$ un endomorphisme cyclique. Tout endomorphisme qui commute avec $f$ est un polynôme en $f$.
 \end{enumerate}
+
+\begin{tcolorbox}
+    Théorème de \textsc{Cayley}-\textsc{Hamilton} \\
+    (à réécrire) Le polynôme caractéristique est un polynôme annulateur.
+\end{tcolorbox}
+
+\marginnote[-3cm]{Note de \cite{contre-exemples} \\
+    En recherchant l'inverse d'un quaternion, William \textsc{Hamilton} démontre, en 1853, le résultat pour la dimension 4 sans vraiment l'exprimer. Arthur \textsc{Cayley} énonce le résultat pour de matrices carrées d'ordre $n$, le démontre pour $n=2$, prétend l'avoir fait pour $n=3$ et dit qu'il ne lui semble pas nécessaire de le démontrer dans le cas général \dots Georg \textsc{Frobenius} fournit la première démonstration génrérale en 1878. 
+}
+
+\begin{exercice}
+    Soit $p$ un entier strictement positif et soit $M$ une matrice de $\M_p(\C)$.
+    \begin{enumerate}
+        \item Étant donné un élément $x$ quelconque non nul de $\C^p$ on pose
+        $$\mu = \min \{ r \geqslant 1\ | (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
+        \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1}$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
+        $$
+        \begin{pmatrix}
+        0 & \cdots & \cdots & 0 & -\alpha_0 & \star \\
+        1 & 0 & & \vdots & -\alpha_1 & \star \\
+        0 & 1 & \ddots & \vdots & \vdots & \vdots \\
+        \vdots & \ddots & \ddots & 0 & -\alpha_{\mu-2} & \star \\
+        0 & \cdots & 0 & 1 & -\alpha_{\mu-1} & \star \\
+        O & \cdots & \cdots & O & O & N
+        \end{pmatrix}
+        $$
+        où les $\star$ représentent des lignes d'éléments de $\C$ et les $O$ représentent des colonnes nulles. 
+        \item Montrer que $\chi_M(M)x = 0$.
+        \item Montrer que $\chi_M$ est un polynôme annulateur de $M$.
+    \end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+    Correction de la RMS 132 3 de l'exercice préliminaire du premier sujet de l'agrégation interne de 2022. \\
+    Cette preuve est basée sur le calcul du polynôme caractéristique d'une matrice compagnon et de l'étude du plus petit sous-espace stabilisé par une matrice et contenant un vecteur donné. \\
+    
+    
+\end{preuve}

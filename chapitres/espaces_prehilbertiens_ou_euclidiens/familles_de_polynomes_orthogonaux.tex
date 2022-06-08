@@ -1,0 +1,30 @@
+\begin{exercice}
+    Exercice 17 Ch 13 \cite{acamanes}. \\
+    Soient $I$ un intervalle non vide de $\R$ et $w \in \mathscr{C}(I, \Rpe)$. On suppose que, pour tout entier naturel $n$, $\int_I |x|^n w(x) \d x$ converge. On note $\mathscr{H} = \left\{ f \in \mathscr{C}(I, \R),\ \int_I f^2 w \text{ converge} \right\}$. Pour tout $(P, Q) \in \R[X]^2$, on pose $\langle P, Q \rangle = \int_I P(t) Q(t) w(t) \d t$.
+    \begin{enumerate}
+        \item Montrer que $\langle \cdot, \cdot \rangle$ est un produit scalaire sur $\R[X]$.
+        \item Montrer qu'il existe une suite $(P_n)_{n \in \N}$ de polynômes tels que 
+        \begin{itemize}
+            \item pour tout $n \in \N, \deg P_n = n$,
+            \item pour tout $(n, m) \in \N^2, n \not= m, \langle P_n, P_m \rangle = 0$,
+            \item pour tout $n \in \N$, $P_n$ est unitaire.
+        \end{itemize}
+        Soit $n$ un entier naturel.
+        \item Montrer que $\Vect(P_0, \dots, P_n) = \R_n[X]$.
+        \item Montrer que $P_{n+1} \in \R_n[X]^\perp$.
+        \item \textbf{Racines.} On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $\Q = \prod\limits_{i=1}^k (X - \alpha_i)$.
+        \begin{enumerate}
+            \item Déterminer le degré de $Q$.
+            \item Déterminer le signe de $P_n Q$ sur $I$.
+            \item En déduire que $k = n$ et que $P_n$ a toutes ses racines réelles et simples dans $\mathring{I}$.
+        \end{enumerate}
+        \item \textbf{Relation de récurrence.}
+        \begin{enumerate}
+            \item Montrer que $(P_0, \dots, P_{n-1}, X P_{n-1})$ forme une base de $\R_n[X]$. \\
+        On note $P_n = \sum\limits_{k=0}^{n-1} \alpha_k P_k + \alpha_n X P_{n-1}$.
+            \item Montrer que, pour tout $j \in \llbracket 0, n - 3 \rrbracket, \alpha_j = 0$.
+            \item En déduire qu'il existe trois suites réelles $(a_n), (b_n)$ et $(c_n)$ telles que 
+            $$\forall n \in \N,\ P_{n+2} = (a_n X + b_n) P_{n+1} + c_n P_n.$$
+        \end{enumerate}
+    \end{enumerate}
+\end{exercice}

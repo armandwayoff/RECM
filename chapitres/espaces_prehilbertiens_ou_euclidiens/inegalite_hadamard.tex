@@ -1,3 +1,27 @@
+\begin{marginfigure}[-1cm]
+    \includegraphics[width=5cm]{images/jacques_hadamard.jpg}
+    \caption{Jacques \textsc{Hadamard}}
+\end{marginfigure}
+
+\begin{tcolorbox}
+    Soit $M \in \M_n(\C)$ et soient $X_1, \dots, X_n$ les vecteurs colonnes de $M$. Alors,
+    $$|\mathrm{det}(M)| \leqslant \prod_{i=1}^{n} \Vert X_i \Vert$$
+    avec égalité si et seulement si la famille $(X_i)$ est orthogonale.
+\end{tcolorbox}
+
+\begin{marginfigure}[0.8cm]
+    \input{illustrations/i_inegalite_hadamard_bis}
+\end{marginfigure}
+
+
+\begin{preuve_titre}[par le déterminant de \textsc{Gram}]
+    d
+\end{preuve_titre}
+
+\begin{remarque}
+    L'inégalité de \textsc{Hadamard} nous apprend en fait que le volume du parallélotope défini par les vecteurs colonnes est inférieur ou égal au produit des normes de ces vecteurs et il y a égalité si et seulement si la matrice est diagonale, ou encore que le parallélotope est rectangle. 
+\end{remarque}
+
 \begin{tcolorbox}
     Soient $\mathscr{S}_n ^{++} (\R)$ l'ensemble des matrices réelles d'ordre $n$ symétriques à valeurs propres strictement positives et $A = (a_{i,j}) \in \mathscr{S}_n ^{++} (\R)$. Alors,
     $$\det(A) \leqslant \prod_{i=1}^{n} a_{i,i}.$$
@@ -18,27 +42,6 @@
         \end{kaobox}
         Pour d'autres inégalités, lire le chapitre 16, p.117 de la deuxième édition de Raisonnements divins (en fr)
     }
-
+    
     \item Montrer que pour tout $i \in \llbracket 1, n \rrbracket, a_{i,i} > 0$. On pose $\gamma_i = \frac{1}{\sqrt{a_{i,i}}}$. En déduire l'inégalité d'\textsc{Hadamard}.
 \end{enumerate}
-\begin{tcolorbox}
-    Soit $E$ un espace euclidien de dimension $n \geqslant 1$ et $\mathscr{B}$ une base orthonormée de $E$. Pour tout $n$-uplet $(x_1, \dots, x_n)$, on a:
-    $$\left| \mathrm{det}_{\mathscr{B}}(x_1, \dots, x_n) \right| \leqslant \prod_{i=1}^{n} \Vert x_i \Vert.$$
-\end{tcolorbox}
-
-Détailler le lien avec la \nameref{matrice_gram}. \\
-
-\underline{Démonstration:} (\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./i/ineghadamard.html}) \\
-
-\textcolor{green}{Notations et rédaction à revoir}
-
-Dans le cas où aucun des $x_i$ n'est nul, on a égalité si, et seulement si, les vecteurs $(x_1, \dots  ,x_n)$ sont orthogonaux deux à deux. \\
-La démonstration de cette inégalité n'est pas très difficile : si les vecteurs colonnes $(x_1, \dots  ,x_n)$ sont liés, le déterminant est nul et l'inégalité est triviale. Sinon, $(x_1, \dots  ,x_n)$ forme une base de $\R^n$ à laquelle on peut appliquer le procédé de \textsc{Gram}-\textsc{Schmidt} pour obtenir une base orthonormale $(\widetilde{x}_1, \dots, \widetilde{x}_n)$ telle que pour tout $i \in \llbracket 1, n \rrbracket$, 
-$$\Vect(x_1, \dots  ,x_i) = \Vect(\widetilde{x}_1, \dots, \widetilde{x}_i)$$.
-
-Si $P$ est la matrice de passage de $(\widetilde{x}_1, \dots, \widetilde{x}_n)$ à $(x_1, \dots  ,x_i)$, $P$ est une matrice triangulaire supérieure. Remarquons que $M$ est la matrice de passage de la base canonique $(e_1, \dots, e_n)$ à $(x_1, \dots  ,x_i)$, et notons $B$ la matrice des vecteurs colonnes $(\widetilde{x}_1, \dots, \widetilde{x}_i)$. Les formules de changement de base donnent $M=BP$. D'autre part, $B$ est une matrice orthogonale (c'est une matrice de passage d'une base orthonormale à une autre), et en particulier$|\det(B)|=1$. On a donc : 
-$$| \det(M) | = | \det(P) | = |p_{1,1} | \cdots |p_{n,n}|$$
-puisque $P$ est triangulaire supérieure. Mais, 
-$$|p_{i,i}| = |\langle x_i, \widetilde{x}_i \rangle \leqslant \Vert x_i \Vert$$
-et ceci achève la démonstration. \\
-Géométriquement, l'inégalité exprime que, pour des côtés de longueur donnée, un parallélépipède est de volume maximal s'il est rectangle. \textcolor{green}{en faire une représentation}

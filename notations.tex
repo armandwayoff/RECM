@@ -2,6 +2,7 @@
 
 \newcommand{\me}{\mathrm{e}}
 \newcommand{\mi}{\mathrm{i}}
+\newcommand{\mj}{\mathrm{j}} % racine troisième de l'unité
 % \newcommand{\Gl}{\mathscr{G}\kern-0.16em\ell}
 \newcommand{\Gl}{\mathrm{GL}}
 \newcommand{\I}{\mathrm{I}}
@@ -21,12 +22,18 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Ne}{\N^\star}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\A}{\mathbb{A}} % Nombres algébriques
+\newcommand{\Premier}{\mathbb{P}} % Nombres premiers
 
-\renewcommand{\d}{\mathrm{d}}
+\renewcommand{\d}{\, \mathrm{d}}
 
 \newcommand{\Ninf}[1]{\Vert #1 \Vert_\infty}
 \newcommand{\norme}[1]{\Vert #1 \Vert}
 \newcommand{\segN}[2]{\llbracket #1 , #2 \rrbracket}
+
+% Complexes
+\newcommand{\Reel}{\mathrm{Re}}
 
 % Algèbre
 \newcommand{\M}{\mathscr{M}}
@@ -35,11 +42,13 @@
 \newcommand{\Inv}[1]{#1^{-1}}
 \renewcommand{\Tr}{\mathrm{Tr}}
 \newcommand{\com}{\mathrm{com}}
+\newcommand{\Mat}{\mathrm{Mat}}
+\newcommand{\Diag}{\mathrm{Diag}}
 
 % Probas
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\V}{\mathbb{V}}
-\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\V}{\mathbf{V}}
+\renewcommand{\P}{\mathbf{P}}
 
 % Suites remarquables
 \newcommand{\Leg}{\mathrm{L}}
@@ -52,5 +61,11 @@
 \newcommand{\Cauchy}{\mathrm{C}}
 \newcommand{\Gram}{\mathrm{G}}
 \newcommand{\Bernstein}{\mathrm{B}}
+\newcommand{\Vandermonde}{\mathrm{V}}
 
-\newcommand{\eqdef}{\overset{\mathrm{déf}}{=\joinrel=}}
+% Symboles
+%https://tex.stackexchange.com/questions/4216/how-to-typeset-correctly
+% :=
+\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+                     =}

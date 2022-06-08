@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\begin{axis}[
+    width=7.5cm,
+    % grid=both,
+    xmin=-11,
+    xmax=11,
+    ymin=-0.3,
+    ymax=1.2,
+    xlabel=$x$,
+    ylabel=$\mathrm{sinc}(x)$,
+    axis lines=center,
+    xticklabels={$-3\pi$, $-2\pi$, $-\pi$, $\pi$, $2\pi$, $3\pi$},
+    xtick={-3*3.141592, -2*3.141592, -3.141592, 3.141592, 2*3.141592, 3*3.141592},
+    ytick={0, 1}
+]
+  \addplot[
+    domain=-15:15,
+    violet,
+    ultra thick,
+    samples=100,
+  ] plot[thin] {sin(deg(x))/x};
+\end{axis}
+\end{tikzpicture}

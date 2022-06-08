@@ -1,0 +1,32 @@
+\begin{prop}
+    Soit $E$ un espace vectoriel de dimension finie $n \in \Ne$. On considère $f \in \Endo(E)$.
+    \begin{itemize}
+        \item La suite $\left( \Ker(f^k) \right)_{k \in \N}$ est une suite croissante pour l'inclusion et stationnaire à partir d'un certain rang $r \in \llbracket 0, n \rrbracket$.
+        \item La suite $\left( \Im(f^k) \right)_{k \in \N}$ est une suite décroissante pour l'inclusion et stationnaire à partir du même rang $r$. \\
+        (la suite \url{https://bibmath.net/dico/index.php?action=affiche&quoi=./n/noyauxiteres.html}) \\De plus
+        $$\Ker(f^r) \oplus \Im(f^r) = E.$$
+        Si on note $d_k \defeq \dim(\Ker(f^k))$, alors pour tout $k \in \N$, 
+        $$d_{k+1} - d_k \geqslant d_{k+2} - d_{k+1},$$
+        autrement dit la suite de la différence des dimensions entre deux noyaux itérés consécutifs est décroissante. 
+    \end{itemize}
+\end{prop} 
+\begin{preuve}
+    \begin{itemize}
+        \item La monotonie des deux suites est triviales. 
+        \item Bien précisier l'existe de $r$ en dimension finie. \\
+        Soit $r$ le rang de stationnarité de la suite des noyaux itérés. Montrons que pour tout $k \in \N, \Ker(f^r) = \Ker(f^{r+k})$. \\
+        D'après le premier item, l'une des deux inclusions est vérifiée par croissance de la suite des noyaux itérés. Montrons la deuxième. Soient $k \in \N$ et $x \in \Ker(f^{r+k+1})$. Alors $f^{r+k+1}(x) = f^{r+1}(f^k(x)) = 0$ soit $f^k(x) \in \Ker(f^{r+1}) = \Ker(f^r)$. Ainsi, $f^{r+k}(x) = 0$ et $x \in \Ker(f^{r+k})$.
+        \item Montrons que $\Ker(f^r) \oplus \Im(f^r) = E$. \\
+        D'après le théorème du rang, $\Rg(f^r) + \dim \Ker(f^r) = n$. Il reste à montrer que $\Ker(f^r) \cap \Im(f^r) = \{ 0 \}$. \\
+        Soit $y \in \Ker(f^r) \cap \Im(f^r)$. Alors il existe $x \in E$ tel que $y = f^r(x)$. De plus, $f^r(y) = 0$ donc, en remplaçant $y$ par son expression, $f^{2r}(x) = 0$ i.e. $x \in \Ker(f^{2r})$, qui est égal à $\Ker(f^r)$ par définition de $r$. On en déduit que $y = f^r(x) = 0$. Ainsi $\Ker(f^r) \cap \Im(f^r) = \{ 0 \}$ et on a bien
+        $$\Ker(f^r) \oplus \Im(f^r) = E.$$
+    \end{itemize}
+\end{preuve}
+
+\begin{remarque}
+    La propriété de somme directe, n'est plus valable dans le cas d'un espace vectoriel de dimension infinie. En effet, dans $\R[X]$, l'application \emph{dérivée} met en défaut cette égalité. 
+\end{remarque}
+
+
+
+

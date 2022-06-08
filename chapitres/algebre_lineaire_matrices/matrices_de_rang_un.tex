@@ -1,0 +1,19 @@
+\begin{prop}
+    Une matrice $A$ de $\M_{n,p}(\R)$ est de rang $1$ si et seulement s'il existe deux matrices colonnes non nulles (pas nécessairement uniques) $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$ telles que $A = X \Trsp{Y}$. 
+\end{prop}
+
+\begin{preuve}
+\end{preuve}
+
+\begin{exercice}
+    Soit $A$ une matrice carrée de rang $1$. Montrer qu'il existe $\lambda \in \K$ tel que $A^2 = \lambda A$.
+\end{exercice}
+
+\begin{solution}
+    Il existe une colonne $X$ telle que $AX \not= 0$ et alors $\Im(A) = \Vect(AX)$. \\
+    Ainsi, la matrice $A^2X \in \Im(A)$ et donc il existe $\lambda \in \K$ tel que $A^2X = \lambda AX$. De plus, pour $Y \in \Ker(A)$, $A^2Y = 0 = \lambda AY$. \\
+    Enfin $\Ker(A)$ et $\Vect(X)$ sont supplémentaires dans $\M_{n,1}(\K)$ donc $A^2 = \lambda A$.
+\end{solution}
+
+\url{http://ddmaths.free.fr/section373.html} \\
+Compléter avec le problème 2 Partie I de CCINP PSI 2022.

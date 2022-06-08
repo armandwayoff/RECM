@@ -1,19 +1,21 @@
-\begin{tcolorbox}
+\begin{exercice}
     Déterminer toutes les matrices $M \in \M_3(\K)$ telles que $M^2=0$.
-\end{tcolorbox}
+\end{exercice}
 
-La correction qui suit est issue de \cite{ellipses}. \\
-Si $M$ est la matrice nulle, $M$ est solution de l'équation. \\
-Supposons que $M \not= 0$. Soit $\varphi$ l'endomorphisme canoniquement associé à $M$. \\
-Comme $M$ est non nulle, existe donc un vecteur $x$ tel que $\varphi(x) \not= 0$. \\
-Comme $M^2 = 0$, $\Im \varphi \subset \Ker \varphi$. Par le théorème du rang, $\Rg \varphi + \dim \Ker \varphi = 3$ et comme $\Rg \varphi \geqslant 1$ (car $M \not=0$), nécessairement, $\Rg \varphi = 1$ et $\dim \Ket \varphi = 2$. \\
-Comme $\varphi(x) \in \Ker \varphi$, il existe $z \in \Ker \varphi$ tel que la famille $\{ \varphi(x), z \}$ soit une base de $\Ker \varphi$. La famille $\mathscr{F} = \{x, \varphi(x), z \}$ est libre (facile à montrer) et la matrice de $\varphi$ par rapport à cette base est 
-$A = 
-\begin{pmatrix}
-0 & 0 & 0 \\
-1 & 0 & 0 \\ 
-0 & 0 & 0
-\end{pmatrix}
-$. 
-Finalement, les matrices solutions sont
-$$\boxed{\mathscr{S} = \left \{ \{0\} \cup \{\Inv{P} A P, P \in \Gl_3(\K) \} \right \}.}$$
+\begin{solution}
+    La correction qui suit est issue de \cite{ellipses}. \\
+    Si $M$ est la matrice nulle, $M$ est solution de l'équation. \\
+    Supposons que $M \not= 0$. Soit $\varphi$ l'endomorphisme canoniquement associé à $M$. \\
+    Comme $M$ est non nulle, existe donc un vecteur $x$ tel que $\varphi(x) \not= 0$. \\
+    Comme $M^2 = 0$, $\Im \varphi \subset \Ker \varphi$. Par le théorème du rang, $\Rg \varphi + \dim \Ker \varphi = 3$ et comme $\Rg \varphi \geqslant 1$ (car $M \not=0$), nécessairement, $\Rg \varphi = 1$ et $\dim \Ker \varphi = 2$. \\
+    Comme $\varphi(x) \in \Ker \varphi$, il existe $z \in \Ker \varphi$ tel que la famille $\{ \varphi(x), z \}$ soit une base de $\Ker \varphi$. La famille $\mathscr{F} = \{x, \varphi(x), z \}$ est libre (facile à montrer) et la matrice de $\varphi$ par rapport à cette base est 
+    $A = 
+    \begin{pmatrix}
+    0 & 0 & 0 \\
+    1 & 0 & 0 \\ 
+    0 & 0 & 0
+    \end{pmatrix}
+    $. 
+    Finalement, les matrices solutions sont
+    $$\boxed{\mathscr{S} = \left \{ \{0\} \cup \{\Inv{P} A P, P \in \Gl_3(\K) \} \right \}.}$$
+\end{solution}

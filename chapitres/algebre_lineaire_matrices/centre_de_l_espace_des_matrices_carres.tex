@@ -1,6 +1,15 @@
 \begin{tcolorbox}
-Déterminer les matrices $A \in \M_n(\K)$ telles que pour toute matrice $B \in \M_n(\K), AB = BA$.
+Le centre de $\M_n(\K)$, c'est-à-dire les matrices $A \in \M_n(\K)$ telles que pour toute matrice $B \in \M_n(\K), AB = BA$, est égal à l'ensemble des matrices scalaires.
 \end{tcolorbox}
+
+\marginnote[0cm]{
+    \begin{kaobox}[frametitle=Matrices élémentaires de $\M_{n,p}(\K)$]
+        Pour tout $(i, j) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket$, on note $\mathrm{E}_{i,j}$ la matrice de taille $(n,p)$ dont tous les coefficients son nuls sauf le coefficient en ligne $i$, colonne $j$, qui est égal à $1$. Autrement dit,
+        $$\mathrm{E}_{i,j} = (\delta_{k,i} \times \delta_{\ell, j})_{(k,\ell) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket}.$$
+        On en déduit que 
+        $$\mathrm{E}_{i,j} \times \mathrm{E}_{k, \ell} = \delta_{j,k} \mathrm{E}_{i, \ell}.$$
+    \end{kaobox}
+}
 
 \begin{preuve}
     (cours Matrices de \cite{maths-france})\\
@@ -12,24 +21,12 @@ Déterminer les matrices $A \in \M_n(\K)$ telles que pour toute matrice $B \in \
     Ainsi, si $A$ commute avec toutes les matrices, alors $A$ est nécessairement de la forme $A = \lambda \I_n$ où $\lambda \in \K$. Réciproquement, pour $\lambda \in K$ et $B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B$.
 \end{preuve}
 
-\begin{tcolorbox}
-    Les matrices qui commutent avec toutes les matrices carrées sont les matrices scalaires.
-\end{tcolorbox}
-
-\marginnote[-10cm]{
-    \begin{kaobox}[frametitle=Matrices élémentaires de $\M_{n,p}(\K)$]
-        Pour tout $(i, j) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket$, on note $\mathrm{E}_{i,j}$ la matrice de taille $(n,p)$ dont tous les coefficients son nuls sauf le coefficient en ligne $i$, colonne $j$, qui est égal à $1$. Autrement dit,
-        $$\mathrm{E}_{i,j} = (\delta_{k,i} \times \delta_{\ell, j})_{(k,\ell) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket}.$$
-        On en déduit que 
-        $$\mathrm{E}_{i,j} \times \mathrm{E}_{k, \ell} = \delta_{j,k} \mathrm{E}_{i, \ell}.$$
-    \end{kaobox}
-}
-
 \begin{marginfigure}
 à compléter
 \end{marginfigure}
 
-\begin{remarque}
-    Lorsqu'il s'agit de montrer qu'une propriété est vraie \emph{pour toute matrice}, il faut prendre des cas particuliers comme les \textbf{matrices élémentaires} pour en déduire des informations sur les coefficients. \\
-    Application: \textsc{Mines 14}, Chapitre 2 \cite{exos_oraux}. 
-\end{remarque}
+\begin{methode}
+    Lorsqu'il s'agit de montrer qu'une propriété est vraie \say{ pour toute matrice }, il faut prendre des cas particuliers comme les \textbf{matrices élémentaires} pour en déduire des informations sur les coefficients.
+\end{methode}
+
+Application: \textsc{Mines 14}, Chapitre 2 \cite{exos_oraux}. 

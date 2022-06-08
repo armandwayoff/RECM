@@ -1,0 +1,65 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{dimgray85}{RGB}{85,85,85}
+\definecolor{gainsboro229}{RGB}{229,229,229}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{orange}{RGB}{255,165,0}
+
+\begin{axis}[
+axis lines=middle,
+grid=major,
+width=7.5cm,
+height=7.5cm,
+xtick=\empty,
+xmin=-15, xmax=15,
+ytick=\empty,
+ymin=-10, ymax=20,
+]
+\draw[draw=red,fill=red,opacity=0.5,very thin] (axis cs:0,4) circle (5);
+\draw[draw=blue,fill=blue,opacity=0.5,very thin] (axis cs:5,10) circle (7);
+\draw[draw=green,fill=green,opacity=0.5,very thin] (axis cs:1,0) circle (2);
+\draw[draw=orange,fill=orange,opacity=0.5,very thin] (axis cs:-8,-2) circle (3);
+
+\def\r{3}
+
+%\addplot [semithick, red, mark=*, mark size=\r, mark options={solid}, only marks]
+%table {%
+%0 4
+%};
+%\addlegendentry{1\mi}
+%\addplot [semithick, blue, mark=*, mark size=\r, mark options={solid}, only marks]
+%table {%
+%5 10
+%};
+%\addlegendentry{(5+10\mi)}
+%\addplot [semithick, green, mark=*, mark size=\r, mark options={solid}, only marks]
+%table {%
+%1 0
+%};
+%\addlegendentry{(1)}
+%\addplot [semithick, orange, mark=*, mark size=\r, mark options={solid}, only marks]
+%table {%
+%-8 -2
+%};
+%\addlegendentry{(-8-2j)}
+\addplot [semithick, black, mark=x, mark size=\r, mark options={solid}, only marks, forget plot]
+table {%
+-8.06720901070025 -2.31297809243462
+};
+\addplot [semithick, black, mark=x, mark size=\r, mark options={solid}, only marks, forget plot]
+table {%
+5.36805383956579 9.13980083948909
+};
+\addplot [semithick, black, mark=x, mark size=\r, mark options={solid}, only marks, forget plot]
+table {%
+0.195375871819944 4.3072164295875
+};
+\addplot [semithick, black, mark=x, mark size=\r, mark options={solid}, only marks, forget plot]
+table {%
+0.503779299314509 0.865960823358021
+};
+\end{axis}
+
+\end{tikzpicture}
