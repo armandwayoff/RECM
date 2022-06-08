@@ -1,10 +1,132 @@
-\begin{itemize}
-    \item Raisonner par \textbf{récurrence} sur la taille de la matrice. 
-    \item Poser $\boxed{P(X)=\prod\limits_{j=1}^{n-1} (X-x_j) = X^{n-1} + \sum\limits_{k=0}^{n-2} a_k X^k}$ et ajouter à la dernière colonne une combinaison linéaire de toutes les autres colonnes avec pour coefficients les $a_k$ .
-    \item Application: soient $\alpha_1 < \dots < \alpha_n$ des réels. Montrer que la famille des fonctions $f_j:t \mapsto \exp(i \alpha_j t)$, pour $j \in \llbracket 1; n \rrbracket$, est libre.
+\begin{defi}
+    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. On définit la \emph{matrice de \textsc{Vandermonde}} de la famille $(\alpha_1, \dots, \alpha_n)$ par
+    $$\Vandermonde(\alpha_1, \dots, \alpha_n) = \begin{pmatrix}
+    1 & \alpha_1 & \alpha_1^2 & \cdots & \alpha_1^{n-1} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    1 & \alpha_n & \alpha_n^2 & \cdots & \alpha_n^{n-1}
+    \end{pmatrix}.$$
+\end{defi}
+
+\newcommand{\vandk}{
+\left(\begin{gathered}
+    \tikzpicture[every node/.style={anchor=south west}]
+        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_{k-1})$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{k}$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{k}^{k-2}$};
+        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$\alpha_{k}^{k-1}$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$\alpha_{k-1}^{k-1}$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$\alpha_1^{k-1}$};
+        \draw (0,0.6) -- (2.5,0.6);
+        \draw (2.5,0.6) -- (2.5,2.225);
+        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
+        \draw[dashed] (2.5,0.6) -- (2.5,0);
+    \endtikzpicture
+    \end{gathered}\right)
+}
+
+\begin{remarque}
+    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. Les matrices de \textsc{Vandermonde} des familles $(\alpha_1, \dots, \alpha_k)$ pour $2 \leqslant k \leqslant n$ sont imbriquées les unes dans les autres de la manière suivante
+    $$\Vandermonde(\alpha_1, \dots, \alpha_k) = \vandk.$$
+\end{remarque}
+
+\begin{prop}
+    $$\det (\Vandermonde(\alpha_1, \dots, \alpha_n)) = \prod_{1\leqslant i < j \leqslant n}(\alpha_j - \alpha_i).$$
+\end{prop}
+
+\newcommand{\detvandnplusun}{
+\left|\begin{gathered}
+    \tikzpicture[every node/.style={anchor=south west}]
+        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_n)$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{n+1}$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{n+1}^{n-1}$};
+        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$\alpha_{n+1}^n$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$\alpha_n^n$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$\alpha_1^n$};
+        \draw (0,0.6) -- (2.5,0.6);
+        \draw (2.5,0.6) -- (2.5,2.225);
+        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
+        \draw[dashed] (2.5,0.6) -- (2.5,0);
+    \endtikzpicture
+    \end{gathered}\right|
+}
+
+\newcommand{\detvandpoly}{
+\left|\begin{gathered}
+    \tikzpicture[every node/.style={anchor=south west}]
+        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_n)$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{n+1}$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{n+1}^{n-1}$};
+        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$P(\alpha_{n+1})$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$P(\alpha_n)$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$P(\alpha_1)$};
+        \draw (0,0.6) -- (2.5,0.6);
+        \draw (2.5,0.6) -- (2.5,2.225);
+        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
+        \draw[dashed] (2.5,0.6) -- (2.5,0);
+    \endtikzpicture
+    \end{gathered}\right|
+}
+
+\newcommand{\detvandzero}{
+\left|\begin{gathered}
+    \tikzpicture[every node/.style={anchor=south west}]
+        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_n)$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{n+1}$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
+        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{n+1}^{n-1}$};
+        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$P(\alpha_{n+1})$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$0$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
+        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$0$};
+        \draw (0,0.6) -- (2.5,0.6);
+        \draw (2.5,0.6) -- (2.5,2.225);
+        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
+        \draw[dashed] (2.5,0.6) -- (2.5,0);
+    \endtikzpicture
+    \end{gathered}\right|
+}
+
+\begin{preuve}
+    Nous allons raisonner par récurrence sur la taille de la matrice. \\
+    L'initialisation pour $n = 1$ est triviale. \\
+    Soit $(\alpha_1, \dots, \alpha_n, \alpha_{n+1})$ une famille de complexes. On suppose que $\det(\Vandermonde(\alpha_1, \dots, \alpha_n)) = \prod\limits_{1\leqslant i < j \leqslant n}(\alpha_j - \alpha_i).$ \\
+    On pose $P(X)=\prod\limits_{j=1}^n (X-\alpha_j) = X^n + \sum\limits_{k=0}^{n-1} p_k X^k$. \\
+    D'après les propriétés du déterminant, en ajoutant les $n$ premières colonnes respectivement multipliée par $p_k$ à la dernière, on obtient
+    \begin{align*}
+        \detvandnplusun &= \detvandpoly \\
+        &= \detvandzero \\
+        &= \det(\Vandermonde(\alpha_1, \dots, \alpha_n)) P(\alpha_{n+1}) \\
+        &= \prod\limits_{1\leqslant i < j \leqslant n}(\alpha_j - \alpha_i) \times \prod\limits_{j=1}^n (\alpha_{n+1}-\alpha_j) \\
+        \det(\Vandermonde(\alpha_1, \dots, \alpha_{n+1})) &= \prod_{1\leqslant i < j \leqslant n + 1}(\alpha_j - \alpha_i).
+    \end{align*}
+\end{preuve}
+
+\begin{corol}
+    La famille $(\alpha_1, \dots, \alpha_n)$ est libre si et seulement si le déterminant de sa matrice de \textsc{Vandermonde} est non nul.
+\end{corol}
+
+\begin{preuve}
+    C'est immédiat d'après l'expression du déterminant.
+\end{preuve}
+
+\begin{exercice}
+    Soient $\alpha_1 < \dots < \alpha_n$ des réels. Montrer que la famille des fonctions $f_j:t \mapsto \exp(\mi \alpha_j t)$, pour $j \in \llbracket 1,n \rrbracket$, est libre.
+\end{exercice}
+
+\begin{elem_sol}
     \begin{enumerate}
         \item Revenir à la définition d'une famille libre.
         \item Dériver successivement les relations et les sommer. 
         \item Faire apparaître une matrice de \textsc{Vandermonde} et un système de \textsc{Cramer}. 
     \end{enumerate}
-\end{itemize}
+\end{elem_sol}

@@ -4,14 +4,31 @@
 Lorsque $E$ est un espace euclidien, le procédé de \textsc{Gram}-\textsc{Schmidt} permet, à partir d'une base adaptée à un drapeau total de $E$, d'obtenir une base orthonormale adaptée à ce même drapeau. \\
 Si l'on combine avec le théorème de trigonalisation utilisant les drapeaux, on constate que tout endomorphisme trigonalisable peut être trigonalisé dans une base orthonormale. 
 
+\marginnote[-3cm]{
+    \begin{kaobox}[frametitle=Drapeau]
+        (Wiki) \\
+        Un \emph{drapeau} d'un espace vectoriel $E$ de dimension finie est une suite finie strictement croissante de sous-espaces vectoriels de $E$, commençant par l'espace nul $\{0_E\}$ et se terminant par l'espace total $E$:
+        $$\{0_E\} = E_0 \subsetneq E_1 \subsetneq \cdots \subsetneq E_k = E.$$
+        Si $\dim(E)=n$ et si pour tout $i \in \llbracket 1, k \rrbracket$, $\dim(E_i)=i$, alors le drapeau est dit \emph{total}.
+    \end{kaobox}
+}
+
+\newpage
+
 \section{Déterminant de \textsc{Gram}} \label{matrice_gram}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/determinant_de_gram}
 
 \section{Positivité de la matrice de \textsc{Hilbert}}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/positivite_de_la_matrice_de_hilbert}
 
+\section{Décompositions matricielles}
+\input{chapitres/espaces_prehilbertiens_ou_euclidiens/decompositions_matricielles}
+
 \section{Inégalité d'\textsc{Hadamard}}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/inegalite_hadamard}
+
+\section{Familles de polynômes orthogonaux}
+\input{chapitres/espaces_prehilbertiens_ou_euclidiens/familles_de_polynomes_orthogonaux}
 
 \section{Polynômes orthogonaux associés à un poids}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/polynomes_orthogonaux_associes_a_un_poids}
@@ -25,14 +42,14 @@ Si l'on combine avec le théorème de trigonalisation utilisant les drapeaux, on
 \section{Caractétisation des projecteurs orthogonaux}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/caracterisation_des_projecteurs_orthogonaux}
 
-\section{Décompositions matricielles}
-\input{chapitres/espaces_prehilbertiens_ou_euclidiens/decompositions_matricielles}
-
 \section{Famille obtusangle}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/famille_obtusangle}
 
 \section{Exercice 6.28 du ELLIPSES}
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/exercice_ellipses}
+
+\section{Exercice}
+\input{chapitres/espaces_prehilbertiens_ou_euclidiens/exercice}
 
 A rajouter:
 \begin{itemize}

@@ -1,12 +1,12 @@
-\begin{box_titre}{Formule de \textsc{Stirling}}
+\begin{theo}
     $$n! \sim \left(\frac{n}{\me}\right)^n \sqrt{2 \pi n}$$
-\end{box_titre}
+\end{theo}
 
 \begin{preuve}
     \begin{enumerate}
         \item Montrer que $\left( \frac{n!\me^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
         \item Montrer que $\ell = \sqrt{2 \pi}$ en utilisant l'\nameref{integrale_wallis}:
-        $$\boxed{\Wallis_n = \int_{0}^{\pi/2}\sin^n(t) \, \d t}$$
+        $$\Wallis_n \defeq \int_{0}^{\pi/2}\sin^n(t) \d t$$
         \begin{enumerate}
             \item Montrer que $(\Wallis_n)_{n \in \N}$ est décroissante
             \item Exprimer $\Wallis_{n+2}$ en fonction de $\Wallis_n$ grâce à une IPP: $$(n+2)\Wallis_{n+2} = (n+1)\Wallis_n$$

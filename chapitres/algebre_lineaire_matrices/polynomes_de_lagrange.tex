@@ -1,12 +1,23 @@
-\begin{tcolorbox}
+\begin{defi}
     Soit $n \in \N$. On considère $(n + 1)$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
-    Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un \textbf{unique} polynôme $\Lag_i \in \C_n[X]$ tel que 
+    Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un unique polynôme $\Lag_i \in \C_n[X]$ tel que 
     $$\forall j \in \llbracket 0, n \rrbracket,\ \Lag_i(x_j) = \delta_{i,j}.$$
     De plus,
         $$\forall (i, j) \in \llbracket 1, n \rrbracket^2,\ \Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
-    La famille $(\Lag_0, \dots, \Lag_n)$ forme une base de $\C_n[X]$.
-\end{tcolorbox}
+\end{defi}
 
+\marginnote[-2cm]{
+    \begin{kaobox}[frametitle=Symbole de \textsc{Kronecker}]
+    $$
+    \delta_{i,j} = \begin{cases}
+    1 \quad \text{ si } i=j \\
+    0 \quad \text{ sinon}
+    \end{cases}.
+    $$
+    \end{kaobox}
+}
+
+\begin{preuve}
 \underline{Démonstration de l'existence et de l'unicité par deux méthodes:} 
 \begin{itemize}
     \item Par construction...\cite{maths-france} \\
@@ -23,3 +34,22 @@
     \textcolor{green}{La suite n'est pas très bien rédigée...} \\
     L'application $\varphi$ est linéaire et injective (raisonner sur le nombre de racines distinctes d'un polynôme) ce qui assure \textbf{l'unicité} des polynômes interpolateurs de \textsc{Lagrange}. De plus, $\varphi$ est un isomorphisme (égalité des dimensions des espaces de départ et d'arrivée) donc $\varphi$ est sujective ce qui assure \textbf{existence} de ces polynômes. 
 \end{itemize}
+\end{preuve}
+
+\begin{prop}
+    La famille $(\Lag_0, \dots, \Lag_n)$ forme une base de $\C_n[X]$.
+\end{prop}
+
+\begin{preuve}
+
+\end{preuve}
+
+\begin{box_titre}[title=Coordonées d'un polynôme dans la base de \textsc{Lagrange}]
+
+Soit $(x_0, \dots, x_n)$, $(n+1)$ complexes deux à deux distincts et $(y_0, \dots, y_n)$, $(n+1)$ complexes. Il existe un et un seul polynôme $P \in \R_n[X]$ tel que pour tout $i \in \llbracket 0, n \rrbracket, P(x_i) = y_i$. Ce polynôme à pour expression dans la base de \textsc{Lagrange}
+$$P = \sum_{i=0}^n y_i \Lag_i.$$
+\end{box_titre}
+
+\begin{marginfigure}[-5cm]
+    \input{illustrations/i_polynomes_de_lagrange}
+\end{marginfigure}

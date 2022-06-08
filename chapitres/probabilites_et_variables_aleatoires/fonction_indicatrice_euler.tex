@@ -1,0 +1,42 @@
+\begin{defi}
+    La \emph{fonction indicatrice d'\textsc{Euler}} est une fonction arithmétique de la théorie des nombres, qui à tout entier naturel $n$ non nul associe le nombre d'entiers compris entre 1 et $n$ et premiers avec $n$. \emph{(Wikipedia)} \\
+    Autrement dit, 
+    \begin{alignat*}{2}
+        \varphi\ :\ \Ne\ &\longrightarrow\ \Ne\\
+        n\ &\longmapsto\ \mathrm{Card}(\{m \in \Ne\ |\ m \leqslant n \text{ et } m \text{ premier avec } n \}).
+    \end{alignat*}
+\end{defi}
+
+\marginnote{faire un graphe de $\varphi$}
+
+\begin{tcolorbox}
+    La fonction indicatrice d'\textsc{Euler} peut s'écrire
+    $$\varphi\ :\ n \longmapsto n \cdot \prod_{p \in \mathscr{P}_n} \left(1 - \frac{1}{p} \right)$$
+    en notant $\mathscr{P}_n$ l'ensemble des nombres premiers divisant $n$.
+\end{tcolorbox}
+
+\begin{preuve}
+    (Wikipedia) \\
+    La valeur de l'indicatrice d'\textsc{Euler} s'obtient à partir de la décomposition en facteurs premiers de $n$. On note $n = \prod\limits_{p \in \mathscr{P}_n} p^{k_i}$. Alors, $\varphi(n) = $
+\end{preuve}
+
+\begin{exercice}
+    Issu de la RMS 132 3 p.32. \\
+    Montrer que pour tout $n \in \Ne, \varphi(n) \geqslant \frac{\sqrt{n}}{2}$.
+\end{exercice}
+
+\begin{exercice}
+\emph{Exercice 17. Chap. VI}. \\
+    On note $\varphi$ la fonction indicatrice d'\textsc{Euler}. Montrer que 
+    $$\forall n \in \Ne \quad n = \sum_{d|n} \varphi(d).$$
+\end{exercice}
+
+Les points suivants ne peuvent être compris qu'avec la correction.
+\begin{itemize}
+    \item Q2): Résultat à retenir (bien que rappeler dans le DS5):\\
+    $$\forall p \in J \subset \P,\ p \text{ divise } a \Longleftrightarrow \prod_{p \in J} p \text{ divise } a$$
+    \item Q3): un élément de $\Omega$ est premier avec $n$ si et seulement si il n'est divisible par aucun des diviseurs premiers de $n$. D'où
+    $$\mathbb{P} \left(\{ m \in \Omega\ ;\ m \wedge n = 1 \} \right) = \prod_{p \in \mathscr{P}_n} \left(1 - \frac{1}{p} \right).$$
+    \item Q4): Calculer le cardinal de $B_j = \{ j\cdot d,\ j \in \llbracket 1, k \rrbracket\ ;\ j \wedge k = 1 \}$.
+    \item Q5): Montrer que $(B_d)_{d|n}$ forme un SCE de $\Omega$ et en déduire la formule de l'énoncé. $\displaystyle (\Omega = \bigcup_{d|n} B_d)$ \textcolor{green}{à compléter}
+\end{itemize}

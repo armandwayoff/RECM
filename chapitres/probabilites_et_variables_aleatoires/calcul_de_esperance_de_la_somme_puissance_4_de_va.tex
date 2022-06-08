@@ -1,0 +1,13 @@
+\begin{exercice}
+    On suppose que $(X_i)_{i \in \Ne}$ est une famille de variables aléatoires iid. Calculer $\E \left [ \left (\sum\limits_{i=1}^{n} X_i \right)^4 \right]$.
+\end{exercice}
+
+\begin{elem_sol}
+    Écrire la somme comme une somme sur quatre indices, utiliser la linéarité de l'espérance i.e. $\sum\limits_{1 \leqslant i, j, k, l \leqslant n} \E[X_i X_j X_k X_l]$ et distinguer les cas suivants:
+    \begin{itemize}
+        \item $|\{i, j, k, l \}| = 4$ (tous les indices sont deux à deux distints). Par l'indépendance des v.a., $\E[X_i X_j X_k X_l] = \E[X_i]^4$.
+        \item $|\{i, j, k, l \}| = 3$ (deux des indices sont égaux): $\E[X_i X_j X_k X_l] = \E[X_i^2]\E[X_k]\E[X_l]$.
+        \item $|\{i, j, k, l \}| = 2$ (trois des indices sont égaux): $\E[X_i X_j X_k X_l] = \E[X_i^3]\E[X_l]$.
+        \item $|\{i, j, k, l \}| = 1$ (tous les indices sont égaux): $\E[X_i X_j X_k X_l] = \E[X_i^4]$.
+    \end{itemize}
+\end{elem_sol}

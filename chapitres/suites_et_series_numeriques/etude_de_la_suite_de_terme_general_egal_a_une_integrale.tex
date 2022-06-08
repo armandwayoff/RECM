@@ -1,10 +1,14 @@
-\emph{Exercice 9. TD I}\\
-La fonction $f$ est supposée continue et positive sur $[a, b]$.
+ \begin{exercice}
+    \emph{Exercice 9. TD I}\\
+    Soit $f$ une supposée continue et positive sur $[a, b]$. Étudier la suite de terme général $u_n = \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$.
+ \end{exercice}
 
-\begin{itemize}
-    \item La démarche générale consiste à encadrer $u_n$. 
-    \item \underline{Majoration:} $f$ est continue sur un segment donc est en particuler bornée par un réel positif $M$. On peut montrer que $u_n \leqslant M$ \emph{(ne pas oublier l'argument de la continuité lors du passage à l'intégrale)}.
-    \item \underline{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
-    On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
-    \item Finalement, $\boxed{u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}}$.
-\end{itemize}
+\begin{elem_sol}
+    \begin{itemize}
+        \item La démarche générale consiste à encadrer $u_n$. 
+        \item \underline{Majoration:} $f$ est continue sur un segment donc est en particuler bornée par un réel positif $M$. On peut montrer que $u_n \leqslant M$ \emph{(ne pas oublier l'argument de la continuité lors du passage à l'intégrale)}.
+        \item \underline{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
+        On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
+        \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
+    \end{itemize}
+\end{elem_sol}

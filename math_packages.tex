@@ -8,25 +8,62 @@
 \pgfplotsset{compat=newest}
 %
 
+% Pour la figure homothétie
+\usepackage{tkz-euclide}
+%
+
 \usepackage{hyperref}
 \usepackage{pgfplots}
 \usepackage{multicol}
 \usepgfplotslibrary{fillbetween}
+
 \usepackage{tikz}
 \usetikzlibrary{automata}
 \usetikzlibrary{positioning}  %...positioning nodes
-\usetikzlibrary{arrows}       %...customizing arrows
-\tikzset{node distance=4.5cm, % Minimum distance between two nodes. Change if necessary.
-         every state/.style={ % Sets the properties for each state
-         semithick,
-         fill=red!20},
-         initial text={},     % No label on start arrow
-         double distance=2pt, % Adjust appearance of accept states
-         every edge/.style={  % Sets the properties for each transition
-         draw,
-           ->,>=stealth',     % Makes edges directed with bold arrowheads
-           auto,
-           semithick}}
+\usetikzlibrary{arrows}   %...customizing arrows
+
+% figure déterminant
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,calligraphy} % pour les curly braces
+
+% figure racines troisième de l'unité
+\usetikzlibrary{bending}
+
+% Figure changement de base
+% Author: Izaak Neutelings (September 2020)
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{decorations.pathmorphing} % for decorate random steps
+%%%%%%%%%%%%%%
+
+% Pour l'arbre de Calkin-Wilf
+\usepackage{forest}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzset{node distance=3.5cm, % Minimum distance between two nodes. Change if necessary.
+    every state/.style={ % Sets the properties for each state
+    semithick,
+    fill=red!20},
+    initial text={},     % No label on start arrow
+    double distance=1pt, % Adjust appearance of accept states
+    every edge/.style={  % Sets the properties for each transition
+    draw,
+    ->,>=stealth',     % Makes edges directed with bold arrowheads
+    auto,
+    semithick}}
+          
+\tikzset{
+    block/.style={
+    draw, 
+    rectangle, 
+    minimum height=1.5cm, 
+    minimum width=3cm, align=center
+    }, 
+    line/.style={->,>=latex'}
+}
+           
+\usepackage{tikz-3dplot}
 
 \usepackage{fancyhdr}
 \usepackage{amsfonts} 
@@ -40,7 +77,10 @@
 \usepackage{xurl}
 
 % Notations comme les sujets de Centrale
-\usepackage[mathscr]{eucal}
+% \usepackage[mathscr]{eucal}
+
+% Pour les matrices par blocs
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
 
 % Figures
 \usepackage{physics}
@@ -55,7 +95,6 @@
 \usepackage{tabularx}
 \usepackage{extarrows}
 
-\newtheorem*{remarque}{Remarque}
 % \renewcommand\qedsymbol{$\blacksquare$}
 
 %\newenvironment{preuve}[1][\proofname]{%
@@ -64,37 +103,153 @@
 %  \end{proof}
 %}
 
-\newenvironment{preuve}{%
-  \begin{proof}
-}{%
-  \end{proof}
-}
+\newenvironment{preuve}
+  {\begin{proof}[\textbf{\blacksquare\ \textsc{Démonstration.}}]}
+  {\end{proof}}
+  
+\newenvironment{preuve_titre}[1]{%
+  \begin{proof}[#1]}
+  {\end{proof}}
 
-\newenvironment{solution}[1][\proofname]{%
-  \begin{proof}[#1]$ $\par\nobreak\ignorespaces
-}{%
-  \end{proof}
-}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[\blacktriangleright \textbf{\textsc{Solution.}}]}
+  {\end{proof}}
+
+\newenvironment{elem_sol}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[\blacktriangleright \textbf{\textsc{Éléments de solution.}}]}
+  {\end{proof}}
+
 
 \usepackage[most]{tcolorbox}
-\tcbset{colbacktitle=blue!10!white,,coltitle=blue!70!black,colback=blue!2!white,colframe=gray}
+\tcbuselibrary{theorems}
+\tcbset{
+    lower separated=false,
+    colback=blue!2!white,
+    colframe=gray,
+    colbacktitle=blue!20!white,
+    coltitle=black,
+    enhanced jigsaw,
+    sharp corners,
+    borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+    boxrule=0pt, % no real frame,
+}
+
+\newtcolorbox[auto counter,number within=chapter]{defi}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={RoyalBlue},  % Black colour for title
+  title={Définition \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=chapter]{theo}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle=\bfseries,
+  fontupper=\slshape,
+  coltitle={RoyalBlue},  % Black colour for title
+  title={Théorème \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcbtheorem[number within=section]{pro}{Proposition}%
+{enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={RoyalBlue}}{th}
+
+\newtcolorbox[auto counter,number within=chapter]{prop}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={RoyalBlue},  % Black colour for title
+  title={Proposition \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=chapter]{corol}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={RoyalBlue},  % Black colour for title
+  title={Corollaire \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=chapter]{lemme}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={RoyalBlue},  % Black colour for title
+  title={Lemme \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
 \newtcolorbox{box_titre}[2][]{
-                lower separated=false,
-                colback=blue!2!white,
-                colframe=gray,
-                colbacktitle=blue!20!white,
-                coltitle=black,
-                enhanced,
-                attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
-                boxed title style={boxrule=0pt,colframe=white,},
+    lower separated=false,
+    colback=blue!2!white,
+    colframe=gray,
+    colbacktitle=blue!20!white,
+    coltitle=black,
+    enhanced jigsaw,
+    sharp corners,
+    borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
+    boxrule=0pt, % no real frame,
+    attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+    boxed title style={boxrule=0pt,colframe=white,},
 title=#2,#1}
-\newtcolorbox{box_enonce}[2][]{
-                lower separated=false,
-                colback=black!2!white,
-                colframe=gray,
-                colbacktitle=black!20!white,
-                coltitle=black,
-                enhanced,
-                attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
-                boxed title style={boxrule=0pt,colframe=white,},
-title=Énoncé,#1}
+
+\newtcolorbox[auto counter,number within=chapter]{remarque}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{ForestGreen}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={ForestGreen},  % Black colour for title
+  title={Remarque \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=chapter]{exercice}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{BrickRed}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={BrickRed},  % Black colour for title
+  title={Exercice \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=chapter]{methode}[1][]{%
+  enhanced jigsaw, % better frame drawing
+  borderline west={2pt}{0pt}{darkgray}, % straight vertical line at the left edge
+  sharp corners, % No rounded corners
+  boxrule=0pt, % no real frame,
+  fonttitle={\bfseries},
+  coltitle={darkgray},  % Black colour for title
+  title={Méthode \thetcbcounter.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+

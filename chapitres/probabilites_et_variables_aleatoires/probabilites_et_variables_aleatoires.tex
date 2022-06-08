@@ -1,0 +1,100 @@
+\section{Identité de \textsc{Vandermonde}}
+\input{chapitres/determinants/inverse_de_la_matrice_de_vandermonde}
+
+\section{Dénombrement des applications strictement croissantes}
+\input{chapitres/probabilites_et_variables_aleatoires/denombrement_des_applications_strictement_croissantes}
+
+\section{Dénombrement des applications croissantes}
+\input{chapitres/probabilites_et_variables_aleatoires/denombrement_des_applications_croissantes}
+
+\section{Dénombrement des surjections} \label{denombrement_surjections}
+\input{chapitres/probabilites_et_variables_aleatoires/denombrement_des_surjections}
+
+\section{Loi d'un maximum/minimum}
+\input{chapitres/probabilites_et_variables_aleatoires/loi_un_maximum_minimum}
+
+\section{Lemmes de \textsc{Borel-Cantelli}}
+\input{chapitres/probabilites_et_variables_aleatoires/lemmes_de_borel_cantelli}
+
+\section{Identité de \textsc{Wald}}
+\input{chapitres/probabilites_et_variables_aleatoires/identite_de_wald}
+
+\section{Chaîne de \textsc{Markov}} \label{chaîne_markov}
+% \input{illustrations/i_chaine_de_markov}
+
+\section{Inégalités de concentration (et transformées de \textsc{Laplace})}
+\input{chapitres/probabilites_et_variables_aleatoires/inegalites_de_concentration_et_transformees_de_laplace}
+
+\section{Calcul de \texorpdfstring{$\E \left [ \left (\sum\limits_{i=1}^{n} X_i \right)^4 \right]$}{espérance de la somme puissance 4 de v.a.}}
+\input{chapitres/probabilites_et_variables_aleatoires/calcul_de_esperance_de_la_somme_puissance_4_de_va}
+
+\section{Exercice d'oral}
+\cite{acamanes}
+\begin{exercice}
+    Soit $(\Omega, \mathscr{A}, \P)$ un espace probabilisé. 
+    \begin{enumerate}
+        \item Soit $B$ un ensemble non vide et $(A_{\beta})_{\beta \in B}$ une famille d'éléments deux à deux disjoints de $\mathscr{A}$ telle que pour tout $\beta \in B, \P(A_\beta) > 0$. Montrer que $B$ est au plus dénombrable. 
+        \item Soit $X$ une variable aléatoire indépendante d'elle même. Montrer que $X$ est constante. 
+    \end{enumerate}
+\end{exercice} 
+
+\marginnote{
+\begin{methode}
+    Écrire l'ensemble sous la forme d'une union finie ou dénombrable d'ensembles dénombrables ou finis.
+\end{methode}
+}
+
+\begin{solution}
+\begin{enumerate}
+    \item Soit $I$ un ensemble non vide. 
+    $$I = \bigcup_{n \in \Ne} \underbrace{\left \{ \beta \in B, \P(A_\beta) \geqslant \frac{1}{n} \right \}}_{\defeq I_n}.$$
+    Soient $n, p \in \Ne$ et $(\beta_1, \dots, \beta_p) \in (I_n)^p$ deux à deux distincts. Alors
+    \begin{align*}
+        1 \geqslant \P \left( \bigsqcup_{i=1}^p A_{\beta_i} \right) &= \sum_{i=1}^p \P(A_{\beta_i}) \geqslant \sum_{i=1}^p \frac{1}{n}
+    \end{align*}
+    donc $p \leqslant n$. \\
+    Ainsi, $I_n$ est fini et $|I_n| \leqslant n$ i.e. $I$ est au plus dénombrable. 
+    \item \textcolor{red}{À vérifier} Soit $\omega \in X(\Omega)$. Par indépendance de $X$ avec elle-même,
+    $$\P(X = \omega) = \P(\{X=\omega\} \cap \{X=\omega\})= \P(X=\omega)^2.$$
+    On en déduit que $\P(X=\omega) \in \{ 0, 1 \}$. \\
+    De plus, $\sum\limits_{\omega \in X(\Omega)} \P(X=\omega) = 1$ et donc il existe un unique $\omega_0 \in X(\Omega)$ tel que $X=\omega_0$ presque sûrement i.e. $X$ est presque sûrement constante. 
+\end{enumerate}
+\end{solution}
+
+\section{Discontinuités des fonctions monotones}
+\input{chapitres/probabilites_et_variables_aleatoires/discontinuites_des_fonctions_monotones}
+
+\section{Nombres algébriques}
+\begin{exercice}
+\emph{Exercice 2 TD VI} \\
+Un nombre $z$ est \emph{algébrique} s'il existe $n \in \Ne$ et $(a_0, \dots, a_n) \in \Q^{n+1}$ tels que $a_n \not=0$ et 
+$$\sum_{k=0}^n a_k z^k = 0.$$
+Montrer que l'ensemble des nombres algébriques est dénombrable. 
+\end{exercice}
+
+\marginnote{Définition à revoir sur le corps des coefficients}
+
+\begin{marginfigure}
+    \input{illustrations/i_arbre_calkin_wilf}
+    L'arbre de \textsc{Calkin}-\textsc{Wilf} est un arbre dont les sommets sont en bijection avec les nombres rationnels positifs.
+\end{marginfigure}
+
+\begin{solution}
+Les rationnels sont dénombrables \dots Donc pour $n$ fixé, $\Q_n[X]$ est dénombrable en tant que produits finis d'ensembles dénombrables.
+Donc $\bigcup\limits_{n \in \N} \Q_n[X]$ est dénombrable comme réunion dénombrable d'ensembles dénombrables. \\
+Pour tout polynôme dans $\Q_n[X]$, le nombre de ses racines est fini et de cardinal inférieur à $n$. 
+Donc les nombres algébriques sont dénombrables car on peut établir une application surjective de leur ensemble sur une réunion dénombrable d'ensembles finis. 
+\end{solution}
+
+
+\section{Fonction indicatrice d'\textsc{Euler}}
+\input{chapitres/probabilites_et_variables_aleatoires/fonction_indicatrice_euler}
+
+\section{\emph{Exercice 4. Chap. VII:}}
+\input{chapitres/probabilites_et_variables_aleatoires/exercice_4_chapitre_7}
+
+\section{Distance en variation totale}
+\input{chapitres/probabilites_et_variables_aleatoires/distance_en_variation_totale}
+
+\section{Majoration de la variance d'une v.a.d.r.}
+\input{chapitres/probabilites_et_variables_aleatoires/majoration_de_la_variance_unevadr}

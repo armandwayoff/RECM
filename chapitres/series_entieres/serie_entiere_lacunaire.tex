@@ -1,0 +1,28 @@
+\begin{exercice}
+Calculer $\sum\limits_{n=0}^{+ \infty} \frac{x^{3n}}{(3n)!}$ pour tout $x \in \R$.
+\end{exercice}
+
+\begin{solution}
+Soit $x \in \R$. 
+\begin{align} \label{decomposition_somme_expo}
+    \me^x = \sum_{n=0}^{+ \infty} \frac{x^n}{n!} = \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n}}{(3n)!}}_{ \defeq A} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+1}}{(3n+1)!}}_{\defeq B} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+2}}{(3n+2)!}}_{\defeq C}.
+\end{align}
+
+\begin{marginfigure}
+    \input{illustrations/i_racine_troisieme_unite}
+\end{marginfigure}
+
+On note $\mj \defeq \me^{\mi \frac{2\pi}{3}}$. En évaluant (\ref{decomposition_somme_expo}) respectivement en $\mj x$ et en $\mj^2 x$ on obtient deux nouvelles équations
+$$\begin{cases}
+    \me^x &= A + B + C \\
+    \me^{\mj x} &= A + \mj B + \mj^2 C \\
+    \me^{\mj^2 x} &= A + \mj^2 B + \mj C
+\end{cases}.$$
+Comme $1 + \mj + \mj^2 = 0$, en sommant ces trois relations on obtient
+$$A = \frac{1}{3}(\me^x + \me^{\mj x}+ \me^{\mj^2 x}).$$
+Cette quantité est bien réelle car $\mj^2 = \overline{\mj}$.
+\end{solution}
+
+\begin{remarque}
+    On étend facilement le résultat aux séries entières $p$-lacunaires $\sum\limits_{n=0}^{+ \infty} \frac{x^{pn}}{(pn)!}$.
+\end{remarque}

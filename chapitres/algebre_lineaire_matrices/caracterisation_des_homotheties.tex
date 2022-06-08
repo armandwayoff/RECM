@@ -2,6 +2,16 @@
     Soit $E$ un espace vectoriel et $f \in \Endo(E)$. Alors $f$ est une homothétie si et seulement si $(x, f(x))$ liée pour tout $x \in E$.
 \end{tcolorbox}
 
-\begin{itemize}
-    \item ($\Leftarrow$) Poser $f:x \mapsto \lambda_x x$. Soient $x_0 \in E$ non nul et $x \in E$. Distinguer les cas où $x \in \Vect(x_0)$ et $x \not \in \Vect(x_0)$.
-\end{itemize}
+\begin{marginfigure}
+    \input{illustrations/i_homothetie}
+\end{marginfigure}
+
+\begin{preuve}
+    Raisonnons par double implication. \\
+    ($\Rightarrow$) On suppose que $f$ est une homothétie. Alors il existe $\lambda \in \K$ non nul tel que pour tout $x \in E, f(x) = \lambda x$. Ainsi, la famille $(x, f(x))$ est liée pour tout $x \in E$. \\
+    ($\Leftarrow$) On suppose que la famille $(x, f(x))$ est liée pour tout $x \in E$. On pose $\boxed{f:x \mapsto \lambda_x x}$. Soient $x_0 \in E$ non nul et $x \in E$. 
+    \begin{itemize}
+        \item Cas où $x \in \Vect(x_0)$... 
+        \item Cas où $x \not \in \Vect(x_0)$...
+    \end{itemize}
+\end{preuve}

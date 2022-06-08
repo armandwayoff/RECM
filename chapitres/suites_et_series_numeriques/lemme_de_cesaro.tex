@@ -1,8 +1,19 @@
-\begin{tcolorbox}
+\begin{lemme}
     Soit $(u_n)_{n \in \Ne}$ une suite réelle ou complexe convergeant vers $\ell$.
-    Alors la suite de terme général $v_n = \frac{1}{n} \sum\limits_{k=1}^{n} u_k$ converge aussi vers $\ell$.
-\end{tcolorbox}
+    Alors la suite de terme général $\frac{1}{n} \sum\limits_{k=1}^{n} u_k$ converge aussi vers $\ell$.
+\end{lemme}
 
-\begin{itemize}
-    \item Utiliser les $\varepsilon$ et découper la somme judicieusement. Attention, ne pas directement passer à la limite dans le terme majorant mais poser un nouveau rang à partir duquel cette quantité est inférieure à $\varepsilon$.
-\end{itemize}
+\begin{preuve}
+    Soit $\varepsilon > 0$. Comme la suite $(u_n)$ converge vers $\ell$, il existe un rang $n_0 \in \Ne$ tel que pour tout $n \geqslant n_0,\ |u_n - \ell| \leqslant \varepsilon$. \\
+    Soit $n \geqslant n_0$,
+    \begin{align*}
+        \left| \frac{1}{n} \sum_{k=1}^n u_n - \ell \right| &= \left| \frac{1}{n} \sum_{k=1}^n (u_n - \ell) \right| \\
+        \text{par l'inégalité triangulaire} &\leqslant \frac{1}{n} \sum_{k=1}^n |u_n - \ell| \\
+        &\leqslant \frac{1}{n} \Bigg( \underbrace{\sum_{k=1}^{n_0-1} |u_n - \ell|}_{\defeq K} + \sum_{k=n_0}^n \underbrace{|u_n - \ell|}_{\leqslant \varepsilon} \Bigg) \\
+        &\leqslant \frac{K}{n} + \varepsilon
+    \end{align*}
+    Or $\lim\limits_{n \to \infty} \frac{K}{n} = 0$ donc il existe un rang $n_1 \in \Ne$ tel que pour tout $n \geqslant n_1, \left| \frac{K}{n} \right| \leqslant \varepsilon$. \\
+    Ainsi pour tout $n \geqslant \max \{ n_0, n_1 \}$, 
+    $$\left| \frac{1}{n} \sum_{k=1}^n u_n - \ell \right| \leqslant 2 \varepsilon.$$
+    On en déduit que la suite $\Bigg( \frac{1}{n} \sum\limits_{k=1}^{n} u_k \Bigg)_{n \in \Ne}$ converge vers $\ell$.
+\end{preuve}

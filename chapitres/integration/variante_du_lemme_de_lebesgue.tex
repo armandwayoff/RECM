@@ -1,6 +1,6 @@
 \begin{tcolorbox}
     Soit $f$ continue par morceaux sur le segment $[a,b]$, avec $a < b$,
-    $$\lim_{n \to +\infty} \int_{a}^{b} f(t) | \sin (nt) |\ \d t = \frac{2}{\pi} \int_{a}^{b} f(t)\ \d t.$$
+    $$\lim_{n \to +\infty} \int_{a}^{b} f(t) | \sin (nt) | \d t = \frac{2}{\pi} \int_{a}^{b} f(t) \d t.$$
 \end{tcolorbox}
     
 \underline{Démarche:}
@@ -12,7 +12,7 @@
 \underline{Indications:}
 \begin{enumerate}[noitemsep]
     \item On pose $f = \lambda$. On va étudier la limite de l'intégrale
-    $$I_n = \int_{a}^{b} \lambda | \sin(nt) |\ \d t = \frac{\lambda}{n} \int_{na}^{nb} | \sin(u) |\ \d u.$$
+    $$I_n = \int_{a}^{b} \lambda | \sin(nt) | \d t = \frac{\lambda}{n} \int_{na}^{nb} | \sin(u) | \d u.$$
     L'idée est alors de découper l'intervalle $[a, b]$ en trois intervalles: des \textcolor{YellowGreen}{extrémités} où l'intégrale tendra vers $0$ puis un intervalle \textcolor{Salmon}{central} de longueur $k_n \pi$ qui sera simple à traiter. \\
     \textcolor{green}{A mieux rédiger...} \\
     On pose (qui existent pour $n \geqslant \frac{\pi}{b-a}$)
@@ -21,7 +21,7 @@
     \item Aucune difficulté.
     \item Il existe deux fonctions en escalier $\varphi$ et $\psi$ telles que $\varphi \leqslant f \leqslant \psi$ et $\int_{a}^{b} (\psi - \varphi) \leqslant \varepsilon$.
     \begin{align*}
-        & \left | \int_{a}^{b} f(t) | \sin (nt) |\ \d t - \frac{2}{\pi} \int_{a}^{b} f(t)\ \d t \right| \\
-        \leqslant & \left | \int_{a}^{b} [f(t) - \varphi(t) ] | \sin(t) |\ \d t \right| + \left | \int_{a}^{b} \varphi(t) |\sin(t)|\ \d t - \frac{2}{\pi} \int_{a}^{b} \varphi(t)\ \d t \right| + \left| \frac{2}{\pi} \int_{a}^{b} [f(t) - \varphi(t)]\ \d t \right|
+        & \left | \int_{a}^{b} f(t) | \sin (nt) | \d t - \frac{2}{\pi} \int_{a}^{b} f(t) \d t \right| \\
+        \leqslant & \left | \int_{a}^{b} [f(t) - \varphi(t) ] | \sin(t) | \d t \right| + \left | \int_{a}^{b} \varphi(t) |\sin(t)| \d t - \frac{2}{\pi} \int_{a}^{b} \varphi(t) \d t \right| + \left| \frac{2}{\pi} \int_{a}^{b} [f(t) - \varphi(t)] \d t \right|
     \end{align*}
 \end{enumerate}

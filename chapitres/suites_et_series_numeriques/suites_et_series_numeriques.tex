@@ -1,6 +1,13 @@
 \chapter{Suites \& Séries numériques}
 \labch{suites_et_series_numeriques}
 
+\emph{\say{ Les séries divergentes sont des inventions du diable, et c'est une honte que l'on ose fonder sur elles la moindre démonstration. On peut en tirer  tout ce qu'on veut quand on les emploie et ce sont elles qui ont produit tant d'échecs et tant de paradoxes. }}
+\begin{flushright}
+\textsc{--- Niels Abel}, \emph{Œuvres, 1881}
+\end{flushright}
+
+\newpage
+
 \section{Lemme de \textsc{Cesàro}} \label{lemme_cesaro}
 \input{chapitres/suites_et_series_numeriques/lemme_de_cesaro}
 
@@ -26,7 +33,7 @@
 \section{Suites sous-additive}
 \input{chapitres/suites_et_series_numeriques/suites_sous_additive}
 
-\section{Étude de la suite de terme général \texorpdfstring{$u_n = \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n\ \d x \right)^{1/n}$}{égal à une intégrale}}
+\section{Étude de la suite de terme général \texorpdfstring{$u_n = \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
 \input{chapitres/suites_et_series_numeriques/etude_de_la_suite_de_terme_general_egal_a_une_integrale}
 
 \section{Transformation d'\textsc{Abel}} \label{transformation_abel}
@@ -40,3 +47,19 @@
 
 \section{Suites du type \texorpdfstring{$f(x_n) = n$}{f(x_n) = n}}
 \input{chapitres/suites_et_series_numeriques/suites_du_type_f(xn)_egal_n}
+
+\section{Suites définies implicitement}
+
+\begin{methode}
+    Texte de \cite{oraux_x_ens_3} p. 181.
+    \begin{enumerate}
+        \item Montrer l'existence de $x_n$
+        \item Démontrer la convergence de la suite $x_n$
+        \item Déterminer un équivalent 
+        \item Déterminer un développement asymptotique de $x_n$ \\
+        Pour cela il faut commencer par déterminer dans la relation qui définit $x_n$ quels sont les termes prépondérants. 
+    \end{enumerate}
+\end{methode}
+
+\section{Sommation par paquets}
+\input{chapitres/suites_et_series_numeriques/sommation_par_paquets}

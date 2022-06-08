@@ -1,5 +1,28 @@
-\begin{itemize}
-    \item Poser les suites définies par pour tout $n \in \Ne$
-    $$u_n = \sum_{k=1}^{n} \frac{1}{k!} \text{ et } v_n = u_n + \frac{1}{n \cdot n!}.$$
-    \item Raisonner par l'absurde. 
-\end{itemize}
+La preuve est due à Joseph \textsc{Fourier} (1815). \\
+Une version de la preuve est dans Proofs from the BOOK (p.47) \\
+Une preuve passe par l'écriture en fraction continue de $\me$.
+
+\begin{preuve}
+    Supposons par l'absurde qu'il existe deux entiers $a$ et $b > 0$ tel que $\me = \frac{a}{b}$. Alors
+    $$n! b \me = n! a$$
+    pour tout $n \geqslant 0$. Le terme de droite est un entier et le terme de gauche s'écrit
+    $$n! b \left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} + \frac{1}{(n+1)!} + \cdots \right)$$
+    qui se décompose en la somme d'un entier
+    $$b n! \left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right)$$
+    et d'un second membre
+    $$b \left( \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)}+ \cdots \right).$$
+    Or ce second membre n'est pas entier car pour $n > 1$,
+    \begin{align*}
+        \frac{1}{n+1} &< \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)} + \cdots \\
+        & < \frac{1}{n+1} + \frac{1}{(n+1)^2} + \frac{1}{(n+1)^3} + \cdots = \frac{1}{n+1} \cdot \frac{1}{1-\frac{1}{n+1}} = \frac{1}{n}.
+    \end{align*}
+    Ainsi le membre de gauche n'est pas entier et on aboutit à une contradiction. On en déduit que $\me$ est irrationnel.
+\end{preuve}
+
+\marginnote{
+J. \textsc{Liouville} montre en 1840 que $\me^2$ est également irrationnel. (à compléter)
+Charles \textsc{Hermite} montre en 1873 que $\me$ est \emph{transcendant}
+\begin{kaobox}[frametitle=Nombre transcendant]
+    def...
+\end{kaobox}
+}

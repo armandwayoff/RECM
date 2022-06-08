@@ -1,0 +1,16 @@
+\begin{exercice}
+    Détemriner le sous-espace vectoriel de $\M_n(\K)$ engendré par les matrices nilpotentes.
+\end{exercice}
+
+\begin{solution}
+    On note $\mathcal{N}$ l'ensemble des matrices nilpotentes et $\mathcal{T}$ l'ensemble des matrices de trace nulle. Nous allons montrer que $\mathcal{V} \defeq \Vect(\mathcal{N}) = \mathcal{T}$. \\
+    L'ensemble $\mathcal{T}$ est le noyau de la forme linéaire non nulle qu'est la \emph{trace}, c'est donc un hyperplan de $\M_n(\K)$ et est de dimension $n^2-1$. \\
+    Comme le spectre d'une matrice nilpotente est réduit à $0$, toute matrice nilpotente est semblable à une matrice triangulaire à éléments diagonaux nuls. La \emph{trace} étant un invariant de similitude, toute matrice nilpotente est de trace nulle. On en déduit le même résultat sur la trace de toute combinaison linéaire de matrices nilpotentes. \\
+    \cite{oraux_x_ens_2} p. 12. \\
+    Pour $(i,j) \in \llbracket 1, n \rrbracket^2$ avec $i \not= j$, la matrice $\mathrm{E}_{ij}$ de la base canonique est nilpotente d'ordre $2$. Ces matrices engendrent l'espace des matrices de diagonale nulle. Il nous reste donc à obtenir l'espace des matrices diagonales de trace nulle. Les matrice $\mathrm{E}_{ii} - \mathrm{E}_{jj}$ avec $i \not= j$ ne sont pas nilpotentes (prendre la matrice de taille $2$ avec $1$ et $-1$ sur la diagonale) mais on va pouvoir les obtenir comme combinaisons linéaires de matrices nilpotentes. \\
+    Regardons déjà la cas $n = 2$. Une matrice nilpotente de trace nulle avec $1$ et $-1$ sur la diagonale, doit être de rang $1$. On constate effectivement que $\begin{pmatrix} 1 & -1 \\ 1 & -1 \end{pmatrix}$ est bien nilpotente. Construisons une matrice analogue de taille $n$. \\
+    Pour $2 \leqslant i \leqslant n$, considérons alors la matrice
+    $$F_i \defeq \mathrm{E}_{11} - \mathrm{E}_{1i} + \mathrm{E}_{i1} - \mathrm{E}_{ii}.$$
+    Cette étant de rang égal à $1$, d'après \textcolor{red}{l'exo précé} $F_i^2 = \Tr{F_i} F_i = 0$ puisque $\Tr(F_i) = 0$. \\
+    Ainsi l'espace $\mathcal{V}$ contient $\mathrm{E}_{11}-\mathrm{E}_{ii} = F_i + \mathrm{E}_{1i} - \mathrm{E}_{i1}$ pour $2 \leqslant i \leqslant n$ (puisque les trois matrices du membre de droite sont nilpotentes) et donc l'espace des matrices diagonales de trace nulle. On a donc montré que $\mathcal{V} = \mathcal{T}$.
+\end{solution}

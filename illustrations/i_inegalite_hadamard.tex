@@ -1,0 +1,26 @@
+\tdplotsetmaincoords{70}{60}
+\begin{tikzpicture}[scale=1,line cap=butt,line join=round,tdplot_main_coords,declare function={a=3;b=3;h=3;k=0;
+   }] 
+\begin{scope}[canvas is xy plane at z=0]
+\path
+    (0,0) coordinate (A) 
+    (a,0) coordinate (B)
+    (a,b) coordinate (C)
+    (0,b) coordinate (D);
+\end{scope}
+\begin{scope}[canvas is xy plane at z=h]
+\path
+    (0,k) coordinate (A') 
+    (a,k) coordinate (B')
+    (a,b+k) coordinate (C')
+    (0,b+k) coordinate (D');
+\end{scope}  
+\begin{scope}[opacity=0.5,thick]
+\draw[fill=orange] (A) --(B)  -- (C) -- (D) -- cycle;
+\draw[fill=cyan] (A) --(B)  -- (B') -- (A') -- cycle;
+\draw[fill=red] (B) --(C)  -- (C') -- (B') -- cycle;
+\draw[fill=cyan] (C) --(D)  -- (D') -- (C') -- cycle;
+\draw[fill=yellow] (A) --(D)  -- (D') -- (A') --cycle;
+\draw[fill=pink] (A') --(B')  -- (C') -- (D') --cycle;
+\end{scope}
+\end{tikzpicture}

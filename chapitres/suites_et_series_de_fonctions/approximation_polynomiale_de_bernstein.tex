@@ -1,19 +1,71 @@
 \emph{Exercice 10. TD VIII} \\
-\underline{Démonstration:} \cite{calcul_infinitesimal} page 159.
-
-\begin{tcolorbox}
-    Soit $f$ une fonction $k$-lipschitzienne sur $[0, 1]$. Le polynôme de \textsc{Bernstein} d'ordre $n$ associé à $f$ est le polynôme
-    $$\Bernstein_n(f)(x) = \sum_{k=0}^{n} f \left( \frac{k}{n} \right) \binom{n}{k} x^k (1-x)^{n-k}$$
-    La suite $(\Bernstein_n(f))_n$ des polynômes de \textsc{Bernstein} converge uniformément vers $f$ sur $[0, 1]$. \\
+\begin{theo}
+    Soit $f$ une fonction continue sur $I \defeq [0, 1]$. Le polynôme de \textsc{Bernstein} d'ordre $n$ associé à $f$ est le polynôme
+    \begin{equation} \label{1}
+        \Bernstein_n(f)(x) \defeq \sum_{p=0}^{n} f \left( \frac{p}{n} \right) \binom{n}{p} x^p (1-x)^{n-p}
+    \end{equation}
+    La suite $(\Bernstein_n(f))_n$ des polynômes de \textsc{Bernstein} converge uniformément vers $f$ sur $I$. \\
     \textit{Ce résultat s'étend à toute fonction continue sur un segment à valeurs dans $\C$}.
-\end{tcolorbox}
+\end{theo}
 
-Le sujet X/ENS PSI 2018 propose une élégante démonstration de ce résultat d'analyse pure en passant par les probabilités. (Je crois que la version du TD est un peu différente).
-    
-\begin{box_enonce}
-    
-    Préciser les hypothèses sur $f$.
-        
+\marginnote[0cm]{
+    $$d(f, g) = \sup_{x \in I} |f(x) - g(x)|$$
+}
+
+\begin{preuve}
+    Le démonstration qui suit est celle proposée dans \cite{calcul_infinitesimal} page 159 dont quelques étapes techniques ont été détaillées. \\
+    Nous partirons de l'identité
+    \begin{equation}
+        1 = (1-t+t)^n = \sum_{p=0}^n \binom{n}{p} (1-t)^{n-p}t^p.
+    \end{equation}
+    On déduit de cette relation que pour toute fonction bornée $f$ définie dans $I$, on a
+    \begin{equation} \label{2}
+        |\Bernstein_n(f)(t)| \leqslant \sup_{t \in I} |f(t)| \cdot \left(\sum_{p=0}^n \binom{n}{p} (1-t)^{n-p}t^p \right) = d(0, f)
+    \end{equation}
+    puisque les fonctions $\binom{n}{p}(1-t)^{n-p}t^p$ prennent des \emph{valeurs} $\geqslant 0$ \emph{dans} $I$. \\
+    Étant donné $\varepsilon > 0$, on sait que pour toute fonction continue $f$ dans $I$, il existe, en vertu du théorème de \textsc{Weierstrass}, un polynôme $P$ tel que $d(f, P) \leqslant \varepsilon$; on conclut alors de (\ref{2}) que
+    \begin{equation} \label{3}
+        d(\Bernstein_n(f), \Bernstein_n(P)) \leqslant d(f, P) \leqslant \varepsilon.
+    \end{equation}
+    Par suite, pour $t \in I$,
+    \begin{align*}
+        |f(t)-\Bernstein_n(f)(t)| &\leqslant |f(t) - \Bernstein_n(P)(t)| + \underbrace{|\Bernstein_n(P)(t) - \Bernstein_n(f)(t)|}_{\leqslant \varepsilon \text{ d'après (\ref{3})}} \\
+        &\leqslant \underbrace{|f(t) - P(t)|}_{\leqslant \varepsilon} + |P(t) - \Bernstein_n(P)(t)| + \varepsilon
+    \end{align*}
+    Ainsi, par passage à la borne supérieure sur $I$, on obtient
+    \begin{equation} \label{5}
+        d(f, \Bernstein_n(f)) \leqslant 2 \varepsilon + d(P, \Bernstein_n(P)).
+    \end{equation}
+    Si l'on prouve le théorème lorsque $f$ est un \emph{polynôme}, il sera donc vrai pour toute fonction continue dans $I$. Par linéarité, il suffit donc de le prouver lorsque $f(t) = t^m$. En fait, nous allons voir, par récurrence sur $m$, que l'on a, en posant $f_m(t) = t^m$, pour $n \geqslant m$, 
+    \begin{equation} \label{6}
+        \Bernstein_n(f_m)(t) = t^m + \frac{1}{n}Q_{m,n}(t)
+    \end{equation}
+    où $Q_{m,n}$ est un polynôme de degré inférieur à $m-1$, dont les coefficients sont majorés en valeur absolue par un nombre $A_m$ \emph{indépendant de} $n$. \\
+    La formule (\ref{6}) se réduit à (\ref{2}) pour $m=0$, avec $Q_{0,n}(t) = 0$. Supposons-la vérifiée pour un entier $m$ et dérivons par rapport à $t$; en vertu de la défition (\ref{1}), on obtient, pour $n \geqslant m+1$, 
+    \begin{equation} \label{7}
+        -\sum_{p=0}^{n-1} \binom{n}{p} \frac{p^m}{n^m}(n-p)(1-t)^{n-p-1}t^p + \sum_{p=1}^n \binom{n}{p} \frac{p^{m+1}}{n^m}(1-t)^{n-p}t^{p-1} = mt^{m-1} + \frac{1}{n} Q'_{m,n}(t).
+    \end{equation}
+    Comme $(n-p) \binom{n}{p} = n \binom{n-1}{p}$, le premier terme du premier membre de (\ref{7}) est égal à 
+    $$-n \Bernstein_{n-1}(f_m)(t) = -nt^m - \frac{n}{n-1}Q_{m, n-1}(t).$$ 
+    Multipliant les deux membres de (\ref{7}) par $\frac{t}{m}$, on obtient donc, en vertu de la définition des polynômes de \textsc{Bernstein},
+    \begin{equation*}
+        -\frac{n}{m} t^{m+1} - \frac{nt}{m(n-1)}Q_{m, n-1}(t) + \frac{n}{m} \underbrace{\sum_{p=1}^n \binom{n}{p} \frac{p^{m+1}}{n^{m+1}}(1-t)^{n-p}t^p}_{\Bernstein_n(f_{m+1})(t)} = t^m + \frac{t}{mn}Q'_{m,n}(t)\\
+    \end{equation*}
+    soit en réarrangeant les termes et en multipliant l'égalité par $\frac{m}{n}$;
+    \begin{align*}
+        \Bernstein_n(f_{m+1})(t) &= t^{m+1} + \frac{m}{n}t^m + \frac{t}{n^2}Q'_{m,n}(t) + \frac{t}{n-1} Q_{m, n-1}(t) \\
+        &= t^{m+1} + \frac{1}{n}Q_{m+1, n}(t)
+    \end{align*}
+    avec $Q_{m+1, n}(t) = mt^m + \frac{1}{n}t Q'_{m,n}(t) + \frac{n}{n-1}t Q_{m,n-1}(t)$. \\
+    Comme, par hypothèse, $Q_{m,n}$ est de degré inférieur à $m-1$, le polynôme $Q_{m+1, n}$ est bien de degré inférieur à $m$. \\
+    Les coefficients de $\frac{1}{n}t Q'_{m,n}(t)$ sont majorés en valeur absolue par $\frac{m-1}{n}A_m \leqslant (m-1)A_m$ ... \textcolor{red}{A FINIR}
+    et cela prouve (\ref{6}) par récurrence, avec
+    $$A_{m+1} \leqslant 3 \sup(m, (m-1) A_m).$$
+\end{preuve}
+
+Le sujet \textsc{x/ens psi 2018} propose une démonstration élégante de ce résultat d'analyse pure en passant par les probabilités. (Je crois que la version du TD est un peu différente).
+Préciser les hypothèses sur $f$.
+\begin{exercice}        
     Soit $x \in ]0, 1[$ et $n \in \Ne$. On considère $X_1, \dots, X_n$ des variables aléatoires mutuellement indépendantes et suivant toutes la même loi de \textsc{Bernoulli} de paramètre $x$. On pose
     $$S_n = \frac{X_1 + \cdots + X_n}{n}.$$
     \begin{enumerate}
@@ -27,4 +79,4 @@ Le sujet X/ENS PSI 2018 propose une élégante démonstration de ce résultat d'
         $$\Ninf{f-\Bernstein_n(f)} \leqslant \frac{3k}{2} \frac{1}{n^{\alpha/2}}.$$
         Conclure.
     \end{enumerate}
-\end{box_enonce}
+\end{exercice}

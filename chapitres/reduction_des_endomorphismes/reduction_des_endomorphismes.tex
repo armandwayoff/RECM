@@ -3,15 +3,25 @@
 
 {\Large Diagonalisation \sidenote[][-2mm]{Le texte suivant est extrait de \cite{oraux_x_ens_2} p. 169.}} \\
 
+\begin{marginfigure}[1cm]
+    \includegraphics[width=5cm]{images/camille_jordan.jpg}
+    \caption{Camille \textsc{Jordan}}
+\end{marginfigure}
+
 \textsl{On doit à Camille \textsc{Jordan} de nombreux résultats sur la réduction des endomorphismes qu'il découvre notamment à travers l'étude des groupes. Dépassant la notion des groupes de permutations pour en atteindre une plus abstraite, il s'intéresse à la classification des groupes finis à travers leurs représentations linéaires, autrement dit les morphismes entre un groupe fini $G$ et le groupe linéaire $\Gl (E)$ d'un espace vectoriel $E$. Il va même jusqu'à donner le description des classes de similitudes à l'aide des formes dites de \textsc{Jordan}.}\\
 \textsl{Le problème fondamental de la réduction est bien celui de caractériser les classes de similitude de l'algèbre $\Endo(E)$ où $E$ est un $\K$-espace vectoriel de dimension finie ou, ce qui revient au même, les classes de similitudes de l'agèbre $\M_n(\K)$. La recherche d'une matrice la plus simple possible pour représenter un endomorphisme donné vise de multiples buts: calculer les puissances successives de cet endomorphisme, son commutant, résoudre des systèmes différentiels linéaires... Une idée naturelle pour essayer de "réduire" l'étude d'un endomorphisme $u$ donné à des choses plus simples consiste à essayer de décomposer l'espace vectoriel $E$ en une somme directe de sous-espaces non triviaux stables par $u$. Cela n'est évidemment pas toujours possible. Les sous-espaces stables les plus simples sont ceux sur lesquels $u$ coïncide avec une homothétie. On est ainsi naturellement amené à la notion de valeur propre. Si $\lambda$ est un scalaire, on s'intéresse donc au sous-espace $E_\lambda = \Ker(u - \lambda \Id_E)$ appelé sous-espace propre pour la valeur propre $\lambda$ lorsque celui-ci n'est pas nul. Le théorème de décomposition des noyaux nous assure que les différents sous-espaces propres d'un endomorphisme sont en somme directe. Le cas où la somme remplit tout l'espace $E$ mène à la notion d'endomorphisme diagonalisable: un tel endomorphisme peut être représenté par une matrice diagonale (il suffit de prendre une base formée de vecteurs propres). Pour les endomorphismes diagonalisables il est alors très facile de répondre à la question initiale de savoir quand ils sont semblables: il faut et suffit qu'ils aient les mêmes valeurs propres et que les espaces propres associés aient la même dimension. Il est aussi facile, en se ramenant à une matrice diagonale, de calculer les puissances d'un tel endomorphisme, son exponentielle (si on travaille sur un sous-corps de $\C$), son commutant...} \\
 
 Soit $E$ un espace vectoriel de dimension finie. Un endomorphisme $u$ de $E$ est trigonalisable si et seulement s'il existe un drapeau total de $E$ stable par $u$. 
 
-\begin{marginfigure}[-19cm]
-    \includegraphics{images/camille_jordan.jpg}
-    \caption{Camille \textsc{Jordan}}
-\end{marginfigure}
+\begin{Large}
+    Trigonalisation
+\end{Large}
+
+\textsl{La diagonalisation ne permet pas de caractériser toutes les classes de similitude de $\M_n(\K)$. Lorsque le corps de base est égal à $\C$, le polynôme caractéristique d'une matrice $A \in \M_n(\C)$ est toujours scindé et $A$ est alors trigonalisable. Le lemme des noyaux permet même dans ce cas de trigonaliser $A$ sous une forme diagonale par blocs avec pour chaque bloc diagonal une unique valeur propre. Cela conduit à la notion de sous-espace caractéristique et à la décomposition de \textsc{Jordan}-\textsc{Dunford}: dans le cas abstrait, tout endomorphisme $u$ d'un $\C$-espace vectoriel de dimension finie s'écrit de manière unique sous la forme $u = d + n$ où $d$ est diagonalisable, $n$ est nilpotent et commute avec $d$. (H.P. CPGE). Cette décomposition amène l'attention sur les classes de similitude des endomorphismes nilpotents. Avec un peu de travail il est alors possible d'obtenir le théorème de \textsc{Jordan} qui règle complètement la question de la détermination des classes de similitude sur un corps algébriquement clos. \\
+Dans le cadre général, l'outil fondamental pour élucider les classes de similitude de $\M_n(\K)$ est la notion d'endomorphisme cyclique.
+}
+
+\newpage
 
 \section{Matrices à diagonale dominante}
 \input{chapitres/reduction_des_endomorphismes/matrices_a_diagonale_dominante}
@@ -23,14 +33,14 @@ Soit $E$ un espace vectoriel de dimension finie. Un endomorphisme $u$ de $E$ est
 \section{Matrices stochastiques}
 \input{chapitres/reduction_des_endomorphismes/matrices_stochastiques}
 
-\section{Exercice 10 TD 11}
-\input{chapitres/reduction_des_endomorphismes/exercice_10_TD_11}
+\section{Condition nécessaire et suffisante de diagonalisabilité dans \texorpdfstring{$\C$}{C}}
+\input{chapitres/reduction_des_endomorphismes/condition_necessaire_et_suffisante_de_diagonalisabilite_dans_C}
 
 \section{Autour du commutant}
 \input{chapitres/reduction_des_endomorphismes/autour_du_commutant}
 
-\section{Que dire si \texorpdfstring{$u \circ u$}{u^2} est diagonalisable ?}
-\input{chapitres/reduction_des_endomorphismes/que_dire_si_u_carre_est_diagonalisable}
+\section{Que dire si \texorpdfstring{$M^2$}{M^2} est diagonalisable ?}
+\input{chapitres/reduction_des_endomorphismes/que_dire_si_M_carre_est_diagonalisable}
 
 \section{Spectre de \texorpdfstring{$\Id_E-uv$ et $\Id_E-vu$}{IdE-uv et IdE - vu}} \label{spectre_I-uv_et_I-vu}
 \input{chapitres/reduction_des_endomorphismes/spectre_de_IdE-uv_et_IdE-vu}
@@ -50,7 +60,7 @@ Soit $E$ un espace vectoriel de dimension finie. Un endomorphisme $u$ de $E$ est
 \section{Diagonalisation ou trigonalisation simultanée}
 \input{chapitres/reduction_des_endomorphismes/diagonalisation_ou_trigonalisation_simultanee}
 
-\marginnote[-10cm]{
+\marginnote[-20cm]{
     \begin{kaobox}[frametitle=Décomposition de $E$ en somme de sous-espaces stables supplémentaire]
         Si $E$ est de dimension finie non nulle et $\chi_f = \prod\limits_{i=1}^{k}(f-\lambda_i)^{\alpha_i}$, alors
         $$E = \bigoplus_{i=1}^{k} \Ker(f-\lambda_i \Id_E)^{\alpha_i}.$$
@@ -62,6 +72,36 @@ Soit $E$ un espace vectoriel de dimension finie. Un endomorphisme $u$ de $E$ est
     Source: fiche de \cite{maths-france}.
 }
 
+\section{Condition suffisante de diagonalisabilité}
+\input{chapitres/reduction_des_endomorphismes/condition_suffisante_de_diagonalisabilite}
+
+\section{Mines '21}
+\begin{exercice}
+    Soit $M \in \M_n(\C)$. Montrer que, pour tout $p > 0$, il existe $P \in \Gl_n(\C)$ et $T \in \M_n(\C)$ triangulaire supérieure telles que $T = \Inv{P} M P$ et, pour tout $1 \leqslant i < j \leqslant n, |t_{i,j}| \leqslant \frac{1}{p}$.
+\end{exercice}
+
+\begin{solution}
+    Soit $p > 0$. D'après le théorème de \textsc{D'Alembert}-\textsc{Gauss}, la polynôme caractéristique de $M$ est scindé sur $\C$ donc la matrice $M$ est trigonalisable sur $\C$. Autrement dit, il existe $P \in \Gl_n(\C)$ telle que $M = P T \Inv{P}$ avec 
+    $\begin{pmatrix}
+        t_{1,1} & t_{1,2} & \cdots & t_{1,n} \\
+        0 & t_{2,2} & \cdots & t_{2,n} \\
+        \vdots & \ddots & \ddots & \vdots \\
+        0 & \cdots & 0 & t_{n,n}
+    \end{pmatrix}. $ \\
+    \underline{Analyse:} soit $(a_1, \dots, a_n)$ des scalaires non nuls. On pose $D \defeq \Diag(a_1, \dots, a_n)$ et $T' \defeq D T \Inv{D}$. On calcule
+    $$T'=
+    \begin{pmatrix}
+        t_{1,1} & \frac{a_1}{a_2}t_{1,2} & \frac{a_1}{a_3} t_{1,3} & \cdots & \frac{a_1}{a_n} t_{1,n} \\
+        0 & t_{2,2} & \frac{a_2}{a_3}t_{2,3} & \cdots & \frac{a_2}{a_n} t_{2,n} \\
+        0 & 0 & \ddots & & \vdots \\
+        \vdots & \vdots & \ddots & \ddots & \vdots \\
+        0 & 0 & \dots & 0 & t_{n,n}
+    \end{pmatrix}.
+    $$
+    On cherche un $n$-uplet $(a_1, \dots, a_n)$ tel que pour tout $(i < j) \in \llbracket 1, n \rrbracket^2$, $\left| \frac{a_i}{a_j}t_{i,j} \right| \leqslant \frac{1}{p}$. \\
+    Notons $m \defeq \max\limits_{i \in \llbracket 1, n \rrbracket} |a_i|$...\textcolor{red}{à finir}
+\end{solution}
+
 A rajouter:
 \begin{itemize}
     \item Matrices dont le spectre est un singleton
@@ -72,3 +112,24 @@ A rajouter:
     \item Commutant d'un endomorphisme diagonalisable 
     \item Déterminant, réduction d'une matrice tridiagonale 
 \end{itemize}
+
+\newpage
+
+\begin{Large}
+\begin{align*}
+    f \text{ diagonalisable} &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E, \Mat_\mathscr{B}(f) \text{ diagonale} \\
+    &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
+    &\Longleftrightarrow E = \bigoplus_{\lambda \in \Sp f} E_\lambda(f) \\
+    &\Longleftrightarrow \dim E = \sum_{\lambda \in \Sp f} \dim E_\lambda(f) \\
+    &\Longleftrightarrow 
+    \begin{cases}
+    \chi_f \text{ est scindé} \\
+    \forall \lambda \in \Sp f, m_{\lambda} = \dim E_\lambda(f)
+    \end{cases} \\
+    &\Longleftrightarrow \prod_{\lambda \in \Sp f}(X-\lambda) \text{ est un polynôme annulateur de } f\\
+    &\Longleftrightarrow \text{ il existe un polynôme annulateur de } f \text{ scindé à racines simples} \\
+    &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
+    &\Longleftarrow \chi_f \text{ est scindé à racines simples} \\
+    &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)
+\end{align*}
+\end{Large}

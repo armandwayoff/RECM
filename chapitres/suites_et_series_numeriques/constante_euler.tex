@@ -1,11 +1,22 @@
-\begin{tcolorbox}
+\begin{defi}
     La constante d'\textsc{Euler} $\gamma$ est définie par:
-    $$\gamma = \lim_{n \to \infty} \left(\sum_{k=1}^{n} \frac{1}{k} - \ln(n) \right) \approx 0,577 215 664 \dots$$
-\end{tcolorbox}
+    $$\gamma \defeq \lim_{n \to \infty} \left(\sum_{k=1}^{n} \frac{1}{k} - \ln(n) \right) \approx 0,577\ 215\ 664 \dots$$
+\end{defi}
 
-\begin{enumerate}
+\begin{marginfigure}[-3cm]
+	\input{illustrations/i_constante_euler}
+\end{marginfigure}
+
+L'existence de cette constante peut être montrée de plusieurs manières.
+
+\begin{preuve}
     \item Poser $v_n = H_n - \ln(n)$
     \item Montrer que $v_{n+1}-v_n = \mathcal{O}\left(\frac{1}{n^2}\right)$\\
+    \begin{align*}
+        v_n &= \sum_{k=1}^n\frac{1}{k} -\ln(n) \\
+        &= \sum_{k=1}^n \frac{1}{k} -\sum_{k=1}^n  \ln\left( \frac{k+1}{k} \right) \\
+        &= \frac{1}{n} + \sum_{k=1}^n \underbrace{\left( \frac{1}{k} - \ln\left(1-\frac{1}{k}\right)\right)}_{\mathcal{O}\left(\frac{1}{k^2}\right)}
+    \end{align*}
     On peut aussi montrer...
     \item ... la décroissance de la suite $(v_n)$. \\
     Soit $n \in \N$. 
@@ -13,11 +24,33 @@
     Deux méthodes:
     \begin{itemize}
         \item On transforme $\ln(n+1) - \ln(n)$ en intégrale:
-        $$v_n - v_{n+1} = \int_{n}^{n+1} \underbrace{\left( \frac{1}{t} - \frac{1}{n+1} \right)}_{\geqslant 0}\ \d t > 0.$$
+        $$v_n - v_{n+1} = \int_{n}^{n+1} \underbrace{\left( \frac{1}{t} - \frac{1}{n+1} \right)}_{\geqslant 0} \d t > 0.$$
         \item D'après le \textbf{théorème des accroissements finis}, il existe $c \in ]n, n+1[$ tel que 
         $$\ln(n+1) - \ln(n) = \ln'(c)((n+1) - n) = \frac{1}{c}$$
         d'où l'on tire que 
         $$v_n - v_{n+1} = \frac{1}{c} - \frac{1}{n+1} > 0.$$
     \end{itemize}
     \item ... que $\boxed{\forall n \in \Ne,\ \ln(n+1) \leqslant H_n \leqslant \ln(n) + 1}$ grâce à l'\textbf{encadrement de l'intégrale} sur $[k, k+1]$ de la fonction $t \mapsto \frac{1}{t}$.
-\end{enumerate}
+\end{preuve}
+
+\marginnote[-5cm]{
+    \begin{kaobox}[frametitle=Le théorème de comparaison série / intégrale]
+        (à définir...) \\
+        Il permet de
+        \begin{itemize}
+            \item montrer qu'une série converge ou diverge
+            \item obtenir un équivalent d'une somme partielle de série divergente
+            \item obtenir un équivalent du reste d'une série convergente.
+        \end{itemize}
+    \end{kaobox}
+}
+
+\marginnote[1cm]{\url{https://www.maths-france.fr/MathSpe/GrandsClassiquesDeConcours/SeriesNumeriques/SerieHarmonique.pdf}}
+
+\begin{exercice}
+    \cite{exos_oraux} p. 334. \\
+    Montrer que l'intégrale $\displaystyle \int_1^{+\infty} \Bigg( \frac{1}{\lfloor x \rfloor} - \frac{1}{x}\Bigg) \d x$ est égale à $\gamma$.
+\end{exercice}
+
+\begin{solution}
+\end{solution}

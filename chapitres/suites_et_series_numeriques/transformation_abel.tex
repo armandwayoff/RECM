@@ -1,11 +1,18 @@
-\begin{tcolorbox}
-    Si $(\varepsilon_n)$ et $(v_n)$ sont des suites à valeurs réelles, si $(u_n)$ et $(S_n)$ sont les suites de termes généraux:
-    $$u_n = \varepsilon_n v_n \text{ et } S_n = \sum_{k=0}^{n} \varepsilon_k,$$
-    si $(S_n)$ est bornée dans $\R$, si $(v_n)$ converge vers $0$ et si la série $\sum |v_{n+1} - v_n|$ converge, alors la série $\sum u_n$ converge.
-\end{tcolorbox}
+Texte de \cite{oraux_x_ens_3} p. 262. \\
 
-\begin{itemize}
-    \item Savoir énoncer et démontrer la \textbf{formule de sommation par parties} (analogie avec l'intégration par parties) (sans raisonner par récurrence).
-    $$\boxed{\forall n \in \N,\ \sum_{k=0}^{n} v_k \varepsilon_k = \sum_{k=0}^{n-1} (v_k -v_{k+1})S_k + v_nS_n}$$
-    \item Critère d'\textsc{Abel} et test de \textsc{Dirichlet}.
-\end{itemize}
+La technique des transformations d'\textsc{Abel} peut être vue comme des intégrations par parties discrètes. On s'intéresse à la nature de la série $\sum a_n b_n$ où $(a_n)_{n \in \N}$ et $(b_n)_{n \in \N}$ sont deux suites réelles ou complexes. Pour $n \geqslant 0$ on note $A_n \defeq \sum\limits_{k=0}^n a_k$ la $n$-ième somme partielle de la série $\sum a_n$. On peut alors écrire $a_n = A_n - A_{n-1}$ (avec la convention $A_{-1} = 0$) et ainsi, pour tout entier $N$ on a
+\begin{align*}
+    \sum_{n=0}^N a_n b_n &= \sum_{n=0}^N (A_n - A_{n-1})b_n =  \sum_{n=0}^N A_n b_n -  \sum_{n=0}^N A_{n-1}b_n \\
+    &= \sum_{n=0}^N A_n b_n - \sum_{n=0}^{N-1} A_n b_{n+1} \\
+    &= A_N b_{N+1} - \sum_{n=0}^N A_n(b_{n+1}-b_n).
+\end{align*}
+La suite $(A_n)$ joue le rôle de la \say{ primitive } de $a_n$ et $b_{n+1} - b_n$ celui de la \say{ dérivée } de $b_n$. \\
+Une application classique correspond à ce qu'on appelle parfois théorème d'\textsc{Abel} ou test de \textsc{Dirichlet}: 
+\begin{theo}
+    Lorsque la suite $(b_n)_{n \in \N}$ est décroissante de limite nulle et la suite des sommes partielles $(A_n)$ est bornée, alors la série $\sum a_n b_n$ converge. 
+\end{theo}
+
+En effet, dans l'égalité ci-dessus le terme $A_N b_{N+1}$ converge vers $0$ quand $N$ tend vers l'infini et la série $\sum A_n(b_n - b_{n+1})$ est absolument convergente car le terme général est un $\mathcal{O}(b_n - b_{n+1})$ avec la série à termes positifs $\sum(b_n - b_{n+1})$ qui est convergente. \\
+On peut appliquer cela pour les séries trigonométriques $\sum \frac{\me^{\mi n x}}{n^\alpha}$ avec $\alpha > 0$ et $x$ non congru à $0$ modulo $2 \pi$ en prenant $a_n \defeq \me^{\mi n x}$ et $b_n \defeq \frac{1}{n^\alpha}$. Les sommes partielles $(A_n)$ sont effectivement bornées puisque
+$$|A_n| = \left| \sum_{k=0}^n \me^{\mi k x}\right| = \left| \frac{1 - \me^{\mi (n+1)x}}{1-\me^{\mi x}} \right| = \left| \frac{\sin \left( \frac{n+1}{2} x\right)}{\sin \left( \frac{x}{2} \right)} \right| \leqslant \frac{1}{\left| \sin \left( \frac{x}{2} \right) \right|}.$$
+Historiquement cette transformation fut utilisée par \textsc{Abel} en 1826 pour donner un exemple de série de fonctions continues dont la somme n'est pas continue \footnote{Dans les travaux de \textsc{Cauchy}, on pouvait lire à l'époque que la somme d'une série de fonctions continues est encore continue.}, à savoir $\sum \frac{\sin nx}{n}$.
