@@ -5,11 +5,11 @@
 
 \begin{marginfigure}[1cm]
     \includegraphics[width=5cm]{images/camille_jordan.jpg}
-    \caption{Camille \textsc{Jordan}}
+    \caption{Camille \textsc{Jordan} (1838 - 1922)}
 \end{marginfigure}
 
 \textsl{On doit à Camille \textsc{Jordan} de nombreux résultats sur la réduction des endomorphismes qu'il découvre notamment à travers l'étude des groupes. Dépassant la notion des groupes de permutations pour en atteindre une plus abstraite, il s'intéresse à la classification des groupes finis à travers leurs représentations linéaires, autrement dit les morphismes entre un groupe fini $G$ et le groupe linéaire $\Gl (E)$ d'un espace vectoriel $E$. Il va même jusqu'à donner le description des classes de similitudes à l'aide des formes dites de \textsc{Jordan}.}\\
-\textsl{Le problème fondamental de la réduction est bien celui de caractériser les classes de similitude de l'algèbre $\Endo(E)$ où $E$ est un $\K$-espace vectoriel de dimension finie ou, ce qui revient au même, les classes de similitudes de l'agèbre $\M_n(\K)$. La recherche d'une matrice la plus simple possible pour représenter un endomorphisme donné vise de multiples buts: calculer les puissances successives de cet endomorphisme, son commutant, résoudre des systèmes différentiels linéaires... Une idée naturelle pour essayer de "réduire" l'étude d'un endomorphisme $u$ donné à des choses plus simples consiste à essayer de décomposer l'espace vectoriel $E$ en une somme directe de sous-espaces non triviaux stables par $u$. Cela n'est évidemment pas toujours possible. Les sous-espaces stables les plus simples sont ceux sur lesquels $u$ coïncide avec une homothétie. On est ainsi naturellement amené à la notion de valeur propre. Si $\lambda$ est un scalaire, on s'intéresse donc au sous-espace $E_\lambda = \Ker(u - \lambda \Id_E)$ appelé sous-espace propre pour la valeur propre $\lambda$ lorsque celui-ci n'est pas nul. Le théorème de décomposition des noyaux nous assure que les différents sous-espaces propres d'un endomorphisme sont en somme directe. Le cas où la somme remplit tout l'espace $E$ mène à la notion d'endomorphisme diagonalisable: un tel endomorphisme peut être représenté par une matrice diagonale (il suffit de prendre une base formée de vecteurs propres). Pour les endomorphismes diagonalisables il est alors très facile de répondre à la question initiale de savoir quand ils sont semblables: il faut et suffit qu'ils aient les mêmes valeurs propres et que les espaces propres associés aient la même dimension. Il est aussi facile, en se ramenant à une matrice diagonale, de calculer les puissances d'un tel endomorphisme, son exponentielle (si on travaille sur un sous-corps de $\C$), son commutant...} \\
+\textsl{Le problème fondamental de la réduction est bien celui de caractériser les classes de similitude de l'algèbre $\Endo(E)$ où $E$ est un $\K$-espace vectoriel de dimension finie ou, ce qui revient au même, les classes de similitudes de l'agèbre $\M_n(\K)$. La recherche d'une matrice la plus simple possible pour représenter un endomorphisme donné vise de multiples buts: calculer les puissances successives de cet endomorphisme, son commutant, résoudre des systèmes différentiels linéaires... Une idée naturelle pour essayer de \say{ réduire } l'étude d'un endomorphisme $u$ donné à des choses plus simples consiste à essayer de décomposer l'espace vectoriel $E$ en une somme directe de sous-espaces non triviaux stables par $u$. Cela n'est évidemment pas toujours possible. Les sous-espaces stables les plus simples sont ceux sur lesquels $u$ coïncide avec une homothétie. On est ainsi naturellement amené à la notion de valeur propre. Si $\lambda$ est un scalaire, on s'intéresse donc au sous-espace $E_\lambda = \Ker(u - \lambda \Id_E)$ appelé sous-espace propre pour la valeur propre $\lambda$ lorsque celui-ci n'est pas nul. Le théorème de décomposition des noyaux nous assure que les différents sous-espaces propres d'un endomorphisme sont en somme directe. Le cas où la somme remplit tout l'espace $E$ mène à la notion d'endomorphisme diagonalisable: un tel endomorphisme peut être représenté par une matrice diagonale (il suffit de prendre une base formée de vecteurs propres). Pour les endomorphismes diagonalisables il est alors très facile de répondre à la question initiale de savoir quand ils sont semblables: il faut et suffit qu'ils aient les mêmes valeurs propres et que les espaces propres associés aient la même dimension. Il est aussi facile, en se ramenant à une matrice diagonale, de calculer les puissances d'un tel endomorphisme, son exponentielle (si on travaille sur un sous-corps de $\C$), son commutant...} \\
 
 Soit $E$ un espace vectoriel de dimension finie. Un endomorphisme $u$ de $E$ est trigonalisable si et seulement s'il existe un drapeau total de $E$ stable par $u$. 
 
@@ -98,9 +98,16 @@ Dans le cadre général, l'outil fondamental pour élucider les classes de simil
         0 & 0 & \dots & 0 & t_{n,n}
     \end{pmatrix}.
     $$
-    On cherche un $n$-uplet $(a_1, \dots, a_n)$ tel que pour tout $(i < j) \in \llbracket 1, n \rrbracket^2$, $\left| \frac{a_i}{a_j}t_{i,j} \right| \leqslant \frac{1}{p}$. \\
-    Notons $m \defeq \max\limits_{i \in \llbracket 1, n \rrbracket} |a_i|$...\textcolor{red}{à finir}
+    On cherche un $n$-uplet $(a_1, \dots, a_n)$ tel que pour tout $(i < j) \in \llbracket 1, n \rrbracket^2$, $\left| \frac{a_i}{a_j}t_{i,j} \right| \leqslant \frac{1}{p} \ (\star)$. \\
+    Notons $m \defeq \max\limits_{i \in \llbracket 1, n \rrbracket} |a_i|$.
+    Soit $r > 0$. Pour tout $i \in \llbracket 1, n \rrbracket$, on pose $a_i \defeq \frac{1}{r^i}$. Alors, pour tout $(i < j) \in \llbracket 1, n \rrbracket^2, \left| \frac{a_i}{a_j} t_{i,j} \right| \leqslant r^{i-j}m$. Ainsi pour $r \geqslant pm$, la relation $(\star)$ est vérifiée. \\
+    \underline{Synthèse:} On pose $r \defeq pm$, $D \defeq \Diag(1/r, \dots, 1/r^n)$ et $Q = PD$. Alors la matrice $\Inv{Q} M Q$ est une matrice triangulaire $T = (t_{i,j})$ telle que pour tout $1 \leqslant i < j \leqslant n, |t_{i,j}| \leqslant \frac{1}{p}$.
 \end{solution}
+
+\begin{remarque}
+    On retrouve le fait que l'ensemble des matrices diagonalisables est dense dans l'ensemble des matrices.
+\end{remarque}
+
 
 A rajouter:
 \begin{itemize}

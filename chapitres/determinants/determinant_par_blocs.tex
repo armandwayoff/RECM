@@ -1,5 +1,5 @@
 \begin{exercice} 
-À quelle condition sur $A$, $B$, $C$ et $D$, des matrices carrées d'ordre $n$, a-t-on:
+À quelles conditions sur $A$, $B$, $C$ et $D$, des matrices carrées d'ordre $n$, a-t-on:
     $$
         \begin{vmatrix}
             A & B\\
@@ -7,3 +7,42 @@
         \end{vmatrix} = \det(A \times D - B \times C) \text{ ?}
     $$ 
 \end{exercice}
+ 
+Rappel de cours:
+
+\begin{prop}
+    Soient $T_1, \dots, T_p$ des matrices carrées et 
+    $$A \defeq
+    \begin{pmatrix}
+        T_1 & \star & \cdots & \star \\
+        0 & T_2 & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & \star \\
+        0 & \cdots & 0 & T_p
+    \end{pmatrix}.
+    $$
+    Alors, 
+    $$\det(A) = \prod_{i=1}^p \et(T_i).$$
+\end{prop}
+
+\begin{solution}
+    D'après le rappel de cours, $\det(AD - BC) = \begin{vmatrix}
+        AD - BC & \star \\
+        0 & \I_n
+    \end{vmatrix}$.  
+    On \say{ remarque } que si les matrices $D$ et $C$ commutent et que si la matrice $D$ est inversible alors
+    $$
+    \begin{pmatrix}
+        A & B \\
+        C & D
+    \end{pmatrix}
+    \begin{pmatrix}
+        D & 0 \\
+        -C & \Inv{D}
+    \end{pmatrix}
+     = \begin{pmatrix}
+         AD-BC & \star \\
+         0 & \I_n
+     \end{pmatrix}.
+    $$
+    ...
+\end{solution}

@@ -12,9 +12,15 @@
     Toute matrice à diagonale strictement dominante (DSD) est inversible.
 \end{lemme}
 
+\marginnote[2cm]{
+    \begin{methode}
+        $$\left |x_{i_0} \right | \defeq \max_{1 \leqslant i \leqslant n} |x_i|$$
+    \end{methode}
+}
+
 \begin{preuve}
     Soit $X = \Trsp{(x_1 \cdots x_n)} \in \Ker(A)$. \\
-    On pose $\displaystyle \left |x_{i_0} \right| \defeq \max_{1 \leqslant i \leqslant n} |x_i|$ \sidenote{Cette méthode revient souvent dans ce genre d'étude.}. La ligne $i_0$ de la relation $AX = 0$ donne
+    On pose $\displaystyle \left |x_{i_0} \right| \defeq \max_{1 \leqslant i \leqslant n} |x_i|$. La ligne $i_0$ de la relation $AX = 0$ donne
     $$\sum_{j=1}^n a_{i_0,j}x_j = 0$$
     soit
     $$-a_{i_0, i_0} x_{i_0} = \sum_{j \not = i_0} a_{i_0,j} x_j$$
@@ -25,11 +31,8 @@
     Pour une autre démonstration voir \cite{matrices} page 51. 
 \end{preuve}
 
-\begin{marginfigure}
-    \input{illustrations/i_disques_de_gerschgorin}
-\end{marginfigure}
-
 \marginnote{
+    On considère la matrice à coefficients complexes
     $$
     \begin{pmatrix}
         \textcolor{red}{\mi4} & 0 & 2 & \mi3 \\
@@ -38,10 +41,15 @@
         1 & 2 & 0 & \textcolor{orange}{-8-\mi2}
     \end{pmatrix}
     $$
+    Ci-dessous sont représentés ses disques de \textsc{Gerschgorin} et les croix $\times$ correspondent à ses valeurs propres.
 }
 
+\begin{marginfigure}
+    \input{illustrations/i_disques_de_gerschgorin}
+\end{marginfigure}
+
 \begin{theo}
-    Soit $A \in \M_n(\K)$. Montrer que $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$ \\
+    Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$ \\
     Ces disques sont nommés les \href{https://fr.wikipedia.org/wiki/Théorème_de_Gerschgorin}{disques de \textsc{Gerschgorin}} (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes}).
 \end{theo}
 
