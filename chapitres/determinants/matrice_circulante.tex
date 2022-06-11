@@ -1,7 +1,7 @@
 \begin{tcolorbox}
 Une \href{https://fr.wikipedia.org/wiki/Matrice_circulante}{\emph{matrice circulante}} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients:
 $$
-\mathrm{C}(c_0, \dots, c_{n-1})=
+\mathrm{C}(c_0, \dots, c_{n-1}) \defeq
 \begin{pmatrix}
 c_0 & c_1 & c_2 & \cdots & c_{n-1} \\
 c_{n-1} & c_0 & c_1 & \cdots & c_{n-2} \\
@@ -17,62 +17,72 @@ $$
 \end{remarque}
 
 \begin{prop}
-On pose $\omega = \me^{\mi \frac{2 \pi}{n}}$.
-    $$\Sp(\mathrm{C}(c_0, \dots, c_{n-1})) = \left \{ \sum_{j=0}^{n-1} c_j \omega^j,\ k \in \llbracket 1, n-1 \rrbracket \right \}.$$
+    $$\Sp(\mathrm{C}(c_0, \dots, c_{n-1})) = \left \{ \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right),\ k \in \llbracket 1, n-1 \rrbracket \right \}.$$
 \end{prop}
 
 \begin{preuve}
-    Pour alléger les notations, on pose $\mathrm{C} := \mathrm{C}(c_0, \dots, c_{n-1})$. \\
+    Pour alléger les notations, on pose $\mathrm{C} \defeq \mathrm{C}(c_0, \dots, c_{n-1})$. \\
+    Nous cherchons à déterminer le spectre de la matrice $\mathrm{C}$ ce qui ne semble pas évident au premier abord (on se rend rapidement compte que le cacul direct du polynôme caractéristique n'est pas une bonne approche). \\
+    Notre démarche va consister à exprimer la matrice $\mathrm{C}$ comme le polynôme d'une matrice simple dont on peut calculer le spectre. On en déduira ensuite le spectre de la matrice $\mathrm{C}$. \\
     On pose 
     $$
-    \mathrm{J} = 
+    \mathrm{J}_n \defeq \mathrm{C}(0, 1, 0, \dots 0) = 
     \begin{pmatrix}
     0 & 1 & 0 & \cdots & 0 \\
-    \vdots  &   & \ddots & \\
-    0 & & & & 1 \\
-    1 & 0 & \cdots & \cdots & 0
-    \end{pmatrix}
+    0 & 0 & \ddots & & \vdots \\
+    \vdots & & \ddots & \ddots & 0 \\
+    0 & & & 0 & 1 \\
+    1 & 0 & \cdots & 0 & 0
+    \end{pmatrix} \in \M_n(\R).
     $$
     
-    (faire une remarque sur la structure de la matrice J et que J$^n = \I_n$) 
-    
-    $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}^k = \mathrm{P}_{\mathrm{C}}(\mathrm{J}).$$
-    
-    En développant par rapport à la première colonne, 
-    \begin{align*}
-        \chi_{\mathrm{J}}(X) &= 
+\marginnote[0cm]{
+    Puissances successives de $\mathrm{J}_3:$
+    $$\mathrm{J_3} = 
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        1 & 0 & 0
+    \end{pmatrix}
+    $$
+    $$\mathrm{J_3^2} = 
+    \begin{pmatrix}
+        0 & 0 & 1 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    $$
+    $$\mathrm{J_3^3} = 
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    $$
+}
+    On remarque que la matrice $\mathrm{C}$ s'écrit comme une combinaison linéaire des puissances successives de la matrice $\mathrm{J}_n$. Plus précisément, 
+    $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}_n^k \defeq \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n).$$
+    Calculons le polynôme caractéristique de la matrice $\mathrm{J}_n$. Par définition, $\chi_{\mathrm{J}_n} = \det(X \I_n - \mathrm{J}_n)$ soit 
+    $$
+        \chi_{\mathrm{J}_n}(X) = 
         \begin{vmatrix}
-            X & -1 & 0 & \cdots & 0 \\
-            \vdots  &   & \ddots & \\
-            0 & & & & -1 \\
-            -1 & 0 & \cdots & \cdots & X
-        \end{vmatrix} \\
-        &= X \times X^{n-1} + (-1) \times (-1)^{n+1} \times (-1)^{n-1} \\
-        \chi_{\mathrm{J}}(X) &= X^n-1. 
+        X & -1 & 0 & \cdots & 0 \\
+        0 & X & \ddots & & \vdots \\
+        \vdots & & \ddots & \ddots & 0 \\
+        0 & & & X & -1 \\
+        -1 & 0 & \cdots & 0 & X
+        \end{vmatrix}.
+    $$
+    En développant par rapport à la première colonne on trouve
+    \begin{align*}
+        \chi_{\mathrm{J}_n}(X) &= X \times X^{n-1} + (-1) \times (-1)^{n+1} \times (-1)^{n-1} \\
+        \chi_{\mathrm{J}_n}(X) &= X^n-1.
     \end{align*}
-    Le polynôme caractéristique de $\mathrm{J}$ est scindé à racines simples sur $\C$ donc $\mathrm{J}$ est diagonalisable et en posant $\omega = \me^{\mi \frac{2 \pi}{n}}$, 
-    $$\Sp(\mathrm{J}) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
-    Ainsi, $\mathrm{J}$ est semblable à la matrice 
-    $$
-    \begin{pmatrix}
-    1 & & & & \\
-    & \omega & & & \\
-    & & \omega^2 & & \\
-    & & & \ddots & \\
-    & & & & \omega^{n-1} \\
-    \end{pmatrix}
-    $$
-    et donc comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J})$, la matrice $\mathrm{C}$ est semblable à  la matrice
-    $$
-    \begin{pmatrix}
-    \mathrm{P}(1) & & & & \\
-    & \mathrm{P}(\omega) & & & \\
-    & & \mathrm{P}(\omega^2) & & \\
-    & & & \ddots & \\
-    & & & & \mathrm{P}(\omega^{n-1}) \\
-    \end{pmatrix}.
-    $$
-    Ainsi, $\Sp(\mathrm{C}) = \left \{ \mathrm{P}(\omega^k),\ k \in \llbracket 0, n-1 \rrbracket \right \}$.
+    
+    Le polynôme caractéristique de $\mathrm{J}_n$ est scindé à racines simples sur $\C$ donc $\mathrm{J}_n$ est diagonalisable et en posant $\omega = \me^{\mi \frac{2 \pi}{n}}$, 
+    $$\Sp(\mathrm{J}_n) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
+    Ainsi, $\mathrm{J}_n$ est semblable à la matrice $\Diag(1, \omega, \omega^2, \dots, \omega^{n-1})$ et donc comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n)$, par linéarité, la matrice $\mathrm{C}$ est semblable à  la matrice $\Diag \left(\mathrm{P}_\mathrm{C}(1), \mathrm{P}_\mathrm{C}(\omega), \mathrm{P}_\mathrm{C}(\omega^2), \dots,\mathrm{P}_\mathrm{C}(\omega^{n-1}) \right)$. \\
+    Ainsi, $\Sp(\mathrm{C}) = \left \{ \mathrm{P}_\mathrm{C}(\omega^k),\ k \in \llbracket 0, n-1 \rrbracket \right \}$.
 \end{preuve}
 
 \begin{corol}
