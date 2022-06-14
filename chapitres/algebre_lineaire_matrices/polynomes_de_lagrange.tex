@@ -1,18 +1,18 @@
-\begin{defi}
+\begin{theo}
     Soit $n \in \N$. On considère $(n + 1)$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
     Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un unique polynôme $\Lag_i \in \C_n[X]$ tel que 
     $$\forall j \in \llbracket 0, n \rrbracket,\ \Lag_i(x_j) = \delta_{i,j}.$$
     De plus,
         $$\forall (i, j) \in \llbracket 1, n \rrbracket^2,\ \Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
-\end{defi}
+\end{theo}
 
 \marginnote[-2cm]{
     \begin{kaobox}[frametitle=Symbole de \textsc{Kronecker}]
     $$
     \delta_{i,j} = \begin{cases}
-    1 \quad \text{ si } i=j \\
-    0 \quad \text{ sinon}
-    \end{cases}.
+    1 \quad \text{ si } i=j, \\
+    0 \quad \text{ sinon}.
+    \end{cases}
     $$
     \end{kaobox}
 }

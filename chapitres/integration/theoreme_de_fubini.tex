@@ -5,14 +5,20 @@
     $$\int_{a}^{b} \left ( \int_{c}^{d} f(x,y) \d y \right) \d x = \int_{c}^{d} \left ( \int_{a}^{b} f(x,y) \d x \right) \d y.$$
 \end{theo}
 
+\begin{marginfigure}[-6cm]
+    \centering
+    \input{illustrations/i_theoreme_de_fubini}
+    \caption{\centering Cette figure ne correspond pas au théorème de \textsc{Fubini}}
+\end{marginfigure}
+
 \textit{Correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{preuve}
-    Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose $\boxed{\varphi(x, t) = \int_{a}^{x} f(u, t) \d u}$. 
+    Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose $\boxed{\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u}$. 
     \begin{enumerate}
         \item Montrer que pour tout $x \in [a, b]$, l'application $t \mapsto \varphi(x, t)$ est continue sur $[c, d]$. \\
         Application du \textbf{théorème de continuité des intégrales à paramètre}. \\
         Pour la domination : $f$ est continue sur une partie fermée bornée de $\R^2$, donc d'après le \textbf{théorème des bornes}, $f$ est bornée sur $[a, b] \times [c, d]$ par une constante $M \in \Rp$.
-        \item On pose alors, pour tout $x  \in [a, b],\ \boxed{\psi(x) = \int_{c}^{d} \varphi(x, t) \d t}$. Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$. \\
+        \item On pose alors, pour tout $x  \in [a, b],\ \boxed{\psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t}$. Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$. \\
         Application du \textbf{théorème de dérivation des intégrales à paramètre} à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
         \begin{itemize}
             \item $\forall t \in [c, d],\ x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $[a, b]$ car c'est la \textbf{primitive} s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 

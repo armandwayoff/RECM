@@ -2,7 +2,7 @@
 
 \begin{marginfigure}[5cm]
     \input{illustrations/i_fonction_gamma}
-    \caption{Graphe de la fonction Gamma}
+    \caption*{\centering Graphe de la fonction Gamma}
 \end{marginfigure}
 
 \begin{defi}
@@ -15,12 +15,12 @@
 \begin{remarque}
     À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. 
 \end{remarque} 
-\underline{Propriétés principales:}
-\begin{itemize}
+
+\begin{prop}
     \item $\Gamma$ est définie si et seulement si $x>0$.
     \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
     \item En particulier, $\boxed{\forall n \in \N$, $\Gamma(n+1) = n!}$. 
-\end{itemize}
+\end{prop}
 \begin{preuve}
     La fonction $f:(x,t) \mapsto t^{x-1} \me^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
     \begin{itemize}
@@ -41,14 +41,37 @@ $$\boxed{\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0
 \underline{Exercice:} \url{https://share.miple.co/content/t8BIcXSjdEslq}
 
 \subsection{Fonction bêta}
-\begin{itemize}
-    \item Pour tout $(p,q) \in \N^2$, on note 
-    $$I_{p,q} \defeq \int_{0}^{1} x^p (1-x)^q \d x$$
-    \begin{enumerate}
-        \item Déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ grâce à une IPP.
-        \item En déduire l'expression de $I_{p,q}$ à l'aide de factorielles.
-        $$\boxed{I_{p,q} = \frac{p! q!}{(p + q + 1)!}}$$
-    \end{enumerate}
-\end{itemize}
+\begin{defi}
+    Pour tout $(p,q) \in \N^2$, on note
+    $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t$$
+\end{defi}
+
+\begin{prop}
+    Pour tout $(p,q) \in \N^2$,
+    $$I_{p,q} = \frac{p! q!}{(p + q + 1)!}.$$
+\end{prop}
+
+\begin{preuve}
+    Soit $(p,q) \in \N^2$. Nous allons déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ grâce en faisant une intégration par parties. \\
+    On pose $u:t\mapsto \frac{1}{p+1} t^{p+1}$ et $v:t\mapsto (1-t)^q$, toutes deux de classe $\mathscr{C}^1$ sur $[0, 1]$. Alors, 
+    \begin{align*}
+        I_{p,q} &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\
+        I_{p,q} &= \frac{q}{p+1} I_{p+1, q-1}.
+    \end{align*}
+    On en déduit que 
+    \begin{align*}
+        I_{p,q} &= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} I_{p+q,0} \\
+        I_{p,q} &= \frac{p! q!}{(p + q + 1)!}.
+    \end{align*}
+\end{preuve}
+
 \url{https://fr.wikipedia.org/wiki/Intégrale_d'Euler} \\
 \cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.
+
+\begin{exercice}
+    \cite{acamanes} \\
+    Déterminer la nature de la série $\sum I_{n,n}$ et, le cas échéant, calculer sa somme. 
+\end{exercice}
+
+\begin{solution}
+\end{solution}

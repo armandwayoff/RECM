@@ -112,16 +112,17 @@
 
 \pageblanche
 
-\begin{LARGE}
+\vspace*{\fill} % plaque le texte en bas de page
+\begin{Large}
 \emph{\say{ Celui qui aura goûté, qui aura vu, ne fût-ce que de loin, la splendide harmonie des lois naturelles, sera mieux disposé à faire peu de cas de ses petits intérêts égoïstes ; il aura un idéal qu’il aimera mieux que lui-même, et c’est là le seul terrain sur lequel on puisse bâtir une morale. Pour cet idéal, il travaillera sans marchander sa peine et sans attendre aucune de ces grossières récompenses qui sont tout pour certains hommes ; et quand il aura pris ainsi l’habitude du désintéressement, cette habitude le suivra partout ; sa vie entière en restera comme parfumée. }}
 \begin{flushright}
-\textsc{--- Henri Poincaré}, \emph{Dernières pensées}
+\textsc{--- Henri Poincaré}, \emph{Dernières pensées}.
 \end{flushright}
-\end{LARGE}
+\end{Large}
 
-\begin{figure}[h]
-    \includegraphics[width=10cm]{henri_poincare.jpg}
-\end{figure}
+%\begin{figure}[h]
+%    \includegraphics[width=10cm]{henri_poincare.jpg}
+%\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	PREFACE
@@ -168,7 +169,6 @@
 \addpart{Algèbre}
 \pagelayout{margin} % Restore margins
 
-
 \input{chapitres/polynomes/polynomes}
 \input{chapitres/algebre_lineaire_matrices/algebre_lineaire_matrices}
 \input{chapitres/determinants/determinants} \input{chapitres/reduction_des_endomorphismes/reduction_des_endomorphismes}
@@ -191,10 +191,12 @@
 % \appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
 
 \pagelayout{wide} % No margins
-\addpart{Probabilités \& Variables aléatoires}
+\addpart{Dénombrement, Probabilités \& Variables aléatoires}
 \pagelayout{margin} % Restore margins
 
-\input{chapitres/probabilites_et_variables_aleatoires/probabilites_et_variables_aleatoires}
+\input{chapitres/denombrement/denombrement}
+\input{chapitres/probabilites/probabilites}
+\input{chapitres/variables_aleatoires/variables_aleatoires}
 
 %----------------------------------------------------------------------------------------
 

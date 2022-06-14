@@ -1,4 +1,4 @@
-\begin{tikzpicture}[declare function={angle=120;},bullet/.style={inner
+\begin{tikzpicture}[scale=0.8,declare function={angle=120;},bullet/.style={inner
     sep=1pt,fill,draw,circle,solid}]
     %--------------------------------------------------------------------------------------------
     %Axis
@@ -8,10 +8,10 @@
     % Rest
     \path (0,0) coordinate (O);
     \draw (O) circle [radius=3cm]  (1,0);
-    \draw[-latex] (O) -- (angle:3) node[above] {$\mj$};
-    \draw[-latex] (O) -- (2*angle:3) node[below] {$\mj^2 = \overline{\mj}$};
+    \draw[-latex] (O) -- (angle:3) node[above] {$\mj = \mj^{3n+1}$};
+    \draw[-latex] (O) -- (2*angle:3) node[below] {\contour{white}{$\mj^2 = \overline{\mj} = \mj^{3n+2}$}};
     \draw[-{Latex[bend]}] (angle/2:0.6) node{$\frac{2\pi}{3}$} (0:1) arc(0:angle:1);
-    \draw[thick,red] (angle:3) -- (3,0);
+    \draw[thick,red] (angle:3) -- (3,0) node[above] {\contour{white}{\textcolor{black}{$1 = \mj^{3n}$}}};
     \draw[thick,red] (2*angle:3) -- (3,0);
     \draw[thick,red] (angle:3) -- (2*angle:3);
 \end{tikzpicture}

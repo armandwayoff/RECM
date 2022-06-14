@@ -4,8 +4,9 @@
 {\Large Diagonalisation \sidenote[][-2mm]{Le texte suivant est extrait de \cite{oraux_x_ens_2} p. 169.}} \\
 
 \begin{marginfigure}[1cm]
+    \centering
     \includegraphics[width=5cm]{images/camille_jordan.jpg}
-    \caption{Camille \textsc{Jordan} (1838 - 1922)}
+    \caption*{\centering Camille \textsc{Jordan} (1838 - 1922)}
 \end{marginfigure}
 
 \textsl{On doit à Camille \textsc{Jordan} de nombreux résultats sur la réduction des endomorphismes qu'il découvre notamment à travers l'étude des groupes. Dépassant la notion des groupes de permutations pour en atteindre une plus abstraite, il s'intéresse à la classification des groupes finis à travers leurs représentations linéaires, autrement dit les morphismes entre un groupe fini $G$ et le groupe linéaire $\Gl (E)$ d'un espace vectoriel $E$. Il va même jusqu'à donner le description des classes de similitudes à l'aide des formes dites de \textsc{Jordan}.}\\
@@ -105,7 +106,7 @@ Dans le cadre général, l'outil fondamental pour élucider les classes de simil
 \end{solution}
 
 \begin{remarque}
-    On retrouve le fait que l'ensemble des matrices diagonalisables est dense dans l'ensemble des matrices.
+    On retrouve le fait que l'ensemble des matrices diagonalisables est dense dans l'ensemble des matrices carrées.
 \end{remarque}
 
 
@@ -122,9 +123,12 @@ A rajouter:
 
 \newpage
 
+\def\colequi{teal}
+\def\colimpli{orange}
+
 \begin{Large}
 \begin{align*}
-    f \text{ diagonalisable} &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E, \Mat_\mathscr{B}(f) \text{ diagonale} \\
+    f \text{ diagonalisable} &\textcolor{\colequi}{\Longleftrightarrow} \exists \mathscr{B} \text{ base de } E, \Mat_\mathscr{B}(f) \text{ diagonale} \\
     &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
     &\Longleftrightarrow E = \bigoplus_{\lambda \in \Sp f} E_\lambda(f) \\
     &\Longleftrightarrow \dim E = \sum_{\lambda \in \Sp f} \dim E_\lambda(f) \\
@@ -134,7 +138,7 @@ A rajouter:
     \forall \lambda \in \Sp f, m_{\lambda} = \dim E_\lambda(f)
     \end{cases} \\
     &\Longleftrightarrow \prod_{\lambda \in \Sp f}(X-\lambda) \text{ est un polynôme annulateur de } f\\
-    &\Longleftrightarrow \text{ il existe un polynôme annulateur de } f \text{ scindé à racines simples} \\
+    &\Longleftrightarrow \text{il existe un polynôme annulateur de } f \text{ scindé à racines simples} \\
     &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
     &\Longleftarrow \chi_f \text{ est scindé à racines simples} \\
     &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)

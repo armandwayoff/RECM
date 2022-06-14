@@ -1,8 +1,8 @@
-\begin{tcolorbox}
+\begin{defi}
     Pour tout $n \in \Ne$, on définit le polynôme $\Leg_n$ par:
     $$\Leg_n(X) = \frac{1}{2^n} \sum_{k=0}^{n} \binom{n}{k}^2 (X-1)^{n-k}(X+1)^{k},$$
     $$\Leg_n(X) = \frac{1}{2^n n!} \left( (X^2-1)^n \right)^{(n)}.$$
-\end{tcolorbox}
+\end{defi}
 
 Les polynômes de \textsc{Legendre} constituent l'exemple le plus simple d'une suite de polynômes orthogonaux. \\
 La suite vient de \url{https://bibmath.net/dico/index.php?action=affiche&quoi=./l/legendrepoly.html}.
@@ -15,16 +15,17 @@ $$\langle \Leg_n, \Leg_n \rangle = \frac{2}{2n+1}.$$
     Pour montrer que $\Leg_n(X)$ est scindé à racines simples dans $]-1, 1[$, raisonner par récurrence et penser à \textsc{Rolle}. 
 \end{elem_sol}
 
-\begin{marginfigure}[-6cm]
+\begin{marginfigure}[-11.5cm]
+    \centering
 	\input{illustrations/i_polynomes_legendre}
-	\caption{Les premiers polynômes de \textsc{Legendre}}
-	{\scriptsize
-	\color{blue} $\Leg_0 = 1$ \\ 
-	\color{red} $\Leg_1 = x$ \\
-	\color{green} $\Leg_2 = \frac{1}{2}(3x^2-1)$ \\
-	\color{purple} $\Leg_3 = \frac{1}{2}(5x^3-3x)$ \\
-	\color{black} $\Leg_4 = \frac{1}{8}(35x^4-30x^2+3)$ \\
-	\color{orange} $\Leg_5 = \frac{1}{8}(63x^5-70x^3+15x)$
+	\caption*{\centering Les premiers polynômes de \textsc{Legendre}}
+	{\small
+	\color{blue} $$\Leg_0 = 1$$ 
+	\color{red} $$\Leg_1 = x$$ 
+	\color{green} $$\Leg_2 = \frac{1}{2}(3x^2-1)$$ 
+	\color{purple} $$\Leg_3 = \frac{1}{2}(5x^3-3x)$$ 
+	\color{black} $$\Leg_4 = \frac{1}{8}(35x^4-30x^2+3)$$ 
+	\color{orange} $$\Leg_5 = \frac{1}{8}(63x^5-70x^3+15x)$$
 	}
 \end{marginfigure}
 

@@ -19,12 +19,19 @@
         $\sum \gamma^n \P(X=x_k)$ converge, avec $\boxed{\gamma = \max \{ |a|, |b| \}}$ \textcolor{red}{\emph{(ne pas oublier les valeurs absolues  car on ne connaît pas les signes de $a$ et de $b$)}}.
         \item On remarque que $\V(X) = \V \left( X - \frac{a+b}{2} \right)$
         \item Or comme $a \leqslant X \leqslant b$, $$\displaystyle \left| X - \frac{a+b}{2}\right| \leqslant \frac{b-a}{2} \text{ et } \displaystyle \left( X - \frac{a+b}{2} \right)^2 \leqslant \left(\frac{b-a}{2}\right)^2$$
-        \item Donc par le théorème de \textsc{König-Huygens}, 
+        \item Donc par le théorème de \textsc{König}-\textsc{Huygens}, 
         \begin{align*}
             \V \left(X - \frac{a+b}{2} \right) &= \E \Bigg[ \underbrace{\left(X - \frac{a+b}{2} \right)^2}_{\leqslant \left( \frac{b-a}{2} \right)^2} \Bigg] - \underbrace{\E \left[X-\frac{a+b}{2} \right]^2}_{\geqslant 0} \\
             \V(X) &\leqslant \frac{(b-a)^2}{4} \text{ par croissance de l'espérance}
         \end{align*}
     \end{itemize}
+    
+\marginnote[-1cm]{
+    \begin{kaobox}[frametitle=Théorème de \textsc{König}-\textsc{Huygens}]
+        Soit $X$ une variable aléatoire admettant un moment d'ordre 2. Alors,
+        $$\V(X) = \E \left[ X^2 \right] - \E[X]^2.$$
+    \end{kaobox}
+}
     
     \textbf{Cas d'égalité}\\
     D'après la majoration du premier terme et la minoration du deuxième terme de la relation ci-dessus, il y a égalité  si et seulement si

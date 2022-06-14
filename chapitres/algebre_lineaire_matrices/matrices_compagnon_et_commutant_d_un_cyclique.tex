@@ -7,13 +7,13 @@
     0 & 1 & \cdots & 0 & -c_2 \\
     \vdots & \vdots & \ddots & \vdots & \vdots \\
     0 & 0 & \cdots & 1 & -c_{p-1}
-    \end{pmatrix}
+    \end{pmatrix}.
     $$
 \end{defi}
 
 \begin{theo}
     Théorème de \textsc{Cayley}-\textsc{Hamilton}.
-    $$\chi_{C_P}(X) = P(X)$$
+    $$\chi_{C_P}(X) = P(X).$$
 \end{theo}    
 
 \begin{preuve}
@@ -21,10 +21,10 @@
     $$
     \det(X \I_d - C_P) = 
     \begin{vmatrix}
-        X & \cdots & \cdots & 0 & a_0 \\
-        -1 & X & & \vdots & a_1 \\
+        X & 0 & \cdots & 0 & a_0 \\
+        -1 & X & & 0 & a_1 \\
         0 & -1 & \ddots & \vdots & \vdots \\
-        \vdots & \ddots & \ddots & 0 & a_{d-2} \\
+        \vdots & \ddots & \ddots & X & a_{d-2} \\
         0 & \cdots & 0 & -1 & X + a_{d-1}
     \end{vmatrix}.
     $$

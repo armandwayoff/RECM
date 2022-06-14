@@ -1,20 +1,20 @@
 Voir le thème 23 de \cite{acamanes}.
 \subsection{Décomposition d'\textsc{Iwasama}}
-\begin{tcolorbox}
+\begin{prop}
     Soient $n \in \Ne$ et $M \in \Gl_n(\R)$. Il existe un \textbf{unique} couple $(T, O)$ tel que:
     $$M = OT,$$
     avec $T$ triangulaire supérieure à coefficients diagonaux strictement positifs et $O$ matrice orthogonale. 
-\end{tcolorbox}
+\end{prop}
 
 Comme $M$ est inversible, c'est une matrice de changement de base. \\
 Le produit et l'inversibilité sont stables dans $\mathscr{T}_n^+$.
 
 \marginnote[-2cm]{
     \begin{kaobox}[frametitle=Le procédé de \textsc{Gram}-\textsc{Schmidt}]
-        Soit $E$ un espace vectoriel préhilbertien et soit $\mathscr{F} = (e_i)_{i \in I}$ une famille libre dans $E$; il existe une unique famille orthonormale $\mathscr{G} = (\varepsilon_i)_{i \in I}$ telle que 
+        Soit $E$ un espace vectoriel préhilbertien et soit $\mathscr{F} = (e_i)_{i \in I}$ une famille libre dans $E$; il existe une unique famille orthonormale $\mathscr{G} = (\varepsilon_i)_{i \in I}$ telle que pour tout $k \in \llbracket 1, n \rrbracket$,
         \begin{enumerate}
-            \item pour tout $k \in \llbracket 1, n \rrbracket$, $$\Vect(e_1, \dots, e_k) = \Vect(\varepsilon_1, \dots, \varepsilon_k)$$
-            \item pour tout $k \in \llbracket 1, n \rrbracket, \langle e_k, \varepsilon_k \rangle > 0$.
+            \item $\Vect(e_1, \dots, e_k) = \Vect(\varepsilon_1, \dots, \varepsilon_k)$,
+            \item $\langle e_k, \varepsilon_k \rangle > 0$.
         \end{enumerate}
         La famille $\mathscr{G}$ est appelée l'\emph{orthonormalisée (de \textsc{Gram}-\textsc{Schmidt})} de $\mathscr{F}$.
     \end{kaobox}
@@ -23,11 +23,11 @@ Le produit et l'inversibilité sont stables dans $\mathscr{T}_n^+$.
 \begin{preuve}
     \begin{itemize}
         \item \underline{Existence:} \\
-        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} = (C_1, \dots, C_n)$ la famille des vecteurs colonnes de $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme un \textbf{base} de $\R^n$. Appliquons-lui le \textbf{procédé d'orthonormalisation de \textsc{Gram}-\textsc{Schmidt}}. \\
-        Il existe une base orthonormée $\mathscr{B}_o = (o_1, \dots, o_n)$ telle que pour tout $i \in \llbracket 1, n \rrbracket$
-        $$\mathrm{Vect}(C_1, \dots, C_i) = \mathrm{Vect}(o_1,\dots, o_i) \quad (1) \quad \text{et} \quad \langle C_i, o_i \rangle > 0 \quad (2).$$
-        On écrit $M = P_{\mathscr{B} \to \mathscr{C}} = P_{\mathscr{B} \to \mathscr{B}_o} \times P_{\mathscr{B}_o \to \mathscr{C}} = OT$. \\
-        Le caractère triangulaire de $T = P_{\mathscr{B}_o \to \mathscr{C}}$ vient de $(1)$ et la stricte positivité de sa diagonale de $(2)$.
+        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} \defeq (C_1, \dots, C_n)$ la famille des vecteurs colonnes de $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme une \textbf{base} de $\R^n$. Appliquons-lui le \textbf{procédé d'orthonormalisation de \textsc{Gram}-\textsc{Schmidt}}. \\
+        Il existe une base orthonormée $\mathscr{B}_O = (O_1, \dots, O_n)$ telle que pour tout $i \in \llbracket 1, n \rrbracket$
+        $$\mathrm{Vect}(C_1, \dots, C_i) = \mathrm{Vect}(O_1,\dots, O_i) \quad (1) \quad \text{et} \quad \langle C_i, O_i \rangle > 0 \quad (2).$$
+        On écrit $M = P_{\mathscr{B} \to \mathscr{C}} = P_{\mathscr{B} \to \mathscr{B}_O} \times P_{\mathscr{B}_O \to \mathscr{C}} = OT$. \\
+        Le caractère triangulaire de $T = P_{\mathscr{B}_O \to \mathscr{C}}$ vient de $(1)$ et la stricte positivité de sa diagonale de $(2)$.
         \item \underline{Unicité:} \textcolor{green}{à compléter} \\
         Soit $M = OT = O'T'$. $T$ est inversible. $(O')^{-1}O =T'\Inv{T}$. Le premier terme est une matrice orthogonale et le second triangulaire supérieure car ces deux ensembles sont des groupes multiplicatifs. $B = T'\Inv{T}$ est diagonale (schéma) de coeff...
     \end{itemize} 

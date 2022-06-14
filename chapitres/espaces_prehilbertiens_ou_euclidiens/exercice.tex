@@ -15,7 +15,8 @@
         Alors il existe $P \in \Gl_n(\R)$ et $D$ une matrice diagonale telles que $A = PD\Inv{P}$. Or $A$ est nilpotente donc il existe $p \in \N$ tel que $A^p = P D^p \Inv{P} = 0$. Donc $D^p = 0$ soit $D = 0$ et $A = 0$. \\
         On peut aussi dire qu'une matrice ayant une unique valeur propre (comme c'est la cas des matrices nilpotentes) est diagonalisable si et seulement si elle est diagonale.
     \end{preuve}
-    Cette affirmation est fausse. En effet en taille $2$, la matrice $A = \begin{pmatrix}
+    Cette affirmation est fausse. \\
+    En effet en taille $2$, la matrice $A \defeq \begin{pmatrix}
         1 & \mi \\
         \mi & -1
     \end{pmatrix}$ est symétrique et non nulle; elle vérifie $A^2 = 0$. Or d'après le lemme, une matrice nilpotente non nulle n'est pas diagonalisable. En taille $n > 2$ la matrice $B$ telle que $[B]_{i,j} = [A]_{i,j}$ si $1 \leqslant i, j \leqslant 2$ et $[B]_{i,j} = 0$ sinon est elle aussi symétrique, nilpotente et non nulle et n'est donc n'est pas diagonalisable. 
@@ -23,7 +24,7 @@
 
 \marginnote[-2cm]{
     $$
-    B=
+    B \defeq
     \begin{pmatrix}
     1 & \mi & 0 & \cdots & 0 \\
     \mi & -1 & 0 & \cdots & 0 \\

@@ -1,5 +1,5 @@
 \begin{exercice}
-    Détemriner le sous-espace vectoriel de $\M_n(\K)$ engendré par les matrices nilpotentes.
+    Déterminer le sous-espace vectoriel de $\M_n(\K)$ engendré par les matrices nilpotentes.
 \end{exercice}
 
 \begin{solution}
@@ -11,6 +11,22 @@
     Regardons déjà la cas $n = 2$. Une matrice nilpotente de trace nulle avec $1$ et $-1$ sur la diagonale, doit être de rang $1$. On constate effectivement que $\begin{pmatrix} 1 & -1 \\ 1 & -1 \end{pmatrix}$ est bien nilpotente. Construisons une matrice analogue de taille $n$. \\
     Pour $2 \leqslant i \leqslant n$, considérons alors la matrice
     $$F_i \defeq \mathrm{E}_{11} - \mathrm{E}_{1i} + \mathrm{E}_{i1} - \mathrm{E}_{ii}.$$
-    Cette étant de rang égal à $1$, d'après \textcolor{red}{l'exo précé} $F_i^2 = \Tr{F_i} F_i = 0$ puisque $\Tr(F_i) = 0$. \\
+    Cette matrice étant de rang égal à $1$, d'après \textcolor{red}{l'exo précé} $F_i^2 = \Tr{F_i} F_i = 0$ puisque $\Tr(F_i) = 0$. \\
     Ainsi l'espace $\mathcal{V}$ contient $\mathrm{E}_{11}-\mathrm{E}_{ii} = F_i + \mathrm{E}_{1i} - \mathrm{E}_{i1}$ pour $2 \leqslant i \leqslant n$ (puisque les trois matrices du membre de droite sont nilpotentes) et donc l'espace des matrices diagonales de trace nulle. On a donc montré que $\mathcal{V} = \mathcal{T}$.
 \end{solution}
+
+\marginnote[-6cm]{
+    $$
+    F_i=
+    \begin{pmatrix}
+        1 & 0 & \cdots & 0 & -1 & 0 & \cdots & 0 \\
+        0 & & & & 0 & & & 0 \\
+        \vdots & & & & \vdots & & & \vdots \\
+        0 & & & & 0 & & & 0 \\
+        1 & 0 & \cdots & 0 & -1 & 0 & \cdots & 0 \\
+        0 & & & & 0 & & & 0 \\
+        \vdots & & & & \vdots & & & \vdots \\
+        0 & & \cdots & & 0 & & \cdots & 0 \\
+    \end{pmatrix}
+    $$
+}

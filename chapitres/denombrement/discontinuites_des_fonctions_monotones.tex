@@ -4,7 +4,7 @@
 
 \begin{exercice}
     \emph{Exercice 1 TD VI} \\
-    Soient $a < b$ deux réels et $f \in \mathscr{F}([a, b], \R)$ une fonction croissante. Pour tout $x \in ]a, b[$, on pose $v_f(x) = f(x^+)-f(x^-)$.
+    Soient $a < b$ deux réels et $f \in \mathscr{F}([a, b], \R)$ une fonction croissante. Pour tout $x \in ]a, b[$, on pose $f(x^-) \defeq \lim\limits_{t \to x^-} f(t)$, $f(x^+) \defeq \lim\limits_{t \to x^+} f(t)$ et $v_f(x) \defeq f(x^+)-f(x^-)$.
     \begin{enumerate}
         \item Soit $x \in ]a, b[$. Montrer que $v_f(x) \geqslant 0$ avec égalité si et seulement si $f$ est continue en $x$.
         \item Soit $p \in \Ne$ et $x_1 < \cdots < x_p$ des réels de $]a, b[$. Montrer que $\sum\limits_{j=1}^p v_f(x_j) \leqslant f(b)-f(a)$.
@@ -15,22 +15,22 @@
 
 \begin{solution}
     \begin{enumerate}
-        \item Soit $(x, y, z) \in ]a,b[^3$ tel que $y \leqslant x \leqslant z$. Par croissance de $f$ on a $f(y) \leqslant f(x) \leqslant f(z)$. La monotonie de $f$ assure qu'elle admet des limites à gauche et à droite en tout point:
-        $$f(x^-) = \lim_{y \to x^-} f(y) \quad f(x^+) = \lim_{z \to x^+} f(z).$$
-        Donc par passage à la limite dans l'encadrement, 
+        \item Soit $(x, y, z) \in ]a,b[^3$ tel que $y \leqslant x \leqslant z$. Par croissance de $f$ on a $f(y) \leqslant f(x) \leqslant f(z)$. La monotonie de la fonction $f$ assure qu'elle admet des limites à gauche et à droite en tout point. Donc par passage à la limite dans l'encadrement, 
         $$f(x^-) \leqslant f(x) \leqslant f(x^+).$$
         On en déduit que $v_f(x) \geqslant 0$ avec égalité si et seulement si $f(x^+)=f(x)=f(x^-)$ i.e. si et seulement si $f$ est continue en $x$. 
         \item \begin{align*}
-            \sum_{i=1}^p v_f(x) &= \sum_{i=1}^p \left( f(x_i^+) - f(x_i^-)\right) \\
+            \sum_{i=1}^p v_f(x_i) &= \sum_{i=1}^p \left( f(x_i^+) - f(x_i^-)\right) \\
             &= f(x_p^+)-f(x_p^-) + \sum_{i=1}^{p-1} \left( f(x_i^+) - f(x_i^-)\right) \\
             &\leqslant f(b) - f(x_p^-) + \sum_{i=1}^{p-1} \left( f(x_{i+1}^-) - f(x_i^-)\right) \\
             \text{ par télescopage } &\leqslant f(b) - f(x_1^-) \\
             &\leqslant f(b) - f(a)
         \end{align*}
         \item Soit $\alpha > 0$. Raisonnons par l'absurde en supposant que l'ensemble des points $x \in ]a, b[$ tels que $v_f(x) > \alpha$ est infini. \\
-        Soit $n \in \N$. (à réécrire)
+        Soit $n \in \N$, d'après la question 2, 
         $$\underbrace{f(b)-f(a)}_{\in \R} \geqslant \sum_{i=0}^p v_f(x_i) \geqslant p \alpha \xrightarrow[p \to \infty]{} + \infty \quad \text{ car } \alpha > 0.$$
-        \item Soit $\mathscr{D}$ l'ensemble des points de discontinuité. On pose $\mathscr{D}_{\alpha} \defeq \left\{ x \in [a,b], v_f(x) > \alpha \right\}$.
+        On aboutit donc à une contradiction et l'ensemble des points $x \in ]a, b[$ tels que $v_f(x) > \alpha$ est fini. 
+        \item Soit $\mathscr{D}$ l'ensemble des points de discontinuité. \\ 
+        On pose $\mathscr{D}_{\alpha} \defeq \left\{ x \in [a,b], v_f(x) > \alpha \right\}$.
         $$\mathscr{D} = \bigcup_{\alpha > 0} \mathscr{D}_\alpha = \bigcup_{n \in \Ne} \mathscr{D}_\frac{1}{n}.$$
         Nous avons écrit l'ensemble $\mathscr{D}$ comme une union dénombrable d'ensembles finis donc $\mathscr{D}$ est au plus dénombrable.
     \end{enumerate}

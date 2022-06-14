@@ -1,7 +1,7 @@
 \begin{exercice}
     \begin{enumerate}
         \item Soit $A \in \M_2(\C)$. On suppose que $\Tr{A} = 0$ et $\Tr{A}^2 \not=0$. Montrer que $A$ est diagonalisable. \\
-        On cherche à généraliser ce résultat en dimension $n$. Soit $A \in \M_n(\C)$ telle que
+        \NoIndent{On cherche à généraliser ce résultat en dimension $n$. Soit $A \in \M_n(\C)$ telle que}
         $$
         \begin{cases}
             \Tr{A^k}= 0 \quad \forall k \in \llbracket 1, n-1 \rrbracket, \\
@@ -9,7 +9,7 @@
         \end{cases}
         $$
         \item Montrer que $A$ possède au moins une valeur propre non nulle. 
-        \item On note $\alpha_1, \dots, \alpha_k$ les valeurs propres non nulles deux à deux distinctes de $A$, $n_1, \dots, n_k$ leurs multiplicités respectives et 
+        \item On note $\alpha_1, \dots, \alpha_k$ les valeurs propres non nulles deux à deux distinctes de $A$, $(n_1, \dots, n_k)$ leurs multiplicités respectives et 
         $$
         V \defeq \begin{pmatrix}
             \alpha_1 & \cdots & \alpha_k \\
@@ -18,7 +18,7 @@
         \end{pmatrix}
         \in \M_{n-1,k}(\C).
         $$
-        Montrer que $\begin{pmatrix} n_1  \\ \vdots \\ n_k \end{pmatrix} \in \Ker{V}$.
+        Montrer que $N \defeq \begin{pmatrix} n_1  \\ \vdots \\ n_k \end{pmatrix} \in \Ker{V}$.
         \item En déduire que $A$ est diagonalisable.
         \item Montrer que, si on supprime l'hypothèse $\Tr{A^n} \not=0$, alors soit $A$ est diagonalisable, soit $A^n = 0$.
     \end{enumerate}
@@ -69,8 +69,8 @@
             0 & \cdots & 0 & \lambda_n^n
         \end{pmatrix}.
         $$
-        Or, par hypothèse, $\Tr{A^n} = 0$ donc les $\lambda_i$ ne peuvent pas être tous nuls.
-        \item On pose $N \defeq \begin{pmatrix} n_1  \\ \vdots \\ n_k \end{pmatrix}$.
+        Or, par hypothèse, $\Tr{A^n} = 0$ donc les $\lambda_i$ ne peuvent pas être tous nuls et la matrice $A$ possède au moins une valeur propre non nulle.
+        \item
         \begin{align*}
             V N = 
             \begin{pmatrix}

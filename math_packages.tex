@@ -29,6 +29,17 @@
 % figure racines troisième de l'unité
 \usetikzlibrary{bending}
 
+% Pour pouvoir enlever l'indentation dans un itemize
+%https://tex.stackexchange.com/questions/131637/no-indentation-for-non-item-within-itemize
+\newcommand\NoIndent[1]{%
+  \par\vbox{\parbox[t]{\linewidth}{#1}}%
+}
+
+%%%
+\usepackage[outline]{contour} % glow around text
+\contourlength{1.0pt}
+%%%
+
 % Figure changement de base
 % Author: Izaak Neutelings (September 2020)
 \usetikzlibrary{intersections}

@@ -27,15 +27,15 @@ Soit $M, N \in \M_n(\K)$.
     \begin{enumerate}
         \item \begin{align*}
         \chi_{AB} &= \det(\lambda \I_n - AB) \\
-        &= \det(A(\lambda \inv{A} - B)) \quad \text{car } A \in \Gl_n(\K) \\
-        &= \det(A) \det(\lambda \inv{A} - B) \\
-        &= \det(\lambda \inv{A} - B) \det(A) \\
+        &= \det(A(\lambda \Inv{A} - B)) \quad \text{car } A \in \Gl_n(\K) \\
+        &= \det(A) \det(\lambda \Inv{A} - B) \\
+        &= \det(\lambda \Inv{A} - B) \det(A) \\
         &= \det(\lambda \I_n - BA) \\
         \chi_{AB} &= \chi_{BA}
     \end{align*}
     \item Soit $A \in \M_n(\K)$. Son polynôme caractéristique $\chi_A$ admet au plus $n$ racines. \\
-    Notons $r \defeq \min \left\{ |\lambda|, \lambda \in \Sp(A) \ \{0\} \right\}$. Donc pour tout $t \in ]0,r[, \chi_A(t) \not=0$ soit $t \I_n - A \in \Gl_n(\K)$. \\
-    Soit $p_0 \defeq \min \left\{ p, \frac{1}{p} < r \right\}$. Ainsi, en posant $A_p \defeq A - \frac{1}{p} \I_n$, la suite $(A_p)_{p \geqslant p_0}$ est une suite de matrices inversibles qui converge vers $A$. Comme les matrices $A_p$ sont inversibles (pour $p \geqslant p_0$), d'après le premier point, 
+    Notons $r \defeq \min \left\{ |\lambda|, \lambda \in \Sp(A) \backslash \{0\} \right\}$. Donc pour tout $t \in ]0,r[, \chi_A(t) \not=0$ soit $t \I_n - A \in \Gl_n(\K)$. \\
+    Soit $p_0 \defeq \min \left\{ p, \frac{1}{p} < r \right\}$. Ainsi, en posant $A_p \defeq A - \frac{1}{p} \I_n$, la suite $(A_p)_{p \geqslant p_0}$ est une suite de matrices inversibles qui converge vers $A$. Comme les matrices $A_p$ sont inversibles (pour $p \geqslant p_0$), d'après le premier point, pour tout $p \geqslant p_0$
     $$\chi_{A_p B} = \chi_{B A_p}$$
     soit 
     $$\det(\lambda \I_n - A_p B) = \det(\lambda \I_n - B A_p).$$
