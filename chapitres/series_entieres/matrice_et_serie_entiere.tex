@@ -2,3 +2,12 @@
     Soit $m \in \Ne$ et $A \in \M_m(\R)$ vérifiant $A^3 + A = 0$.\\
     Montrer que son rang est pair. Étudier la convergence et la somme de $\sum\limits_{n=0}^{+\infty} x^n \Tr (A^n)$.
 \end{exercice}
+
+\begin{solution}
+    D'après l'énoncé, le polynôme $P(X) \defeq X^3 + X$ est annulateur de la matrice $A$. Le polynôme $P = X(X-\mi)(X+\mi)$ est scindé à racines simples dans $\C$ donc la matrice $A$ est diagonalisable dans $\C$. \\
+    La diagonalisabilité de la matrice $A$ équivaut à $\sum\limits_{\lambda \in \Sp A} \dim E_\lambda(A) = m$ soit $\dim E_0(A) + \dim_{-\mi}(A) + \dim_{\mi}(A) = 0$. Comme $E_0(A) = \Ker A$, d'après le théorème du rang, $\dim E_0(A) = m - \Rg A$. On sait aussi (\textcolor{red}{à détailler peut être}) que $p \defeq \dim E_{-\mi}(A) = \dim E_{\mi}(A)$. On obtient alors
+    \begin{align*}
+        & m - \Rg A + 2p = m \\
+        \text{soit } & \Rg A = 2p.
+    \end{align*}
+\end{solution}

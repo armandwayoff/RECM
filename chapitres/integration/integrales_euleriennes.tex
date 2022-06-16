@@ -1,31 +1,61 @@
 \subsection{Fonction Gamma d'\textsc{Euler}}
 
-\begin{marginfigure}[5cm]
-    \input{illustrations/i_fonction_gamma}
-    \caption*{\centering Graphe de la fonction Gamma}
-\end{marginfigure}
+%\begin{marginfigure}[3cm]
+%    \input{illustrations/i_fonction_gamma}
+%    \caption*{\centering Graphe de la fonction Gamma}
+%\end{marginfigure}
 
 \begin{defi}
     Pour tout $x$ > 0 réel, la \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \me^{-t} \d t.$$
 \end{defi}
 
-\marginnote[-2mm]{Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des nombres complexes (à l'exception des entiers négatifs).}
-
 \begin{remarque}
     À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. 
 \end{remarque} 
 
 \begin{prop}
-    \item $\Gamma$ est définie si et seulement si $x>0$.
-    \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
-    \item En particulier, $\boxed{\forall n \in \N$, $\Gamma(n+1) = n!}$. 
-\end{prop}
-\begin{preuve}
-    La fonction $f:(x,t) \mapsto t^{x-1} \me^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
     \begin{itemize}
-        \item En $+\infty:$ par croissances comparées, $t^{x-1} \me^{-t} = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f$ est intégrable au voisinage de $+\infty$.
-        \item En $0$: $f(x,t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $\boxed{x > 0}$.
+        \item $\Gamma$ est définie si et seulement si $x>0$.
+        \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$. \\
+        En particulier, $\forall n \in \N$, $\Gamma(n+1) = n!$. 
+    \end{itemize}
+\end{prop}
+
+\begin{preuve}
+    \begin{itemize}
+        \item La fonction $f_x:t \mapsto t^{x-1} \me^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
+        \begin{itemize}
+            \item[$\triangleright$] En $+\infty:$ par croissances comparées, $f_x(t) = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f_x$ est intégrable au voisinage de $+\infty$.
+            \item[$\triangleright$] En $0$: $f_x(t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $x > 0$.
+        \end{itemize}
+        
+\marginnote[0cm]{
+    \begin{kaobox}[frametitle=Théorème (Intégration par parties généralisées)]
+        \cite{acamanes}\\
+        Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
+        $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
+        sont de même nature. Si ces quantités sont convergentes, en notant
+        \begin{align*}
+            [f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+}(f(x)g(x)),
+        \end{align*}
+        on obtient la relation
+        $$\int_a^b f'(t) g(t) \d t = [f(t)g(t)]_a^b - \int_a^b f(t) g'(t) \d t.$$
+    \end{kaobox}
+}
+
+        \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \me^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
+        \begin{align*}
+            \text{par croissances comparées } & \lim_{t \to +\infty} u(t) v(t) = 0, \\
+            \text{ comme } x > 0 & \lim_{t \to 0} u(t) v(t) = 0.
+        \end{align*}
+        Ainsi, d'après le théorème d'intégration par parties généralisées, 
+        $$\int_{0}^{+\infty} t^{x-1} \me^{-t} \d t = \underbrace{0}_{\text{crochet}} - \int_{0}^{+\infty} xt^{x-1} (-\me^{-t}) \d t.$$
+        soit 
+        $$\Gamma(x+1) = x \Gamma(x).$$
+        En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
+        $$\forall n \in \Ne, \Gamma(n+1) = n!$$
+        Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
     \end{itemize}
 \end{preuve}
 \underline{Dérivées successives:} \\

@@ -8,10 +8,10 @@
 \coordinate (x3) at (4,{f(4)});
 \coordinate (x4) at (5,{f(5)});
 \coordinate (end) at (5.05,{f(5.05)});
-\draw[fill=orange!40!white] (1,0) rectangle (2,{f(1)});
-\draw[fill=orange!40!white] (2,0) rectangle (3,{f(2)});
-\draw[fill=orange!40!white] (3,0) rectangle (4,{f(3)});
-\draw[fill=orange!40!white] (4,0) rectangle (5,{f(4)});
+\draw[fill=teal!20!white] (1,0) rectangle (2,{f(1)});
+\draw[fill=teal!20!white] (2,0) rectangle (3,{f(2)});
+\draw[fill=teal!20!white] (3,0) rectangle (4,{f(3)});
+\draw[fill=teal!20!white] (4,0) rectangle (5,{f(4)});
 \draw (5,0)--(5,{f(5)});
 \draw [-latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$x$};
 \draw [-latex] (0,-0.5) -- (0,5) node [left] {$y$};
@@ -19,8 +19,8 @@
  \draw[xshift=\x cm] (0pt,3pt) -- (0pt,0pt) 
 node[below=2pt,fill=white,font=\normalsize]
   {$\xtext$};
-\draw[domain=.5:5.3,samples=200,variable=\x,red,thick] plot ({\x},{f(\x)});                 
+\draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)});                 
 \foreach \n in {0,1,2,3}
-\draw[red,fill=red] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
+\draw[blue,fill=blue] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
 \draw[<->] (2,-1)--(3,-1) node[below,midway] {$\frac{b-a}{n}$};      
 \end{tikzpicture}

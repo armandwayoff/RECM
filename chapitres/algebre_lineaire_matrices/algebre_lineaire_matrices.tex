@@ -85,3 +85,115 @@ C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace 
         \item Soient $A_1, \dots, A_n$ des matrices nilpotentes qui commutent deux à deux. Montrer que $A_1 \times \cdots \times A_n = 0$.
     \end{enumerate}
 \end{exercice}
+
+
+\section{Si $AB - BA = A \dots$}
+\textcolor{red}{textorpdfstring}
+\begin{exercice}
+    fic00118 [005625]\\
+    Soit $(A, B) \in \M_n(\R)^2$ tel ques $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
+\end{exercice}
+
+\marginnote[2cm]{
+    \begin{kaobox}[frametitle=Propriétés de la trace]
+        Soit $(A, B) \in \M_n(\K)^2$.
+        $$\Tr(AB) = \Tr(BA),$$
+        $$\Tr(A + \lambda B) = \Tr(A) + \lambda \Tr(B).$$
+    \end{kaobox}
+}
+
+Ma solution est beaucoup simple que la leur...
+\begin{solution}
+    Soit $p \in \Ne$. On écrit
+    \begin{align*}
+        A^p = A^{p-1}(AB-BA) = A^pB - A^{p-1}BA.
+    \end{align*}
+    On composant cette relation par la trace on obtient d'après ses propriétés
+    \begin{align*}
+        \Tr(A^p) &= \Tr(A^pB) - \Tr((A^{p-1}B)A) \\
+        &= \Tr(A^pB) - \Tr(A(A^{p-1}B)) \\
+        \Tr(A^p) &= 0.
+    \end{align*}
+\end{solution}
+
+\begin{exercice}
+    \cite{exos_oraux} p. 47 \\
+    Soient $n \in \Ne$, $A$ et $B$ deux matrices de $\M_n(\R)$ telles que $AB - BA = A.$
+    \begin{enumerate}
+        \item Montrer que la matrice $A$ n'est pas inversible.
+        \item Montrer que pour tout $k \in \Ne$, $AB^k - B^k A = k A^k$. En déduire que la matrice $B$ est nilpotente. 
+    \end{enumerate}
+\end{exercice}
+
+\begin{remarque}
+    On retrouve le résultat (à vérifier et à justifier) qu'une matrice $A$ est nilpotente si et seulement si pour tout $k \in \Ne, \Tr(A^k) = 0$.
+\end{remarque}
+
+
+\section{Application du théorème de recollement}
+
+\begin{exercice}
+    \cite{acamanes}
+    Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note $\mathscr{H} \defeq \{ g \in \Endo(F, E);\ f \circ g \circ f = 0\}$. Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
+\end{exercice}
+
+\marginnote[0cm]{
+    \cite{acamanes} Ch3, Th2
+    \begin{kaobox}[frametitle=Sommes directe \& Applications linéaires]
+        On suppose que $E = \bigoplus\limits_{i=1}^m E_i$. Pour tout indice $i \in \llbracket 1, m \rrbracket$, on considère une application linéaire $\varphi_i$ de $E_i$ dans $F$. Alors, il existe une unique application linéaire $\varphi$ de $E$ dans $F$ telle que pour tout $i \in \llbracket 1, m \rrbracket$, la restriction de $\varphi$ à $E_i$ soit égale à $\varphi$.
+    \end{kaobox}
+}
+
+\begin{solution}
+    \underline{Première solution:}\\
+    \begin{itemize}
+        \item On montre que $\mathscr{H}$ est un sous-espace vectoriel de $\Endo(F, E)$. Soit $W$ un supplémentaire de $\Im f$ dans $F$.
+        \item On va construire un isomorphisme entre $\mathscr{H}$ et un ensemble dont on peut calculer la dimension. On pose
+        \begin{alignat*}{2}
+            \psi\ :\ \mathscr{H}\ &\longrightarrow\ \Endo(\Im f, \Ker f) \times \Endo(W, E)\\
+            g\ &\longmapsto\ (g_{\vert \Im f}, g_{\vert \Ker f}).
+        \end{alignat*}
+        Montrons que $\psi$ est un isomorphisme. 
+        \begin{itemize}
+            \item Montrons que $\psi$ est bien définie: \\
+            soient $x \in E$ et $g \in \mathscr{H}$,
+            $$\psi(g)(x) = \left( g_{\vert \Im f}(x), g_{\vert W}(x) \right).$$
+            De plus, $\Im g \circ f \subset \Ker f$ donc $g_{\vert \Im f} \in \Endo(\Im f, \Ker f)$.
+            $$(f \circ g \circ f)(x) = f(g(\underbrace{f(x)}_{\defeq y})) = f(\underbrace{g_{\vert \Im f}(y)}_{\in \Ker f}) = 0.$$
+            La linéarité est triviale. 
+            \item Montrons que $\psi$ est surjective. \\
+            Soit $(g_1, g_2) \in \Endo(\Im f, \Ker f) \times \Endo(W, E)$. \\
+            Par théorème de recollement des applications linéaires, il existe une application $g \in \Endo(F, E)$ telle que 
+            \begin{cases}
+                    g_{\vert \Im f} = g_1 \\
+                    g_{\vert W} = g_2
+            \end{cases}. \\
+            Soit $x \in E$, $(f \circ g \circ f)(x) = f(g(\underbrace{f(x)}_{\in \Im f}) = f(\underbrace{g_1(f(x))}_{\in \Ker f}) = 0$ donc $g \in \mathscr{H}$ et $\psi$ est sujective. 
+            \item Montrons que $\psi$ est injective. \\
+            Soit $g \in \Ker \psi$. Alors $(g_{\vert \Im f}, g_{\vert W}) = (0_{\Endo(F, E)}, 0_{\Endo(F, E)})$. \\
+            Donc $g = 0_{\Endo(F, E)}$ et $\Ker \psi = \{ 0_{\Endo(F, E)} \}$ soit $\psi$ est injective. \\
+            Finalement, $\psi$ est un isomorphisme. \\
+            Il y a donc égalité des dimensions entre les espaces de départ et d'arrivée de $\psi$. Ainsi,
+            \begin{align*}
+                \dim \mathscr{H} &= \dim(\Endo(\Im f, \Ker f)) + \dim (\Endo(W, E)) \\
+                &= \Rg f \times \dim \Ker f + \dim W \times \dim E \\
+                &= \Rg f \times (\dim E - \Rg f) + (\dim F - \Rg f) \times \dim E \\
+                \dim \mathscr{H} &= \dim E \dim F - (\Rg f)^2
+            \end{align*}
+        \end{itemize}
+        \begin{remarque}
+            Si $\dim E = \dim F$ et que $f$ est bijective, le résultat est cohérent. De même si $f = 0_{\Endo(E, F)}$.
+        \end{remarque}
+    \end{itemize}
+    \underline{Une solution plus visuelle:} \\
+    Soit $W$ un supplémentaire de $\Im f$ dans $F$: $\Im f \oplus W = F$ et soit $V$ un supplémentaire de $\Ker f$ dans $E$: $\Ker f \oplus V = E$. \\
+    Soit $\mathscr{B} \defeq (e_1, \dots, e_r, e_{r+1}, \dots, e_p)$ une base adaptée à la décomposition $\Im f \oplus W = F$ et soit $\mathscr{B}' \defeq (\varepsilon_1, \dots, \varepsilon_{n-r}, \varepsilon_{n-r+1}, \dots, \varepsilon_n)$ une base adaptée à la décomposition $\Ker f \oplus V = E$.
+    \begin{align*}
+        g \in \mathscr{H} &\Leftrightarrow g(\Im f) \subset \Ker f \\
+        &\Leftrightarrow \Mat_{\mathscr{B}, \mathscr{B}'}(g) = 
+        \begin{pmatrix}
+            \star & \star \\
+            0 & \star
+        \end{pmatrix}
+    \end{align*}
+\end{solution}

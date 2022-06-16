@@ -5,6 +5,15 @@
     \emph{Il y a des résultats analogues si $a_n = o(b_n)$ ou si $a_n = \mathcal{O}(b_n)$.}
 \end{prop}
 
+\begin{marginfigure}[3cm]
+    \centering
+    \caption*{\centering Diagramme de la démonstration}
+    \begin{tikzcd}
+    a_n \sim b_n \arrow[r, Rightarrow, "1"] & a_n - b_n = o(a_n) \arrow[d, Rightarrow, "2"]\\
+    A_n \sim B_n \arrow[r, Leftarrow, "3"] & A_n - B_n = o (A_n)
+    \end{tikzcd}
+\end{marginfigure}
+
 \begin{preuve}
     On suppose que $\sum a_n$ diverge. On sait que $a_n \sim b_n$ est équivalent à $a_n -b_n = o(b_n)$, autrement dit, pour $\varepsilon > 0$, il existe un rang $n_0$ à partir duquel $|a_n -b_n| \leqslant \varepsilon a_n$. \\
     Pour tout $n \in \Ne$, on note $A_n \defeq \sum\limits_{k=1}^n a_k$ et $B_n \defeq \sum\limits_{k=1}^n b_k$. \\
@@ -16,5 +25,6 @@
         &\leqslant C + \varepsilon \sum_{k=n_0}^n a_k \\
         \text{comme $(a_n)$ est à valeurs positives} &\leqslant C + \varepsilon A_n
     \end{align*}
-    Comme $\sum a_n$ est divergente et à valeurs positives, $A_n \longrightarrow +\infty$ et donc à partir d'un certain rang $n_1$, $A_n \varepsilon \geqslant C$. Ainsi pour $n \geqslant \max \{ n_0, n_1 \}$, $|A_n - B_n| \leqslant 2 \varepsilon A_n$. Donc $A_n - B_n = o(A_n)$ ce qui équivaut à $A_n \sim B_n$.
+    Comme $\sum a_n$ est divergente et à valeurs positives, $A_n \longrightarrow +\infty$ et donc à partir d'un certain rang $n_1$, $A_n \varepsilon \geqslant C$. Ainsi pour $n \geqslant \max \{ n_0, n_1 \}$, $|A_n - B_n| \leqslant 2 \varepsilon A_n$. \\ 
+    Donc $A_n - B_n = o(A_n)$ ce qui équivaut à $A_n \sim B_n$.
 \end{preuve}
