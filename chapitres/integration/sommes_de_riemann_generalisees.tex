@@ -1,8 +1,9 @@
-\begin{itemize}
-    \item Il s'agit de démontrer le théorème de \textsc{Riemann}. 
-    \item Poser pout tout $k \in \N$, $x_n^k \defeq a+k\frac{b-a}{n}$ et encadrer la somme par des intégrales. 
-\end{itemize}
+\begin{theo}
+    \cite{acamanes} \\
+    Pour tout entier naturel $n$ non nul, la \emph{somme de \textsc{Riemann}} associée à $f$ sur le segment $[a, b]$ est $S_n \defeq \frac{b-a}{n} \sum\limits_{k=0}^{n-1} f \left( a + k \frac{b-a}{n} \right)$. Si $f$ est continue par morceaux sur $[a, b]$, alors, 
+    $$\lim_{n \to + \infty} S_n = \int_a^b f(t) \d t.$$
+\end{theo}
 
-\begin{marginfigure}
+\begin{marginfigure}[-1cm]
     \input{illustrations/i_integrale_de_riemann}
 \end{marginfigure}

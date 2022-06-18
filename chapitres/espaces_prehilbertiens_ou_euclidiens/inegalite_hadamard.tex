@@ -1,13 +1,13 @@
-\begin{marginfigure}[-1cm]
-    \includegraphics[width=5cm]{images/jacques_hadamard.jpg}
-    \caption{Jacques \textsc{Hadamard}}
-\end{marginfigure}
+%\begin{marginfigure}[-1cm]
+%    \includegraphics[width=5cm]{images/jacques_hadamard.jpg}
+%    \caption{Jacques \textsc{Hadamard}}
+%\end{marginfigure}
 
-\begin{tcolorbox}
+\begin{prop}
     Soit $M \in \M_n(\C)$ et soient $X_1, \dots, X_n$ les vecteurs colonnes de $M$. Alors,
     $$|\mathrm{det}(M)| \leqslant \prod_{i=1}^{n} \Vert X_i \Vert$$
     avec égalité si et seulement si la famille $(X_i)$ est orthogonale.
-\end{tcolorbox}
+\end{prop}
 
 \begin{marginfigure}[0.8cm]
     \input{illustrations/i_inegalite_hadamard_bis}
@@ -22,10 +22,10 @@
     L'inégalité de \textsc{Hadamard} nous apprend en fait que le volume du parallélotope défini par les vecteurs colonnes est inférieur ou égal au produit des normes de ses vecteurs et il y a égalité si et seulement si la matrice est diagonale, ou encore que le parallélotope est rectangle. 
 \end{remarque}
 
-\begin{tcolorbox}
+\begin{prop}
     Soient $\mathscr{S}_n ^{++} (\R)$ l'ensemble des matrices réelles d'ordre $n$ symétriques à valeurs propres strictement positives et $A = (a_{i,j}) \in \mathscr{S}_n ^{++} (\R)$. Alors,
     $$\det(A) \leqslant \prod_{i=1}^{n} a_{i,i}.$$
-\end{tcolorbox}
+\end{prop}
 
 \underline{Démonstration:} (exercice 4, TD 14 \cite{acamanes})
 

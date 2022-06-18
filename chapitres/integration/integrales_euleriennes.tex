@@ -1,3 +1,8 @@
+Texte de Pierre-Jean \textsc{Hormière} \\
+De premières tentatives pour définir $n!$ pour des valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
+Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin} \dots \\
+Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \me^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \me^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \me^{-t} \d t$.
+
 \subsection{Fonction Gamma d'\textsc{Euler}}
 
 %\begin{marginfigure}[3cm]
@@ -29,20 +34,6 @@
             \item[$\triangleright$] En $+\infty:$ par croissances comparées, $f_x(t) = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f_x$ est intégrable au voisinage de $+\infty$.
             \item[$\triangleright$] En $0$: $f_x(t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $x > 0$.
         \end{itemize}
-        
-\marginnote[0cm]{
-    \begin{kaobox}[frametitle=Théorème (Intégration par parties généralisées)]
-        \cite{acamanes}\\
-        Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
-        $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
-        sont de même nature. Si ces quantités sont convergentes, en notant
-        \begin{align*}
-            [f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+}(f(x)g(x)),
-        \end{align*}
-        on obtient la relation
-        $$\int_a^b f'(t) g(t) \d t = [f(t)g(t)]_a^b - \int_a^b f(t) g'(t) \d t.$$
-    \end{kaobox}
-}
 
         \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \me^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
         \begin{align*}
@@ -58,6 +49,21 @@
         Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
     \end{itemize}
 \end{preuve}
+
+\marginnote[-5cm]{
+    \begin{kaobox}[frametitle=Théorème (Intégration par parties généralisées)]
+        \cite{acamanes}\\
+        Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
+        $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
+        sont de même nature. Si ces quantités sont convergentes, en notant
+        \begin{align*}
+            [f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+}(f(x)g(x)),
+        \end{align*}
+        on obtient la relation
+        $$\int_a^b f'(t) g(t) \d t = [f(t)g(t)]_a^b - \int_a^b f(t) g'(t) \d t.$$
+    \end{kaobox}
+}
+
 \underline{Dérivées successives:} \\
 Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
 $$\varphi_k:t \mapsto 

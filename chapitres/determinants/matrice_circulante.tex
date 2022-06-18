@@ -1,4 +1,4 @@
-\begin{tcolorbox}
+\begin{defi}
 Une \href{https://fr.wikipedia.org/wiki/Matrice_circulante}{\emph{matrice circulante}} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients:
 $$
 \mathrm{C}(c_0, \dots, c_{n-1}) \defeq
@@ -10,7 +10,7 @@ c_{n-2} & c_{n-1} & c_0 & \cdots & c_{n-3} \\
 c_1 & c_2 & c_3 & \cdots & c_0
 \end{pmatrix}.
 $$
-\end{tcolorbox}
+\end{defi}
 
 \begin{remarque}
     Une matrice circulante est un cas particulier de \href{https://fr.wikipedia.org/wiki/Matrice_de_Toeplitz}{matrice de \textsc{Toeplitz}}.
@@ -22,7 +22,7 @@ $$
 
 \begin{preuve}
     Pour alléger les notations, on pose $\mathrm{C} \defeq \mathrm{C}(c_0, \dots, c_{n-1})$. \\
-    Nous cherchons à déterminer le spectre de la matrice $\mathrm{C}$ ce qui ne semble pas évident au premier abord (on se rend rapidement compte que le cacul direct du polynôme caractéristique n'est pas une bonne approche). \\
+    Nous cherchons à déterminer le spectre de la matrice $\mathrm{C}$ ce qui ne semble pas évident au premier abord (on se rend rapidement compte que le calcul direct du polynôme caractéristique n'est pas une bonne approche). \\
     Notre démarche va consister à exprimer la matrice $\mathrm{C}$ comme le polynôme d'une matrice simple dont on peut calculer le spectre. On en déduira ensuite le spectre de la matrice $\mathrm{C}$. \\
     On pose 
     $$

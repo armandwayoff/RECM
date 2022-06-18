@@ -1,4 +1,4 @@
-\chapter{Algèbre linéaire, matrices}
+\chapter{Algèbre linéaire, Matrices}
 \labch{algebre_lineaire_matrices}
 
 \textsl{Au \textsc{xviii}$^\me$ siècle se développent la résolution des systèmes linéaires et la théorie des déterminants. Les raisonnements suggèrent rapidement le concept d'espace à $n$ dimensions. Mais il fallait oser un langage géométrique, alors qu'une interprétation sensible dans le plan ou l'espace faisait défaut pour $n > 3$. \\
@@ -85,6 +85,10 @@ C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace 
         \item Soient $A_1, \dots, A_n$ des matrices nilpotentes qui commutent deux à deux. Montrer que $A_1 \times \cdots \times A_n = 0$.
     \end{enumerate}
 \end{exercice}
+
+\begin{solution}
+    Comme les matrices $A$ et $B$ commutent, elles sont cotrigonalisables (lien vers l'exercice correspondant). De plus comme la matrice $B$ est nilpotente, dans toute base dans laquelle elle est triangulaire, sa diagonale est nulle (le spectre d'une matrice nilpotente est réduit à $0$). Ainsi dans une base de cotrigonalisation des matrices $A+B$ et $A$, leur diagonale sont égales et donc leur déterminant (qui sont égaux au produit des termes diagonaux).
+\end{solution}
 
 
 \section{Si $AB - BA = A \dots$}
@@ -196,4 +200,5 @@ Ma solution est beaucoup simple que la leur...
             0 & \star
         \end{pmatrix}
     \end{align*}
+    à finir....
 \end{solution}
