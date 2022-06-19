@@ -1,12 +1,7 @@
-\resizebox{6.5cm}{6.5cm}{%
-    \begin{tikzpicture}
-        \node[block] (gram) {Déterminant \\ de \textsc{Gram}};
-        \node[block, right of=s1] (iwasama) {Décomposition \\ d'\textsc{Iwasama}};
-        \node[block, below right of=gram] (hadamard) {Inégalité \\ d'\textsc{Hadamard}};
-    
-        \draw (gram) edge[bend right, above left] node {...} (hadamard);
-    
-        \draw (iwasama) edge[bend left] node {$M=OT$} (hadamard);
-    
-    \end{tikzpicture}    
-}
+\begin{tikzpicture}[scale=0.7]
+    \node[block] (gram) {Déterminant \\ de \textsc{Gram}};
+    \node[block, right of=s1] (iwasama) {Décomposition \\ d'\textsc{Iwasama}};
+    \node[block, below right of=gram] (hadamard) {Inégalité \\ d'\textsc{Hadamard}};
+    \draw (gram) edge[bend right, above left] node {} (hadamard);
+    \draw (iwasama) edge[bend left, above right] node {} (hadamard);
+\end{tikzpicture}    

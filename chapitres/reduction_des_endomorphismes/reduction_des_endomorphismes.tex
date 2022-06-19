@@ -83,12 +83,14 @@ Dans le cadre général, l'outil fondamental pour élucider les classes de simil
 
 \begin{solution}
     Soit $p > 0$. D'après le théorème de \textsc{D'Alembert}-\textsc{Gauss}, la polynôme caractéristique de $M$ est scindé sur $\C$ donc la matrice $M$ est trigonalisable sur $\C$. Autrement dit, il existe $P \in \Gl_n(\C)$ telle que $M = P T \Inv{P}$ avec 
-    $\begin{pmatrix}
+    $
+    \begin{pmatrix}
         t_{1,1} & t_{1,2} & \cdots & t_{1,n} \\
         0 & t_{2,2} & \cdots & t_{2,n} \\
         \vdots & \ddots & \ddots & \vdots \\
         0 & \cdots & 0 & t_{n,n}
-    \end{pmatrix}. $ \\
+    \end{pmatrix}. 
+    $ \\
     \underline{Analyse:} soit $(a_1, \dots, a_n)$ des scalaires non nuls. On pose $D \defeq \Diag(a_1, \dots, a_n)$ et $T' \defeq D T \Inv{D}$. On calcule
     $$T'=
     \begin{pmatrix}
