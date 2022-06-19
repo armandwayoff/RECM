@@ -100,7 +100,7 @@
     Nous allons raisonner par récurrence sur la taille de la matrice. \\
     L'initialisation pour $n = 1$ est triviale. \\
     Soit $(\alpha_1, \dots, \alpha_n, \alpha_{n+1})$ une famille de complexes. On suppose que $\det(\Vandermonde(\alpha_1, \dots, \alpha_n)) = \prod\limits_{1\leqslant i < j \leqslant n}(\alpha_j - \alpha_i).$ \\
-    On pose $P(X)=\prod\limits_{j=1}^n (X-\alpha_j) = X^n + \sum\limits_{k=0}^{n-1} p_k X^k$. \\
+    On pose $P(X) \defeq \prod\limits_{j=1}^n (X-\alpha_j) = X^n + \sum\limits_{k=0}^{n-1} p_k X^k$. \\
     D'après les propriétés du déterminant, en ajoutant les $n$ premières colonnes respectivement multipliée par $p_k$ à la dernière, on obtient
     \begin{align*}
         \detvandnplusun &= \detvandpoly \\

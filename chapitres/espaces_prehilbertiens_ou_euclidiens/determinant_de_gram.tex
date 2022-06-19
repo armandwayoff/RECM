@@ -29,17 +29,16 @@
     Par le \textbf{théorème du rang}, on obtient le résultat. 
 \end{preuve}
 
-\begin{prop}
+\begin{theo} \label{distance_a_un_sous_espace_vectoriel}
     Distance à un sous-espace vectoriel \\
     Soit $(E, \langle \cdot , \cdot \rangle)$ un espace préhilbertien. \\
     Soit $F$ un sous-espace vectoriel de $E$ de dimension finie $p \in \Ne$ et soit $(e_1, \dots, e_p)$ une base de $F$. Alors pour tout $x \in E$,
     $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
-\end{prop}
+\end{theo}
 
 \begin{preuve}
-    Inspirée par celle de Florian DUSSAP. \\
     Soit $\pi_F(x)$ le projeté orthogonal de $x$ sur $F$. \\
-    Alors $d(x, F)^2 = \norme{x - \pi_F(x)}^2$ et par \textsc{Pythagore}, $\norme{x}^2 = \norme{\pi_F(x)}^2 + \norme{x - \pi_F(x)}^2$. De plus, pour tout $k \in \llbracket 1, p \rrbracket$, $\langle x | e_k \rangle = \langle \pi_F(x) | e_k \rangle$.
+    Alors $d(x, F)^2 = \norme{x - \pi_F(x)}^2$ et par \textsc{Pythagore}, $\norme{x}^2 = \norme{\pi_F(x)}^2 + \norme{x - \pi_F(x)}^2$. De plus, pour tout $k \in \llbracket 1, p \rrbracket$, $\langle x , e_k \rangle = \langle \pi_F(x) , e_k \rangle$. On obtient alors
     \begin{align*}
         \Gram(e_1, \dots, e_p, x) &= 
         \begin{vmatrix}
@@ -55,39 +54,26 @@
           \norme{x}^2
           \end{matrix}
         \end{vmatrix} \\
-        & = \begin{vmatrix}
-          \begin{matrix}
-            & & \\
-            & \langle e_i, e_j \rangle & \\
-            & &
-          \end{matrix}
-          & \rvline & \langle e_i, \pi_F(x) \rangle \\
-        \hline
-          \langle \pi_F(x), e_j \rangle & \rvline &
-          \begin{matrix}
-          \norme{\pi_F(x)}^2
-          \end{matrix}
-        \end{vmatrix}
-        + 
+        &=
         \begin{vmatrix}
           \begin{matrix}
             & & \\
             & \langle e_i, e_j \rangle & \\
             & &
           \end{matrix}
-          & \rvline & 0 \\
+          & \rvline & \langle e_i, \pi_F(x) \rangle + 0 \\
         \hline
-          0 & \rvline &
+          \langle x, e_j \rangle & \rvline &
           \begin{matrix}
-          \norme{x - \pi_F(x)}^2
+          \norme{\pi_F(x)}^2 + \norme{x - \pi_F(x)}^2
           \end{matrix}
-        \end{vmatrix} \\
-        &= \Gram(e_1, \dots, e_p, \pi_F(x)) + \norme{x - \pi_F(x)}^2 \Gram(e_1, \dots, e_p).
+        \end{vmatrix} 
     \end{align*}
-    Comme $\pi_F(x) \in \Vect(e_1, \dots, e_p), \Gram(e_1, \dots, e_p, \pi_F(x)) = 0$ et donc $\Gram(e_1, \dots, e_p, x) = d(x, F)^2 \Gram(e_1, \dots, e_p)$.
+    Par linéarité du déterminant par rapport à la dernière colonne on obtient
+    $$\Gram(e_1, \dots, e_p, x) = \Gram(e_1, \dots, e_p, \pi_F(x)) + \norme{x - \pi_F(x)}^2 \Gram(e_1, \dots, e_p).$$
+    Comme $\pi_F(x) \in \Vect(e_1, \dots, e_p)$, le premier terme est nul et donc $\Gram(e_1, \dots, e_p, x) = d(x, F)^2 \Gram(e_1, \dots, e_p)$ soit 
+    $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
 \end{preuve}
-
-Corollaire.
 
 \begin{corol}
     Soit $(x_1, \dots, x_n) \in E^n$. Alors,
@@ -96,7 +82,16 @@ Corollaire.
 \end{corol}
 
 \begin{preuve}
-    
+Jérôme Von Buhren \\
+    Si la famille $(x_1, \dots, x_n)$ est liée, le résultat est immédiat. \\
+    Raisonnons par récurrence sur $n \in \Ne$ sur la propriété
+    \begin{center}
+        $\mathscr{P}_n$: \say{ pour toute famille libre $(x_1, \dots, x_n)$ de $E$, on a $\Gram(x_1, \dots, x_n) \leqslant \prod\limits_{i=1}^n \norme{x_i}^2$ }.
+    \end{center}
+    \underline{Initialisation pour $n = 1$:} soit $x_1 \in E$. $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée. \\
+    \underline{Hérédité:} supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, \tilde{f}) \in F \times F^\perp$ tel que $x_{n+1} = f + \title{f}$. Par le theorème (\nameref{distance_a_un_sous_espace_vectoriel}) et par $\mathscr{P}_n$, 
+    $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{\tilde{f}} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
+    car par le théorème de \textsc{Pythagore}, $\norme{\tilde{f}} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
 \end{preuve}
 
 \begin{prop}

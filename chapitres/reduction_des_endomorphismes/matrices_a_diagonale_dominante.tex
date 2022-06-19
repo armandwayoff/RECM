@@ -60,6 +60,22 @@
     Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
 \end{preuve}    
 
+\begin{corol}
+    Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On note
+    \begin{equation*}
+        E &\defeq \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg) \quad
+        E' &\defeq \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{j \not = i} |a_{j, i}| \Bigg).
+    \end{equation*}
+    Alors,
+    $$\Sp(A) \subset E \cap E'.$$
+\end{corol}
+
+\begin{preuve}
+    D'après le théorème 4.1 (lien), 
+    $$\Sp(A) \subset E \text{ et } \Sp(\Trsp{A}) \subset E'.$$
+    Or $\Sp(A) = \Sp(\Trsp{A})$ donc $\Sp(A) \subset E \cap E'$.
+\end{preuve}
+
 \begin{prop}
     Soit $A \in \M_n(\R)$ à DSD telle que $a_{i,i} > 0$ pour tout $i \in \llbracket 1, n \rrbracket$. Alors $\mathrm{det}(A) > 0$. 
 \end{prop}
