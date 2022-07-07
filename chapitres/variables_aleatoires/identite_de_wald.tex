@@ -1,4 +1,6 @@
-Soient $(X_n)_{n \in \Ne}$ une suite de variables aléatoires, \textbf{mutuellement indépendantes}, de même loi à valeurs dans $\N$, et $T$ une variable aléatoire à valeurs dans $\N$ indépendante des précédentes. La famille $(T, X_n)_{n \in \Ne}$ est une famille de variables aléatoires mutuellement indépendantes.\\
-On note $G_X$ la fonction génératrice commune à toutes les $X_n$.\\
-Pour $n \in \N$ et $\omega \in \Omega$, on pose $S_n(\omega) = \sum\limits_{k=1}^{n} X_k(\omega)$ et $S_0(\omega) = 0$, puis, $S(\omega) = S_{T(\omega)}(\omega)$.\\
-Alors on a $\boxed{G_S = G_T \circ G_X}$ et $\boxed{\E[S] = \E[T] \E[X]}$.
+\begin{prop}
+    Soient $(X_n)_{n \in \Ne}$ une suite de variables aléatoires, \textbf{mutuellement indépendantes}, de même loi à valeurs dans $\N$, et $T$ une variable aléatoire à valeurs dans $\N$ indépendante des précédentes. La famille $(T, X_n)_{n \in \Ne}$ est une famille de variables aléatoires mutuellement indépendantes.\\
+    On note $G_X$ la fonction génératrice commune à toutes les $X_n$.\\
+    Pour $n \in \N$ et $\omega \in \Omega$, on pose $S_n(\omega) = \sum\limits_{k=1}^{n} X_k(\omega)$ et $S_0(\omega) = 0$, puis, $S(\omega) = S_{T(\omega)}(\omega)$.\\
+    Alors on a $\boxed{G_S = G_T \circ G_X}$ et $\boxed{\E[S] = \E[T] \E[X]}$.
+\end{prop}

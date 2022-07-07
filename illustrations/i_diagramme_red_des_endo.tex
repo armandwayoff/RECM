@@ -1,0 +1,17 @@
+%\adjustbox{scale=4,center}{%
+\begin{tikzcd}[scale cd=0.85, ampersand replacement=\&]
+	\& {} \& {} \& {} \\
+	\& {\parbox{3.0cm}{\centering $P \in \mathrm{Ann}(f)$ \\ $\mathrm{Sp}(f) \subset \mathrm{Rac}(P)$}} \& {f \in \mathrm{GL} (E) \Leftrightarrow 0 \notin \mathrm{Sp}(f)} \\
+	\& {\parbox{5.1cm}{\centering \textcolor{red}{\textsc{Spectre}}\\ $\lambda\in \mathrm{Sp}(f) \Leftrightarrow \exists x \not=0_E, f(x)=\lambda x$}} \& {} \\
+	{\parbox{6.0cm}{\centering \textcolor{red}{\textsc{Polynôme caractéristique}} \\ $\chi_f(\lambda) = \det(\lambda\mathrm{Id}_E-f)$ \\ $m_f(\lambda)$: ordre de la racine $\lambda$ dans $\chi_f$}} \&\& {\parbox{4.0cm}{\centering \textcolor{red}{\textsc{Sous-espace propre}} \\ $E_{\lambda}(f)= \mathrm{Ker}(\lambda\mathrm{Id}_E-f)$}} \\
+	{\parbox{7.0cm}{\centering $g$ endomorphisme induit par $f$ \\ $\chi_g |\chi _f$ \\ $\chi_f(\lambda) = \lambda^n -\mathrm{Tr}(f) \lambda^{n-1} + \cdots + (-1)^n \det(f)$}} \&\& {\parbox{7.0cm}{\centering Les sep sont des sev stables par $f$ \\ $f \circ g = g \circ f \Rightarrow E_\lambda(f)$ stable par $g$}}
+	\arrow["{\dim E_\lambda(f) \leqslant m_f(\lambda)}"{description}, tail reversed, from=4-1, to=4-3]
+	\arrow["{\small{\lambda \in \mathrm{Sp}(f) \Leftrightarrow \dim E_\lambda(f) \geqslant 1}}"{description, pos=0.7}, curve={height=-24pt}, tail reversed, from=3-2, to=4-3]
+	\arrow[tail reversed, from=4-3, to=5-3]
+	\arrow[tail reversed, from=4-1, to=5-1]
+	\arrow[curve={height=-12pt}, tail reversed, from=3-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow["{\parbox{4cm}{\centering \textsc{Cayley}-\textsc{Hamilton} \\ \chi_f (f) = 0}}"{description}, curve={height=30pt}, tail reversed, from=2-2, to=4-1]
+	\arrow["{\small{\contour{white}{$\lambda \in \mathrm{Sp}(f) \Leftrightarrow \chi_\lambda(f) = 0$}}}"{description}, shift left=2, curve={height=24pt}, tail reversed, from=3-2, to=4-1]
+\end{tikzcd}
+%}

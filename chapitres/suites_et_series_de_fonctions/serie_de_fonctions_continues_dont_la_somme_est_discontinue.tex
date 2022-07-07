@@ -1,20 +1,22 @@
-\begin{box_titre}{Contre-exemple historique fournit par Niels \textsc{Abel} à \textsc{Cauchy}}
+\begin{prop}
+    \cite{contre-exemples} p.257 \\
+    Soit la suite $(f_n)_{n \geqslant 0}$ d'applications continues de $[0,1]$ dans $\R$, de terme général
     \begin{alignat*}{2}
-        f_n\ :\ \R\ &\longrightarrow\ \R\\
-        x\ &\longmapsto\ f_n(x) = \frac{(-1)^n}{n}\sin(nx).
+        f_n\ :\ [0,1]\ &\longrightarrow\ \R\\
+        x\ &\longmapsto\ f_n(x) = (1-x)x^n.
     \end{alignat*}
-\end{box_titre}
+    La somme des $f_n$ est discontinue.
+\end{prop}
 
 \begin{preuve}
-    La démonstration consiste à effectuer une \nameref{transformation_abel} aux suites $(\varepsilon_n)_{n\geqslant1}$ et $(v_n)_{n\geqslant1}$ de termes généraux:
-    $$\varepsilon_n = (-1)^n \sin(nx) = \sin(n(x + \pi)) \text{ et } v_n = \frac{1}{n}.$$
-    \begin{itemize}
-        \item Pour montrer que $\sum \varepsilon_n$ est bornée, distinguer deux cas:\\
-        $\blacktriangleright x \in \pi \Z$\\
-        $\blacktriangleright x \not \in \pi \Z$:
-        $\sum\limits_{p=1}^{n} \varepsilon_n$ est la partie imaginaire de:\\
-        $$\sum_{p=1}^{n} \me^{\mi p(x+\pi)} = \frac{\sin\frac{n(x+\pi)}{2}}{\sin\frac{x+\pi}{2}}\me^{\mi (n+1)(x+\pi)/2}$$
-        donc:
-        $$\left| \sum_{p=1}^{n} \varepsilon_n \right| \leqslant \frac{1}{\left|\sin\frac{x+\pi}{2} \right|}.$$
-    \end{itemize}
+    Pour tout point $x$ de $[0,1[$, la série $\sum f_n(x)$ est le produit par $(1-x)$ d'une série géométrique de raison $x$ où $0 \leqslant x < 1$, donc elle converge et sa somme est égale à $(1-x)/(1-x) = 1$. De plus $f_n(1) = 0$ pour tout entier naturel $n$. La série de fonctions $\sum f_n$ converge donc simplement sur le segment $[0,1]$ et sa somme est l'application 
+    \begin{alignat*}{2}
+        S\ :\ [0,1]\ &\longrightarrow\ \R\\
+        x\ &\longmapsto\ S(x) =
+        \begin{cases}
+            1 &\text{ si } x \in [0,1[,\\
+            0 &\text{ sinon} x ) 1,
+        \end{cases}
+    \end{alignat*}
+    qui est discontinue en $1$.
 \end{preuve}

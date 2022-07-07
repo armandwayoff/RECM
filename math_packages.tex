@@ -1,7 +1,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ragged2e}
 
-% \usepackage{quiver}
+\usepackage{quiver}
 
 % Pour la fonction Gamma
 \usepackage{pgfplots}
@@ -25,6 +25,9 @@
                 calc,
                 bending % figure racines troisième de l'unité
                 }
+
+% Pour la figure de projection orthogonale
+%\usepackage[active,tightpage]{preview}
 
 % Pour pouvoir enlever l'indentation dans un itemize
 %https://tex.stackexchange.com/questions/131637/no-indentation-for-non-item-within-itemize
@@ -71,6 +74,12 @@
 % Pour le diagramme quiver
 \usepackage{tikz-cd}
 % 
+
+% Scale pour le diagramme sur le red des endos
+% https://tex.stackexchange.com/questions/325297/how-to-scale-a-tikzcd-diagram
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+%
 
 \usepackage{fancyhdr}
 \usepackage{amsfonts} 
@@ -144,7 +153,7 @@
   sharp corners, % No rounded corners
   boxrule=0pt, % no real frame,
   fonttitle=\bfseries,
-  fontupper=\slshape,
+  % fontupper=\slshape,
   % colback=RoyalBlue!10!white,
   colback=white,
   coltitle={RoyalBlue},  % Black colour for title

@@ -1,5 +1,5 @@
 \begin{defi}
-    Soit $n \in \Ne$. Une matrice $M_n = (m_{i,j}) \in \M_n(\K)$ est dite \emph{tridiagonale} si
+    Soit $n \in \Ne$. Une matrice $M_n \defeq (m_{i,j}) \in \M_n(\K)$ est dite \emph{tridiagonale} si
     $$\forall (i,j) \in \llbracket 1, n \rrbracket^2,\ m_{i,j} = 0 \text{ si } |i-j| > 1.$$
 \end{defi}
 
@@ -108,11 +108,23 @@ Ces matrices sont des matrices de \textsc{Toeplitz} tridiagonales. Nous les note
 
 \begin{preuve}
     Deuxième réponse de \url{https://math.stackexchange.com/questions/955168/how-to-find-the-eigenvalues-of-tridiagonal-toeplitz-matrix}. \\
-    Dans toute la suite on note $\Delta_n = \det(\mathrm{Toep}_n(a,b,c))$. \\
+    Dans toute la suite on note $\Delta_n \defeq \det(\mathrm{Toep}_n(a,b,c))$. \\
     D'après le \nameref{relation_det_toep_trig}, (corollaire 3.1.)
     $$\Delta_n = a \Delta_{n-1} - bc \Delta_{n-2}$$
     avec $\Delta_0 = 1$ et $\Delta_1 = a$.
-    ....
+    On trouve 
+    $$\Delta_n = \frac{1}{\sqrt{a^2 - 4bc}} \left[ \left( \frac{a + \sqrt{a^2 - 4bc}}{2} \right)^{n+1} - \left( \frac{a - \sqrt{a^2 - 4bc}}{2} \right)^{n+1} \right].$$
+    Cette expression s'annule lorsque 
+    $$\frac{a - \sqrt{a^2 - 4bc}}{a + \sqrt{a^2 - 4bc}} = \frac{1 - \sqrt{1 - \frac{4bc}{a^2}}}{1 + \sqrt{1 - \frac{4bc}{a^2}}}$$
+    est une racine $(n+1)$-ème de l'unité que l'on note $\omega_k$. \\
+    Alors
+    $$\frac{4bc}{a^2} = 1 - \left( \frac{\omega_k - 1}{\omega_k + 1} \right)^2 = \frac{2 \omega_k}{(\omega_k + 1)^2}$$
+    et 
+    $$a = \pm \frac{\omega_k + 1}{2 \sqrt{\omega_k}}2 \sqrt{bc}.$$
+    \say{ The coefficient in $\omega_k$ is real and can be written }
+    $$\cos \frac{k \pi}{n+1}.$$
+    Enfin, en remplaçant $a$ par $a - \lambda$, on a montré que
+    $$\lambda =a \pm 2 \sqrt{bc} \cos \left( \frac{k \pi}{n+1} \right).$$
 \end{preuve}
 
 \begin{methode}

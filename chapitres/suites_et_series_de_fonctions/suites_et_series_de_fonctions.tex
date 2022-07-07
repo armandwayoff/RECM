@@ -1,49 +1,7 @@
 \chapter{Suites et séries de fonctions}
 \labch{suites_et_series_de_fonctions}
 
-Le Calcul infinitésimal est l'apprentissage du maniement des \emph{inégalités} bien plus que des égalités, et on pourrait se résumer en trois mots:
-\begin{center}
-        MAJORER, MINORER, APPROCHER.
-\end{center}
-
-V.1 Écart de deux fonctions de \cite{calcul_infinitesimal} \\
-De même qu'on cherche à \emph{approcher} un \emph{nombre} inconnu (défini par un procédé quelconque) à l'aide de nombres décimaux (ou rationnels), de même il est naturel en Analyse de chercher à \say{ approcher } une \emph{fonction} complexe inconnue (qui peut être définie par des procédés variés, somme de série, intégrale dépendant d'un paramètre, solution d'équation différentielle, etc.) à l'aide de fonctions que l'on considère comme \emph{connues} (polynômes, fonctions exponentielles, fonctions trigonométriques, etc.). Mais il faut préciser ce qu'on entend par \say{ approcher }, c'est-à-dire \say{ mesurer } en quelque sorte l'\say{ écart } de deux fonctions, de même que la valeur absolue $|x-y|$ mesure l'écart de deux nombres réels ou complexes. \\
-L'idée la plus naturelle est que si une fonction $g$ \say{ approche } une fonction $f$ dans un ensemble $E$ où elles sont toutes deux définies, alors, pour chaque $x_0 \in E$, la \emph{valeur} $g(x_0)$ de $g$ doit \emph{approcher} la \emph{valeur} $f(x_0)$ de $f$ au sens usuel, c'est-à-dire que $|f(x_0)-g(x_0)|$ doit être \say{ petit }. Comme ceci doit avoir lieu en \emph{chaque} poit $x_0$ de $E$, on est conduit à prendre pour \say{ écart } de deux fonctions complexes $f$, $g$ définies dans $E$ le nombre
-$$d(f, g) = \sup_{x \in E} |f(x)-g(x)|.$$
-Lorsqu'il s'agit de fonctions \emph{réelles} $f, g$ définies dans un intervalle $E = [a, b]$ de $\R$, l'idée d'\say{ écart } que nous venons de définir peut se concrétiser graphiquement de la façon suivante: dire que $d(f,g) \leqslant \varepsilon$ signifie que pour tout $x \in E$ on a $g(x)-\varepsilon \leqslant f(x) \leqslant g(x) + \varepsilon$, c'est-à-dire que le graphe de $f$ est \emph{tout entier} contenu dans le \say{ bande } de demi-largeur $\varepsilon$ autour du graphe de $g$. \\
-Pour distinguer cette idée d'\say{ approximations } d'autres notions que nous examinerons plus tard \textcolor{red}{à réécrire}, nous dirons qu'il s'agit d'\emph{approximation uniforme} d'une fonction par une autre dans un ensemble $E$ où elles sont toues deux définies; il est important de remarquer que cette notion \emph{dépend essentiellement} de l'ensemble $E$ que l'on considère: si $f$ et $g$ sont toutes deux définies dans un ensemble plus grand $E'$, la relation $|f(x) - g(x)| \leqslant \varepsilon$ pour $x \in E$ n'entraîne nullement $|f(x)-g(x)| \leqslant \varepsilon$ pour $x \in E'$. \\
-Étant donnés deux ensembles de fonctions $\mathscr{F}$ (les fonctions \say{ inconnues }) et $\mathscr{G}$ (les fonctions \say{ connues }) toutes définies dans un même ensemble $E$, nous dirons pour abréger qu'\emph{on peut approcher uniformément dans} $E$ les fonctions de $\mathscr{F}$ par les fonctions de $\mathscr{G}$ si, pour toute fonction $f \in \mathscr{F}$ et \emph{tout nombre} $\varepsilon > 0$, il existe une fonction $g \in \mathscr{G}$ (dépendant de $f$ et de $\varepsilon$) telle que l'écart $d(f,g) \leqslant \varepsilon$, c'est-à-dire que 
-$$|f(x) - g(x)| \leqslant \varepsilon \quad \text{pour tout } x \in E.$$
-
-
-\begin{tikzpicture}
-    \begin{axis}[width=6.5cm,
-        axis lines=middle,
-        grid=major,
-        xmin=-0.1, xmax=1.1,
-        ymin=-0.1, ymax=1.1,
-        % xlabel=$x$, xlabel style={right},
-        % ylabel=$y$, ylabel style={above},
-        tick style={thick},
-        ticklabel style={font=\normalsize},
-        xtick={0, 1}, 
-        ytick={0, 1},
-        % legend entries={0.5x},
-            legend style={
-            at={(1.05,0.4)},
-            anchor=north,
-            legend columns=1},
-            legend cell align={left}
-    ]
-    
-    \def\a{-0.1}
-    \def\b{1.1}
-    \def\eps{0.5}
-    
-    \addplot[blue,thick,samples=100,domain=0:\b] {x^3+x-2} {};
-
-    \end{axis}
-\end{tikzpicture}
+\input{chapitres/suites_et_series_de_fonctions/intro}
 
 \newpage
 

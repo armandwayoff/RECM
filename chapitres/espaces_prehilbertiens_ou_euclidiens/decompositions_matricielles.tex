@@ -1,4 +1,41 @@
 Voir le thème 23 de \cite{acamanes}.
+
+\begin{defi}
+    Soit $A \in \M_n(\R)$. Pour tout $j \in \llbracket 1, n \rrbracket$, la matrice obtenue à partir de $A$ en ne gardant que les $j$ premières lignes et les $j$ premières colonnes. La famille $(\det A_j)_{1 \leqslant j \leqslant n}$ est la famille des déterminants principaux de $A$.
+\end{defi}
+
+\marginnote[1cm]{Cette décomposition est utilisée en analyse numérique pour résoudre des systèmes d'équations linéaires.}
+
+\begin{theo}
+    Décomposition $LU$ (ou $LR$) \\
+    Toute matrice $A \in \Gl_n(\R)$ peut s'écrire sous la forme $A = LU$ où $L$ est une matrice triangulaire inférieure (\emph{Lower}) ayant uniquement de $1$ sur la diagonale et $U$ est une matrice triangulaire supérieure (\emph{Upper}) si et seulement si tous les déterminants principaux de $A$ sont non nuls. \\
+    Si elle existe, une telle décomposition est unique.
+\end{theo}
+
+\begin{theo}
+    Décomposition de \textsc{Cholesky} \\
+    Une matrice réelle $A$ est symétrique définie positive si et seulement s'il existe une matrice inversible $B$ triangulaire inférieure telle que $A = B \Trsp{B}$. De plus, une telle décomposition est unique si on impose la positivité des coefficients diagonaux de $B$.  
+\end{theo}  
+
+\begin{theo}
+    Décomposition $QR$ \\
+    Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = QR$, où $Q$ est une matrice orthogonale et $R$ est une matrice triangulaire supérieure à coefficients diagonaux strictement positifs. 
+\end{theo}
+
+\begin{corol}
+    Décomposition d'\textsc{Iwasama} \\
+    Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = QDR$ où $Q$ est une matrice orthogonale, $D$ est une matrice diagonale à coefficients diagonaux strictement positifs et $R$ est une matrice triangulaire supérieure à coefficients diagonaux égaux à $1$. 
+\end{corol}
+
+\begin{theo}
+    Décomposition polaire \\
+    Toute matrice $A \in \Gl_n(\R)$ peut s'écrire de manière unique sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique définie positive. 
+\end{theo}
+
+\begin{corol}
+    Toute matrice $A \in \M_n(\R)$ peut s'écrire sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique positive.
+\end{corol}
+
 \subsection{Décomposition d'\textsc{Iwasama}}
 \begin{prop}
     Soient $n \in \Ne$ et $M \in \Gl_n(\R)$. Il existe un \textbf{unique} couple $(T, O)$ tel que:

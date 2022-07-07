@@ -9,6 +9,7 @@
 \renewcommand{\Re}{\R^\star}
 \newcommand{\Rpe}{\Re_+}
 \renewcommand{\C}{\mathbb{C}}
+\renewcommand{\Ce}{\C^\star}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\Ke}{\K^\star}
 \newcommand{\N}{\mathbb{N}}
@@ -72,3 +73,16 @@
 \newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
                      \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
                      =}
+
+% https://tex.stackexchange.com/questions/349747/equivalence-of-sequence-sim-with-some-text-under      
+
+\newcommand{\isEquivTo}[1]{%
+  \mathpalette\isEquivToInner{#1}%
+}
+\newcommand{\isEquivToInner}[2]{%
+  \ifx#1\displaystyle
+    \underset{#2}{\sim}
+  \else
+    \sim_{#2}
+  \fi
+}

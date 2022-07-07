@@ -1,24 +1,7 @@
 \chapter{Algèbre linéaire, Matrices}
 \labch{algebre_lineaire_matrices}
 
-\textsl{Au \textsc{xviii}$^\me$ siècle se développent la résolution des systèmes linéaires et la théorie des déterminants. Les raisonnements suggèrent rapidement le concept d'espace à $n$ dimensions. Mais il fallait oser un langage géométrique, alors qu'une interprétation sensible dans le plan ou l'espace faisait défaut pour $n > 3$. \\
-De manière indépendante, \textsc{Cayley} en Angleterre et \textsc{Grassman} en Allemagne franchissent le pas vers 1843-1845 et parlent d'espace à $n$ dimensions. Le point de vue de \textsc{Cayley} est issu directement de la géométrie analytique: un vecteur d'un espace à $n$ dimensions est un système de $n$ réels ou $n$ complexes. L'addition de deux vecteurs et la multiplication par un scalaire sont naturellement introduites par la généralisation de la dimension $3$. Pour parvenir vraiment à la notion d'espace vectoriel, il faut dégager le concept de sous-espace et de dimension d'un sous-espace. C'est ce que fera \textsc{Grassman} (professeur de lycée autodidacte en marge des milieux de la recherche) en cherchant à développer une analyse géométrique portant sur des calculs intrinsèques indépendants du choix des coordonnées. \textsc{Grassman} introduit le produit extérieur de deux vecteurs, la définition de l'indépendance linéaire, de la dimension d'un espace et démontre la relation fondementale
-$$\dim V + \dim W = \dim (V + W) + \dim V \cap W.$$
-Ces travaux eurent peu d'impact au début, mais ils furent repris par Henri \textsc{Poincaré} et Élie \textsc{Cartan} (notamment son \say{algèbre extérieure} en géométrie différentielle). \\
-C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace vectoriel réel. Jusqu'en 1930, le point de vue des matrices et des coordonnées prédomine par rapport au point de vue intrinsèque des espaces vectoriels.
-}
-
-\begin{marginfigure}[-13cm]
-    \centering
-    \includegraphics{images/arthur_cayley.png}
-    \caption*{\centering Arthur \textsc{Cayley} (1821-1895)}
-\end{marginfigure}
-
-\begin{marginfigure}[-6cm]
-    \centering
-    \includegraphics{images/hermann_grassmann.png}
-    \caption*{\centering Hermann \textsc{Grassmann} (1809-1877)}
-\end{marginfigure}
+\input{chapitres/algebre_lineaire_matrices/intro}
 
 \newpage
 
@@ -27,8 +10,8 @@ C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace 
 %     \input{illustrations/i_changement_de_base}
 % \end{marginfigure}
 
-\section{Produit d'endomorphismes nilpotents qui commutent}
-\input{chapitres/algebre_lineaire_matrices/produit_endomorphismes_nilpotents_qui_commutent}
+% \section{Produit d'endomorphismes nilpotents qui commutent}
+% \input{chapitres/algebre_lineaire_matrices/produit_endomorphismes_nilpotents_qui_commutent}
 
 \section{Centre de \texorpdfstring{$\M_n(\K)$}{l'espace des matrices carrées}}
 \input{chapitres/algebre_lineaire_matrices/centre_de_l_espace_des_matrices_carres}
@@ -57,8 +40,8 @@ C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace 
 \section{Polynômes d'interpolation de \textsc{Lagrange}, lien avec les déterminants de \textsc{Vandermonde}}
 \input{chapitres/algebre_lineaire_matrices/polynomes_interpolation_de_lagrange_lien_avec_les_determinants_de_vandermonde}
 
-\section{Indice de nilpotence en dimension finie} \label{indice_nilpotence}
-\input{chapitres/algebre_lineaire_matrices/indice_de_nilpotence_en_dimension_finie}
+\section{Inversion par sommation géométrique des endomorphismes nilpotents} \label{indice_nilpotence}
+\input{chapitres/algebre_lineaire_matrices/inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 
 \section{Matrices de taille $3$ d'ordre de nilpotence égal à $2$}
 \input{chapitres/algebre_lineaire_matrices/matrices_de_taille_trois_odre_de_nilpotence_deux}
@@ -87,12 +70,36 @@ C'est en 1888 que \textsc{Peano} donnera la définition axiomatique d'un espace 
 \end{exercice}
 
 \begin{solution}
-    Comme les matrices $A$ et $B$ commutent, elles sont cotrigonalisables (lien vers l'exercice correspondant). De plus comme la matrice $B$ est nilpotente, dans toute base dans laquelle elle est triangulaire, sa diagonale est nulle (le spectre d'une matrice nilpotente est réduit à $0$). Ainsi dans une base de cotrigonalisation des matrices $A+B$ et $A$, leur diagonale sont égales et donc leur déterminant (qui sont égaux au produit des termes diagonaux).
+    \begin{enumerate}
+        \item Comme les matrices $A$ et $B$ commutent, elles sont cotrigonalisables (lien vers l'exercice correspondant). De plus comme la matrice $B$ est nilpotente, dans toute base dans laquelle elle est triangulaire, sa diagonale est nulle (le spectre d'une matrice nilpotente est réduit à $0$). Ainsi dans une base de cotrigonalisation des matrices $A+B$ et $A$, leur diagonale sont égales et donc leur déterminant (qui sont égaux au produit des termes diagonaux).
+        \item \cite{reduc_des_endo} p. 117 \\
+        Comme les matrices $A_1, \dots, A_n$ sont trigonalisables et commutent, elles sont cotrigonalisables: il existe donc $T_1, \dots, T_n$ triangulaires supérieures strictes et $P$ inversible telles que $A_i = P T_i \Inv{P_i}$ pour tout $i \in \llbracket 1, n \rrbracket$. \\
+        Montrons par récurrence sur $k \in \llbracket 1, n \rrbracket$ que les coefficients en position $(i, j)$ avec $i \geqslant j - k + 1$ de la matrice $T_1 \cdots T_k$ sont nuls. 
+        \begin{itemize}
+            \item Pour $k=1$, il s'agit simplement de la définition d'une matrice triangulaire supérieure stricte. 
+            \item Soit $k \in \llbracket 1, n-1 \rrbracket$ telle que les coefficients en position $(i, j)$ avec $i \geqslant j - k + 1$ de la matrice $T_1 \cdots T_k$ sont nuls. \\
+            Soit $(i, j)$ tel que $i \geqslant j - k$. Avec des notation évidentes, 
+            \begin{align*}
+                [T_1 \cdots T_{k+1}]_{i,j} &= \sum_{\ell=1}^n [T_1 \cdots T_k]_{i, \ell} [T_{k+1}]_{\ell, j} \\
+                \text{ comme } T_{k+1} \in \mathscr{T}_n^{++} &= \sum_{\ell=1}^{j-1} [T_1 \cdots T_k]_{i, \ell} [T_{k+1}]_{\ell, j} \\
+                &= 0, \text{ car } i \geqslant \ell - k +1.
+            \end{align*}
+            La récurrence est terminée et l'on en déduit en considérant le cas $k = n$ que la matrice $T_1 \cdots T_n$ est nulle. En conclusion,
+            $$A_1 \cdots A_n = P T_1 \cdots T_n \Inv{P} = 0.$$
+        \end{itemize}
+        \underline{Deuxième démonstration:} \\
+        \begin{lemme}
+            \cite{reduc_des_endo} p. 33\\
+            Soit $u$ et $n$ deux endomorphismes de $E$ tels que $u$ est non nul, $n$ est nilpotent et $u \circ n = n \circ u$. Montrer que $\Rg(u \circ n) < \Rg(u)$.
+        \end{lemme}
+        \begin{preuve}
+            
+        \end{preuve}
+    \end{enumerate}
 \end{solution}
 
 
-\section{Si $AB - BA = A \dots$}
-\textcolor{red}{textorpdfstring}
+\section{Si \texorpdfstring{$AB - BA = A \dots$}{AB-BA=A...}}
 \begin{exercice}
     fic00118 [005625]\\
     Soit $(A, B) \in \M_n(\R)^2$ tel ques $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
@@ -201,4 +208,48 @@ Ma solution est beaucoup simple que la leur...
         \end{pmatrix}
     \end{align*}
     à finir....
+\end{solution}
+
+\section{Rang des puissances d'un endomorphisme nilpotent}
+\begin{exercice}
+    livre à citer \\
+    Soient $E$ un $\K$-espace espace vectoriel de dimension $n$, $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
+\end{exercice}
+
+\begin{solution}
+    On a, par hypothèse, $\dim(\Ker u) = 1$ et la chaîne d'inclusions
+    $$\{0\} = \Ker(u^0) \subset \Ker(u) \subset \cdots \subset \Ker(u^{n-1}) \subset \Ker(u^n) = E$$
+    puis, pour tout $k \geqslant n, \Ker(u^n) = E$. \\
+    Si $k \in \llbracket 0, n \rrbracket$ alors 
+    \begin{alignat*}{2}
+        u_k\ :\ \Ker(u^{k+1})\ &\longrightarrow\ \Ker(u^k)\\
+        x\ &\longmapsto\ u(x)
+    \end{alignat*}
+    définit une application linéaire dont le noyau est $\Ker(u^{k+1}) \cap \Ker(u)$, soit $\Ker(u)$. \\
+    Le théorème de rang fournit $\dim(\Ker u^k) \geqslant \Rg u_k = \dim( \Ker u^{k+1}) - 1$ d'où $\dim(\Ker u^{k+1}) - \dim(\Ker u^k) \in \{ 0, 1 \}$. \\
+    On en déduit déjà que pour tout $k \in \llbracket 0, n \rrbracket, \dim(\Ker u^k) \leqslant k$. \\
+    S'il existe $k$ dans $\llbracket 0, n-1 \rrbracket$ pour lequel $\dim( \Ker u^{k+1}) = \dim(\Ker u^k)$ alors $\Ker u^k = \Ker u^{k+1}$ et, pour $p \in \N$, 
+    ...
+\end{solution}
+
+\section{Rang d'un endomorphisme nilpotent}
+\begin{exercice}
+    citer livre \\
+    Soient $E$ un $\K$-espace vectoriel de dimension $n$, $u \in \Endo(E)$ tel que $u^n = 0$ et $u^{n-1} \not= 0$. Déterminer le rang de $u$.
+\end{exercice}
+
+Il s'agit de la réciproque de l'exercice précédent.
+
+\begin{solution}
+    Soit $x \in E \smallsetminus \Ker u^{n-1}$ et supposons que la famille $\left( u^k(x)\right)_{0 \leqslant k \leqslant n-1}$ est liée. Il existe une famille $(\lambda_0, \dots, \lambda_{n-1})$ de réels non tous nuls telle que $\sum\limits_{k=0}^{n-1} \lambda_k u^k(x) = 0$. On note $p$ le plus petit entier tel que $\lambda_p \not= 0$ d'où $\sum\limits_{k=p}^{n-1} \lambda_k u^k(x) = 0$, on applique $u^{n-p-1}$ et on a $\lambda_p u^{n-1}(x) = 0$ ce qui est absurde. \\
+    Donc la famille $\left( u^k(x)\right)_{0 \leqslant k \leqslant n-1}$ est une base de $E$ et la matrice de $u$ dans cette base est 
+    $$
+    \begin{pmatrix}
+        0 & \cdots & \cdots & 0 \\
+        1 & \ddots & & \vdots \\
+        & \ddots & \ddots & \vdots \\
+        0 & & 1 & 0
+    \end{pmatrix}
+    $$
+    de rang $n-1$.
 \end{solution}

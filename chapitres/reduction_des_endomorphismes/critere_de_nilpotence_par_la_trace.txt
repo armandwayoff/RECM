@@ -1,5 +1,3 @@
-Les exercices suivants sont à rassembler en un seul.
-
 \begin{exercice}
     \begin{enumerate}
         \item Soit $A \in \M_2(\C)$. On suppose que $\Tr{A} = 0$ et $\Tr{A}^2 \not=0$. Montrer que $A$ est diagonalisable. \\
@@ -20,7 +18,7 @@ Les exercices suivants sont à rassembler en un seul.
         \end{pmatrix}
         \in \M_{n-1,k}(\C).
         $$
-        Montrer que $N \defeq \Trsp{\begin{pmatrix} n_1  \vdots n_k \end{pmatrix}} \in \Ker{V}$.
+        Montrer que $N \defeq \Trsp{\begin{pmatrix} n_1  \cdots n_k \end{pmatrix}} \in \Ker{V}$.
         \item En déduire que $A$ est diagonalisable.
         \item Montrer que, si on supprime l'hypothèse $\Tr{A^n} \not=0$, alors soit $A$ est diagonalisable, soit $A^n = 0$.
     \end{enumerate}
@@ -97,26 +95,4 @@ Les exercices suivants sont à rassembler en un seul.
         On en déduit que $k \leqslant n$ et comme $k \geqslant n$, $k=n$. La matrice $A$ possède $n$ valeurs propres distinctes donc est diagonalisable.
         \item \textcolor{red}{A compléter}
         \end{enumerate}
-\end{solution}
-
-\begin{exercice}
-    \cite{reduc_des_endo} p. 114 (je pense qu'il y a un oubli dans l'énoncé)\\
-    Soit $A \in \M_n(\C)$ telle que $\Tr{A} = \Tr{A^2} = \cdots = \Tr{A^{n-1}} = 0$. Montrer que $A$ est diagonalisable ou nilpotente. 
-\end{exercice}
-
-\begin{elem_sol}
-    D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines (\url{https://fr.wikipedia.org/wiki/Polynôme_caractéristique#Coefficients}), le polynôme caractéristique est 
-    $$\chi_A = X^n + (-1)^n \det(A).$$
-    Si $\det(A) = 0$, le théorème de \textsc{Cayley}-\textsc{Hamilton} assure que $A$ est nilpotente. Sinon, le polynôme caractéristique est scindé à racines simples donc $A$ est diagonalisable (et d'ailleurs, toutes les valeurs propres ont le même module).
-\end{elem_sol}
-
-\begin{exercice}
-    \url{http://vonbuhren.free.fr/Agregation/Developpements/dev_thm_burnside.pdf} \\
-    Soit $M \in \M_n(\C)$. La matrice $M$ est nilpotente si et seulement si pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(M^k) = 0$.
-\end{exercice}
-
-\begin{solution}
-    Raisonnons par double implication. \\
-    $(\Leftarrow)$ Si la matrice $M$ est nilpotente, elle est semblable à une matrice strictement triangulaire $T$. Pour tout $k \in \llbracket 1, n \rrbracket$, la matrice $M^k$ est semblable à la matrice $T^k$ dont la diagonale est nulle. La trace étant un invariant de similitude, on en déduit que pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(M^k) = \Tr(T^k) = 0$. \\
-    $(\Rightarrow)$
 \end{solution}

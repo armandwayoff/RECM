@@ -1,0 +1,45 @@
+\begin{theo}
+    $$n! \sim \left(\frac{n}{\me}\right)^n \sqrt{2 \pi n}$$
+\end{theo}
+
+\begin{preuve}
+    \begin{enumerate}
+        \item Montrer que $\left( \frac{n!\me^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
+        \item Montrer que $\ell = \sqrt{2 \pi}$ en utilisant l'\nameref{integrale_wallis}:
+        $$\Wallis_n \defeq \int_{0}^{\pi/2}\sin^n(t) \d t$$
+        \begin{enumerate}
+            \item Montrer que $(\Wallis_n)_{n \in \N}$ est décroissante
+            \item Exprimer $\Wallis_{n+2}$ en fonction de $\Wallis_n$ grâce à une IPP: $$(n+2)\Wallis_{n+2} = (n+1)\Wallis_n$$
+            \item Exprimer $\Wallis_{2p}$ et $\Wallis_{2p+1}$ en fonction de $p$:\\
+            $$\Wallis_{2p} = \frac{\binom{2p}{p}}{2^{2p}}\frac{\pi}{2} \text{ et } \Wallis_{2p+1} = \frac{2^{2p} (p!)^2}{(2p+1)!}$$
+            \item Utiliser les points (a) et (b) pour montrer que $\frac{\Wallis_n}{\Wallis_{n+1}} \longrightarrow 1$
+            \item Utiliser les points (c) et (d) pour montrer que $\left ( \frac{2^n n!}{n ((2n)!)^2} \right)^4 \longrightarrow \pi$
+            \item Utiliser le point 1. pour déterminer $\ell$
+        \end{enumerate}
+    \end{enumerate}
+\end{preuve}
+
+\begin{preuve}
+    Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) \defeq - \cos(t)$ et $v(t) \defeq \sin^{n+1}(t)$, toutes deux de classe $\mathscr{C}^1$ sur $\left[0, \frac{\pi}{2} \right]$. 
+    \begin{align*}
+        \Wallis_{n+2} &= \underbrace{\left[ -\cos(t) \sin^{n+1}(t) \right]_0^{\pi/2}}_{=0} + (n+1) \int_0^{\pi/2} \cos^2 (t) \sin^n(t) \d t \\
+        &= (n+1) \int_0^{\pi/2} (1 - \sin^2(t)) \sin^n(t) \d t \\
+        &= (n+1) \Wallis_n - (n+1) \Wallis_{n+2} \\
+        \text{soit } (n+2) \Wallis_{n+2} &= (n+1) \Wallis_n.
+\end{align*}
+Soit $p \in \N$. D'après la relation précédente, 
+\begin{align*}
+    \Wallis_{2p} &= \frac{2p-1}{2p} \Wallis_{2p-2} \\
+    &= \frac{2p-1}{2p} \times \frac{2p-3}{2p-2} \times \cdots \times \frac{1}{2} \times \underbrace{\Wallis_0}_{=\pi/2} \\
+    &= \frac{\prod\limits_{k=1}^p (2k+1)}{\prod\limits_{k=1}^{p+1} (2k)} \frac{\pi}{2} \\
+    &= \frac{\left[\prod\limits_{k=1}^p (2k+1) \right] \times \left[ \prod\limits_{k=1}^{p+1} (2k) \right]}{\left[\prod\limits_{k=1}^{p+1} (2k) \right]^2} \frac{\pi}{2} \\
+    \Wallis_{2p} &= \frac{(2p)!}{2^{2p}(p!)^2} \frac{\pi}{2}.
+\end{align*}
+\begin{align*}
+    \Wallis_{2p+1} &= \frac{2p}{2p+1} \Wallis_{2p-1} \\
+    &= \frac{2p}{2p+1} \times \frac{2p-2}{2p-1} \times \cdots \times \frac{2}{3} \times \underbrace{\Wallis_1}_{=1} \\
+    &= \frac{\prod\limits_{k=1}^p (2k)}{\prod\limits_{k=0}^p (2k+1)} \\
+    &= \frac{\left[ \prod\limits_{k=1}^p (2k) \right]^2}{\left[ \prod\limits_{k=0}^p (2k+1) \right] \left[ \prod\limits_{k=1}^p (2k) \right]} \\
+    \Wallis_{2p+1} &= \frac{2^{2p}(p!)^2}{(2p+1)!}.
+\end{align*}
+\end{preuve}

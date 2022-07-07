@@ -3,8 +3,14 @@
     Montrer que $\Id_E - u$ est bijective et déterminer son inverse.
 \end{exercice}
 
+\marginnote[0cm]{
+    \begin{kaobox}[frametitle=Formule de \textsc{Bernoulli}]
+    $$a^n - b^n = (a-b) \sum_{k=0}^{n-1} a^k b^{n-k-1}$$
+    \end{kaobox}
+}
+
 \begin{solution}
-    D'après le cours sur la \emph{réduction}, $u^n = 0$. Alors, comme $\Id_E$ et $u$ commutent, 
+    D'après le cours sur la réduction des endomorphismes, $u^n = 0$. Alors, comme $\Id_E$ et $u$ commutent, 
     $$\mathrm{Id}_E = \Id_E - u^n = (\Id_E - u) \circ \left( \sum_{k = 0}^{n-1} u^k \right).$$
     On en déduit que $\Id_E - u$ est inversible et que 
     $$\Inv{(\Id_E - u)} = \sum_{k = 0}^{n-1} u^k.$$

@@ -75,7 +75,7 @@
     $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
 \end{preuve}
 
-\begin{corol}
+\begin{corol} \label{inegalite_gram}
     Soit $(x_1, \dots, x_n) \in E^n$. Alors,
     $$\Gram(x_1, \dots, x_n) \leqslant \prod_{i=1}^n \norme{x_i}^2$$
     avec égalité si et seulement si la famille $(x_1, \dots, x_n)$ est liée. 
@@ -89,7 +89,7 @@ Jérôme Von Buhren \\
         $\mathscr{P}_n$: \say{ pour toute famille libre $(x_1, \dots, x_n)$ de $E$, on a $\Gram(x_1, \dots, x_n) \leqslant \prod\limits_{i=1}^n \norme{x_i}^2$ }.
     \end{center}
     \underline{Initialisation pour $n = 1$:} soit $x_1 \in E$. $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée. \\
-    \underline{Hérédité:} supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, \tilde{f}) \in F \times F^\perp$ tel que $x_{n+1} = f + \title{f}$. Par le theorème (\nameref{distance_a_un_sous_espace_vectoriel}) et par $\mathscr{P}_n$, 
+    \underline{Hérédité:} supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, \tilde{f}) \in F \times F^\perp$ tel que $x_{n+1} = f + \Tilde{f}$. Par le theorème (\nameref{distance_a_un_sous_espace_vectoriel}) et par $\mathscr{P}_n$, 
     $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{\tilde{f}} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
     car par le théorème de \textsc{Pythagore}, $\norme{\tilde{f}} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
 \end{preuve}

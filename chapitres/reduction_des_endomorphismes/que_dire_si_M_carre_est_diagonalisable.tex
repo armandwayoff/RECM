@@ -17,8 +17,16 @@
             Comme $(C, C') \mapsto C^\top \times C'$ définit un produit scalaire sur l'espace des vecteurs colonnes, on a $D P^{-1} X = 0$ car il est orthogonal à lui-même et donc, en multipliant à gauche par $P$, on obtient bien $MX = 0$. 
         \end{itemize}
         \item $(\Leftarrow)$ On suppose que $\Ker(M) = \Ker(M^2)$. \\
-        Raisonner par analyse-synthèse: soi $\lambda$ une valeur propre non nulle de $f^2$. Notons $\mu$ une racine carrée complexe de $\lambda$. Montrons que $E_{\lambda}(f^2) = E_{\mu}(f) \oplus E_{-\mu}(f)$. \\
+        Raisonner par analyse-synthèse: soit $\lambda$ une valeur propre non nulle de $f^2$. Notons $\mu$ une racine carrée complexe de $\lambda$. Montrons que $E_{\lambda}(f^2) = E_{\mu}(f) \oplus E_{-\mu}(f)$. \\
         On pose $y = \frac{x}{2} + \frac{f(x)}{2 \mu}$ et $z = \frac{x}{2} - \frac{f(x)}{2 \mu}$. \\
         Comme $f^2$ est diagonalisable, $E$ est la somme directe des sous-espaces propres de $f^2$. On décompose chacun de ces sep comme ci-dessus et on en déduit que $E$ est la somme directe des sep de $f$ i.e. $f$ est diagonalisable. 
+        \item $(\Leftarrow)$ \cite{reduc_des_endo} p. 100 \\
+        Comme $u^2$ est diagonalisable, il existe $Q$ scindé à racines simples vérifiant $Q(0) \not= 0$ tel que $X Q(X)$ annule $u^2$, c'est-à-dire $u^2 \circ Q(u^2) = 0_{\Endo(E)}$. \\
+        Alors, pour tout $x \in E$, $Q(u^2)(x) \in \Ker(u^2)$; or $\Ker(u^2) = \Ker(u)$ par hypothèse donc $Q(u^2)(x) \in \Ker(u)$ soit $u \circ Q(u^2) (x) = 0_E$. \\
+        Ainsi, $XQ(X^2)$ est un polynôme annulateur de $u$. Il suffit de remarquer que ce polynôme est scindé à racines simples (car les racines complexes de $Q$ sont deux à deux distinctes et non nulles) pour conclure avec le critère algébrique de diagonalisabilité que $u$ est diagonalisable. \\
+        \textsl{Une démonstration alternative consiste à montrer que, pour tout $\lambda \in \Ce$ de racines carrées distinctes $\mu$ et $\mu'$, le sous-espace propre $u^2$ associé à $\lambda$ se décompose avec les sous-espaces propres $u$:
+        $$\Ker(\lambda \Id_E - u^2) = \Ker(\mu \Id_E - u) \oplus \Ker(\mu' \Id_E - u).$$
+        La condition porte alors que le sous-espace propre de $u^2$ associé à $0$, c'est-à-dire $\Ker(u^2)$.
+        }
     \end{itemize}
 \end{preuve}
