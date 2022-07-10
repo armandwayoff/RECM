@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/questions/549225/how-to-make-tangents-on-figure-like-this
+
+\begin{tikzpicture}[>=stealth,
+    declare function={f(\x)=-0.35+5*exp(\x/2)/exp(3);
+        fprime(\x)=2.5*exp(\x/2)/exp(3);},
+    dot/.style={circle,fill,inner sep=1pt},
+    every pin edge/.style={thin}]
+  \path (0,0) coordinate[label=below left:{$O$}] (O)
+     (0,5) coordinate (y) (6,0) coordinate (x);
+  \draw[-latex,name path=x-axis] (-0.5,0) --  (x) node[below] {$x$};
+  \draw[-latex] (0,-0.5) --  (y) node[left] {$g(x)$};
+  \draw[semithick,cyan,name path=curve] plot[variable=\x,domain=0.1:6,smooth]
+   (\x,{f(\x)}) (5.8,{f(6)});
+  \draw[red,dashed] (5.5,0) coordinate(x0) -- (5.5,{f(5.5)}) coordinate(p0)
+  ($(p0)+(-1,{-1*fprime(5.5)})$) coordinate(p0');
+  \draw[red,dashed] (intersection of p0--p0' and O--x) coordinate (x1)
+  let \p1=(x1) in \pgfextra{\pgfmathsetmacro{\myx}{\x1/1cm}}
+  (x1) -- (\myx,{f(\myx)}) coordinate(p1)
+  ($(p1)+(-1,{-1*fprime(\myx)})$) coordinate(p1');
+  \draw[red,dashed] (intersection of p1--p1' and O--x) coordinate (x2)
+  let \p1=(x2) in \pgfextra{\pgfmathsetmacro{\myx}{\x1/1cm}}
+  (x2) -- (\myx,{f(\myx)}) coordinate(p2)
+  ($(p2)+(-1,{-1*fprime(\myx)})$) coordinate(p2');
+  \path (intersection of p2--p2' and O--x) coordinate (x3)
+    (x3) node[draw,label=below:{$a_{3}$}] {}
+  foreach \X [count=\Y] in {0,...,2}
+   {(x\X) node[draw,label=below:{$a_{\X}$}] {}
+    (x\Y) edge[red,shorten >=-1em,shorten <=-1ex] (p\X)
+   \ifnum\X=0   
+   (p\X) node[dot,cyan,label={[black]left:{$(a_{\X},g(a_{\X}))$}}] {}
+   \else
+   (p\X) node[dot,cyan,pin={[black]90:{$(a_{\X},g(a_{\X}))$}}] {}
+   \fi 
+   };
+  \path[name intersections={of=curve and x-axis,by=i}]
+   (i) node[cyan,draw,fill,
+   ,pin={[black,align=center]90:point\\ \contour{white}{recherché}}](in){};  
+ \end{tikzpicture}
