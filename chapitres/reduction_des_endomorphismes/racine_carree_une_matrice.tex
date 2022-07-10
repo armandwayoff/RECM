@@ -9,6 +9,19 @@
 \begin{prop}
     Pour tout $A \in \mathscr{S}_n^+(\R)$, il existe une unique matrice $B \in \mathscr{S}_n^+(\R)$ telle que $A = B^2$. 
 \end{prop}
+\textcolor{red}{retrouver la source}
+\begin{preuve}
+    \underline{Existence:} comme la matrice $A$ est symétrique et positive, d'après le théorème spectral, il existe $\lambda_1, \dots, \lambda_r$ des réels positifs et $P \in \mathcal{O}_n(\R)$ tels que $A = \Inv{P} \Diag(\lambda_1, \dots, \lambda_r) P$. \\
+    On pose $B = \Inv{P} \Diag(\sqrt{\lambda_1}, \dots, \sqrt{\lambda_r}) P$. \\
+    La matrice $B$ vérifie $B^2 = A$, elle est bien symétrique car la matrice $P$ est orthogonale et $B$ est positive puisque symétrique à valeurs propres positives. \\
+    \underline{Unicité:} supposons donné une matrice $C$ comme second candidat. \\
+    Considérons $Q$ un polynôme vérifiant, pour $1 \leqslant i \leqslant r, Q(\lambda_i) = \sqrt{\lambda_i}$. Ainsi, 
+    $$Q(A) = \Inv{P} Q\left(\Diag(\lambda_1, \dots, \lambda_r)\right) P = \Inv{P} \Diag(\sqrt{\lambda_1}, \dots, \sqrt{\lambda_r}) P = B.$$
+    Par ailleurs, comme $C^2 = A$ alors $C$ et $A$ commutent. Par conséquent, $C$ commute avec tout polynôme en $A$ et commute donc avec $B$. \\
+    Les matrices $B$ et $C$ étant diagonalisables (car symétriques) et commutant, elles sont codiagonalisables. \\
+    Ainsi, il existe $R \in \Gl_n(\R)$, $D_1, D_2 \in \mathscr{D}_n(\R)$ telles que $\Inv{R}BR = D_1$ et $\Inv{R}CR = D_2$. \\
+    Or $D_1^2 = \Inv{R} B^2 R = \Inv{R} A R = \Inv{R} C^2 R = D_2^2$. Les matrices $D_1$ et $D_2$ étant diagonales à coefficients positifs, on en déduit que $D_1 = D_2$. Ainsi, $B = C$.
+\end{preuve}
 
 \begin{exercice}
     \underline{Exercice 11, TD 11:}\\

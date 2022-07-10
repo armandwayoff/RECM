@@ -1,12 +1,15 @@
 Les résultats que nous allons montrer par la suite peuvent être résumés par le diagramme suivant:
-$$
-\begin{tikzcd}
-	& {\text{si pour tout } k \in \llbracket 1, n-1 \rrbracket, \mathrm{Tr}(A^k)=0 \text{ et si \dots}} & {} \\
-	{A \text{ est nilpotente}} && {A \text{ est diagonalisable}}
-	\arrow["{\dots \mathrm{Tr}(A^n) \not= 0}"{description}, curve={height=6pt}, Rightarrow, from=1-2, to=2-3]
-	\arrow["{\dots \mathrm{Tr}(A^n)=0}"{description}, curve={height=-6pt}, Rightarrow, 2tail reversed, from=1-2, to=2-1]
-\end{tikzcd}
-$$
+\begin{figure*}[h!]
+    $$
+    \begin{tikzcd}
+    	& {\text{si pour tout } k \in \llbracket 1, n-1 \rrbracket, \mathrm{Tr}(A^k)=0 \text{ et si \dots}} & {} \\
+    	{A \text{ est nilpotente}} && {A \text{ est diagonalisable}}
+    	\arrow["{\dots \mathrm{Tr}(A^n) \not= 0}"{description}, curve={height=6pt}, Rightarrow, from=1-2, to=2-3]
+    	\arrow["{\dots \mathrm{Tr}(A^n)=0}"{description}, curve={height=-6pt}, Rightarrow, 2tail reversed, from=1-2, to=2-1]
+    \end{tikzcd}
+    $$
+\end{figure*}
+
 Intéressons-nous d'abord à la première branche.
 \begin{prop}
     Soit $A \in \M_n(\K)$. La matrice $A$ est nilpotente si et seulement si pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$.

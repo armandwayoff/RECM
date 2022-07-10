@@ -1,5 +1,5 @@
 \begin{prop}
-    Soient $(\alpha, \beta) \in  \R^2$ et $f:t \to \frac{1}{t^{\alpha} \ln^{\beta} (t)}$. Alors,
+    Soient $(\alpha, \beta) \in  \R^2$ et $f:t \mapsto \frac{1}{t^{\alpha} \ln^{\beta} (t)}$. Alors,
     $$\int_{2}^{+ \infty} f \text{ converge si et seulement si }
     \begin{cases}
     \alpha > 1 \\
@@ -13,11 +13,13 @@
 \begin{preuve}
     Distinguons trois cas selon les valeurs prises par $\alpha$:
     \begin{enumerate}
-        \item si $\alpha > 1$, soit $\gamma \in ]1, \alpha[$. On peut montrer que $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
-        \item si $\alpha < 1$, soit $\gamma \in ]\alpha, 1[$. On peut montrer que 
-        $ t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty $
-        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$.
-        \item si $\alpha = 1$, revenir aux intégrales partielles. Connaître la primitive de $t \mapsto \frac{1}{t \ln^{\beta} (t)}$:
+        \item[$\rhd$] si $\alpha > 1$, soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
+        $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
+        Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
+        \item[$\rhd$] si $\alpha < 1$, soit $\gamma \in ]\alpha, 1[$.Par croissances comparées,
+        $t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty$
+        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
+        \item[$\rhd$] si $\alpha = 1$, revenons aux intégrales partielles:
         $$\int_{2}^{X} \frac{1}{t \ln^{\beta} (t)} \d t = 
         \begin{cases}
             \left[ \frac{\ln ^{1-\beta} (t)}{1-\beta} \right]_2 ^X & \text{si } \beta \not = 1, \\

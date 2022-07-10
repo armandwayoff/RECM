@@ -8,7 +8,7 @@ Le théorème suivant est aussi connu sous le nom  de \emph{théorème de \texts
     \cite{calcul_infinitesimal} page 157.
 \end{preuve} 
 
-L'exercice suivant montre qu'il existe une suite de polynômes $(P_n)$ qui converge uniformément vers la fonction racine carrée sur $[0, 1]$.
+L'exercice suivant explicite une suite de polynômes $(P_n)$ qui converge uniformément vers la fonction racine carrée sur $[0, 1]$.
 
 \begin{exercice}
     \emph{Exercice 5. TD Ch. VIII}\\
@@ -25,17 +25,17 @@ L'exercice suivant montre qu'il existe une suite de polynômes $(P_n)$ qui conve
 \begin{marginfigure}[-5cm]
     \centering
 	\input{illustrations/i_theoreme_approximation_de_weierstrass}
-	\caption{\centering Convergence uniforme de la suite $(P_n)$ vers la fonction racine carrée sur $[0,1]$}
+	\caption*{\centering Convergence uniforme de la suite $(P_n)$ vers la fonction racine carrée sur $[0,1]$}
 \end{marginfigure}
 
-Peut-on génraliser à $\R$ ? \dots
+Une question naturelle est de se demander si ce théorème d'approximation peut se généraliser à $R$. La réponse est non.
 
 \begin{prop}
     Si $(P_n)_{n \in \N}$ est une suite de polynômes convergeant uniformément sur $\R$ vers une fonction $f$, alors $f$ est un polynôme.
 \end{prop}
 
 \begin{preuve}
-    Sources : \cite{exos_oraux} \& \cite{maths-france}. \\
+    \marginnote[0cm]{\cite{exos_oraux} \& \cite{maths-france}}
     Soit $(P_n)_{n \in \N}$ une suite de polynômes convergeant uniformément sur $\R$ vers une fonction $f$. \\
     D'après la critère de \textsc{Cauchy} uniforme, il existe un rang $n$ tel que pour tout $p \in \N$, 
     $$\Ninf{P_{n+p} - P_n} \leqslant 1.$$

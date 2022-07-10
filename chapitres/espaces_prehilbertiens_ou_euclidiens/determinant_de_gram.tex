@@ -6,27 +6,25 @@
 
 \marginnote{Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'indépendance linéaire d'une famille de vecteurs.}
 
-\begin{remarque}
-    La matrice $\Gram$ est symétrique.
-\end{remarque}
-
 \begin{prop}
      La famille $(x_1, \dots, x_p)$ est liée si et seulement si $\Gram(x_1, \dots, x_p) = 0$.
 \end{prop}
 
 \begin{preuve}
-    $(\Rightarrow)$ Il existe une famille $(\lambda_1, \dots, \lambda_p)$ non nulle  de $\R^n$ telle que $\sum\limits_{i=1}^{p} \lambda_i x_i = 0$. On montre alors que pour toute ligne $L_i$ de $\Gram$, $\sum\limits_{i=1}^{p} \lambda_i L_i = 0$ ce qui permet de conclure. \\
-    $(\Leftarrow)$ Raisonner par contraposée, on suppose $\mathscr{F} = (x_1, \dots, x_p)$ libre. \\
-    Soit $\mathscr{B} = (\varepsilon_1, \dots, \varepsilon_n)$ une b.o.n. de $E$ et $H \in \M_{n, p} (\R)$ la matrice de $\mathscr{F}$ dans $\mathscr{B}$. \\
-    Alors $\boxed{\Trsp{H} H = \Gram(x_1, \dots, x_p)}$. \\
-    Montrons la chaîne :
-    $$\Rg(G) = \underbrace{\Rg(\Trsp{H} H) = \Rg(H)}_{\text{à montrer}} = \Rg(\mathscr{F}) = p \not= 0$$
-    Montrer que $\Rg(\Trsp{H} H) = \Rg(H)$ en montrant que $\Ker(\Trsp{H} H) = \Ker(H)$. 
     \begin{itemize}
-        \item $(\subset)$ oui
-        \item $(\supset)$ Soit $X \in \Ker(\Trsp{H}H)$. On montre que $\norme{BX} = 0 \Rightarrow BX = 0$. 
+        \item[$(\Rightarrow)$] Il existe une famille $(\lambda_1, \dots, \lambda_p)$ non nulle  de $\R^n$ telle que $\sum\limits_{i=1}^{p} \lambda_i x_i = 0$. On montre alors que pour toute ligne $L_i$ de $\Gram$, $\sum\limits_{i=1}^{p} \lambda_i L_i = 0$ ce qui permet de conclure.
+        \item[$(\Leftarrow)$] Raisonner par contraposée, on suppose $\mathscr{F} = (x_1, \dots, x_p)$ libre. \\
+        Soit $\mathscr{B} = (\varepsilon_1, \dots, \varepsilon_n)$ une b.o.n. de $E$ et $H \in \M_{n, p} (\R)$ la matrice de $\mathscr{F}$ dans $\mathscr{B}$. \\
+        Alors $\Trsp{H} H = \Gram(x_1, \dots, x_p)$. \\
+        Montrons la chaîne :
+        $$\Rg(G) = \underbrace{\Rg(\Trsp{H} H) = \Rg(H)}_{\text{à montrer}} = \Rg(\mathscr{F}) = p \not= 0$$
+        Montrer que $\Rg(\Trsp{H} H) = \Rg(H)$ en montrant que $\Ker(\Trsp{H} H) = \Ker(H)$. 
+        \begin{itemize}
+            \item[$(\subset)$] oui
+            \item[$(\supset)$] Soit $X \in \Ker(\Trsp{H}H)$. On montre que $\norme{BX} = 0 \Rightarrow BX = 0$. 
+        \end{itemize}
+        Par le \ptnclegras{théorème du rang}, on obtient le résultat. 
     \end{itemize}
-    Par le \textbf{théorème du rang}, on obtient le résultat. 
 \end{preuve}
 
 \begin{theo} \label{distance_a_un_sous_espace_vectoriel}
@@ -69,6 +67,24 @@
           \end{matrix}
         \end{vmatrix} 
     \end{align*}
+    \marginnote[0cm]{
+        On écrit la dernière colonne sous la forme
+        $$
+        \begin{pmatrix}
+            \langle e_1, \pi_F(x) \rangle \\
+            \vdots \\
+            \langle e_p, \pi_F(x) \rangle \\
+            \norme{\pi_F(x)}^2
+        \end{pmatrix}
+        + 
+        \begin{pmatrix}
+            0 \\
+            \vdots \\
+            0 \\
+            \norme{x - \pi_F(x)}^2
+        \end{pmatrix}.
+        $$
+    }
     Par linéarité du déterminant par rapport à la dernière colonne on obtient
     $$\Gram(e_1, \dots, e_p, x) = \Gram(e_1, \dots, e_p, \pi_F(x)) + \norme{x - \pi_F(x)}^2 \Gram(e_1, \dots, e_p).$$
     Comme $\pi_F(x) \in \Vect(e_1, \dots, e_p)$, le premier terme est nul et donc $\Gram(e_1, \dots, e_p, x) = d(x, F)^2 \Gram(e_1, \dots, e_p)$ soit 
@@ -82,16 +98,18 @@
 \end{corol}
 
 \begin{preuve}
-Jérôme Von Buhren \\
+    \marginnote[0cm]{Jérôme Von Buhren}
     Si la famille $(x_1, \dots, x_n)$ est liée, le résultat est immédiat. \\
     Raisonnons par récurrence sur $n \in \Ne$ sur la propriété
     \begin{center}
         $\mathscr{P}_n$: \say{ pour toute famille libre $(x_1, \dots, x_n)$ de $E$, on a $\Gram(x_1, \dots, x_n) \leqslant \prod\limits_{i=1}^n \norme{x_i}^2$ }.
     \end{center}
-    \underline{Initialisation pour $n = 1$:} soit $x_1 \in E$. $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée. \\
-    \underline{Hérédité:} supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, \tilde{f}) \in F \times F^\perp$ tel que $x_{n+1} = f + \Tilde{f}$. Par le theorème (\nameref{distance_a_un_sous_espace_vectoriel}) et par $\mathscr{P}_n$, 
-    $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{\tilde{f}} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
-    car par le théorème de \textsc{Pythagore}, $\norme{\tilde{f}} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
+    \begin{itemize}
+        \item[$\rhd$] Initialisation pour $n = 1$: soit $x_1 \in E$. $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée.
+        \item[$\rhd$] Hérédité: supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, g) \in F \times F^\perp$ tel que $x_{n+1} = f + g$. Par le théorème (\nameref{distance_a_un_sous_espace_vectoriel}) et par $\mathscr{P}_n$, 
+        $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{g} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
+        car par le théorème de \textsc{Pythagore}, $\norme{g} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
+    \end{itemize}
 \end{preuve}
 
 \begin{prop}

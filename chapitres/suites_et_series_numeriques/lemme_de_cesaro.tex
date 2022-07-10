@@ -7,13 +7,18 @@
     Soit $\varepsilon > 0$. Comme la suite $(u_n)$ converge vers $\ell$, il existe un rang $n_0 \in \Ne$ tel que pour tout $n \geqslant n_0,\ |u_n - \ell| \leqslant \varepsilon$. \\
     Soit $n \geqslant n_0$,
     \begin{align*}
-        \left| \frac{1}{n} \sum_{k=1}^n u_n - \ell \right| &= \left| \frac{1}{n} \sum_{k=1}^n (u_n - \ell) \right| \\
-        \text{par l'inégalité triangulaire} &\leqslant \frac{1}{n} \sum_{k=1}^n |u_n - \ell| \\
-        &\leqslant \frac{1}{n} \Bigg( \underbrace{\sum_{k=1}^{n_0-1} |u_n - \ell|}_{\defeq K} + \sum_{k=n_0}^n \underbrace{|u_n - \ell|}_{\leqslant \varepsilon} \Bigg) \\
+        \left| \frac{1}{n} \sum_{k=1}^n u_k - \ell \right| &= \left| \frac{1}{n} \sum_{k=1}^n (u_k - \ell) \right| \\
+        \text{par l'inégalité triangulaire} &\leqslant \frac{1}{n} \sum_{k=1}^n |u_k - \ell| \\
+        &\leqslant \frac{1}{n} \Bigg( \underbrace{\sum_{k=1}^{n_0-1} |u_k - \ell|}_{\defeq K} + \sum_{k=n_0}^n \underbrace{|u_k - \ell|}_{\leqslant \varepsilon} \Bigg) \\
         &\leqslant \frac{K}{n} + \varepsilon
     \end{align*}
     Or $\lim\limits_{n \to \infty} \frac{K}{n} = 0$ donc il existe un rang $n_1 \in \Ne$ tel que pour tout $n \geqslant n_1, \left| \frac{K}{n} \right| \leqslant \varepsilon$. \\
     Ainsi pour tout $n \geqslant \max \{ n_0, n_1 \}$, 
-    $$\left| \frac{1}{n} \sum_{k=1}^n u_n - \ell \right| \leqslant 2 \varepsilon.$$
+    $$\left| \frac{1}{n} \sum_{k=1}^n u_k - \ell \right| \leqslant 2 \varepsilon.$$
     On en déduit que la suite $\Bigg( \frac{1}{n} \sum\limits_{k=1}^{n} u_k \Bigg)_{n \in \Ne}$ converge vers $\ell$.
 \end{preuve}
+
+\begin{remarque}
+    \textcolor{red}{à réécrire}
+    Attention, la réciproque du lemme de \textsc{Cesàro} est fausse. Une suite $(u_n)$ peut converger au sens de \textsc{Cesàro} i.e. $\Bigg( \frac{1}{n} \sum\limits_{k=1}^{n} u_k \Bigg)_{n \in \Ne}$ converge sans pour autant que la suite $(u_n)$ converge. Par exemple, $(u_n) \defeq \left((-1)^n\right)_n$.
+\end{remarque}

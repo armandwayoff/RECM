@@ -1,14 +1,13 @@
-\emph{Exercice 2. TD I \cite{acamanes}}\\
-
+\marginnote[0cm]{\emph{Exercice 2. TD I \cite{acamanes}}}
 \begin{defi}
     Une suite $(u_n)_{n\geqslant1}$ est dite \emph{sous-additive} si pour tout couple d'entiers non nuls $(n, m)$, $u_{n+m} \leqslant u_n + u_m$.
 \end{defi}
 
 \begin{exercice}
-    Soit $(u_n)_{n \geqslant 1}$ une suite sous-additive. On pose $b_n = \min\limits_{k \in \llbracket 1, n \rrbracket} \frac{u_k}{k}$.
+    Soit $(u_n)_{n \geqslant 1}$ une suite sous-additive. On pose $b_n \defeq \min\limits_{k \in \llbracket 1, n \rrbracket} \frac{u_k}{k}$.
     \begin{enumerate}
         \item \begin{enumerate}
-            \item Soit $\alpha \in \Rp$ et, pour $n \in \Ne, t_n = n^{\alpha}$. Montrer que $(t_n)$ est sous-additive si et seulement si $\alpha \leqslant 1$. Déterminer alors la limite de la suite $(t_n/n)$.
+            \item Soit $\alpha \in \Rp$ et, pour $n \in \Ne, t_n \defeq n^{\alpha}$. Montrer que $(t_n)$ est sous-additive si et seulement si $\alpha \leqslant 1$. Déterminer alors la limite de la suite $(t_n/n)$.
             \item Soit $(w_n)$ une suite réelle telle que pour tout $(n,m) \in (\Ne)^2, w_{n+m} = w_n + w_m$. Montrer que $(w_n)$ est sous-additive et calculer la limite de la suite $(w_n / n)$.
         \end{enumerate}
         \item Montrer qu'il existe $\ell \in \R \cup \{ - \infty \}$ telle que $\lim\limits_{n \to +\infty} v_n = \ell$.

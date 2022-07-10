@@ -11,7 +11,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 %\end{marginfigure}
 
 \begin{defi}
-    Pour tout $x$ > 0 réel, la \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
+    La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \me^{-t} \d t.$$
 \end{defi}
 
@@ -21,9 +21,9 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 
 \begin{prop}
     \begin{itemize}
-        \item $\Gamma$ est définie si et seulement si $x>0$.
+        \item La fonction $\Gamma$ est définie si et seulement si $x>0$.
         \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$. \\
-        En particulier, $\forall n \in \N$, $\Gamma(n+1) = n!$. 
+        En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
     \end{itemize}
 \end{prop}
 
@@ -64,22 +64,24 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     \end{kaobox}
 }
 
-\underline{Dérivées successives:} \\
-Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
-$$\varphi_k:t \mapsto 
-\begin{cases}
-    |\ln t |^k \me^{-t} t^{a-1}, & \text{si } t \in ]0, 1] \\
-    |\ln t |^k \me^{-t} t^{A-1}, & \text{si } t > 1
-\end{cases}
-$$
-$$\boxed{\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \me^{-t} \d t}$$
+\begin{prop}
+    $$\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \me^{-t} \d t$$
+\end{prop}
 
-\underline{Exercice:} \url{https://share.miple.co/content/t8BIcXSjdEslq}
+\begin{elem_preuve}
+    Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
+    $$\varphi_k:t \mapsto 
+    \begin{cases}
+        |\ln t |^k \me^{-t} t^{a-1}, & \text{si } t \in ]0, 1] \\
+        |\ln t |^k \me^{-t} t^{A-1}, & \text{si } t > 1
+    \end{cases}
+    $$
+\end{elem_preuve}
 
 \subsection{Fonction bêta}
 \begin{defi}
     Pour tout $(p,q) \in \N^2$, on note
-    $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t$$
+    $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
 \end{defi}
 
 \begin{prop}
@@ -88,7 +90,7 @@ $$\boxed{\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0
 \end{prop}
 
 \begin{preuve}
-    Soit $(p,q) \in \N^2$. Nous allons déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ grâce en faisant une intégration par parties. \\
+    Soit $(p,q) \in \N^2$. Nous allons déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ en faisant une intégration par parties. \\
     On pose $u:t\mapsto \frac{1}{p+1} t^{p+1}$ et $v:t\mapsto (1-t)^q$, toutes deux de classe $\mathscr{C}^1$ sur $[0, 1]$. Alors, 
     \begin{align*}
         I_{p,q} &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\

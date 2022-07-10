@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/questions/383609/draw-illustration-uniform-convergence
+
+\begin{tikzpicture}[auto,
+B/.style = {decorate,
+            decoration={calligraphic brace, amplitude=3pt,
+            pre=moveto,pre length=1pt,post=moveto,post length=1pt,
+            raise=1mm}},
+   domain = -30:30, samples=10, smooth,
+     font = \footnotesize
+                        ]
+% coordinates
+\draw[-latex] (-0.2,0) -- (6,0) node[right]{$x$};
+\draw[-latex] (0,-0.2) -- (0,4) node[above]{$\textcolor{red}{f(x)}\ \textcolor{blue}{g(x)}$};
+% curve
+\draw[thick, red] 
+    plot ({(45+\x)/15},{1+rand/5+2*cos(\x)});
+    % node[coordinate,pin=0:$f$] {};
+% convergence borders
+\draw[dashed]  plot ({(45+\x)/15},{1.5+2*cos(\x)}) coordinate (e1);
+\draw[thick, blue] plot ({(45+\x)/15},{1.0+2*cos(\x)}) coordinate (e2);
+\draw[dashed]  plot ({(45+\x)/15},{0.5+2*cos(\x)}) coordinate (e3);
+% labels on the left side
+% \draw[B] (1,{1.25+cos(-10)}) -- node[left=1.5mm]   {$g$} ++ (0,1);
+% labels on the right
+\draw[B] (e1) -- node[right=1.5mm]   {$\varepsilon$} (e2);
+\draw[B] (e2) -- node[right=1.5mm]   {$\varepsilon$} (e3);
+% domain
+\draw[dashed]   (1,{0.5+2*cos(30)}) -- (1,0)
+                (5,{0.5+2*cos(30)}) -- (5,0);
+\draw[very thick]    (1,0) to ["$E$" '] (5,0);
+\end{tikzpicture}
