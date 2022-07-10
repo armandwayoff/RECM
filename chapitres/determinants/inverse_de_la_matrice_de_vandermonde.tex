@@ -1,0 +1,22 @@
+\begin{exercice}
+    \marginnote[0cm]{\cite{exos_oraux} p.81}
+    Soit $n \in \Ne$ et $x_1, \dots, x_n$ des complexes deux à deux distincts.
+    \begin{enumerate}
+        \item Montrer que l'application
+        \begin{alignat*}{2}
+            \varphi\ :\ \C_{n-1}[X]\ &\longrightarrow\ \C^n\\
+            P\ &\longmapsto\ \left( P(x_1), \dots, P(x_n) \right)
+        \end{alignat*}
+        est un isomorphisme. Montrer que sa matrice dans les bases canoniques de départ et d'arrivée est 
+        $$
+        M_n(x_1, \dots, x_n) \defeq
+        \begin{pmatrix}
+            1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\
+            1 & x_2 & x_2^2 & \cdots & x_2^{n-1} \\
+            \vdots & \vdots & \vdots & & \vdots \\
+            1 & x_n & x_n^2 & \cdots & x_n^{n-1}
+        \end{pmatrix}.
+        $$
+        \item On note $\Lag_1(X), \dots, \Lag_n(X)$ les polynômes interpolteurs de \textsc{Lagrange} associés à $x_1, \dots, x_n$. Donner une relation entre les coefficients de $\Inv{M_n(x_1, \dots, x_n)}$ et ceux des polynômes $\Lag_i(X)$.
+    \end{enumerate}
+\end{exercice}

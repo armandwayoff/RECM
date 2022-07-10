@@ -1,27 +1,29 @@
 \begin{prop}
+    \marginnote[0cm]{\cite{exos_oraux} p.280}
     Soit $f$ continue par morceaux sur le segment $[a,b]$, avec $a < b$,
     $$\lim_{n \to +\infty} \int_{a}^{b} f(t) | \sin (nt) | \d t = \frac{2}{\pi} \int_{a}^{b} f(t) \d t.$$
 \end{prop}
-    
-\underline{Démarche:}
-\begin{enumerate}[noitemsep]
-    \item On va montrer ce résultat dans le cas où \textbf{$f$ est constante sur $[a, b]$} (véritable difficulté du problème) 
-    \item On va ensuite montrer ce résultat dans le cas où \textbf{$f$ est une fonction en escalier} en appliquant le résultat précédent sur chacun des intervalles de la subdivision de $[a, b]$.
-    \item Finalement on va montrer le \textbf{cas général} en encadrant $f$ par deux fonctions en escalier (méthode de l'intégrale de $\textsc{Riemann}$).
-\end{enumerate}
-\underline{Indications:}
-\begin{enumerate}[noitemsep]
-    \item On pose $f = \lambda$. On va étudier la limite de l'intégrale
-    $$I_n = \int_{a}^{b} \lambda | \sin(nt) | \d t = \frac{\lambda}{n} \int_{na}^{nb} | \sin(u) | \d u.$$
-    L'idée est alors de découper l'intervalle $[a, b]$ en trois intervalles: des \textcolor{YellowGreen}{extrémités} où l'intégrale tendra vers $0$ puis un intervalle \textcolor{Salmon}{central} de longueur $k_n \pi$ qui sera simple à traiter. \\
-    \textcolor{green}{A mieux rédiger...} \\
-    On pose (qui existent pour $n \geqslant \frac{\pi}{b-a}$)
-    $$c_n = \min( \pi \mathbb{Z} \cap [na, nb]) \text{ et } d_n = \max( \pi \mathbb{Z} \cap [na, nb]).$$
-    $c_n \sim na$ et $d_n \sim nb$. 
-    \item Aucune difficulté.
-    \item Il existe deux fonctions en escalier $\varphi$ et $\psi$ telles que $\varphi \leqslant f \leqslant \psi$ et $\int_{a}^{b} (\psi - \varphi) \leqslant \varepsilon$.
-    \begin{align*}
-        & \left | \int_{a}^{b} f(t) | \sin (nt) | \d t - \frac{2}{\pi} \int_{a}^{b} f(t) \d t \right| \\
-        \leqslant & \left | \int_{a}^{b} [f(t) - \varphi(t) ] | \sin(t) | \d t \right| + \left | \int_{a}^{b} \varphi(t) |\sin(t)| \d t - \frac{2}{\pi} \int_{a}^{b} \varphi(t) \d t \right| + \left| \frac{2}{\pi} \int_{a}^{b} [f(t) - \varphi(t)] \d t \right|
-    \end{align*}
-\end{enumerate}
+\begin{elem_preuve}
+    \begin{enumerate}
+        \item On va montrer ce résultat dans le cas où \ptnclegras{$f$ est constante sur $[a, b]$} (véritable difficulté du problème) 
+        \item On va ensuite montrer ce résultat dans le cas où \ptnclegras{$f$ est une fonction en escalier} en appliquant le résultat précédent sur chacun des intervalles de la subdivision de $[a, b]$.
+        \item Finalement on va montrer le \ptnclegras{cas général} en encadrant $f$ par deux fonctions en escalier (méthode de l'intégrale de $\textsc{Riemann}$).
+    \end{enumerate}
+\end{elem_preuve}
+\begin{preuve}
+    \begin{enumerate}
+        \item On pose $f = \lambda$. On va étudier la limite de l'intégrale
+        $$I_n = \int_{a}^{b} \lambda | \sin(nt) | \d t = \frac{\lambda}{n} \int_{na}^{nb} | \sin(u) | \d u.$$
+        L'idée est alors de découper l'intervalle $[a, b]$ en trois intervalles: des \textcolor{YellowGreen}{extrémités} où l'intégrale tendra vers $0$ puis un intervalle \textcolor{Salmon}{central} de longueur $k_n \pi$ qui sera simple à traiter. \\
+        \textcolor{green}{A mieux rédiger...} \\
+        On pose (qui existent pour $n \geqslant \frac{\pi}{b-a}$)
+        $$c_n = \min( \pi \mathbb{Z} \cap [na, nb]) \text{ et } d_n = \max( \pi \mathbb{Z} \cap [na, nb]).$$
+        $c_n \sim na$ et $d_n \sim nb$. 
+        \item Aucune difficulté.
+        \item Il existe deux fonctions en escalier $\varphi$ et $\psi$ telles que $\varphi \leqslant f \leqslant \psi$ et $\int_{a}^{b} (\psi - \varphi) \leqslant \varepsilon$.
+        \begin{align*}
+            & \left | \int_{a}^{b} f(t) | \sin (nt) | \d t - \frac{2}{\pi} \int_{a}^{b} f(t) \d t \right| \\
+            \leqslant & \left | \int_{a}^{b} [f(t) - \varphi(t) ] | \sin(t) | \d t \right| + \left | \int_{a}^{b} \varphi(t) |\sin(t)| \d t - \frac{2}{\pi} \int_{a}^{b} \varphi(t) \d t \right| + \left| \frac{2}{\pi} \int_{a}^{b} [f(t) - \varphi(t)] \d t \right|
+        \end{align*}
+    \end{enumerate}
+\end{preuve}

@@ -1,17 +1,18 @@
 La suite définie une norme sur $\K^n$ et établit une généralisation de l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}. 
 \begin{defi}
-    Soit $\bm{v} \in \K^n$. Pour tout réel $p \geqslant 1$, l'application $\Vert \bm{\cdot} \Vert_p$ définie par
-    $$\Vert \bm{v} \Vert_p = \left (\sum_{k=1}^{n} |v_i|^p \right)^{1/p}$$
+    Soit $v \in \K^n$. Pour tout réel $p \geqslant 1$, l'application $\Vert \bm{\cdot} \Vert_p$ définie par
+    $$\Vert v \Vert_p = \left (\sum_{k=1}^{n} |v_i|^p \right)^{1/p}$$
     est une norme sur $\K^n$.
 \end{defi}
 
 \begin{prop}
-    Soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $\bm{u}, \bm{v} \in \K^n$
-    $$\sum_{k=1}^{n} |u_k v_k| \leqslant \Vert \bm{u} \Vert_p \Vert \bm{v} \Vert_q.$$
+    Soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $u, v \in \K^n$
+    $$\sum_{k=1}^{n} |u_k v_k| \leqslant \Vert u \Vert_p \Vert v \Vert_q.$$
 \end{prop}
 
-\begin{preuve}(lire aussi \emph{Chapitre 4 - Normes} page 39 \cite{matrices}) \\
-    Exercice 4.81 page 377 \cite{oraux_x_ens_3}.
+\begin{preuve}
+    \marginnote[0cm]{(lire aussi \emph{Chapitre 4 - Normes} page 39 \cite{matrices})
+    Exercice 4.81 page 377 \cite{oraux_x_ens_3}}
     \begin{enumerate}
         \item Prouver que pour tous $a \geqslant 0, b \geqslant 0: ab \leqslant \frac{a^p}{p} + \frac{b^q}{q}$.
         \begin{itemize}
@@ -19,7 +20,7 @@ La suite définie une norme sur $\K^n$ et établit une généralisation de l'in�
         \end{itemize}
         \item Démontrer l'inégalité de \textsc{Hölder}.
         \begin{itemize}
-            \item Poser $u'_k = \frac{u_k}{\Vert \bm{u} \Vert_p}$ et $v'_k = \frac{v_k}{\Vert \bm{v} \Vert_p}$ et appliquer le résultat précédent. 
+            \item Poser $u'_k = \frac{u_k}{\Vert u \Vert_p}$ et $v'_k = \frac{v_k}{\Vert v \Vert_p}$ et appliquer le résultat précédent. 
         \end{itemize}
         \item Montrer que $\Vert \bm{\cdot} \Vert$ définit une norme sur $\K^n$.
         \begin{itemize}
@@ -31,7 +32,7 @@ La suite définie une norme sur $\K^n$ et établit une généralisation de l'in�
 \end{preuve}     
 
 \begin{prop}
-    Proposition 4.1.3. \cite{matrices} \\
+    \marginnote[0cm]{Proposition 4.1.3. \cite{matrices}}
     Toutes les normes de $E = \K^n$ sont équivalentes. Par exemple:
     $$\Vert x \Vert_\infty \leqslant \Vert x \Vert_p \leqslant p^{1/p} \Vert x \Vert_\infty$$
 \end{prop}

@@ -11,7 +11,7 @@
 \end{preuve}
 
 \begin{exercice}
-    \cite{acamanes} \\
+    \marginnote[0cm]{\cite{acamanes}}
     On note $h : x \mapsto \sum\limits_{n=2}^{+ \infty} \frac{1}{n^x \ln n}$.
     \begin{enumerate}
         \item Étudier la continuité de $h$ sur son domaine de définition.
@@ -27,7 +27,6 @@
     Soit $a > 1$. On se place sur $I \defeq [a, +\infty[$. Pour tout $x \in I$,
     $$\left| \frac{1}{n^x \ln n} \right| \leqslant \frac{1}{n^\alpha \ln n}$$
     comme $a > 1$, d'après le théorème de \textsc{Bertrand} sur les séries numériques, la série du terme majorant converge et donc par théorème de comparaison, la suite $(f_x)$ converge normalement sur tout segment de la forme de $I$. On en déduit que $h$ est continue sur $\mathcal{D}_h$. 
-    \item 
     \begin{itemize}
         \item En $+ \infty$: comme la série des $f_x$ converge uniformément sur $[2, + \infty[$ (on aurait pu choisir une valeur que $2$), d'après le théorème de la double limite
         $$\lim_{x \to + \infty} h(x) = \sum_{n=2}^{+ \infty} \left[\lim_{x \to +\infty} f_x(n) \right] = 0.$$
@@ -44,13 +43,13 @@
         \item En $+ \infty$: on intuite que la premier terme de la somme domine les autres. On a
         $$2^x \ln(2) h(x) = 1 + \sum_{n=3}^{+\infty} \left(\frac{2}{n}\right)^x \frac{\ln 2}{\ln n}.$$
         On peut montrer(...) que la somme converge normalement sur $[2, +\infty[$. On en déduit que 
-        $$h(x) \sim\limits_{+\infty} \frac{1}{2^x \ln 2}.$$
+        $$h(x) \isEquivTo{+\infty} \frac{1}{2^x \ln 2}.$$
         \item En $1^+$: un encadrement par la méthode des rectangles permet de trouver
         $$\int_{3}^{+\infty} f_x(t) \d t + \frac{1}{2^x \ln 2} \leqslant h(x) \leqslant \int_{2}^{+\infty} f_x(t) \d t + \frac{1}{2^x \ln 2}.$$
         On en déduit que 
-        $$h(x) \sim\limits_{1^+} \int_2^{+\infty} f_x(t) \d t$$
+        $$h(x) \isEquivTo{1^+} \int_2^{+\infty} f_x(t) \d t$$
         soit après calculs (...)
-        $$h(x) \sim\limits_{1^+} - \ln(x-1).$$
+        $$h(x) \isEquivTo{1^+} - \ln(x-1).$$
     \end{itemize}
 \end{enumerate}
 \end{solution}

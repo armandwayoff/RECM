@@ -1,5 +1,5 @@
 \begin{exercice}
-    Exercice 17 Ch 13 \cite{acamanes}. \\
+    \marginnote[0cm]{Exercice 17 Ch 13 \cite{acamanes}}
     Soient $I$ un intervalle non vide de $\R$ et $w \in \mathscr{C}(I, \Rpe)$. On suppose que, pour tout entier naturel $n$, $\int_I |x|^n w(x) \d x$ converge. On note $\mathscr{H} = \left\{ f \in \mathscr{C}(I, \R),\ \int_I f^2 w \text{ converge} \right\}$. Pour tout $(P, Q) \in \R[X]^2$, on pose $\langle P, Q \rangle = \int_I P(t) Q(t) w(t) \d t$.
     \begin{enumerate}
         \item Montrer que $\langle \cdot, \cdot \rangle$ est un produit scalaire sur $\R[X]$.
@@ -12,7 +12,7 @@
         Soit $n$ un entier naturel.
         \item Montrer que $\Vect(P_0, \dots, P_n) = \R_n[X]$.
         \item Montrer que $P_{n+1} \in \R_n[X]^\perp$.
-        \item \textbf{Racines.} On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $\Q = \prod\limits_{i=1}^k (X - \alpha_i)$.
+        \item \textbf{Racines.} On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $Q \defeq \prod\limits_{i=1}^k (X - \alpha_i)$.
         \begin{enumerate}
             \item Déterminer le degré de $Q$.
             \item Déterminer le signe de $P_n Q$ sur $I$.
@@ -28,3 +28,22 @@
         \end{enumerate}
     \end{enumerate}
 \end{exercice}
+
+\newpage
+
+\begin{figure*}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Nom & $I$ & $w(x)$ & Relation de récurrence\\
+        \hline \hline
+        \textsc{Legendre} & $[-1, 1]$ & $1$ & $(n+2) \Leg_{n+2} = (2n+3) \Leg_{n+1} - (n+1)\Leg_n$\\
+        \hline
+        \textsc{Tchebychev} & $]-1, 1[$ & $\frac{1}{\sqrt{1-x^2}}$ & $\Tcheby_{n+2} = 2X \Tcheby_{n+1} - \Tcheby_n$ \\
+        \hline
+        \textsc{Laguerre} & $\Rp$ & $\me^{-x}$ & $(n+2) \Lag_{n+2} = (-X+2n+3) \Lag_{n+1} - (n+1) \Lag_n$ \\
+        \hline
+        \textsc{Hermite} & $\R$ & $\me^{-x^2}$ & $\Hermite_{n+2} = 2X \Hermite_{n+1} - 2(n+1) \Hermite_n$\\
+        \hline
+    \end{tabular} \\
+    Ces familles de polynômes sont utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales.
+\end{figure*}

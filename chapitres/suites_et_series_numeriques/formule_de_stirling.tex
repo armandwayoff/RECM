@@ -2,7 +2,7 @@
     $$n! \sim \left(\frac{n}{\me}\right)^n \sqrt{2 \pi n}$$
 \end{theo}
 
-\begin{preuve}
+\begin{elem_preuve}
     \begin{enumerate}
         \item Montrer que $\left( \frac{n!\me^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
         \item Montrer que $\ell = \sqrt{2 \pi}$ en utilisant l'\nameref{integrale_wallis}:
@@ -17,7 +17,7 @@
             \item Utiliser le point 1. pour déterminer $\ell$
         \end{enumerate}
     \end{enumerate}
-\end{preuve}
+\end{elem_preuve}
 
 \begin{preuve}
     Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) \defeq - \cos(t)$ et $v(t) \defeq \sin^{n+1}(t)$, toutes deux de classe $\mathscr{C}^1$ sur $\left[0, \frac{\pi}{2} \right]$. 
@@ -28,6 +28,8 @@
         \text{soit } (n+2) \Wallis_{n+2} &= (n+1) \Wallis_n.
 \end{align*}
 Soit $p \in \N$. D'après la relation précédente, 
+\begin{figure*}[h!]
+\begin{multicols}{2}
 \begin{align*}
     \Wallis_{2p} &= \frac{2p-1}{2p} \Wallis_{2p-2} \\
     &= \frac{2p-1}{2p} \times \frac{2p-3}{2p-2} \times \cdots \times \frac{1}{2} \times \underbrace{\Wallis_0}_{=\pi/2} \\
@@ -42,4 +44,6 @@ Soit $p \in \N$. D'après la relation précédente,
     &= \frac{\left[ \prod\limits_{k=1}^p (2k) \right]^2}{\left[ \prod\limits_{k=0}^p (2k+1) \right] \left[ \prod\limits_{k=1}^p (2k) \right]} \\
     \Wallis_{2p+1} &= \frac{2^{2p}(p!)^2}{(2p+1)!}.
 \end{align*}
+\end{multicols}
+\end{figure*}
 \end{preuve}

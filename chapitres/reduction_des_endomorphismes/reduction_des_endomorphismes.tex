@@ -100,8 +100,7 @@
 \end{solution} 
 
 \section{Endomorphisme \texorpdfstring{$\mathrm{ad}_u$}{ad_u}}
-\cite{reduc_des_endo} p.30 \\
-
+\marginnote[0cm]{\cite{reduc_des_endo} p.30}
 \begin{defi}
     Soit $u$ un endomorphisme de $E$. L'endomorphisme $\mathrm{ad}_u$ de $\Endo(E)$ est défini par
     \begin{alignat*}{2}
@@ -113,7 +112,7 @@
 Cet endomorphisme nous sert essentiellement à mesurer le défaut de commutativité. Une première remarque dans ce sens est que le commutant de $u$ est $\mathscr{C}(u) = \Ker(\mathrm{ad}_u)$. 
 
 \begin{exercice}
-    \cite{reduc_des_endo} p. 103 \\
+    \marginnote[0cm]{\cite{reduc_des_endo} p. 103}
     Soit $A \in \M_n(\K)$ une matrice diagonalisable. Montrer que $\mathrm{ad}_A$ est diagonalisable.
 \end{exercice}
 
@@ -127,26 +126,27 @@ A rajouter:
 
 \newpage
 
-\def\colequi{teal}
-\def\colimpli{orange}
+\begin{figure*}
+    \begin{Large}
+    \begin{align*}
+        f \text{ diagonalisable} &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ telle que } \Mat_\mathscr{B}(f) \text{ diagonale} \\
+        &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
+        &\Longleftrightarrow E = \bigoplus_{\lambda \in \Sp(f)} E_\lambda(f) \\
+        &\Longleftrightarrow \dim E = \sum_{\lambda \in \Sp(f)} \dim E_\lambda(f) \\
+        &\Longleftrightarrow 
+        \begin{cases}
+        \chi_f \text{ est scindé} \\
+        \forall \lambda \in \Sp(f), m_{\lambda} = \dim E_\lambda(f)
+        \end{cases} \\
+        &\Longleftrightarrow \prod_{\lambda \in \Sp(f)}(X-\lambda) \in \mathrm{Ann}(f)\\
+        &\Longleftrightarrow \exists P \in \mathrm{Ann}(f) \text{ SARS} \\
+        &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
+        &\Longleftarrow \chi_f \text{ SARS} \\
+        &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)
+    \end{align*}
+    \end{Large}
+\end{figure*}
 
-\begin{Large}
-\begin{align*}
-    f \text{ diagonalisable} &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ telle que } \Mat_\mathscr{B}(f) \text{ diagonale} \\
-    &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
-    &\Longleftrightarrow E = \bigoplus_{\lambda \in \Sp(f)} E_\lambda(f) \\
-    &\Longleftrightarrow \dim E = \sum_{\lambda \in \Sp(f)} \dim E_\lambda(f) \\
-    &\Longleftrightarrow 
-    \begin{cases}
-    \chi_f \text{ est scindé} \\
-    \forall \lambda \in \Sp(f), m_{\lambda} = \dim E_\lambda(f)
-    \end{cases} \\
-    &\Longleftrightarrow \prod_{\lambda \in \Sp(f)}(X-\lambda) \text{ est un polynôme annulateur de } f\\
-    &\Longleftrightarrow \text{il existe un polynôme annulateur de } f \text{ scindé à racines simples} \\
-    &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
-    &\Longleftarrow \chi_f \text{ est scindé à racines simples} \\
-    &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)
-\end{align*}
-\end{Large}
-
-\input{illustrations/i_diagramme_red_des_endo}
+\begin{figure*}[h!]
+    \input{illustrations/i_diagramme_red_des_endo}
+\end{figure*}

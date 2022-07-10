@@ -12,7 +12,7 @@
     \end{itemize}
 \end{elem_sol}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}[-8cm]
 \centering
 \begin{tikzpicture}
     \begin{axis}[width=6.5cm,
@@ -31,7 +31,7 @@
     \def\a{0}
     \def\b{1}
     \addplot[red,thick,samples=100,domain=\a:\b] {1/2*(1-cos(deg(pi*x^1.2)))}
-    node[left,pos=1,font=\footnotesize]{\contour{white}{$\frac{1}{2}\left(1-\cos (\pi x^{1.2}) \right)$}};
+    node[left,pos=1,font=\footnotesize]{\contour{white}{$\frac{1}{2}\left(1-\cos (\pi x^{6/5}) \right)$}};
     \addplot[gray,dashed,samples=100,domain=\a:\b] {x};
     \end{axis}
 \end{tikzpicture}
