@@ -1,17 +1,21 @@
 \begin{prop}
-    Soit $E$ un espace vectoriel et $f \in \Endo(E)$. Alors $f$ est une homothétie si et seulement si $(x, f(x))$ liée pour tout $x \in E$.
+    Soit $E$ un espace vectoriel et $f \in \Endo(E)$. Alors $f$ est une homothétie si et seulement si la famille $(x, f(x))$ liée pour tout $x \in E$.
 \end{prop}
 
 \begin{marginfigure}
+    \centering
     \input{illustrations/i_homothetie}
 \end{marginfigure}
 
 \begin{preuve}
-    Raisonnons par double implication. \\
-    ($\Rightarrow$) On suppose que $f$ est une homothétie. Alors il existe $\lambda \in \K$ non nul tel que pour tout $x \in E, f(x) = \lambda x$. Ainsi, la famille $(x, f(x))$ est liée pour tout $x \in E$. \\
-    ($\Leftarrow$) On suppose que la famille $(x, f(x))$ est liée pour tout $x \in E$. On pose $\boxed{f:x \mapsto \lambda_x x}$. Soient $x_0 \in E$ non nul et $x \in E$. 
+    Raisonnons par double implication. 
     \begin{itemize}
-        \item Cas où $x \in \Vect(x_0)$... 
-        \item Cas où $x \not \in \Vect(x_0)$...
+        \item[$(\Rightarrow)$] On suppose que $f$ est une homothétie. Alors il existe $\lambda$ un scalaire non nul tel que pour tout $x \in E, f(x) = \lambda x$. Ainsi, la famille $(x, f(x))$ est liée pour tout $x \in E$. 
+        \item[$(\Leftarrow)$] \marginnote[0cm]{\url{http://marocprepa.com/site/homothetiecarac}} On suppose que la famille $(x, f(x))$ est liée pour tout $x \in E$. On pose $f:x \mapsto \lambda_x x$. Soient $y \in E$ non nul et $x \in E$. Montrons que $\lambda_x = \lambda_{y}$ ce qui assurera que $f$ est une homothétie. \\
+        Distinguons deux cas:
+        \begin{itemize}
+            \item cas où $x \in \Vect(y)$. Alors il existe $\lambda$ un scalaire non nul tel que $x = \lambda y$. En composant par $f$ on obtient $f(x) = \lambda f(y)$ soit $\lambda_x x = \lambda \lambda_{y} y$ puis en remplaçant $x$ par son expression, $\lambda_x \lambda y = \lambda \lambda_{y} y$ et en factorisant, $\lambda (\lambda_x - \lambda_{y}) y = 0$. Or $\lambda \not= 0$ et $y \not= 0_E$ donc $\lambda_x = \lambda_{y}$
+            \item cas où $x \not \in \Vect(y)$. On pose $z \defeq x + y$. Par définition de l'application $f$, $f(z) = \lambda_z z$ soit $f(z) = \lambda_z(x + y)$. On peut aussi écrire $f(z) = f(x) + f(y) = \lambda_x x + \lambda_y y$ donc $(\lambda_x - \lambda_z) x + (\lambda_{y} - \lambda_z) y = 0$ et par liberté de la famille $(x, y)$, on a $\lambda_x = \lambda_{y}$.
+        \end{itemize}
     \end{itemize}
 \end{preuve}

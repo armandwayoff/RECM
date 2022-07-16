@@ -16,6 +16,24 @@
 \RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
 
 
+%\DeclareOption{french}
+%    {\vref@addto\extrasfrench{%
+%    \def\reftextfaceafter {page \reftextvario{ci-contre}{suivante}}%
+%    \def\reftextfacebefore{page \reftextvario{ci-contre}%
+%    {pr\’ec\’edente}}%
+%    \def\reftextafter {page suivante}%
+%    \def\reftextbefore {page pr\’ec\’edente}%
+%    \def\reftextcurrent {de la pr\’esente page}%
+%    \def\reftextfaraway#1{page~\pageref{#1}}%
+%    \def\reftextpagerange#1#2{pages~\pageref{#1}--\pageref{#2}}%
+%    \def\reftextlabelrange#1#2{\ref{#1} \‘a~\ref{#2}}%
+%    \let\vrefformat\vrefdefaultformat
+%    \let\Vrefformat\Vrefdefaultformat
+%    \let\fullrefformat\fullrefdefaultformat
+%    \let\vrefrangeformat\vrefrangedefaultformat
+%}}
+
+
 % Language-specific strings
 % #LANGUAGE
 \newcommand{\chapternameshort}{}
@@ -25,37 +43,37 @@
 \newcommand{\subsectionnameplural}{}
 \newcommand{\subsectionnameshort}{}
 \newcommand{\figurenameshort}{}
-\newcommand{\tablenameshort}{}
+\newcommand{\tableaunameshort}{}
 \newcommand{\eqname}{}
 \newcommand{\eqnameshort}{}
 \newcommand{\defname}{}
-\newcommand{\assumname}{}
+\newcommand{\hyponame}{}
 \newcommand{\thmname}{}
 \newcommand{\propname}{}
-\newcommand{\lemmaname}{}
-\newcommand{\remarkname}{}
-\newcommand{\examplename}{}
-\newcommand{\exercisename}{}
+\newcommand{\lemmename}{}
+\newcommand{\remarquename}{}
+\newcommand{\exemplename}{}
+\newcommand{\exercicename}{}
 
-\addto\captionsenglish{%
+\addto\captionsfrench{%
   \renewcommand{\chapternameshort}{Chap.}
   \renewcommand{\sectionname}{Section}
   \renewcommand{\sectionnameshort}{Sec.}
-  \renewcommand{\subsectionname}{Subsection}
-  \renewcommand{\subsectionnameplural}{Subsections}
-  \renewcommand{\subsectionnameshort}{Subsec.}
+  \renewcommand{\subsectionname}{Sous-section}
+  \renewcommand{\subsectionnameplural}{Sous-sections}
+  \renewcommand{\subsectionnameshort}{S.-sec.}
   \renewcommand{\figurenameshort}{Fig.}
-  \renewcommand{\tablenameshort}{Tab.}
-  \renewcommand{\eqname}{Equation}
+  \renewcommand{\tableaunameshort}{Tab.}
+  \renewcommand{\eqname}{Équation}
   \renewcommand{\eqnameshort}{Eq.}
-  \renewcommand{\defname}{Definition}
-  \renewcommand{\assumname}{Assumption}
-  \renewcommand{\thmname}{Theorem}
+  \renewcommand{\defname}{Définition}
+  \renewcommand{\hyponame}{Hypothèse}
+  \renewcommand{\thmname}{Théorème}
   \renewcommand{\propname}{Proposition}
-  \renewcommand{\lemmaname}{Lemma}
-  \renewcommand{\remarkname}{Remark}
-  \renewcommand{\examplename}{Example}
-  \renewcommand{\exercisename}{Exercise}
+  \renewcommand{\lemmename}{Lemme}
+  \renewcommand{\remarquename}{Remarque}
+  \renewcommand{\exemplename}{Exemple}
+  \renewcommand{\exercicename}{Exercice}
 }
 
 % Labelling commands
@@ -69,12 +87,12 @@
 \newcommand{\labeq}[1]{\label{eq:#1}}
 \newcommand{\labdef}[1]{\label{def:#1}}
 \newcommand{\labthm}[1]{\label{thm:#1}}
-\newcommand{\labassum}[1]{\label{assum:#1}}
+\newcommand{\labhypo}[1]{\label{hypo:#1}}
 \newcommand{\labprop}[1]{\label{prop:#1}}
-\newcommand{\lablemma}[1]{\label{lemma:#1}}
-\newcommand{\labremark}[1]{\label{remark:#1}}
-\newcommand{\labexample}[1]{\label{example:#1}}
-\newcommand{\labexercise}[1]{\label{exercise:#1}}
+\newcommand{\lablemme}[1]{\label{lemme:#1}}
+\newcommand{\labremarque}[1]{\label{remarque:#1}}
+\newcommand{\labexemple}[1]{\label{exemple:#1}}
+\newcommand{\labexercice}[1]{\label{exercice:#1}}
 
 
 % Referencing commands
@@ -102,8 +120,8 @@
 \newcommand{\refsecshort}[1]{\hyperref[sec:#1]{\sectionnameshort\xspace\ref{sec:#1}}}
 \newcommand{\refsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1}}}
 \newcommand{\vrefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\vref{sec:#1}}}
-\newcommand{\nrefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1})}}
-\newcommand{\frefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1}) \vpageref{sec:#1}}}
+\newcommand{\nrefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} \nameref{sec:#1}}}
+\newcommand{\frefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} \nameref{sec:#1} \vpageref{sec:#1}}}
 
 \newcommand{\refsubsecshort}[1]{\hyperref[subsec:#1]{\sectionnameshort\xspace\ref{subsec:#1}}}
 \newcommand{\refsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\ref{subsec:#1}}}
@@ -116,9 +134,9 @@
 \newcommand{\reffig}[1]{\hyperref[fig:#1]{\figurename}\xspace\ref{fig:#1}}
 \newcommand{\vreffig}[1]{\hyperref[fig:#1]{\figurename\xspace\vref{fig:#1}}}
 
-%\newcommand{\reftab}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}\hyperref[tab:#1]{Table}\xspace\ref{tab:#1}}}
-\newcommand{\reftab}[1]{\hyperref[tab:#1]{\tablename}\xspace\ref{tab:#1}}
-\newcommand{\vreftab}[1]{\hyperref[tab:#1]{\tablename\xspace\vref{tab:#1}}}
+%\newcommand{\reftab}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}\hyperref[tab:#1]{tableau}\xspace\ref{tab:#1}}}
+\newcommand{\reftab}[1]{\hyperref[tab:#1]{\tableauname}\xspace\ref{tab:#1}}
+\newcommand{\vreftab}[1]{\hyperref[tab:#1]{\tableauname\xspace\vref{tab:#1}}}
 
 \newcommand{\refeqshort}[1]{\hyperref[eq:#1]\eqnameshort\xspace(\ref{eq:#1})}
 \newcommand{\refeq}[1]{\hyperref[eq:#1]\eqname\xspace\ref{eq:#1}}
@@ -127,8 +145,8 @@
 \newcommand{\refdef}[1]{\hyperref[def:#1]\defname\xspace\ref{def:#1}}
 \newcommand{\vrefdef}[1]{\hyperref[def:#1]\defname\xspace\vref{def:#1}}
 
-\newcommand{\refassum}[1]{\hyperref[assum:#1]\assumname\xspace\ref{assum:#1}}
-\newcommand{\vrefassum}[1]{\hyperref[assum:#1]\assumname\xspace\vref{assum:#1}}
+\newcommand{\refhypo}[1]{\hyperref[hypo:#1]\hyponame\xspace\ref{hypo:#1}}
+\newcommand{\vrefhypo}[1]{\hyperref[hypo:#1]\hyponame\xspace\vref{hypo:#1}}
 
 \newcommand{\refthm}[1]{\hyperref[thm:#1]\thmname\xspace\ref{thm:#1}}
 \newcommand{\vrefthm}[1]{\hyperref[thm:#1]\thmname\xspace\vref{thm:#1}}
@@ -136,17 +154,17 @@
 \newcommand{\refprop}[1]{\hyperref[prop:#1]\propname\xspace\ref{prop:#1}}
 \newcommand{\vrefprop}[1]{\hyperref[prop:#1]\propname\xspace\vref{prop:#1}}
 
-\newcommand{\reflemma}[1]{\hyperref[lemma:#1]\lemmaname\xspace\ref{lemma:#1}}
-\newcommand{\vreflemma}[1]{\hyperref[lemma:#1]\lemmaname\xspace\vref{lemma:#1}}
+\newcommand{\reflemme}[1]{\hyperref[lemme:#1]\lemmename\xspace\ref{lemme:#1}}
+\newcommand{\vreflemme}[1]{\hyperref[lemme:#1]\lemmename\xspace\vref{lemme:#1}}
 
-\newcommand{\refremark}[1]{\hyperref[remark:#1]\remarkname\xspace\ref{remark:#1}}
-\newcommand{\vrefremark}[1]{\hyperref[remark:#1]\remarkname\xspace\vref{remark:#1}}
+\newcommand{\refremarque}[1]{\hyperref[remarque:#1]\remarquename\xspace\ref{remarque:#1}}
+\newcommand{\vrefremarque}[1]{\hyperref[remarque:#1]\remarquename\xspace\vref{remarque:#1}}
 
-\newcommand{\refexample}[1]{\hyperref[example:#1]\examplename\xspace\ref{example:#1}}
-\newcommand{\vrefexample}[1]{\hyperref[example:#1]\examplename\xspace\vref{example:#1}}
+\newcommand{\refexemple}[1]{\hyperref[exemple:#1]\exemplename\xspace\ref{exemple:#1}}
+\newcommand{\vrefexemple}[1]{\hyperref[exemple:#1]\exemplename\xspace\vref{exemple:#1}}
 
-\newcommand{\refexercise}[1]{\hyperref[exercise:#1]\exercisename\xspace\ref{exercise:#1}}
-\newcommand{\vrefexercise}[1]{\hyperref[exercise:#1]\exercisename\xspace\vref{exercise:#1}}
+\newcommand{\refexercice}[1]{\hyperref[exercice:#1]\exercicename\xspace\ref{exercice:#1}}
+\newcommand{\vrefexercice}[1]{\hyperref[exercice:#1]\exercicename\xspace\vref{exercice:#1}}
 
 
 % cleveref customisation

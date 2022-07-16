@@ -32,6 +32,11 @@
 \newpage
 
 \begin{figure*}
+    % \setlength sets the horizontal (column) spacing
+    % \arraystretch sets the vertical (row) spacing
+    \begingroup
+    % \setlength{\tabcolsep}{10pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{1.5} % Default value: 1
     \begin{tabular}{|c|c|c|c|}
         \hline
         Nom & $I$ & $w(x)$ & Relation de récurrence\\
@@ -44,6 +49,12 @@
         \hline
         \textsc{Hermite} & $\R$ & $\me^{-x^2}$ & $\Hermite_{n+2} = 2X \Hermite_{n+1} - 2(n+1) \Hermite_n$\\
         \hline
-    \end{tabular} \\
-    Ces familles de polynômes sont utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales.
+    \end{tabular}
+    \endgroup
+    % The \begingroup ... \endgroup pair ensures the separation
+    % parameters only affect this particular table, and not any
+    % sebsequent ones in the document.
 \end{figure*}
+
+Ces familles de polynômes sont utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales.
+

@@ -28,14 +28,14 @@ Séries numériques (oraux x-ens)\\
 Dans une tentative d'historique des séries numériques, nous pourrions faire remonter leurs origines aux travaux développés dès la fin du \textsc{xvii}$^\me$ siècle autour du comportement asymptotique de sommes du type $\sum\limits_{k=1}^n f(k)$. Quelques années après les travaux de \textsc{Bernoulli} sur ce sujet, \textsc{Euler} et \textxsc{Mac-Laurin} produisent indépendamment une \say{ formule sommatoire } obtenue par inversion d'identités tayloriennes:
 $$\sum_{k=1}^n f(k) = \int_0^n f + \frac{f(0) + f(n)}{2!} + \frac{f'(n) - f'(0)}{3!} - \frac{f'''(n) - f'''(0)}{6!}\cdots$$
 \marginnote[0cm]{
-    En notant $\Bern_k$ les nombres de \textsc{Bernoulli},
-    $$\sum_{k=0}^{n-1} k^m = \sum_{k=0}^m \binom{m}{k} \Bern_k \frac{n^{m+1-k}}{m+1-k}.$$
+    \note En notant $\mathrm{b}_k$ les nombres de \textsc{Bernoulli},
+    $$\sum_{k=0}^{n-1} k^m = \sum_{k=0}^m \binom{m}{k} \mathrm{b}_k \frac{n^{m+1-k}}{m+1-k}.$$
     Pour $|x| < 2 \pi$,
-    $$\frac{x}{\me^x-1} = \sum_{k=0}^{+\infty} \Bern_k \frac{x^k}{k!}.$$
-    Soit $s \in \Ne$,
-    $$\sum_{n=1}^{+\infty} \frac{1}{n^{2s}} = \frac{|\Bern_{2s}|(2 \pi)^{2s}}{2 (2s)!}.$$
+    $$\frac{x}{\me^x-1} = \sum_{k=0}^{+\infty} \mathrm{b}_k \frac{x^k}{k!}.$$
+    \note Soit $s \in \Ne$,
+    $$\sum_{n=1}^{+\infty} \frac{1}{n^{2s}} = \frac{|\mathrm{b}_{2s}|(2 \pi)^{2s}}{2 (2s)!}.$$
 }
-Si l'expression générale donnant les coefficients de cette formule leur échappe dans un premier temps, \textsc{Euler} établit leur lien avec les coefficients du développement en série de $\frac{x}{\me^x-1}$ et le nombres de \textxsc{Bernoulli}, introduits par celui-ci dans le calcul des sommes $\sum\limits_{k=1}^n k^p$. \textxsc{Euler} en déduit, par de jolis calculs, les sommes des séries $\sum\limits_{n=1}^{+\infty} \frac{1}{n^{2s}}$ pour $s$ entier naturel non nul.
+Si l'expression générale donnant les coefficients de cette formule leur échappe dans un premier temps, \textsc{Euler} établit leur lien avec les coefficients du développement en série de $\frac{x}{\me^x-1}$ et les nombres de \textxsc{Bernoulli}, introduits par celui-ci dans le calcul des sommes $\sum\limits_{k=1}^n k^p$ \note. \textxsc{Euler} en déduit, par de jolis calculs, les sommes des séries $\sum\limits_{n=1}^{+\infty} \frac{1}{n^{2s}}$ pour $s$ entier naturel non nul \note.
 Cependant, le problème de la convergence des sommes en question n'est jamais au centre de leurs réflexions et l'aspect formel l'emporte, ce qui conduit parfois les plus grands mathématiciens du siècle à commettre de lourdes erreurs. Vers 1768, \textsc{d'Alembert} commence à douter de la validité de l'emploi de séries non convergentes. En 1826, le mot d'\textsc{Abel} illustre parfaitement cette nouvelle préoccupation: \say{ Les séries divergentes sont des inventions du diable, et c'est une honte que l'on ose fonder sur elles la moindre démonstration. On peut en tirer  tout ce qu'on veut quand on les emploie et ce sont elles qui ont produit tant d'échecs et tant de paradoxes } (Œuvres, 1881). \\
 Mais ce sont les nécessités du calcul numérique qui imposent vraiment un effort de rigueur dont \textsc{Gauss}, s'étant fait une idée claire de la notion de limite, sera le principal artisan. À partir de là, il paraît naturel d'établir des critères simples de convergence: on en doit plusieurs à \textsc{Cauchy}, et notamment celui qui porte son nom: si la suite de réels positifs $(a_n)_{n \geqslant 0}$ est telle que la limite supérieure de $\sqrt[n]{a_n}$ est strictement inférieure à $1$, alors la série $\sum a_n$ est convergente. \\
 (il y a une suite)

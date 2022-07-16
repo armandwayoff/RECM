@@ -17,8 +17,8 @@ Intéressons-nous d'abord à la première branche.
 \begin{preuve}
     \marginnote[-1cm]{\url{http://vonbuhren.free.fr/Agregation/Developpements/dev_thm_burnside.pdf}}
     Raisonnons par double implication.
-    \marginnote[0cm]{
-        Soit $A$ une matrice semblable à
+    \marginnote[5cm]{
+        \note Soit $A$ une matrice semblable à
         $$
         \begin{pmatrix}
             \lambda_1 & \star & \cdots & \star \\
@@ -39,7 +39,7 @@ Intéressons-nous d'abord à la première branche.
     }
     \begin{itemize}
         \item[$(\Rightarrow)$] Si la matrice $A$ est nilpotente, son spectre est réduit à $0$ et donc elle est semblable à une matrice strictement triangulaire $T$. Pour tout $k \in \llbracket 1, n \rrbracket$, la matrice $A^k$ est semblable à la matrice $T^k$ dont la diagonale est nulle. La trace étant un invariant de similitude, on en déduit que pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(A^k) = \Tr(T^k) = 0$.
-        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $\lambda_1, \dots, \lambda_r \in \C$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $m_1, \dots, m_r \in \Ne$ leur multiplicité respective. En trigonalisant $A$, notre hypothèse équivaut à 
+        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $\lambda_1, \dots, \lambda_r \in \C$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $m_1, \dots, m_r \in \Ne$ leur multiplicité respective. En trigonalisant $A$ \textcolor{red}{à détailler}, notre hypothèse équivaut à 
         $$\forall k \in \llbracket 1, n \rrbracket,\ \sum_{i=1}^r m_i \lambda_i^k = 0.$$
         En particulier, en se limitant à $k \in \llbracket 1, r \rrbracket$, ces relations se traduisent matriciellement par
         $$
@@ -182,7 +182,7 @@ On déduit des propositions \textcolor{red}{4.6} et \textcolor{red}{4.7} le rés
 \end{prop}
 
 \marginnote[0cm]{(\url{https://fr.wikipedia.org/wiki/Polynôme_caractéristique#Coefficients})
-$$\det(X \I_n - M) = X^n - f_1(M) X^{n-1} + \cdots + (-1)^n f_n(M)$$
+$$\note \det(X \I_n - M) = X^n - f_1(M) X^{n-1} + \cdots + (-1)^n f_n(M)$$
 où, en notant $(\lambda_1, \dots, \lambda_n)$ les valeurs propres de $M$ prises avec multiplicité,
 $$f_k(M) = s_k(\lambda_1, \dots, \lambda_n)$$
 où $s_k$ désigne le $k$-ème polynôme symétrique élémentaire. \\
@@ -193,7 +193,7 @@ $$\sum_{i=1}^n \lambda_i^j = \Tr(M^j).$$
 \begin{preuve}
     \textcolor{red}{à revoir} \\
     \marginnote[0cm]{\cite{reduc_des_endo} p. 114}
-    D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines, le polynôme caractéristique de la matrice $A$ a pour expression
+    D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines \note, le polynôme caractéristique de la matrice $A$ a pour expression
     $$\chi_A = X^n + (-1)^n \det(A).$$
     Si $\det(A) = 0$, le théorème de \textsc{Cayley}-\textsc{Hamilton} assure que $A$ est nilpotente. Sinon, le polynôme caractéristique est scindé à racines simples donc $A$ est diagonalisable (et d'ailleurs, toutes les valeurs propres ont le même module).
 \end{preuve}
