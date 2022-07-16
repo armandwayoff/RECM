@@ -40,22 +40,22 @@
 \section{Polynômes d'interpolation de \textsc{Lagrange}, lien avec les déterminants de \textsc{Vandermonde}}
 \input{chapitres/algebre_lineaire_matrices/polynomes_interpolation_de_lagrange_lien_avec_les_determinants_de_vandermonde}
 
-\section{Inversion par sommation géométrique des endomorphismes nilpotents} \label{indice_nilpotence}
+\section{Inversion par sommation géométrique des endomorphismes nilpotents} \labsec{inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 \input{chapitres/algebre_lineaire_matrices/inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 
-\section{Matrices de taille $3$ d'ordre de nilpotence égal à $2$}
+\section{Matrices de taille $3$ d'ordre de nilpotence égal à $2$} \labsec{matrices_de_taille_trois_odre_de_nilpotence_deux}
 \input{chapitres/algebre_lineaire_matrices/matrices_de_taille_trois_odre_de_nilpotence_deux}
 
-\section{Famille libre engendrée par un endomorphisme nilpotent}
+\section{Famille libre engendrée par un endomorphisme nilpotent} \labsec{famille_libre_engendree_par_un_endomorphisme_nilpotent}
 \input{chapitres/algebre_lineaire_matrices/famille_libre_engendree_par_un_endomorphisme_nilpotent}
 
 \section{Matrices de rang $1$}
 \input{chapitres/algebre_lineaire_matrices/matrices_de_rang_un}
 
-\section{Sous-espace engendré par les matrices nilpotentes}
+\section{Sous-espace engendré par les matrices nilpotentes} \labsec{sous_espace_engendre_par_les_matrices_nilpotentes}
 \input{chapitres/algebre_lineaire_matrices/sous_espace_engendre_par_les_matrices_nilpotentes}
 
-\section{Titre à compléter}
+\section{Titre à compléter} \labsec{titre_a_completer}
 \begin{exercice}
     \cite{acamanes} 
     Soient $A$ et $B$ deux matrices de $\M_n(\C)$ qui commutent. 
@@ -89,7 +89,7 @@
         \end{itemize}
         \underline{Deuxième démonstration:} \\
         \begin{lemme}
-            \cite{reduc_des_endo} p. 33\\
+            \marginnote[0cm]{\cite{reduc_des_endo} p. 33}
             Soit $u$ et $n$ deux endomorphismes de $E$ tels que $u$ est non nul, $n$ est nilpotent et $u \circ n = n \circ u$. Montrer que $\Rg(u \circ n) < \Rg(u)$.
         \end{lemme}
         \begin{preuve}
@@ -101,7 +101,7 @@
 
 \section{Si \texorpdfstring{$AB - BA = A \dots$}{AB-BA=A...}}
 \begin{exercice}
-    fic00118 [005625]\\
+    \marginnote[0cm]{fic00118 [005625]}
     Soit $(A, B) \in \M_n(\R)^2$ tel ques $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
 \end{exercice}
 
@@ -127,8 +127,8 @@ Ma solution est beaucoup simple que la leur...
     \end{align*}
 \end{solution}
 
-\begin{exercice}
-    \cite{exos_oraux} p. 47 \\
+\begin{exercice} \labexercice{a_comp}
+    \marginnote[0cm]{\cite{exos_oraux} p. 47}
     Soient $n \in \Ne$, $A$ et $B$ deux matrices de $\M_n(\R)$ telles que $AB - BA = A.$
     \begin{enumerate}
         \item Montrer que la matrice $A$ n'est pas inversible.
@@ -144,7 +144,7 @@ Ma solution est beaucoup simple que la leur...
 \section{Application du théorème de recollement}
 
 \begin{exercice}
-    \cite{acamanes}
+    \marginnote[0cm]{\cite{acamanes}}
     Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note $\mathscr{H} \defeq \{ g \in \Endo(F, E);\ f \circ g \circ f = 0\}$. Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
 \end{exercice}
 
@@ -210,7 +210,7 @@ Ma solution est beaucoup simple que la leur...
     à finir....
 \end{solution}
 
-\section{Rang des puissances d'un endomorphisme nilpotent}
+\section{Rang des puissances d'un endomorphisme nilpotent} \labsec{rang_des_puissances_d_un_endomorphisme_nilpotent}
 \begin{exercice}
     livre à citer \\
     Soient $E$ un $\K$-espace espace vectoriel de dimension $n$, $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
@@ -232,7 +232,7 @@ Ma solution est beaucoup simple que la leur...
     ...
 \end{solution}
 
-\section{Rang d'un endomorphisme nilpotent}
+\section{Rang d'un endomorphisme nilpotent} \labsec{rang_d_un_endomorphisme_nilpotent}
 \begin{exercice}
     citer livre \\
     Soient $E$ un $\K$-espace vectoriel de dimension $n$, $u \in \Endo(E)$ tel que $u^n = 0$ et $u^{n-1} \not= 0$. Déterminer le rang de $u$.

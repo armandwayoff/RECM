@@ -1,15 +1,20 @@
 \begin{defi}
     Pour tout $n \in \Ne$, on définit le polynôme $\Leg_n$ par:
-    $$\Leg_n(X) = \frac{1}{2^n} \sum_{k=0}^{n} \binom{n}{k}^2 (X-1)^{n-k}(X+1)^{k},$$
-    $$\Leg_n(X) = \frac{1}{2^n n!} \left( (X^2-1)^n \right)^{(n)}.$$
+    $$\Leg_n(X) \defeq \frac{1}{2^n} \sum_{k=0}^{n} \binom{n}{k}^2 (X-1)^{n-k}(X+1)^{k},$$
 \end{defi}
 
-Les polynômes de \textsc{Legendre} constituent l'exemple le plus simple d'une suite de polynômes orthogonaux. \\
-La suite vient de \url{https://bibmath.net/dico/index.php?action=affiche&quoi=./l/legendrepoly.html}.
-Les polynômes de \textsc{Legendre} sont orthogonaux pour le produit scalaire
-$$\langle P, Q \rangle = \int_{-1}^1 P(t) Q(t) \d t$$
-mais ne sont toutefois par orthonormaux car
-$$\langle \Leg_n, \Leg_n \rangle = \frac{2}{2n+1}.$$
+\marginnote[0cm]{
+    Voir aussi...
+}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{exos_oraux} p. 25} 
+    \begin{enumerate}
+        \item Montrer que $\Leg_n(X) = \frac{1}{2^n n!} \left( (X^2-1)^n \right)^{(n)}$. En déduire la parité de $\Leg_n$ et l'égalité $\sum\limits_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$.
+        \item Soit $n \in \Ne$, montrer que $\Leg_n(X)$ est scindé à racines simples dans $]-1, 1[$. 
+        \item Montrer que pour tout $n \in \N$, $(X^2-1) \Leg''_n(X) + 2X \Leg'_n(X) = n(n+1) \Leg_n$.
+    \end{enumerate}
+\end{exercice}  
 
 \begin{elem_sol}
     Pour montrer que $\Leg_n(X)$ est scindé à racines simples dans $]-1, 1[$, raisonner par récurrence et penser à \textsc{Rolle}. 

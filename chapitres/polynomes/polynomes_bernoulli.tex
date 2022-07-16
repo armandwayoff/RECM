@@ -1,4 +1,4 @@
-Lire \cite{calcul_infinitesimal} page 297. \\
+\marginnote[0cm]{Lire \cite{calcul_infinitesimal} page 297}
 Note d'un thème (cf. bureau) \\
 
 Il arrive fréquemment que le calcul exact d’une intégrale soit difficile, voire
@@ -14,6 +14,25 @@ approcher la valeur de l’intégrale en utilisant des polynômes comme les poly
     \end{align*}
 \end{defi}
 
-\begin{itemize}
-    \item Pour montrer que pour tout $n \in \N$, on a $\Bern_n(X)=(-1)^n \Bern_n(1-X)$, montrer que la suite $(\Bern_n^{\star})$ définie par $\Bern_n^{\star} = (-1)^n \Bern_n(1-X)$ vérifie les hypothèses de la suite des polynômes de \textsc{Bernoulli}. L'unicité de cette suite permet d'établir l'égalité. 
-\end{itemize}
+\begin{defi}
+    Pour tout $n \geqslant 0$, on pose $\mathrm{b}_n \defeq \Bern_n(0)$. La suite de réels $(\mathrm{b}_n)_n$ est appelée suite des nombres de \textsc{Bernoulli}.
+\end{defi}  
+
+\begin{exercice}
+    \begin{enumerate}
+        \item Quel est le degré de $\Bern_n(X)$ pour $n \geqslant 0$. 
+        \item Montrer que, pour tout $n \geqslant 2$, $\Bern_n(0) = \Bern_n(1)$.
+        \item Soient $n \in \N$ et $x \in \R$. Montrer que 
+        $$\Bern_n(x) = \sum_{k=0}^n \binom{n}{k} \mathrm{b}_{n-k} x^k.$$
+        \item En déduire, pour $n \geqslant 1$, une expression de $\mathrm{b}_n$ en fonction de $\mathrm{b}_0, \dots, \mathrm{b}_{n-1}$.
+        \item Montrer que la suite $(\mathrm{b}_n)_n$ est une suite de rationnels et que, pour $n \geqslant 0$, les polynômes $\Bern_n(X)$ sont à coefficients rationnels.
+        \item Montrer que pour tout $n \geqslant 0$, $(-1)^n \Bern_n(1-X) = \Bern_n(X)$.
+        \item En déduire que 
+        $$
+        \begin{cases}
+            \forall n \geqslant 1, \mathrm{b}_{2n+1} = 0, \\
+            \forall n \geqslant 0, \Bern_{2n+1}(\frac{1}{2}) = 0.
+        \end{cases}
+        $$
+    \end{enumerate}    
+\end{exercice}

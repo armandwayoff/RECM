@@ -1,10 +1,9 @@
 % https://tex.stackexchange.com/questions/549225/how-to-make-tangents-on-figure-like-this
-
 \begin{tikzpicture}[>=stealth,
     declare function={f(\x)=-0.35+5*exp(\x/2)/exp(3);
         fprime(\x)=2.5*exp(\x/2)/exp(3);},
     dot/.style={circle,fill,inner sep=1pt},
-    every pin edge/.style={thin}]
+    every pin edge/.style={thin}, scale=0.8]
   \path (0,0) coordinate[label=below left:{$O$}] (O)
      (0,5) coordinate (y) (6,0) coordinate (x);
   \draw[-latex,name path=x-axis] (-0.5,0) --  (x) node[below] {$x$};
@@ -34,5 +33,5 @@
    };
   \path[name intersections={of=curve and x-axis,by=i}]
    (i) node[cyan,draw,fill,
-   ,pin={[black,align=center]90:point\\ \contour{white}{recherché}}](in){};  
+   ,pin={[black,align=center]90: point\\ \contour{white}{recherché}}](in){};  
  \end{tikzpicture}

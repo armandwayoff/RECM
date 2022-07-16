@@ -1,5 +1,14 @@
+\frefsec{polynomes_de_legendre}
+
 $$\forall n \in \N, \Leg_n(X) = \frac{1}{2^n n!} U_n^{(n)}(X)$$
 où $U_n(X) = (X^2-1)^n$.
+
+Les polynômes de \textsc{Legendre} constituent l'exemple le plus simple d'une suite de polynômes orthogonaux. \\
+La suite vient de \url{https://bibmath.net/dico/index.php?action=affiche&quoi=./l/legendrepoly.html}.
+Les polynômes de \textsc{Legendre} sont orthogonaux pour le produit scalaire
+$$\langle P, Q \rangle = \int_{-1}^1 P(t) Q(t) \d t$$
+mais ne sont toutefois par orthonormaux car
+$$\langle \Leg_n, \Leg_n \rangle = \frac{2}{2n+1}.$$
 
 \begin{enumerate}
     \item Montrer que $(\Leg_n)_{n \in \N)}$ est une famille orthogonale. \\
