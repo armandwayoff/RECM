@@ -17,7 +17,7 @@ Intéressons-nous d'abord à la première branche.
 \begin{preuve}
     \marginnote[-1cm]{\url{http://vonbuhren.free.fr/Agregation/Developpements/dev_thm_burnside.pdf}}
     Raisonnons par double implication.
-    \marginnote[5cm]{
+    \marginnote[1cm]{
         \note Soit $A$ une matrice semblable à
         $$
         \begin{pmatrix}
@@ -37,10 +37,16 @@ Intéressons-nous d'abord à la première branche.
         \end{pmatrix}.
         $$
     }
+    
+    \marginnote[3cm]{
+    % https://tex.stackexchange.com/questions/343439/how-to-draw-this-special-matrix-with-two-diagonal-braces
+        
+    }
     \begin{itemize}
-        \item[$(\Rightarrow)$] Si la matrice $A$ est nilpotente, son spectre est réduit à $0$ et donc elle est semblable à une matrice strictement triangulaire $T$. Pour tout $k \in \llbracket 1, n \rrbracket$, la matrice $A^k$ est semblable à la matrice $T^k$ dont la diagonale est nulle. La trace étant un invariant de similitude, on en déduit que pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(A^k) = \Tr(T^k) = 0$.
-        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $\lambda_1, \dots, \lambda_r \in \C$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $m_1, \dots, m_r \in \Ne$ leur multiplicité respective. En trigonalisant $A$ \textcolor{red}{à détailler}, notre hypothèse équivaut à 
+        \item[$(\Rightarrow)$] Si la matrice $A$ est nilpotente, son spectre est réduit à $0$ et donc elle est semblable à une matrice strictement triangulaire $T$. Pour tout $k \in \llbracket 1, n \rrbracket$, la matrice $A^k$ est semblable à la matrice $T^k$ dont la diagonale est nulle \note. La trace étant un invariant de similitude, on en déduit que pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(A^k) = \Tr(T^k) = 0$.
+        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $\lambda_1, \dots, \lambda_r \in \C$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $m_1, \dots, m_r \in \Ne$ leur multiplicité respective. En trigonalisant la matrice $A$, notre hypothèse équivaut à
         $$\forall k \in \llbracket 1, n \rrbracket,\ \sum_{i=1}^r m_i \lambda_i^k = 0.$$
+        En effet, la valeur propre $\lambda_i$ est présente $m_i$ fois sur la diagonale. \\
         En particulier, en se limitant à $k \in \llbracket 1, r \rrbracket$, ces relations se traduisent matriciellement par
         $$
         \underbrace{
@@ -60,6 +66,24 @@ Intéressons-nous d'abord à la première branche.
         0 \\ \vdots \\ 0
         \end{pmatrix}.
         $$
+        
+        %$$
+        %A^k \sim
+        %\begin{tikzpicture}[decoration={brace,amplitude=5pt},baseline=(current bounding box.west)]
+        %\matrix (magic) [matrix of math nodes,left delimiter=(,right delimiter=)] {
+        %\lambda_1^k \\
+        %& \ddots \\
+        %& & \lambda_1^k \\
+        %& & & \ddots \\
+        %& & & & \lambda_r^k \\
+        %& & & & & \ddots \\
+        %& & & & & & \lambda_r^k \\
+        %};
+        %\draw[decorate] (magic-1-1.north) -- (magic-3-3.north east) node[above=5pt,midway,sloped] {$m_1$};
+        %\draw[decorate] (magic-5-5.north east) -- (magic-7-7.north east) node[above=5pt,midway,sloped] %{$m_r$};
+        %\end{tikzpicture}
+        %$$
+
         Ainsi $X \in \Ker(V)$. Or la matrice $V$ est une matrice de \textsc{Vandermonde} inversible car les $\lambda_i$ sont deux à deux distinctes par hypothèse. Nous aboutissons alors à une contradiction car le vecteur $X$ est non nul. On en déduit que la matrice $A$ est nilpotente. \\
         
         Voyons une autre démonstration pour la réciproque. \\ \marginnote[0cm]{\url{https://www.youtube.com/watch?v=d70IfThN_-A}}

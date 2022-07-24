@@ -1,14 +1,10 @@
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass[
-	a4paper, % Page size
-	fontsize=10pt, % Base font size
-	twoside=true, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
-	% open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
-	chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
-	numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
+	a4paper, % Format du livre
+	fontsize=10pt, % Taille de la police (texte de base)
+	twoside=true, % Utiliser des mises en page différentes pour les pages paires et impaires (en particulier, si twoside=true, la colonne de marge sera toujours à l'extérieur).
+	% open=any, % Si twoside=true, décomplétez ceci pour forcer les nouveaux chapitres à commencer sur n'importe quelle page, et pas seulement sur la page de droite (impaire).
+	chapterentrydots=true, % Décommenter pour afficher les points du nom du chapitre au numéro de page dans la table des matières
+	numbers=noenddot, % Commenter pour afficher des points après les numéros de chapitre ; les arguments les plus courantes pour cette option sont : enddot, noenddot et auto (voir la documentation KOMAScript pour une explication approfondie).
 ]{kaobook}
 
 \usepackage[french]{babel}
@@ -22,12 +18,7 @@
 ]{dirtytalk}
 
 
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-
-% Load packages for testing
-\usepackage{blindtext}
-%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
-%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+\usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
 
 \setlist[itemize]{label=$\bullet$}
 
@@ -76,7 +67,7 @@
 % \subject{Use this document as a template}
 
 \title[Le Recueil des Exercices Classiques de Mathématiques]{\Huge \textrm{\textsc{Le Recueil des Exercices Classiques de Mathématiques}}}
-% \subtitle{corrigés}
+% \subtitle{}
 
 \author[Armand Wayoff]{Armand \textsc{Wayoff}}
 
@@ -120,19 +111,11 @@
 \end{flushright}
 \end{Large}
 
-%\begin{figure}[h]
-%    \includegraphics[width=10cm]{henri_poincare.jpg}
-%\end{figure}
-
-%----------------------------------------------------------------------------------------
-%	PREFACE
-%----------------------------------------------------------------------------------------
-
 \input{preface.tex}
 \index{preface}
 
 %----------------------------------------------------------------------------------------
-%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
+%	TABLE DES MATIERES
 %----------------------------------------------------------------------------------------
 
 \begingroup % Local scope for the following commands
@@ -159,15 +142,15 @@
 \endgroup
 
 %----------------------------------------------------------------------------------------
-%	MAIN BODY
+%	
 %----------------------------------------------------------------------------------------
 
-\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\mainmatter % Indique le début du contenu principal du document, réinitialise la numérotation des pages et utilise les chiffres arabes.
 \setchapterstyle{kao} % Choose the default chapter heading style
 
-\pagelayout{wide} % No margins
+\pagelayout{wide} % Pas de marges
 \addpart{Algèbre}
-\pagelayout{margin} % Restore margins
+\pagelayout{margin} % Restaurer les marges
 
 \input{chapitres/polynomes/polynomes}
 \input{chapitres/algebre_lineaire_matrices/algebre_lineaire_matrices}
@@ -175,9 +158,9 @@
 \input{chapitres/espaces_prehilbertiens_ou_euclidiens/espaces_prehilbertiens_ou_euclidiens}
 \input{chapitres/espaces_vectoriels_normes_suites/espaces_vectoriels_normes_suites}
 
-\pagelayout{wide} % No margins
+\pagelayout{wide}
 \addpart{Analyse}
-\pagelayout{margin} % Restore margins
+\pagelayout{margin}
 
 \input{chapitres/suites_et_series_numeriques/suites_et_series_numeriques}
 \input{chapitres/integration/integration}
@@ -188,11 +171,9 @@
 % \input{chapitres/series_de_fourier/series_de_fourier}
 \input{chapitres/equations_differentielles_et_calcul_differentiel/equations_differentielles_et_calcul_differentiel}
 
-% \appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
-
-\pagelayout{wide} % No margins
+\pagelayout{wide}
 \addpart{Dénombrement, Probabilités \& Variables aléatoires}
-\pagelayout{margin} % Restore margins
+\pagelayout{margin}
 
 \input{chapitres/denombrement/denombrement}
 \input{chapitres/probabilites/probabilites}
@@ -213,9 +194,9 @@
     \item \vreflemme{a_completer}
 \end{enumerate}
 
-%----------------------------------------------------------------------------------------
+\underline{Résumé des propriétés des endomorphismes nilpotents:}
 
-\backmatter % Denotes the end of the main document content
+\backmatter % Indique la fin du contenu principal du document principal
 \setchapterstyle{plain} % Output plain chapters from this point onwards
 
 \thispagestyle{empty}
@@ -228,29 +209,9 @@
 \end{itemize}
 \end{multicols}
 
-%----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
-
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
-\printbibliography[heading=bibintoc, title=Références] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+\printbibliography[heading=bibintoc, title=Références] % Ajouter l'en-tête de la bibliographie à la table des matières, définir le titre de la bibliographie et éditer la note bibliographique.
 
 \printindex % Output the index
-
-%----------------------------------------------------------------------------------------
-%	BACK COVER
-%----------------------------------------------------------------------------------------
-
-% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
-
-%\clearpage
-%\thispagestyle{empty}
-%\null%
-%\clearpage
-%\includepdf{cover-back.pdf}
-
-%----------------------------------------------------------------------------------------
 
 \end{document}

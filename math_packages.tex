@@ -1,16 +1,12 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{ragged2e}
 
-\usepackage{quiver}
-
 % Pour la fonction Gamma
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
-%
 
 % Pour la figure homothétie
 \usepackage{tkz-euclide}
-%
 
 \usepackage{hyperref}
 \usepackage{multicol}
@@ -18,38 +14,32 @@
 
 \usepackage{tikz}
 \usetikzlibrary{automata, 
-                decorations.pathreplacing, % pour les curly braces de la fig du déter
-                calligraphy, % pour les curly braces de la fig du déter
+                decorations.pathreplacing, % pour les curly braces de la fig du déterminant
+                calligraphy, % pour les curly braces de la fig du déterminant
                 arrows, % customizing arrows
                 positioning, % positioning nodes
                 calc,
-                bending % figure racines troisième de l'unité
+                bending, % figure racines troisième de l'unité
+                matrix % critère de nilpotence par la trace
                 }
-
+                
 % Pour la figure de projection orthogonale
 %\usepackage[active,tightpage]{preview}
 
 % Pour pouvoir enlever l'indentation dans un itemize
-%https://tex.stackexchange.com/questions/131637/no-indentation-for-non-item-within-itemize
+% https://tex.stackexchange.com/questions/131637/no-indentation-for-non-item-within-itemize
 \newcommand\NoIndent[1]{%
   \par\vbox{\parbox[t]{\linewidth}{#1}}%
 }
 
-%%%
 \usepackage[outline]{contour} % glow around text
 \contourlength{1.0pt}
-%%%
-
-% Pour les losanges noirs
-% https://tex.stackexchange.com/questions/406760/how-to-fill-a-symbol-with-a-colour
-% \usepackage{fdsymbol}
 
 % Pour les longues équations (théorème d'intégration par parties généralisées) https://tex.stackexchange.com/questions/3782/how-can-i-split-an-equation-over-two-or-more-lines
 %\usepackage{breqn}
 
 % Pour l'arbre de Calkin-Wilf
 \usepackage{forest}
-%%%%%%%%%%%%%%%%%%%%%%%
 
 \tikzset{node distance=3.5cm, % Minimum distance between two nodes. Change if necessary.
     every state/.style={ % Sets the properties for each state
@@ -77,13 +67,12 @@
 
 % Pour le diagramme quiver
 \usepackage{tikz-cd}
-% 
+\usepackage{quiver}
 
 % Scale pour le diagramme sur le red des endos
 % https://tex.stackexchange.com/questions/325297/how-to-scale-a-tikzcd-diagram
 \tikzcdset{scale cd/.style={every label/.append style={scale=#1},
     cells={nodes={scale=#1}}}}
-%
 
 \usepackage{fancyhdr}
 \usepackage{amsfonts} 
@@ -95,9 +84,6 @@
 \usepackage{mathrsfs}
 \usepackage{enumitem}
 \usepackage{xurl}
-
-% Notations comme les sujets de Centrale
-% \usepackage[mathscr]{eucal}
 
 % Pour les matrices par blocs
 \newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
@@ -114,8 +100,6 @@
 \usepackage{tabularx}
 \usepackage{extarrows}
 
-% \renewcommand\qedsymbol{$\blacksquare$}
-
 %\newenvironment{preuve}[1][\proofname]{%
 %  \begin{proof}[#1]$ $\par\nobreak\ignorespaces
 %}{%
@@ -123,21 +107,20 @@
 %}
 
 \newenvironment{preuve}
-  {\begin{proof}[\textbf{\blacksquare\ \textsc{Démonstration.}}]}
+  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{Démonstration}}]}
   {\end{proof}}
   
 \newenvironment{elem_preuve}
-  {\begin{proof}[\textbf{\blacksquare\ \textsc{Éléments de démonstration.}}]}
+  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{Éléments de démonstration}}]}
   {\end{proof}}
 
 \newenvironment{solution}
-  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[\blacktriangleright \textbf{\textsc{Solution.}}]}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{Solution}}]}
   {\end{proof}}
 
 \newenvironment{elem_sol}
-  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[\blacktriangleright \textbf{\textsc{Éléments de solution.}}]}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{Éléments de solution}}]}
   {\end{proof}}
-
 
 \usepackage[most]{tcolorbox}
 

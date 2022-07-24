@@ -14,7 +14,7 @@
         \item Posons $g = f_{\vert F}$ qui est diagonalisable car $f$ l'est par hypothèse. 
         \item Soit $\mathscr{B}_F$ une base de $F$ formée de vep de $g$. 
         \item Soit $\mathscr{B}'$ une base de $E$ formée de vep de $f$ (qui existe car $f$ est diagonalisable).
-        \item On \textbf{complète} $\mathscr{B}_F$ est une base $\mathscr{B}$ de E en prenant des vep $(\varepsilon_1, \cdots, \varepsilon_r)$ de $\mathscr{B}'$. On note $(\lambda_1, \dots, \lambda_r)$ les valeurs propres associées. 
+        \item On \ptnclegras{complète} $\mathscr{B}_F$ est une base $\mathscr{B}$ de E en prenant des vep $(\varepsilon_1, \cdots, \varepsilon_r)$ de $\mathscr{B}'$. On note $(\lambda_1, \dots, \lambda_r)$ les valeurs propres associées. 
         \item On pose G = $\mathrm{Vect}(\varepsilon_1, \dots, \varepsilon_r)$. De cette manière, $F$ et $G$ sont supplémentaires. Montrons que $G$ est stable par $f$. \\
         Soit $x = \sum\limits_{i=1}^{r} \mu_i \varepsilon_i \in G$. Donc $f(x) = \sum\limits_{i=1}^{r} \mu_i f(\varepsilon_i) =  \sum\limits_{i=1}^{r} \mu_i \lambda_i \varepsilon_i \in G$ et $G$ est stable par $f$.
     \end{itemize}
@@ -28,7 +28,7 @@
         Soit $x = \sum\limits_{i=1}^{r} x_i \in F$ où $x_i \in E_{\lambda_i}(f)$. Alors $f(x) = \sum\limits_{i=1}^{r} \underbrace{\lambda_i x_i}_{\in E_{\lambda_i}(f)} \in F$. Donc $F$ est stable par $f$.
         \item Montrons que $F = E$. \\
         Par hypothèse, $F$ admet un supplémentaire $G$ dans $\C^n$, stable par $f$. Montrons que $G = \{0\}$ en raisonnant par l'absurde. \\
-        On pose $g = f_{\vert F}$. D'après le \textbf{théorème de \textsc{D'Alembert-Gauss}} sur $\C$, $g$ admet au moins une valeur propre $\mu \in \C$ de vep associé $x_\mu$. On montre que $x_\mu \in F \cap G$. Or $F$ et $G$ sont supplémentaires donc $x_\mu = 0_E$: contradiction. D'où le résultat. 
+        On pose $g = f_{\vert F}$. D'après le \ptnclegras{théorème de \textsc{D'Alembert-Gauss}} sur $\C$, $g$ admet au moins une valeur propre $\mu \in \C$ de vep associé $x_\mu$. On montre que $x_\mu \in F \cap G$. Or $F$ et $G$ sont supplémentaires donc $x_\mu = 0_E$: contradiction. D'où le résultat. 
     \end{enumerate}
     \item Décrire un contre-exemple à la réciproque dans $\R$, en dimension 2. \\
     Considérer $R_\theta$. \textcolor{green}{à revoir}
