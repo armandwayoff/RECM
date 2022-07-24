@@ -43,13 +43,13 @@
 \section{Inversion par sommation géométrique des endomorphismes nilpotents} \labsec{inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 \input{chapitres/algebre_lineaire_matrices/inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 
-\section{Matrices de taille $3$ d'ordre de nilpotence égal à $2$} \labsec{matrices_de_taille_trois_odre_de_nilpotence_deux}
+\section{Matrices de taille \texorpdfstring{$3$}{3} d'ordre de nilpotence égal à \texorpdfstring{$2$}{2}} \labsec{matrices_de_taille_trois_odre_de_nilpotence_deux}
 \input{chapitres/algebre_lineaire_matrices/matrices_de_taille_trois_odre_de_nilpotence_deux}
 
 \section{Famille libre engendrée par un endomorphisme nilpotent} \labsec{famille_libre_engendree_par_un_endomorphisme_nilpotent}
 \input{chapitres/algebre_lineaire_matrices/famille_libre_engendree_par_un_endomorphisme_nilpotent}
 
-\section{Matrices de rang $1$}
+\section{Matrices de rang \texorpdfstring{$1$}{1}}
 \input{chapitres/algebre_lineaire_matrices/matrices_de_rang_un}
 
 \section{Sous-espace engendré par les matrices nilpotentes} \labsec{sous_espace_engendre_par_les_matrices_nilpotentes}
@@ -57,7 +57,7 @@
 
 \section{Titre à compléter} \labsec{titre_a_completer}
 \begin{exercice}
-    \cite{acamanes} 
+    \marginnote[0cm]{\cite{acamanes}}
     Soient $A$ et $B$ deux matrices de $\M_n(\C)$ qui commutent. 
     \begin{enumerate}
         \item On suppose que $B$ est nilpotente. 
@@ -102,7 +102,7 @@
 \section{Si \texorpdfstring{$AB - BA = A \dots$}{AB-BA=A...}}
 \begin{exercice}
     \marginnote[0cm]{fic00118 [005625]}
-    Soit $(A, B) \in \M_n(\R)^2$ tel ques $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
+    Soit $(A, B) \in \M_n(\R)^2$ tel que $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
 \end{exercice}
 
 \marginnote[2cm]{
@@ -175,10 +175,12 @@ Ma solution est beaucoup simple que la leur...
             \item Montrons que $\psi$ est surjective. \\
             Soit $(g_1, g_2) \in \Endo(\Im f, \Ker f) \times \Endo(W, E)$. \\
             Par théorème de recollement des applications linéaires, il existe une application $g \in \Endo(F, E)$ telle que 
+            $
             \begin{cases}
                     g_{\vert \Im f} = g_1 \\
                     g_{\vert W} = g_2
-            \end{cases}. \\
+            \end{cases}
+            $. \\
             Soit $x \in E$, $(f \circ g \circ f)(x) = f(g(\underbrace{f(x)}_{\in \Im f}) = f(\underbrace{g_1(f(x))}_{\in \Ker f}) = 0$ donc $g \in \mathscr{H}$ et $\psi$ est sujective. 
             \item Montrons que $\psi$ est injective. \\
             Soit $g \in \Ker \psi$. Alors $(g_{\vert \Im f}, g_{\vert W}) = (0_{\Endo(F, E)}, 0_{\Endo(F, E)})$. \\

@@ -1,8 +1,8 @@
 \ProvidesPackage{kaorefs}
 
-% Easily label and reference elements
-% Note that \label must appear after \caption
-% Load this package last
+% Étiqueter et référencer facilement les éléments
+% Notez que \label doit apparaître après \caption
+% Chargez ce paquet en dernier
 
 % Pass this package's options to hyperref and varioref
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{varioref}}
@@ -14,25 +14,6 @@
 \RequirePackage{varioref}
 \RequirePackage{hyperref}
 \RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
-
-
-%\DeclareOption{french}
-%    {\vref@addto\extrasfrench{%
-%    \def\reftextfaceafter {page \reftextvario{ci-contre}{suivante}}%
-%    \def\reftextfacebefore{page \reftextvario{ci-contre}%
-%    {pr\’ec\’edente}}%
-%    \def\reftextafter {page suivante}%
-%    \def\reftextbefore {page pr\’ec\’edente}%
-%    \def\reftextcurrent {de la pr\’esente page}%
-%    \def\reftextfaraway#1{page~\pageref{#1}}%
-%    \def\reftextpagerange#1#2{pages~\pageref{#1}--\pageref{#2}}%
-%    \def\reftextlabelrange#1#2{\ref{#1} \‘a~\ref{#2}}%
-%    \let\vrefformat\vrefdefaultformat
-%    \let\Vrefformat\Vrefdefaultformat
-%    \let\fullrefformat\fullrefdefaultformat
-%    \let\vrefrangeformat\vrefrangedefaultformat
-%}}
-
 
 % Language-specific strings
 % #LANGUAGE

@@ -68,21 +68,21 @@
     \end{enumerate}
 \end{exercice}
 
-\begin{enumerate}
-    \item $D = ]0, + \infty[$.
-    \item Intégration par parties ou comparaison série / intégrale: $F(x) \sim_{+\infty} \frac{\me^{x}}{x}$. \\
-    \url{https://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/analyse/integration/integralesimpropres&type=fexo} exercice 38. (à réécrire)\\
-    On remarque d'abord que $\int_{1}^{+\infty} \frac{\me^{-t}}{t} \d t$ converge: en effet, la fonction $t \mapsto \frac{\me^{-t}}{t}$ est continue et positive sur $[1, + \infty[$ et $\lim\limits_{t \to +\infty} t^2 \frac{\me^{-t}}{t} = 0$. On intègre ensuite par parties, en intégrant $t \mapsto \me^{-t}$ et en dérivant $\t \mapsto \frac{1}{t}$. On obtient, pour $x > 1$, 
-    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t = \left[ -\frac{\me^{-t}}{t} \right]_x^{+\infty} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t$$
-    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t= \frac{\me^{-x}}{x} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t.$$
-    Or, au voisinage de $+ \infty$, 
-    $$\frac{\me^{-t}}{t^2} = o\left( \frac{\me^{-t}}{t} \right).$$
-    Par intégration des relations de comparaison (les fonctions sont positives et intégrables), on trouve
-    $$\int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t = o_{+\infty} \left( \int_x^{+\infty} \frac{\me^{-t}}{t} \d t \right).$$
-    On en déduit que
-    $$\int_x^{+\infty} \frac{\me^{-t}}{t} \d t \sim_{+\infty} \frac{\me^{-x}}{x}.$$
-    \item À faire.
-\end{enumerate}
+%\begin{enumerate}
+%    \item $D = ]0, + \infty[$.
+%    \item Intégration par parties ou comparaison série / intégrale: $F(x) \sim_{+\infty} \frac{\me^{x}}{x}$. \\
+%    \url{https://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/analyse/integration/integralesimpropres&type=fexo} exercice 38. (à réécrire)\\
+%    On remarque d'abord que $\int_{1}^{+\infty} \frac{\me^{-t}}{t} \d t$ converge: en effet, la fonction $t \mapsto \frac{\me^{-t}}{t}$ est continue et positive sur $[1, + \infty[$ et $\lim\limits_{t \to +\infty} t^2 \frac{\me^{-t}}{t} = 0$. On intègre ensuite par parties, en intégrant $t \mapsto \me^{-t}$ et en dérivant $\t \mapsto \frac{1}{t}$. On obtient, pour $x > 1$, 
+%    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t = \left[ -\frac{\me^{-t}}{t} \right]_x^{+\infty} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t$$
+%    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t= \frac{\me^{-x}}{x} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t.$$
+%    Or, au voisinage de $+ \infty$, 
+%    $$\frac{\me^{-t}}{t^2} = o\left( \frac{\me^{-t}}{t} \right).$$
+%    Par intégration des relations de comparaison (les fonctions sont positives et intégrables), on trouve
+%    $$\int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t = o_{+\infty} \left( \int_x^{+\infty} \frac{\me^{-t}}{t} \d t \right).$$
+%    On en déduit que
+%    $$\int_x^{+\infty} \frac{\me^{-t}}{t} \d t \sim_{+\infty} \frac{\me^{-x}}{x}.$$
+%    \item À faire.
+%\end{enumerate}
 
 \section{Version intégrale du lemme de \textsc{Cesàro}}
 \begin{lemme}

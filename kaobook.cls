@@ -241,7 +241,7 @@
 \addtokomafont{chapterentry}{\normalfont\bfseries}
 
 % Set KOMA fonts for elements common to all classes
-\addtokomafont{section}{\normalfont\bfseries}
+\addtokomafont{section}{\normalfont\bfseries\color{BlueViolet}}
 \addtokomafont{subsection}{\normalfont\bfseries}
 \addtokomafont{subsubsection}{\normalfont\bfseries}
 \addtokomafont{paragraph}{\normalfont\bfseries}

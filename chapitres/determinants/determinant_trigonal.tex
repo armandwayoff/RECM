@@ -122,13 +122,13 @@ Ces matrices sont des matrices de \textsc{Toeplitz} tridiagonales. Nous les note
     et 
     $$a = \pm \frac{\omega_k + 1}{2 \sqrt{\omega_k}}2 \sqrt{bc}.$$
     \say{ The coefficient in $\omega_k$ is real and can be written }
-    $$\cos \frac{k \pi}{n+1}.$$
+    $$\cos \left(\frac{k \pi}{n+1}\right).$$
     Enfin, en remplaçant $a$ par $a - \lambda$, on a montré que
     $$\lambda =a \pm 2 \sqrt{bc} \cos \left( \frac{k \pi}{n+1} \right).$$
 \end{preuve}
 
 \begin{methode}
-    Le calcul du déterminant d'une matrice trigonale consiste à déterminer la relation de récurrence vérifiée par le déterminant et de trouver ensuite l'expression du terme général à l'aide des formules sur les suites récurrentes linéaires d'ordre deux. 
+    Le calcul du déterminant d'une matrice tridiagonale consiste à déterminer la relation de récurrence vérifiée par le déterminant puis à trouver l'expression du terme général à l'aide des formules sur les suites récurrentes linéaires d'ordre deux. 
 \end{methode}
 
 Mettons en pratique.
@@ -136,7 +136,7 @@ Mettons en pratique.
 \begin{exercice}
 Pour tout $x$ réel, déterminer le déterminant de taille $n$
     $$
-        A_n(x)=\begin{vmatrix}
+        A_n(x) \defeq \begin{vmatrix}
             2x & 1 & & \\
             1 & 2x & \ddots\\
             & \ddots & \ddots & 1\\
