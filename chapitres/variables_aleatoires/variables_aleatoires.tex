@@ -15,3 +15,37 @@
 
 \section{Identité de \textsc{Wald}}
 \input{chapitres/variables_aleatoires/identite_de_wald}
+
+\newpage
+
+\cite{acamanes} ch7
+\begin{figure*}
+    % \setlength sets the horizontal (column) spacing
+    % \arraystretch sets the vertical (row) spacing
+    \begingroup
+    % \setlength{\tabcolsep}{10pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{1.5} % Default value: 1
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        Nom & Paramètres & $X(\Omega)$ & $\P(X=k)$ & $\E[X]$ & $\V(X)$ & $G_X$ & $\rho$\\
+        \hline \hline
+        Constante & $c$ & $\{c\}$ & $1$ & $c$ & $0$ & $t^c\ (c \in \N)$ & $+\infty$ \\
+        \hline
+        Uniforme & $a < b \in \N$ & $\llbracket a, b \rrbracket$ & $\frac{1}{b-a+1}$ & $\frac{a+b}{2}$ & $\frac{(b-a+1)^2 - 1}{12}$ & $\frac{t^a - t^{b+1}}{(b-a+1)(1-t)}$ & $+\infty$ \\
+        \hline
+        \textsc{Bernoulli} & $p \in ]0, 1[$ & $\{0, 1\}$ & $p\ (k=1)$ & $p$ & $pq$ & $q + pt$ & $+\infty$ \\
+        \hline
+        Binomiale & $(n, p) \in \N \times ]0, 1[$ & $\llbracket 0, n \rrbracket$ & $\binom{n}{k} p^k q^{n-k}$ & $np$ & $npq$ & $(q + pt)^n$ & $+\infty$ \\
+        \hline
+        Géométrique & $p \in ]0, 1[$ & $\Ne$ & $pq^{k-1}$ & $\frac{1}{p}$ & $\frac{q}{p^2}$ & $\frac{pt}{1-qt}$ & $\frac{1}{q}$ \\
+        \hline
+        \textsc{Poisson} & $\lambda \in \Rpe$ & $\N$ & $\me^{-\lambda} \frac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$ & $\me^{\lambda(t-1)}$ & $+\infty$ \\
+        \hline
+    \end{tabular}
+    \endgroup
+    % The \begingroup ... \endgroup pair ensures the separation
+    % parameters only affect this particular table, and not any
+    % sebsequent ones in the document.
+\end{figure*}
+
+

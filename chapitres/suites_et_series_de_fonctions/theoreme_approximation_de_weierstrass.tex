@@ -1,17 +1,29 @@
-Le théorème suivant est aussi connu sous le nom  de \emph{théorème de \textsc{Stone-Weierstrass}}. \textcolor{red}{(voir la différence)}
-
-\begin{theo}
+\begin{theo}{\textsc{Weierstrass}}
     Toute fonction continue sur un segment $[a, b]$ de $\R$ à valeurs dans $\R$ ou $\C$ est limite uniforme sur $[a, b]$ d'une suite de polynômes.
 \end{theo}
 
+\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./w/weierstrass.html} Autrement dit, pour toute fonction $f : [a, b] \to \R$ continue et pour tout $\varepsilon > 0$, il existe un polynôme $P$ tel que
+$$\forall x \in [a, b], |f(x) - P(x)| < \varepsilon.$$
+
 \begin{preuve}
-    \cite{calcul_infinitesimal} page 157.
+    \marginnote[0cm]{\cite{calcul_infinitesimal} page 157}
 \end{preuve} 
+
+\begin{exercice}
+    \marginnote[0cm]{fic00042}
+    Soit $f \in \mathscr{C}([a, b], \R)$ telle que
+    $$\forall n \in \N, \int_a^b f(t) t^n \d t = 0.$$
+    Montrer que $f$ est la fonction nulle.
+\end{exercice}
+
+\begin{solution}
+
+\end{solution}
 
 L'exercice suivant explicite une suite de polynômes $(P_n)$ qui converge uniformément vers la fonction racine carrée sur $[0, 1]$.
 
 \begin{exercice}
-    \emph{Exercice 5. TD Ch. VIII}\\
+    \marginnote[0cm]{Exercice 5. TD Ch. VIII}
     Soit la suite de fonctions définie pour tout $x \in [0, 1]$ par
     $$
     \begin{cases}
@@ -22,13 +34,44 @@ L'exercice suivant explicite une suite de polynômes $(P_n)$ qui converge unifor
     Montrer que $(P_n)$ converge uniformément vers une fonction $f$ sur $[0, 1]$.
 \end{exercice}
 
+\underline{Questions intermédiaires:} \\
+\begin{enumerate}
+    \item Montrer que $(P_n)$ est une suite de restrictions de polynômes dont on précisera le dégré.
+    \item Montrer que cette suite converge simplement vers une fonction $f$ à préciser.
+    \item Montrer que, pour tout $x \in [0, 1]$ et pour tout $n \in \N$,
+    $$0 \leqslant f(x) - P_n(x) \leqslant 2 \frac{f(x)}{2 + nf(x)}.$$
+    \item Montrer que $(P_n)$ converge uniformément vers la fonction $f$ sur $[0, 1]$.
+\end{enumerate}
+
+\begin{solution}
+    Soient $x \in [0, 1]$ et $n \in \N$.
+    \begin{align*}
+        \sqrt{x} - P_{n+1}(x) &= \sqrt{x} - P_n(x) - \frac{1}{2} \big( x - P_n(x)^2  \big) \\
+        &= \big(\sqrt{x} - P_n(x) \big) \left( 1 - \frac{1}{2} \frac{x - P_n(x)^2}{\sqrt{x} - P_n(x)} \right) \\
+        \sqrt{x} - P_{n+1}(x) &= \big(\sqrt{x} - P_n(x) \big) \left(1 - \frac{\sqrt{x} + P_n(x)}{2} \right).
+    \end{align*}
+    Pour tout $n \in \N$ on pose
+    \begin{center}
+        $\mathscr{P}_n$: \say{ \forall x \in [0, 1], 0 \leqslant \sqrt{x} - P_n(x) \leqslant \sqrt{x} \left( 1 - \frac{\sqrt{x}}{2}  \right)^n }.
+    \end{center}
+    \begin{itemize}
+        \item[$\rhd$] Initialisation pour $n = 0$: immédiat.
+        \item[$\rhd$] Hérédité: soit $n \geqslant 0$, on suppose $\mathscr{P}_n$ vraie. \\
+        Soit $x \in [0, 1]$, d'après le résultat précédent et l'hypothèse de récurrence,
+        \begin{align*}
+            0 \leqslant \sqrt{x} - P_{n+1}(x) \leqslant \sqrt{x} \left( 1 - \frac{\sqrt{x}}{2}  \right)^n \times \left(1 - \frac{\sqrt{x} + P_n(x)}{2} \right)
+        \end{align*}
+        Comme le polynôme $P_n$ est positif, le second terme est majoré par $1 - \frac{\sqrt{x}}{2}$ et donc $\mathscr{P}_{n+1}$ est vérifiée.
+    \end{itemize}
+\end{solution}
+
 \begin{marginfigure}[-5cm]
     \centering
 	\input{illustrations/i_theoreme_approximation_de_weierstrass}
 	\caption*{\centering Convergence uniforme de la suite $(P_n)$ vers la fonction racine carrée sur $[0,1]$}
 \end{marginfigure}
 
-Une question naturelle est de se demander si ce théorème d'approximation peut se généraliser à $R$. La réponse est non.
+Une question naturelle est de se demander si ce théorème d'approximation peut se généraliser à $\R$. La réponse est non.
 
 \begin{prop}
     Si $(P_n)_{n \in \N}$ est une suite de polynômes convergeant uniformément sur $\R$ vers une fonction $f$, alors $f$ est un polynôme.

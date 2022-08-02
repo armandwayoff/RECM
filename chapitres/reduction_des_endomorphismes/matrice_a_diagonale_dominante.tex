@@ -1,4 +1,4 @@
-\begin{defi}
+\begin{defi}{Matrice à diagonale dominante}
     Soit $A = (a_{i,j}) \in \M_n(\K)$. On dit que $A$ est 
     \begin{itemize}
         \item à \emph{diagonale dominante} si
@@ -32,8 +32,19 @@
     Pour une autre démonstration voir \cite{matrices} page 51. 
 \end{preuve}
 
+\begin{theo}{}
+    Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$ \\
+    Ces disques sont nommés les disques de \textsc{Gerschgorin} \note (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes}).
+\end{theo}
+
+\begin{preuve}
+    Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible donc n'est pas à DSD i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
+    $$|a_{i,i} - \lambda| \leqslant \sum_{k \not= i} |a_{i,k}|.$$
+    Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
+\end{preuve}    
+
 \marginnote{
-    On considère la matrice à coefficients complexes
+    \note Prenons un exemple en considèrant la matrice à coefficients complexes
     $$
     \begin{pmatrix}
         \textcolor{red}{\mi4} & 0 & 2 & \mi3 \\
@@ -48,17 +59,6 @@
 \begin{marginfigure}
     \input{illustrations/i_disques_de_gerschgorin}
 \end{marginfigure}
-
-\begin{theo}
-    Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$ \\
-    Ces disques sont nommés les disques de \textsc{Gerschgorin} (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes}).
-\end{theo}
-
-\begin{preuve}
-    Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible donc n'est pas à DSD i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
-    $$|a_{i,i} - \lambda| \leqslant \sum_{k \not= i} |a_{i,k}|.$$
-    Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
-\end{preuve}    
 
 \begin{corol}
     Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On note

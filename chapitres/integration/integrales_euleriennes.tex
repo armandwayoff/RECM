@@ -10,7 +10,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 %    \caption*{\centering Graphe de la fonction Gamma}
 %\end{marginfigure}
 
-\begin{defi}
+\begin{defi}{Fonction Gamma d'\textsc{Euler}}
     La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \me^{-t} \d t.$$
 \end{defi}
@@ -57,10 +57,10 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
         $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
         sont de même nature. Si ces quantités sont convergentes, en notant
         \begin{align*}
-            [f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+}(f(x)g(x)),
+            [f(t)g(t)]_a^b = \lim_{x \to b^-} \big(f(x)g(x)\big) - \lim_{x \to a^+} \big(f(x)g(x)\big),
         \end{align*}
         on obtient la relation
-        $$\int_a^b f'(t) g(t) \d t = [f(t)g(t)]_a^b - \int_a^b f(t) g'(t) \d t.$$
+        $$\int_a^b f'(t) g(t) \d t = \left[f(t)g(t)\right]_a^b - \int_a^b f(t) g'(t) \d t.$$
     \end{kaobox}
 }
 
@@ -72,14 +72,14 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
     $$\varphi_k:t \mapsto 
     \begin{cases}
-        |\ln t |^k \me^{-t} t^{a-1}, & \text{si } t \in ]0, 1] \\
-        |\ln t |^k \me^{-t} t^{A-1}, & \text{si } t > 1
+        |\ln t |^k \me^{-t} t^{a-1} & \text{si } t \in ]0, 1], \\
+        |\ln t |^k \me^{-t} t^{A-1} & \text{si } t > 1.
     \end{cases}
     $$
 \end{elem_preuve}
 
 \subsection{Fonction bêta}
-\begin{defi}
+\begin{defi}{Fonction bêta}
     Pour tout $(p,q) \in \N^2$, on note
     $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
 \end{defi}
@@ -112,7 +112,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 \end{exercice}
 
 \begin{exercice}
-    Clémentine Portal feuille d'exo n°7, exo 11 \\
+    \marginnote[0cm]{Clémentine Portal feuille d'exo n°7, exo 11}
     Déterminer une expression simplifiée de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$, pour tout $(p, q) \in \N^2$.
 \end{exercice}
 

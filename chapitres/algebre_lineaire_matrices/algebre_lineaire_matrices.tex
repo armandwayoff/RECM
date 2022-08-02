@@ -55,7 +55,7 @@
 \section{Sous-espace engendré par les matrices nilpotentes} \labsec{sous_espace_engendre_par_les_matrices_nilpotentes}
 \input{chapitres/algebre_lineaire_matrices/sous_espace_engendre_par_les_matrices_nilpotentes}
 
-\section{Titre à compléter} \labsec{titre_a_completer}
+\section{Produit de matrices nilpotentes commutantes} \labsec{titre_a_completer}
 \begin{exercice}
     \marginnote[0cm]{\cite{acamanes}}
     Soient $A$ et $B$ deux matrices de $\M_n(\C)$ qui commutent. 
@@ -72,7 +72,22 @@
 \begin{solution}
     \begin{enumerate}
         \item Comme les matrices $A$ et $B$ commutent, elles sont cotrigonalisables (lien vers l'exercice correspondant). De plus comme la matrice $B$ est nilpotente, dans toute base dans laquelle elle est triangulaire, sa diagonale est nulle (le spectre d'une matrice nilpotente est réduit à $0$). Ainsi dans une base de cotrigonalisation des matrices $A+B$ et $A$, leur diagonale sont égales et donc leur déterminant (qui sont égaux au produit des termes diagonaux).
-        \item \cite{reduc_des_endo} p. 117 \\
+        \marginnote[0cm]{
+            $$A + B \sim 
+            \begin{pmatrix}
+                \lambda_1 & \cdots & \star \\
+                0 & \ddots & \vdots \\
+                0 & 0 & \lambda_n
+            \end{pmatrix}
+             + 
+            \begin{pmatrix}
+                0 & \star & \star \\
+                0 & \ddots & \star \\
+                0 & 0 & 0
+            \end{pmatrix}
+            $$
+        }
+        \item \marginnote[0cm]{\cite{reduc_des_endo} p. 117}
         Comme les matrices $A_1, \dots, A_n$ sont trigonalisables et commutent, elles sont cotrigonalisables: il existe donc $T_1, \dots, T_n$ triangulaires supérieures strictes et $P$ inversible telles que $A_i = P T_i \Inv{P_i}$ pour tout $i \in \llbracket 1, n \rrbracket$. \\
         Montrons par récurrence sur $k \in \llbracket 1, n \rrbracket$ que les coefficients en position $(i, j)$ avec $i \geqslant j - k + 1$ de la matrice $T_1 \cdots T_k$ sont nuls. 
         \begin{itemize}
@@ -93,7 +108,10 @@
             Soit $u$ et $n$ deux endomorphismes de $E$ tels que $u$ est non nul, $n$ est nilpotent et $u \circ n = n \circ u$. Montrer que $\Rg(u \circ n) < \Rg(u)$.
         \end{lemme}
         \begin{preuve}
-            
+            Comme $u$ et $n$ commutent, $n$ laisse stable $\Im u$. Notons $\widetilde{n}$ l'endomorphisme induit par $n$ sur $\Im u$. Comme $n$ est nilpotent, $\widetilde{n}$ est également nilpotent et donc, en particulier, non inversible. \\
+            La formule du rang appliquée à $\widetilde{n}$ donne alors:
+            $$\Rg u = \dim \Im u = \Rg \widetilde{n} + \dim \Ker \widetilde{n} > \Rg \widetilde{n}.$$
+            On conclut en remarquant que $\Im \widetilde{n} = n(\Im u) = \Im (n \circ u)$.
         \end{preuve}
     \end{enumerate}
 \end{solution}
@@ -113,7 +131,6 @@
     \end{kaobox}
 }
 
-Ma solution est beaucoup simple que la leur...
 \begin{solution}
     Soit $p \in \Ne$. On écrit
     \begin{align*}
@@ -145,7 +162,9 @@ Ma solution est beaucoup simple que la leur...
 
 \begin{exercice}
     \marginnote[0cm]{\cite{acamanes}}
-    Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note $\mathscr{H} \defeq \{ g \in \Endo(F, E);\ f \circ g \circ f = 0\}$. Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
+    Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note 
+    $$\mathscr{H} \defeq \{ g \in \Endo(F, E);\ f \circ g \circ f = 0\}.$$ 
+    Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
 \end{exercice}
 
 \marginnote[0cm]{
@@ -156,23 +175,22 @@ Ma solution est beaucoup simple que la leur...
 }
 
 \begin{solution}
-    \underline{Première solution:}\\
     \begin{itemize}
         \item On montre que $\mathscr{H}$ est un sous-espace vectoriel de $\Endo(F, E)$. Soit $W$ un supplémentaire de $\Im f$ dans $F$.
-        \item On va construire un isomorphisme entre $\mathscr{H}$ et un ensemble dont on peut calculer la dimension. On pose
+        \item Nous allons construire un isomorphisme entre $\mathscr{H}$ et un ensemble dont on peut calculer la dimension. On pose
         \begin{alignat*}{2}
             \psi\ :\ \mathscr{H}\ &\longrightarrow\ \Endo(\Im f, \Ker f) \times \Endo(W, E)\\
-            g\ &\longmapsto\ (g_{\vert \Im f}, g_{\vert \Ker f}).
+            g\ &\longmapsto\ \left(g_{\vert \Im f}, g_{\vert \Ker f} \right).
         \end{alignat*}
         Montrons que $\psi$ est un isomorphisme. 
         \begin{itemize}
-            \item Montrons que $\psi$ est bien définie: \\
+            \item[$\rhd$] Montrons que $\psi$ est bien définie: \\
             soient $x \in E$ et $g \in \mathscr{H}$,
             $$\psi(g)(x) = \left( g_{\vert \Im f}(x), g_{\vert W}(x) \right).$$
             De plus, $\Im g \circ f \subset \Ker f$ donc $g_{\vert \Im f} \in \Endo(\Im f, \Ker f)$.
-            $$(f \circ g \circ f)(x) = f(g(\underbrace{f(x)}_{\defeq y})) = f(\underbrace{g_{\vert \Im f}(y)}_{\in \Ker f}) = 0.$$
+            $$(f \circ g \circ f)(x) = f \Big( g \big (\underbrace{f(x)}_{\defeq y} \big ) \Big) = f \big( \underbrace{g_{\vert \Im f}(y)}_{\in \Ker f} \big) = 0.$$
             La linéarité est triviale. 
-            \item Montrons que $\psi$ est surjective. \\
+            \item[$\rhd$] Montrons que $\psi$ est surjective. \\
             Soit $(g_1, g_2) \in \Endo(\Im f, \Ker f) \times \Endo(W, E)$. \\
             Par théorème de recollement des applications linéaires, il existe une application $g \in \Endo(F, E)$ telle que 
             $
@@ -181,14 +199,14 @@ Ma solution est beaucoup simple que la leur...
                     g_{\vert W} = g_2
             \end{cases}
             $. \\
-            Soit $x \in E$, $(f \circ g \circ f)(x) = f(g(\underbrace{f(x)}_{\in \Im f}) = f(\underbrace{g_1(f(x))}_{\in \Ker f}) = 0$ donc $g \in \mathscr{H}$ et $\psi$ est sujective. 
-            \item Montrons que $\psi$ est injective. \\
-            Soit $g \in \Ker \psi$. Alors $(g_{\vert \Im f}, g_{\vert W}) = (0_{\Endo(F, E)}, 0_{\Endo(F, E)})$. \\
+            Soit $x \in E$, $(f \circ g \circ f)(x) = f \Big( g \big(\underbrace{f(x)}_{\in \Im f} \big) \Big) = f \Big( \underbrace{g_1 \big(f(x) \big)}_{\in \Ker f} \Big) = 0$ donc $g \in \mathscr{H}$ et $\psi$ est sujective. 
+            \item[$\rhd$] Montrons que $\psi$ est injective. \\
+            Soit $g \in \Ker \psi$. Alors $\left (g_{\vert \Im f}, g_{\vert W} \right) = \left(0_{\Endo(F, E)}, 0_{\Endo(F, E)} \right)$. \\
             Donc $g = 0_{\Endo(F, E)}$ et $\Ker \psi = \{ 0_{\Endo(F, E)} \}$ soit $\psi$ est injective. \\
             Finalement, $\psi$ est un isomorphisme. \\
             Il y a donc égalité des dimensions entre les espaces de départ et d'arrivée de $\psi$. Ainsi,
             \begin{align*}
-                \dim \mathscr{H} &= \dim(\Endo(\Im f, \Ker f)) + \dim (\Endo(W, E)) \\
+                \dim \mathscr{H} &= \dim \big(\Endo(\Im f, \Ker f) \big) + \dim \big( \Endo(W, E) \big) \\
                 &= \Rg f \times \dim \Ker f + \dim W \times \dim E \\
                 &= \Rg f \times (\dim E - \Rg f) + (\dim F - \Rg f) \times \dim E \\
                 \dim \mathscr{H} &= \dim E \dim F - (\Rg f)^2
@@ -198,7 +216,11 @@ Ma solution est beaucoup simple que la leur...
             Si $\dim E = \dim F$ et que $f$ est bijective, le résultat est cohérent. De même si $f = 0_{\Endo(E, F)}$.
         \end{remarque}
     \end{itemize}
-    \underline{Une solution plus visuelle:} \\
+\end{solution}
+
+\underline{Une solution plus visuelle:}
+
+\begin{solution}
     Soit $W$ un supplémentaire de $\Im f$ dans $F$: $\Im f \oplus W = F$ et soit $V$ un supplémentaire de $\Ker f$ dans $E$: $\Ker f \oplus V = E$. \\
     Soit $\mathscr{B} \defeq (e_1, \dots, e_r, e_{r+1}, \dots, e_p)$ une base adaptée à la décomposition $\Im f \oplus W = F$ et soit $\mathscr{B}' \defeq (\varepsilon_1, \dots, \varepsilon_{n-r}, \varepsilon_{n-r+1}, \dots, \varepsilon_n)$ une base adaptée à la décomposition $\Ker f \oplus V = E$.
     \begin{align*}
@@ -215,7 +237,7 @@ Ma solution est beaucoup simple que la leur...
 \section{Rang des puissances d'un endomorphisme nilpotent} \labsec{rang_des_puissances_d_un_endomorphisme_nilpotent}
 \begin{exercice}
     livre à citer \\
-    Soient $E$ un $\K$-espace espace vectoriel de dimension $n$, $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
+    Soient $E$ un $\K$-espace espace vectoriel de dimension $n$ et $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
 \end{exercice}
 
 \begin{solution}
@@ -236,22 +258,20 @@ Ma solution est beaucoup simple que la leur...
 
 \section{Rang d'un endomorphisme nilpotent} \labsec{rang_d_un_endomorphisme_nilpotent}
 \begin{exercice}
-    citer livre \\
     Soient $E$ un $\K$-espace vectoriel de dimension $n$, $u \in \Endo(E)$ tel que $u^n = 0$ et $u^{n-1} \not= 0$. Déterminer le rang de $u$.
 \end{exercice}
 
 Il s'agit de la réciproque de l'exercice précédent.
 
 \begin{solution}
-    Soit $x \in E \smallsetminus \Ker u^{n-1}$ et supposons que la famille $\left( u^k(x)\right)_{0 \leqslant k \leqslant n-1}$ est liée. Il existe une famille $(\lambda_0, \dots, \lambda_{n-1})$ de réels non tous nuls telle que $\sum\limits_{k=0}^{n-1} \lambda_k u^k(x) = 0$. On note $p$ le plus petit entier tel que $\lambda_p \not= 0$ d'où $\sum\limits_{k=p}^{n-1} \lambda_k u^k(x) = 0$, on applique $u^{n-p-1}$ et on a $\lambda_p u^{n-1}(x) = 0$ ce qui est absurde. \\
-    Donc la famille $\left( u^k(x)\right)_{0 \leqslant k \leqslant n-1}$ est une base de $E$ et la matrice de $u$ dans cette base est 
+    D'après l'exercice \textcolor{red}{référence} il existe $x_0 \in E$ tel que la famille $\left( u^k(x_0)\right)_{0 \leqslant k \leqslant n-1}$ est une base de $E$. La matrice de $u$ dans cette base est 
     $$
     \begin{pmatrix}
         0 & \cdots & \cdots & 0 \\
         1 & \ddots & & \vdots \\
         & \ddots & \ddots & \vdots \\
         0 & & 1 & 0
-    \end{pmatrix}
+    \end{pmatrix},
     $$
-    de rang $n-1$.
+    une matrice de rang $n-1$.
 \end{solution}

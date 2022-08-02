@@ -9,8 +9,24 @@
 \textsl{
 La théorie des équations polynomiales, qui précède de loin la définition formelle des polynômes, a été le propos essentiel de l'algèbre jusqu'au \textsc{xix}$^\me$ siècle. Elle est à l'origine de nombreuses notions: corps, nombres algébriques \dots Son développement est lié aux extensions successives de la notion de nombre: introduction des nombres négatifs, des nombres irrationnels, puis des nombres complexes. \\ 
 Dès la plus haute Antiquité, on rencontre des exemples de résolutions d'équations. Les Babyloniens savent résoudre l'équation du second degré et les Grecs en font la base même de leur géométrie. \\
-Après l'Antiquité, il faudra attendre le \textsc{xvi}$^\me$ siècle pour que des progrès substantiels apparaissent, dus à l'école italienne. \textsc{Scipone del Ferro}, \textsc{Tartaglia} et \textsc{Cardan} apportent la solution de l'équation du troisième dégré. L'équation générale est ramenée à la forme réduite $x^3 + px + q = 0$, dont une solution s'écrit
+Après l'Antiquité, il faudra attendre le \textsc{xvi}$^\me$ siècle pour que des progrès substantiels apparaissent, dus à l'école italienne. \textsc{Scipone del Ferro}, \textsc{Tartaglia} et \textsc{Cardan} apportent la solution de l'équation du troisième dégré. L'équation générale est ramenée à la forme réduite $x^3 + px + q = 0$ \note, dont une solution s'écrit
 $$x = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}.$$
+\marginnote[5.5cm]{
+    Nicolas \textsc{Tosel} poly révisions lycée -> CPGE \\
+    \note Soient $a, b, c$ des nombres complexes et $P$ le polynôme défini par:
+    $$\forall z \in \C,\ P(z) \defeq z^3 + az^2 + bz + c.$$
+    On observe que, si $h \in \C$, alors pour tout $z \in \C$
+    \begin{align*}
+        P(z + h) = z^3 + (3h + a)&z^2 + (3h^2 + 2ha + b)z \\
+        & + h^3 + ah^2 + bh + c.
+    \end{align*}
+    Soit $h \defeq -\frac{a}{3}$. Alors,
+    $$\forall z \in \C,\ Q(z) \defeq P(z + h) = z^3 + pz + q$$
+    où $p \defeq -\frac{a^2}{3}+b$, $q \defeq \frac{2a^3}{27} - \frac{ab}{3} + c$.
+    On a alors
+    $$P(z) = 0 \Longleftrightarrow Q(z-h) = 0.$$
+    La recherche des solutions de l'équation $P(z) = 0$ est ainsi ramenée au problème analogue pour l'équation $Q(z) = 0$.
+}
 Cette solution soulève des difficultés: si $\frac{q^2}{4} + \frac{p^3}{27}$ est négatif, cas où l'équation a des racines -- on le sait depuis \textsc{Archimède} -- on ne peut pas calculer $x$. Pour lever la difficulté, \textsc{Cardan} introduit timidement de nouveaux nombres, \say{ impossibles } ou \say{ imaginaires }. \textsc{Ferrari} et \textsc{Bombelli} résolvent l'équation du quatrième degré. \\
 Grâce à l'école italienne, le théorie générale des équations algébriques se précise. L'équation étant mise sous le forme $P(x) = 0$, on prend conscience de l'importance du dégré de $P$ pour le nombre de solutions. On découvre que si $a$ est une racine de $P$, on peut factoriser par $x-a$. Les relations entre les coefficients et les fonctions symétriques des racines d'un polynôme apparaissent chez \textsc{Viète} (1540-1603), mais c'est \textsc{Girard} qui en 1629 leur donne toute leur extension. Suivi par \textsc{Newton}, il exprime les sommes des puissances des racines en fonction des coefficients. L'étude des fonctions symétriques des racines va se développer au \textsc{xvii}$^\me$ siècle avec \textsc{Waring} et au \textsc{xix}$^\me$ siècle avec \textsc{Cauchy}. \\
 Au \textsc{xvii}$^\me$ siècle, la majorité des mathématiciens est convaincue qu'une équation de degré $n$ possède $n$ racines, celles-ci pouvant ne pas être réelles, mais il faut attendre \textsc{d'Alembert} pour trouver en 1724 une définition précise des nombres complexes (sous la forme $a + \sqrt{-1} b$). En 1799, \textsc{Gauss} fournit plusieurs preuves rigoureuses du \say{ théorème fondamental de l'algèbre } ou \say{ théorème de \textsc{d'Alembert}-\textsc{Gauss} }. \\

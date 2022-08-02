@@ -3,7 +3,7 @@
 %    \caption{Jacques \textsc{Hadamard}}
 %\end{marginfigure}
 
-\begin{theo}
+\begin{theo}{Inégalité d'\textsc{Hadamard}}
     Soit $M \in \M_n(\C)$ et soient $X_1, \dots, X_n$ les vecteurs colonnes de $M$. Alors,
     $$|\mathrm{det}(M)| \leqslant \prod_{i=1}^{n} \Vert X_i \Vert$$
     avec égalité si et seulement si la famille $(X_i)$ est orthogonale.
@@ -17,10 +17,10 @@ Voyons deux démonstrations de ce résultat; une première en utilisant la déco
 
 \begin{preuve}
     Si la matrice $M$ n'est pas inversible, le résultat est immédiat. Supposons que $M$ est inversible. D'après la décomposition d'\textsc{Iwasama}, il existe une matrice $O \in \mathscr{O}_n(\C)$ et $T \defeq (t_{i,j})$, triangulaire supérieure dont les coefficients diagonaux sont strictement positifs telles que $M = OT$. D'après la multiplicité du déterminant, 
-    $$|\det(M) = \underbrace{\det(O)}_{= \pm 1} \det(T)$$
+    $$\det(M) = \underbrace{\det(O)}_{= \pm 1} \det(T)$$
     donc
     \begin{equation} \label{det}
-        \det(M)| = |\det(T)| = \prod_{i=1}^{n} |t_{i,i}|.
+        |\det(M)| = |\det(T)| = \prod_{i=1}^{n} |t_{i,i}|.
     \end{equation}
     Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} = \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
     $$|t_{i,i}| = |\langle X_i, O_i \rangle | \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$

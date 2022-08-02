@@ -1,9 +1,10 @@
 \begin{exercice}
-    Soit $A \in \M_n(\K)$ et $B = \Trsp{\com(A)}$. Montrer que les vecteurs propres de $A$ sont des vecteurs propres de $B$. 
+    Soit $A \in \M_n(\K)$. Montrer que 
+    $$\Sp(A) \subset \Sp \big( \Trsp{\com(A)} \big).$$
 \end{exercice}
-
-$$\boxed{A \times\ \com(\Trsp{A}) = \com(\Trsp{A}) \times A = \det(A) \I_n}$$
-
+\marginnote[0cm]{
+    $$A \times\ \Trsp{\com(A)} = \Trsp{\com(A)} \times A = \det(A) \I_n$$
+}
 \begin{elem_sol}
     Soit $\lambda \in \Sp(A)$ et $X$ un vecteur propre associé. Alors $\lambda (BX) = \det(A) X$. 
         
@@ -13,7 +14,7 @@ $$\boxed{A \times\ \com(\Trsp{A}) = \com(\Trsp{A}) \times A = \det(A) \I_n}$$
         \begin{itemize}
             \item $\Rg(A) \leqslant n-2$: supposer par l'absurde qu'il existe un déterminant mineur de $A$ non nul. 
             \item $\Rg(A) = n-1$: $X \in \Ker(A)$ qui est une droite vectorielle. 
-            $$\boxed{A \text{ et } B \text{ commutent donc } \Ker(A) \text{ est stable par } B}$$
+            $$A \text{ et } B \text{ commutent donc } \Ker(A) \text{ est stable par } B$$
         \end{itemize}
     \end{itemize}
 \end{elem_sol}

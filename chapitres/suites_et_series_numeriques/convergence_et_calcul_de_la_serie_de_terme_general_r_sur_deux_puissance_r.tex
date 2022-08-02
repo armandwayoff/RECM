@@ -2,9 +2,18 @@
     Montrer la convergence de la série de terme général $\frac{r}{2^r}$ et prouver que $\sum\limits_{r=1}^{+ \infty} \frac{r}{2^r} = 2$. 
 \end{exercice}
 
-Deux méthodes de résolution sont possibles bien que la première soit plus élégante. 
-\begin{itemize}
-    \item La série $\sum \frac{1}{2^r}$ est une série géométrique absolument convergente. Ainsi, d'après le résultat sur les produits de \textsc{Cauchy}, 
-    $$\sum_{r=0}^{+ \infty} \frac{r}{2^{r-1}} = \sum_{r=0}^{+ \infty} \sum_{k=0}^{r} \frac{1}{2^k \cdot 2^{r-k}} = \left( \sum_{r=0}^{+ \infty} \frac{1}{2^r} \right)^2 = 4.$$
-    \item On peut également étudier la fonction $g : x \to \sum\limits_{r=0}^{n} \frac{x^r}{2^r}$.
-\end{itemize}
+\marginnote[2cm]{
+    \begin{theo}{}
+        Soient $\sum u_n$ et $\sum v_n$ deux séries telles que $\sum u_n$ et $\sum v_n$ convergent absolument. Alors, en posant $w_n \defeq \sum\limits_{k=0}^n u_k v_{n-k}$, la série $\sum w_n$ converge absolument et
+        $$\sum_{n=0}^{+\infty} u_n \cdot \sum_{n=0}^{+\infty} v_n = \sum_{n=0}^{+\infty} w_n.$$
+    \end{theo}
+}
+
+\begin{elem_sol}
+    Deux méthodes de résolution sont possibles bien que la première soit plus élégante. 
+    \begin{itemize}
+        \item La série $\sum \frac{1}{2^r}$ est une série géométrique absolument convergente. Ainsi, d'après le résultat sur les produits de \textsc{Cauchy}, 
+        $$\sum_{r=0}^{+ \infty} \frac{r}{2^{r-1}} = \sum_{r=0}^{+ \infty} \sum_{k=0}^{r} \frac{1}{2^k \cdot 2^{r-k}} = \left( \sum_{r=0}^{+ \infty} \frac{1}{2^r} \right)^2 = 4.$$
+        \item On peut également étudier la fonction $g : x \to \sum\limits_{r=0}^{n} \frac{x^r}{2^r}$.
+    \end{itemize}
+\end{elem_sol}

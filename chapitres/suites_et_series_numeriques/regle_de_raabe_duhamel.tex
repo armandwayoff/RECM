@@ -1,11 +1,13 @@
-\begin{theo}
+\begin{theo}{}
     Soit $\alpha$ un réel et $(u_n)_{n \in \N}$ une suite de réels strictement positifs. On suppose que
     $$\displaystyle \frac{u_{n+1}}{u_n} = 1 - \frac{\alpha}{n} + \mathcal{O} \left( \frac{1}{n^2} \right).$$ Alors $\sum u_n$ converge si et seulement si $\alpha > 1$. 
 \end{theo}
 \marginnote[-1cm]{Voir exercice 3.43. \cite{oraux_x_ens_3}}
-\begin{enumerate}
-    \item[($\Rightarrow$)] Montrer que si $u_n=\frac{K}{n^{\alpha}}$ avec $K>0$ et $\alpha > 1$ alors $(u_n)$ vérifie la relation.
-    \item[($\Leftarrow$)] Soit $(v_n)$ une suite vérifiant les hypothèses. Montrer qu'il existe $K>0$ tel que $v_n \sim \frac{K}{n^{\alpha}}$ avec $\alpha > 0$. Pour cela, étudier la série de terme général $\ln (v_n)$.
-\end{enumerate}
+\begin{preuve}
+    \begin{enumerate}
+        \item[($\Rightarrow$)] Montrer que si $u_n=\frac{K}{n^{\alpha}}$ avec $K>0$ et $\alpha > 1$ alors $(u_n)$ vérifie la relation.
+        \item[($\Leftarrow$)] Soit $(v_n)$ une suite vérifiant les hypothèses. Montrer qu'il existe $K>0$ tel que $v_n \sim \frac{K}{n^{\alpha}}$ avec $\alpha > 0$. Pour cela, étudier la série de terme général $\ln (v_n)$.
+    \end{enumerate}
+\end{preuve}
 
-Être capable de donner deux séries montrant qu'on ne peut pas conclure si $\alpha=1$.
+On ne peut pas conclure si $\alpha=1$.

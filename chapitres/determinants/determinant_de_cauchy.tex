@@ -1,4 +1,4 @@
-\begin{defi}
+\begin{defi}{Déterminant de \textsc{Cauchy}}
     Le déterminant de \textsc{Cauchy} est un déterminant de taille $n$ et de terme général $\frac{1}{a_i+b_j}$, où les complexes $(a_1, \dots, a_n)$ et $(b_1, \dots, b_n)$ sont tels que pour tout $(i, j)$, $a_i+b_j \not= 0$.
     $$\Cauchy_n \defeq \begin{vmatrix}
         \frac{1}{a_1+b_1} & \frac{1}{a_1+b_2} & \cdots & \frac{1}{a_1+b_n} \\
@@ -24,7 +24,7 @@
         1 & \cdots & 1
     \end{vmatrix}.$$
     
-    Ensuite, pour faire apparaître des 0 à la fin des $(n-1)$ premières colonnes, soustrayons la dernière colonne à toutes les autres. 
+    Ensuite, pour faire apparaître des 0 à la fin des $n-1$ premières colonnes, soustrayons la dernière colonne à toutes les autres. 
     
     $$
         \forall (i,j) \in \llbracket 1, n-1 \rrbracket^2, \quad \frac{a_n+b_i}{a_i+b_j} - \frac{a_n+b_n}{a_i+b_n} = \frac{(a_n - a_i)(b_n-b_j)}{(a_i + b_j)(a_i + b_n)}
@@ -68,7 +68,7 @@
     \end{enumerate}
 \end{methode}
 
-\begin{defi} \label{matrice_hilbert}
+\begin{defi}{Matrice de \textsc{Hilbert}}
     Une matrice de \textsc{Hilbert} est une matrice carrée de terme général
     $$\Hilb_{i,j} \defeq {\frac {1}{i+j-1}}.$$
 \end{defi}

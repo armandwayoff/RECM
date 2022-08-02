@@ -1,16 +1,19 @@
-\emph{Exercice 10. TD VIII} \\
-\begin{theo}
-    Soit $f$ une fonction continue sur $I \defeq [0, 1]$. Le polynôme de \textsc{Bernstein} d'ordre $n$ associé à $f$ est le polynôme
+\textsc{Bernstein} a donné une démonstration constructive et probabiliste du théorème de Weierstrass sur $[0, 1]$, en prouvant qu'on pouvait prendre : 
+
+\begin{defi}{Polynôme de \textsc{Bernstein}}
+    Le polynôme de \textsc{Bernstein} d'ordre $n$ associé à la fonction $f$ est le polynôme
     \begin{equation} \label{1}
         \Bernstein_n(f)(x) \defeq \sum_{p=0}^{n} f \left( \frac{p}{n} \right) \binom{n}{p} x^p (1-x)^{n-p}
     \end{equation}
-    La suite $(\Bernstein_n(f))_n$ des polynômes de \textsc{Bernstein} converge uniformément vers $f$ sur $I$. \\
-    \textit{Ce résultat s'étend à toute fonction continue sur un segment à valeurs dans $\C$}.
+\end{defi}
+
+\marginnote[0cm]{\emph{Exercice 10. TD VIII}}
+\begin{theo}{}
+    Soit $f$ une fonction continue sur $I \defeq [0, 1]$. 
+    La suite $\big( \Bernstein_n(f) \big)_n$ converge uniformément vers la fonction $f$ sur $I$.
 \end{theo}
 
-\marginnote[0cm]{
-    $$d(f, g) = \sup_{x \in I} |f(x) - g(x)|$$
-}
+Nous allons voir deux démonstrations de ce théorème.
 
 \begin{preuve}
     Le démonstration qui suit est celle proposée dans \cite{calcul_infinitesimal} page 159 dont quelques étapes techniques ont été détaillées. \\
@@ -80,3 +83,53 @@ Préciser les hypothèses sur $f$.
         Conclure.
     \end{enumerate}
 \end{exercice}
+
+\marginnote[2cm]{
+    \begin{kaobox}[frametitle= \note Somme de \textsc{Bernoulli} indépendantes]
+        La somme de $n$ variables aléatoires discrètes indépendantes suivant la même loi de \textsc{Bernoulli} de paramètre $p$ suit une loi binomiale de paramètres $(n, p)$. 
+    \end{kaobox}
+    La démontration est immédiate en passant par les fonctions génératrices.
+}
+
+\begin{preuve}
+    Soit $x \in [0, 1]$. On considère une suite de variables aléatoires $(X_n)_n$ indépendantes identiquement distribuées de loi de \textsc{Bernoulli} $\mathscr{B}(x)$. Ainsi, $S_n \defeq \sum\limits_{i=1}^n X_i$ suit une loi binomiale $\mathscr{B}(n, x)$ \note et par le théorème de transfert
+    $$\E \left[ f\left( \frac{S_n}{n} \right) \right] = \sum_{p=0}^n \binom{n}{p} f \left( \frac{p}{n} \right) (1-x)^{n-p} x^p = \Bernstein_n(f)(x).$$
+    On va chercher à utiliser la convergence en probabilité de $\frac{S_n}{n}$ vers $x$. \\
+    Soit $\varepsilon > 0$. La fonction $f$ étant continue sur le compact $[0, 1]$ donc d'après le théorème de \textsc{Heine} \note, elle y est uniformément continue i.e.
+    $$\exists \eta > 0, |x-y| \leqslant \eta \Rightarrow |f(x) - f(y)| \leqslant \varepsilon.$$
+    \marginnote[-4cm]{
+        \begin{theo}{\note Théorème de \textsc{Heine}}
+             Une fonction continue sur un segment, plus généralement sur un compact, y est uniformément continue. 
+        \end{theo}
+    }
+    On va alors scinder en deux. On a
+    \marginnote[0cm]{On retrouve cette méthode de séparation avec la fonction indicatrice dans la démonstration de l'inégalité de \textsc{Markov}.}
+    \begin{align*}
+        |f(x) - \Bernstein_n(f)(x)| &= \left| \E \left[ f(x) - f\left( \frac{S_n}{n} \right) \right] \right| \leqslant \E \left[ \left| f(x) - f \left( \frac{S_n}{n} \right) \right| \right] \\
+        &\leqslant \E \left[ \left| f(x) - f \left( \frac{S_n}{n} \right) \right| \mathds{1}_{\left| x - \frac{S_n}{n} \right| < \eta} + \left| f(x) - f \left( \frac{S_n}{n} \right) \right| \mathds{1}_{\left| x - \frac{S_n}{n} \right| \geqslant \eta} \right] \\
+        \text{par linéarité de l'espérance } &\leqslant \E \left[ \left| f(x) - f \left( \frac{S_n}{n} \right) \right| \mathds{1}_{\left| x - \frac{S_n}{n} \right| < \eta} \right] + \E \left[ \left| f(x) - f \left( \frac{S_n}{n} \right) \right| \mathds{1}_{\left| x - \frac{S_n}{n} \right| \geqslant \eta} \right] \\
+        &\leqslant \varepsilon + 2 \Ninf{f} \E \left[ \mathds{1}_{\left| x - \frac{S_n}{n} \right| \geqslant \eta} \right] \\
+        \text{par l'espérance d'une indicatrice } &\leqslant \varepsilon + 2 \Ninf{f} \P \left( \left| x - \frac{S_n}{n} \right| \geqslant \eta \right).
+    \end{align*}
+    On utilise alors l'inégalité de \textsc{Bienaymé}-\textsc{Tchebychev} \note (on rappelle que $\E[S_n/n] = x$)
+    \marginnote[-2cm]{
+        \begin{theo}{\note Inégalité de \textsc{Bienaymé}-\textsc{Tchebychev}}
+            Soit $X$ une v.a.r.d. admettant un moment d'ordre $2$,
+            $$\forall \varepsilon > 0,\ \P \big(|X-\E[X]| \geqslant \varepsilon \big) \leqslant \frac{\V(X)}{\varepsilon^2}.$$
+        \end{theo}
+    }
+    \begin{align*}
+        |f(x) - \Bernstein_n(f)(x)| &\leqslant \varepsilon + 2 \Ninf{f} \frac{\V(S_n/n)}{\eta^2} \\
+        &\leqslant \varepsilon + 2 \Ninf{f} \frac{\V(S_n)}{n^2 \eta^2} \\
+        &\leqslant \varepsilon + 2 \Ninf{f} \frac{x(1-x)}{n \eta^2} \\
+        &\leqslant \varepsilon + \Ninf{f} \frac{1}{2 n \eta^2} \text{ indépendant de $x$}.
+    \end{align*}
+    Ainsi, on a $\lim \sup_n \Ninf{f - \Bernstein_n(f)} \leqslant \varepsilon$, et on a en faisant tendre $\varepsilon$ vers $0$:
+    $$\Ninf{f - \Bernstein_n(f)} \xrightarrow[n \to + \infty]{} 0.$$
+\end{preuve}
+
+\begin{remarque}
+    Ce résultat peut être étendu à toute fonction continue sur un segment $[a, b]$ en posant
+    $$\forall x \in [0, 1], f(x) = g \big( (b-a)x + a \big).$$
+    La fonction $x \mapsto (b-a)x + a$ est un homéomorphisme de $[0, 1]$ sur $[a, b]$.
+\end{remarque}

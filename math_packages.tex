@@ -84,6 +84,7 @@
 \usepackage{mathrsfs}
 \usepackage{enumitem}
 \usepackage{xurl}
+\usepackage{dsfont}  % Pour la fonction indicatrice \mathds{1}
 
 % Pour les matrices par blocs
 \newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
@@ -124,7 +125,9 @@
 
 \usepackage[most]{tcolorbox}
 
-\newtcolorbox[auto counter,number within=chapter]{defi}[1][]{%
+% https://tex.stackexchange.com/questions/434929/adding-a-custom-title-for-each-definition
+
+\newtcolorbox[auto counter,number within=chapter]{defi}[2][]{%
   enhanced jigsaw, % better frame drawing
   borderline west={2pt}{0pt}{YellowOrange}, % straight vertical line at the left edge
   sharp corners, % No rounded corners
@@ -133,12 +136,12 @@
   % colback=YellowOrange!10!white,
   colback=white,
   coltitle={YellowOrange},  % Black colour for title
-  title={Définition \thetcbcounter.\ },  % Fixed title
+  title={Définition \thetcbcounter.\ #2 \\},  % Fixed title
   attach title to upper, % Move the title into the box
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{theo}[1][]{%
+\newtcolorbox[auto counter,number within=chapter]{theo}[2][]{%
   enhanced jigsaw, % better frame drawing
   borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
   sharp corners, % No rounded corners
@@ -148,7 +151,7 @@
   % colback=RoyalBlue!10!white,
   colback=white,
   coltitle={RoyalBlue},  % Black colour for title
-  title={Théorème \thetcbcounter.\ },  % Fixed title
+  title={Théorème \thetcbcounter.\ #2 \\},  % Fixed title
   attach title to upper, % Move the title into the box
   #1
 }

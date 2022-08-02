@@ -2,25 +2,20 @@
     \begin{axis}[width=6.5cm,
         axis lines=middle,
         grid=major,
-        xmin=-1.1, xmax=1.1,
+        xmin=-1.2, xmax=1.2,
         ymin=-1.1, ymax=1.1,
         % xlabel=$x$, xlabel style={right},
         % ylabel=$y$, ylabel style={above},
         %tick style={thick},
         %ticklabel style={font=\normalsize},
         xtick=\empty, 
-        ytick=\empty
+        ytick=\empty,
+        axis line style={-latex}
     ]
     
     \def\a{-1.1}
     \def\b{1.1}
     \def\colour{BrickRed}
-
-    \addplot[\colour,mark=*] coordinates {(-7/8,-1/2)};
-    \addplot[\colour,mark=*] coordinates {(-5/8,-1/9)};
-    \addplot[\colour,mark=*] coordinates {(1/8,-1/8)};
-    \addplot[\colour,mark=*] coordinates {(1/2,1/2)};
-    \addplot[\colour,mark=*] coordinates {(4/5,2/9)};
     
     \addplot[red,thick,samples=100,domain=\a:\b] {
     (x+5/8)*(x-1/8)*(x-1/2)*(x-4/5)/((-7/8+5/8)*(-7/8-1/8)*(-7/8-1/2)*(-7/8-4/5))*(-1/2)
@@ -29,5 +24,30 @@
     + (x+7/8)*(x+5/8)*(x-1/8)*(x-4/5)/((1/2+7/8)*(1/2+5/8)*(1/2-1/8)*(1/2-4/5))*(1/2)
     + (x+7/8)*(x+5/8)*(x-1/8)*(x-1/2)/((4/5+7/8)*(4/5+5/8)*(4/5-1/8)*(4/5-1/2))*(2/9)
     };
+    
+    \addplot[\colour,mark=*] coordinates {(-7/8,-1/2)} node[left] {$M_0$};
+    \addplot[\colour,mark=*] coordinates {(-5/8,-1/9)} node[below] {$M_1$};
+    \addplot[\colour,mark=*] coordinates {(1/8,-1/8)} node[below] {\contour{white}{$M_2$}};
+    \addplot[\colour,mark=*] coordinates {(1/2,1/2)} node[above] {\contour{white}{$M_3$}};
+    \addplot[\colour,mark=*] coordinates {(4/5,2/9)} node[right] {$M_4$};
+    
+    \draw[blue, thick, dotted] (-7/8,-1/2) -- (-7/8, 0);
+    \draw[blue, thick, dotted] (-7/8,-1/2) -- (0, -1/2);
+
+    \draw[blue, thick, dotted] (-5/8,-1/9) -- (-5/8, 0);
+    \draw[blue, thick, dotted] (-5/8,-1/9) -- (0, -1/9);
+
+    \draw[blue, thick, dotted] (1/8,-1/8) -- (1/8, 0);
+    \draw[blue, thick, dotted] (1/8,-1/8) -- (0,-1/8);
+
+    \draw[blue, thick, dotted] (1/2,1/2) -- (1/2, 0) node[below] {$a_3$};
+    \draw[blue, thick, dotted] (1/2,1/2) -- (0, 1/2) node[left] {$f_3$};
+    
+    \draw[blue, thick, dotted] (4/5,2/9) -- (4/5, 0);
+    \draw[blue, thick, dotted] (4/5,2/9) -- (0, 2/9);
+    
+    \draw[black, thick] (-0.8,0.5) node[above] 
+    {\footnotesize \contour{white}{{\parbox{2cm}{\centering Polynôme \\ interpolateur}}}} to [out=640,in=800] ($(-0.3,-1/4)$);
     \end{axis}
+    
 \end{tikzpicture}

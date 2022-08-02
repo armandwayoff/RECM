@@ -1,4 +1,4 @@
-\begin{defi}
+\begin{defi}{Matrice compagnon}
     Soit $P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X]$. On appelle \emph{matrice compagnon} de $P$ la matrice:
 $$ C_P \defeq
 \begin{pmatrix}
@@ -11,7 +11,7 @@ $$ C_P \defeq
 $$
 \end{defi}
 
-\begin{theo}
+\begin{theo}{}
     Soit $P \in \K[X]$. Le polynôme $P$ est égal au polynôme caractéristique de sa matrice compagnon:
     $$\chi_{C_P}(X) = P(X).$$
 \end{theo}   
@@ -51,13 +51,13 @@ $$
     Le développement du déterminant $D_p(X, c_0, \dots, c_{p-1})$ par rapport à sa première ligne fournit donc la relation:
     $$D_p(X, c_0, \dots, c_{p-1}) = X D_{p-1}(X, c_1, \dots, c_{p-1}) + c_0.$$
     Comme $D_1(X, c_{p-1}) = X + c_{p-1}$,
-    $$\det(X \I_p - C_P) = X \left(X \left(\cdots \left(X(X+c_{p-1}) + c_{p-2} \right) \cdots \right) + c_1 \right) + c_0.$$
+    $$\det(X \I_p - C_P) = X \bigg(X \Big(\cdots \big(X(X+c_{p-1}) + c_{p-2} \big) \cdots \Big) + c_1 \bigg) + c_0.$$
     On reconnaît la construction de $P$ par le schéma de \textsc{Horner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
 \end{preuve} 
 
-\begin{defi}
+\begin{defi}{Endomorphisme cyclique}
     \marginnote[0cm]{\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./c/cyclique.html}}
-    Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $(x, u(x), \dots, u^{n-1}(x))$ soit une base de $E$. 
+    Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $\big(x, u(x), \dots, u^{n-1}(x) \big)$ soit une base de $E$. 
 \end{defi}
 
 Les endomorphismes cycliques admettent des matrices particulières dans la base précédente :
@@ -74,8 +74,7 @@ Les endomorphismes cycliques admettent des matrices particulières dans la base 
     
 \end{preuve}
 
-\begin{theo}
-    Théorème de \textsc{Cayley}-\textsc{Hamilton} \\
+\begin{theo}{\textsc{Cayley}-\textsc{Hamilton}}
     Le polynôme caractéristique est un polynôme annulateur.
 \end{theo}
 
@@ -89,8 +88,8 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
     Soit $p$ un entier strictement positif et soit $M$ une matrice de $\M_p(\C)$.
     \begin{enumerate}
         \item Étant donné un élément $x$ quelconque non nul de $\C^p$ on pose
-        $$\mu \defeq \min \{ r \geqslant 1\ | (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
-        \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1}$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
+        $$\mu \defeq \min \{ r \geqslant 1\ |\ (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
+        \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
         $$
         \begin{pmatrix}
         0 & \cdots & \cdots & 0 & -\alpha_0 & \star \\

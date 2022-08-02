@@ -36,9 +36,6 @@
 \section{Transformation d'\textsc{Abel}} \label{transformation_abel}
 \input{chapitres/suites_et_series_numeriques/transformation_abel}
 
-\section{Mise en application d'une transformation d'\textsc{Abel}}
-\input{chapitres/suites_et_series_numeriques/mise_en_application_dune_transformation_abel}
-
 \section{Convergence et calcul de  \texorpdfstring{$\sum \frac{r}{2^r}$}{de la série de terme général r/2^r}}
 \input{chapitres/suites_et_series_numeriques/convergence_et_calcul_de_la_serie_de_terme_general_r_sur_deux_puissance_r}
 
@@ -60,3 +57,36 @@
 
 \section{Sommation par paquets}
 \input{chapitres/suites_et_series_numeriques/sommation_par_paquets}
+
+\section{Plan d'étude des suites \texorpdfstring{$u_{n+1} = f(u_n)$}{u_(n+1) = f(u_n)}}
+
+La fonction $f$ doit être continue. \\
+
+\begin{enumerate}
+    \item Trouver un invervalle $I$ stable par $f$ ($f(I) \subset I$). Le segment $I$ doit contenir, au moins à partir d'un certain rang, tous les termes de la suite.
+    \item Recherche des points fixes de la fonction $f$ dans $I$.
+    \item ...
+\end{enumerate}
+
+\section{Techniques classiques}
+\marginnote[0cm]{Arnaud Guyader}
+\subsection{Développements asymptotiques}
+
+Dans de nombreuses situations, on conclut sur la nature d'une série en se ramenant à une série plus simple. On a vu que pour les séries à termers positifs, il suffit de se ramener à un équivalent. Ceci n'est plus le cas avec des séries à termes de signe quelconque. Par ailleurs, un équivalent correspond à une approximation au premier ordre, laquelle ne permet pas forcément de conclure. \\
+Dans ces deux situations, il suffit souvent d'écrire un développement asymptotique du terme général, c'est-à-dire d'être plus précis dans l'approximation. Celui-ci est généralement en $\frac{1}{n}$ ou en $\frac{1}{\sqrt{n}}$ et s'arrête au premier terme absolument convergent, en $\frac{1}{n^2}$ ou $\frac{1}{n^{3/2}}$.
+
+Exemples: \\
+$$\sum_{n \geqslant 2} \ln \left(1 + \frac{(-1)^n}{\sqrt{n}}\right) \text{ est divergente}.$$
+$$\sum_{n \geqslant 1} \left(\frac{1}{\sqrt{n}} - \sqrt{n} \sin \frac{1}{n} \right) \text{ est absolument convergente}.$$
+
+\subsection{Groupements de termes}
+
+Considérons une série numérique $\sum u_n$ dont on veut déterminer la nature. On commence par s'assurer que le terme général $(u_n)$ tend vers zéro, sinon la série est trivialement divergente. Ceci fait, il faudrait montrer que la suite $(s_N)$ des sommes partielles est convergente, ce qui n'est pas toujours facile. En particulier, il est parfois plus simple de montrer qu'une sous-suite de $(s_N)$ converge, par exemple en effectuant des regroupements de termes, et de conclure ensuite. \\
+Cadre typique d'application: on réussit à montrer que $(s_{2N})$ converge, disons vers $s$. Alors pour la sous-suite $(s_{2N+1})$, il suffit d'écrire:
+$$s_{2N+1} = s_{2N} + u_{2N+1},$$
+et si la série ne diverge par trivialement, on a
+$$\lim_{N \to + \infty} s_{2N+1} = \lim_{N \to + \infty} s_{2N} = s,$$
+c'est-à-dire que 
+$$\lim_{N \to \infty} s_N = s,$$
+la série converge. 
+

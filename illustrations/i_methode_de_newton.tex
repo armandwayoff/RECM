@@ -26,9 +26,9 @@
    {(x\X) node[draw,label=below:{$a_{\X}$}] {}
     (x\Y) edge[red,shorten >=-1em,shorten <=-1ex] (p\X)
    \ifnum\X=0   
-   (p\X) node[dot,cyan,label={[black]left:{$(a_{\X},g(a_{\X}))$}}] {}
+   (p\X) node[dot,cyan,label={[black]left:{$\big(a_{\X},g(a_{\X}) \big)$}}] {}
    \else
-   (p\X) node[dot,cyan,pin={[black]90:{$(a_{\X},g(a_{\X}))$}}] {}
+   (p\X) node[dot,cyan,pin={[black]90:{$\big( a_{\X},g(a_{\X}) \big)$}}] {}
    \fi 
    };
   \path[name intersections={of=curve and x-axis,by=i}]
