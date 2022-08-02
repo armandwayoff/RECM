@@ -1,4 +1,4 @@
-\begin{defi}
+\begin{defi}{Matrice circulante}
 Une \emph{matrice circulante} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients:
 $$
 \mathrm{C}(c_0, \dots, c_{n-1}) \defeq
@@ -37,7 +37,7 @@ $$
     $$
     
 \marginnote[0cm]{
-    Puissances successives de $\mathrm{J}_3:$
+    \note Exemple; les puissances successives de $\mathrm{J}_3:$
     $$\mathrm{J_3} = 
     \begin{pmatrix}
         0 & 1 & 0 \\
@@ -60,7 +60,7 @@ $$
     \end{pmatrix}
     $$
 }
-    On remarque que la matrice $\mathrm{C}$ s'écrit comme une combinaison linéaire des puissances successives de la matrice $\mathrm{J}_n$. Plus précisément, 
+    On remarque que la matrice $\mathrm{C}$ s'écrit comme une combinaison linéaire des puissances successives de la matrice $\mathrm{J}_n$ \note. Plus précisément, 
     $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}_n^k \defeq \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n).$$
     Calculons le polynôme caractéristique de la matrice $\mathrm{J}_n$. Par définition, $\chi_{\mathrm{J}_n} = \det(X \I_n - \mathrm{J}_n)$ soit 
     $$

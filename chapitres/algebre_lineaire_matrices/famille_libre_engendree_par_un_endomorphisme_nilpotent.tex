@@ -1,17 +1,22 @@
 \begin{exercice}
-    Soit $E$ un espace vectoriel de dimension finie $n$ non nulle et $\varphi \in \mathscr{L}(E)$ un endomorphisme nilpotent d'indice de nilpotence égal à $p$. Montrer qu'il existe un vecteur $x_0 \in E$ tel que la famille $\mathscr{F} \defeq (x_0, \varphi(x_0), \dots, \varphi^{p-1}(x_0))$ soit une famille libre. Montrer aussi que $p \leqslant n$. 
+    Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ non nulle et $f \in \mathscr{L}(E)$ un endomorphisme nilpotent d'ordre de nilpotence égal à $p > 1$. Montrer qu'il existe un vecteur $x_0 \in E$ tel que la famille $\mathscr{F} \defeq \big(x_0, f(x_0), \dots, f^{p-1}(x_0) \big)$ est une famille libre. En déduire que $p \leqslant n$. 
 \end{exercice}    
 
 \begin{solution}
     \begin{itemize}
-        \item Première question:
-        \begin{enumerate}
-            \item Justifier l'existence de $x_0$.
-            \item Revenir à la définition d'une famille libre et supposer par l'absurde que les $\lambda_i$ ne sont pas tous nuls. 
-            \item En déduire une absurdité en composant l'expression par un endomorphisme bien choisi.
-        \end{enumerate}
-        \item Deuxième question:\\
-            D'après le théorème de \textsc{Cayley}-\textsc{Hamilton}, $\chi_{\varphi}(\varphi) = 0$. \\
-            Or comme $\varphi$ est nilpotent, $\Sp(\varphi) = \{0\}$. Donc $\chi_{\varphi}(\lambda) = \lambda^n$ et $\varphi^n = 0_{\Endo(E)}$. Enfin, l'ordre de nilpotence de $\varphi$ étant égal à $p$, $p \leqslant n$.
+        \item Justifions tout d'abord l'existence de $x_0 \in E$ tel que $f^{p-1}(x_0) \not= 0$. Par définition, l'ordre de nilpotence $p$ est le plus petit entier tel que $f^p$ est l'endomorphisme nul. Donc $f^{p-1}$ n'est pas l'endomorphisme nul et ainsi il exsite $x_0 \in E$ tel que $f^{p-1}(x_0) \not= 0$.
+        \item Soit $(\lambda_0, \dots, \lambda_{p-1}) \in \K^p$ tel que 
+        $$\lambda_0 x_0 + \lambda_1 f(x_0) + \cdots + \lambda_{p-1} f^{p-1}(x_0) = 0. \quad (\star)$$
+        L'objectif est de montrer que les $\lambda_i$ sont tous nuls. Pour cela nous allons composer cette relation par une succession d'applications qui permettrons d'isoler chacun des coefficients et de conclure sur leur nullité. \\
+        En composant $(\star)$ par $f^{p-1}$ on obtient
+        $$\lambda_0 f^{p-1}(x_0) + \sum_{k=1}^{p-1} \lambda_k f^{k + p-1}(x_0) = 0.$$
+        Or l'endomorphisme $f$ est nilpotent d'ordre $p$ donc le deuxième terme est nul et comme $f^{p-1}(x_0) \not= 0$, nécessairement $\lambda_0 = 0$. \\
+        En composant la relation $(\star)$ successivement par $f^{p - k}$ pour $k \in \llbracket 2, p-1 \rrbracket$ on obtient $\lambda_1 = 0, \dots, \lambda_{p-1} = 0$. \\
+        Finalement la famille $\mathscr{F}$ est libre.
+        \item Nous venons de construire une famille libre de $p$ éléments dans un espace de dimension $n$ donc $p \leqslant n$. 
     \end{itemize}
 \end{solution}
+On tire de cet exercice un résultat intéressant:
+\begin{prop}
+    Considérons un endomorphisme nilpotent sur un espace $E$ de dimension finie. Alors, son ordre de nilpotence est majoré par la dimnension de l'espace $E$.
+\end{prop}

@@ -1,9 +1,13 @@
+\begin{defi}{Centre (algèbre)}
+    Le \emph{centre} d'une structure algébrique est l'ensemble des éléments de cette structure qui commutent avec tous les autres éléments. 
+\end{defi}
+
 \begin{prop}
 Le centre de $\M_n(\K)$, c'est-à-dire les matrices $A \in \M_n(\K)$ telles que pour toute matrice $B \in \M_n(\K), AB = BA$, est égal à l'ensemble des matrices scalaires.
 \end{prop}
 
-\marginnote[0cm]{
-    \begin{kaobox}[frametitle=Matrices élémentaires de $\M_{n,p}(\K)$]
+\marginnote[1cm]{
+    \begin{kaobox}[frametitle=\note Matrices élémentaires de $\M_{n,p}(\K)$]
         Pour tout $(i, j) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket$, on note $\mathrm{E}_{i,j}$ la matrice de taille $(n,p)$ dont tous les coefficients son nuls sauf le coefficient en ligne $i$, colonne $j$, qui est égal à $1$. Autrement dit,
         $$\mathrm{E}_{i,j} = (\delta_{k,i} \times \delta_{\ell, j})_{(k,\ell) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket}.$$
         On en déduit que 
@@ -11,20 +15,21 @@ Le centre de $\M_n(\K)$, c'est-à-dire les matrices $A \in \M_n(\K)$ telles que 
     \end{kaobox}
 }
 
+Nous voulons démontrer l'égalité de deux ensembles à savoir le centre de $\M_n(\K)$ et $\{ \lambda \I_n, \lambda \in \K \}$. Nous allons donc raisonner par double inclusion. 
 \begin{preuve}
-    (cours Matrices de \cite{maths-france})\\
-    Posons $A = (a_{i,j})_{1 \leqslant 1, j \leqslant n}$. Si $A$ est solution du problème, alors pour tout $(i, j) \in \llbracket 1, n \rrbracket^2, A \mathrm{E}_{i,j} = \mathrm{E}_{i,j} A$. Or,
-    $$A \mathrm{E}_{i,j} = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{k,\ell} \mathrm{E}_{i,j} = \sum_{k=1}^{n} a_{k,i} \mathrm{E}_{k,j},$$
-    et
-    $$\mathrm{E}_{i,j} A = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{i,j} \mathrm{E}_{k,\ell} = \sum_{\ell=1}^{n} a_{j,\ell} \mathrm{E}_{i,\ell}.$$
-    Puisque la famille $(\mathrm{E}_{i, j})_{1 \leqslant i, j \leqslant n}$ est libre, on peut identifier les coefficients et on obtient: pour tout $(i, k) \in \llbracket 1, n \rrbracket^2$ tel que $i \not= k, a_{i,k}=0$ et pour tout $(i,j) \in \llbracket 1, n \rrbracket^2, a_{i,i}=a_{j,j}$. \\
-    Ainsi, si $A$ commute avec toutes les matrices, alors $A$ est nécessairement de la forme $A = \lambda \I_n$ où $\lambda \in \K$. Réciproquement, pour $\lambda \in K$ et $B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B$.
+    \begin{itemize}
+        \item[$(\subset)$] Posons $A \defeq (a_{i,j})_{1 \leqslant 1, j \leqslant n}$. Si la matrice $A$ appartient au centre de $\M_n(\K)$ alors, en particulier, elle commute avec les matrices élémentaires \note i.e. 
+        $$\forall (i, j) \in \llbracket 1, n \rrbracket^2, A \mathrm{E}_{i,j} = \mathrm{E}_{i,j} A.$$
+        En décompasant la matrice $A$ dans la base des matrices élémentaires on obtient
+        $$A \mathrm{E}_{i,j} = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{k,\ell} \mathrm{E}_{i,j} = \sum_{k=1}^{n} a_{k,i} \mathrm{E}_{k,j},$$
+        et
+        $$\mathrm{E}_{i,j} A = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{i,j} \mathrm{E}_{k,\ell} = \sum_{\ell=1}^{n} a_{j,\ell} \mathrm{E}_{i,\ell}.$$
+        Puisque la famille $(\mathrm{E}_{i, j})_{1 \leqslant i, j \leqslant n}$ est libre, on peut identifier les coefficients des deux expressions et on déduit que pour tout $(i, k) \in \llbracket 1, n \rrbracket^2$ tel que $i \not= k, a_{i,k}=0$ et pour tout $(i,j) \in \llbracket 1, n \rrbracket^2, a_{i,i}=a_{j,j}$. \\
+        Ainsi, si la matrice $A$ commute avec toutes les matrices, elle est nécessairement de la forme $A = \lambda \I_n$ où $\lambda \in \K$.
+        \item[$(\supset)$] Réciproquement, pour tout $\lambda \in \K$ et toute matrice $$B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B.$$
+    \end{itemize}
 \end{preuve}
 
-\begin{marginfigure}
-à compléter
-\end{marginfigure}
-
 \begin{methode}
-    Lorsqu'il s'agit de montrer qu'une propriété est vraie \say{ pour toute matrice }, il faut prendre des cas particuliers comme les \textbf{matrices élémentaires} pour en déduire des informations sur les coefficients.
+    Lorsqu'il s'agit de montrer qu'une propriété est vraie \say{ pour toute matrice }, il est parfois utile de prendre des cas particuliers comme les \ptnclegras{matrices élémentaires} pour en déduire des informations sur les coefficients.
 \end{methode}

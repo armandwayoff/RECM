@@ -22,7 +22,7 @@ $$\P(X_{n+1}=j | X_0=i_0, \dots, X_n = i_n) = \P(X_{n+1} = j | X_n = i_n).$$
 Si la matrice $A \defeq (a_{i,j}) \in \M_k(\R)$ définie par $a_{i,j} \defeq \P(Y = j | X = i)$ est indépendante de $n$, on dit que la chaîne de \textsc{Markov} est stationnaire. Si, dans ce dernier cas, on pose $Y_n \defeq \begin{pmatrix} \P(X_n = 1) \\ \vdots \\ \P(X_n = k) \end{pmatrix}$, pour tout $n \geqslant 0$, on obtient $Y_{n+1} = A Y_n$ et donc $Y_n = A^n Y_0$. \\
 Le comportement (probabiliste) d'une chaîne de \textsc{Markov} stationnaire, et notamment son comportement asymptotique, est donc entièrement décrit par la donnée de la loi initiale $Y_0$ et des puissances de la matrice $A$. 
 
-\begin{defi}
+\begin{defi}{Matrice stochastique}
     Une matrice stochastique (matrice de transition d'une \nameref{chaîne_markov}) est une matrice $P \in \M_n([0, 1])$ telle que pour tout $i \in \llbracket 1, n \rrbracket, \sum\limits_{j=1}^{n} p_{i,j} = 1$. \\ Autrement dit, chaque ligne de $P$ est une vecteur de probabilité. \\
     On dit que $P$ est \emph{doublement stochastique} si $P$ et $\Trsp{P}$ sont stochastiques.
 \end{defi}

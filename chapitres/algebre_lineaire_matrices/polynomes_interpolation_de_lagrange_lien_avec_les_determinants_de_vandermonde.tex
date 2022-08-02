@@ -2,6 +2,13 @@
 En appliquant la formule des coordonnées d'un polynôme de degré au plus $n$ dans la base $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ au cas particulier où le polynôme $P$ est l'un des éléments de la base canonique $(X^j)_{j \in \llbracket 0, n \rrbracket}$ de $\C_n[X]$, on obtient $\sum\limits_{i=0}^{n} \Lag_i = 1$ et plus généralement, 
 $$\forall j \in \llbracket 0, n \rrbracket,\ X^j = \sum_{i=0}^{n} x_i ^j \Lag_i.$$
 Ainsi, 
+\marginnote[0cm]{
+    $$\Mat_{(\Lag_i)_0^n, (X^j)_0^n} \begin{pmatrix}
+    1 & x_1 & x_1^2 & \cdots & x_1^{n-1} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    1 & x_n & x_n^2 & \cdots & x_n^{n-1}
+    \end{pmatrix}.$$
+}
 \begin{prop}
     La matrice de passage de la base  $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ à la base  $(X^j)_{j \in \llbracket 0, n \rrbracket}$ est la matrice de \textsc{Vandermonde} associée à la famille $(x_i)_{i \in \llbracket 0, n \rrbracket}$.
 \end{prop}

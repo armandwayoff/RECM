@@ -1,3 +1,12 @@
+\begin{prop}
+    Soient $M$ et $N$ dans $\M_n(\K)$.
+    \begin{itemize}
+        \item $$0 \in \Sp(MN) \Longleftrightarrow 0 \in \Sp(NM)$$
+        \item Soit $\lambda \in \Ke$,
+        $$\dim E_\lambda(MN) = \dim E_\lambda(NM)$$
+    \end{itemize}
+\end{prop}
+
 Soit $M, N \in \M_n(\K)$. 
 \begin{enumerate}
     \item ...
@@ -10,10 +19,9 @@ Soit $M, N \in \M_n(\K)$.
     On montre que $\varphi$ est injective et on en déduit que $\dim(E_\lambda (MN)) \leqslant \dim(E_\lambda (NM))$. Par symétrie des rôles de $M$ et de $N$, on montre l'inégalité dans le sens inverse et on en déduit l'égalité.
     \item ...
     \item ...
-    \item cf. page 21 de mon cours manuscrit. Un autre démonstration est proposée dans \nameref{spectre_I-uv_et_I-vu}.
-    $$\boxed{\forall (M, N) \in \M_n(\K)^2,\ \Sp_\K(MN) = \Sp_\K(NM) \text{ et } \chi_{MN} = \chi_{NM}}$$
-    $$\boxed{\overline{\Gl_n(\K)} = \M_n(\K)}$$
 \end{enumerate}
+
+\subsection{Densité de \texorpdfstring{$\Gl_n(\C)$}{GL_n(C)} dans \texorpdfstring{$\M_n(\C)$}{M_n(C)}}
 
 \begin{exercice}
     Soit $(A, B) \in \M_n(\K)^2$.
@@ -22,6 +30,11 @@ Soit $M, N \in \M_n(\K)$.
         \item En déduire que $\chi_{AB}=\chi_{BA}$ par un argument de continuité.
     \end{enumerate}
 \end{exercice}
+
+La démonstration suivante est \say{ chimique }: la continuité du déterminant va servir de catalyseur à la partie dense.
+\begin{center}
+    Une application continue est entièrement déterminée par l'image d'une partie dense.
+\end{center}
 
 \begin{solution}
     \begin{enumerate}
@@ -34,13 +47,88 @@ Soit $M, N \in \M_n(\K)$.
         \chi_{AB} &= \chi_{BA}
     \end{align*}
     \item Soit $A \in \M_n(\K)$. Son polynôme caractéristique $\chi_A$ admet au plus $n$ racines. \\
-    Notons $r \defeq \min \left\{ |\lambda|, \lambda \in \Sp(A) \backslash \{0\} \right\}$. Donc pour tout $t \in ]0,r[, \chi_A(t) \not=0$ soit $t \I_n - A \in \Gl_n(\K)$. \\
+    Notons $r \defeq \min \big\{ |\lambda|, \lambda \in \Sp(A) \backslash \{0\} \big\}$. Donc pour tout $t \in ]0,r[, \chi_A(t) \not=0$ soit $t \I_n - A \in \Gl_n(\K)$. \\
     Soit $p_0 \defeq \min \left\{ p, \frac{1}{p} < r \right\}$. Ainsi, en posant $A_p \defeq A - \frac{1}{p} \I_n$, la suite $(A_p)_{p \geqslant p_0}$ est une suite de matrices inversibles qui converge vers $A$. Comme les matrices $A_p$ sont inversibles (pour $p \geqslant p_0$), d'après le premier point, pour tout $p \geqslant p_0$
     $$\chi_{A_p B} = \chi_{B A_p}$$
     soit 
     $$\det(\lambda \I_n - A_p B) = \det(\lambda \I_n - B A_p).$$
     Comme le produit matriciel est une application bilinéaire, $A_p B$ (resp. $B A_p$) tend vers $AB$ (resp. $BA$) quand $p$ tend vers l'infini. Comme le déterminant est une application multilinéaire en dimension finie, elle est continue et $\det(\lambda \I_n - A B) = \det(\lambda \I_n - B A)$ soit $\chi_{A B} = \chi_{B A}$. \\
-    On a montré que 
-    $$\overline{\Gl_n(\K)} = \M_n(\K).$$
     \end{enumerate}
 \end{solution}
+
+Ce résultat peut être montré par un argument plus \say{ mécanique }. Pour tout $\lambda \in \K$, on pose
+$$
+U \defeq
+\begin{pmatrix}
+    A & \lambda \I_n \\
+    \I_n & B
+\end{pmatrix}
+\text{ et }
+V \defeq 
+\begin{pmatrix}
+    B & -\lambda \I_n \\
+    -\I_n & 0_n
+\end{pmatrix}.
+$$
+On calcule alors
+$$UV = 
+\begin{pmatrix}
+    AB - \lambda \I_n & \bigstar \\
+    0 & -\lambda \I_n
+\end{pmatrix}
+\quad
+VU = 
+\begin{pmatrix}
+    BA - \lambda \I_n & 0 \\
+    \bigstar & -\lambda \I_n
+\end{pmatrix}.
+$$
+Comme $\det(UV) = \det(VU)$, on obtient
+$$(-\lambda)^n \det(AB - \lambda \I_n) = (-\lambda)^n \det(BA - \lambda \I_n).$$
+En particulier on obtient:
+$$\forall \lambda \not= 0,\ \det(AB - \lambda \I_n) = \det(BA - \lambda \I_n)$$
+et l'égalité est triviale si $\lambda = 0$. \\
+On a donc montré que 
+$$\chi_{A B} = \chi_{B A}.$$
+
+\begin{remarque}
+    \marginnote[0cm]{\cite{exos_oraux} p. 100}
+    Nous avons établi la densité de l'ensemble $\Gl_n(\K)$ dans $\M_n(\K)$. Puisque $\chi_M(X)$ est un polynôme de degré $n \geqslant 0$, il a un nombre fini de racines donc il existe $k_0 \in \Ne$ tel que $\chi_M(1/k) \not= 0$ si $k \geqslant k_0$. Ceci traduit que $\det(M - 1/k \cdot \I_n) \not= 0$ donc $M_k \defeq M - \frac{1}{k} \I_n$ est inversible, et l'on a bien $M_k \xrightarrow[k \to + \infty]{} M$.
+\end{remarque}
+
+\subsection{Densité de l'ensemble des matrices diagonalisables dans \texorpdfstring{$\M_n(\C)$}{M_n(C)}}
+
+\begin{theo}{}
+    L'ensemble des matrices diagonalisables de $\M_n(\C)$ est dense dans $\M_n(\C)$.
+\end{theo}
+
+\begin{preuve}
+    \marginnote[0cm]{Arnaud de Saint Julien - Lycée La Merci à Montpellier. desainta@yahoo.fr}
+    Soit $M \in \M_n(\C)$. Cette matrice est trigonalisable puisque son polynôme caractéristique est scindé sur $\C$. On note $\lambda_1, \dots, \lambda_s$ ses valeurs propres distinctes et $r_1, \dots, r_s$ les multiplicités associées. Il existe donc une matrice $P \in \Gl_n(\C)$ telle que
+    $$
+    M = P
+    \begin{pmatrix}
+        \lambda_1 & \star & \star & \star \\
+        0 & \ddots & \star & \star \\
+        \vdots & \ddots & \ddots & \star \\
+        0 & \cdots & 0 & \lambda_s
+    \end{pmatrix}
+    \Inv{P} \defeq P T \Inv{P}.
+    $$
+    Soit $\varepsilon > 0$, on va commencer par \say{ séparer } les valeurs propres distinctes. On peut trouver un petit rayon $\rho$ avec $0 < \rho < \varepsilon$, pour lequel les disques $D(\lambda_1, \rho), \dots, D(\lambda_s, \rho)$ sont distincts deux à deux. Enfin, dans chacun de ces disques (qui sont des parties infinies de $\C$), donc pour tout $i \in \llbracket 1, s \rrbracket$, on peut choisir $r_i$ complexes $z_{i,1}, \dots, z_{i,r_i}$ distincts deux à deux (on peut même expliciter: $z_{i,1} = \lambda_i + \frac{\rho}{1}, \dots, z_{i, r_i} = \lambda_i + \frac{\rho}{r_i}$). Les nombres complexes $z_{1, 1}, \dots, z_{1, r_1}, \dots, z_{s, 1}, \dots, z_{s, r_s}$ sont donc, par contruction, $n$ nombres complexes deux à deux distincts. On considère alors la matrice
+    $$M_\varepsilon \defeq P 
+    \begin{pmatrix}
+        z_{1, 1} & \star & \star & \star \\
+        0 & \ddots & \star & \star \\
+        \vdots & \ddots & \ddots & \star \\
+        0 & \cdots & 0 & z_{s, r_s}
+    \end{pmatrix}
+    \Inv{P} \defeq P T_\varepsilon \Inv{P}.
+    $$
+    Cette matrice de $\M_n(\C)$ possède $n$ valeurs propres distinctes, elle est donc diagonalisable. \\
+    On choisit maintenant sur $\M_n(\C)$ la norme du $\sup$ sur les coefficients, définie par:
+    $$\forall M \defeq (m_{i,j}) \in \M_n(\C),\ \norme{M} = \max_{1 \leqslant i, j \leqslant n} |m_{i,j}|.$$
+    On démontre facilement que si $A, B \in \M_n(\C)$, $\norme{AB} \leqslant n \norme{A} \norme{B}$, (elle est presque sous-multiplicative) ainsi
+    $$\norme{M - M_\varepsilon} = \norme{P (T - T_\varepsilon) \Inv{P}} \leqslant \underbrace{n \norme{P} \norme{\inv{P}}}_{\defeq K} \norme{T - T_\varepsilon} \leqslant K \varepsilon.$$
+    Ceci achève le démonstration, puisque si $\varepsilon$ tend vers $0$, la matrice $M_\varepsilon$ tend vers la matrice $M$ pour la norme $\norme{\cdot}$ donc pour tout norme puisqu'en dimension finie, toutes les normes sont équivalentes.
+\end{preuve}

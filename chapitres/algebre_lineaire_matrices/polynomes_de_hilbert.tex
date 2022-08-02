@@ -8,9 +8,11 @@
 
 \begin{preuve}
     \marginnote[0cm]{\url{https://www.bibmath.net/ressources/justeunexo.php?id=815}}
-    Soit $(P_1, \dots, P_n)$ une famille de polynômes de $\C_n[X]$ non nuls, à degrés échelonnés, i.e. $\deg P_1 < \cdots < \deg P_n$. \\
-    Soit $(\lambda_1, \dots, \lambda_n)$ des scalaires tels que  $\sum\limits_{k=1}^n \lambda_k P_k = 0$. \\
-    Supposons par l'absurde que $\lambda_n \not= 0$. Alors le membre de gauche de l'égalité est un polynôme de degré $\deg P_n \not= - \infty$ puisque tous les polynômes sont supposés non nuls. Ce ne peut donc pas être le polynôme nul. On aboutit à une contradiction et $\lambda_n = 0$. En itérant le raisonnement, on trouve successivement $\lambda_{n-1} = 0, \dots, \lambda_1 = 0$ ce qui assure la liberté de la famille $(P_1, \dots, P_n)$.
+    Soit $(P_1, \dots, P_n)$ une famille de polynômes de $\C_n[X]$ non nuls, à degrés échelonnés, i.e. $0 \leqslant \deg P_1 < \cdots < \deg P_n$. \\
+    Soit $(\lambda_1, \dots, \lambda_n)$ des scalaires tels que
+    $$\lambda_1 P_1 + \cdots + \lambda_n P_n = 0. \quad (\star)$$
+    Supposons par l'absurde que $\lambda_n \not= 0$. Alors le membre de gauche de l'égalité $(\star)$ est un polynôme de degré $\deg P_n \not= - \infty$ puisque tous les polynômes sont supposés non nuls. Ce membre ne peut donc pas être le polynôme nul. On aboutit à une contradiction et $\lambda_n = 0$. \\ 
+    En itérant le raisonnement, on trouve successivement $\lambda_{n-1} = 0, \dots, \lambda_1 = 0$ ce qui assure la liberté de la famille $(P_1, \dots, P_n)$.
 \end{preuve}
 
 Revenons à la démonstration de la \refprop{hilbert_base}.

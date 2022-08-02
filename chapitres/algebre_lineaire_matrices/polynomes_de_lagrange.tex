@@ -1,23 +1,31 @@
 \marginnote[0cm]{\url{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}}
-\underline{Motivations de l'interpolation polynomiale} \\
+\subsection{Motivations de l'interpolation polynomiale}
 En analyse numérique, une fonction $f$ inconnue explicitement est souvent connue seulement en certains points $x_0, \dots, x_d$, ou évaluable uniquement au moyen de l'appel à un code coûteux. \\
 Mais dans de nombreux cas, on a besoin d'effectuer des opérations (dérivation, intégration, \dots) sur la fonction $f$. \\
-On cherche donc à reconstruire $f$ par une autre fonction $f_r$ simple et facile à évaluer à partir des données discrètes de $f$. On espère que le modèle $f_r$ ne sera pas trop éloigné de la fonction $f$ aux autres points. \\
+On cherche donc à reconstruire cette fonction $f$ par une autre fonction $f_r$ simple et facile à évaluer à partir des données discrètes de $f$. On espère que le modèle $f_r$ ne sera pas trop éloigné de la fonction $f$ aux autres points. \\
+
 Pourquoi utiliser des polynômes pour reconstruire la fonction $f$ ?
-\begin{marginfigure}[0cm]
-    \centering
-    \input{illustrations/i_polynomes_de_lagrange}
-\end{marginfigure}
+
 \begin{enumerate}
-    \item Théorème d'approximation de \textsc{Weierstrass} (\textcolor{red}{lien}): pour toute fonction $f$ définie et continue sur l'intervalle $[a, b]$ et pour tout $\varepsilon > 0$, il existe un polynôme $P$ tel que 
+    \item Théorème d'approximation de \textsc{Weierstrass} (\textcolor{red}{lien}): pour toute fonction $f$ définie et continue sur un intervalle $[a, b]$ et pour tout $\varepsilon > 0$, il existe un polynôme $P$ tel que 
     $$\forall x \in [a, b],\ |f(x) - P(x)| < \varepsilon.$$
     Plus $\varepsilon$ est petit, plus le degré du polynôme est grand.
     \item La simplicité de l'évaluation d'un polynôme par le schéma de \textsc{Hörner}:
-    $$\sum_{j=0}^n c_j x^j = \left( \cdots \left( (c_n x + c_{n-1})x + c_{n-2} \right)x + \cdots c_1 \right)x + c_0.$$
-    Plus précisément, étant donnés $d+1$ points d'abscisses distinctes $M_i = (a_i, f_i)$ pour $i \in \llbracket 0, d \rrbracket$ dans le plan, le problème de l'interpolation polynomiale consiste à trouver un polynôme de degré inférieur ou égal à $m$ dont le graphe passe par les $d+1$ points $M_i$.
+    $$\sum_{j=0}^n c_j x^j = \Big( \cdots \big( (c_n x + c_{n-1})x + c_{n-2} \big)x + \cdots c_1 \Big)x + c_0.$$
 \end{enumerate}
 
-\begin{theo}
+\begin{marginfigure}[-1cm]
+    \centering
+    \input{illustrations/i_polynomes_de_lagrange}
+\end{marginfigure}
+
+Plus précisément, étant donnés $d+1$ points d'abscisses distinctes $M_i \defeq (a_i, f_i)$ pour $i \in \llbracket 0, d \rrbracket$ dans le plan, le problème de l'interpolation polynomiale consiste à trouver un polynôme de degré inférieur ou égal à $m$ dont le graphe passe par les $d+1$ points $M_i$.\\
+
+\subsection{Interpolation lagrangienne}
+
+Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ points par un polynôme de degré $n$ qui passe exactement par ces points.
+
+\begin{theo}{}
     Soit $n \in \N$. On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
     Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un unique polynôme $\Lag_i \in \C_n[X]$ tel que 
     $$\forall j \in \llbracket 0, n \rrbracket,\ \Lag_i(x_j) = \delta_{i,j}.$$
@@ -36,34 +44,38 @@ Pourquoi utiliser des polynômes pour reconstruire la fonction $f$ ?
     \end{kaobox}
 }
 
-
+Voyons deux démonstrations. La première procède par construction et explicite la forme des polynômes de \textsc{Lagrange}, la deuxième passe par les propriétés des applications linéaires.
 \begin{preuve}
-\begin{itemize}
-    \item Par construction...\cite{maths-france} \\
-    On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. Soit $i \in \llbracket 1, n \rrbracket$. Le polynôme $\Lag_i$ est de degré au plus $n$ et admet les $n$ complexes deux à deux distincts $x_j$ pour racines. Alors, nécessairement, il existe une constante $C$ telle que 
-    $$\Lag_i = C \prod_{i \not= j} (X-x_j).$$
-    L'égalité $\Lag_i(x_i) = 1$ fournit alors $C = \left[ \prod\limits_{j \not=i}(x_i - x_j) \right]^{-1}$ et donc 
-    $$\Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
-    Réciproquement, si pour tout $i \in \llbracket 0, n\rrbracket,\ \Lag_i = \prod\limits_{j \neq i} \frac{X-x_j}{x_i - x_j}$, alors $\Lag_i$ est bien défini car les $x_j$ sont deux à deux distincts, est bien de degré $n$ et enfin les polynômes $\Lag_i$ vérifient clairement les égalités de dualité.
-    \noindent Voyons une autre démonstration en passant par un peu d'algèbre linéaire.
-    \item \marginnote[0cm]{\url{https://www.youtube.com/watch?v=blB2SAYpobA}}
+    \marginnote[0cm]{\cite{maths-france}}
+    \begin{itemize}
+        \item[$\rhd$] On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
+        Soit $i \in \llbracket 1, n \rrbracket$. Le polynôme $\Lag_i$ est de degré au plus $n$ et admet $n$ complexes deux à deux distincts $x_j$ pour racines, avec $j \not= i$. Alors, nécessairement, il existe une constante $C$ telle que 
+        $$\Lag_i = C \prod_{i \not= j} (X-x_j).$$
+        L'égalité $\Lag_i(x_i) = 1$ fournit $C = \left[ \prod\limits_{j \not=i}(x_i - x_j) \right]^{-1}$ et donc 
+        $$\Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
+        \item[$\rhd$] Réciproquement, si pour tout $i \in \llbracket 0, n\rrbracket$ on pose $\Lag_i \defeq \prod\limits_{j \neq i} \frac{X-x_j}{x_i - x_j}$, alors le polynôme $\Lag_i$ est bien défini car les $x_j$ sont deux à deux distincts, est bien de degré $n$ et enfin les polynômes $\Lag_i$ vérifient clairement les égalités de dualité.
+    \end{itemize}
+\end{preuve}
+\begin{preuve}
+    \marginnote[0cm]{\url{https://www.youtube.com/watch?v=blB2SAYpobA}}
     On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$.
     \begin{alignat*}{2}
         \text{Soit } \varphi\ :\ \R_n[X]\ &\longrightarrow\ \R^{n+1}\\
-        P\ &\longmapsto\ (P(x_0), \dots, P(x_n)).
+        P\ &\longmapsto\ \big(P(x_0), \dots, P(x_n) \big).
     \end{alignat*}
     \begin{itemize}
-        \item[$\rhd$] Soit $P \in \R_n[X]$ tel que $\varphi(P) = 0$. Alors le polynôme $P$ a $n+1$ racines discintes. Or le polynôme $P$ est de degré inférieur à $n$ donc est le polynôme nul. On en déduit que $\varphi$ est injective ce qui assure l'\ptnclegras{unicité} des polynômes interpolateurs de \textsc{Lagrange}.
+        \item[$\rhd$] Soit $P \in \Ker \varphi$. Alors le polynôme $P$ a $n+1$ racines discintes. Or il est de degré inférieur à $n$ donc est le polynôme nul. On en déduit que $\varphi$ est injective ce qui assure l'\ptnclegras{unicité} des polynômes interpolateurs de \textsc{Lagrange}.
         \item[$\rhd$] Comme $\dim \R_n[X] = \dim \R^{n+1}$ et que l'application $\varphi$ est injective, c'est un isomorphisme \note.
         \item[$\rhd$] En particulier, l'application $\varphi$ est surjective ce qui assure l'\ptnclegras{existence} de ces polynômes. 
     \end{itemize}
-    \marginnote[0cm]{
-        \begin{kaobox}[frametitle=...]
+    \marginnote[-4cm]{
+        \begin{prop}
             \note Si $f$ est une application linéaire d'un espace de dimension finie $E$ dans un espace de dimension finie $F$ avec $\dim(E) = \dim(F)$ pour que $f$ soit un isomorphisme, il suffit que $f$ soit injective ou que $f$ soit surjective.
-        \end{kaobox}
+        \end{prop}
     }
-\end{itemize}
 \end{preuve}
+
+\subsection{Coordonées d'un polynôme dans la base de \textsc{Lagrange}}
 
 \begin{prop}
     La famille $(\Lag_0, \dots, \Lag_n)$ des $n+1$ premiers polynômes de \textsc{Lagrange} forme une base de $\C_n[X]$.
@@ -73,9 +85,9 @@ Pourquoi utiliser des polynômes pour reconstruire la fonction $f$ ?
     Par construction, la famille $\mathscr{L} \defeq (\Lag_0, \dots, \Lag_n)$ est échelonnée en dégré ce qui assure sa liberté d'après le \reflemme{famille_deg_echelonnes_est_libre}. De plus, $|\mathscr{L}| = \dim \C_n[X]$ donc la famille $\mathscr{L}$ forme bien une base de $\C_n[X]$.
 \end{preuve}
 
-Coordonées d'un polynôme dans la base de \textsc{Lagrange}
-
 \begin{prop}
-Soit $(x_0, \dots, x_n)$, $(n+1)$ complexes deux à deux distincts et $(y_0, \dots, y_n)$, $(n+1)$ complexes. Il existe un et un seul polynôme $P \in \R_n[X]$ tel que pour tout $i \in \llbracket 0, n \rrbracket, P(x_i) = y_i$. Ce polynôme à pour expression dans la base de \textsc{Lagrange}
+Soit $(x_0, \dots, x_n)$, $n+1$ complexes deux à deux distincts et $(y_0, \dots, y_n)$, $n+1$ complexes. Il existe un et un seul polynôme $P \in \R_n[X]$ tel que 
+$$\forall i \in \llbracket 0, n \rrbracket, P(x_i) = y_i.$$ 
+Ce polynôme à pour expression dans la base de \textsc{Lagrange}
 $$P = \sum_{i=0}^n y_i \Lag_i.$$
 \end{prop}

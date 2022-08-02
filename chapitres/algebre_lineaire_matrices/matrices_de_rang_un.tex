@@ -1,28 +1,52 @@
-\begin{prop}
+\begin{prop} \labprop{caracterisation_matrice_de_rang_1}
     Une matrice $A$ de $\M_{n,p}(\R)$ est de rang $1$ si et seulement s'il existe deux matrices colonnes non nulles (pas nécessairement uniques) $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$ telles que $A = X \Trsp{Y}$. 
 \end{prop}
 
 \begin{preuve}
-    à revoir
     \begin{itemize}
-        \item[$(\Rightarrow)$] Soit $A \in \M_{n,p}(\R)$, une matrice de rang $1$. En notant $C_1, \dots, C_p$ ses colonnes, comme $\Rg A = 1$, il existe un vecteur $X \defeq \Trsp{(x_1 \cdots x_n)}\in \M_{n,1}(\R)$ et $(\lambda_1, \dots, \lambda_p) \in (\Re)^p$ tels que pour tout $k \in \llbracket 1, p \rrbracket, C_k = \lambda_k X$. \\
-        En posant $Y \defeq \Trsp{(\lambda_1 \cdots \lambda_p)}$, on obtient $A = X \Trsp{Y}$.
-        \item[$(\Leftarrow)$] Soient $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$, deux matrices colonnes non nulles...
+        \item[$(\Rightarrow)$] Soit $A \in \M_{n,p}(\R)$, une matrice de rang $1$. On note $C_1, \dots, C_p$ ses colonnes. L'hypothèse que $\Rg A = 1$ se traduit par le fait que les colonnes de la matrice $A$ sont proportionnelles. Autrement dit, il existe un vecteur $X \defeq \Trsp{(x_1 \cdots x_n)}$ et $(\lambda_1, \dots, \lambda_p)$ tous non nuls tels que 
+        $$\forall k \in \llbracket 1, p \rrbracket,\ C_k = \lambda_k X.$$
+        En posant $Y \defeq \Trsp{(\lambda_1 \cdots \lambda_p)}$, on peut écrire $A = X \Trsp{Y}$.
+        \item[$(\Leftarrow)$] Soient $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$, deux matrices colonnes non nulles. \\
+        On note $Y \defeq \Trsp{(y_1 \cdots y_p)}$ où aucun des $y_i$ n'est nul. Alors,
+        $$
+        X \Trsp{Y} = 
+        \begin{pmatrix}
+            \\
+            X \\
+            \\
+        \end{pmatrix}
+        \times
+        (y_1 \cdots y_p)
+         = 
+        \begin{pmatrix}
+            & & \\
+            y_1 X & \cdots & y_p X \\
+            & & \\
+        \end{pmatrix}.
+        $$
+        Les colonnes de la matrice résultante sont proportionnelles donc cette matrice est de rang égal à $1$. 
     \end{itemize}
-    Par contre, il n'y a pas unicité du couple $X, Y$...
 \end{preuve}
 
-\begin{exercice}
+\begin{remarque}
+    Par contre, il n'y a pas unicité du couple $(X, Y)$. En effet si ce couple convient, le couple $(2X, \frac{1}{2}Y)$ convient aussi.
+\end{remarque}
+
+\begin{exercice} \labexercice{carre_matrice_de_rang_1}
     Soit $A$ une matrice carrée de rang $1$. Montrer qu'il existe $\lambda \in \K$ tel que $A^2 = \lambda A$.
 \end{exercice}
 
 \begin{solution}
-    Il existe une colonne $X$ telle que $AX \not= 0$ et alors $\Im(A) = \Vect(AX)$. \\
-    Ainsi, la matrice $A^2X \in \Im(A)$ et donc il existe $\lambda \in \K$ tel que $A^2X = \lambda AX$. De plus, pour $Y \in \Ker(A)$, $A^2Y = 0 = \lambda AY$. \\
-    Enfin $\Ker(A)$ et $\Vect(X)$ sont supplémentaires dans $\M_{n,1}(\K)$ donc $A^2 = \lambda A$.
+    D'après \vrefprop{caracterisation_matrice_de_rang_1}, il existe $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$ telles que $A = X \Trsp{Y}$. Ainsi, 
+    \begin{align*}
+        A^2 &= \big(X \Trsp{Y}\big) \big(X \Trsp{Y}\big) \\
+        &= X \underbrace{\big( \Trsp{Y} X \big)}_{ \defeq \lambda \in \K} \Trsp{Y} \\
+        A^2 &= \lambda A
+    \end{align*}
+    De plus $\lambda = \Tr A$.
 \end{solution}
 
-\url{http://ddmaths.free.fr/section373.html} \\
 Compléter avec le problème 2 Partie I de CCINP PSI 2022.
 
 \begin{exercice}
@@ -39,3 +63,7 @@ Compléter avec le problème 2 Partie I de CCINP PSI 2022.
         \end{enumerate}
     \end{enumerate}
 \end{exercice}
+
+\begin{solution}
+    
+\end{solution}
