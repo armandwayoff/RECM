@@ -1,0 +1,95 @@
+La suite définie une norme sur $\K^n$ et établit une généralisation de l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}. \\
+\textbf{Notations.} Soit $x \in \K^n$. Dans tout la suite on note
+$$
+x = 
+\begin{pmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+\end{pmatrix}.
+$$
+\begin{defi}{}
+    Soit $u \in \K^n$. Pour tout réel $p \geqslant 1$, on définit l'application $\Vert \bm{\cdot} \Vert_p$ par
+    $$\Vert u \Vert_p \defeq \left (\sum_{k=1}^{n} |u_i|^p \right)^{1/p}.$$
+\end{defi}
+
+\marginnote[0cm]{
+    \begin{defi}{Norme}
+        L'application $N : E \to \Rp$ est une \emph{norme} sur $E$ si
+        \begin{itemize}
+            \item[(\textsc{i})] \textbf{Séparabilité :} $\forall x \in E, N(x) = 0 \Leftrightarrow x = 0_E$.
+            \item[(\textsc{ii})] \textbf{Homogénéité :} $\forall x \in E, \forall \lambda \in \K, N(\lambda x) = |\lambda| N(x).$
+            \item[(\textsc{iii})] \textbf{Inégalité triangulaire :} $\forall (x, y) \in E^2, N(x+y) \leqslant N(x) + N(y)$.
+        \end{itemize}
+    \end{defi}
+}
+
+\begin{prop}{Normes de \textsc{Hölder}}
+    L'application $\Vert \bm{\cdot} \Vert_p$ définie une norme sur $\K^n$.
+\end{prop}
+
+Pour montrer que l'application $\Vert \bm{\cdot} \Vert_p$ définie bien une norme sur $\K^n$, il faut entre autre montrer qu'elle vérifie l'inégalité triangulaire et pour montrer cela nous allons d'abord démontrer l'inégalité de \textsc{Hölder}:
+
+\begin{prop}{Inégalité de \textsc{Hölder}}
+    Soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $u, v \in \K^n$
+    $$\sum_{k=1}^{n} |u_k v_k| \leqslant \Vert u \Vert_p \Vert v \Vert_q.$$
+\end{prop}
+
+%\begin{marginfigure}[0cm]
+%    \centering
+%    \input{illustrations/i_inegalite_convexite}
+%\end{marginfigure}
+
+\begin{preuve}
+    \marginnote[0cm]{\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./h/holder.html}}
+    \begin{itemize}
+        \item Un lemme fondamental: \\
+        D'après la concavité de la fonction logarithme, 
+        $$\forall (x, y) \in \Rpe^2,\ \ln \left( \frac{x^p}{p} + \frac{y^q}{q} \right) \geqslant \frac{\ln(x^p)}{p} + \frac{\ln(y^q)}{q} = \ln(xy).$$
+        En passant à l'exponentielle, on obtient
+        $$xy \leqslant \frac{x^p}{p} + \frac{y^q}{q}.$$
+        \item Un cas particulier crutial: \\
+        Nous démontrons pour le moment l'inégalité dans le cas où $\sum\limits_{k=1}^n |u_k|^p = 1$ et $\sum\limits_{k=1}^n |v_k|^q = 1$. \\
+        D'après le lemme, pour tout $k \in \llbracket 1, n \rrbracket$,
+        $$|u_k| |v_k| \leqslant \frac{|u_k|^p}{p} + \frac{|v_k|^q}{q}.$$
+        En sommant cette inégalité pour $k$ allant de $1$ à $n$, on obtient le résultat.
+        \item Raisonnement par homogénéité: \\
+        Pour obtenir le cas général, il suffit d'appliquer la cas particulier avec 
+        $$|u'_k| = \frac{u_k}{\Vert u \Vert_p} \text{ et } |v'_k| = \frac{v_k}{\Vert v \Vert_p}.$$
+    \end{itemize}
+\end{preuve}
+
+\begin{remarque}
+    Pour $p = q = 2$, on retrouve l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}.
+\end{remarque}
+
+Montrons maintenant que $\Vert \bm{\cdot} \Vert_p$ définie bien une norme sur $\K^n$.
+
+\begin{preuve}
+    \marginnote[-1cm]{(lire aussi \emph{Chapitre 4 - Normes} page 39 \cite{matrices}) Exercice 4.81 page 377 \cite{oraux_x_ens_3}}
+    Tout d'abord, on s'assure que $\Vert \bm{\cdot} \Vert_p$ est bien à valeurs positives.
+    \begin{itemize}
+        \item[(\textsc{i})] \textbf{Séparabilité :}
+        \begin{itemize}
+            \item[$(\Leftarrow)$] Immédiat.
+            \item[$(\Rightarrow)$] Soit $u \in \K^n$ tel que $\Vert \lambda u \Vert_p = 0$. Alors
+            $$\sum_{k=1}^{n} |\lambda u_i|^p = 0$$
+            qui est une somme de termes positifs donc chacun des termes est nul et $$\forall k \in \llbracket 1, n \rrbracket,\ u_k = 0$$
+            ce qui assure que $u = 0$.
+        \end{itemize}
+        \item[(\textsc{ii})] \textbf{Homogénéité :} soient $u \in \K^n$ et $\lambda \in \K$,
+        $$\Vert \lambda u \Vert_p = \left (\sum_{k=1}^{n} |\lambda u_i|^p \right)^{1/p} ...$$
+        \item[(\textsc{iii})] \textbf{Inégalité triangulaire :} 
+        Soient $u, v \in \K^n$, montrons que 
+        $$\Vert u + v \Vert_p \leqslant \Vert u \Vert_p \Vert v \Vert_p.$$
+        Soit $k \in \llbracket 1, n \rrbracket$,
+        $$|u_k + v_k|^p = |u_k| \times |u_k + v_k|^{p-1} + |v_k| \times |u_k + v_k|^{p-1}$$ 
+        et sommer pour $k$ allant de $1$ à $n$. Appliquer le résultat précédent à chaque somme, factoriser et multiplier l'inégalité par une somme judicieuse. 
+    \end{itemize}
+\end{preuve}    
+
+\begin{prop}{}
+    \marginnote[0cm]{Proposition 4.1.3. \cite{matrices}}
+    Toutes les normes de $E = \K^n$ sont équivalentes. Par exemple:
+    $$\Vert x \Vert_\infty \leqslant \Vert x \Vert_p \leqslant p^{1/p} \Vert x \Vert_\infty$$
+\end{prop}

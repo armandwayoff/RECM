@@ -16,16 +16,19 @@
 Voyons deux démonstrations de ce résultat; une première en utilisant la décomposition d'\textsc{Iwasama} et une deuxième le \emph{corollaire 5.1}.
 
 \begin{preuve}
-    Si la matrice $M$ n'est pas inversible, le résultat est immédiat. Supposons que $M$ est inversible. D'après la décomposition d'\textsc{Iwasama}, il existe une matrice $O \in \mathscr{O}_n(\C)$ et $T \defeq (t_{i,j})$, triangulaire supérieure dont les coefficients diagonaux sont strictement positifs telles que $M = OT$. D'après la multiplicité du déterminant, 
-    $$\det(M) = \underbrace{\det(O)}_{= \pm 1} \det(T)$$
-    donc
-    \begin{equation} \label{det}
-        |\det(M)| = |\det(T)| = \prod_{i=1}^{n} |t_{i,i}|.
-    \end{equation}
-    Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} = \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
-    $$|t_{i,i}| = |\langle X_i, O_i \rangle | \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$
-    Ainsi d'après (\ref{det}), 
-    $$|\det(M)| \leqslant \prod_{i=1}^n \norme{X_i}.$$
+    \begin{itemize}
+        \item Si la matrice $M$ n'est pas inversible, le résultat est immédiat. 
+        \item Supposons que $M$ est inversible. D'après la décomposition d'\textsc{Iwasama}, il existe une matrice $O \in \mathscr{O}_n(\C)$ et $T \defeq (t_{i,j})$, triangulaire supérieure dont les coefficients diagonaux sont strictement positifs telles que $M = OT$. D'après la multiplicité du déterminant, 
+        $$\det(M) = \underbrace{\det(O)}_{= \pm 1} \det(T)$$
+        donc
+        \begin{equation} \label{det}
+            |\det(M)| = |\det(T)| = \prod_{i=1}^{n} |t_{i,i}|.
+        \end{equation}
+        Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} = \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
+        $$|t_{i,i}| = |\langle X_i, O_i \rangle | \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$
+        Ainsi d'après (\ref{det}), 
+        $$|\det(M)| \leqslant \prod_{i=1}^n \norme{X_i}.$$
+    \end{itemize}
 \end{preuve}
 
 \begin{preuve}
@@ -45,13 +48,13 @@ L'inégalité d'\textsc{Hadamard} nous apprend en fait que le volume du parallé
     \end{kaobox}
 }
 
-\begin{prop}
+\begin{prop}{}
     Soient $\mathscr{S}_n ^{++} (\R)$ l'ensemble des matrices réelles d'ordre $n$ symétriques à valeurs propres strictement positives et $A = (a_{i,j}) \in \mathscr{S}_n ^{++} (\R)$. Alors,
     $$\det(A) \leqslant \prod_{i=1}^{n} a_{i,i}.$$
 \end{prop}
 
 \begin{exercice}    
-exercice 4, TD 14 \cite{acamanes}
+\marginnote[0cm]{exercice 4, TD 14 \cite{acamanes}}
 \begin{enumerate}
     \item Soit $(\gamma_1, \dots, \gamma_n) \in (\Re)^n$. Montrer que $B = (\gamma_i \gamma_j a_{i,j}) \in \mathscr{S}_n^{++}(\R)$. 
     \item Montrer que $\det(A)^{1/n} \leqslant \frac{\Tr(A)}{n}$. \\

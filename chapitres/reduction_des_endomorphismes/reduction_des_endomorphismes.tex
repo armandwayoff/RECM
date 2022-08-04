@@ -11,8 +11,8 @@
 \section{Matrices stochastiques}
 \input{chapitres/reduction_des_endomorphismes/matrices_stochastiques}
 
-\section{Condition nécessaire et suffisante de diagonalisabilité dans \texorpdfstring{$\C$}{C}}
-\input{chapitres/reduction_des_endomorphismes/condition_necessaire_et_suffisante_de_diagonalisabilite_dans_C}
+\section{Endomorphismes semi-simples}
+\input{chapitres/reduction_des_endomorphismes/endomorphismes_semi_simples}
 
 \section{Autour du commutant}
 \input{chapitres/reduction_des_endomorphismes/autour_du_commutant}
@@ -38,7 +38,7 @@
 \section{Réduction simultanée}
 \input{chapitres/reduction_des_endomorphismes/reduction_simultanee}
 
-\marginnote[-20cm]{
+\marginnote[-10cm]{
     \begin{kaobox}[frametitle=Décomposition de $E$ en somme de sous-espaces stables supplémentaire]
         Si $E$ est de dimension finie non nulle et $\chi_f = \prod\limits_{i=1}^{k}(f-\lambda_i)^{\alpha_i}$, alors
         $$E = \bigoplus_{i=1}^{k} \Ker(f-\lambda_i \Id_E)^{\alpha_i}.$$
@@ -52,41 +52,6 @@
 
 \section{Critère de nilpotence par la trace} \labsec{critere_de_nilpotence_par_la_trace}
 \input{chapitres/reduction_des_endomorphismes/critere_de_nilpotence_par_la_trace}
-
-\section{Mines '21}
-\begin{exercice}
-    Soit $M \in \M_n(\C)$. Montrer que, pour tout $p > 0$, il existe $P \in \Gl_n(\C)$ et $T \in \M_n(\C)$ triangulaire supérieure telles que $T = \Inv{P} M P$ et, pour tout $1 \leqslant i < j \leqslant n, |t_{i,j}| \leqslant \frac{1}{p}$.
-\end{exercice}
-
-\begin{solution}
-    Soit $p > 0$. D'après le théorème de \textsc{D'Alembert}-\textsc{Gauss}, la polynôme caractéristique de $M$ est scindé sur $\C$ donc la matrice $M$ est trigonalisable sur $\C$. Autrement dit, il existe $P \in \Gl_n(\C)$ telle que $M = P T \Inv{P}$ avec 
-    $
-    \begin{pmatrix}
-        t_{1,1} & t_{1,2} & \cdots & t_{1,n} \\
-        0 & t_{2,2} & \cdots & t_{2,n} \\
-        \vdots & \ddots & \ddots & \vdots \\
-        0 & \cdots & 0 & t_{n,n}
-    \end{pmatrix}. 
-    $ \\
-    \underline{Analyse:} soit $(a_1, \dots, a_n)$ des scalaires non nuls. On pose $D \defeq \Diag(a_1, \dots, a_n)$ et $T' \defeq D T \Inv{D}$. On calcule
-    $$T'=
-    \begin{pmatrix}
-        t_{1,1} & \frac{a_1}{a_2}t_{1,2} & \frac{a_1}{a_3} t_{1,3} & \cdots & \frac{a_1}{a_n} t_{1,n} \\
-        0 & t_{2,2} & \frac{a_2}{a_3}t_{2,3} & \cdots & \frac{a_2}{a_n} t_{2,n} \\
-        0 & 0 & \ddots & & \vdots \\
-        \vdots & \vdots & \ddots & \ddots & \vdots \\
-        0 & 0 & \dots & 0 & t_{n,n}
-    \end{pmatrix}.
-    $$
-    On cherche un $n$-uplet $(a_1, \dots, a_n)$ tel que pour tout $(i < j) \in \llbracket 1, n \rrbracket^2$, $\left| \frac{a_i}{a_j}t_{i,j} \right| \leqslant \frac{1}{p} \ (\star)$. \\
-    Notons $m \defeq \max\limits_{i \in \llbracket 1, n \rrbracket} |a_i|$.
-    Soit $r > 0$. Pour tout $i \in \llbracket 1, n \rrbracket$, on pose $a_i \defeq \frac{1}{r^i}$. Alors, pour tout $(i < j) \in \llbracket 1, n \rrbracket^2, \left| \frac{a_i}{a_j} t_{i,j} \right| \leqslant r^{i-j}m$. Ainsi pour $r \geqslant pm$, la relation $(\star)$ est vérifiée. \\
-    \underline{Synthèse:} On pose $r \defeq pm$, $D \defeq \Diag(1/r, \dots, 1/r^n)$ et $Q = PD$. Alors la matrice $\Inv{Q} M Q$ est une matrice triangulaire $T = (t_{i,j})$ telle que pour tout $1 \leqslant i < j \leqslant n, |t_{i,j}| \leqslant \frac{1}{p}$.
-\end{solution}
-
-\begin{remarque}
-    On retrouve le fait que l'ensemble des matrices diagonalisables est dense dans l'ensemble des matrices carrées.
-\end{remarque}
 
 \section{Supplémentaire stable}
 

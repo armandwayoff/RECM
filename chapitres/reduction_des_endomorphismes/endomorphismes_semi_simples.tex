@@ -1,0 +1,64 @@
+\begin{prop}{}
+    Soit $E$ un $\R$-espace vectoriel de dimension finie, soit $f \in \Endo(E)$. On a : $f$ est diagonalisable si et seulement si tout sous-espace vectoriel de $E$ admet un supplémentaire par $f$.
+\end{prop}
+
+\begin{preuve}
+    \marginnote[0cm]{Un type}
+    \begin{itemize}
+        \item[$(\Leftarrow)$] Supposons $f$ diagonalisable. Soit $F$ un sous-espace vectoriel quelconque de $E$. Soit $(e_1, \dots, e_m)$ une base de $F$. Puisqu'on a supposé $f$ diagonalisable, il exsite une base $(v_1, \dots, v_n)$ de $E$ formée de vecteurs propres pour $f$. D'après le théorème de la base incomplète, on peut compléter la base $(e_1, \dots, e_m)$ de $F$ en une base $(e_1, \dots, e_m, e_{m+1}, \dots, e_n)$ de $E$, où on rajouté uniquement des vecteurs de notre base de vecteurs propres (c'est-à-dire $e_{m+1}, \dots, e_n$ ont été pris parmi les $v_i$). En effet, la famille $(e_1, \dots, e_m)$ est libre, et elle est contenue dans la famille génératrice $(e_1, \dots, e_m, v_1, \dots, v_n)$, donc il existe une famille $\mathcal{F}$ de vecteurs de $E$, telle que 
+        $$(e_1, \dots, e_m) \subseteq \mathcal{F} \subseteq (e_1, \dots, e_m, v_1, \dots, v_n)$$
+        et $\mathcal{F}$ à la fois libre et génératrice. \\
+        [il manque une explication supp] \\
+        On prend alors $G \defeq \Vect(e_{m+1}, \dots, e_n)$. C'est un supplémentaire de $F$ dans $E$, et il est stable par $f$ car $e_{m+1}, \dots, e_n$ sont des vecteurs propres de $f$.
+        \item[$(\Rightarrow)$] Réciproquement, supposons que tout 
+    \end{itemize}
+\end{preuve}
+
+Nous allons maintenant définir la notion d'endomorphisme semi-simple en relâchant un peu la
+condition de l'exercice ci-dessus : on va seulement demander aux sous-espaces stables de posséder
+un supplémentaire stable.
+
+\begin{defi}{Endomorphisme semi-simple}
+    Un endomorphisme $u$ est dit \emph{semi-simple} si tout sous-espace stable par $u$ admet un supplémentaire stable par $u$.
+\end{defi}
+
+\begin{prop}{Un critère de diagonalisabilité}
+    Soient $E$ un $\C$-espace vectoriel de dimension finie non nulle et $u \in \Endo(E)$. Alors l'endomorphisme $u$ est semi-simple si et seulement si il est diagonalisable.
+\end{prop}
+
+\begin{preuve}
+    \begin{itemize}
+        \item[$(\Leftarrow)$] On suppose que l'endomorphisme $u$ est diagonalisable. \\
+        Son polynôme caractéristique est scindé ce que l'on voit en mettant $u$ sous forme diagonale, et par invariance de $\chi$ par changement de base. \\
+        Soit $F$ un sous-espace de $E$. Soit $(e_1, \dots, e_n)$ une base de vecteurs propres de $u$ et $(f_1, \dots, f_p)$ une base de $F$. Par le théorème de la base incomplète, on peut compléter la famille libre $(f_1, \dots, f_p)$ en une base de $E$ en rajoutant $n-p$ vecteurs parmi la base $(e_1, \dots, e_n)$, quitte à réindexer, on peut supposer que c'est $(e_{p+1}, \dots, e_n)$, ces vecteurs engendrent alors un sous-espace stable supplémentaire de $F$.
+        \item[$(\Rightarrow)$] On construit une base de vecteurs propres de la manière suivante: prenons un hyperplan $H$ quelconque, il existe une droite stable supplémentaire, donc dirigée par un vecteur propre $e_1$. Si on a construit une famille libre de vecteurs propres $(e_1, \dots, e_k)$, on prend un hyperplan contenant $\Vect(e_1, \dots, e_k)$, et on trouve une droite stable $\Vect(e_{k+1})$ supplémentaire à $H$. On conclut par récurrence.
+    \end{itemize}
+\end{preuve}
+
+\begin{preuve}
+    \begin{itemize}
+        \item[$(\Leftarrow)$] Soit $F$ un sev de $E$ stable par $f$.
+        Posons $g \defeq f_{\vert F}$ qui est diagonalisable car $f$ l'est par hypothèse. \\
+        Soit $\mathscr{B}_F$ une base de $F$ formée de vep de $g$. \\
+        Soit $\mathscr{B}'$ une base de $E$ formée de vep de $f$ (qui existe car $f$ est diagonalisable). \\
+        On complète $\mathscr{B}_F$ est une base $\mathscr{B}$ de E en prenant des vep $(\varepsilon_1, \cdots, \varepsilon_r)$ de $\mathscr{B}'$. On note $(\lambda_1, \dots, \lambda_r)$ les valeurs propres associées. \\
+        On pose $G = \mathrm{Vect}(\varepsilon_1, \dots, \varepsilon_r)$. De cette manière, $F$ et $G$ sont supplémentaires. Montrons que $G$ est stable par $f$. \\
+        Soit $x = \sum\limits_{i=1}^{r} \mu_i \varepsilon_i \in G$. Donc $f(x) = \sum\limits_{i=1}^{r} \mu_i f(\varepsilon_i) =  \sum\limits_{i=1}^{r} \mu_i \lambda_i \varepsilon_i \in G$ et $G$ est stable par $f$.
+    
+        \item[$(\Rightarrow)$] Montrons que $f$ est diagonalisable. On va montrer que $E = \bigoplus\limits_{\lambda \in \Sp(f)} E_\lambda (f)$.
+        
+        \begin{enumerate}
+            \item \underline{Somme directe:} \\
+            On pose $F = \bigoplus\limits_{\lambda \in \Sp(f)} E_\lambda (f)$ et $\Sp(f) = (\lambda_1, \dots, \lambda_r)$. \\
+            Soit $x = \sum\limits_{i=1}^{r} x_i \in F$ où $x_i \in E_{\lambda_i}(f)$. Alors $f(x) = \sum\limits_{i=1}^{r} \underbrace{\lambda_i x_i}_{\in E_{\lambda_i}(f)} \in F$. Donc $F$ est stable par $f$.
+            \item Montrons que $F = E$. \\
+            Par hypothèse, $F$ admet un supplémentaire $G$ dans $\C^n$, stable par $f$. Montrons que $G = \{0\}$ en raisonnant par l'absurde. \\
+            On pose $g = f_{\vert F}$. D'après le théorème de \textsc{D'Alembert-Gauss} sur $\C$, $g$ admet au moins une valeur propre $\mu \in \C$ de vep associé $x_\mu$. On montre que $x_\mu \in F \cap G$. Or $F$ et $G$ sont supplémentaires donc $x_\mu = 0_E$: contradiction. D'où le résultat. 
+        \end{enumerate}
+        \item Considérer $R_\theta$. \textcolor{green}{à revoir}
+    \end{itemize}
+\end{preuve}
+
+\begin{exercice}
+    Décrire un contre-exemple à la réciproque dans $\R$, en dimension 2.
+\end{exercice}  

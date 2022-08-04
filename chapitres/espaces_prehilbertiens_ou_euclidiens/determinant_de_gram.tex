@@ -6,7 +6,7 @@
 
 \marginnote{Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'indépendance linéaire d'une famille de vecteurs.}
 
-\begin{prop}
+\begin{prop}{}
      La famille $(x_1, \dots, x_p)$ est liée si et seulement si $\Gram(x_1, \dots, x_p) = 0$.
 \end{prop}
 
@@ -88,7 +88,7 @@
         $$
     }
     Par linéarité du déterminant par rapport à la dernière colonne \note on obtient
-    $$\Gram(e_1, \dots, e_p, x) = \Gram(e_1, \dots, e_p, \pi_F(x)) + \norme{x - \pi_F(x)}^2 \Gram(e_1, \dots, e_p).$$
+    $$\Gram(e_1, \dots, e_p, x) = \Gram \big(e_1, \dots, e_p, \pi_F(x) \big) + \norme{x - \pi_F(x)}^2 \Gram(e_1, \dots, e_p).$$
     Comme $\pi_F(x) \in \Vect(e_1, \dots, e_p)$, le premier terme est nul et donc 
     $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
 \end{preuve}
@@ -108,15 +108,15 @@
             $\mathscr{P}_n$: \say{ pour toute famille libre $(x_1, \dots, x_n)$ de $E$, on a $\Gram(x_1, \dots, x_n) \leqslant \prod\limits_{i=1}^n \norme{x_i}^2$ }.
         \end{center}
         \begin{itemize}
-            \item[$\rhd$] Initialisation pour $n = 1$: soit $x_1 \in E$. $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée.
-            \item[$\rhd$] Hérédité: supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, g) \in F \times F^\perp$ tel que $x_{n+1} = f + g$. Par le théorème \vrefthm{distance_a_un_sous_espace_vectoriel} et par $\mathscr{P}_n$, 
-            $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{g} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
-            car par le théorème de \textsc{Pythagore}, $\norme{g} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
+            \item[$\rhd$] Initialisation pour $n = 1$: soit $x_1 \in E$. Par définition, $\Gram(x_1) = \langle x_1, x_1 \rangle = \norme{x_1}^2$ donc $\mathscr{P}_1$ est vérifiée.
+            \item[$\rhd$] Hérédité: supponsons $\mathscr{P}_n$ vraie. Soit $(x_1, \dots, x_n, x_{n+1})$ une famille libre de $E$. En notant $F \defeq \Vect(x_1, \dots, x_n)$, il existe $(f, \pi_F) \in F \times F^\perp$ tel que $x_{n+1} = f + \pi_F$. Par le théorème \vrefthm{distance_a_un_sous_espace_vectoriel} et par $\mathscr{P}_n$, 
+            $$\Gram(x_1, \dots, x_{n+1}) = \Gram(x_1, \dots, x_n) \norme{\pi_F} \leqslant \norme{x_1}^2 \cdots \norme{x_n}^2 \norme{x_{n+1}}^2$$
+            car par le théorème de \textsc{Pythagore}, $\norme{\pi_F} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
         \end{itemize}
     \end{itemize}
 \end{preuve}
 
-\begin{prop}
+\begin{prop}{}
     La matrice de \textsc{Gram} est symétrique positive.
 \end{prop}
 

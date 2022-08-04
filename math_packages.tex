@@ -156,7 +156,7 @@
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{prop}[1][]{%
+\newtcolorbox[auto counter,number within=chapter]{prop}[2][]{%
   enhanced jigsaw, % better frame drawing
   borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
   sharp corners, % No rounded corners
@@ -165,7 +165,7 @@
   % colback=RoyalBlue!10!white,
   colback=white,
   coltitle={RoyalBlue},  % Black colour for title
-  title={Proposition \thetcbcounter.\ },  % Fixed title
+  title={Proposition \thetcbcounter.\ #2 \\},  % Fixed title
   attach title to upper, % Move the title into the box
   #1
 }
