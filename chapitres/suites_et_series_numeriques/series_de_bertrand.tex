@@ -8,7 +8,25 @@
 \end{theo}
 
 \begin{preuve}
+    Distinguons trois cas selon les valeurs prises par $\alpha$:
+    \begin{enumerate}
+        \item[$\rhd$] si $\alpha > 1$, soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
+        $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
+        Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
+        \item[$\rhd$] si $\alpha < 1$, soit $\gamma \in ]\alpha, 1[$.Par croissances comparées,
+        $t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty$
+        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
+        \item[$\rhd$] si $\alpha = 1$, revenons aux intégrales partielles:
+        $$\int_{2}^{X} \frac{1}{t \ln^{\beta} (t)} \d t = 
+        \begin{cases}
+            \left[ \frac{\ln ^{1-\beta} (t)}{1-\beta} \right]_2 ^X & \text{si } \beta \not = 1, \\
+            \left[\ln (\ln(t)) \right]_2 ^X & \text{si } \beta = 1.
+        \end{cases}
+        $$
+        On en déduit que l'intégrale de la fonction $t \mapsto \frac{1}{t \ln^{\beta} (t)}$ converge sur $[2, + \infty[$ si et seulement si $\beta > 1$.
+    \end{enumerate}
 \end{preuve}
+
 
 \begin{exercice}
     \marginnote[0cm]{\cite{acamanes}}

@@ -1,17 +1,46 @@
-\marginnote[0cm]{Exercice 12 TD 11}
-
 \begin{defi}{Commutant d'une matrice}
     Soient $A \in \M_n(\R)$ et $C(A) \defeq \{ M \in \M_n(\R);\ MA = AM \}$.
 \end{defi}
 
-\emph{Toutes les questions ne sont pas abordées}
+\begin{exercice}
+    \marginnote[0cm]{\cite{exos_oraux} p. 119}
+    Soit $E$ un $\K$-espace vectoriel de dimension finie et $u \in \Endo(E)$. Démontrer que $C(u)$ a une structure de $\K$-espace vectoriel puis que, si $u$ est diagonalisable:
+    $$\dim C(u) = \sum_{\lambda \in \Sp(u)} \dim^2 E_\lambda(u).$$
+\end{exercice}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{exercice}
+    \marginnote[0cm]{Exercice 12 TD 11}
+    Soit $A \in \M_n(\R)$.
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item Montrer que $C(A)$ est un sous-espace vectoriel de $\M_n(\R)$ stable par multiplication.
+            \item Montrer que si $M \in C(A)$ et $M$ est inversible, alors $\Inv{M} \in C(A)$.
+        \end{enumerate}
+        \item Soit $D$ une matrice diagonale dont les coefficients diagonaux sont deux à deux distincts.
+        \begin{enumerate}
+            \item Déterminer $C(D)$.
+            \item Montrer que $(\I_n, D, \dots, D^{n-1})$ est une base de $C(D)$.
+        \end{enumerate}
+        \item On se limite au cas $n=2$.
+        \begin{enumerate}
+            \item Déterminer les matrices $A$ telles que $\dim C(A) = 4$.
+            \item Montrer que $\dim C(A) \geqslant 2$. 
+            \item On suppose que $\dim C(A) \geqslant 3$. En utilisant $F \defeq \Vect \{ \mathrm{E}_{1, 1}, \mathrm{E}_{1, 2} \}$ ou $G \defeq \Vect \{ \mathrm{E}_{2, 1}, \mathrm{E}_{2, 2} \}$, montrer que $A = \lambda \I_2$.
+            \item Pour tout $A \in \M_2(\R)$, déterminer une base de $C(A)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{exercice}
 
 \begin{enumerate}
     \item \emph{Montrer que C(A) est un sous-espace vectoriel de $\M_n(\R)$.} \\
     Au lieu de redémontrer les propriétés d'un sev, on peut voir $C(A)$ comme le \textbf{noyau de l'application linéaire} $M \mapsto MA - AM$ ce qui donne directement le résultat. 
-    \item \emph{Montrer que si $M \in C(A)$ et $M$ est inversible, alors $M^{-1} \in C(A)$.} \\
-    On veut montrer que $M^{-1} A = A M^{-1}$ i.e. $A = M A M^{-1}$ ce qui est vrai car $M A = A M$.
-    \item \emph{Soit $D$ une matrice diagonale dont les coefficients diagonaux notés $(d_i)_{i \in \llbracket 1, n \rrbracket}$ sont deux à deux distincts. Déterminer $C(D)$ et montrer que $\mathscr{B} = (\I_n, D, \dots, D^{n-1})$ est une base de $C(D)$.}
+    \item On veut montrer que $M^{-1} A = A M^{-1}$ i.e. $A = M A M^{-1}$ ce qui est vrai car $M A = A M$.
+    \item
     \begin{itemize}
         \item $C(D) = \mathscr{D}_n$ (l'ensemble des matrices diagonales de taille $n$) \textcolor{red}{(ne pas oublier de montrer la double inclusion)}.
         \item Comme $| \mathscr{B} | = \dim C(D)$, il suffit de montrer la liberté de $\mathscr{B}$. \\

@@ -11,7 +11,7 @@ $$ C_P \defeq
 $$
 \end{defi}
 
-\begin{theo}{}
+\begin{theo}{} \labthm{poly_carac_mat_comp}
     Soit $P \in \K[X]$. Le polynôme $P$ est égal au polynôme caractéristique de sa matrice compagnon:
     $$\chi_{C_P}(X) = P(X).$$
 \end{theo}   
@@ -55,6 +55,8 @@ $$
     On reconnaît la construction de $P$ par le schéma de \textsc{Horner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
 \end{preuve} 
 
+\subsection{Endomorphisme cyclique}
+
 \begin{defi}{Endomorphisme cyclique}
     \marginnote[0cm]{\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./c/cyclique.html}}
     Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $\big(x, u(x), \dots, u^{n-1}(x) \big)$ soit une base de $E$. 
@@ -62,7 +64,7 @@ $$
 
 Les endomorphismes cycliques admettent des matrices particulières dans la base précédente :
 
-\begin{prop}{}
+\begin{prop}{} 
     Soit $u$ un endomorphisme de $E$. Alors $u$ est cyclique si et seulement s'il existe une base de $E$ dans laquelle la matrice de $u$ est la matrice compagnon de son polynôme caractéristique.
 \end{prop}
 
@@ -71,8 +73,28 @@ Les endomorphismes cycliques admettent des matrices particulières dans la base 
 \end{prop}
 
 \begin{preuve}
-    
+    \marginnote[0cm]{\cite{exos_oraux} p. 58}
+    Tous les polynômes en $f$ commutent avec $f$. \\
+    Réciproquement, on va montrer que seuls les polynômes en $f$ commutent avec $f$. On note $\mathscr{B} = (e_0, \dots, e_{n-1})$ la base dans laquelle $f$ admet pour matrice la matrice compagnon de son polynôme caractéristique (qui existe d'après \textcolor{red}{lien}). Par définition, on a donc:
+    $$\forall p \in \llbracket 0, n-2 \rrbracket, f(e_p) = e_{p+1}. \quad (\star)$$
+    Soit donc $g \in \Endo(E)$ tel que $f \circ g = g \circ f$. Le vecteur $g(e_0)$ se décompose sur la base $\mathscr{B}$:
+    $$\exists (\lambda_0, \dots, \lambda_{n-1}) \in \K^n, g(e_0) = \sum_{k=0}^{n-1} \lambda_k e_k.$$
+    On va montrer que $g = \sum\limits_{k=0}^{n-1} \lambda_k f^k$. Pour cela, on va prouver que:
+    $$\forall p \in \llbracket 0, n-1 \rrbracket, g(e_p) = \left( \sum_{k=0}^{n-1} \lambda_k f^k \right)(e_p)$$
+    par récurrence sur $p$: l'égalité proviendra du fait que les deux applications linéaires $\sum\limits_{k=0}^{n-1} \lambda_k f^k$ et $g$ coïncident sur une base. 
+    \begin{itemize}
+        \item[$\rhd$] On a $f^k (e_0) = e_k$ par récurrence immédiate sur $k \in \llbracket 0, n-1 \rrbracket$. On a donc
+        $$g(e_0) = \sum_{k=0}^{n-1} \lambda_k f^k(e_0).$$
+        \item[$\rhd$] Supposons maintenant que $0 \leqslant p \leqslant n-2$ et que $g(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f^k (e_p)$. On compose par $f$, qui est linéaire: $(f \circ g)(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f \circ f^k (e_p)$. On utilise l'hypothèse de commutativité:
+        $$(g \circ f)(e_p) = \sum_{k=0}^{n-1} \lambda_k f^k \big( f(e_p) \big).$$
+        Cela s'écrit, grâce à $(\star)$: $g(e_{p+1}) = \sum\limits_{k=0}^{n-1} \lambda_k f^k(e_{p+1})$. La récurrence est établie et $g = \sum\limits_{k=0}^{n-1} \lambda_k f^k$. \\
+        Tout endomorphisme qui commute avec $f$ est donc un polynôme en $f$. Donc l'ensemble des endomorphismes commutant avec $f$ est:
+        $$\Vect( \Id_E, f, f^2, \dots, f^{n-1}),$$
+        on retrouve ainsi que c'est un sous-espace vectoriel de $\Endo(E)$.
+    \end{itemize}
 \end{preuve}
+
+\subsection{Théorème de \textsc{Cayley}-\textsc{Hamilton}}
 
 \begin{theo}{\textsc{Cayley}-\textsc{Hamilton}}
     Le polynôme caractéristique est un polynôme annulateur.
@@ -85,10 +107,10 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
 }
 
 \begin{exercice}
-    Soit $p$ un entier strictement positif et soit $M$ une matrice de $\M_p(\C)$.
+    Soit $p$ un entier strictement positif et soit $M$ une matrice de $\M_p(\C)$. \\
+    Étant donné un élément $x$ quelconque non nul de $\C^p$ on pose
+    $$\mu \defeq \min \{ r \geqslant 1\ \mid\ (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
     \begin{enumerate}
-        \item Étant donné un élément $x$ quelconque non nul de $\C^p$ on pose
-        $$\mu \defeq \min \{ r \geqslant 1\ \midrule \ (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
         \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
         $$
         \begin{pmatrix}
@@ -106,6 +128,33 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
     \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{solution}
     \marginnote[0cm]{Correction de la RMS 132 3}
-\end{preuve}
+    \begin{enumerate}
+        \item 
+        \begin{itemize}
+            \item La famille $(x, Mx, \dots, M^p x)$ est un système de $p+1$ vecteurs de $\C^p$ d'un espace vectoriel de dimension $p$. Il est donc lié. Il existe donc $\mu$, minimum de $r$ tel que $(x, Mx, \dots, M^r x)$ est lié et $\mu \leqslant p$. 
+            \item Par construction, $(x, Mx, \dots, M^{\mu-1} x)$ est libre et $(x, Mx, \dots, M^{\mu-1} x, M^\mu x)$ est lié. Il en résulte une égalité: 
+            $$M^\mu(x) = \alpha_0 x + \alpha_1 M x + \cdots + \alpha_{\mu-1} M^{\mu-1} x$$
+            pour un unique $\mu$-uplet $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^\mu$. \\
+            \item Notons $f$ l'endomorphisme $x \mapsto Mx$ de $\C^p$ et $V \defeq \Vect(x, Mx, \dots, M^{\mu-1} x)$; l'application $f$ envoie chaque $M^i x$, pour $0 \leqslant i \leqslant \mu - 1$, sur un élément de $V$. Ainsi $V$ est stabilisé par $f$.
+            Notons $e_1 \defeq x, e_2 \defeq M x, \dots, e_\mu \defeq M^{\mu-1} x$. Le système $(e_1, \dots, e_\mu)$ est une base de $V$. Complétons ce système par $(e_{\mu+1}, \dots, e_p)$ tels que $(e_1, \dots, e_p)$ est une base de $\C^p$. 
+            $$f(e_1) = e_2, \dots, f(e_{\mu-1}) = e_\mu, f(e_\mu) = -\alpha_{\mu-1} e_{\mu-1} - \cdots - \alpha_0 e_1.$$
+            \item Notons $\Pi$ le polynôme $X^\mu + \alpha_{\mu-1} X^{\mu-1} + \cdots + \alpha_1 X + \alpha_0$. La matrice de $f$ dans la base $(e_1, \dots, e_p)$ est une matrice 
+            $M' \defeq
+            \begin{pmatrix}
+                C_\Pi & L \\
+                O & N
+            \end{pmatrix}
+            $. Elle est bien du type voulu. \\
+            La matrice $M'$ est semblable à $M$ car $M$ et $M'$ représentent toutes deux $f$, l'une dans la base canonique et l'autre dans la base des $e_i$. 
+        \end{itemize}
+        \item On a $\Pi(M)x = M^\mu x - \alpha_{\mu-1}M^{\mu-1}x - \cdots - \alpha_0 x$. Or d'après \vrefthm{poly_carac_mat_comp}, on d'une part $\Pi = \chi_{C_\Pi}$ et d'autre part 
+        $$X \I_p - M' = \begin{pmatrix}
+            X \I_\mu - C_\Pi & -L \\
+            O & X \I_{p-\mu} - N
+        \end{pmatrix}.$$
+        Donc $\det(X \I_p - M') = \det(X \I_\mu - C_\Pi) \det(X I_{p-\mu} - N)$. Ainsi $\Pi$ divise $\chi_{M'}$ et comme $M'$ est semblable à $M$, $\chi_M = \chi_{M'}$. Il en résulte: $\chi_M(M)x = 0$.
+        \item Pour tout $x \in \C^p$, on a $\chi_M(M)x = 0$ c'est-à-dire que $\chi_M(M)$ est la matrice nulle.
+    \end{enumerate}
+\end{solution}

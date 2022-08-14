@@ -25,20 +25,14 @@
 \section{Intégration des relations de comparaisons}
 \input{chapitres/integration/integration_des_relations_de_comparaisons}
 
-\section{Transformée de \textsc{Fourier} de la loi normale}
-\input{chapitres/integration/transformee_de_fourier_de_la_loi_normale}
+% \section{Transformée de \textsc{Fourier} de la loi normale}
+% \input{chapitres/integration/transformee_de_fourier_de_la_loi_normale}
 
-\section{Intégrale à paramètre dans les bornes}
-\input{chapitres/integration/integrale_a_parametre_dans_les_bornes}
+% \section{Intégrale à paramètre dans les bornes}
+% \input{chapitres/integration/integrale_a_parametre_dans_les_bornes}
 
 \section{Intégrale de \textsc{Dirichlet}}
 \input{chapitres/integration/integrale_de_dirichlet}
-
-\section{Intégrabilité de \texorpdfstring{$\frac{\sin(t)}{t}$ sur $\Rpe$}{sin(t)/t sur R+*}}
-\input{chapitres/integration/integrabilite_du_sinus_cardinal}
-
-\section{Intégrale de \textsc{Dirichlet} via une intégrale à paramètre}
-\input{chapitres/integration/integrale_de_dirichlet_via_une_integrale_a_parametre}
 
 \section{Intégrales eulériennes}
 \input{chapitres/integration/integrales_euleriennes}
@@ -105,3 +99,20 @@
     $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
     On en déduit le résultat. 
 \end{preuve}
+
+\section{Sinus cardinal}
+
+\begin{exercice}
+    Pour $x$ réel, on pose 
+    $$f(x) \defeq
+    \begin{cases} 
+        \frac{\sin x}{x} &\text{si } x \not= 0 \\ 
+        1 &\text{si } x = 0 
+    \end{cases}.$$ 
+    Montrer que $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
+\end{exercice}
+
+\begin{solution}
+    \marginnote[0cm]{fic00126}
+    Pour $x$ réel non nul, $f(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!}$ ce qui reste vrai pour $x = 0$. La fonction $f$ est donc développable en série entière sur $\R$ et en particulier, la fonction $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
+\end{solution}

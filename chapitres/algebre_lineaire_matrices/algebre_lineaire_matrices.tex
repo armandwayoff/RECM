@@ -25,8 +25,8 @@
 \section{Applications de \texorpdfstring{$\M_n(\K) \to \K$}{l'espace des matrices carrées dans le corps K} conservant le produit}
 \input{chapitres/algebre_lineaire_matrices/applications_de_l_espace_des_matrices_carrees_dans_le_corps_K_conservant_le_produit}
 
-\section{Matrices compagnon et commutant d'un cyclique}
-\input{chapitres/algebre_lineaire_matrices/matrices_compagnon_et_commutant_d_un_cyclique}
+\section{Matrices compagnon}
+\input{chapitres/algebre_lineaire_matrices/matrices_compagnon}
 
 \section{Caractérisation des homothéties}
 \input{chapitres/algebre_lineaire_matrices/caracterisation_des_homotheties}
@@ -68,6 +68,14 @@
         \item Soient $A_1, \dots, A_n$ des matrices nilpotentes qui commutent deux à deux. Montrer que $A_1 \times \cdots \times A_n = 0$.
     \end{enumerate}
 \end{exercice}
+
+\begin{solution}
+    \marginnote[0cm]{\cite{maths-france} Planche no 5. Réduction. Corrigé}
+    Si $u$ est inversible,
+    $$\det(u+v) = \det(u) \Leftrightarrow \det(u) \times \det(\Id + \Inv{u}v) = \det(u) \Leftrightarrow \det(\Id + \Inv{u}v) = 1.$$
+    $u$ et $v$ commutent et donc $\Inv{u}$ et $v$ également. Mais alors, puisque $v$ est nilpotent, l'endomorphisme $w \defeq \Inv{u}v$ l'est également. Il reste donc à calculer $\det(\Id + w)$ où $w$ est un endomorphisme nilpotent. On remarque que $\det(\Id + w) = (-1)^n \chi_w(-1)$. Il est connu que $0$ est l'unique valeur propre d'un endomorphisme nilpotent et donc $\chi_w = X^n$ puis $\det(\Id+w) = 1$. \\
+    Le résultat est donc démontré dans le cas où $u$ est inversible. Si $u$ n'est pas inversible, $u + x \Id$ est inversible sauf pour un nombre fini de valeurs de $x$ et commute toujours avec $v$. Donc, pour tout $x$ sauf peut-être pour un nombre fini, $\det(u + x \Id + v) = \det(u + x \Id)$. Ces deux polynômes coïncident en une infinité de valeurs de $x$ et sont donc égaux. Ils prennent en particulier la même valeur en $0$ ce qui refournit $\det(u+v) = \det u$.
+\end{solution}
 
 \begin{solution}
     \begin{enumerate}
@@ -114,6 +122,11 @@
             On conclut en remarquant que $\Im \widetilde{n} = n(\Im u) = \Im (n \circ u)$.
         \end{preuve}
     \end{enumerate}
+    Revenons à la démonstration du résultat. \\
+    Soit $A_1, \dots, A_n$ des matrices nilpotentes qui commutent deux à deux. On suppose qu'elles sont toutes non nulles car si ça n'est pas le cas, le résultat est immédiat. \\
+    D'après le lemme,
+    $$0 \leqslant \Rg(A_1 \cdots A_n) < \Rg(A_1 \cdots A_{n-1}) < \cdots < \Rg(A_1) < n.$$
+    Donc $\Rg(A_1 \cdots A_n) = 0$ et $A_1 \cdots A_n$ est la matrice nulle.
 \end{solution}
 
 
@@ -138,8 +151,8 @@
     \end{align*}
     On composant cette relation par la trace on obtient d'après ses propriétés
     \begin{align*}
-        \Tr(A^p) &= \Tr(A^pB) - \Tr((A^{p-1}B)A) \\
-        &= \Tr(A^pB) - \Tr(A(A^{p-1}B)) \\
+        \Tr(A^p) &= \Tr(A^pB) - \Tr \big((A^{p-1}B)A \big) \\
+        &= \Tr(A^pB) - \Tr \big(A(A^{p-1}B) \big) \\
         \Tr(A^p) &= 0.
     \end{align*}
 \end{solution}
@@ -275,3 +288,75 @@ Il s'agit de la réciproque de l'exercice précédent.
     $$
     une matrice de rang $n-1$.
 \end{solution}
+
+\section{\cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
+
+\begin{exercice}
+    Soit $E \defeq \K_n[X]$. $u$ est l'endomorphisme de $E$ défini par: $\forall P \in E, u(P) = P(X+1) - P$.
+    \begin{enumerate}
+        \item Déterminer $\Ker u$ et $\Im u$.
+        \item Déterminer explicitement une base dans laquelle la matrice de $u$ est 
+        $
+        \begin{pmatrix}
+            0 & 1 & 0 & \cdots & 0 \\
+            \vdots & \ddots & \ddots & \ddots & \vdots \\
+            \vdots & & & \ddots & 0 \\
+            \vdots & & & \ddots & 1 \\
+            0 & \cdots & & \cdots & 0
+        \end{pmatrix}
+        $.
+    \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    Calculer l'inverse de 
+    $$
+    \begin{pmatrix}
+        \binom{0}{0} & \binom{1}{0} & \binom{2}{0} & \cdos & \binom{n-1}{0} & \binom{n}{0} \\
+        0 & \binom{1}{1} & \binom{2}{1} & \cdots & \cdots & \binom{n}{1} \\
+        \vdots & \ddots & \binom{2}{2} & & & \vdots \\
+        & & & & \ddots & & \\
+        & & & & & & \\
+        0 & \cdots & & \cdots & 0 & \binom{n}{n}
+    \end{pmatrix}
+    $$.
+\end{exercice}
+
+\begin{exercice}
+    Soient $n \geqslant 2$ et $\omega \defeq \me^{2 \mi \pi / n}$. \\
+    Soit $A \defeq \big( \omega^{(k-1)(\ell-1)} \big)_{1 \leqslant k, \ell \leqslant n}$. Montrer que la matrice $A$ est inversible et calculer $\Inv{A}$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $A \in \M_n(\K)$. Calculer le déterminant de sa comatrice. 
+\end{exercice}
+
+\begin{exercice}
+    Soit $A \in \M_n(\K)$. Étudier le rang la comatrice de $A$ en fonction du rang de $A$.
+\end{exercice}
+
+\begin{exercice}
+    Existe-t-il deux matrices carrées $A$ et $B$ telles que $AB-BA = \I_n$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $f$ une forme linéaire sur $\M_n(\C)$ ($n\geqslant2$) telle que $\forall (A, B) \in \M_n(\C), f(AB) = f(BA)$. Montrer qu'il existe un complexe $\alpha$ tel que $f = \alpha \Tr$.
+\end{exercice}
+
+\begin{exercice}
+    Pour $A$ matrice nilpotente donnée, on pose $\exp(A) \defeq \sum\limits_{k=0}^{+\infty} \frac{A^k}{k!}$.
+    \begin{enumerate}
+        \item Montrer que si $A$ et $B$ commutent et sont nilpotentes alors $A+B$ est nilpotente et $\exp(A+B) = \exp(A) \times \exp(B)$.
+        \item Montrer que $\exp(A)$ est inversible.
+        \item Calculer $\exp(A)$ où $A$ est un bloc de \textsc{Jordan}.
+    \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    Montrer que tout hyperplan de $\M_n(\R)$ contient des matrices inversibles.
+\end{exercice}
+
+\begin{exercice}
+    Soient $A_1, \dots, A_p$ des matrices distinctes et inversibles de $\M_n(\R)$ telles que $G \defeq \{ A_1, \dots, A_p \}$ soit stable par la multiplication. \\
+    Soit $A \defeq A_1 + \cdots + A_p$. Montrer que $\Tr A$ est un entier divisible par $p$.
+\end{exercice}

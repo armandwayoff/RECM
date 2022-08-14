@@ -1,5 +1,5 @@
 \begin{prop}{}
-    Soit $E$ un $\R$-espace vectoriel de dimension finie, soit $f \in \Endo(E)$. On a : $f$ est diagonalisable si et seulement si tout sous-espace vectoriel de $E$ admet un supplémentaire par $f$.
+    Soit $E$ un $\R$-espace vectoriel de dimension finie, soit $f \in \Endo(E)$. Alors $f$ est diagonalisable si et seulement si tout sous-espace vectoriel de $E$ admet un supplémentaire stable par $f$.
 \end{prop}
 
 \begin{preuve}
@@ -8,9 +8,11 @@
         \item[$(\Leftarrow)$] Supposons $f$ diagonalisable. Soit $F$ un sous-espace vectoriel quelconque de $E$. Soit $(e_1, \dots, e_m)$ une base de $F$. Puisqu'on a supposé $f$ diagonalisable, il exsite une base $(v_1, \dots, v_n)$ de $E$ formée de vecteurs propres pour $f$. D'après le théorème de la base incomplète, on peut compléter la base $(e_1, \dots, e_m)$ de $F$ en une base $(e_1, \dots, e_m, e_{m+1}, \dots, e_n)$ de $E$, où on rajouté uniquement des vecteurs de notre base de vecteurs propres (c'est-à-dire $e_{m+1}, \dots, e_n$ ont été pris parmi les $v_i$). En effet, la famille $(e_1, \dots, e_m)$ est libre, et elle est contenue dans la famille génératrice $(e_1, \dots, e_m, v_1, \dots, v_n)$, donc il existe une famille $\mathcal{F}$ de vecteurs de $E$, telle que 
         $$(e_1, \dots, e_m) \subseteq \mathcal{F} \subseteq (e_1, \dots, e_m, v_1, \dots, v_n)$$
         et $\mathcal{F}$ à la fois libre et génératrice. \\
-        [il manque une explication supp] \\
+        \textcolor{red}{il manque une explication supp} \\
         On prend alors $G \defeq \Vect(e_{m+1}, \dots, e_n)$. C'est un supplémentaire de $F$ dans $E$, et il est stable par $f$ car $e_{m+1}, \dots, e_n$ sont des vecteurs propres de $f$.
-        \item[$(\Rightarrow)$] Réciproquement, supposons que tout 
+        \item[$(\Rightarrow)$] Réciproquement, supposons que tout sous-espace vectoriel de $E$ admet un supplémentaire stable par $f$. Considérons
+        $$F \defeq \bigoplus_{\lambda \in \Sp f} \Ker(f - \lambda \Id)$$
+        le sous-espace vectoriel de $E$ formé de la somme directe des sous-espaces propres de $f$. Si $f$ n'était pas diagonalisable, $F$ serait strictement inclus dans $E$. Soit $H$ un hyperplan de $E$ contenant $F$. Alors par hypothèse $H$ admet un supplémentaire stable par $f$. Ce supplémentaire est une droite, engendrée par un vecteur propre de $f$. Mais c'est une contradiction car tous les vecteurs propres de $f$ sont dans $H$. Ainsi, $f$ est diagonalisable. 
     \end{itemize}
 \end{preuve}
 
@@ -35,6 +37,7 @@ un supplémentaire stable.
     \end{itemize}
 \end{preuve}
 
+Notes de la correction vue en cours.
 \begin{preuve}
     \begin{itemize}
         \item[$(\Leftarrow)$] Soit $F$ un sev de $E$ stable par $f$.

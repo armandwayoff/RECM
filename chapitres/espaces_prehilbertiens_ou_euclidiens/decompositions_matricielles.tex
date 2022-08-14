@@ -5,19 +5,16 @@
 
 \marginnote[1cm]{Cette décomposition est utilisée en analyse numérique pour résoudre des systèmes d'équations linéaires.}
 
-\begin{theo}{}
-    Décomposition $LU$ (ou $LR$) \\
+\begin{theo}{Décomposition $LU$ (ou $LR$)}
     Toute matrice $A \in \Gl_n(\R)$ peut s'écrire sous la forme $A = LU$ où $L$ est une matrice triangulaire inférieure (\emph{Lower}) ayant uniquement de $1$ sur la diagonale et $U$ est une matrice triangulaire supérieure (\emph{Upper}) si et seulement si tous les déterminants principaux de $A$ sont non nuls. \\
     Si elle existe, une telle décomposition est unique.
 \end{theo}
 
-\begin{theo}{}
-    Décomposition de \textsc{Cholesky} \\
+\begin{theo}{Décomposition de \textsc{Cholesky}}
     Une matrice réelle $A$ est symétrique définie positive si et seulement s'il existe une matrice inversible $B$ triangulaire inférieure telle que $A = B \Trsp{B}$. De plus, une telle décomposition est unique si on impose la positivité des coefficients diagonaux de $B$.  
 \end{theo}  
 
-\begin{theo}{}
-    Décomposition $QR$ \\
+\begin{theo}{Décomposition $QR$}
     Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = QR$, où $Q$ est une matrice orthogonale et $R$ est une matrice triangulaire supérieure à coefficients diagonaux strictement positifs. 
 \end{theo}
 
@@ -26,26 +23,24 @@
     Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = QDR$ où $Q$ est une matrice orthogonale, $D$ est une matrice diagonale à coefficients diagonaux strictement positifs et $R$ est une matrice triangulaire supérieure à coefficients diagonaux égaux à $1$. 
 \end{corol}
 
-\begin{theo}{}
-    Décomposition polaire \\
+\begin{theo}{Décomposition polaire}
     Toute matrice $A \in \Gl_n(\R)$ peut s'écrire de manière unique sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique définie positive. 
 \end{theo}
+Lire chapitre 7 de \cite{matrices} page 77.
 
 \begin{corol}
     Toute matrice $A \in \M_n(\R)$ peut s'écrire sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique positive.
 \end{corol}
 
 \subsection{Décomposition d'\textsc{Iwasama}}
-\begin{prop}{}
-    Soient $n \in \Ne$ et $M \in \Gl_n(\R)$. Il existe un unique couple $(T, O)$ tel que:
+\begin{theo}{}
+    Soient $n \in \Ne$ et $M \in \Gl_n(\R)$. Il existe un unique couple $(O, T)$ tel que:
     $$M = OT,$$
-    avec $T$ triangulaire supérieure à coefficients diagonaux strictement positifs et $O$ matrice orthogonale. 
-\end{prop}
-
+    avec $O$ une matrice orthogonale et $T$ une matrice triangulaire supérieure à coefficients diagonaux strictement positifs.
+\end{theo}
 Comme $M$ est inversible, c'est une matrice de changement de base. \\
 Le produit et l'inversibilité sont stables dans $\mathscr{T}_n^+$.
-
-\marginnote[-2cm]{
+\marginnote[0cm]{
     \begin{kaobox}[frametitle=Le procédé de \textsc{Gram}-\textsc{Schmidt}]
         Soit $E$ un espace vectoriel préhilbertien et soit $\mathscr{F} = (e_i)_{i \in I}$ une famille libre dans $E$; il existe une unique famille orthonormale $\mathscr{G} = (\varepsilon_i)_{i \in I}$ telle que pour tout $k \in \llbracket 1, n \rrbracket$,
         \begin{itemize}
@@ -55,20 +50,18 @@ Le produit et l'inversibilité sont stables dans $\mathscr{T}_n^+$.
         La famille $\mathscr{G}$ est appelée l'\emph{orthonormalisée (de \textsc{Gram}-\textsc{Schmidt})} de $\mathscr{F}$.
     \end{kaobox}
 }
-
 \begin{preuve}
     \begin{itemize}
-        \item \underline{Existence:} \\
-        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} \defeq (C_1, \dots, C_n)$ la famille des vecteurs colonnes de $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme une base de $\R^n$. Appliquons-lui le procédé d'orthonormalisation de \textsc{Gram}-\textsc{Schmidt}. \\
+        \item \textbf{Existence.} \\
+        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} \defeq (C_1, \dots, C_n)$ la famille des vecteurs colonnes de la matrice $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme une base de $\R^n$. Appliquons-lui le procédé d'orthonormalisation de \textsc{Gram}-\textsc{Schmidt}. \\
         Il existe une base orthonormée $\mathscr{B}_O \defeq (O_1, \dots, O_n)$ telle que pour tout $i \in \llbracket 1, n \rrbracket$
         $$\mathrm{Vect}(C_1, \dots, C_i) = \mathrm{Vect}(O_1,\dots, O_i) \quad (1) \quad \text{et} \quad \langle C_i, O_i \rangle > 0 \quad (2).$$
         On écrit 
         $$M = P_{\mathscr{B} \to \mathscr{C}} = P_{\mathscr{B} \to \mathscr{B}_O} \times P_{\mathscr{B}_O \to \mathscr{C}} \defeq OT.$$
-        Le caractère triangulaire de $T = P_{\mathscr{B}_O \to \mathscr{C}}$ vient de $(1)$ et la stricte positivité de sa diagonale de $(2)$.
-        \item \underline{Unicité:} \textcolor{green}{à compléter} \\
+        La matrice $O$ est une matrice de passage de la base canonique à une base orthonormée, elle est donc orthogonale. 
+        Le caractère triangulaire de la matrice $T$ vient de $(1)$ et la stricte positivité des termes sa diagonale de $(2)$.
+        \item \textbf{Unicité.} \\
+        Supposons qu'il existe deux décompositions d'\textsc{Iwasama}.
         Soit $M = OT = O'T'$. $T$ est inversible. $(O')^{-1}O =T'\Inv{T}$. Le premier terme est une matrice orthogonale et le second triangulaire supérieure car ces deux ensembles sont des groupes multiplicatifs. $B = T'\Inv{T}$ est diagonale (schéma) de coeff...
     \end{itemize} 
 \end{preuve}
-
-\subsection{Décomposition polaire d'une matrice}
-Lire chapitre 7 de \cite{matrices} page 77.

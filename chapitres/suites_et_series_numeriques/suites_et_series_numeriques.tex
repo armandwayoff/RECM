@@ -90,3 +90,86 @@ c'est-à-dire que
 $$\lim_{N \to \infty} s_N = s,$$
 la série converge. 
 
+\section{Complément: Suites de \textsc{Cauchy}}
+
+Issu du cours de Sophie \textsc{Dede} (Stanislas Paris). \\
+\begin{defi}{Suite de \textsc{Cauchy}}
+    Soit $(u_n)_{n \in \N}$ une suite réelle. La suite $(u_n)_{n \in \N}$ est dite de \textsc{Cauchy} si et seulement si :
+    $$\forall \varepsilon > 0, \exists N \in \N, \forall n \geqslant N, \forall p \in \N, |u_{n+p} - u_n| \leqslant \varepsilon.$$
+\end{defi}
+
+\begin{prop}{}
+    Soit $(u_n)_{n \in \N}$ une suite réelle convergente: $(u_n)_{n \in \N}$ est une suite de \textsc{Cauchy}.
+\end{prop}
+
+\begin{preuve}
+    Soit $\ell \defeq \lim\limits_{n \to \infty} u_n:\ \forall \varepsilon > 0, \exists N \in \N, \forall n \geqslant N, |u_n - \ell| \leqslant \frac{\varepsilon}{2}$. \\
+    Donc, à l'aide de l'inégalité triangulaire, on obtient,
+    $$\forall n \geqslant N, \forall p \in \N, |u_{n+p} - u_n| \leqslant |u_{n+p} - \ell| + |u_n - \ell| \leqslant \varepsilon,$$
+    car $n + p \geqslant N$.
+\end{preuve}
+
+\begin{theo}{}
+    Toute suite réelle de \textsc{Cauchy} converge dans $\R$.
+\end{theo}
+
+Pour prouver ce résultat, on commence par démontrer deux lemmes.
+
+\begin{lemme}
+    Soit $(u_n)_{n \in \N}$ une suite réelle de \textsc{Cauchy} qui admet une sous-suite convergente dans $\R$, alors $(u_n)_{n \in \N}$ est convergente. 
+\end{lemme}
+
+\begin{preuve}
+    Soit $\varphi : \N \to \N$ strictement croissante telle que $\left( u_{\varphi(n)} \right)_{n \in \N}$ converge vers $\ell \in \R$:
+    $$\forall \varepsilon > 0, \exists N \in \N, n \geqslant N \Rightarrow |u_{\varphi(n)} - \ell| \leqslant \varepsilon.$$
+    La suite $(u_n)_{n \in \N}$ est de \textsc{Cauchy}, donc: $\forall \varepsilon > 0, \exists N' \in \N, \forall n \geqslant N', \forall p \in \N, |u_{n+p} - u_n| \leqslant \varepsilon$. \\
+    De plus, $\forall n \in \N, \varphi(n) \geqslant n$, donc si $n \geqslant \max \{ N, N' \}$, on a:
+    $$\forall p \in \N, |u_{\varphi(n) + p} - \ell| \leqslant |u_{\varphi(n) + p} - u_{\varphi(n)}| + |u_{\varphi(n)} - \ell| \leqslant 2 \varepsilon.$$
+    Donc, en notant $N'' \defeq \varphi \big( \max \{ N, N' \} \big)$, on a:
+    $$\forall p \in \N, |u_{N'' + p} - \ell| \leqslant 2 \varepsilon.$$
+    Ainsi, 
+    $$\forall n \geqslant N'', |u_n - \ell| \leqslant 2 \varepsilon,$$
+    donc, $(u_n)_{n \in \N}$ converge vers $\ell$.
+\end{preuve}
+
+\begin{lemme}
+    Toute suite de \textsc{Cauchy} est bornée.
+\end{lemme}
+
+\begin{preuve}
+    Soit $(u_n)_{n \in \N}$ une suite réelle de \textsc{Cauchy}:
+    $$\forall \varepsilon > 0, \exists N \in \N, \forall n \geqslant N, \forall p \in \N, |u_{n+p} - u_n| \leqslant \varepsilon.$$
+    Donc, 
+    $$\exists N \in \N, \forall p \in \N, |u_{N+p} - u_N| \leqslant 1.$$
+    Ainsi, 
+    $$\forall p \in \N, |u_{N+p}| \leqslant 1 + |u_N|.$$
+    On en déduit:
+    $$\forall n \in \N, |u_n| \leqslant \max \big\{ |u_0|, \dots, |u{N-1}|, |u_N|+1 \big\}.$$
+\end{preuve}
+
+Revenons à la démonstration du théorème.
+
+\begin{preuve}
+    Soit $(u_n)_{n \in \N}$ une suite réelle de \textsc{Cauchy}. D'après le second lemme, la suite $(u_n)_{n \in \N}$ est bornée donc d'après le théorème de \textsc{Bolzano}-\textsc{Weierstrass}, $(u_n)_{n \in \N}$ admet une sous-suite convergente. Donc, d'après le premier lemme, $(u_n)_{n \in \N}$ est convergente. 
+\end{preuve}
+
+\begin{defi}{Ensemble complet}
+    On dit alors que $\R$ est complet, c'est-à-dire que toute suite de \textsc{Cauchy} réelle est convergente et admet une limite dans $\R$. 
+\end{defi}
+
+\begin{remarque}
+    $$\forall \varepsilon > 0, \exists N \in \N, n \geqslant N \Rightarrow |u_{n+1} - u_n| \leqslant \varepsilon$$
+    n'entraîne pas la convergence de la suite $(u_n)_{n \in \N}$.
+\end{remarque}
+
+En effet, si pour tout $n \in \N$ on pose $u_n \defeq = \ln(n+1)$ alors
+$$\forall n \in \N, |u_{n+1} - u_n| \leqslant \ln \left( 1 + \frac{1}{n+1} \right) \leqslant \frac{1}{n+1}.$$
+On en déduit
+$$\forall \varepsilon > 0, n \geqslant \left \lfloor \frac{1}{\varepsilon} \right \rfloor \Rightarrow |u_{n+1} - u_n| \leqslant \varepsilon,$$
+et pourtant la suite $(u_n)_{n \in \N}$ diverge vers $+ \infty$.
+
+\begin{remarque}
+    $\Q$ n'est pas complet.
+\end{remarque}
+
+En effet, si pour tout $n \in \N$, on pose $u_n \defeq \frac{\lfloor 10^n \sqrt{2} \rfloor}{10^n}$. La suite $(u_n)_{n \in \N}$ est à valeurs rationnelles et converge vers $\sqrt{2} \in \R \setminus \Q$. 

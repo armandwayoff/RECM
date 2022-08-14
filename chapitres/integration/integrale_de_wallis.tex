@@ -4,15 +4,27 @@ Voir \nameref{preuve_stirling} aussi la page \url{https://fr.wikipedia.org/wiki/
     $$\Wallis_n \defeq \int_{0}^{\frac{\pi}{2}} \sin^n x \d x = \int_{0}^{\frac{\pi}{2}} \cos^n x \d x$$
 \end{defi}
 
-\begin{prop}{}
+\begin{prop}{} \labprop{prop_wallis}
     $$\Wallis_{2p} = \frac{\binom{2p}{p}}{2^{2p}}\frac{\pi}{2} \text{ et } \Wallis_{2p+1} = \frac{2^{2p} (p!)^2}{(2p+1)!}$$
     $$\Wallis_{n+1} \sim \Wallis_n \qquad \Wallis_n \sim \sqrt{\frac{\pi}{2n}}$$
-    $$\Wallis_n \Wallis_{n=1} = \frac{\pi}{2(n+1)}$$
+    $$\Wallis_n \Wallis_{n+1} = \frac{\pi}{2(n+1)}$$
 \end{prop}
 
-\underline{Produit de Wallis (1665):}
-$$\prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{\pi}{2}$$
-
 \begin{exercice}
-    Soit $x \in ]0,1[$. Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$ puis $\sum\limits_{n=0}^\infty x^n \Wallis_n$.
+    Soit $x \in ]0,1[$. Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$ puis $\sum\limits_{n=0}^\infty \Wallis_n x^n$.
 \end{exercice}
+
+\begin{solution}
+    \marginnote[0cm]{fic00126}
+    D'après \vrefprop{prop_wallis}, $\displaystyle \Wallis_n \isEquivTo{n \to + \infty} \sqrt{\frac{\pi}{2n}}$ et la règle de \textsc{d'Alembert} fournit $R = 1$. Soit $x \in ]-1, 1[$. \\
+    Pour tout $t \in \left[ 0, \frac{\pi}{2} \right]$ et tout entier naturel $n$, $|x^n \cos^n t| \leqslant |x|^n$. Comme la série numérique de terme général $|x|^n$ converge, la série de fonctions de terme général $t \mapsto x^n \cos^n t$ est normalement convergente et donc uniformément convergente sur le segment $\left[ 0, \frac{\pi}{2} \right]$. D'après le théorème d'intégration terme à terme sur un segment, 
+    \begin{align*}
+        \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \sum_{n=0}^{+ \infty} \left[ x^n \int_0^{\pi/2} \cos^n t \d t \right] = \int_0^{\pi/2} \left( \sum_{n=0}^{+\infty} x^n \cos^n t \right) \d t = \int_0^{\pi/2} \frac{1}{1 - x \cos t} \d t \\
+        &= \int_0^1 \frac{1}{1 - x \frac{1-u^2}{1+u^2}} \frac{2}{1 + u^2} \d u \quad \text{en posant } u = \tan \frac{t}{2} \\
+        &= 2 \int_0^1 \frac{1}{(1+x)u^2 + (1-x)} \d u = 2 \times \frac{1}{1+x} \times \frac{1}{\sqrt{\frac{1-x}{1+x}}} \left[ \arctan \left( \frac{u}{\sqrt{\frac{1-x}{1+x}}} \right) \right]_0^1 \\
+        \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \frac{2}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}}.
+    \end{align*}
+\end{solution}
+
+\subsection{\textsc{Gain de raisin}: Produit de \textsc{Wallis}}
+$$\prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{\pi}{2}$$

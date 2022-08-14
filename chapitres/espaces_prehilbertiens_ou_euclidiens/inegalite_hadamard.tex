@@ -4,49 +4,60 @@
 %\end{marginfigure}
 
 \begin{theo}{Inégalité d'\textsc{Hadamard}}
-    Soit $M \in \M_n(\C)$ et soient $X_1, \dots, X_n$ les vecteurs colonnes de $M$. Alors,
-    $$|\mathrm{det}(M)| \leqslant \prod_{i=1}^{n} \Vert X_i \Vert$$
-    avec égalité si et seulement si la famille $(X_i)$ est orthogonale.
+    Soit $M \in \M_n(\C)$ et soient $X_1, \dots, X_n$ ses vecteurs colonnes. Alors,
+    $$|\mathrm{det} M | \leqslant \prod_{i=1}^{n} \Vert X_i \Vert$$
+    avec égalité si et seulement si la famille $(X_i)_{1 \leqslant i \leqslant n}$ est orthogonale.
 \end{theo}
 
 %\begin{marginfigure}[-2cm]
 %    \input{illustrations/i_inegalite_hadamard_bis}
 %\end{marginfigure}
 
-Voyons deux démonstrations de ce résultat; une première en utilisant la décomposition d'\textsc{Iwasama} et une deuxième le \emph{corollaire 5.1}.
+Voyons deux démonstrations de ce résultat; une première en utilisant la décomposition d'\textsc{Iwasama} et une deuxième le \refthm{inegalite_gram}.
 
 \begin{preuve}
     \begin{itemize}
-        \item Si la matrice $M$ n'est pas inversible, le résultat est immédiat. 
-        \item Supposons que $M$ est inversible. D'après la décomposition d'\textsc{Iwasama}, il existe une matrice $O \in \mathscr{O}_n(\C)$ et $T \defeq (t_{i,j})$, triangulaire supérieure dont les coefficients diagonaux sont strictement positifs telles que $M = OT$. D'après la multiplicité du déterminant, 
-        $$\det(M) = \underbrace{\det(O)}_{= \pm 1} \det(T)$$
-        donc
+        \item Si la matrice $M$ n'est pas inversible alors $\det M = 0$ et comme une norme est à valeurs positives, le résultat est immédiat. 
+        \item Supposons que $M$ est inversible. D'après la décomposition d'\textsc{Iwasama}, il existe une matrice $O \in \mathscr{O}_n(\C)$ et $T \defeq (t_{i,j})_{1 \leqslant i, j \leqslant n}$, triangulaire supérieure dont les coefficients diagonaux sont strictement positifs telles que $M = OT$. D'après la multiplicité du déterminant, 
+        $$\det M = \det(O) \det(T).$$
+        Or $\det O = \pm 1$ donc
         \begin{equation} \label{det}
-            |\det(M)| = |\det(T)| = \prod_{i=1}^{n} |t_{i,i}|.
+            |\det M | = |\det T | = \prod_{i=1}^{n} |t_{i,i}|.
         \end{equation}
-        Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} = \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
+        Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} \defeq \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
         $$|t_{i,i}| = |\langle X_i, O_i \rangle | \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$
         Ainsi d'après (\ref{det}), 
         $$|\det(M)| \leqslant \prod_{i=1}^n \norme{X_i}.$$
     \end{itemize}
+        \textcolor{red}{cas d'égalité}
 \end{preuve}
 
 \begin{preuve}
-    Si la matrice $M$ n'est pas inversible, le résultat est immédiat. Supposons que $M$ est inversible. On a $\Trsp{M} M = \Gram(X_1, \dots, X_n)\ (\star)$, la matrice de \textsc{Gram} de la famille des colonnes de la matrice $M$. D'après le (\ref{inegalite_gram}), 
-    $$\Gram(X_1, \dots, X_n) \leqslant \prod_{i=1}^n \norme{X_i}^2.$$
-    Ainsi, en composant $(\star)$ par le déterminant, 
-    $$\det(\Trsp{M}M) = \det(M)^2 = \det \Gram(X_1, \dots, X_n) \leqslant \prod_{i=1}^n \norme{X_i}^2.$$
-    En passant à la racine on obtient l'inégalité d'\textsc{Hadamard}.
+    \begin{itemize}
+        \item Si la matrice $M$ n'est pas inversible, le résultat est immédiat. 
+        \item Supposons que $M$ est inversible. On a 
+        $$\Trsp{M} M = \Gram(X_1, \dots, X_n),$$ 
+        la matrice de \textsc{Gram} de la famille des colonnes de la matrice $M$. 
+        En composant cette relation par le déterminant, 
+        $$\det(\Trsp{M}M) = \det \big( \Gram(X_1, \dots, X_n) \big) = \det(M)^2 $$
+        car $\det(\Trsp{M}) = \det M$.
+        D'après le (\ref{inegalite_gram}), 
+        \begin{align*}
+            &\det \Gram(X_1, \dots, X_n) &\leqslant \prod_{i=1}^n \norme{X_i}^2 \\
+            \text{soit } & \det (M)^2 &\leqslant \prod_{i=1}^n \norme{X_i}^2
+        \end{align*}
+        En passant à la racine on obtient l'inégalité d'\textsc{Hadamard}.
+    \end{itemize}
 \end{preuve}
 
-L'inégalité d'\textsc{Hadamard} nous apprend en fait que le volume du parallélotope défini par les vecteurs colonnes est inférieur ou égal au produit des normes de ses vecteurs et il y a égalité si et seulement si la matrice est diagonale, ou encore que le parallélotope est rectangle. 
-
-\marginnote[-2cm]{
+\marginnote[0cm]{
     \begin{kaobox}[frametitle=Parallélotope]
         Soit $(x_1, \dots, x_n)$ une famille libre. Le parallélotope engendré par cette famille est défini par
         $$P \defeq \left\{ x = \sum_{i=1}^n t_i x_i,\ \forall i\ t_i \in [0,1]\right\}.$$
     \end{kaobox}
 }
+
+L'inégalité d'\textsc{Hadamard} nous apprend que le volume du parallélotope défini par les vecteurs colonnes est inférieur ou égal au produit des normes de ses vecteurs et il y a égalité si et seulement si la matrice est diagonale, ou encore que le parallélotope est rectangle. 
 
 \begin{prop}{}
     Soient $\mathscr{S}_n ^{++} (\R)$ l'ensemble des matrices réelles d'ordre $n$ symétriques à valeurs propres strictement positives et $A = (a_{i,j}) \in \mathscr{S}_n ^{++} (\R)$. Alors,

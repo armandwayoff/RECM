@@ -25,3 +25,23 @@
 
 \section{Déterminant par blocs}
 \input{chapitres/determinants/determinant_par_blocs}
+
+\section{Dérivée du déterminant}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 4. Révision algèbre linéaire.
+Déterminants}
+    \begin{enumerate}
+        \item Soient $a_{i,j}$, $1 \leqslant i, j \leqslant n$, $n^2$ fonctions dérivables sur $\R$ à valeurs dans $\C$. Soit $d \defeq \det(a_{i,j})_{1 \leqslant i, j \leqslant n}$. Montrer que $d$ est dérivable sur $\R$ et calculer $d'$.
+        \item Application: calculer
+        $
+        d_n(x) \defeq
+        \begin{vmatrix}
+            x+1 & 1 & \cdots & 1 \\
+            1 & \ddots & \ddots & \vdots \\
+            \vdots & \ddots & \ddots & 1 \\
+            1 & \cdots & 1 & x+1
+        \end{vmatrix}
+        $.
+    \end{enumerate}
+\end{exercice}

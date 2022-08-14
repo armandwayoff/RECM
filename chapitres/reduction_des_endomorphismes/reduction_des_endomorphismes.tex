@@ -81,12 +81,36 @@ Cet endomorphisme nous sert essentiellement à mesurer le défaut de commutativi
     Soit $A \in \M_n(\K)$ une matrice diagonalisable. Montrer que $\mathrm{ad}_A$ est diagonalisable.
 \end{exercice}
 
+\section{\textsc{Grain de raisin:} Décomposition de \textsc{Dunford}}
+
+\begin{Large}
+    Trigonalisation
+\end{Large}
+
+\textsl{La diagonalisation ne permet pas de caractériser toutes les classes de similitude de $\M_n(\K)$. Lorsque le corps de base est égal à $\C$, le polynôme caractéristique d'une matrice $A \in \M_n(\C)$ est toujours scindé et $A$ est alors trigonalisable. Le lemme des noyaux permet même dans ce cas de trigonaliser $A$ sous une forme diagonale par blocs avec pour chaque bloc diagonal une unique valeur propre. Cela conduit à la notion de sous-espace caractéristique et à la décomposition de \textsc{Jordan}-\textsc{Dunford}: dans le cas abstrait, tout endomorphisme $u$ d'un $\C$-espace vectoriel de dimension finie s'écrit de manière unique sous la forme $u = d + n$ où $d$ est diagonalisable, $n$ est nilpotent et commute avec $d$. (H.P. CPGE). Cette décomposition amène l'attention sur les classes de similitude des endomorphismes nilpotents. Avec un peu de travail il est alors possible d'obtenir le théorème de \textsc{Jordan} qui règle complètement la question de la détermination des classes de similitude sur un corps algébriquement clos. \\
+Dans le cadre général, l'outil fondamental pour élucider les classes de similitude de $\M_n(\K)$ est la notion d'endomorphisme cyclique.
+}
+
+\marginnote[0cm]{\cite{maths-france} Planche no 5. Réduction}
+\begin{exercice}
+    Soit $E$ un $\K$-espace vectoriel de dimension finie non nulle et $f$ un endomorphisme de $E$ dont le polynôme caractéristique est scindé sur $\K$.
+    Montrer qu’il existe un couple d’endomorphismes $(d, n)$ et un seul tel que $d$ est diagonalisable, $n$ est nilpotent, $n$ et $d$ commutent, et $f = d + n$.
+\end{exercice}
+
+\begin{solution}
+    Posons $\chi_f \defeq \prod\limits_{k=1}^p (X - \lambda_k)^{\alpha_k}$ où $\lambda_1, \dots, \lambda_p$ sont les valeurs propres deux à deux distinctes de $f$. \\
+    Soit $E'_k \defeq \Ker(f - \lambda_k \Id)^{\alpha_k}$ ($E'_k$ s'appelle le sous-espace caractéristique de $f$ associé à la valeur propre $\lambda_k$, $1 \leqslant k \leqslant p$). D'après le théorème de décomposition des noyaux, $E = E'_1 \oplus \cdots \oplus E'_p$. De plus, la restriction de $f$ à $E'_k$ induit un endomorphisme $f_k$ de $E'_k$ (car $f$ et $(f - \lambda_k \Id)^{\alpha_k}$ commutent). \\
+    On note que $(f_k - \lambda_k \Id)^{\alpha_k} = 0$ et donc $\lambda_k$ est l'unique valeur propre de $f_k$ car toute valeur propre de $f_k$ est racine du polynôme annulateur $(X-\lambda_k)^{\alpha_k}$. \\
+    \textbf{Existence de $d$ et $n$.} On définit $d$ par ses restrictions $d_k$ aux $E'_k$, $1 \leqslant k \leqslant p$: $d_k$ est l'homothétie de rapport $\lambda_k$. Puis on définit $n$ par $n = f-d$. \\
+    $d$ est diagonalisable car toute base de $E$ adaptée à la décomposition $E = E'_1 \oplus \cdots \oplus E'_p$ est une base de vecteurs propres de $d$. De plus, $f = d + n$. \\
+    Soit $n_k$ l'endomorphisme de $E'_k$ induit par $n$. On a $n_k = f_k - \lambda_k \Id_{E'_k}$ et par définition de $E'_k$, $n_k^{\alpha_k} = 0$. Mais alors, si on pose $\alpha \defeq \max \{ \alpha_1, \dots, \alpha_p \}$, on a $n_k^\alpha = 0$ pour tout $k \in \llbracket 1, p \rrbracket$ et donc $n^\alpha = 0$ (les endomorphismes $n^\alpha$ et $0$ coïncident sur des sous-espaces supplémentaires). Ainsi, $n$ est nilpotent. Enfin, pour tout $k \in \llbracket 1, p \rrbracket$, $n_k$
+\end{solution}
+
 A rajouter:
 \begin{itemize}
     \item Matrices dont le spectre est un singleton
     \item Endomorphismes symétriques à valeurs propres positives
     \item Critère de non-diagonalisabilité sur $\C$
-    \item Commutant d'un endomorphisme diagonalisable 
 \end{itemize}
 
 \newpage
@@ -104,9 +128,9 @@ A rajouter:
         \forall \lambda \in \Sp(f), m_{\lambda} = \dim E_\lambda(f)
         \end{cases} \\
         &\Longleftrightarrow \prod_{\lambda \in \Sp(f)}(X-\lambda) \in \mathrm{Ann}(f)\\
-        &\Longleftrightarrow \exists P \in \mathrm{Ann}(f) \text{ SARS} \\
+        &\Longleftrightarrow \exists P \in \mathrm{Ann}(f) \text{ \textsc{sars}} \\
         &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
-        &\Longleftarrow \chi_f \text{ SARS} \\
+        &\Longleftarrow \chi_f \text{ \textsc{sars}}\\
         &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)
     \end{align*}
     \end{Large}

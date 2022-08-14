@@ -1,34 +1,60 @@
 \begin{defi}{Matrice et déterminant de \texdtsc{Gram}}
-    Soit $E$ un espace euclidien et $(x_1, \dots, x_p)$ une famille d'éléments de $E$. On définit
-    $$\text{la matrice de \textsc{Gram} } \Gram \defeq \left( \langle x_i, x_j \rangle \right)_{i,j \in \llbracket 1, p \rrbracket}$$
-    $$\text{le déterminant de \textsc{Gram} } \Gram(x_1, \dots, x_p) \defeq \det \Gram.$$
+    Soient $E$ un espace euclidien et $(x_1, \dots, x_p) \in E^n$. On définit la matrice de \textsc{Gram} par
+    $$\Gram(x_1, \dots, x_p) \defeq \big( \langle x_i, x_j \rangle \big)_{i,j \in \llbracket 1, p \rrbracket}.$$
 \end{defi}
 
 \marginnote{Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'indépendance linéaire d'une famille de vecteurs.}
 
 \begin{prop}{}
-     La famille $(x_1, \dots, x_p)$ est liée si et seulement si $\Gram(x_1, \dots, x_p) = 0$.
+    $$\Rg \big( \Gram(x_1, \dots, x_n) \big) = \Rg(x_1, \dots, x_n)$$
 \end{prop}
 
 \begin{preuve}
-    \begin{itemize}
-        \item[$(\Rightarrow)$] Il existe une famille $(\lambda_1, \dots, \lambda_p)$ non nulle  de $\R^n$ telle que $\sum\limits_{i=1}^{p} \lambda_i x_i = 0$. On montre alors que pour toute ligne $L_i$ de $\Gram$, $\sum\limits_{i=1}^{p} \lambda_i L_i = 0$ ce qui permet de conclure.
-        \item[$(\Leftarrow)$] Raisonner par contraposée, on suppose $\mathscr{F} = (x_1, \dots, x_p)$ libre. \\
-        Soit $\mathscr{B} = (\varepsilon_1, \dots, \varepsilon_n)$ une b.o.n. de $E$ et $H \in \M_{n, p} (\R)$ la matrice de $\mathscr{F}$ dans $\mathscr{B}$. \\
-        Alors $\Trsp{H} H = \Gram(x_1, \dots, x_p)$. \\
-        Montrons la chaîne :
-        $$\Rg(G) = \underbrace{\Rg(\Trsp{H} H) = \Rg(H)}_{\text{à montrer}} = \Rg(\mathscr{F}) = p \not= 0$$
-        Montrer que $\Rg(\Trsp{H} H) = \Rg(H)$ en montrant que $\Ker(\Trsp{H} H) = \Ker(H)$. 
-        \begin{itemize}
-            \item[$(\subset)$] oui
-            \item[$(\supset)$] Soit $X \in \Ker(\Trsp{H}H)$. On montre que $\norme{BX} = 0 \Rightarrow BX = 0$. 
-        \end{itemize}
-        Par le \ptnclegras{théorème du rang}, on obtient le résultat. 
-    \end{itemize}
+    \marginnote[0cm]{\cite{maths-france} Planche 6 Maths SPE}
+    Soient $F \defeq \Vect(x_1, \dots, x_n)$ et $m \defeq \dim F$. Soient $\mathscr{B} \defeq (e_i)_{1 \leqslant i \leqslant m}$ une base orthonormée de $F$ puis $M$ la matrice de la famille $(x_j)_{1 \leqslant j \leqslant n}$ dans la base $\mathscr{B}$. La matrice $M$ est une matrice rectangulaire de format $(m, n)$. \\
+    Soit $(i, j) \in \llbracket 1, m \rrbracket \times \llbracket 1, n \rrbracket$. Puisque la base $\mathscr{B}$ est orthonormée, le coefficient $[ \Trsp{M} M ]_{i,j}$ est 
+    $$\sum_{k=1}^m m_{k,i} m_{k,j} = \langle x_i, x_j \rangle,$$
+    et on a donc
+    $$\Gram(x_1, \dots, x_n) = \Trsp{M} M.$$
+    Puisque $\Rg(x_1, \dots, x_n) = \Rg M$, il s'agit de vérifier que $\Rg(\Trsp{M} M) = \Rg M$. Pour cela, montrons que les matrices $M$ et $\Trsp{M} M$ ont le même noyau. \\
+    Soit $X \in \M_{n,1}(\R)$.
+    \begin{align*}
+        X \in \Ker M &\Rightarrow MX = 0 \\
+        &\Rightarrow \Trsp{M}MX = 0 \\
+        &\Rightarrow X \in \Ker(\Trsp{M}M)
+    \end{align*}
+    et aussi
+    \begin{align*}
+        X \in \Ker \big( \Trsp{M}M \big) &\Rightarrow \Trsp{M}MX = 0 \\
+        &\Rightarrow \Trsp{X}\Trsp{M}MX = 0 \\
+        &\Rightarrow \Trsp{(MX)}MX = 0 \\
+        &\Rightarrow \norme{MX}^2 = 0 \\
+        &\Rightarrow MX = 0 \\
+        &\Rightarrow X \in \Ker M.
+    \end{align*}
+    Finalement, $\Ker(\Trsp{M}M) = \Ker M$ et donc, d'après le théorème du rang,
+    $$\Rg(x_1, \dots, x_n) = \Rg M = \Rg(\Trsp{M}M) = \Rg \big( \Gram(x_1, \dots, x_n) \big).$$
+\end{preuve}
+
+\begin{prop}{}
+     La famille $(x_1, \dots, x_p)$ est liée si et seulement si $\det \Gram(x_1, \dots, x_p) = 0$ et est libre si et seulement si $\det \Gram(x_1, \dots, x_p) > 0$.
+\end{prop}
+
+\begin{preuve}
+    \marginnote[0cm]{\cite{maths-france} Planche 6 Maths SPE}
+    D'après (??) et puisque $\Trsp{M}M \in \M_n(\K)$,
+    \begin{align*}
+        (x_1, \dots, x_n) \text{ liée } &\Leftrightarrow \Rg (x_1, \dots, x_n) < n \\
+        &\Leftrightarrow \Rg \Gram(x_1, \dots, x_n) < n \\
+        &\Leftrightarrow \Gram(x_1, \dots, x_n) \not \in \Gl_n(\R) \\
+        &\Leftrightarrow \det \Gram(x_1, \dots, x_n) = 0.
+    \end{align*}
+    De plus, quand la famille $(x_1, \dots, x_n)$ libre, avec les notations de (??), on a $m=n$ et la matrice $M$ est une matrice carrée, inversible. On peut donc écrire
+    $$\det \Gram(x_1, \dots, x_n) = \det \big( \Trsp{M} M \big) = \det(M)^2 > 0.$$
 \end{preuve}
 
 \begin{theo}{Distance à un sous-espace vectoriel} \labthm{distance_a_un_sous_espace_vectoriel}
-    Soit $\big(E, \langle \cdot , \cdot \rangle \big)$ un espace préhilbertien. Soit $F$ un sous-espace vectoriel de $E$ de dimension finie $p \in \Ne$ et soit $(e_1, \dots, e_p)$ une base de $F$. Alors pour tout $x \in E$,
+    Soit $E$ un espace préhilbertien. Soit $F$ un sous-espace vectoriel de $E$ de dimension finie $p \in \Ne$ et soit $(e_1, \dots, e_p)$ une base de $F$. Alors pour tout $x \in E$,
     $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
 \end{theo}
 
@@ -93,10 +119,10 @@
     $$d(x, F)^2 = \frac{\Gram(e_1, \dots, e_p, x)}{\Gram(e_1, \dots, e_p)}.$$
 \end{preuve}
 
-\begin{corol} \label{inegalite_gram}
+\begin{corol} \labthm{inegalite_gram}
     Soit $(x_1, \dots, x_n) \in E^n$. Alors,
     $$\Gram(x_1, \dots, x_n) \leqslant \prod_{i=1}^n \norme{x_i}^2$$
-    avec égalité si et seulement si la famille $(x_1, \dots, x_n)$ est liée. 
+    avec égalité si et seulement si la famille $(x_1, \dots, x_n)$ est orthogonale. 
 \end{corol}
 
 \begin{preuve}
@@ -114,11 +140,22 @@
             car par le théorème de \textsc{Pythagore}, $\norme{\pi_F} \leqslant \norme{x_{n+1}}$. On conclut que $\mathscr{P}_{n+1}$ est vraie, d'où le résultat. 
         \end{itemize}
     \end{itemize}
+    \textcolor{red}{cas d'égalité}
 \end{preuve}
 
 \begin{prop}{}
     La matrice de \textsc{Gram} est symétrique positive.
 \end{prop}
+
+\marginnote[0cm]{
+    \begin{kaobox}[frametitle=Matrices symétriques positives]
+        L'ensemble des \emph{matrices symétriques positives} est noté $\mathscr{S}_n^+(\R)$. Une matrice $M \in \mathscr{S}_n^+(\R)$ équivaut à chacune des propriétés suivantes:
+        \begin{itemize}
+            \item pour tout $X \in \M_n(\R), \Trsp{X} M X \geqslant 0$,
+            \item $\Sp(M) \subset \Rp.$
+        \end{itemize}
+    \end{kaobox}
+}
 
 \begin{preuve}
     \begin{itemize}
@@ -133,13 +170,3 @@
    
     Ce qui montre bien que $\Gram$ est symétrique positive.
 \end{preuve}
-
-\marginnote[-10cm]{
-    \begin{kaobox}[frametitle=Matrices symétriques positives]
-        L'ensemble des \emph{matrices symétriques positives} est noté $\mathscr{S}_n^+(\R)$. Une matrice $M \in \mathscr{S}_n^+(\R)$ équivaut à chacune des propriétés suivantes:
-        \begin{itemize}
-            \item pour tout $X \in \M_n(\R), \Trsp{X} M X \geqslant 0$,
-            \item $\Sp(M) \subset \Rp.$
-        \end{itemize}
-    \end{kaobox}
-}

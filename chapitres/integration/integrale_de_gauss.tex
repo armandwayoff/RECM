@@ -1,3 +1,40 @@
 \begin{prop}{}
     $$\int_{0}^{+\infty} \me^{-x^2} \d x = \frac{\sqrt{\pi}}{2}$$
 \end{prop}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 13. Suites et séries d’intégrales}
+    \begin{enumerate}
+        \item \textbf{Première méthode:} \say{ à la main }. \\ 
+        Pour $n \in \Ne$, on pose
+        $$
+        f_n(x) \defeq
+        \begin{cases}
+            \left(1 - \frac{x}{n} \right)^n &\text{si } x \in [0, n] \\
+            0 &\text{si } x \geqslant n
+        \end{cases}.
+        $$
+        Pour tout réel positif $x$, on pose $f(x) = \me^{-x^2}$.
+        \begin{enumerate}
+            \item Montrer que pour tout réel positif $x$, 
+            $$|f(x) - f_n(x)| \leqslant \frac{1}{n \me}.$$
+            \item À l'aide de la suite $(f_n)_{n \in \Ne}$, calculer l'intégrale de \textsc{Gauss}.
+        \end{enumerate}
+        \item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée }. \\
+        Pour $n \in \Ne$, on pose
+        $$
+        f_n(x) \defeq
+        \begin{cases}
+            \left(1 - \frac{x^2}{n} \right)^n &\text{si } x \in [0, \sqrt{n}] \\
+            0 &\text{si } x > \sqrt{n}
+        \end{cases}.
+        $$
+        \begin{enumerate}
+            \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \me^{-x^2}$.
+            \item À l'aide de la convergence dominée, calculer l'intégrale de \textsc{Gauss}.
+        \end{enumerate}
+    \end{enumerate}
+\end{exercice}
+
+\begin{solution}
+\end{solution}

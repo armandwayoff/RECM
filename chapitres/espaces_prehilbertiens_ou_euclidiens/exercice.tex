@@ -1,20 +1,21 @@
 \begin{exercice}
-    Issu de la RMS 132 3. \\
-    Agrégation Interne de Mathématiques (première épreuve 2022) \\
+    \marginnote[0cm]{Issu de la RMS 132 3. Agrégation Interne de Mathématiques (première épreuve 2022)}
     Vrai ou faux: \say{ les matrices carrées et symétriques à coefficients dans $\C$ sont diagonalisables. }
 \end{exercice}
 
-\begin{solution}\\
+Commençons par démontrer le lemme suivant.
 
-    \begin{lemme} \lablemme{a_completer}
-        Une matrice nilpotente non nulle n'est pas diagonalisable.
-    \end{lemme}
+\begin{lemme} \lablemme{a_completer}
+    Une matrice nilpotente non nulle n'est pas diagonalisable.
+\end{lemme}
     
-    \begin{preuve}
-        Soit $A \in \M_n(\R)$ une matrice nilpotente diagonalisable. \\
-        Alors il existe $P \in \Gl_n(\R)$ et $D$ une matrice diagonale telles que $A = PD\Inv{P}$. Or $A$ est nilpotente donc il existe $p \in \N$ tel que $A^p = P D^p \Inv{P} = 0$. Donc $D^p = 0$ soit $D = 0$ et $A = 0$. \\
-        On peut aussi dire qu'une matrice ayant une unique valeur propre (comme c'est la cas des matrices nilpotentes) est diagonalisable si et seulement si elle est diagonale.
-    \end{preuve}
+\begin{preuve}
+    Soit $A \in \M_n(\R)$ une matrice nilpotente diagonalisable. \\
+    Alors il existe $P \in \Gl_n(\R)$ et $D$ une matrice diagonale telles que $A = PD\Inv{P}$. Or $A$ est nilpotente donc il existe $p \in \N$ tel que $A^p = P D^p \Inv{P} = 0$. Donc $D^p = 0$ soit $D = 0$ et $A = 0$. \\
+    On peut aussi dire qu'une matrice ayant une unique valeur propre (comme c'est la cas des matrices nilpotentes) est diagonalisable si et seulement si elle est diagonale.
+\end{preuve}
+
+\begin{solution}
     Cette affirmation est fausse. \\
     En effet en taille $2$, la matrice $A \defeq \begin{pmatrix}
         1 & \mi \\

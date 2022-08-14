@@ -17,7 +17,7 @@
         \item Montrer que $P_{n+1} \in \R_n[X]^\perp$.
         \item \textbf{Racines.} On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $Q \defeq \prod\limits_{i=1}^k (X - \alpha_i)$.
         \begin{enumerate}
-            \item Déterminer le degré de $Q$.
+            \item Majorer le degré de $Q$.
             \item Déterminer le signe de $P_n Q$ sur $I$.
             \item En déduire que $k = n$ et que $P_n$ a toutes ses racines réelles et simples dans $\mathring{I}$.
         \end{enumerate}
@@ -32,9 +32,96 @@
     \end{enumerate}
 \end{exercice}
 
-\newpage
+\begin{solution}
+    \marginnote[0cm]{Solution de \cite{acamanes}}
+    \begin{enumerate}
+        \item 
+        \begin{itemize}
+            \item[$\rhd$] Montrons que $\langle \cdot, \cdot \rangle$ est bien définie. D'une part, $PQw$ est une fonction continue sur $I$. \\
+            De plus, $|PQ| \leqslant \frac{P^2 + Q^2}{2}$. Comme $w$ est à valeurs positives, alors
+            $$|PQw| \leqslant \frac{1}{2} \left[ P^2 w + Q^2 w\right].$$
+            Comme $P^2 w$ et $Q^2 w$ sont intégrables sur $I$, d'après les théorèmes de comparaison, $PQw$ est intégrable sur $I$.
+            \item[$\rhd$] $\langle \cdot, \cdot \rangle$ est bien symétrique par commutativité du produit de deux polynômes. 
+            \item[$\rhd$] est bilinéaire par linéarité des intégrales convergentes.
+            \item[$\rhd$] Soit $P \in \R_n[X]$. Comme $w \geqslant 0$, par croissance de l'intégrale, 
+            $$\int_I P(x)^2 w(x) \d x \geqslant 0.$$
+            De plus, si $\displaystyle \int_I P^2 w = 0$, comme $P$ est une fonction polynomiale donc continue et $w$ est continue, d'après la positivité de l'intégrale,
+            $$\forall t \in I, P(t)^2 w(t) = 0.$$
+            De plus, $w$ est à valeurs strictement positives, donc
+            $$\forall t \in I, P(t) = 0.$$
+            Ainsi, $P$ possède une infinité de racines distinctes et $P$ est le polynôme nul.
+        \end{itemize}
+        Finalement, $\langle \cdot, \cdot \rangle$ est une forme bilinéaire définie positive, donc elle définit un produit scalaire. 
+        \item La famille $(X^n)_{n \in \N}$ est la base canonique de $\R[X]$. En appliquant le procédé d'orthogonalisation de \textsc{Gram}-\textsc{Schmidt} à cette famille, on construit une famille de polynôme $(P_n)_{n \in \N}$ telle que, pour tout $n \in \N$, il existe $(\lambda_0, \dots, \lambda_{n-1}) \in \R^n$ tel que
+        $$P_n \defeq X^n + \sum_{j=0}^{n-1} \lambda_j P_j.$$
+        Ainsi, pour tout $n \in \N$, $\deg P_n = n$ et $P_n$ est unitaire. \\
+        De plus, $(P_n)_{n \in \N}$ est une famille orthogonale et 
+        $$\forall (m, n) \in \N^2, m \not= n, \langle P_n, P_m \rangle = 0.$$
+        \item D'après le procédé de \textsc{Gram}-\textsc{Schmidt}, pour tout $n \in \N$,
+        \begin{align*}
+            \Vect(P_0, \dots, P_n) &= \Vect(1, X, \dots, X^n)\\
+            &= \R_n[X].
+        \end{align*}
+        \item Soit $P \in \R_n[X]$. D'après la question précédente, il existe $(\mu_0, \dots, \mu_n) \in \R^{n+1}$ tel que
+        $$P = \sum_{k=0}^n \mu_k P_k.$$
+        Alors, par linéarité du produit scalaire,
+        \begin{align*}
+            \langle P_{n+1}, P \rangle &= \sum_{k=0}^n \mu_k \langle P_k, P_{n+1} \rangle \\
+            &= 0.
+        \end{align*}
+        Ainsi, $P_{n+1} \in \R_n[X]^\perp$.
+        \item Nous allons montrer que $P_n$ admet au moins $n$ changements de signe dans $I$. C'est pour cela que nous considérons les racines de multiplicité impaire, ce sont elles qui correspondent aux changements de signe. 
+        \begin{enumerate}
+            \item Comme $\deg P_n = n$, le polynôme $P_n$ possède au plus $n$ racines réelles distinctes. Ainsi, $\deg Q \leqslant n$.
+            \item En notant $a_1, \dots, a_p$ les racines réelles distinctes de $P$, on écrit sous forme irréductible:
+            $$P_n = \prod_{i=1}^p (X - a_i)^{r_i} \prod_{i=1}^s (X^2 + b_i X + c_i)^{\ell_i}.$$
+            Ainsi, pour tout $i \in \llbracket 1,p \rrbracket$, il existe $d_i \in \R$ non nul tel que
+            $$P_n(x) \isEquivTo{a_i} d_i (x - a_i)^{r_i}.$$
+            Alors, pour tout $i \in \llbracket 1, k$, il existe $\tilde{d_i} \in \R$ non nul tel que
+            $$P_n(x) Q(x) \isEquivTo{\alpha_i} \tilde{d_i} (x - \alpha_i)^{r_i+1}.$$
+            Comme $r_i$ est impair, le polynôme $P_nQ$ ne change pas de signe au voisinage de $\alpha_i$. \\
+            De plus, si $a_i$ est une racine de $P_n$ de multiplicité paire, alors $P_n$ ne change pas de signe au voisinage de $a_i$, d'après la \textcolor{red}{première} question. \\
+            Finalement, $P_nQ$ garde un signe constant sur $I$.
+            \item Supposons par l'absurde que $k < n$.  Alors, $Q \in \R_k[X] \subset \R_{n-1}[X]$ et, d'après la question $4.$, $P_n \in \R_{n-1}[X]^\perp$. Alors,
+            \begin{align*}
+                \langle P_n, Q \rangle &= 0 \\
+                \int_I P_n(t) Q(t) w(t) \d t &= 0.
+            \end{align*}
+            D'après la question précédente, $P_n Q w$ est une fonction continue et de signe constant. Ainsi, d'après la positivité de l'intégrale, $P_n Q w = 0$ sur $I$. Comme $w$ est à valeurs strictement positives,
+            $$\forall x \in I, P_n(x) Q(x) = 0.$$
+            Ainsi, $P_n Q$ possède une infinité de racines soit $P_n Q = 0$. Or $Q \not= 0$, soit $P_n = 0$, ce qui est absurde. Finalement, $k=n$ \note \marginnote[0cm]{\note $P_n$ a au moins $n$ changements de signe sur $I$; par le théorème des valeurs intermédiaires, $P_n$ a au moins $n$ racines dans $I$ et comme $P_n$ est de degré $n$, il y a exactement $n$ racines simples.} et $\deg Q = n$, donc toutes les racines de $P_n$ sont simples et appartiennent à $\mathring{I}$. 
+        \end{enumerate}
+        \item 
+        \begin{enumerate}
+            \item $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une famille de $n+1$ polynômes appartenant à $\R_n[X]$ et de degrés échelonnés. Ainsi, $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une base de $\R_n[X]$.
+            \item Soit $j \leqslant n-3$. D'après les définitions,
+            \begin{align*}
+                \langle X P_{n-1}, P_j \rangle &= \int_I t P_{n-1}(t) P_j(t) \d t \\
+                &= \langle \underbrace{X P_j}_{\in \R_{n-2}[X]}, P_{n-1} \rangle.
+            \end{align*}
+            Or, d'après la question $4.$, $P_{n-1} \in \R_{n-2}[X]^\perp$. \\
+            Alors, comme $(P_0, \dots, P_n)$ est orthogonale,
+            \begin{align*}
+                0 &= \langle P_n, P_j \rangle \\
+                &= \sum_{k=0}^{n-1} \alpha_k \langle P_k, P_j \rangle + \langle X P_{n-1}, P_j \rangle \\
+                &= \alpha_j \norme{P_j}^2.
+            \end{align*}
+            Comme $P_j \not= 0$, alors $\alpha_j = 0$.
+            \item D'après la question précédente, il existe $(\alpha_{n-2}, \alpha_{n-1}, \alpha_n) \in \R^3$ tel que 
+            \begin{align*}
+                P_n &= \alpha_{n-2} P_{n-2} + \alpha_{n-1} P_{n-1} + \alpha_n X P_{n-1} \\
+                &= (\alpha_n X + \alpha_{n-1}) P_{n-1} + \alpha_{n-2} P_{n-2}.
+            \end{align*}
+            Ainsi, la suite $(P_n)_{n \in \N}$ satisfait une relation de récurrence d'ordre $2$. 
+        \end{enumerate}
+    \end{enumerate}
+\end{solution}
 
-\begin{figure*}
+Pour chaque choix de $w$, on construit ainsi un produit scalaire appelé \emph{produit scalaire usuel avec poids $w$} sur $\mathscr{C}^0(I, \R)$. Pour chacun de ces choix, l'orthogonalisation de \textsc{Gram}-\textsc{Schmidt} appliqué à la base canonique $(1, X, X^2, \dots)$ fait apparaître des familles de polynômes orthogonaux. \\
+C'est ainsi qu'il existe beaucoup de familles connues de polynômes orthogonaux dont l'introduction a été motivée par la résolution d'équations différentielles issues de la physique. Ces familles de polynômes sont aussi utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales. \\
+Le tableau ci-dessous rassemble quelques exemples de ces familles. 
+
+\begin{figure}[h!]
     % \setlength sets the horizontal (column) spacing
     % \arraystretch sets the vertical (row) spacing
     \begingroup
@@ -57,7 +144,14 @@
     % The \begingroup ... \endgroup pair ensures the separation
     % parameters only affect this particular table, and not any
     % sebsequent ones in the document.
-\end{figure*}
+\end{figure}
 
-Ces familles de polynômes sont utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales.
+\begin{exercice}    
+    \marginnote[0cm]{\cite{exos_oraux} p. 155}
+    Soient $f \in \mathscr{C}^0(I, \R)$ et $(P_n)_{n \in \N}$ une famille de polynômes orthogonaux. Montrer que $\sum \langle f, P_n \rangle^2$ converge et prouver l'égalité de \textsc{Parseval}:
+    $$\forall f \in \mathscr{C}^0(I, \R), \norme{f}^2 = \sum_{n=0}^{+ \infty} \langle f, P_n \rangle^2.$$
+\end{exercice}
 
+\begin{solution}
+    
+\end{solution}

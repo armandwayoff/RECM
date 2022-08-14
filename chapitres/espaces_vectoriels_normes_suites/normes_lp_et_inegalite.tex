@@ -1,13 +1,6 @@
 La suite définie une norme sur $\K^n$ et établit une généralisation de l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}. \\
-\textbf{Notations.} Soit $x \in \K^n$. Dans tout la suite on note
-$$
-x = 
-\begin{pmatrix}
-    x_1 \\
-    \vdots \\
-    x_n
-\end{pmatrix}.
-$$
+Le produit scalaire sur $\K^n$ est noté $\langle \cdot, \cdot \rangle$.
+
 \begin{defi}{}
     Soit $u \in \K^n$. Pour tout réel $p \geqslant 1$, on définit l'application $\Vert \bm{\cdot} \Vert_p$ par
     $$\Vert u \Vert_p \defeq \left (\sum_{k=1}^{n} |u_i|^p \right)^{1/p}.$$
@@ -24,15 +17,20 @@ $$
     \end{defi}
 }
 
-\begin{prop}{Normes de \textsc{Hölder}}
-    L'application $\Vert \bm{\cdot} \Vert_p$ définie une norme sur $\K^n$.
+\begin{prop}{Normes $\ell^p$}
+    Pour $1 \leqslant p \leqslant \infty$, l'application $x \mapsto \Vert x \Vert_p$ définie une norme sur $\K^n$. 
+\end{prop}
+
+\begin{prop}{Inégalité de \textsc{Minkowski}}
+    En particulier, on a l'\emph{inégalité de \textsc{Minkowski}}
+    $$\Vert x + y \Vert_p \leqslant \Vert x \Vert_p + \Vert y \Vert_p.$$
 \end{prop}
 
 Pour montrer que l'application $\Vert \bm{\cdot} \Vert_p$ définie bien une norme sur $\K^n$, il faut entre autre montrer qu'elle vérifie l'inégalité triangulaire et pour montrer cela nous allons d'abord démontrer l'inégalité de \textsc{Hölder}:
 
 \begin{prop}{Inégalité de \textsc{Hölder}}
-    Soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $u, v \in \K^n$
-    $$\sum_{k=1}^{n} |u_k v_k| \leqslant \Vert u \Vert_p \Vert v \Vert_q.$$
+    En outre, on a l'\emph{inégalité de \textsc{Hölder}}: soient deux réels $p > 1$ et $q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ ($p$ et $q$ sont \emph{conjugués}). Pour tout $u, v \in \K^n$
+    $$|\langle u, v \rangle| \leqslant \Vert u \Vert_p \Vert v \Vert_q.$$
 \end{prop}
 
 %\begin{marginfigure}[0cm]

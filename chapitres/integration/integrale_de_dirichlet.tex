@@ -36,7 +36,35 @@
         \item De plus, on peut montrer que cette intégrale est semi-convergente (i.e. elle n'est pas intégrable sur $\Rp$). Pour cela, montrer que pour tout entier naturel $n$, $\int_{n \pi}^{(n+1) \pi} \frac{\sin(t)}{t} \d t \geqslant \frac{2}{(n+1) \pi}$. 
     \end{enumerate}
 \end{preuve}
+
+\subsection{Intégrabilité du sinus cardinal sur  \texorpdfstring{$\Rpe$}{R+*}}
+
+\begin{prop}{}
+    La fonction sinus cardinal $\mathrm{sinc}:t \mapsto \frac{\sin(t)}{t}$ n'est pas intégrable sur $]0, +\infty[$.
+\end{prop}
+
+\begin{preuve}
+    \marginnote[0cm]{\url{https://www.agreg-maths.fr/uploads/versions/1175/dirichlet.pdf}}
+    Soit $N \in \Ne$, alors:
+    \begin{align*}
+        \int_0^{N \pi} \frac{|\sin x|}{x} \d x &= \sum_{k=0}^{N-1} \int_{k \pi}^{(k+1) \pi} \frac{|\sin x|}{x} \d x \\
+        \text{ par changement de variable} &= \sum_{k=0}^{N-1} \int_0^\pi \frac{|\sin x|}{x + k \pi} \d x \\
+        &\geqslant \sum_{k=0}^{N-1} \frac{1}{(k+1) \pi} \int_0^\pi \sin x \d x \\
+        &\geqslant \frac{2}{\pi} \sum_{k=1}^N \frac{1}{k} \xrightarrow[N \to + \infty]{} + \infty.
+    \end{align*}
+\end{preuve}
+
+\subsection{Intégrale de \textsc{Dirichlet} via une intégrale à paramètre}
+
+Soit la transformée de \textsc{Laplace} de la fonction sinus cardinal:
+$$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
     
-\begin{remarque}
-    La fonction sinus cardinal \textbf{n'est pas intégrable} sur $\Rpe$ (cf. le prochain exercice).
-\end{remarque}
+\begin{enumerate}
+    \item \emph{Montrer que $F$ est définie sur $\Rp$.}
+    \begin{itemize}
+        \item Si $x > 0$, majorer l'intégrande par $t \mapsto \exp(-xt)$.
+        \item Si $x = 0$, montrer le prolongement par continuité de la fonction sinus cardinal en $0$ puis intégrer la fonction sinus cardinal par parties sur $[1, +\infty]$.
+    \end{itemize}
+    \item \emph{Calculer $F$ sur $\Rpe$, en déduire la valeur de la fonction de \textsc{Dirichlet}}
+\end{enumerate}
+

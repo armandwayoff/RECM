@@ -1,23 +1,56 @@
 \begin{defi}{Endomorphismes codiagonalisables/cotrigonalisables}
     Soit $E$ un espace vectoriel de dimension finie. Soient $u$ et $v$ deux endomorphismes de $E$ diagonalisables (resp. trigonalisables). \\
-    On dit que $u$ et $v$ sont \emph{codiagonalisables} (resp. \emph{cotrigonalisables}) s'il existe une base $\mathscr{B}$ de $E$ telle que $\mathrm{Mat}_\mathscr{B}(u)$ et $\mathrm{Mat}_\mathscr{B}(v)$ sont diagonalisables (resp. trigonalisables). 
+    On dit que $u$ et $v$ sont \emph{codiagonalisables} (resp. \emph{cotrigonalisables}) s'ils sont diagonalisables (resp. trigonalisables) dans une même base de $E$.
 \end{defi}
 
-\begin{prop}{}
+\begin{prop}{\textsc{cns} de réduction simultanée}
     $$u, v \text{ codiagonalisables (resp. trigonalisables)} \Longleftrightarrow u, v \text{ commutent}.$$
 \end{prop}
 
-\begin{preuve} \marginnote[0cm]{\cite{acamanes} (Thème \emph{Diagonalisation simultanée} Ch. 11)}
-    Montrons la résultat pour la codiagonalisation par double implication. \\
-    $(\Rightarrow)$ Supponsons que les endomorphismes $u$ et $v$ sont codiagonalisables. On note $D$ (resp. $\widetilde{D}$) le matrice diagonale de $u$ dans une base de $E$ (resp. celle de $v$ dans cette même base). Comme ces matrices sont diagonales, $D \times \widetilde{D} = \widetilde{D} \times D$ et on en déduit que $u$ et $v$ commutent. \\
-    $(\Leftarrow)$ Supposons que les endomorphismes $u$ et $v$ commutent. Notons $\mathrm{Sp}(u) \defeq \{ \lambda_i,\ i \in \llbracket1, p \rrbracket \}$. Comme $u$ est diagonalisable, alors $E = \bigoplus\limits_{i = 1}^{p} E_{\lambda_i}(u)$. \\
-    Soit $i \in \llbracket 1, p \rrbracket$. Comme $v$ commute avec $u - \lambda_i \mathrm{Id}_E$, $E_{\lambda_i}(u) \text{ est stable par } v$. \\
-    En notant $v_i$ l'endomorphisme induit par $v$ sur $E_{\lambda_i}(u)$, comme $v$ est diagonalisable, $v_i$ est aussi diagonalisable. Ainsi, il existe $(e_{i, 1}, \dots, e_{i, r_i})$ une base de $E_{\lambda_i}(u)$ formée de vecteurs propres de $v_i$. De plus, $e_{i, j}$ est un vecteur propre de $u$. \\
-    Finalement, $(e_{i, 1}, \dots, e_{i, r_i})_{1 \leqslant i \leqslant p}$ est une base de $E$ constituée de vecteurs propres de $u$ et de $v$. Ainsi, $u$ et $v$ sont diagonalisables dans cette même base. 
+\begin{preuve} 
+    \marginnote[0cm]{\cite{acamanes} (Thème \emph{Diagonalisation simultanée} Ch. 11)}
+    Montrons la résultat pour la codiagonalisation. Raisonnons par double implication.
+    \begin{itemize}
+        \item[$(\Rightarrow)$] Supponsons que les endomorphismes $u$ et $v$ sont codiagonalisables. On note $D$ (resp. $\widetilde{D}$) le matrice diagonale de $u$ dans une base de $E$ (resp. celle de $v$ dans cette même base). Comme ces matrices sont diagonales, $D \times \widetilde{D} = \widetilde{D} \times D$ \note \marginnote[0cm]{\note Le produit de matrices diagonales commute.} et on en déduit que $u$ et $v$ commutent.
+        \item[$(\Leftarrow)$] Supposons que les endomorphismes $u$ et $v$ commutent. \\ 
+        Notons $\mathrm{Sp}(u) \defeq \{ \lambda_i,\ i \in \llbracket1, p \rrbracket \}$. Comme $u$ est diagonalisable, 
+        $$E = \bigoplus\limits_{i = 1}^{p} E_{\lambda_i}(u).$$
+        Soit $i \in \llbracket 1, p \rrbracket$. Comme $v$ commute avec $u - \lambda_i \mathrm{Id}_E$, $E_{\lambda_i}(u) \defeq \Ker(u - \lambda_i \Id_E)$ est stable par $v$. \\
+        En notant $v_i$ l'endomorphisme induit par $v$ sur $E_{\lambda_i}(u)$, comme $v$ est diagonalisable, $v_i$ est aussi diagonalisable. Ainsi, il existe $(e_{i, 1}, \dots, e_{i, r_i})$ une base de $E_{\lambda_i}(u)$ formée de vecteurs propres de $v_i$. De plus, $e_{i, j} \in E_{\lambda_i}(u) = \Ker(u - \lambda_i \Id_E)$. Ainsi, $u(e_{i,j}) = \lambda_i e_{i,j}$ et $e_{i,j}$ est un vecteur propre de $u$. \\
+        Finalement, $(e_{i, 1}, \dots, e_{i, r_i})_{1 \leqslant i \leqslant p}$ est une base de $E$ constituée de vecteurs propres de $u$ et de $v$. Ainsi, $u$ et $v$ sont diagonalisables dans cette même base. 
+    \end{itemize}
 \end{preuve}
 
 \marginnote[-5cm]{
     \begin{kaobox}[frametitle=Commutativité \& Stabilité]
-        Soient $\varphi$ et $\psi$ deux endomorphismes qui commutent. Alors $\Im{\varphi}$ et $\Ker{\varphi}$ sont stables par $\psi$.
+        Soient $\varphi$ et $\psi$ deux endomorphismes qui commutent. Alors $\Im \varphi$ et $\Ker{\varphi}$ sont stables par $\psi$.
     \end{kaobox}
 }
+
+\begin{exercice}
+    Soient $A$ et $B$ deux matrices de $\M_n(\C)$. On pose $\Phi_{A,B}$ l'endomorphisme de $\M_n(\C)$ défini pour tout $M \in \M_n(\C)$ par
+    $$\Phi_{A,B}(M) \defeq AM + MB.$$
+    \begin{enumerate}
+        \item On suppose que $A$ est diagonalisable et $B = 0$. Montrer que $\Phi_{A, B}$ est diagonalisable.
+        \item On suppose que $A$ et $B$ sont diagonalisables. Montrer que $\Phi_{A, B}$ est diagonalisable. 
+    \end{enumerate}
+\end{exercice}
+
+\begin{solution}
+    \begin{enumerate}
+        \item \textbf{1ère méthode.} Nous allons utiliser l'équivalence
+        $$A \text{ diagonalisable} \Longleftrightarrow \exists P \in \mathrm{Ann}(A) \text{ \textsc{sars}}.$$
+        On remarque que $\Phi_{A, 0}: M \mapsto AM$. On montre par récurrence que 
+        $$\Phi_{A, 0}^r(M) = A^r M.$$
+        Ainsi, si $P$ est un polynôme, $P(\Phi_{A, 0}) = \Phi_{P(A), 0}$. \\
+        Comme $A$ est diagonalisable, il existe un polynôme $P$ scindé à racines simples qui soit un polynôme annulateur de la matrice $A$. Ainsi, $P(\Phi_{A, 0}) = \Phi_{0, 0} = 0_{\Endo \left( \M_n(\C) \right)}$. Comme $P$ est un polynôme scindé à racines simples qui soit annulateur de $\Phi_{A, 0}$, alors $\Phi_{A, 0}$ est diagonalisable. \\
+        \textbf{2ème méthode.} Nous allons utiliser l'équivalence 
+        $$A \text{  diagonalisable} \Longleftrightarrow \exists \text{ une base de $E$ formée de vep de $A$}.$$
+        Comme $A$ est diagonalisable, il existe une base $(V_1, \dots, V_n)$ de $\M_{n,1}(\C)$ formée de vecteurs propres de $A$ respectivement associés aux valeurs propres $(\lambda_1, \dots, \lambda_n)$. On définit en colonnes la matrices $M_{k, \ell} \defeq [ 0 \cdots 0\ V_k\ 0 \cdots 0]$ où $V_k$ est la colonne $\ell$ de la matrice. En effectuant une multiplication par blocs, on vérifie que $\Phi_{A, 0}(M_{k, \ell}) = A M_{k, \ell} = \lambda_k M_{k, \ell}$. On vérifie ensuite aisément que $(M_{k, \ell})_{1 \leqslant k, \ell \leqslant n}$ est une base de $\M_n(\C)$. On a ainsi exhibé une base de $\M_n(\C)$ formée de vecteurs propres de $\Phi_{A, 0}$. 
+        \item On remarque que $\Phi_{A, 0}$ et $\Phi_{0, B}$ commutent. \\
+        D'après la question précédente, $\Phi_{A, 0}$ est diagonalisable et on montrerait de même que $\Phi_{0, B}$ est diagonalisable. Ainsi, d'après la propriété de diagonalisation simultanée, $\Phi_{A, 0}$ et $\Phi_{0, B}$ sont simultanément diagonalisables. \\
+        En notant $(M_k)$ une base de vecteurs propres communs, alors
+        $$\Phi_{A, B} (M_k) = \Phi_{A, 0} (M_k) + \Phi_{0, B} (M_k) = (\lambda_k + \mu_k) M_k$$
+        et $(M_k)$ est une base de vecteurs propres de $\Phi_{A, B}$. Ainsi, $\Phi_{A, B}$ est diagonalisable. 
+    \end{enumerate}
+\end{solution}

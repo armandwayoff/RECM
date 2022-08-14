@@ -29,6 +29,8 @@ Le comportement (probabiliste) d'une chaîne de \textsc{Markov} stationnaire, et
     On dit que $P$ est \emph{doublement stochastique} si $P$ et $\Trsp{P}$ sont stochastiques.
 \end{defi}
 
+L'exercice suivant étudie le spectre d'une matrice stochastique. 
+
 \begin{exercice}
     \marginnote[0cm]{Exercice 5, TD 11}
     Soit $P$ une matrice stochastique.
@@ -55,7 +57,7 @@ Le comportement (probabiliste) d'une chaîne de \textsc{Markov} stationnaire, et
             Soit $X = \Trsp{(x_1, \dots, x_n)} \in E_1$. Montrons que $X \in \Vect(v)$. \\
             On montre que $|x_{i_0}| = \left| \sum\limits_{j=1}^{n} p_{i_0, j} x_j \right| = \sum\limits_{j=1}^{n} p_{i_0, j} |x_j|$ et on écrit $|x_{i_0}| = |x_{i_0}| \sum\limits_{j=1}^{n} p_{i_0, j}$. D'où, en faisant la différence, pour tout $j \in \llbracket 1, n \rrbracket,\ |x_{i_0}| = |x_j|$. De plus d'après la première relation, il y égalité dans l'inégalité triangulaire et donc les $v_j$ sont \emph{positivement liées}. Finalement, pour tout $j \in \llbracket1, n \rrbracket,\ v_j = v_{i_0}$ soit $\dim E_1 = 1$.
         \end{itemize}
-        \item Montrer que si $\lambda \in \C$ est une valeur propre de $P$, alors $|\lambda| \leqslant 1$. \\
+        \item Soit $\lambda \in \C$ une valeurs propre de $P$. \\
         Poser $X = (x_1, \dots, x_n)^\top$ un vecteur propre associé et appliquer encore une fois la même méthode; poser $\displaystyle |x_{i_0}|= \max_{1 \leqslant i \leqslant n} |x_i|$, écrire en module la ligne $i_0$ de l'égalité $\lambda X = P X$, diviser par $|x_{i_0}|$ (qui est non nul d'après la question précédente) puis majorer par $1$. \\
             
         Pour les curieux, lire \cite{matrices} page 59. 
@@ -64,6 +66,29 @@ Le comportement (probabiliste) d'une chaîne de \textsc{Markov} stationnaire, et
             Le \nameref{rayon_spectral} stochastique est égal à $1$.
         \end{prop}
     
-        \item Les questions suivantes (à détailler éventuellement) consiste encore au même jeu avec la ligne $i_0$ et les propriétés de matrices stochastiques. 
+        \item Soit $\lambda \in \C$ une valeur propre telle que $|\lambda| = 1$ et $\widetilde{x}$ un vecteur propre associé.
+        \begin{enumerate}
+            \item $\Ninf{\widetilde{x}} \not= 0$ car $\widetilde{x} \not= 0$. 
+            $x = \frac{\widetilde{x}}{\Ninf{\widetilde{x}}}$ qui est vecteur propre associé à $\lambda$ et $\Ninf{x} = 1$.
+            \item Il existe $i_0 \in \llbracket 1, n \rrbracket$ tel que $|x_{i_0}| = \max\limits_{1 \leqslant i \leqslant n} |x_i| = \Ninf{x} = 1$. \\
+            Et $|\lambda x_{i_0}| = |\lambda||x_{i_0}| = 1 = \left| \sum\limits_{j=1}^n p_{i_0, j} x_j \right|$.
+            \item On peut écrire
+            \begin{align*}
+                \sum_{j=1}^n p_{i_0, j} x_j &= \me^{\mi \theta} & \text{selon 4)b)} \\
+                &= \me^{\mi \theta} \sum_{j=1}^n p_{i_0, j} &
+            \end{align*}
+            et
+            $$\sum_{j=1}^n p_{i_0, j} \left( x_j - \me^{\mi \theta} \right) = 0,$$
+            $$\sum_{j=1}^n p_{i_0, j} \left( x_j \me^{-\mi \theta} - 1 \right) = 0$$
+            et
+            $$\Reel \left( \sum_{j=1}^n p_{i_0, j} \left( x_j \me^{- \mi \theta} - 1 \right) \right) = 0$$
+            $$\Rightarrow \sum_{j=1}^n p_{i_0, j} \left( \underbrace{\Reel(x_j \me^{- \mi \theta})}_{|\cdot| \leqslant |x_j \me^{-\mi \theta}| \leqslant |x_j| \leqslant |x_{i_0}| \leqslant 1} - 1 \right) = 0$$
+            donc $|\Reel(x_j \me^{- \mi \theta}) | \leqslant 1$. \\
+            Somme de termes négatifs qui est nulle donc
+            $$\forall j \in \llbracket 0, n \rrbracket,\ \Reel(x_j \me^{- \mi \theta}) = 1.$$
+            \item Soit $j \in \llbracket 1, n \rrbracket$.
+            $$|x_j \me^{-\mi \theta} = |x_j| = \sqrt{ \Reel (x_j \me^{- \mi \theta})^2 + \Im(x_j \me^{- \mi \theta})^2 } = \sqrt{1 + \Im(x_j \me^{\mi \theta})^2} \leqslant 1$$
+            donc $\Im(x_j \me^{\mi \theta}) = 0$ donc $x_j \me^{\mi \theta} = 1$ et $x = \me^{\mi \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix}$. $Px = \me^{\mi \theta} P \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = \me^{\mi \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = x$. 
+        \end{enumerate}
     \end{enumerate}
 \end{solution}
