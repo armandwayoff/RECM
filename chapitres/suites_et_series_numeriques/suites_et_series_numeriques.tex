@@ -8,8 +8,8 @@
 \section{Lemme de \textsc{Cesàro}} \label{lemme_cesaro}
 \input{chapitres/suites_et_series_numeriques/lemme_de_cesaro}
 
-\section{Constante d'\textsc{Euler}}
-\input{chapitres/suites_et_series_numeriques/constante_euler}
+\section{Série harmonique \& Constante d'\textsc{Euler}}
+\input{chapitres/suites_et_series_numeriques/serie_harmonique_et_constante_euler}
 
 \section{Séries de \textsc{Bertrand}}
 \input{chapitres/suites_et_series_numeriques/series_de_bertrand}
@@ -20,17 +20,13 @@
 \section{Sommation des relations de comparaison} \label{sommation_relations_comparaison}
 \input{chapitres/suites_et_series_numeriques/sommation_des_relations_de_comparaison}
 
-\section{Formule de \textsc{Stirling}}
-\label{preuve_stirling}
-\input{chapitres/suites_et_series_numeriques/formule_de_stirling}
-
 \section{Règle de \textsc{Raabe-Duhamel}}
 \input{chapitres/suites_et_series_numeriques/regle_de_raabe_duhamel}
 
 \section{Suites sous-additive}
 \input{chapitres/suites_et_series_numeriques/suites_sous_additive}
 
-\section{Étude de la suite de terme général \texorpdfstring{$u_n = \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
+\section{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
 \input{chapitres/suites_et_series_numeriques/etude_de_la_suite_de_terme_general_egal_a_une_integrale}
 
 \section{Transformation d'\textsc{Abel}} \label{transformation_abel}
@@ -60,8 +56,7 @@
 
 \section{Plan d'étude des suites \texorpdfstring{$u_{n+1} = f(u_n)$}{u_(n+1) = f(u_n)}}
 
-La fonction $f$ doit être continue. \\
-
+La fonction $f$ doit être continue. 
 \begin{enumerate}
     \item Trouver un invervalle $I$ stable par $f$ ($f(I) \subset I$). Le segment $I$ doit contenir, au moins à partir d'un certain rang, tous les termes de la suite.
     \item Recherche des points fixes de la fonction $f$ dans $I$.
@@ -99,7 +94,7 @@ Issu du cours de Sophie \textsc{Dede} (Stanislas Paris). \\
 \end{defi}
 
 \begin{prop}{}
-    Soit $(u_n)_{n \in \N}$ une suite réelle convergente: $(u_n)_{n \in \N}$ est une suite de \textsc{Cauchy}.
+    Soit $(u_n)_{n \in \N}$ une suite réelle convergente. Alors  $(u_n)_{n \in \N}$ est une suite de \textsc{Cauchy}.
 \end{prop}
 
 \begin{preuve}
@@ -162,7 +157,7 @@ Revenons à la démonstration du théorème.
     n'entraîne pas la convergence de la suite $(u_n)_{n \in \N}$.
 \end{remarque}
 
-En effet, si pour tout $n \in \N$ on pose $u_n \defeq = \ln(n+1)$ alors
+En effet, si pour tout $n \in \N$ on pose $u_n \defeq \ln(n+1)$ alors
 $$\forall n \in \N, |u_{n+1} - u_n| \leqslant \ln \left( 1 + \frac{1}{n+1} \right) \leqslant \frac{1}{n+1}.$$
 On en déduit
 $$\forall \varepsilon > 0, n \geqslant \left \lfloor \frac{1}{\varepsilon} \right \rfloor \Rightarrow |u_{n+1} - u_n| \leqslant \varepsilon,$$

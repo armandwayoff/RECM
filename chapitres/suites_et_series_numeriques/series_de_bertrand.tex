@@ -1,32 +1,31 @@
+\marginnote[0cm]{Voir aussi [inégrales de \textsc{Bertrand}]}
+
 \begin{defi}{Séries de \textsc{Bertrand}}
-    Soient $\alpha$ et $\beta$ deux réels. On nomme \emph{série de \textsc{Bertrand}} la série de terme général $\displaystyle \frac{1}{n^\alpha \ln^\beta (n)}$ pour $n \geqslant 2$. 
+    Soient $\alpha$ et $\beta$ deux réels. On nomme \emph{série de \textsc{Bertrand}} la série 
+    $$\sum_{n \geqslant 2} \frac{1}{n^\alpha \ln^\beta (n)}.$$ 
 \end{defi}
 
-\begin{theo}{}
-    La série de \textsc{Bertrand} converge si et seulement si \begin{cases} \alpha > 1 \\
-    \text{ou} \\ \alpha = 1 \text{ et } \beta > 1 \end{cases}.
+\begin{theo}{Condition de convergence des séries de \textsc{Bertrand}}
+    La série de \textsc{Bertrand} converge si et seulement si 
+    $$\begin{cases} \alpha > 1 \\
+    \text{ou} \\ \alpha = 1 \text{ et } \beta > 1 \end{cases}.$$
 \end{theo}
 
 \begin{preuve}
     Distinguons trois cas selon les valeurs prises par $\alpha$:
     \begin{enumerate}
-        \item[$\rhd$] si $\alpha > 1$, soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
-        $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
-        Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
-        \item[$\rhd$] si $\alpha < 1$, soit $\gamma \in ]\alpha, 1[$.Par croissances comparées,
-        $t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty$
-        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
-        \item[$\rhd$] si $\alpha = 1$, revenons aux intégrales partielles:
-        $$\int_{2}^{X} \frac{1}{t \ln^{\beta} (t)} \d t = 
-        \begin{cases}
-            \left[ \frac{\ln ^{1-\beta} (t)}{1-\beta} \right]_2 ^X & \text{si } \beta \not = 1, \\
-            \left[\ln (\ln(t)) \right]_2 ^X & \text{si } \beta = 1.
-        \end{cases}
-        $$
-        On en déduit que l'intégrale de la fonction $t \mapsto \frac{1}{t \ln^{\beta} (t)}$ converge sur $[2, + \infty[$ si et seulement si $\beta > 1$.
+        \item[$\rhd$] \textbf{Cas où $\alpha > 1$.} Soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
+        $$\frac{1}{n^{\alpha} \ln^{\beta} (n)} = o_{+ \infty} \left( \frac{1}{n^{\gamma}} \right).$$
+        Or, d'après le théorème sur les séries de \textsc{Riemann}, la série de terme général $\frac{1}{n^\gamma}$ converge car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\sum \frac{1}{n^\alpha \ln^\beta (n)}$ converge.
+        \item[$\rhd$] \textbf{Cas où $\alpha < 1$.} Soit $\gamma \in ]\alpha, 1[$.Par croissances comparées,
+        $$n^{\gamma} \frac{1}{n^\alpha \ln^\beta(n)} \xrightarrow[n \to + \infty]{} + \infty$$
+        donc à partir d'un certain rang, $\frac{1}{n^\alpha \ln^\beta(n)} \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après le théorème sur les séries de \textsc{Riemann}, la série de terme général $\frac{1}{n^\gamma}$ diverge car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison, $\sum \frac{1}{n^\alpha \ln^\beta(n)}$ diverge.
+        \item[$\rhd$] \textbf{Cas où $\alpha = 1$.} Si $\beta \leqslant 0$, pour $n$ assez grand, $\frac{1}{n \ln^\beta(n)} > \frac{1}{n}$ et la série de \textsc{Bertrand} est divergente. \\
+        On considère maintenant le cas $\alpha = 1$, $\beta > 0$. Les théorèmes généraux ne permettent pas de l'étudier. On associe à la série de \textsc{Bertrand} la fonction $x \mapsto \frac{1}{x \ln^\beta x}$, définie sur l'intervalle $]1, + \infty[$. Cette fonction est positive et décroissante. La série est de même nature que l'intégrale $\int_2^{+ \infty} \frac{1}{t \ln^\beta(t)} \d t$, transformée par le changement de variable bijectif $u = \ln t$ en l'intégrale $\int_{\ln 2}^{+ \infty} \frac{1}{u^\beta} \d u$. Cette dernière converge si et seulement si $\beta > 1$.
     \end{enumerate}
 \end{preuve}
 
+L'exercice suivant amène à étudier le comportement des séries de \textsc{Bertrand} dans le cas où $\beta = 1$.
 
 \begin{exercice}
     \marginnote[0cm]{\cite{acamanes}}

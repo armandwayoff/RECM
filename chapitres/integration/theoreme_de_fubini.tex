@@ -11,24 +11,34 @@
     \caption*{\centering Cette figure ne correspond pas au théorème de \textsc{Fubini}}
 \end{marginfigure}
 
-\marginnote[0cm]{Correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
-\begin{preuve}
-    Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose $\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u$. 
+Nous allons voir la démonstration de ce résultat sous forme d'exercice.
+
+\begin{exercice}
+    Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose 
+    $$\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u.$$
     \begin{enumerate}
-        \item Montrer que pour tout $x \in [a, b]$, l'application $t \mapsto \varphi(x, t)$ est continue sur $[c, d]$. \\
-        Application du théorème de continuité des intégrales à paramètre. \\
+        \item Montrer que pour tout $x \in [a, b]$, l'application $t \mapsto \varphi(x, t)$ est continue sur $[c, d]$.
+        \item On pose alors, pour tout $x  \in [a, b]$ 
+        $$\psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t.$$
+        Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$.
+        \item En déduire:
+        $$\forall x \in [a, b],\ \int_{a}^{x} \left ( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left ( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
+    \end{enumerate}
+\end{exercice}
+
+\marginnote[0cm]{Correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
+\begin{solution}
+    \begin{enumerate}
+        \item Application du théorème de continuité des intégrales à paramètre. \\
         Pour la domination : $f$ est continue sur une partie fermée bornée de $\R^2$, donc d'après le théorème des bornes, $f$ est bornée sur $[a, b] \times [c, d]$ par une constante $M \in \Rp$.
-        \item On pose alors, pour tout $x  \in [a, b],\ \psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t$. Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$. \\
-        Application du théorème de dérivation des intégrales à paramètre à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
+        \item Application du théorème de dérivation des intégrales à paramètre à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
         \begin{itemize}
             \item $\forall t \in [c, d],\ x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $[a, b]$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
             \item $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$
             \item La domination se fait par le même constante $M$ que précédemment. 
         \end{itemize}
         $$\forall x \in [a, b] \quad \psi'(x) = \int_{c}^{d} f(x, t) \d t.$$
-        \item En déduire:
-        $$\forall x \in [a, b],\ \int_{a}^{x} \left ( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left ( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
-        Soit $x \in [a, b]$. D'une part,
+        \item Soit $x \in [a, b]$. D'une part,
         $$\psi(x) = \int_{c}^{d} \left ( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
         D'autre part, d'après la question précédente et le théorème fondamental de l'analyse, 
         \begin{align*}
@@ -39,4 +49,4 @@
         d'où $\psi(a) = 0$ et le résultat. \\
         En particulier, pour $x = b$ on obtient le résultat final.
     \end{enumerate}
-\end{preuve}    
+\end{solution}    

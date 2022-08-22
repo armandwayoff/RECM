@@ -8,17 +8,8 @@
 \section{Déterminant tridiagonal}
 \input{chapitres/determinants/determinant_trigonal}
 
-\section{Matrice circulante}
-\input{chapitres/determinants/matrice_circulante}
-
 \section{Déterminant des \texorpdfstring{$|a_i - a_j|$}{|a_i - a_j|}}
 \input{chapitres/determinants/determinant_de_ai_moins_aj}
-
-\section{Déterminant de \textsc{Vandermonde}, applications}
-\input{chapitres/determinants/determinant_de_vandermonde_applications}
-
-\section{Inverse de la matrice de {\textsc{Vandermonde}}}
-\input{chapitres/determinants/inverse_de_la_matrice_de_vandermonde}
 
 \section{Déterminant de \textsc{Cauchy}}
 \input{chapitres/determinants/determinant_de_cauchy}
@@ -27,7 +18,6 @@
 \input{chapitres/determinants/determinant_par_blocs}
 
 \section{Dérivée du déterminant}
-
 \begin{exercice}
     \marginnote[0cm]{\cite{maths-france} Planche no 4. Révision algèbre linéaire.
 Déterminants}
@@ -44,4 +34,35 @@ Déterminants}
         \end{vmatrix}
         $.
     \end{enumerate}
+\end{exercice}
+
+\section{Déterminant de \textsc{Hürwitz}}
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Calculer le déterminant de la matrice $A \in \M_n(\R)$ de la forme
+    $$
+    \begin{pmatrix}
+        r_1 & a & \cdots & a \\
+        b & r_2 & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & a \\
+        b & \cdots & b & r_n
+    \end{pmatrix}.
+    $$
+\end{exercice}
+
+\section{Matrice circulante modulo \texorpdfstring{$p$}{p}}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Soit $p$ premier et $(a_0, \dots, a_{p-1}) \in \Z^p$. Montrer que
+    $$
+    \begin{vmatrix}
+        a_0 & a_1 & a_2 & \cdots & a_{p-1} \\
+        a_{p-1} & a_0 & a_1 & \cdots & a_{p-2} \\
+        a_{p-2} & a_{p-1} & a_0 & \cdots & a_{p-3} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        a_1 & a_2 & a_3 & \cdots & a_0
+    \end{vmatrix}
+    \equiv a_0 + \cdots + a_{p-1}\ [p].
+    $$
 \end{exercice}

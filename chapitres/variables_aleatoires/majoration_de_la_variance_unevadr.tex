@@ -16,7 +16,7 @@
     \underline{Méthode 2:} (vue en cours)
     \begin{itemize}
         \item Justifier l'existence de l'espérance et de la variance\\
-        $\sum \gamma^n \P(X=x_k)$ converge, avec $\boxed{\gamma = \max \{ |a|, |b| \}}$ \textcolor{red}{\emph{(ne pas oublier les valeurs absolues  car on ne connaît pas les signes de $a$ et de $b$)}}.
+        $\sum \gamma^n \P(X=x_k)$ converge, avec $\gamma = \max \{ |a|, |b| \}$ \textcolor{red}{\emph{(ne pas oublier les valeurs absolues  car on ne connaît pas les signes de $a$ et de $b$)}}.
         \item On remarque que $\V(X) = \V \left( X - \frac{a+b}{2} \right)$
         \item Or comme $a \leqslant X \leqslant b$, $$\displaystyle \left| X - \frac{a+b}{2}\right| \leqslant \frac{b-a}{2} \text{ et } \displaystyle \left( X - \frac{a+b}{2} \right)^2 \leqslant \left(\frac{b-a}{2}\right)^2$$
         \item Donc par le théorème de \textsc{König}-\textsc{Huygens}, 
@@ -51,11 +51,11 @@
         \end{cases}\\
         &\Longleftrightarrow
         \begin{cases}
-            \P \left( \{ X=b \} \cup \{X=a\} \right)= 1\\
+            \P \big( \{ X=b \} \cup \{X=a\} \big)= 1\\
             \text{et}\\
             \E [X] = \frac{a+b}{2}
         \end{cases}\\
-        \V(X) = \frac{(b-a)^2}{4} &\Longleftrightarrow \boxed{\P(X=a)=\P(X=b)=\frac{1}{2}}
+        \V(X) = \frac{(b-a)^2}{4} &\Longleftrightarrow \P(X=a)=\P(X=b)=\frac{1}{2}
     \end{align*}
 \end{solution}
 

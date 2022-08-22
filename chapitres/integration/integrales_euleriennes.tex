@@ -1,5 +1,5 @@
 \marginnote[0mm]{Texte de Pierre-Jean \textsc{Hormière}}
-De premières tentatives pour définir $n!$ pour des valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
+De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin} \dots \\
 Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \me^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \me^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \me^{-t} \d t$.
 
@@ -37,8 +37,8 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 
         \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \me^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
         \begin{align*}
-            \text{par croissances comparées } & \lim_{t \to +\infty} u(t) v(t) = 0, \\
-            \text{ comme } x > 0 & \lim_{t \to 0} u(t) v(t) = 0.
+            \text{par croissances comparées} \quad & \lim_{t \to +\infty} u(t) v(t) = 0, \\
+            \text{ comme } x > 0 \quad & \lim_{t \to 0} u(t) v(t) = 0.
         \end{align*}
         Ainsi, d'après le théorème d'intégration par parties généralisées, 
         $$\int_{0}^{+\infty} t^{x-1} \me^{-t} \d t = \underbrace{0}_{\text{crochet}} - \int_{0}^{+\infty} xt^{x-1} (-\me^{-t}) \d t.$$
@@ -46,9 +46,15 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
         $$\Gamma(x+1) = x \Gamma(x).$$
         En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
         $$\forall n \in \Ne, \Gamma(n+1) = n!$$
-        Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
     \end{itemize}
 \end{preuve}
+
+Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Caculer $\Gamma \left( \frac{1}{2} \right)$, puis $\Gamma \left( n + \frac{1}{2} \right)$ pour tout $n \in \Ne$.
+\end{exercice}
 
 \marginnote[-5cm]{
     \begin{kaobox}[frametitle=Théorème (Intégration par parties généralisées)]
@@ -64,7 +70,12 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     \end{kaobox}
 }
 
-\begin{prop}{Dérivées successives de la fonction gamma}
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Montrer que la fonction $\Gamma$ est continue sur $\Rpe$.
+\end{exercice}
+
+\begin{prop}{Dérivées successives de la fonction Gamma}
     $$\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \me^{-t} \d t$$
 \end{prop}
 
@@ -77,6 +88,42 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     \end{cases}
     $$
 \end{elem_preuve}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$. \\
+    Montrer que $\Gamma$ est convexe et étudier ses variations.
+\end{exercice}
+
+\subsection{Formule de \textsc{Stirling}} \label{preuve_stirling}
+
+\textcolor{red}{texte d'intro}
+
+\begin{theo}{\textsc{Stirling}}
+    $$n! \sim \left(\frac{n}{\me}\right)^n \sqrt{2 \pi n}$$
+\end{theo}
+
+\begin{elem_preuve}
+    \begin{enumerate}
+        \item Montrer que $\left( \frac{n!\me^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
+        \item Montrer que $\ell = \sqrt{2 \pi}$ en utilisant l'\nameref{integrale_wallis}:
+        $$\Wallis_n \defeq \int_{0}^{\pi/2}\sin^n(t) \d t$$
+        \begin{enumerate}
+            \item Montrer que $(\Wallis_n)_{n \in \N}$ est décroissante
+            \item Exprimer $\Wallis_{n+2}$ en fonction de $\Wallis_n$ grâce à une IPP: $$(n+2)\Wallis_{n+2} = (n+1)\Wallis_n$$
+            \item Exprimer $\Wallis_{2p}$ et $\Wallis_{2p+1}$ en fonction de $p$:\\
+            $$\Wallis_{2p} = \frac{\binom{2p}{p}}{2^{2p}}\frac{\pi}{2} \text{ et } \Wallis_{2p+1} = \frac{2^{2p} (p!)^2}{(2p+1)!}$$
+            \item Utiliser les points (a) et (b) pour montrer que $\frac{\Wallis_n}{\Wallis_{n+1}} \longrightarrow 1$
+            \item Utiliser les points (c) et (d) pour montrer que $\left ( \frac{2^n n!}{n ((2n)!)^2} \right)^4 \longrightarrow \pi$
+            \item Utiliser le point 1. pour déterminer $\ell$
+        \end{enumerate}
+    \end{enumerate}
+\end{elem_preuve}
+
+\subsection{L'intégrale de \textsc{Gauss} comme valeur particulière de la fonction Gamma}
+\marginnote[0cm]{\url{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}}
+
+$$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \me^{-t} \d t = 2 \int_0^{+ \infty} \me^{-u^2} \d u = \int_{- \infty}^{+ \infty} e^{-u^2} \d u.$$
 
 \subsection{Fonction bêta}
 \begin{defi}{Fonction bêta}

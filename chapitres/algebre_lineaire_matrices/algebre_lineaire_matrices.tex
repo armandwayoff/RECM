@@ -10,8 +10,14 @@
 %     \input{illustrations/i_changement_de_base}
 % \end{marginfigure}
 
-% \section{Produit d'endomorphismes nilpotents qui commutent}
-% \input{chapitres/algebre_lineaire_matrices/produit_endomorphismes_nilpotents_qui_commutent}
+\section{Polynômes de \textsc{Hilbert}} \label{polynome_hilbert}
+\input{chapitres/algebre_lineaire_matrices/polynomes_de_hilbert}
+
+\section{Matrice de \textsc{Vandermonde}} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapitres/determinants/matrice_de_vandermonde}
+
+\section{Polynômes de \textsc{Lagrange}} 
+\input{chapitres/algebre_lineaire_matrices/polynomes_de_lagrange}
 
 \section{Centre de \texorpdfstring{$\M_n(\K)$}{l'espace des matrices carrées}}
 \input{chapitres/algebre_lineaire_matrices/centre_de_l_espace_des_matrices_carres}
@@ -30,15 +36,6 @@
 
 \section{Caractérisation des homothéties}
 \input{chapitres/algebre_lineaire_matrices/caracterisation_des_homotheties}
-
-\section{Polynômes de \textsc{Hilbert}} \label{polynome_hilbert}
-\input{chapitres/algebre_lineaire_matrices/polynomes_de_hilbert}
-
-\section{Polynômes de \textsc{Lagrange}} 
-\input{chapitres/algebre_lineaire_matrices/polynomes_de_lagrange}
-
-\section{Polynômes d'interpolation de \textsc{Lagrange}, lien avec les déterminants de \textsc{Vandermonde}}
-\input{chapitres/algebre_lineaire_matrices/polynomes_interpolation_de_lagrange_lien_avec_les_determinants_de_vandermonde}
 
 \section{Inversion par sommation géométrique des endomorphismes nilpotents} \labsec{inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
 \input{chapitres/algebre_lineaire_matrices/inversion_par_sommation_geometrique_des_endomorphismes_nilpotents}
@@ -292,6 +289,11 @@ Il s'agit de la réciproque de l'exercice précédent.
 \section{\cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
 
 \begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
+    Soient $E$ un $\C$-espace vectoriel non nul de dimension finie $n$ et $f$ un endomorphisme de $E$ tel que pour tout $x \in E$, il existe $p \in \Ne$ tel que $f^p(x) = 0$. Montrer que $f$ est nilpotent. 
+\end{exercice}
+
+\begin{exercice}
     Soit $E \defeq \K_n[X]$. $u$ est l'endomorphisme de $E$ défini par: $\forall P \in E, u(P) = P(X+1) - P$.
     \begin{enumerate}
         \item Déterminer $\Ker u$ et $\Im u$.
@@ -323,11 +325,6 @@ Il s'agit de la réciproque de l'exercice précédent.
 \end{exercice}
 
 \begin{exercice}
-    Soient $n \geqslant 2$ et $\omega \defeq \me^{2 \mi \pi / n}$. \\
-    Soit $A \defeq \big( \omega^{(k-1)(\ell-1)} \big)_{1 \leqslant k, \ell \leqslant n}$. Montrer que la matrice $A$ est inversible et calculer $\Inv{A}$.
-\end{exercice}
-
-\begin{exercice}
     Soit $A \in \M_n(\K)$. Calculer le déterminant de sa comatrice. 
 \end{exercice}
 
@@ -338,6 +335,14 @@ Il s'agit de la réciproque de l'exercice précédent.
 \begin{exercice}
     Existe-t-il deux matrices carrées $A$ et $B$ telles que $AB-BA = \I_n$.
 \end{exercice}
+
+\begin{solution}
+    \marginnote[0cm]{Ma solution}
+    Soit $n \in \Ne$. Supposons qu'il existe deux matrices $A$ et $B$ dans $\M_n(\K)$ telles que $AB-BA=\I_n$. Alors, en composant cette relation par la trace on obtient, par linéarité,
+    $$\Tr(AB) - \Tr(BA) = n, $$
+    or $\Tr(AB) = \Tr(BA)$ donc on aboutit à $n = 0$ ce qui est absurde. \\
+    Finalement, il n'existe pas de tel couple. 
+\end{solution}
 
 \begin{exercice}
     Soit $f$ une forme linéaire sur $\M_n(\C)$ ($n\geqslant2$) telle que $\forall (A, B) \in \M_n(\C), f(AB) = f(BA)$. Montrer qu'il existe un complexe $\alpha$ tel que $f = \alpha \Tr$.
@@ -353,10 +358,32 @@ Il s'agit de la réciproque de l'exercice précédent.
 \end{exercice}
 
 \begin{exercice}
+    Soient $A \in \M_{3, 2}(\R)$ et $B \in \M_{2, 3}(\R)$ telles que $AB = 
+    \begin{pmatrix}
+        8 & 2 & -2 \\
+        2 & 5 & 4 \\
+        -2 & 4 & 5
+    \end{pmatrix}
+    $. Justifier l'existence de $A$ et $B$ puis calculer $BA$.
+\end{exercice}
+
+\begin{exercice}
     Montrer que tout hyperplan de $\M_n(\R)$ contient des matrices inversibles.
 \end{exercice}
 
 \begin{exercice}
     Soient $A_1, \dots, A_p$ des matrices distinctes et inversibles de $\M_n(\R)$ telles que $G \defeq \{ A_1, \dots, A_p \}$ soit stable par la multiplication. \\
     Soit $A \defeq A_1 + \cdots + A_p$. Montrer que $\Tr A$ est un entier divisible par $p$.
+\end{exercice}
+
+\section{Un endomorphisme nilpotent}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Soit $E$ un $\C$-espace vectoriel de dimension finie, $\alpha \in \Ce$, et $f, g$ des endomorphismes de $E$ tels que:
+    $$f \circ g - g \circ f = \alpha f \quad \text{et} \quad g \text{ est diagonalisable}.$$
+    \begin{enumerate}
+        \item Montrer que pour tout entier naturel non nul $n$, $f^n \circ g - g \circ f^n = n \alpha f^n$.
+        \item En déduire que $f$ est nilpotent. 
+    \end{enumerate}
 \end{exercice}

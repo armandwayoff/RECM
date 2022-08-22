@@ -1,3 +1,14 @@
+\begin{theo}{Règle de \textsc{d'Alembert}}
+    On suppose que $\lim\limits_{n \to + \infty} \frac{u_{n+1}}{u_n} = \ell$.
+    \begin{itemize}
+        \item Si $\ell < 1$, alors $\sum u_n$ converge.
+        \item Si $\ell > 1$, alors $\sum u_n$ diverge.
+    \end{itemize}
+\end{theo}
+
+Lorsque $\ell = 1$, on ne peut pas conclure. En effet, 
+$$\sum \frac{1}{n} \text{ diverge et } \sum \frac{1}{n^2} \text{ converge}.$$
+
 \begin{theo}{}
     Soit $\alpha$ un réel et $(u_n)_{n \in \N}$ une suite de réels strictement positifs. On suppose que
     $$\displaystyle \frac{u_{n+1}}{u_n} = 1 - \frac{\alpha}{n} + \mathcal{O} \left( \frac{1}{n^2} \right).$$ Alors $\sum u_n$ converge si et seulement si $\alpha > 1$. 

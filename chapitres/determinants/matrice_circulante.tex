@@ -1,5 +1,5 @@
 \begin{defi}{Matrice circulante}
-Une \emph{matrice circulante} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients:
+Une \emph{matrice circulante} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients. Soit $(c_0, \dots, c_{n-1}) \in \C^n$, une matrice circulante est de la forme:
 $$
 \mathrm{C}(c_0, \dots, c_{n-1}) \defeq
 \begin{pmatrix}
@@ -12,18 +12,16 @@ c_1 & c_2 & c_3 & \cdots & c_0
 $$
 \end{defi}
 
-\begin{remarque}
-    Une matrice circulante est un cas particulier de matrice de \textsc{Toeplitz}.
-\end{remarque}
+\subsection{Réduction d'une matrice circulante}
 
-\begin{prop}{}
-    $$\Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \left \{ \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right),\ k \in \llbracket 1, n-1 \rrbracket \right \}.$$
+\begin{prop}{Spectre d'une matrice circulante}
+    $$\Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \left \{ \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right),\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
 \end{prop}
 
 \begin{preuve}
     Pour alléger les notations, on pose $\mathrm{C} \defeq \mathrm{C}(c_0, \dots, c_{n-1})$. \\
     Nous cherchons à déterminer le spectre de la matrice $\mathrm{C}$ ce qui ne semble pas évident au premier abord (on se rend rapidement compte que le calcul direct du polynôme caractéristique n'est pas une bonne approche). \\
-    Notre démarche va consister à exprimer la matrice $\mathrm{C}$ comme le polynôme d'une matrice simple dont on peut calculer le spectre. On en déduira ensuite le spectre de la matrice $\mathrm{C}$. \\
+    Notre démarche va consister à exprimer la matrice $\mathrm{C}$ comme le polynôme d'une matrice simple dont on sait calculer le spectre. On en déduira ensuite le spectre de la matrice $\mathrm{C}$. \\
     On pose 
     $$
     \mathrm{J}_n \defeq \mathrm{C}(0, 1, 0, \dots 0) = 
@@ -35,9 +33,9 @@ $$
     1 & 0 & \cdots & 0 & 0
     \end{pmatrix} \in \M_n(\R).
     $$
-    
-\marginnote[0cm]{
-    \note Exemple; les puissances successives de $\mathrm{J}_3:$
+    On remarque que la matrice $\mathrm{C}$ s'écrit comme un polynôme en la matrice $\mathrm{J}_n$ \note. Plus précisément, 
+    \marginnote[0cm]{
+    \note Exemple avec les puissances successives de $\mathrm{J}_3:$
     $$\mathrm{J_3} = 
     \begin{pmatrix}
         0 & 1 & 0 \\
@@ -59,9 +57,8 @@ $$
         0 & 0 & 1
     \end{pmatrix}
     $$
-}
-    On remarque que la matrice $\mathrm{C}$ s'écrit comme une combinaison linéaire des puissances successives de la matrice $\mathrm{J}_n$ \note. Plus précisément, 
-    $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}_n^k \defeq \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n).$$
+    }
+    $$\mathrm{C} = \sum_{k=0}^{n-1} c_k \mathrm{J}_n^k \defeqright \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n).$$
     Calculons le polynôme caractéristique de la matrice $\mathrm{J}_n$. Par définition, $\chi_{\mathrm{J}_n} = \det(X \I_n - \mathrm{J}_n)$ soit 
     $$
         \chi_{\mathrm{J}_n}(X) = 
@@ -78,18 +75,23 @@ $$
         \chi_{\mathrm{J}_n}(X) &= X \times X^{n-1} + (-1) \times (-1)^{n+1} \times (-1)^{n-1} \\
         \chi_{\mathrm{J}_n}(X) &= X^n-1.
     \end{align*}
-    
     Le polynôme caractéristique de $\mathrm{J}_n$ est scindé à racines simples sur $\C$ donc $\mathrm{J}_n$ est diagonalisable et en posant $\omega \defeq \me^{\mi \frac{2 \pi}{n}}$, 
     $$\Sp(\mathrm{J}_n) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
-    Ainsi, $\mathrm{J}_n$ est semblable à la matrice $\Diag(1, \omega, \omega^2, \dots, \omega^{n-1})$ et donc comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n)$, par linéarité, la matrice $\mathrm{C}$ est semblable à  la matrice $\Diag \left(\mathrm{P}_\mathrm{C}(1), \mathrm{P}_\mathrm{C}(\omega), \mathrm{P}_\mathrm{C}(\omega^2), \dots,\mathrm{P}_\mathrm{C}(\omega^{n-1}) \right)$. \\
+    Ainsi, 
+    $$\mathrm{J}_n \sim \Diag(1, \omega, \omega^2, \dots, \omega^{n-1})$$
+    et donc, comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n)$, par linéarité \note, 
+    $$\mathrm{C} \sim \Diag \left(\mathrm{P}_\mathrm{C}(1), \mathrm{P}_\mathrm{C}(\omega), \mathrm{P}_\mathrm{C}(\omega^2), \dots,\mathrm{P}_\mathrm{C}(\omega^{n-1}) \right).$$
     Ainsi, $\Sp(\mathrm{C}) = \left \{ \mathrm{P}_\mathrm{C}(\omega^k),\ k \in \llbracket 0, n-1 \rrbracket \right \}$.
 \end{preuve}    
 
 \marginnote[-3cm]{
-    $$A = P D \Inv{P}$$
-    $$A^k = P D^k \Inv{P}$$
-    $$Q(X) \defeq \sum_{k=0}^n q_k X^k$$
-    $$Q(A) = P Q(D) \Inv{P}$$
+    \note Si $A = P D \Inv{P}$ alors $A^k = P D^k \Inv{P}$. \\
+    Soit $Q(X) \defeq \sum\limits_{k=0}^n q_k X^k$. Alors,
+    \begin{align*}
+        Q(A) &= \sum_{k=0}^n q_k \big( P D^k \Inv{P} \big) \\
+        &= P \left( \sum_{k=0}^n q_k D^k \right) \Inv{P} \\
+        Q(A) &= P Q(D) \Inv{P}.
+    \end{align*}
 }
 
 \begin{corol}
@@ -99,3 +101,37 @@ $$
 \begin{preuve}
     Le déterminant d'une matrice est égal au produit de ses valeurs propres.
 \end{preuve}
+
+\subsection{Réduction de \texorpdfstring{$\mathrm{J}_n$}{J_n}}
+
+Nous avons montré que $\Sp(\mathrm{J}_n) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}$. \\
+Soit $k \in \llbracket 0, n-1 \rrbracket$, un vecteur propre de $\mathrm{J}_n$ associé à la valeur propre $\omega^k$ est
+$$
+\mathrm{X}_k \defeq
+\begin{pmatrix}
+    1 \\
+    \omega^k \\
+    \omega^{2k} \\
+    \vdots \\
+    \omega^{(n-1)k}
+\end{pmatrix}.
+$$
+\marginnote[0cm]{\url{https://fr.wikipedia.org/wiki/Matrice_circulante}}
+On a donc exhibé une famille de $n$ vecteurs propres associés à des valeurs propres distinctes, soit une base propre pour $\mathrm{J_n}$. \\
+Par conséquent, c'est une base propre aussi pour tout polynôme en $\mathrm{J}_n$, c'est-à-dire toute matrice circulante.
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
+    Soient $n \geqslant 2$ et $\omega \defeq \me^{2 \mi \pi / n}$. \\
+    Soit $A \defeq \big( \omega^{(k-1)(\ell-1)} \big)_{1 \leqslant k, \ell \leqslant n}$. Montrer que la matrice $A$ est inversible et calculer $\Inv{A}$.
+\end{exercice}
+
+\begin{solution}
+    Calculons $A \overline{A}$. Soit $(k, \ell) \in \llbracket 1, n \rrbracket^2$. Le coefficient ligne $k$, colonne $\ell$, de $A \times \overline{A}$ vaut
+    $$\sum_{j=1}^n \omega^{(k-1)(j-1)} \omega^{-(j-1)(\ell-1)} = \sum_{j=1}^n \big( \omega^{k-\ell} \big)^{j-1}.$$
+    \begin{itemize}
+        \item Si $k = \ell$, ce coefficient vaut $n$.
+        \item Si $k \not= \ell$, puisque $-n < k-\ell < n$ et que $k - \ell \not= 0$, $\omega^{k-\ell} \not=1$. Le coefficient ligne $k$, colonne $\ell$, de $A \overline{A}$ est donc égal à $\frac{1 - (\omega^{k-\ell})^n}{1 - \omega^{k-\ell}} = \frac{1-1}{1 - \omega^{k-\ell}} = 0$.
+    \end{itemize}
+    Finalement, $A \overline{A} = n \I_n$. Ainsi, $A$ est inversible à gauche et donc inversible, d'inverse $\Inv{A} = \frac{1}{n}\overline{A}$.
+\end{solution}

@@ -30,6 +30,24 @@ Voir aussi énoncé de \cite{exos_oraux} p. 44.
     La propriété de somme directe, n'est plus valable dans le cas d'un espace vectoriel de dimension infinie. En effet, dans $\R[X]$, l'application \emph{dérivée} met en défaut cette égalité. 
 \end{remarque}
 
-
-
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
+    Soient $E$ un espace vectoriel et $f$ un endomorphisme de $E$. Pour $k \in \N$, on pose $N_k \defeq \Ker(f^k)$ et $I_k \defeq \Im(f^k)$ puis $N \defeq \bigcup\limits_{k \in \N} N_k$ et $I \defeq \bigcap\limits_{k \in \N} I_k$. ($N$ est le nilespace de $f$ et $I$ le coeur de $f$).
+    \begin{enumerate}
+        \item 
+        \begin{enumerate}
+            \item Montrer que les suites $(N_k)_{k \in \N}$ et $(I_k)_{k \in \N}$ sont respectivement croissante et décroissante pour l'inclusion.
+            \item Montrer que $N$ et $I$ sont stables par $f$. 
+            \item Montrer que pour tout $k \in \N$, $(N_k = N_{k+1}) \Rightarrow (N_{k+1} = N_{k+2})$.
+        \end{enumerate}
+        \item On suppose de plus que $\dim E = n$, $n \in \Ne$.
+        \begin{enumerate}
+            \item Soit $A \defeq \{ k \in \N \mid N_k = N_{k+1} \}$ et $B \defeq \{ k \in \N \mid I_k = I_{k+1} \}$. Montrer qu'il existe un entier $p$ inférieur à $n$ tel que $A = B =  \{ k \in \N \mid k \geqslant p \}$.
+            \item Montrer que $E = N_p \oplus I_p$.
+            \item Montrer que $f_{\Vert N}$ est nilpotent et que $f_{\Vert I} \in \Gl(I)$.
+        \end{enumerate}
+        \item Trouver des exemples où $A$ est vide et $B$ est non vide et où $A$ est non vide et $B$ est vide.
+        \item Pour $k \in \N$, on pose $d_k \defeq \dim I_k$. Montrer que la suite $(d_k - d_{k+1})_{k \in \N}$ est décroissante. En déduire le sens de variation de la suite $\big( \dim N_{k+1} - \dim N_k \big)_{k \in \Ne}$.
+    \end{enumerate}
+\end{exercice}
 

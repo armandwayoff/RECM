@@ -1,9 +1,12 @@
+Soient $I$ un intervalle non vide de $\R$ et $w \in \mathscr{C}(I, \Rpe)$. On suppose que, pour tout entier naturel $n$, $\int_I |x|^n w(x) \d x$ converge. On note
+$$\mathscr{H} \defeq \left\{ f \in \mathscr{C}(I, \R),\ \int_I f^2 w \text{ converge} \right\}.$$
+Pour tout $(P, Q) \in \R[X]^2$, on pose 
+$$\langle P, Q \rangle \defeq \int_I P(t) Q(t) w(t) \d t.$$
+
+\subsection{Construction}
+
 \begin{exercice}
     \marginnote[0cm]{Exercice 17 Ch 13 \cite{acamanes}}
-    Soient $I$ un intervalle non vide de $\R$ et $w \in \mathscr{C}(I, \Rpe)$. On suppose que, pour tout entier naturel $n$, $\int_I |x|^n w(x) \d x$ converge. On note
-    $$\mathscr{H} \defeq \left\{ f \in \mathscr{C}(I, \R),\ \int_I f^2 w \text{ converge} \right\}.$$
-    Pour tout $(P, Q) \in \R[X]^2$, on pose 
-    $$\langle P, Q \rangle \defeq \int_I P(t) Q(t) w(t) \d t.$$
     \begin{enumerate}
         \item Montrer que $\langle \cdot, \cdot \rangle$ est un produit scalaire sur $\R[X]$.
         \item Montrer qu'il existe une suite $(P_n)_{n \in \N}$ de polynômes tels que 
@@ -15,20 +18,6 @@
         Soit $n$ un entier naturel.
         \item Montrer que $\Vect(P_0, \dots, P_n) = \R_n[X]$.
         \item Montrer que $P_{n+1} \in \R_n[X]^\perp$.
-        \item \textbf{Racines.} On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $Q \defeq \prod\limits_{i=1}^k (X - \alpha_i)$.
-        \begin{enumerate}
-            \item Majorer le degré de $Q$.
-            \item Déterminer le signe de $P_n Q$ sur $I$.
-            \item En déduire que $k = n$ et que $P_n$ a toutes ses racines réelles et simples dans $\mathring{I}$.
-        \end{enumerate}
-        \item \textbf{Relation de récurrence.}
-        \begin{enumerate}
-            \item Montrer que $(P_0, \dots, P_{n-1}, X P_{n-1})$ forme une base de $\R_n[X]$. \\
-        On note $P_n = \sum\limits_{k=0}^{n-1} \alpha_k P_k + \alpha_n X P_{n-1}$.
-            \item Montrer que, pour tout $j \in \llbracket 0, n - 3 \rrbracket, \alpha_j = 0$.
-            \item En déduire qu'il existe trois suites réelles $(a_n), (b_n)$ et $(c_n)$ telles que 
-            $$\forall n \in \N,\ P_{n+2} = (a_n X + b_n) P_{n+1} + c_n P_n.$$
-        \end{enumerate}
     \end{enumerate}
 \end{exercice}
 
@@ -70,81 +59,81 @@
             &= 0.
         \end{align*}
         Ainsi, $P_{n+1} \in \R_n[X]^\perp$.
-        \item Nous allons montrer que $P_n$ admet au moins $n$ changements de signe dans $I$. C'est pour cela que nous considérons les racines de multiplicité impaire, ce sont elles qui correspondent aux changements de signe. 
-        \begin{enumerate}
-            \item Comme $\deg P_n = n$, le polynôme $P_n$ possède au plus $n$ racines réelles distinctes. Ainsi, $\deg Q \leqslant n$.
-            \item En notant $a_1, \dots, a_p$ les racines réelles distinctes de $P$, on écrit sous forme irréductible:
-            $$P_n = \prod_{i=1}^p (X - a_i)^{r_i} \prod_{i=1}^s (X^2 + b_i X + c_i)^{\ell_i}.$$
-            Ainsi, pour tout $i \in \llbracket 1,p \rrbracket$, il existe $d_i \in \R$ non nul tel que
-            $$P_n(x) \isEquivTo{a_i} d_i (x - a_i)^{r_i}.$$
-            Alors, pour tout $i \in \llbracket 1, k$, il existe $\tilde{d_i} \in \R$ non nul tel que
-            $$P_n(x) Q(x) \isEquivTo{\alpha_i} \tilde{d_i} (x - \alpha_i)^{r_i+1}.$$
-            Comme $r_i$ est impair, le polynôme $P_nQ$ ne change pas de signe au voisinage de $\alpha_i$. \\
-            De plus, si $a_i$ est une racine de $P_n$ de multiplicité paire, alors $P_n$ ne change pas de signe au voisinage de $a_i$, d'après la \textcolor{red}{première} question. \\
-            Finalement, $P_nQ$ garde un signe constant sur $I$.
-            \item Supposons par l'absurde que $k < n$.  Alors, $Q \in \R_k[X] \subset \R_{n-1}[X]$ et, d'après la question $4.$, $P_n \in \R_{n-1}[X]^\perp$. Alors,
-            \begin{align*}
-                \langle P_n, Q \rangle &= 0 \\
-                \int_I P_n(t) Q(t) w(t) \d t &= 0.
-            \end{align*}
-            D'après la question précédente, $P_n Q w$ est une fonction continue et de signe constant. Ainsi, d'après la positivité de l'intégrale, $P_n Q w = 0$ sur $I$. Comme $w$ est à valeurs strictement positives,
-            $$\forall x \in I, P_n(x) Q(x) = 0.$$
-            Ainsi, $P_n Q$ possède une infinité de racines soit $P_n Q = 0$. Or $Q \not= 0$, soit $P_n = 0$, ce qui est absurde. Finalement, $k=n$ \note \marginnote[0cm]{\note $P_n$ a au moins $n$ changements de signe sur $I$; par le théorème des valeurs intermédiaires, $P_n$ a au moins $n$ racines dans $I$ et comme $P_n$ est de degré $n$, il y a exactement $n$ racines simples.} et $\deg Q = n$, donc toutes les racines de $P_n$ sont simples et appartiennent à $\mathring{I}$. 
-        \end{enumerate}
-        \item 
-        \begin{enumerate}
-            \item $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une famille de $n+1$ polynômes appartenant à $\R_n[X]$ et de degrés échelonnés. Ainsi, $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une base de $\R_n[X]$.
-            \item Soit $j \leqslant n-3$. D'après les définitions,
-            \begin{align*}
-                \langle X P_{n-1}, P_j \rangle &= \int_I t P_{n-1}(t) P_j(t) \d t \\
-                &= \langle \underbrace{X P_j}_{\in \R_{n-2}[X]}, P_{n-1} \rangle.
-            \end{align*}
-            Or, d'après la question $4.$, $P_{n-1} \in \R_{n-2}[X]^\perp$. \\
-            Alors, comme $(P_0, \dots, P_n)$ est orthogonale,
-            \begin{align*}
-                0 &= \langle P_n, P_j \rangle \\
-                &= \sum_{k=0}^{n-1} \alpha_k \langle P_k, P_j \rangle + \langle X P_{n-1}, P_j \rangle \\
-                &= \alpha_j \norme{P_j}^2.
-            \end{align*}
-            Comme $P_j \not= 0$, alors $\alpha_j = 0$.
-            \item D'après la question précédente, il existe $(\alpha_{n-2}, \alpha_{n-1}, \alpha_n) \in \R^3$ tel que 
-            \begin{align*}
-                P_n &= \alpha_{n-2} P_{n-2} + \alpha_{n-1} P_{n-1} + \alpha_n X P_{n-1} \\
-                &= (\alpha_n X + \alpha_{n-1}) P_{n-1} + \alpha_{n-2} P_{n-2}.
-            \end{align*}
-            Ainsi, la suite $(P_n)_{n \in \N}$ satisfait une relation de récurrence d'ordre $2$. 
-        \end{enumerate}
     \end{enumerate}
 \end{solution}
 
-Pour chaque choix de $w$, on construit ainsi un produit scalaire appelé \emph{produit scalaire usuel avec poids $w$} sur $\mathscr{C}^0(I, \R)$. Pour chacun de ces choix, l'orthogonalisation de \textsc{Gram}-\textsc{Schmidt} appliqué à la base canonique $(1, X, X^2, \dots)$ fait apparaître des familles de polynômes orthogonaux. \\
-C'est ainsi qu'il existe beaucoup de familles connues de polynômes orthogonaux dont l'introduction a été motivée par la résolution d'équations différentielles issues de la physique. Ces familles de polynômes sont aussi utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales. \\
-Le tableau ci-dessous rassemble quelques exemples de ces familles. 
+\subsection{Racines}
 
-\begin{figure}[h!]
-    % \setlength sets the horizontal (column) spacing
-    % \arraystretch sets the vertical (row) spacing
-    \begingroup
-    % \setlength{\tabcolsep}{10pt} % Default value: 6pt
-    \renewcommand{\arraystretch}{1.5} % Default value: 1
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        Nom & $I$ & $w(x)$ & Relation de récurrence\\
-        \hline \hline
-        \textsc{Legendre} & $[-1, 1]$ & $1$ & $(n+2) \Leg_{n+2} = (2n+3) \Leg_{n+1} - (n+1)\Leg_n$\\
-        \hline
-        \textsc{Tchebychev} & $]-1, 1[$ & $\frac{1}{\sqrt{1-x^2}}$ & $\Tcheby_{n+2} = 2X \Tcheby_{n+1} - \Tcheby_n$ \\
-        \hline
-        \textsc{Laguerre} & $\Rp$ & $\me^{-x}$ & $(n+2) \Lag_{n+2} = (-X+2n+3) \Lag_{n+1} - (n+1) \Lag_n$ \\
-        \hline
-        \textsc{Hermite} & $\R$ & $\me^{-x^2}$ & $\Hermite_{n+2} = 2X \Hermite_{n+1} - 2(n+1) \Hermite_n$\\
-        \hline
-    \end{tabular}
-    \endgroup
-    % The \begingroup ... \endgroup pair ensures the separation
-    % parameters only affect this particular table, and not any
-    % sebsequent ones in the document.
-\end{figure}
+\begin{exercice}
+    On note $(\alpha_i)_{i \leqslant i \leqslant k}$ les racines de $P_n$ qui appartiennent à $\mathring{I}$ et qui sont de multiplicité impaire. On pose $Q \defeq \prod\limits_{i=1}^k (X - \alpha_i)$.
+    \begin{enumerate}
+        \item Majorer le degré de $Q$.
+        \item Déterminer le signe de $P_n Q$ sur $I$.
+        \item En déduire que $k = n$ et que $P_n$ a toutes ses racines réelles et simples dans $\mathring{I}$.
+    \end{enumerate}
+\end{exercice}
+
+\begin{solution}
+    Nous allons montrer que $P_n$ admet au moins $n$ changements de signe dans $I$. C'est pour cela que nous considérons les racines de multiplicité impaire, ce sont elles qui correspondent aux changements de signe. 
+    \begin{enumerate}
+        \item Comme $\deg P_n = n$, le polynôme $P_n$ possède au plus $n$ racines réelles distinctes. Ainsi, $\deg Q \leqslant n$.
+        \item En notant $a_1, \dots, a_p$ les racines réelles distinctes de $P$, on écrit sous forme irréductible:
+        $$P_n = \prod_{i=1}^p (X - a_i)^{r_i} \prod_{i=1}^s (X^2 + b_i X + c_i)^{\ell_i}.$$
+        Ainsi, pour tout $i \in \llbracket 1,p \rrbracket$, il existe $d_i \in \R$ non nul tel que
+        $$P_n(x) \isEquivTo{a_i} d_i (x - a_i)^{r_i}.$$
+        Alors, pour tout $i \in \llbracket 1, k$, il existe $\tilde{d_i} \in \R$ non nul tel que
+        $$P_n(x) Q(x) \isEquivTo{\alpha_i} \tilde{d_i} (x - \alpha_i)^{r_i+1}.$$
+        Comme $r_i$ est impair, le polynôme $P_nQ$ ne change pas de signe au voisinage de $\alpha_i$. \\
+        De plus, si $a_i$ est une racine de $P_n$ de multiplicité paire, alors $P_n$ ne change pas de signe au voisinage de $a_i$, d'après la \textcolor{red}{première} question. \\
+        Finalement, $P_nQ$ garde un signe constant sur $I$.
+        \item Supposons par l'absurde que $k < n$.  Alors, $Q \in \R_k[X] \subset \R_{n-1}[X]$ et, d'après la question $4.$, $P_n \in \R_{n-1}[X]^\perp$. Alors,
+        \begin{align*}
+            \langle P_n, Q \rangle &= 0 \\
+            \int_I P_n(t) Q(t) w(t) \d t &= 0.
+        \end{align*}
+        D'après la question précédente, $P_n Q w$ est une fonction continue et de signe constant. Ainsi, d'après la positivité de l'intégrale, $P_n Q w = 0$ sur $I$. Comme $w$ est à valeurs strictement positives,
+        $$\forall x \in I, P_n(x) Q(x) = 0.$$
+        Ainsi, $P_n Q$ possède une infinité de racines soit $P_n Q = 0$. Or $Q \not= 0$, soit $P_n = 0$, ce qui est absurde. Finalement, $k=n$ \note \marginnote[0cm]{\note $P_n$ a au moins $n$ changements de signe sur $I$; par le théorème des valeurs intermédiaires, $P_n$ a au moins $n$ racines dans $I$ et comme $P_n$ est de degré $n$, il y a exactement $n$ racines simples.} et $\deg Q = n$, donc toutes les racines de $P_n$ sont simples et appartiennent à $\mathring{I}$. 
+    \end{enumerate}
+\end{solution}
+
+\subsection{Relation de récurrences}
+
+\begin{exercice}
+    \begin{enumerate}
+        \item Montrer que $(P_0, \dots, P_{n-1}, X P_{n-1})$ forme une base de $\R_n[X]$. \\
+        On note $P_n = \sum\limits_{k=0}^{n-1} \alpha_k P_k + \alpha_n X P_{n-1}$.
+        \item Montrer que, pour tout $j \in \llbracket 0, n - 3 \rrbracket, \alpha_j = 0$.
+        \item En déduire qu'il existe trois suites réelles $(a_n), (b_n)$ et $(c_n)$ telles que 
+        $$\forall n \in \N,\ P_{n+2} = (a_n X + b_n) P_{n+1} + c_n P_n.$$
+    \end{enumerate}
+\end{exercice}
+
+\begin{solution}
+    \begin{enumerate}
+        \item $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une famille de $n+1$ polynômes appartenant à $\R_n[X]$ et de degrés échelonnés. Ainsi, $(P_0, \dots, P_{n-1}, X P_{n-1})$ est une base de $\R_n[X]$.
+        \item Soit $j \leqslant n-3$. D'après les définitions,
+        \begin{align*}
+            \langle X P_{n-1}, P_j \rangle &= \int_I t P_{n-1}(t) P_j(t) \d t \\
+            &= \langle \underbrace{X P_j}_{\in \R_{n-2}[X]}, P_{n-1} \rangle.
+        \end{align*}
+        Or, d'après la question $4.$, $P_{n-1} \in \R_{n-2}[X]^\perp$. \\
+        Alors, comme $(P_0, \dots, P_n)$ est orthogonale,
+        \begin{align*}
+            0 &= \langle P_n, P_j \rangle \\
+            &= \sum_{k=0}^{n-1} \alpha_k \langle P_k, P_j \rangle + \langle X P_{n-1}, P_j \rangle \\
+            &= \alpha_j \norme{P_j}^2.
+        \end{align*}
+        Comme $P_j \not= 0$, alors $\alpha_j = 0$.
+        \item D'après la question précédente, il existe
+        $(\alpha_{n-2}, \alpha_{n-1}, \alpha_n) \in \R^3$ tel que 
+        \begin{align*}
+            P_n &= \alpha_{n-2} P_{n-2} + \alpha_{n-1} P_{n-1} + \alpha_n X P_{n-1} \\
+            &= (\alpha_n X + \alpha_{n-1}) P_{n-1} + \alpha_{n-2} P_{n-2}.
+        \end{align*}
+        Ainsi, la suite $(P_n)_{n \in \N}$ satisfait une relation de récurrence d'ordre $2$. 
+    \end{enumerate}
+\end{solution}
 
 \begin{exercice}    
     \marginnote[0cm]{\cite{exos_oraux} p. 155}
@@ -155,3 +144,74 @@ Le tableau ci-dessous rassemble quelques exemples de ces familles.
 \begin{solution}
     
 \end{solution}
+
+\subsection{Équations différentielles}
+\marginnote[0cm]{cf docs pour ref}
+
+Soient $a$ et $b$ deux fonctions définies sur un intervalle $I \defeq ] \alpha, \beta [$ de $\R$ borné ou non, avec $\alpha > 0$ sur $I$. On se propose d'étudier les valeurs propres de l'opérateur différentiel:
+\begin{align} \label{def_T}
+    T(y) \defeq ay'' + by'.
+\end{align}
+On introduit pour cela une fonction résolvante $w$ à valeurs strictement positives sur $I$ qui permet d'écrire l'opérateur $T$ sous une forme dont nous verrons bientôt l'utilité
+\begin{align*}
+    T(y) &= \frac{1}{w} \big( a w y' \big)' \\
+    &= \frac{1}{w} \big( a'w y' + a w' y' + a w y'' \big) \\
+    T(y) &= ay'' + a'y' + \frac{aw'}{w}y'.
+\end{align*}
+En égalisant avec \ref{def_T}, la fonction $w$ doit être solution de l'équation différentielle linéaire du premier ordre:
+$$a w' + (a' - b) w = 0,$$
+donc de la forme $w = \me^A$, où $A$ est une primitive de $\frac{b-a'}{a}$. \\
+On voit alors que pour le produit scalaire $\langle f, g \rangle \defeq \int_I f(x) g(x) w(x) \d x$, on a:
+$$\langle T(f), g \rangle = \int_I (a w f')'(x) g(x) \d x = \big[ a w f' g \big]_I - \int_I a(x) w(x) f'(x) g'(x) \d x.$$
+Si de plus la fonction $a w$ s'annule aux bornes de $I$ (ou tend vers $0$ en ses bornes si $I$ est infini), on a par intégration par parties
+$$\langle T(f), g \rangle = - \int_I a(x) w(x) f'(x) g'(x) \d x = \langle f, T(f) \rangle,$$
+autrement dit, l'opérateur $T$ est symétrique. \\
+Bien sûr, il faudrait préciser un peu les hypothèses sur les fonctions $a$ et $b$ pour que tout cela ait un sens, et en particulier préciser sur quel domaine est défini le produit scalaire précédent. \\
+Nous nous limiterons ici au cas où $a$ et $b$ sont des fonctions polynomiales de la forme
+$$a(x) \defeq a_2 x^2 + a_1 x + a_0 \quad \text{et} \quad b(x) \defeq b_1 x + b_0.$$
+Dans ce cas, l'opérateur $T$ est, pour tout entier $n \in \N$, une application linéaire de l'espace $\mathscr{P}_n$ des fonctions polynomiales de degré inférieur à $n$ dans lui-même et le produit scalaire $\langle \cdot, \cdot \rangle$ est défini sur cet espace si $\int_I |x|^k w(x) \d x$ converge pour tout $k \leqslant n$. \\
+Sous cette hypothèse, $\mathscr{P}_n$ muni de ce produit scalaire est un espace vectoriel euclidien de dimension finie $n + 1$, et l'opérateur $T$ est un endomorphisme symétrique de cet espace. Il existe alors une base orthonormée de $\mathscr{P}_n$ constituée de vecteurs propres de $T$. \\
+En particulier, il existe au moins un vecteur propre $P_n$ de degré $n$, qu'on peut choisir unitaire, et qui vérifie donc:
+$$T(P_n) = \lambda_n P_n \Longleftrightarrow a P_n'' + b P_n' = \lambda_n P_n.$$
+En considérant le terme de degré $n$ dans cette égalité, on obtient:
+$$\lambda_n = n \big( a_2(n-1) + b_1 \big).$$
+On sait que les sous-espaces propres d'un endomorphisme symétrique associés à des valeurs propres distinctes sont orthogonaux. Il en résulte qui si les valeurs propres $\lambda_n$ sont toutes distinctes, les polynômes $P_n$ seront deux à deux orthogonaux i.e.
+$$\int_I P_n(x) P_n(x) w(x) \d x = 0 \text{ pour } m \not= n.$$
+Ce sera le cas si l'équation:
+$$a_2 n (n-1) + b_1 n = a_2 m (m-1) + b_1 m \Longleftrightarrow (n-m) \big( a_2 (n+m-1) + b_1 \big) = 0$$
+n'admet pas de solutions entières positives $(n, m)$ avec $n \not= m$.
+
+\begin{remarque}
+    On peut bien sûr ajouter à l'opérateur $T$ un terme $cy$, avec $c$ constant, sans changer la symétrie de $T$, ni les vecteurs propres. On en fait alors que translater les valeurs propres.
+\end{remarque}
+
+\subsection{Conclusion}
+
+Pour chaque choix de $w$, on construit ainsi un produit scalaire appelé \emph{produit scalaire usuel avec poids $w$} sur $\mathscr{C}^0(I, \R)$. Pour chacun de ces choix, l'orthogonalisation de \textsc{Gram}-\textsc{Schmidt} appliqué à la base canonique $(1, X, X^2, \dots)$ fait apparaître des familles de polynômes orthogonaux. \\
+C'est ainsi qu'il existe beaucoup de familles connues de polynômes orthogonaux dont l'introduction a été motivée par la résolution d'équations différentielles issues de la physique. Ces familles de polynômes sont aussi utilisées, via les formules de quadrature, pour calculer des valeurs approchées d'intégrales. \\
+Le tableau ci-dessous rassemble quelques exemples de ces familles. 
+
+\begin{figure*}[h!]
+    % \setlength sets the horizontal (column) spacing
+    % \arraystretch sets the vertical (row) spacing
+    \begingroup
+    % \setlength{\tabcolsep}{10pt} % Default value: 6pt
+    \renewcommand{\arraystretch}{1.5} % Default value: 1
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Nom & $I$ & $w(x)$ & Relation de récurrence & Équation différentielle\\
+        \hline \hline
+        \textsc{Legendre} & $[-1, 1]$ & $1$ & $(n+2) \Leg_{n+2} = (2n+3) \Leg_{n+1} - (n+1)\Leg_n$ & $(1-x^2) y'' - 2xy' + n(n+1) y = 0$\\
+        \hline
+        \textsc{Tchebychev} & $]-1, 1[$ & $\frac{1}{\sqrt{1-x^2}}$ & $\Tcheby_{n+2} = 2X \Tcheby_{n+1} - \Tcheby_n$ & $(1-x^2)y'' - xy' + n^2y = 0$ \\
+        \hline
+        \textsc{Laguerre} & $\Rp$ & $\me^{-x}$ & $(n+2) \Lag_{n+2} = (-X+2n+3) \Lag_{n+1} - (n+1) \Lag_n$ & $xy'' + (1-x)y' + ny = 0$\\
+        \hline
+        \textsc{Hermite} & $\R$ & $\me^{-x^2}$ & $\Hermite_{n+2} = 2X \Hermite_{n+1} - 2(n+1) \Hermite_n$ & $y'' - 2xy' + 2ny = 0$\\
+        \hline
+    \end{tabular}
+    \endgroup
+    % The \begingroup ... \endgroup pair ensures the separation
+    % parameters only affect this particular table, and not any
+    % sebsequent ones in the document.
+\end{figure*}

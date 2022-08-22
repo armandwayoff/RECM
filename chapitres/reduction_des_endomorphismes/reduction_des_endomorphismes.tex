@@ -17,6 +17,9 @@
 \section{Autour du commutant}
 \input{chapitres/reduction_des_endomorphismes/autour_du_commutant}
 
+\section{Matrice circulante} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Déterm  
+\input{chapitres/determinants/matrice_circulante}
+
 \section{Que dire si \texorpdfstring{$M^2$}{M^2} est diagonalisable ?}
 \input{chapitres/reduction_des_endomorphismes/que_dire_si_M_carre_est_diagonalisable}
 
@@ -31,6 +34,9 @@
 
 \section{Éléments propres de \texorpdfstring{$MN$}{MN}, de \texorpdfstring{$NM$}{NM}}
 \input{chapitres/reduction_des_endomorphismes/elements_propres_de_MN_de_NM}
+
+\section{Topologie dans \texorpdfstring{$\M_n(\K)$}{M_n(K)}}
+\input{chapitres/reduction_des_endomorphismes/topologie_dans_Mn(K)}
 
 % \section{Spectre de \texorpdfstring{$\Id_E-uv$ et $\Id_E-vu$}{IdE-uv et IdE - vu}} \label{spectre_I-uv_et_I-vu}
 % \input{chapitres/reduction_des_endomorphismes/spectre_de_IdE-uv_et_IdE-vu}
@@ -103,7 +109,12 @@ Dans le cadre général, l'outil fondamental pour élucider les classes de simil
     On note que $(f_k - \lambda_k \Id)^{\alpha_k} = 0$ et donc $\lambda_k$ est l'unique valeur propre de $f_k$ car toute valeur propre de $f_k$ est racine du polynôme annulateur $(X-\lambda_k)^{\alpha_k}$. \\
     \textbf{Existence de $d$ et $n$.} On définit $d$ par ses restrictions $d_k$ aux $E'_k$, $1 \leqslant k \leqslant p$: $d_k$ est l'homothétie de rapport $\lambda_k$. Puis on définit $n$ par $n = f-d$. \\
     $d$ est diagonalisable car toute base de $E$ adaptée à la décomposition $E = E'_1 \oplus \cdots \oplus E'_p$ est une base de vecteurs propres de $d$. De plus, $f = d + n$. \\
-    Soit $n_k$ l'endomorphisme de $E'_k$ induit par $n$. On a $n_k = f_k - \lambda_k \Id_{E'_k}$ et par définition de $E'_k$, $n_k^{\alpha_k} = 0$. Mais alors, si on pose $\alpha \defeq \max \{ \alpha_1, \dots, \alpha_p \}$, on a $n_k^\alpha = 0$ pour tout $k \in \llbracket 1, p \rrbracket$ et donc $n^\alpha = 0$ (les endomorphismes $n^\alpha$ et $0$ coïncident sur des sous-espaces supplémentaires). Ainsi, $n$ est nilpotent. Enfin, pour tout $k \in \llbracket 1, p \rrbracket$, $n_k$
+    Soit $n_k$ l'endomorphisme de $E'_k$ induit par $n$. On a $n_k = f_k - \lambda_k \Id_{E'_k}$ et par définition de $E'_k$, $n_k^{\alpha_k} = 0$. Mais alors, si on pose $\alpha \defeq \max \{ \alpha_1, \dots, \alpha_p \}$, on a $n_k^\alpha = 0$ pour tout $k \in \llbracket 1, p \rrbracket$ et donc $n^\alpha = 0$ (les endomorphismes $n^\alpha$ et $0$ coïncident sur des sous-espaces supplémentaires). Ainsi, $n$ est nilpotent. Enfin, pour tout $k \in \llbracket 1, p \rrbracket$, $n_k$ commute avec $d_k$ car $d_k$ est une homothétie et donc $nd = dn$ (les endomorphismes $nd$ et $dn$ coïncident sur des sous-espaces supplémentaires). \\
+    \textbf{Unicité de $d$ et $n$.} Supposons que $f = d+n$ avec $d$ diagonalisable, $n$ nilpotent et $nd = dn$. \\
+    L'endomorphisme $d$ commute avec $n$ et donc avec $f$ car $df = d^2 + dn = d^2 + nd = fd$. Mais alors, $n = f - d$ commute également avec $f$. Les endomorphismes $d$ et $n$ laissent donc stables les sous-espaces caractéristiques $E'_k$, $1 \leqslant k \leqslant p$ de $f$. Pour $k \in \llbracket 1, p \rrbracket$, on note $d_k$ et $n_k$ les endomorphismes de $E'_k$ induits par $d$ et $n$ respectivement.\\
+    Soient $k \in \llbracket 1, p \rrbracket$ puis $\mu$ une valeur propre de $d_k$. D'après \textcolor{red}{l'exercice 2.11}, 
+    $$\det(f_k - \mu \Id) = \det(d_k - \mu \Id + n) = \det(d_k - \mu \Id) = 0,$$
+    car $d_k - \mu \Id$ n'est pas inversible. On en déduit que $f_k - \mu \Id$ n'est pas inversible et donc que $\mu$ est valeur propre de $f_k$. Puisque $\lambda_k$ est l'unique valeur propre de $f_k$, on a donc $\mu = \lambda_k$. Ainsi, $\lambda_k$ est l'unique valeur propre de $d_k$ et puisque $d_k$ est diagonalisable \note \marginnote[0cm]{\note Soit $f$ un endomorphisme d’un espace vectoriel $E$ de dimension finie non nulle et $F$ un sous-espace non nul de $E$ stable par $f$. On suppose que $f$ est diagonalisable. Montrer que la restriction de $f$ à $F$ est un endomorphisme diagonalisable de $F$.}, on a nécessairement $d_k = \lambda_k \Id_{E'_k}$ puis $n_k = f_k - \lambda_k \Id_{E'_k}$. Ceci montre l'unicité de $d$ et $n$.
 \end{solution}
 
 A rajouter:

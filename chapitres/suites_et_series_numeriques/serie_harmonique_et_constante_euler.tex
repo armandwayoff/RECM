@@ -6,20 +6,23 @@
 	\input{illustrations/i_constante_euler}
 \end{marginfigure}
 
-\begin{prop}{}
-    \begin{enumerate}
-        \item $\lim\limits_{n \to + \infty} \Harmonique_n = + \infty$.
-        \item $\forall n \geqslant 1, \ln(n+1) \leqslant \Harmonique_n \leqslant \ln n + 1$ et 
-        $$\Harmonique_n \isEquivTo{n \to + \infty} \ln n.$$
-        \item $\big(\Harmonique_n - \ln(n) \big)_{n \in \Ne}$ converge.
-        \item $\Harmonique_n =_{n \to + \infty} \ln n + \gamma + \frac{1}{2n} + o\left(\frac{1}{n}\right)$.
-    \end{enumerate}
+\begin{prop}{$(\Harmonique_n)$ diverge}
+    $\lim\limits_{n \to + \infty} \Harmonique_n = + \infty$.
+\end{prop}
+
+\begin{prop}{Équivalent de la série harmonique}
+    $\forall n \geqslant 1, \ln(n+1) \leqslant \Harmonique_n \leqslant \ln n + 1$ et 
+    $$\Harmonique_n \isEquivTo{n \to + \infty} \ln n.$$
 \end{prop}
 
 \begin{defi}{Constante d'\textsc{Euler}}
     La constante d'\textsc{Euler} $\gamma$ est définie par:
     $$\gamma \defeq \lim_{n \to \infty} \big(\Harmonique_n - \ln(n) \big) \approx 0,577\ 215\ 664 \dots$$
 \end{defi}
+
+\begin{prop}{Développement asymptotique}
+    $\Harmonique_n =_{n \to + \infty} \ln n + \gamma + \frac{1}{2n} + o\left(\frac{1}{n}\right)$.
+\end{prop}
 
 \textcolor{red}{Ce point est à reprendre !!}
 
@@ -28,7 +31,9 @@ L'existence de cette constante peut être montrée de plusieurs manières.
 \marginnote[2cm]{
     \begin{kaobox}[frametitle=Le théorème de comparaison série / intégrale]
         \cite{acamanes} ch 2. \\
-        Soit $f$ une fonction continue par morceaux, décroissante de $\Rp$ à valeurs dans $\Rp$. Alors, la série de terme général $\displaystyle w_n \defeq \int_{n-1}^n f(t) \d t - f(n)$ est convergente. En particulier, $\sum f(n)$ converge si et seulement si $\displaystyle x \mapsto \int_0^x f(t) \d t$ admet une limite finie en $+ \infty$.
+        Soit $f$ une fonction continue par morceaux, décroissante de $\Rp$ à valeurs dans $\Rp$. Alors, la série de terme général 
+        $$w_n \defeq \int_{n-1}^n f(t) \d t - f(n)$$
+        est convergente. En particulier, $\sum f(n)$ converge si et seulement si $\displaystyle x \mapsto \int_0^x f(t) \d t$ admet une limite finie en $+ \infty$.
     \end{kaobox}
     \begin{methode}
         Le théorème de comparaison série / intégrale permet

@@ -12,15 +12,14 @@ Dès la plus haute Antiquité, on rencontre des exemples de résolutions d'équa
 Après l'Antiquité, il faudra attendre le \textsc{xvi}$^\me$ siècle pour que des progrès substantiels apparaissent, dus à l'école italienne. \textsc{Scipone del Ferro}, \textsc{Tartaglia} et \textsc{Cardan} apportent la solution de l'équation du troisième dégré. L'équation générale est ramenée à la forme réduite $x^3 + px + q = 0$ \note, dont une solution s'écrit
 $$x = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}.$$
 \marginnote[5.5cm]{
-    Nicolas \textsc{Tosel} poly révisions lycée -> CPGE \\
-    \note Soient $a, b, c$ des nombres complexes et $P$ le polynôme défini par:
+    \note Soient $(a, b, c) \in \C^3$ et $P$ le polynôme défini par:
     $$\forall z \in \C,\ P(z) \defeq z^3 + az^2 + bz + c.$$
-    On observe que, si $h \in \C$, alors pour tout $z \in \C$
+    On observe que pour $h \in \C$,
     \begin{align*}
         P(z + h) = z^3 + (3h + a)&z^2 + (3h^2 + 2ha + b)z \\
         & + h^3 + ah^2 + bh + c.
     \end{align*}
-    Soit $h \defeq -\frac{a}{3}$. Alors,
+    Pour $h = -\frac{a}{3}$, on définit le polynôme $Q$ par
     $$\forall z \in \C,\ Q(z) \defeq P(z + h) = z^3 + pz + q$$
     où $p \defeq -\frac{a^2}{3}+b$, $q \defeq \frac{2a^3}{27} - \frac{ab}{3} + c$.
     On a alors

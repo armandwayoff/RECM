@@ -34,14 +34,14 @@
 \section{Intégrale de \textsc{Dirichlet}}
 \input{chapitres/integration/integrale_de_dirichlet}
 
-\section{Intégrales eulériennes}
-\input{chapitres/integration/integrales_euleriennes}
-
 \section{Intégrale de \textsc{Gauss}}
 \input{chapitres/integration/integrale_de_gauss}
 
 \section{Intégrale de \textsc{Wallis}} \label{integrale_wallis}
 \input{chapitres/integration/integrale_de_wallis}
+
+\section{Intégrales eulériennes}
+\input{chapitres/integration/integrales_euleriennes}
 
 \section{Théorème de \textsc{Fubini}}
 \input{chapitres/integration/theoreme_de_fubini}
@@ -51,16 +51,16 @@
 \input{chapitres/integration/transformee_de_laplace}
 
 
-\section{Exercice oral}
-\begin{exercice}
-    On pose
-    $$F:x \mapsto \int_x^{+\infty} \frac{\me^{-t}}{t} \d t.$$
-    \begin{enumerate}
-        \item Déterminer l'ensemble de définition de $F$. Étudier brièvement le comportement de la fonction $F$ et tracer sa courbe représentative.
-        \item Déterminer un  équivalent de $F$ en $+\infty$.
-        \item Montrer que $F(1) - F(x) - \ln x$ converge vers un réel. (pas sûr de cette question).
-    \end{enumerate}
-\end{exercice}
+%\section{Exercice oral}
+%\begin{exercice}
+%    On pose
+%    $$F:x \mapsto \int_x^{+\infty} \frac{\me^{-t}}{t} \d t.$$
+%    \begin{enumerate}
+%        \item Déterminer l'ensemble de définition de $F$. Étudier brièvement le comportement de la fonction $F$ et tracer sa courbe représentative.
+%        \item Déterminer un  équivalent de $F$ en $+\infty$.
+%        \item Montrer que $F(1) - F(x) - \ln x$ converge vers un réel. (pas sûr de cette question).
+%    \end{enumerate}
+%\end{exercice}
 
 %\begin{enumerate}
 %    \item $D = ]0, + \infty[$.
@@ -99,20 +99,3 @@
     $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
     On en déduit le résultat. 
 \end{preuve}
-
-\section{Sinus cardinal}
-
-\begin{exercice}
-    Pour $x$ réel, on pose 
-    $$f(x) \defeq
-    \begin{cases} 
-        \frac{\sin x}{x} &\text{si } x \not= 0 \\ 
-        1 &\text{si } x = 0 
-    \end{cases}.$$ 
-    Montrer que $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
-\end{exercice}
-
-\begin{solution}
-    \marginnote[0cm]{fic00126}
-    Pour $x$ réel non nul, $f(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!}$ ce qui reste vrai pour $x = 0$. La fonction $f$ est donc développable en série entière sur $\R$ et en particulier, la fonction $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
-\end{solution}

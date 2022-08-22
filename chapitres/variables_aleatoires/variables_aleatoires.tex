@@ -16,6 +16,27 @@
 \section{Identité de \textsc{Wald}}
 \input{chapitres/variables_aleatoires/identite_de_wald}
 
+\section{Allumettes de \textsc{Banach}}
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    On a deux boites d'allumettes $G$ et $D$ chacune contenant $n$ allumettes. On choisit aléatoirement une boite et on en retire une allumette, et on recommence jusqu'à ce que l'une des deux boites soit vide.
+    \begin{enumerate}
+        \item Déterminer la loi de la variable alétoire $R$ du nombre d'allumettes restant dans l'autre boite.
+        \item Dans cette question, on considère qu'on s'arrête lorsque pour la première fois on choisit une boite et on constate qu'elle est vide. Déterminer la loi de la variable aléatoire $R'$ du nombre d'allumettes restant dans l'autre boite.
+        \item Calculer l'espérance de $R$, et déduire que $\E(R) \isEquivTo{+ \infty} 2 \sqrt{\frac{n}{\pi}}$.
+    \end{enumerate}
+\end{exercice}
+
+\section{Urne de \textsc{Pólya}}
+\begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    Soient $a, b, c \in \Ne$. Une urne contient $a$ boules rouge et $b$ boules noires. On tire une boule au hasard, on constate sa couleur, et on la remet dans l'urne avec $c$ nouvelles boules de sa couleur. Soit pour tout $n \in \Ne$, $R_n$ l'événement: \say{ la $n$-ième boule tirée est rouge }.
+    \begin{enumerate}
+        \item Calculer $\P(R_1)$ et $\P(R_2)$.
+        \item Calculer $\P(R_n)$ pour tout $n$.
+    \end{enumerate}
+\end{exercice}
+
 \newpage
 
 \cite{acamanes} ch7

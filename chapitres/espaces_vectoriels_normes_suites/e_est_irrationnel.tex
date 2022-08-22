@@ -1,9 +1,12 @@
+\begin{prop}{}
+    Le nombre $\me \defeq \exp(1)$ est irrationnel.
+\end{prop}
 \marginnote[0cm]{Une version de la preuve est dans Proofs from the BOOK (p.47)}
 La démonstration suivante est due à Joseph \textsc{Fourier} (1815).
 \begin{preuve}
     Supposons par l'absurde qu'il existe deux entiers $a$ et $b$ non nuls tels que $\me = \frac{a}{b}$. Alors, pour tout $n \geqslant 0$,
     $$n! b \me = n! a.$$
-    Le terme de droite est un entier et le terme de gauche s'écrit
+    Le terme de droite est un entier et le terme de gauche s'écrit \note \marginnote[0cm]{$\displaystyle \note\ \me = \sum_{n=0}^{+ \infty} \frac{1}{n!}$}
     $$n! b \left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} + \frac{1}{(n+1)!} + \cdots \right)$$
     qui se décompose en la somme d'un entier
     $$b n! \left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right)$$
@@ -14,7 +17,7 @@ La démonstration suivante est due à Joseph \textsc{Fourier} (1815).
         0 &< \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)} + \cdots \\
         & < \frac{1}{n+1} + \frac{1}{(n+1)^2} + \frac{1}{(n+1)^3} + \cdots = \frac{1}{n+1} \cdot \frac{1}{1-\frac{1}{n+1}} = \frac{1}{n}.
     \end{align*}
-    Ainsi le membre de gauche n'est pas entier et on aboutit à une contradiction. On en déduit que $\me$ est irrationnel.
+    Ainsi le membre de gauche n'est pas entier et on aboutit à une contradiction. On en déduit que le nombre $\me$ est irrationnel.
 \end{preuve}
 
 \marginnote{
