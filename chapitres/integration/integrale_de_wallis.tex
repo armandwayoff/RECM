@@ -60,9 +60,11 @@ Soit $p \in \N$. D'après la relation précédente,
     D'après \vrefprop{prop_wallis}, $\Wallis_n \sim \sqrt{\frac{\pi}{2n}}$ et la règle de \textsc{d'Alembert} fournit $R = 1$. Soit $x \in ]-1, 1[$. \\
     Pour tout $t \in \left[ 0, \frac{\pi}{2} \right]$ et tout entier naturel $n$, $|x^n \cos^n t| \leqslant |x|^n$. Comme la série numérique de terme général $|x|^n$ converge, la série de fonctions de terme général $t \mapsto x^n \cos^n t$ est normalement convergente et donc uniformément convergente sur le segment $\left[ 0, \frac{\pi}{2} \right]$. D'après le théorème d'intégration terme à terme sur un segment, 
     \begin{align*}
-        \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \sum_{n=0}^{+ \infty} \left[ x^n \int_0^{\pi/2} \cos^n t \d t \right] = \int_0^{\pi/2} \left( \sum_{n=0}^{+\infty} x^n \cos^n t \right) \d t = \int_0^{\pi/2} \frac{1}{1 - x \cos t} \d t \\
+        \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \sum_{n=0}^{+ \infty} \left[ x^n \int_0^{\pi/2} \cos^n t \d t \right] = \int_0^{\pi/2} \left( \sum_{n=0}^{+\infty} x^n \cos^n t \right) \d t \\
+        &=\int_0^{\pi/2} \frac{1}{1 - x \cos t} \d t \\
         &= \int_0^1 \frac{1}{1 - x \frac{1-u^2}{1+u^2}} \frac{2}{1 + u^2} \d u \quad \text{en posant } u = \tan \frac{t}{2} \\
-        &= 2 \int_0^1 \frac{1}{(1+x)u^2 + (1-x)} \d u = 2 \times \frac{1}{1+x} \times \frac{1}{\sqrt{\frac{1-x}{1+x}}} \left[ \arctan \left( \frac{u}{\sqrt{\frac{1-x}{1+x}}} \right) \right]_0^1 \\
+        &= 2 \int_0^1 \frac{1}{(1+x)u^2 + (1-x)} \d u \\
+        &= 2 \times \frac{1}{1+x} \times \frac{1}{\sqrt{\frac{1-x}{1+x}}} \left[ \arctan \left( \frac{u}{\sqrt{\frac{1-x}{1+x}}} \right) \right]_0^1 \\
         \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \frac{2}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}}.
     \end{align*}
 \end{solution}
@@ -89,7 +91,7 @@ $$\int_0^{+ \infty} \me^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
     $$V_{2p}(R) = \frac{\pi^p R^{2p}}{p!}.$$
 \end{exercice}
 
-\subsection{\textsc{Gain de raisin}: Produit de \textsc{Wallis}}
+\subsection{\textsc{Grain de raisin}: Produit de \textsc{Wallis}}
 
 \begin{prop}{Produit de \textsc{Wallis}}
     $$\prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{\pi}{2}$$
@@ -99,5 +101,5 @@ $$\int_0^{+ \infty} \me^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
     Puisque $\Wallis_{2n} \sim \Wallis_{2n+1}$, 
     $$\lim_{n \to +\infty} \frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\pi}{2}.$$
     Or d'après le calcul des intégrales de \textsc{Wallis}:
-    $$\frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\prod\limits_{k=1}^n \frac{2k}{2k+1}}{\prod\limits_{k=1}^n \frac{2k-1}{2k}} = \prod_{k=1}^n \frac{4k^2}{4k^2-1}.$$
+    $$\frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\frac{2^{2p}(p!)^2}{(2p+1)!}}{\frac{(2p)!}{2^{2p}(p!)^2}} = \prod_{k=1}^n \frac{4k^2}{4k^2-1}.$$
 \end{preuve}

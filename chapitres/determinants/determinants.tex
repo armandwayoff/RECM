@@ -24,7 +24,7 @@ Déterminants}
     \begin{enumerate}
         \item Soient $a_{i,j}$, $1 \leqslant i, j \leqslant n$, $n^2$ fonctions dérivables sur $\R$ à valeurs dans $\C$. Soit $d \defeq \det(a_{i,j})_{1 \leqslant i, j \leqslant n}$. Montrer que $d$ est dérivable sur $\R$ et calculer $d'$.
         \item Application: calculer
-        $
+        $$
         d_n(x) \defeq
         \begin{vmatrix}
             x+1 & 1 & \cdots & 1 \\
@@ -32,7 +32,7 @@ Déterminants}
             \vdots & \ddots & \ddots & 1 \\
             1 & \cdots & 1 & x+1
         \end{vmatrix}
-        $.
+        .$$
     \end{enumerate}
 \end{exercice}
 
@@ -50,7 +50,36 @@ Déterminants}
     $$
 \end{exercice}
 
+\begin{solution}
+    On pose 
+    $$
+    f(x) \defeq
+    \begin{vmatrix}
+        r_1 + x & a + x & \cdots & a + x\\
+        b + x & r_2 + x & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & a + x \\
+        b + x & \cdots & b + x & r_n + x
+    \end{vmatrix}.
+    $$
+    On cherche à calculer $f(0)$. \\   
+    Par multilinéarité du déterminant, $f$ est de la forme
+    $$f(x) = \alpha x + \beta.$$
+    Or on peut calculer $f$ en deux points.
+    \begin{align*}
+        f(-a) &= \prod_{i=1}^n (r_i - a) \\
+        f(-b) &= \prod_{i=1}^n (r_i - b) 
+    \end{align*}
+    Si $a \not= b$, on en déduit que 
+    $$f(0) = \beta = \frac{1}{a-b} \left[ a \prod\limits_{i=1}^n (r_i - b) - b \prod\limits_{i=1}^n (r_i - a) \right].$$
+    Si $a = b$, 
+    $\det = \lim_{b \to a} \frac{a Q(b) - b Q(a)}{a-b}$
+    $règle de l'hpotial = \lim_{b \to a} \frac{a Q'(b) - Q(a)}{-1}$
+    $ = Q(a) - a Q'(a)$
+\end{solution}
+
 \section{Matrice circulante modulo \texorpdfstring{$p$}{p}}
+
+Ajouter un lien avec la section du déterminant circulaire. 
 
 \begin{exercice}
     \marginnote[0cm]{\cite{fmaalouf}}
@@ -66,3 +95,7 @@ Déterminants}
     \equiv a_0 + \cdots + a_{p-1}\ [p].
     $$
 \end{exercice}
+
+\begin{solution}
+    $$\det \big( \mathrm{C}(a_0, \dots, a_{n-1}) \big) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} a_k \exp \left( \mi \frac{2kj \pi}{n} \right) \right).$$
+\end{solution}

@@ -15,3 +15,14 @@
     On en déduit que $\Id_E - u$ est inversible et que 
     $$\Inv{(\Id_E - u)} = \sum_{k = 0}^{n-1} u^k.$$
 \end{solution}
+
+Un résultat analogue : [cite: Fred JEAN]\\
+\begin{prop}{Série de \textsc{Neumann}}
+    Si une matrice $A \in \M_n(\R)$ vérifie $\norme{A} < 1$, alors la matrice $\I_n - A$ est inversible. 
+\end{prop}
+
+\begin{preuve}
+    En effet, pour une telle matrice $A$, la série $\sum\limits_{k=0}^\infty A^k$ est convergente (car normalement convergente). En faisant alors tendre $p$ vers l'infini dans l'identité
+    $$\left( \sum_{k=0}^p A^k \right) (\I_n - A) = (\I_n - A) \left( \sum_{k=0}^p A^k \right) = \I_n - A^{p+1},$$
+    on obtient que la matrice $\I_n - A$ est inversible, d'inverse $\sum\limits_{k=0}^\infty A^k$, puisque $A^p \to 0$ quand $p \to \infty$.
+\end{preuve}

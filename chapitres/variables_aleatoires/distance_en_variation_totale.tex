@@ -9,14 +9,16 @@ Soit $\mathscr{E}$ l'espace des suites réelles $(p_n)_{n \in \N}$ telles que la
     \item Soit $(p,q) \in [0, 1]^2, P = (1-p, p, 0, \dots)$ et $Q = (1-q, q, 0, \dots)$. Déterminer $d(P, Q)$.
     \item Soient $n \in \N$ et $\lambda \in \Rp$. Montrer l'inégalité $\sum\limits_{k=n+1}^{+\infty} \leqslant \me^{\lambda} \frac{\lambda^{n+1}}{(n+1)!}$.
     \item Soient $X_\lambda$ et $X_\mu$ deux variables aléatoires suivant une loi de \textsc{Poisson} de paramètres respectifs $\lambda$ et $\mu$. Soit $P_\lambda = (\P(X_\lambda=n))_{n \in \N}$ et $P_\mu = (\P(X_\mu=n))_{n \in \N}$. Soit $n \in \Ne$. Montrer l'inégalité
-    $$d(P_\lambda, P_\mu) \leqslant \max_{A \subset \llbracket 0, n \rrbracket} \left| \sum_{k \in A} \P(X_\lambda=k) - \sum_{k \in A} \P(X_\mu=k) \right| + \frac{\lambda^{n+1}}{(n+1)!} + \frac{\mu^{n+1}}{(n+1)!}.$$
+    $$d(P_\lambda, P_\mu) \leqslant \max_{A \subset \llbracket 0, n \rrbracket} \left| \sum_{k \in A} \P(X_\lambda=k) - \sum_{k \in A} \P(X_\mu=k) \right|$$
+    $$+ \frac{\lambda^{n+1}}{(n+1)!} + \frac{\mu^{n+1}}{(n+1)!}.$$
 \end{enumerate}
 \end{exercice}
 
 \marginnote[-5cm]{
     \begin{kaobox}[frametitle=Ensemble convexe]
         Un ensemble $\mathscr{X}$ est dit \emph{convexe} lorsque
-        $$\forall (x,y) \in \mathscr{X}^2 \enspace \forall t \in [0,1], \enspace tx + (1-t)y \in \mathscr{X}.$$
+        $$\forall (x,y) \in \mathscr{X}^2 \enspace \forall t \in [0,1]$$
+        $$tx + (1-t)y \in \mathscr{X}.$$
     \end{kaobox}
 }
 

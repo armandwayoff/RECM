@@ -1,5 +1,5 @@
-\begin{prop}{}
-    Soit $E$ un espace vectoriel et $f \in \Endo(E)$. L'application $f$ est une homothétie si et seulement si la famille $\big(x, f(x) \big)$ liée pour tout $x \in E$.
+\begin{prop}{Caractérisation des homothéties}
+    Soit $E$ un espace vectoriel et $f \in \Endo(E)$. L'application $f$ est une homothétie si et seulement si la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$.
 \end{prop}
 
 \begin{marginfigure}
@@ -19,9 +19,9 @@
             \item \underline{Cas où $x \in \Vect(y)$.} Alors il existe un scalaire non nul $\lambda$ tel que $x = \lambda y$. En composant cette relation par $f$ on obtient
             $$f(x) = \lambda f(y)$$
             \begin{align*}
-                &\text{soit} &\lambda_x x = \lambda \lambda_{y} y, \\
-                &\text{en remplaçant $x$} &\lambda_x \lambda y = \lambda \lambda_{y} y, \\
-                &\text{en factorisant} &\lambda (\lambda_x - \lambda_{y}) y = 0.
+                &\text{soit : } \lambda_x x = \lambda \lambda_{y} y, \\
+                &\text{en remplaçant $x$ : } \lambda_x \lambda y = \lambda \lambda_{y} y, \\
+                &\text{en factorisant : } \lambda (\lambda_x - \lambda_{y}) y = 0.
             \end{align*}
             Or $\lambda \not= 0$ et $y \not= 0_E$ donc nécessairement $\lambda_x = \lambda_{y}$.
             \item \underline{Cas où $x \not \in \Vect(y)$.} On pose $z \defeq x + y$. Par définition de l'application $f$, $f(z) = \lambda_z z$ soit $f(z) = \lambda_z(x + y)$. \\

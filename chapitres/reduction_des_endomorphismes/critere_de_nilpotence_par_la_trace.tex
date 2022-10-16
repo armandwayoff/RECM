@@ -11,7 +11,7 @@ Les résultats que nous allons montrer par la suite peuvent être résumés par 
 \end{figure*}
 
 Intéressons-nous d'abord à la branche de gauche.
-\begin{prop}{}
+\begin{prop}{Critère de nilpotence par la trace} \labprop{critere_de_nilpotence_par_la_trace}
     Soit $A \in \M_n(\K)$. La matrice $A$ est nilpotente si et seulement si pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$.
 \end{prop}
 \begin{preuve}
@@ -43,7 +43,7 @@ Intéressons-nous d'abord à la branche de gauche.
     %}
     \begin{itemize}
         \item[$(\Rightarrow)$] Si la matrice $A$ est nilpotente, son spectre est réduit à $0$ et donc elle est semblable à une matrice strictement triangulaire $T$. Pour tout $k \in \llbracket 1, n \rrbracket$, la matrice $A^k$ est semblable à la matrice $T^k$ dont la diagonale est nulle \note. La trace étant un invariant de similitude, on en déduit que pour tout $k \in \llbracket 1, n \rrbracket$, $\Tr(A^k) = \Tr(T^k) = 0$.
-        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $\lambda_1, \dots, \lambda_r \in \C$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $m_1, \dots, m_r \in \Ne$ leur multiplicité respective. En trigonalisant la matrice $A$, notre hypothèse équivaut à
+        \item[$(\Leftarrow)$] Réciproquement, supposons que la matrice $A$ n'est pas nilpotente. On désigne par $(\lambda_1, \dots, \lambda_r) \in \C^r$ les valeurs propres non nulles deux à deux distinctes de $A$ (qui existent car le polynôme $\chi_A \in \C[X]$ est scindé) et $(m_1, \dots, m_r) \in (\Ne)^r$ leur multiplicité respective. En trigonalisant la matrice $A$, notre hypothèse équivaut à
         $$\forall k \in \llbracket 1, n \rrbracket,\ \sum_{i=1}^r m_i \lambda_i^k = 0.$$
         En effet, la valeur propre $\lambda_i$ est présente $m_i$ fois sur la diagonale. \\
         En particulier, en se limitant à $k \in \llbracket 1, r \rrbracket$, ces relations se traduisent matriciellement par
@@ -83,7 +83,7 @@ Intéressons-nous d'abord à la branche de gauche.
         %\end{tikzpicture}
         %$$
 
-        Ainsi $X \in \Ker(V)$. Or la matrice $V$ est une matrice de \textsc{Vandermonde} inversible car les $\lambda_i$ sont deux à deux distinctes par hypothèse. Nous aboutissons alors à une contradiction car le vecteur $X$ est non nul. On en déduit que la matrice $A$ est nilpotente. \\
+         Ainsi $X \in \Ker V$. Or la matrice $V$ est une matrice de \textsc{Vandermonde} inversible car les $\lambda_i$ sont deux à deux distinctes \note \marginnote[0cm]{\textcolor{red}{renvoyer vers la section sur Vandermonde}} par hypothèse. Nous aboutissons alors à une contradiction car le vecteur $X$ est non nul. On en déduit que la matrice $A$ est nilpotente. \\
         
         Voyons une autre démonstration pour la réciproque. \\ \marginnote[0cm]{\url{https://www.youtube.com/watch?v=d70IfThN_-A}}
         \item[$(\Leftarrow)$] Montrons par récurrence que la matrice $A$ est nilpotente. Plus précisément pour $n \in \N$ on note
@@ -92,7 +92,7 @@ Intéressons-nous d'abord à la branche de gauche.
         \end{center}
         Montrons d'abord le lemme suivant.
         \begin{lemme}
-            Soit $A \in \M_n(\K)$ telle que pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$. Montrons que $0 \in \Sp(A)$.
+            Soit $A$ une matrice de $\M_n(\K)$ telle que pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$. Montrons que $0 \in \Sp(A)$.
         \end{lemme}
         On note $\chi_A(X) \defeq \sum\limits_{k=0}^n a_k X^k$. D'après le théorème de \textsc{Cayley}-\textsc{Hamilton}, $\sum\limits_{k=0}^n a_k A^k = 0$. En composant cette relation par la trace, qui est linéaire, et d'après les hypothèses, 
         $$a_n \times 0 + \cdots + a_1 \times 0 + a_0 \times n = 0.$$
@@ -101,7 +101,7 @@ Intéressons-nous d'abord à la branche de gauche.
         Revenons à la démonstration de la récurrence.
         \begin{itemize}
             \item[$\rhd$] Initialisation pour $n=1$ : $\Tr(A) = 0$ donc $A = 0$ et $A$ est nilpotente. 
-            \item[$\rhd$] Hérédité: soit $A \in \M_n(\K)$ telle que pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$. \\
+            \item[$\rhd$] Hérédité: soit $A$ une matrice de $\M_n(\K)$ telle que pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$. \\
             D'après le lemme, $0 \in \Sp(A)$. Soit $u$ un vecteur propre de $A$ associé à $0$ et soit $(u, u_2, \dots, u_n)$ une base de $\M_{n,1}(\K)$. Alors en notant $B$ une matrice carrée de taille $n-1$, 
             $$A \sim 
             \begin{pmatrix}
@@ -117,7 +117,7 @@ Intéressons-nous d'abord à la branche de gauche.
             0 & & &
             \end{pmatrix}.
             $$
-            D'après les hypothèses sur la trace des $A^k$, pour tout $k \in \llbracket 1, n-1 \rrbracket, \Tr(B^k) = 0$. Ainsi, en appliquant $\mathscr{P}_{n-1}$, la matrice $B$ est nilpotente. On en déduit, d'après les opérations sur les matrices par blocs, que
+            D'après les hypothèses sur la trace des matrices $A^k$, pour tout $k \in \llbracket 1, n-1 \rrbracket, \Tr(B^k) = 0$. Ainsi, en appliquant $\mathscr{P}_{n-1}$, la matrice $B$ est nilpotente. On en déduit, d'après les opérations sur les matrices par blocs, que
             $$\chi_A(X) = X \chi_{B}(X) = X \times X^{n-1} = X^n.$$
             Ainsi, d'après le théorème de \textsc{Cayley}-\textsc{Hamilton}, la matrice $A$ est nilpotente. 
         \end{itemize}

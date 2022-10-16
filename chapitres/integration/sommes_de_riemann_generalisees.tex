@@ -13,5 +13,39 @@
 \end{preuve}
 
 \begin{exercice}
-    Trouver un bon exo d'application
+    \marginnote[0cm]{\cite{maths-france} Planche no 37. Intégration sur un segment}
+    Limites quand $n$ tend vers $+ \infty$ de 
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item $$\frac{1}{n^3} \sum_{k=1}^n k^2 \sin \frac{k \pi}{n}$$
+            \item Soit $a > 0$, 
+            $$\left( \frac{1}{n!} \prod_{k=1}^n (a+k) \right)^{1/n}$$
+            \item $$\sum_{k=1}^n \frac{n+k}{n^2+k}$$
+            \item $$\sum_{k=0}^{n-1} \frac{1}{\sqrt{n^2-k^2}}$$
+            \item $$\frac{1}{n \sqrt{n}} \sum_{k=1}^n \left \lfloor \sqrt{k} \right \rfloor$$
+            \item $$\sum_{k=1}^n \frac{k^2}{8k^3 + n^3}$$
+            \item $$\sum_{k=n}^{2n-1} \frac{1}{2k+1}$$
+            \item $$n \sum_{k=1}^n \frac{\me^{-n/k}}{k^2}$$
+        \end{enumerate}
+    \end{multicols}
+\end{exercice}
+
+\begin{solution}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{solution}
+
+\begin{methode}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{methode}
+
+Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur convergence est lente comme le montrer l'exercice suivant.
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 37. Intégration sur un segment}
+    Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $[0, 1]$. Déterminer le réel $a$ tel que:
+    $$\int_0^1 f(t) \d t - \frac{1}{n} \sum_{k=1}^{n-1} f \left( \frac{k}{n} \right) =\limits_{n \to + \infty} \frac{a}{n} + o \left( \frac{1}{n} \right).$$
 \end{exercice}

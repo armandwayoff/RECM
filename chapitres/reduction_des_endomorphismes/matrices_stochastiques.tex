@@ -1,4 +1,4 @@
-\marginnote[1cm]{
+\marginnote[2.5cm]{
     $$
     \begin{pmatrix}
     1/2 & 1/2 & 0 \\
@@ -8,20 +8,22 @@
     $$
 }
 
-\begin{marginfigure}[3cm]
+\begin{marginfigure}[3.5cm]
     \centering
     \input{illustrations/i_chaine_de_markov_exemple}
     \caption*{\centering Une chaîne de \textsc{Markov} et sa matrice de transition.}
 \end{marginfigure}
 
 \marginnote[0cm]{Texte de \cite{oraux_x_ens_2} p. 59}
-Les matrices stochastiques interviennent en probabilités. Si $X$ et $Y$ sont deux variables aléatoires à valeurs dans $E \defeq \llbracket 1, k \rrbracket$, alors la matrice $A \defeq (a_{i,j}) \in \M_k(\R)$ définie par 
+Les matrices stochastiques 
+% \marginnote[0cm]{\note Emprunté au grec ancien $\sigma \tau \omicron \chi \alpha \sigma \tau \iota \kappa \omicron \zeta$, stokhastikos (\say{ conjectural }) $\sigma \tau \omicron \chi \omicron \zeta$, stokhos (\say{ but, cible, conjecture }). \\ Un phénomène \emph{stochastique} est un phénomène qui ne se prête qu’à une analyse statistique, par opposition à un phénomène déterministe.}
+interviennent en probabilités. Si $X$ et $Y$ sont deux variables aléatoires à valeurs dans $E \defeq \llbracket 1, k \rrbracket$, alors la matrice $A \defeq (a_{i,j})_{1 \leqslant i,j \leqslant n} \in \M_k(\R)$ définie par 
 $$a_{i,j} \defeq \P(Y = j | X = i)$$
-est stochastique, ce qui par définition signifie qu'on a $a_{i,j} \geqslant 0\ (1 \leqslant i, j \leqslant k)$ et $\sum\limits_{j=1}^k a_{i,j} = 1\ (1 \leqslant i \leqslant k)$. \\
+est stochastique, ce qui par définition signifie qu'on a $a_{i,j} \geqslant 0$ et $\sum\limits_{j=1}^k a_{i,j} = 1$ pour $1 \leqslant i \leqslant k$. \\
 L'évolution d'un système susceptible de prendre un nombre fini d'états notés $1, \dots, k$ est représentée mathématiquement par une suite $(X_n)_{n \geqslant 0}$ de variables aléatoires à valeurs dans $E$. C'est ce qu'on appelle un processus aléatoire (ou stochastique). Si $X_{n+1}$ s'obtient à partir de la valeur de $X_n$ et d'un tirage au sort effectué selon une loi ne dépendant que de cette valeur, on dit que le processus est une chaîne de \textsc{Markov}. Les exemples abondent: marches aléatoires, fortune d'un joueur, modélisation de l'alternance des voyelles et des consonnes dans un poème de \textsc{Pouchkine} (par \textsc{Markov} lui-même), ou prévision (en probabilité) des états  successifs d'un signal pour améliorer la compression en traitement du signal (\textsc{Shannon}) \\
 Techniquement, on dit qu'une suite de variables aléatoires $(X_n)$ est une chaîne de \textsc{Markov} si \say{ la loi de l'état $n+1$ conditionnelle au passé ne dépend que de l'état antérieur $n$ }, ce qui se traduit par
 $$\P(X_{n+1}=j | X_0=i_0, \dots, X_n = i_n) = \P(X_{n+1} = j | X_n = i_n).$$
-Si la matrice $A \defeq (a_{i,j}) \in \M_k(\R)$ définie par $a_{i,j} \defeq \P(Y = j | X = i)$ est indépendante de $n$, on dit que la chaîne de \textsc{Markov} est stationnaire. Si, dans ce dernier cas, on pose $Y_n \defeq \begin{pmatrix} \P(X_n = 1) \\ \vdots \\ \P(X_n = k) \end{pmatrix}$, pour tout $n \geqslant 0$, on obtient $Y_{n+1} = A Y_n$ et donc $Y_n = A^n Y_0$. \\
+Si la matrice $A$ est indépendante de $n$, on dit que la chaîne de \textsc{Markov} est stationnaire. Si, dans ce dernier cas, on pose $Y_n \defeq \begin{pmatrix} \P(X_n = 1) \\ \vdots \\ \P(X_n = k) \end{pmatrix}$, pour tout $n \geqslant 0$, on obtient $Y_{n+1} = A Y_n$ et donc $Y_n = A^n Y_0$. \\
 Le comportement (probabiliste) d'une chaîne de \textsc{Markov} stationnaire, et notamment son comportement asymptotique, est donc entièrement décrit par la donnée de la loi initiale $Y_0$ et des puissances de la matrice $A$. 
 
 \begin{defi}{Matrice stochastique}

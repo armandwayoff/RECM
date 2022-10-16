@@ -10,14 +10,16 @@
 %     \input{illustrations/i_changement_de_base}
 % \end{marginfigure}
 
+Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèbre linéaire en revenant sur les polynômes de \textsc{Hilbert}.
+
 \section{Polynômes de \textsc{Hilbert}} \label{polynome_hilbert}
 \input{chapitres/algebre_lineaire_matrices/polynomes_de_hilbert}
 
-\section{Matrice de \textsc{Vandermonde}} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{chapitres/determinants/matrice_de_vandermonde}
-
 \section{Polynômes de \textsc{Lagrange}} 
 \input{chapitres/algebre_lineaire_matrices/polynomes_de_lagrange}
+
+\section{Matrice de \textsc{Vandermonde}} %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapitres/determinants/matrice_de_vandermonde}
 
 \section{Centre de \texorpdfstring{$\M_n(\K)$}{l'espace des matrices carrées}}
 \input{chapitres/algebre_lineaire_matrices/centre_de_l_espace_des_matrices_carres}
@@ -68,10 +70,20 @@
 
 \begin{solution}
     \marginnote[0cm]{\cite{maths-france} Planche no 5. Réduction. Corrigé}
-    Si $u$ est inversible,
-    $$\det(u+v) = \det(u) \Leftrightarrow \det(u) \times \det(\Id + \Inv{u}v) = \det(u) \Leftrightarrow \det(\Id + \Inv{u}v) = 1.$$
-    $u$ et $v$ commutent et donc $\Inv{u}$ et $v$ également. Mais alors, puisque $v$ est nilpotent, l'endomorphisme $w \defeq \Inv{u}v$ l'est également. Il reste donc à calculer $\det(\Id + w)$ où $w$ est un endomorphisme nilpotent. On remarque que $\det(\Id + w) = (-1)^n \chi_w(-1)$. Il est connu que $0$ est l'unique valeur propre d'un endomorphisme nilpotent et donc $\chi_w = X^n$ puis $\det(\Id+w) = 1$. \\
-    Le résultat est donc démontré dans le cas où $u$ est inversible. Si $u$ n'est pas inversible, $u + x \Id$ est inversible sauf pour un nombre fini de valeurs de $x$ et commute toujours avec $v$. Donc, pour tout $x$ sauf peut-être pour un nombre fini, $\det(u + x \Id + v) = \det(u + x \Id)$. Ces deux polynômes coïncident en une infinité de valeurs de $x$ et sont donc égaux. Ils prennent en particulier la même valeur en $0$ ce qui refournit $\det(u+v) = \det u$.
+    \begin{itemize}
+        \item[$\rhd$] Si $u$ est inversible,
+        $$\det(u+v) = \det(u) \Leftrightarrow \det(u) \times \det(\Id + \Inv{u}v) = \det(u) \Leftrightarrow \det(\Id + \Inv{u}v) = 1.$$
+        Les endomorphismes $u$ et $v$ commutent et donc $\Inv{u}$ et $v$ également \note. 
+        \marginnote[0cm]{
+            \begin{align*}
+                \note
+                u \circ v &= v \circ u \\
+                \Rightarrow v &= \Inv{u} \circ v \circ u \\
+                \Rightarrow v \circ \Inv{u} &= \Inv{u} \circ v
+            \end{align*}
+        }
+        Mais alors, puisque $v$ est nilpotent, l'endomorphisme $w \defeq \Inv{u}v$ l'est également. Il reste donc à calculer $\det(\Id + w)$ où $w$ est un endomorphisme nilpotent. On remarque que $\det(\Id + w) = (-1)^n \chi_w(-1)$. Il est connu que $0$ est l'unique valeur propre d'un endomorphisme nilpotent et donc $\chi_w = X^n$ puis $\det(\Id+w) = 1$. Le résultat est donc démontré dans le cas où $u$ est inversible. \item[$\rhd$] Si $u$ n'est pas inversible, $u + x \Id$ est inversible sauf pour un nombre fini de valeurs de $x$ et commute toujours avec $v$. Donc, pour tout $x$ sauf peut-être pour un nombre fini, $\det(u + x \Id + v) = \det(u + x \Id)$. Ces deux polynômes coïncident en une infinité de valeurs de $x$ et sont donc égaux. Ils prennent en particulier la même valeur en $0$ ce qui refournit $\det(u+v) = \det u$.
+    \end{itemize}    
 \end{solution}
 
 \begin{solution}
@@ -130,15 +142,15 @@
 \section{Si \texorpdfstring{$AB - BA = A \dots$}{AB-BA=A...}}
 \begin{exercice}
     \marginnote[0cm]{fic00118 [005625]}
-    Soit $(A, B) \in \M_n(\R)^2$ tel que $AB-BA=A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
+    Soient $n \in \Ne$, $A$ et $B$ deux matrices de $\M_n(\R)$ telles que $AB - BA = A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
 \end{exercice}
 
 \marginnote[2cm]{
-    \begin{kaobox}[frametitle=Propriétés de la trace]
+    \begin{prop}{Propriétés de la trace}
         Soit $(A, B) \in \M_n(\K)^2$.
         $$\Tr(AB) = \Tr(BA),$$
         $$\Tr(A + \lambda B) = \Tr(A) + \lambda \Tr(B).$$
-    \end{kaobox}
+    \end{prop}
 }
 
 \begin{solution}
@@ -163,11 +175,6 @@
     \end{enumerate}
 \end{exercice}
 
-\begin{remarque}
-    On retrouve le résultat (à vérifier et à justifier) qu'une matrice $A$ est nilpotente si et seulement si pour tout $k \in \Ne, \Tr(A^k) = 0$.
-\end{remarque}
-
-
 \section{Application du théorème de recollement}
 
 \begin{exercice}
@@ -179,15 +186,21 @@
 
 \marginnote[0cm]{
     \cite{acamanes} Ch3, Th2
-    \begin{kaobox}[frametitle=Sommes directe \& Applications linéaires]
+    \begin{theo}{Sommes directe \& Applications linéaires}
         On suppose que $E = \bigoplus\limits_{i=1}^m E_i$. Pour tout indice $i \in \llbracket 1, m \rrbracket$, on considère une application linéaire $\varphi_i$ de $E_i$ dans $F$. Alors, il existe une unique application linéaire $\varphi$ de $E$ dans $F$ telle que pour tout $i \in \llbracket 1, m \rrbracket$, la restriction de $\varphi$ à $E_i$ soit égale à $\varphi$.
-    \end{kaobox}
+    \end{theo}
 }
 
 \begin{solution}
     \begin{itemize}
         \item On montre que $\mathscr{H}$ est un sous-espace vectoriel de $\Endo(F, E)$. Soit $W$ un supplémentaire de $\Im f$ dans $F$.
-        \item Nous allons construire un isomorphisme entre $\mathscr{H}$ et un ensemble dont on peut calculer la dimension. On pose
+        \item Nous allons construire un isomorphisme entre $\mathscr{H}$ et un ensemble dont on peut calculer la dimension \note. 
+        \marginnote[0cm]{
+            \begin{methode}
+                \note
+            \end{methode}
+        }
+        On pose
         \begin{alignat*}{2}
             \psi\ :\ \mathscr{H}\ &\longrightarrow\ \Endo(\Im f, \Ker f) \times \Endo(W, E)\\
             g\ &\longmapsto\ \left(g_{\vert \Im f}, g_{\vert \Ker f} \right).
@@ -327,6 +340,16 @@ Il s'agit de la réciproque de l'exercice précédent.
 \begin{exercice}
     Soit $A \in \M_n(\K)$. Calculer le déterminant de sa comatrice. 
 \end{exercice}
+
+\begin{solution}
+    On a toujours $A \Trsp{\com A} = \det(A) \I_n$. Par passage au déterminant et puisqu'une matrice a même déterminant que sa transposée, on obtient
+    $$\det(A) \det (\com A) = (\det A)^n.$$
+    \begin{itemize}
+        \item Si $\det A \not = 0$, on en déduit que $\det(\com A) = (\det A)^{n-1}$.
+        \item Si $\det A = 0$, alors $A \Trsp{\com A} = 0$ et donc $\Trsp{\com A}$ est soit nulle, soit diviseur de zéro, et donc dans touts les cas non inversible. Il en est de même de $\com A$ et donc $\det (\com A) = 0 = (\det A)^{n-1}$. Finalement,
+        $$\forall A \in \M_n(\R), \det(\com A) = (\det A)^{n-1}.$$
+    \end{itemize}
+\end{solution}
 
 \begin{exercice}
     Soit $A \in \M_n(\K)$. Étudier le rang la comatrice de $A$ en fonction du rang de $A$.

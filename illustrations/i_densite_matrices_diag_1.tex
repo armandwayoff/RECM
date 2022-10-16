@@ -1,9 +1,9 @@
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[scale=0.8]
   \definecolor{mylightred}{RGB}{255,210,210}
-  \definecolor{myred}{RGB}{200,100,100}
+  \definecolor{myred}{RGB}{255,0,0}
   \definecolor{mydarkred}{RGB}{140,40,40}
 
-  \begin{scope}[local bounding box=struct, scale=1.5]
+  \begin{scope}[local bounding box=struct, scale=2]
       \def\ang{15}
       \def\R{0.35}
       \coordinate (O)  at (0, 0);
@@ -21,11 +21,11 @@
          \draw[myred] (L\i) circle (\R);
       }
       \fill[radius=0.8pt,blue]
-        (L1) circle node[above right=-1pt,scale=0.5] {$\lambda_1$}
-        (L2) circle node[above left =-1pt,scale=0.5] {$\lambda_2$}
-        (L3) circle node[above right=-1pt,scale=0.5] {$\lambda_3$}
-        (L4) circle node[above left =-1pt,scale=0.5] {$\lambda_4$}
-        (L5) circle node[below left =-1pt,scale=0.5] {$\lambda_5$};
+        (L1) circle node[above right=-1pt,scale=0.5] {$\Huge \lambda_1$}
+        (L2) circle node[above left =-1pt,scale=0.5] {$\Huge \lambda_2$}
+        (L3) circle node[above right=-1pt,scale=0.5] {$\Huge \lambda_3$}
+        (L4) circle node[above left =-1pt,scale=0.5] {$\Huge \lambda_4$}
+        (L5) circle node[below left =-1pt,scale=0.5] {$\Huge \lambda_5$};
   \end{scope}
   
   \def\RL{2}
@@ -39,11 +39,11 @@
       \draw[mylightred, fill] (O) circle (\RL);
       \draw[myred] (O) circle (\RL) node[above left=55pt] {$D(\lambda_4, \rho)$};
       \fill[radius=0.8pt,mydarkred]
-        (Z1) circle node[above right=-1pt,scale=0.75] {$z_{4, 1}$}
-        (Z2) circle node[above           ,scale=0.75] {$z_{4, 2}$}
-        (Z3) circle node[above left=-1pt ,scale=0.75] {$z_{4, 3}$}
-        (Z4) circle node[below           ,scale=0.75] {$z_{4, 4}$}
-        (Z5) circle node[below right=-1pt,scale=0.75] {$z_{4, 5}$};
+        (Z1) circle node[above right=-1pt,scale=0.75] {$\lambda_{4, 1}$}
+        (Z2) circle node[above           ,scale=0.75] {$\lambda_{4, 2}$}
+        (Z3) circle node[above left=-1pt ,scale=0.75] {$\lambda_{4, 3}$}
+        (Z4) circle node[below           ,scale=0.75] {$\lambda_{4, 4}$}
+        (Z5) circle node[below right=-1pt,scale=0.75] {$\lambda_{4, 5}$};
       \foreach \i in {1, ..., 5}{
         \draw[black, dotted] (O) -- (Z\i);
       }

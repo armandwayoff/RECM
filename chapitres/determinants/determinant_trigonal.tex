@@ -36,8 +36,8 @@ $$
 \end{remarque}
 
 
-\begin{prop}{}
-    On note $D_n \defeq \det(M_n)$. La suite $(D_n)_{n \in \Ne}$ vérifie la relation de récurrence linéaire d'ordre deux 
+\begin{prop}{Relation de récurrence}
+    On note $D_n \defeq \det M_n$. La suite $(D_n)_{n \in \Ne}$ vérifie la relation de récurrence linéaire d'ordre deux 
     $$D_n = a_n D_{n-1} - b_{n-1}c_{n-1}D_{n-2}.$$
 \end{prop}
 
@@ -102,7 +102,8 @@ $$
 
 Ces matrices sont des matrices de \textsc{Toeplitz} tridiagonales. Nous les noterons $\mathrm{Toep}_n (a,b,c)$ (notation non standart). 
 
-\begin{prop}{}
+\begin{prop}{Spectre d'une matrice de \textsc{Toeplitz}}
+    
     $$\Sp \big( \mathrm{Toep}_n(a,b,c) \big) = \left \{ a + 2 \sqrt{bc} \cos \left( \frac{k \pi}{n+1} \right) ,\ k \in \llbracket 1, n \rrbracket \right \}.$$
 \end{prop}
 
@@ -154,14 +155,14 @@ Pour tout $x$ réel, déterminer le déterminant de taille $n$
     À finir...
 \end{solution}
  
-\marginnote[-10cm]{
-    \begin{kaobox}[frametitle=Relation de récurrence linéaire d'ordre 2]
+\marginnote[-8cm]{
+    \begin{theo}{Relation de récurrence linéaire d'ordre 2}
     Cours Ch1 \cite{acamanes}. \\
     Soit $(a, b) \in \K^2$ tel que $b \not=0$. On considère les suites définies par le relation de récurrence
     $$u_{n+2} = a u_{n+1} + b u_n,\ \forall n \in \N.$$
     L'équation caractéristique $(\mathscr{E})$ associée est 
     $$r^2-ar-b=0.$$
-    \begin{itemize}
+    \begin{itemize}[leftmargin=*]
         \item Si $(\mathscr{E})$ possède deux racines distinctes $r_1, r_2 \in \K^2$ alors il existe $(\lambda, \mu) \in \K^2$ tel que pour tout $n \in \N$,
         $$u_n = \lambda r_1^n + \mu r_2^n.$$
         \item Si $(\mathscr{E})$ possède une racine double $r_0 \K$ alors il existe $(\lambda, \mu) \in \K^2$ tel que pour tout $n \in \N$,
@@ -169,5 +170,5 @@ Pour tout $x$ réel, déterminer le déterminant de taille $n$
         \item Si $(u_n)$ est une suite à valeurs réelles $(\mathscr{E})$ possède deux racines conjuguées distinctes $r_{1,2} = \rho \me^{\pm \mi \theta}$ alors il existe $(\lambda, \mu) \in \R^2$ tel que pour tout $n \in \N$,
         $$u_n = \rho^n \left( \lambda \cos(\theta n) + \mu \sin(\theta n) \right).$$
     \end{itemize}
-    \end{kaobox}
+    \end{theo}
 }

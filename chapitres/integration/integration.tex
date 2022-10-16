@@ -16,7 +16,31 @@
 \section{Permutation somme/intégrale}
 \input{chapitres/integration/permutation_somme_integrale}
 
-\section{Variante du lemme de \textsc{Lebesgue}}
+\section{Lemme de \textsc{Lebesgue}}
+
+\begin{exercice}
+    \marginnote[0cm]{\cite{maths-france} Planche no 37. Intégration sur un segment}
+    \begin{enumerate}
+        \item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $[a, b]$. Montrer que
+        $$\lim_{ \lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.$$
+        \item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur $[a, b]$.
+    \end{enumerate}
+\end{exercice}
+
+\begin{solution}
+    \begin{enumerate}
+        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $[a, b]$, on peut effectuer une intégration par parties qui fournit pour $\lambda > 0$:
+        $$\left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \left( -\big[ \cos(\lambda t) f(t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \leqslant \frac{1}{\lambda} \left( |f(a)| + |f(b)| + \int_a^b |f'(t)| \d t \right).$$
+        Cette dernière expression tend vers $0$ quand $\lambda$ tend vers $+ \infty$, et donc $\int_a^b f(t) \sin(\lambda t) \d t$ tend vers $0$ quand $\lambda$ tend vers $+\infty$.
+        \item Si la fonction $f$ est simplement supposée continue par morceaux, on ne peut donc plus effectuer une intégration par parties. \\
+        Le résultat est clair si $f = 1$, car pour $\lambda > 0$, $\left| \int_a^b \sin(\lambda t) \d t \right| = \left| \frac{\cos(\lambda a) - \cos(\lambda b)}{\lambda} \right| \leqslant \frac{2}{\lambda}$. \\
+        Le résultat s'étend aux fonctions constantes par linéarité de l'intégrale puis aux fonctions constantes par morceaux par additivité par rapport à l'intervalle d'intégration, c'est-à-dire aux fonctions en escaliers. \\
+        Soit alors $f$ une fonction continue par morceaux sur $[a, b]$. \\
+        Soit $\varepsilon > 0$
+    \end{enumerate}
+\end{solution}
+
+\subsection{Variante du lemme de \textsc{Lebesgue}}
 \input{chapitres/integration/variante_du_lemme_de_lebesgue}
 
 \section{Sommes de \textsc{Riemann} généralisées}

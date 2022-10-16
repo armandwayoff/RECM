@@ -1,6 +1,6 @@
-\begin{tikzpicture}[scale=1.3]
+\begin{tikzpicture}[scale=1.2]
   \definecolor{mylightred}{RGB}{255,210,210}
-  \definecolor{myred}{RGB}{200,100,100}
+  \definecolor{myred}{RGB}{255,0,0}
   \definecolor{mylightred2}{RGB}{255,232,232}
       \def\ang{150}
       \def\R{1}
@@ -17,10 +17,10 @@
       \draw[mylightred, fill, opacity=0.5] (O) circle (\R);
       \draw[myred, dashed] (O) circle (\R);
       \fill[radius=0.8pt,blue]
-        (L1) circle node[above right=-1pt] {$\lambda_1$}
-        (L2) circle node[above left =-1pt] {$\lambda_2$}
-        (L3) circle node[above right=-1pt] {$\lambda_3$}
-        (L5) circle node[below left =-1pt] {$\lambda_4$};
-      \draw (0.6, -0.04) -- (0.6, 0.04)  node[above] {$t$};
-      \draw[latex-latex, myred] (O) -- (\ang:\R) node[midway] {\contour{mylightred2}{$r$}};
+        (L1) circle node[above right=-1pt] {\large $\lambda_1$}
+        (L2) circle node[above left =-1pt] {\large $\lambda_2$}
+        (L3) circle node[above right=-1pt] {\large $\lambda_3$}
+        (L5) circle node[below left =-1pt] {\large $\lambda_4$};
+      \draw (0.6, -0.04) -- (0.6, 0.04)  node[above] {\large $t$};
+      \draw[latex-latex, myred] (O) -- (\ang:\R) node[midway] {\contour{mylightred2}{\large $r$}};
 \end{tikzpicture}

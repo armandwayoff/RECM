@@ -1,5 +1,7 @@
 \begin{defi}{Matrice compagnon}
-    Soit $P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X]$. On appelle \emph{matrice compagnon} de $P$ la matrice:
+    Soit $P$ le polynôme définit par 
+    $$P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X].$$
+    On appelle \emph{matrice compagnon} de $P$ la matrice
 $$ C_P \defeq
 \begin{pmatrix}
 0 & 0 & \cdots & 0 & -c_0\\
@@ -17,21 +19,19 @@ $$
 \end{theo}   
 
 \marginnote[2cm]{
-    \begin{kaobox}[frametitle=Cofacteurs]
-    \cite{acamanes} ch4
+    \begin{defi}{Cofacteurs}
+        \cite{acamanes} ch4 \\
         Soient $A \in \M_n(\K)$ et $i, j \in \llbracket 1, n \rrbracket$. On note $\Delta_{i,j}$ le déterminant de la matrice de $\M_{n-1}(\K)$ obtenue à partir de la matrice $A$ en supprimant la ligne $i$ et la colonne $j$.
         \begin{itemize}
             \item Le \emph{mineur} d'indice $i,j$ de la matrice $A$ est $\Delta_{i,j}$.
             \item Le \emph{cofacteur} d'indice $i,j$ de la matrice $A$ est $(-1)^{i+j}\Delta_{i,j}$.
         \end{itemize}
-    \end{kaobox}
-    \begin{kaobox}[frametitle=Développement selon une ligne / colonne]
+    \end{defi}
+    \begin{prop}{Développement selon une ligne / colonne}
         Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$.
-        \begin{itemize}
-            \item $\forall j \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{i=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}$.
-            \item $\forall i \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{j=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}$.
-        \end{itemize}
-    \end{kaobox}
+        $$\forall j \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{i=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}.$$
+        $$\forall i \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{j=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}.$$
+    \end{prop}
 }
 
 \begin{preuve}
@@ -52,14 +52,14 @@ $$
     $$D_p(X, c_0, \dots, c_{p-1}) = X D_{p-1}(X, c_1, \dots, c_{p-1}) + c_0.$$
     Comme $D_1(X, c_{p-1}) = X + c_{p-1}$,
     $$\det(X \I_p - C_P) = X \bigg(X \Big(\cdots \big(X(X+c_{p-1}) + c_{p-2} \big) \cdots \Big) + c_1 \bigg) + c_0.$$
-    On reconnaît la construction de $P$ par le schéma de \textsc{Horner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
+    On reconnaît la construction de $P$ par le schéma de \textsc{Hörner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
 \end{preuve} 
 
 \subsection{Endomorphisme cyclique}
 
 \begin{defi}{Endomorphisme cyclique}
     \marginnote[0cm]{\url{https://bibmath.net/dico/index.php?action=affiche&quoi=./c/cyclique.html}}
-    Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $\big(x, u(x), \dots, u^{n-1}(x) \big)$ soit une base de $E$. 
+    Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $\big(x, u(x), \dots, u^{n-1}(x) \big)$ est une base de $E$. 
 \end{defi}
 
 Les endomorphismes cycliques admettent des matrices particulières dans la base précédente :
@@ -75,21 +75,21 @@ Les endomorphismes cycliques admettent des matrices particulières dans la base 
 \begin{preuve}
     \marginnote[0cm]{\cite{exos_oraux} p. 58}
     Tous les polynômes en $f$ commutent avec $f$. \\
-    Réciproquement, on va montrer que seuls les polynômes en $f$ commutent avec $f$. On note $\mathscr{B} = (e_0, \dots, e_{n-1})$ la base dans laquelle $f$ admet pour matrice la matrice compagnon de son polynôme caractéristique (qui existe d'après \textcolor{red}{lien}). Par définition, on a donc:
+    Réciproquement, on va montrer que seuls les polynômes en $f$ commutent avec $f$. On note $\mathscr{B} \defeq (e_0, \dots, e_{n-1})$ la base dans laquelle $f$ admet pour matrice la matrice compagnon de son polynôme caractéristique (qui existe d'après \textcolor{red}{lien}). Par définition, on a donc:
     $$\forall p \in \llbracket 0, n-2 \rrbracket, f(e_p) = e_{p+1}. \quad (\star)$$
-    Soit donc $g \in \Endo(E)$ tel que $f \circ g = g \circ f$. Le vecteur $g(e_0)$ se décompose sur la base $\mathscr{B}$:
+    Soit $g \in \Endo(E)$ tel que $f \circ g = g \circ f$. Le vecteur $g(e_0)$ se décompose sur la base $\mathscr{B}$:
     $$\exists (\lambda_0, \dots, \lambda_{n-1}) \in \K^n, g(e_0) = \sum_{k=0}^{n-1} \lambda_k e_k.$$
-    On va montrer que $g = \sum\limits_{k=0}^{n-1} \lambda_k f^k$. Pour cela, on va prouver que:
+    Nous allons montrer que $g = \sum\limits_{k=0}^{n-1} \lambda_k f^k$. Pour cela, nous allons prouver que:
     $$\forall p \in \llbracket 0, n-1 \rrbracket, g(e_p) = \left( \sum_{k=0}^{n-1} \lambda_k f^k \right)(e_p)$$
     par récurrence sur $p$: l'égalité proviendra du fait que les deux applications linéaires $\sum\limits_{k=0}^{n-1} \lambda_k f^k$ et $g$ coïncident sur une base. 
     \begin{itemize}
         \item[$\rhd$] On a $f^k (e_0) = e_k$ par récurrence immédiate sur $k \in \llbracket 0, n-1 \rrbracket$. On a donc
         $$g(e_0) = \sum_{k=0}^{n-1} \lambda_k f^k(e_0).$$
-        \item[$\rhd$] Supposons maintenant que $0 \leqslant p \leqslant n-2$ et que $g(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f^k (e_p)$. On compose par $f$, qui est linéaire: $(f \circ g)(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f \circ f^k (e_p)$. On utilise l'hypothèse de commutativité:
+        \item[$\rhd$] Supposons que $0 \leqslant p \leqslant n-2$ et que $g(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f^k (e_p)$. On compose par $f$, qui est linéaire: $(f \circ g)(e_p) = \sum\limits_{k=0}^{n-1} \lambda_k f \circ f^k (e_p)$. On utilise l'hypothèse de commutativité:
         $$(g \circ f)(e_p) = \sum_{k=0}^{n-1} \lambda_k f^k \big( f(e_p) \big).$$
         Cela s'écrit, grâce à $(\star)$: $g(e_{p+1}) = \sum\limits_{k=0}^{n-1} \lambda_k f^k(e_{p+1})$. La récurrence est établie et $g = \sum\limits_{k=0}^{n-1} \lambda_k f^k$. \\
-        Tout endomorphisme qui commute avec $f$ est donc un polynôme en $f$. Donc l'ensemble des endomorphismes commutant avec $f$ est:
-        $$\Vect( \Id_E, f, f^2, \dots, f^{n-1}),$$
+        Tout endomorphisme qui commute avec $f$ est donc un polynôme en $f$. Ainsi l'ensemble des endomorphismes commutant avec $f$ est:
+        $$\Vect \big( \Id_E, f, f^2, \dots, f^{n-1}\big),$$
         on retrouve ainsi que c'est un sous-espace vectoriel de $\Endo(E)$.
     \end{itemize}
 \end{preuve}
@@ -133,10 +133,12 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
         \item 
         \begin{itemize}
             \item La famille $(x, Mx, \dots, M^p x)$ est un système de $p+1$ vecteurs de $\C^p$ d'un espace vectoriel de dimension $p$. Il est donc lié. Il existe donc $\mu$, minimum de $r$ tel que $(x, Mx, \dots, M^r x)$ est lié et $\mu \leqslant p$. 
-            \item Par construction, $(x, Mx, \dots, M^{\mu-1} x)$ est libre et $(x, Mx, \dots, M^{\mu-1} x, M^\mu x)$ est lié. Il en résulte une égalité: 
+            \item Par construction, la famille  $(x, Mx, \dots, M^{\mu-1} x)$ est libre et $(x, Mx, \dots, M^{\mu-1} x, M^\mu x)$ est liée. Il en résulte une égalité: 
             $$M^\mu(x) = \alpha_0 x + \alpha_1 M x + \cdots + \alpha_{\mu-1} M^{\mu-1} x$$
             pour un unique $\mu$-uplet $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^\mu$. \\
-            \item Notons $f$ l'endomorphisme $x \mapsto Mx$ de $\C^p$ et $V \defeq \Vect(x, Mx, \dots, M^{\mu-1} x)$; l'application $f$ envoie chaque $M^i x$, pour $0 \leqslant i \leqslant \mu - 1$, sur un élément de $V$. Ainsi $V$ est stabilisé par $f$.
+            \item Notons $f$ l'endomorphisme $x \mapsto Mx$ de $\C^p$ et 
+            $$V \defeq \Vect(x, Mx, \dots, M^{\mu-1} x);$$
+            l'application $f$ envoie chaque $M^i x$, pour $0 \leqslant i \leqslant \mu - 1$, sur un élément de $V$. Ainsi $V$ est stabilisé par $f$.
             Notons $e_1 \defeq x, e_2 \defeq M x, \dots, e_\mu \defeq M^{\mu-1} x$. Le système $(e_1, \dots, e_\mu)$ est une base de $V$. Complétons ce système par $(e_{\mu+1}, \dots, e_p)$ tels que $(e_1, \dots, e_p)$ est une base de $\C^p$. 
             $$f(e_1) = e_2, \dots, f(e_{\mu-1}) = e_\mu, f(e_\mu) = -\alpha_{\mu-1} e_{\mu-1} - \cdots - \alpha_0 e_1.$$
             \item Notons $\Pi$ le polynôme $X^\mu + \alpha_{\mu-1} X^{\mu-1} + \cdots + \alpha_1 X + \alpha_0$. La matrice de $f$ dans la base $(e_1, \dots, e_p)$ est une matrice 

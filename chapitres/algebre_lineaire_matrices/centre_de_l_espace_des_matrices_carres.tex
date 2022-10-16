@@ -2,7 +2,7 @@
     Le \emph{centre} d'une structure algébrique est l'ensemble des éléments de cette structure qui commutent avec tous les autres éléments. 
 \end{defi}
 
-\begin{prop}{}
+\begin{prop}{Centre de $\M_n(\K)$}
 Le centre de $\M_n(\K)$, c'est-à-dire les matrices $A \in \M_n(\K)$ telles que pour toute matrice $B \in \M_n(\K), AB = BA$, est égal à l'ensemble des matrices scalaires.
 \end{prop}
 
@@ -25,8 +25,9 @@ Nous voulons démontrer l'égalité de deux ensembles à savoir le centre de $\M
         $$\mathrm{E}_{i,j} A = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{i,j} \mathrm{E}_{k,\ell} = \sum_{\ell=1}^{n} a_{j,\ell} \mathrm{E}_{i,\ell}.$$
         Puisque la famille $(\mathrm{E}_{i, j})_{1 \leqslant i, j \leqslant n}$ est libre, on peut identifier les coefficients des deux expressions et on déduit que pour tout $(i, k) \in \llbracket 1, n \rrbracket^2$ tel que $i \not= k, a_{i,k}=0$ et pour tout $(i,j) \in \llbracket 1, n \rrbracket^2, a_{i,i}=a_{j,j}$. \\
         Ainsi, si la matrice $A$ commute avec toutes les matrices, elle est nécessairement de la forme $A = \lambda \I_n$ où $\lambda \in \K$.
-        \item[$(\supset)$] Réciproquement, pour tout $\lambda \in \K$ et toute matrice $$B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B.$$
+        \item[$(\supset)$] Réciproquement, pour tout $\lambda \in \K$ et toute matrice $B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B$. 
     \end{itemize}
+    On en déduit par double inclusion que le centre de $\M_n(\K)$ est égal à l'ensemble des matrices scalaires. 
 \end{preuve}
 
 \begin{methode}

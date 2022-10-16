@@ -26,7 +26,28 @@
 \begin{theo}{Décomposition polaire}
     Toute matrice $A \in \Gl_n(\R)$ peut s'écrire de manière unique sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique définie positive. 
 \end{theo}
-Lire chapitre 7 de \cite{matrices} page 77.
+Lire chapitre 7 de \cite{matrices} page 77. \\
+
+La décomposition polaire des matrices est nommée ainsi par analogie avec celle du plan complexe : si $z \in \Ce$, il existe un et un seul couple $(r, q) \in \Rpe \times \mathbb{S}^1$ ($\mathbb{S}^1$ désigne le cercle unité, ensemble des nombres complexes de module $1$), tel que $z = rq$. Si $z$ agit par multiplication sur $\C$ (ou sur $\Ce$), cette action est décomposée en une rotation d'angle $\theta$ (où $q = \exp \mi \theta$) et une homothétie de rapport $r > 0$. \\
+Le fait que ces deux actions commutent entre elles traduit la commutativité du groupe $\Ce$: cette propriété sera perdue dans le décomposition polaire du groupe $\Gl_n(\K)$, cer celui-ci n'est pas abélien. \
+
+\begin{figure}[h!]
+    \begingroup
+    \renewcommand{\arraystretch}{1.5} % Default value: 1
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Propriété & Version complexe & Version matricielle \\
+        \hline \hline
+        Homéomorphisme & $\exp : \R \longrightarrow \Rpe$ & $\exp : \mathscr{S}_n(\R) \longrightarrow \mathscr{S}_n^{++}(\R)$\\
+        \hline
+        Surjection continue & $\exp : \mi \R \longrightarrow \mathbb{S}^1$ & $\exp : \mathscr{A}_n(\R) \longrightarrow \mathrm{SO}_n(\R)$ \\
+        \hline
+        \textcolor{red}{A COMPLETER}  & & \\
+        \hline
+    \end{tabular}
+    \endgroup
+\end{figure}
+
 
 \begin{corol}
     Toute matrice $A \in \M_n(\R)$ peut s'écrire sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthogonale et $S$ est une matrice symétrique positive.

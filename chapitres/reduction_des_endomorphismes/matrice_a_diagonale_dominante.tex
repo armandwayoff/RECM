@@ -1,5 +1,6 @@
-\begin{defi}{Matrice à diagonale dominante}
-    Soit $A = (a_{i,j}) \in \M_n(\K)$. On dit que $A$ est 
+\begin{defi}{Matrice à diagonale dominante} 
+    \\
+    Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On dit que $A$ est 
     \begin{itemize}
         \item à \emph{diagonale dominante} si
         $$\forall i \in \llbracket 1, n \rrbracket,\ |a_{i,i}| \geqslant \sum_{k \not = i} |a_{i,k}|,$$
@@ -20,7 +21,7 @@
 }
 
 \begin{preuve}
-    Soit $X = \Trsp{(x_1 \cdots x_n)} \in \Ker(A)$. \\
+    Soit $X \defeq \Trsp{(x_1 \cdots x_n)} \in \Ker(A)$. \\
     On pose $\displaystyle \left |x_{i_0} \right| \defeq \max_{1 \leqslant i \leqslant n} |x_i|$. La ligne $i_0$ de la relation $AX = 0$ donne
     $$\sum_{j=1}^n a_{i_0,j}x_j = 0$$
     soit
@@ -32,18 +33,27 @@
     Pour une autre démonstration voir \cite{matrices} page 51. 
 \end{preuve}
 
-\begin{theo}{}
-    Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$ \\
-    Ces disques sont nommés les disques de \textsc{Gerschgorin} \note (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes}).
+\subsection{Localisation des valeurs propres}
+
+À défaut de ne pas toujours pouvoir calculer exactement les valeurs propres d'une matrice, nous pouvons essayer de les localiser en restreignant autant que faire se peut le \say{ domaine } dans lequel elles se trouvent.
+
+\begin{theo}{Localisation des valeurs propres} \labthm{localisation_des_vap}
+    Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$
 \end{theo}
 
 \begin{preuve}
-    Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible donc n'est pas à DSD i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
+    Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible \note 
+    \marginnote[0cm]{\note Par définition $\det(A-\lambda \I_n) = \chi_A(\lambda) = 0$.}
+    donc n'est pas à DSD i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
     $$|a_{i,i} - \lambda| \leqslant \sum_{k \not= i} |a_{i,k}|.$$
     Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
-\end{preuve}    
+\end{preuve} 
 
-\marginnote{
+\begin{defi}{Disques de \textsc{Gerschgorin}}
+    Ces disques sont nommés les disques de \textsc{Gerschgorin} \note (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes})
+\end{defi}
+
+\marginnote[-2cm]{
     \note Prenons un exemple en considèrant la matrice à coefficients complexes
     $$
     \begin{pmatrix}
@@ -57,6 +67,7 @@
 }
 
 \begin{marginfigure}
+    \centering
     \input{illustrations/i_disques_de_gerschgorin}
 \end{marginfigure}
 
@@ -71,9 +82,9 @@
 \end{corol}
 
 \begin{preuve}
-    D'après le théorème 4.1 (lien), 
-    $$\Sp(A) \subset E \text{ et } \Sp(\Trsp{A}) \subset E'.$$
-    Or $\Sp(A) = \Sp(\Trsp{A})$ donc $\Sp(A) \subset E \cap E'$.
+    D'après le théorème \ref{localisation_des_vap}, 
+    $$\Sp(A) \subset E \text{ et } \Sp \big( \Trsp{A} \big) \subset E'.$$
+    Or $\Sp(A) = \Sp \big( \Trsp{A} \big)$ donc $\Sp(A) \subset E \cap E'$.
 \end{preuve}    
 
 Ce corollaire permet de restreindre davantage le domaine où se trouvent les valeurs propres d'une matrice. 

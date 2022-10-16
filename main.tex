@@ -1,6 +1,6 @@
 \documentclass[
 	a4paper, % Format du livre
-	fontsize=10pt, % Taille de la police (texte de base)
+	fontsize=8pt, % Taille de la police (texte de base)
 	twoside=true, % Utiliser des mises en page différentes pour les pages paires et impaires (en particulier, si twoside=true, la colonne de marge sera toujours à l'extérieur).
 	% open=any, % Si twoside=true, décomplétez ceci pour forcer les nouveaux chapitres à commencer sur n'importe quelle page, et pas seulement sur la page de droite (impaire).
 	chapterentrydots=true, % Décommenter pour afficher les points du nom du chapitre au numéro de page dans la table des matières
@@ -123,7 +123,7 @@
 % Define the style for the TOC, LOF, and LOT
 %\setstretch{1} % Uncomment to modify line spacing in the ToC
 %\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
-\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+\setlength{\textheight}{200\hscale} % Manually adjust the height of the ToC pages
 
 % Turn on compatibility mode for the etoc package
 \etocstandarddisplaystyle % "toc display" as if etoc was not loaded
@@ -196,7 +196,17 @@
 
 \underline{Résumé des propriétés des endomorphismes nilpotents:}
 
-Soit $E$ un $K$-espace vectoriel de dimension $n \in \Ne$. Soit $u \in \Endo(E)$ un endomorphisme nilpotent d'ordre de nilpotence $p > 1$. 
+Soit $E$ un $K$-espace vectoriel de dimension $n \in \Ne$. Soit $u \in \Endo(E)$ un endomorphisme nilpotent d'ordre de nilpotence $p > 1$. \\
+\cite{objectif_agregation}. Caractérisation de la nilpotence \\
+Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. Les propriétés suivantes sont équivalentes :
+\begin{enumerate}[label=(\roman*)]
+    \item $u$ est nilpotent;
+    \item $\chi_u = (-1)^n X^n$;
+    \item il existe $p \in \N$ tel que $\pi_u = X^p$ ($p$ est alors l'indice de nilpotence de $u$);
+    \item $u$ est trigonalisable avec des zéros sur la diagonale;
+    \item $u$ est trigonalisable et sa seule valeur propre est $0$;
+    \item $0$ est la seule valeur propre de $u$.
+\end{enumerate}
 
 \backmatter % Indique la fin du contenu principal du document principal
 \setchapterstyle{plain} % Output plain chapters from this point onwards

@@ -1,32 +1,52 @@
-\begin{prop}{}
-    Soit $n \in \Ne$ et $M \in \M_n(\C)$. On suppose que $M^2$ est diagonalisable. Alors $M$ est diagonalisable si et seulement si $\Ker(M) = \Ker(M^2)$.
+\begin{prop}{Critère de diagonalisabilité}
+    Soient $n \in \Ne$ et $M \in \M_n(\C)$. On suppose que la matrice $M^2$ est diagonalisable. Alors $M$ est diagonalisable si et seulement si $\Ker M = \Ker M^2$.
 \end{prop}
 
 \begin{preuve}
-    On note $f$ l'endomorphisme canoniquement associé à $M$. 
     \begin{itemize}
-        \item 
+        \item[$(\Rightarrow)$] 
         %$(\Rightarrow)$ On suppose que $M$ est diagonalisable (et donc $f$ aussi). Notons $(\lambda_1, \dots, \lambda_n) \in \C^n$ les valeurs propres de $f$. Il existe une base $\mathscr{B}$ telle que $\mathrm{Mat}_{\mathscr{B}}(f) = \mathrm{Diag}(\lambda_1, \dots, \lambda_n)$. Donc $\mathrm{Mat}_{\mathscr{B}}(f^2) = \mathrm{Diag}(\lambda_1^2, \dots, \lambda_n^2)$. \\
-        Montrons que $\Ker(f^2) \subset \Ker(f)$ (l'autre inclusion est toujours vraie). \\
-        Deux méthodes (je crois que la deuxième fonctionne...)
-        \begin{itemize}
-            \item On va montrer \textbf{l'égalité des dimensions}. Soit $\mathscr{B}$ une base de diagonalisation de $u$. \textbf{Le rang d'une matrice diagonale étant le nombre de coefficients diagonaux non nuls}, $\Rg \left(\mathrm{Mat}_\mathscr{B}(u^2) \right) = \Rg \left(\mathrm{Mat}_\mathscr{B}(u) \right)$ donc $\Rg(u^2) = \Rg(u)$. Par le \textbf{théorème du rang}, il s'ensuit que $\dim \Ker(u^2) = \dim \Ker(u)$.
-            \item Soit $X \in \Ker(M^2)$ i.e. $M^2 X = 0\ (*)$. Montrons que $MX = 0$. L'idée est de \textbf{faire apparaître un produit scalaire} sur l'ensemble des vecteurs colonnes d'une matrice i.e. une produit de la forme $N^\top N$. \\
-            Comme $M^2$ est diagonalisable, il existe $P$ inversible et $D$ diagonale telles que $M^2 = PDP^{-1}$. En remplaçant $M^2$ par cette expression dans $(*)$ puis en multipliant à gauche successivement par $P^{-1}$,  $(P^{-1})^\top$ et $X^\top$ on trouve $X^\top (P^{-1})^\top D^2 P^{-1} X = 0$ soit 
-            $$(D P^{-1} X)^\top (D P^{-1} X) = 0.$$
-            Comme $(C, C') \mapsto C^\top \times C'$ définit un produit scalaire sur l'espace des vecteurs colonnes, on a $D P^{-1} X = 0$ car il est orthogonal à lui-même et donc, en multipliant à gauche par $P$, on obtient bien $MX = 0$. 
-        \end{itemize}
-        \item $(\Leftarrow)$ On suppose que $\Ker(M) = \Ker(M^2)$. \\
-        Raisonner par analyse-synthèse: soit $\lambda$ une valeur propre non nulle de $f^2$. Notons $\mu$ une racine carrée complexe de $\lambda$. Montrons que $E_{\lambda}(f^2) = E_{\mu}(f) \oplus E_{-\mu}(f)$. \\
-        On pose $y = \frac{x}{2} + \frac{f(x)}{2 \mu}$ et $z = \frac{x}{2} - \frac{f(x)}{2 \mu}$. \\
-        Comme $f^2$ est diagonalisable, $E$ est la somme directe des sous-espaces propres de $f^2$. On décompose chacun de ces sep comme ci-dessus et on en déduit que $E$ est la somme directe des sep de $f$ i.e. $f$ est diagonalisable. 
-        \item $(\Leftarrow)$ \cite{reduc_des_endo} p. 100 \\
-        Comme $u^2$ est diagonalisable, il existe $Q$ scindé à racines simples vérifiant $Q(0) \not= 0$ tel que $X Q(X)$ annule $u^2$, c'est-à-dire $u^2 \circ Q(u^2) = 0_{\Endo(E)}$. \\
-        Alors, pour tout $x \in E$, $Q(u^2)(x) \in \Ker(u^2)$; or $\Ker(u^2) = \Ker(u)$ par hypothèse donc $Q(u^2)(x) \in \Ker(u)$ soit $u \circ Q(u^2) (x) = 0_E$. \\
-        Ainsi, $XQ(X^2)$ est un polynôme annulateur de $u$. Il suffit de remarquer que ce polynôme est scindé à racines simples (car les racines complexes de $Q$ sont deux à deux distinctes et non nulles) pour conclure avec le critère algébrique de diagonalisabilité que $u$ est diagonalisable. \\
-        \textsl{Une démonstration alternative consiste à montrer que, pour tout $\lambda \in \Ce$ de racines carrées distinctes $\mu$ et $\mu'$, le sous-espace propre $u^2$ associé à $\lambda$ se décompose avec les sous-espaces propres $u$:
-        $$\Ker(\lambda \Id_E - u^2) = \Ker(\mu \Id_E - u) \oplus \Ker(\mu' \Id_E - u).$$
-        La condition porte alors que le sous-espace propre de $u^2$ associé à $0$, c'est-à-dire $\Ker(u^2)$.
+        Supposons que la matrice $M$ est diagonalisable. Montrons que $\Ker M^2 \subset \Ker M$ (l'autre inclusion est toujours vraie) \note . \\
+        \marginnote[0cm]{\note 
+            Soit $X \in \Ker M$. Alors,
+            $$MX = 0$$
+            d'où 
+            $$M (M X) = M \times 0 = 0$$
+            et 
+            $$X \in \Ker M^2.$$
         }
+        Voyons deux approches.
+        \begin{itemize}
+            \item Nous allons montrer \ptnclegras{l'égalité des dimensions} de ces deux espaces. \\
+            Soient $u$ l'endomorphismes canoniquement associé à $M$ et $\mathscr{B}$ une base de diagonalisation de $u$. \ptnclegras{Le rang d'une matrice diagonale étant le nombre de coefficients diagonaux non nuls}, $\Rg \Mat_\mathscr{B}(u^2) = \Rg  \Mat_\mathscr{B}(u)$ donc $\Rg u^2 = \Rg u$ \note.
+            \marginnote[0cm]{\note Le rang est un invariant de similitude.}
+            Par le \ptnclegras{théorème du rang}, il s'ensuit que $\dim \Ker u^2 = \dim \Ker u$.
+            \item Soit $X \in \Ker M^2$ i.e. $M^2 X = 0\ (\star)$. Montrons que $MX = 0$. L'idée est de \ptnclegras{faire apparaître un produit scalaire} sur l'ensemble des vecteurs colonnes d'une matrice i.e. une produit de la forme $N^\top N$. \\
+            Comme $M^2$ est diagonalisable, il existe $P$ inversible et $D$ diagonale telles que $M^2 = PDP^{-1}$. En remplaçant $M^2$ par cette expression dans $(\star)$ puis en multipliant à gauche successivement par $P^{-1}$,  $(P^{-1})^\top$ et $X^\top$ on trouve $X^\top (P^{-1})^\top D^2 P^{-1} X = 0$ soit 
+            $$(D P^{-1} X)^\top (D P^{-1} X) = 0.$$
+            Comme $(C, C') \mapsto C^\top \times C'$ définit un produit scalaire sur l'espace des vecteurs colonnes, on a $D P^{-1} X = 0$ car il est orthogonal à lui-même et donc, en multipliant à gauche par $P$, nous obtenons bien $MX = 0$. 
+        \end{itemize}
+        \item[$(\Leftarrow)$] Supposons que $\Ker M = \Ker M^2$. Voyons encore deux approches.
+        \begin{itemize}
+            \item \cite{reduc_des_endo} p. 100 \note 
+            \marginnote[0cm]{\note La clé de cette démonstration est l'équivalence
+                \begin{center}
+                    $M$ diagonalisable $\Leftrightarrow$ $\exists P \in \mathrm{Ann}(M)$ \textsc{sars}.
+                \end{center}
+            }
+            \\
+            Comme $M^2$ est diagonalisable, il existe $Q$ scindé à racines simples vérifiant $Q(0) \not= 0$ tel que $X Q(X)$ annule $M^2$, c'est-à-dire $M^2 Q(M^2) = 0$. \\
+            Alors, pour tout $X \in E$, $Q(M^2)X \in \Ker M^2$; or $\Ker M^2 = \Ker M$ par hypothèse donc $Q(M^2)X \in \Ker M$ soit $M Q(M^2)X = 0$. \\
+            Ainsi, $XQ(X^2)$ est un polynôme annulateur de $M$. Il suffit de remarquer que ce polynôme est scindé à racines simples (car les racines complexes de $Q$ sont deux à deux distinctes et non nulles) pour conclure avec le critère algébrique de diagonalisabilité que $M$ est diagonalisable.
+            \item 
+            Une démonstration alternative consiste à montrer que, pour tout $\lambda \in \Ce$ de racines carrées distinctes $\mu$ et $\mu'$, le sous-espace propre $u^2$ associé à $\lambda$ se décompose avec les sous-espaces propres $u$:
+            $$\Ker(\lambda \Id_E - u^2) = \Ker(\mu \Id_E - u) \oplus \Ker(\mu' \Id_E - u).$$
+            La condition porte alors que le sous-espace propre de $u^2$ associé à $0$, c'est-à-dire $\Ker(u^2)$.
+            \underline{Notes de cours à traiter} \\
+            Raisonnons par analyse-synthèse: soit $\lambda$ une valeur propre non nulle de $f^2$. Notons $\mu$ une racine carrée complexe de $\lambda$. Montrons que $E_{\lambda}(f^2) = E_{\mu}(f) \oplus E_{-\mu}(f)$. \\
+            On pose $y = \frac{x}{2} + \frac{f(x)}{2 \mu}$ et $z = \frac{x}{2} - \frac{f(x)}{2 \mu}$. \\
+            Comme $f^2$ est diagonalisable, $E$ est la somme directe des sous-espaces propres de $f^2$. On décompose chacun de ces sep comme ci-dessus et on en déduit que $E$ est la somme directe des sep de $f$ i.e. $f$ est diagonalisable. \\
+
+        \end{itemize}
     \end{itemize}
 \end{preuve}
