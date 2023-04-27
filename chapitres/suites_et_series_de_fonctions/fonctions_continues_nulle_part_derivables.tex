@@ -9,7 +9,7 @@ simples curiosités mathématiques, puisque l’expérience peut les suggérer. 
 \cite{contre-exemples} p. 160 \\
 Jusqu'à la moitié du \textsc{xix}$^\me$ siècle, on pensait généralement qu'une fonction continue était dérivable sauf peut-être en quelques points. \textsc{Ampère} prétendit même l'avoir démontré en 1806. \textsc{Bolzano} donne vers 1830 un exemple de fonction continue, mais dérivable nulle part; cependant ses écrits restent méconnus. En 1854, Bernhard \textsc{Riemann}, propose sans preuve, la fonction:
 $$R:x \mapsto R(x) \defeq \sum_{n=1}^{+\infty} \frac{\sin(n^2 x)}{n^2}.$$
-Karl \textsc{Weierstrass} se déclare incapable de la démontrer. Il faut attendre 1971 pour savoir que $R$ n'est pas dérivable sauf en certains points. En 1872, Karl \textsc{Weierstrass} démontre que si $a$ et $b$ sont des réels tels que $a > 0$, $b > 0$ et $ab > 1 + (3 \pi) / 2$, la fonction:
+Karl \textsc{Weierstrass} se déclare incapable de la démontrer. Il faut attendre 1971 pour savoir que $R$ n'est pas dérivable sauf en certains points. En 1872, Karl \textsc{Weierstrass} démontre que si $a$ et $b$ sont des réels tels que $a > 0$, $b > 0$ et $ab > 1 + \frac{3 \pi}{2}$, la fonction:
 $$f : x \mapsto f(x) \defeq \sum_{n=1}^{+\infty} b^n \cos(a^n x)$$
 est continue sur $\R$ et n'est dérivable en aucun point de $\R$.
 
@@ -36,7 +36,7 @@ On note $E$ l'ensemble des fonctions continues sur $[0, 1]$ et $F$ l'ensemble de
     Étudions la limite de $\limits \frac{W(x_p) - W(y_p)}{x_p - y_p}$ quand $p$ tend vers $+ \infty$:
     \begin{itemize}
         \item Si $n \geqslant p$, alors $2^n x_p$ et $2^n y_p$ sont des entiers. Donc $\Delta_n(x_p) = \Delta_n(y_p) = 0$ et $\frac{\Delta_n(x_p) - \Delta_n(y_p)}{x_p - y_p} = 0$.
-        \item Si $n < p$, alors $x_p, y_p \in I_1 \defeq \left[ x_n, \frac{x_n + y_n}{2} \right]$ ou $x_p, y_p \in I_2 \defeq \left[ \frac{x_n + y_n}{2}, y_n \right]$. $\Delta_n$ a une pente $1$ sur $I_1$ et une pense $-1$ sur $I_2$. Donc $\frac{\Delta_n(x_p) - \Delta_n(y_p)}{x_p - y_p} = (-1)^{\lfloor 2^{n+1} x \rfloor}$. 
+        \item Si $n < p$, alors $x_p, y_p \in I_1 \defeq \left[ x_n, \frac{x_n + y_n}{2} \right]$ ou $x_p, y_p \in I_2 \defeq \left[ \frac{x_n + y_n}{2}, y_n \right]$. $\Delta_n$ a une pente $1$ sur $I_1$ et une pente $-1$ sur $I_2$. Donc $\frac{\Delta_n(x_p) - \Delta_n(y_p)}{x_p - y_p} = (-1)^{\lfloor 2^{n+1} x \rfloor}$. 
     \end{itemize}
     Donc:
     $$\frac{W(x_p) - W(y_p)}{x_p - y_p} = \sum_{n=0}^{p-1} (-1)^{\lfloor 2^{n+1} x \rfloor}.$$

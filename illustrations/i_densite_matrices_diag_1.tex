@@ -15,21 +15,23 @@
      
       \draw[-latex] (0, -1) -- (0, 1.5);
       \draw[-latex] (-1, 0) -- (2.5, 0);
-      \fill[radius=0.8pt,black] (O) circle;
+      \fill[radius=0.5pt,black] (O) circle;
       \foreach \i in {1, ..., 5}{
          \draw[mylightred, fill] (L\i) circle (\R);
          \draw[myred] (L\i) circle (\R);
       }
       \fill[radius=0.8pt,blue]
-        (L1) circle node[above right=-1pt,scale=0.5] {$\Huge \lambda_1$}
-        (L2) circle node[above left =-1pt,scale=0.5] {$\Huge \lambda_2$}
-        (L3) circle node[above right=-1pt,scale=0.5] {$\Huge \lambda_3$}
-        (L4) circle node[above left =-1pt,scale=0.5] {$\Huge \lambda_4$}
-        (L5) circle node[below left =-1pt,scale=0.5] {$\Huge \lambda_5$};
+        (L1) circle node[above left=-2pt] {$\lambda_1$}
+        (L2) circle node[above left=-2pt] {$\lambda_2$}
+        (L3) circle node[above left=-2pt] {$\lambda_3$}
+        (L4) circle node[above left=-2pt] {$\lambda_4$}
+        (L5) circle node[above left=-2pt] {$\lambda_5$};
   \end{scope}
   
   \def\RL{2}
   \begin{scope}[shift={($(struct.east)+(2.5,0)$)}, scale=1]
+      \coordinate (L2) at (-3.5, 0.5);
+      \def\R{0.7}
       \def\angrho{15}
       \coordinate (O)  at (0,0);
       \coordinate (R) at (\angrho:\RL);
@@ -37,19 +39,23 @@
           \coordinate (Z\k) at (360/5*\k-30:\RL/\k);
       }
       \draw[mylightred, fill] (O) circle (\RL);
-      \draw[myred] (O) circle (\RL) node[above left=55pt] {$D(\lambda_4, \rho)$};
+      \draw[myred] (O) circle (\RL) node[above=45pt] {$D(\lambda_2, \rho)$};
       \fill[radius=0.8pt,mydarkred]
-        (Z1) circle node[above right=-1pt,scale=0.75] {$\lambda_{4, 1}$}
-        (Z2) circle node[above           ,scale=0.75] {$\lambda_{4, 2}$}
-        (Z3) circle node[above left=-1pt ,scale=0.75] {$\lambda_{4, 3}$}
-        (Z4) circle node[below           ,scale=0.75] {$\lambda_{4, 4}$}
-        (Z5) circle node[below right=-1pt,scale=0.75] {$\lambda_{4, 5}$};
+        (Z1) circle node[above right=-1pt,scale=0.75] {$\lambda_{2, 1}$}
+        (Z2) circle node[above           ,scale=0.75] {$\lambda_{2, 2}$}
+        (Z3) circle node[above left=-1pt ,scale=0.75] {$\lambda_{2, 3}$}
+        (Z4) circle node[below           ,scale=0.75] {$\lambda_{2, 4}$}
+        (Z5) circle node[below right=-1pt,scale=0.75] {$\lambda_{2, 5}$};
       \foreach \i in {1, ..., 5}{
         \draw[black, dotted] (O) -- (Z\i);
       }
-      \fill[radius=2.0pt,blue] (O) circle node[above=2pt] {\contour{mylightred}{$\lambda_4$}};
+      \fill[radius=2.0pt,blue] (O) circle node[above left=1pt] {\contour{mylightred}{$\lambda_2$}};
       \draw[latex-latex, mydarkred] (O) -- (R) node[midway] {\contour{mylightred}{$\rho$}};
+      
+      \tkzDefExtSimilitudeCenter[R](O,\RL)(L2,\R) \tkzGetPoint{J}
+      \tkzDefTangent[from  with R= J](O,\RL) \tkzGetPoints{F}{G}
+      \tkzDefTangent[from with R= J](L2,\R)  \tkzGetPoints{F'}{G'}
+      \tkzDrawSegments[dashed, color=myred, thin, arrowMe=latex'](F',F G',G)
   \end{scope}
   
-  \draw[->, gray] ($(L4) + (0.4, 0.4)$) to [out=20,in=-185] (4.3,1);
 \end{tikzpicture}

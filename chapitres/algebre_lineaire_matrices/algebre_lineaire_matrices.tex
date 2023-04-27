@@ -259,7 +259,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 
 \section{Rang des puissances d'un endomorphisme nilpotent} \labsec{rang_des_puissances_d_un_endomorphisme_nilpotent}
 \begin{exercice}
-    livre à citer \\
+    \marginnote[0cm]{\cite{reduc_des_endo}}
     Soient $E$ un $\K$-espace espace vectoriel de dimension $n$ et $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
 \end{exercice}
 
@@ -307,11 +307,11 @@ Il s'agit de la réciproque de l'exercice précédent.
 \end{exercice}
 
 \begin{exercice}
-    Soit $E \defeq \K_n[X]$. $u$ est l'endomorphisme de $E$ défini par: $\forall P \in E, u(P) = P(X+1) - P$.
+    Soient $E \defeq \K_n[X]$ et $u$ est l'endomorphisme de $E$ défini par: $\forall P \in E, u(P) = P(X+1) - P$.
     \begin{enumerate}
         \item Déterminer $\Ker u$ et $\Im u$.
-        \item Déterminer explicitement une base dans laquelle la matrice de $u$ est 
-        $
+        \item Déterminer explicitement une base de $E$ dans laquelle la matrice de $u$ s'écrit 
+        $$
         \begin{pmatrix}
             0 & 1 & 0 & \cdots & 0 \\
             \vdots & \ddots & \ddots & \ddots & \vdots \\
@@ -319,15 +319,15 @@ Il s'agit de la réciproque de l'exercice précédent.
             \vdots & & & \ddots & 1 \\
             0 & \cdots & & \cdots & 0
         \end{pmatrix}
-        $.
+        .$$
     \end{enumerate}
 \end{exercice}
 
 \begin{exercice}
-    Calculer l'inverse de 
+    Calculer l'inverse de la matrice
     $$
     \begin{pmatrix}
-        \binom{0}{0} & \binom{1}{0} & \binom{2}{0} & \cdos & \binom{n-1}{0} & \binom{n}{0} \\
+        \binom{0}{0} & \binom{1}{0} & \binom{2}{0} & \cdots & \binom{n-1}{0} & \binom{n}{0} \\
         0 & \binom{1}{1} & \binom{2}{1} & \cdots & \cdots & \binom{n}{1} \\
         \vdots & \ddots & \binom{2}{2} & & & \vdots \\
         & & & & \ddots & & \\
@@ -360,7 +360,6 @@ Il s'agit de la réciproque de l'exercice précédent.
 \end{exercice}
 
 \begin{solution}
-    \marginnote[0cm]{Ma solution}
     Soit $n \in \Ne$. Supposons qu'il existe deux matrices $A$ et $B$ dans $\M_n(\K)$ telles que $AB-BA=\I_n$. Alors, en composant cette relation par la trace on obtient, par linéarité,
     $$\Tr(AB) - \Tr(BA) = n, $$
     or $\Tr(AB) = \Tr(BA)$ donc on aboutit à $n = 0$ ce qui est absurde. \\

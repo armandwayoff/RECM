@@ -20,6 +20,8 @@
 
 \usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
 
+\usepackage{anyfontsize} % Pour le titre de la page de couverture
+
 \setlist[itemize]{label=$\bullet$}
 
 % Pour faire des pages blanches
@@ -43,6 +45,7 @@
 
 \input{math_packages}
 \input{notations}
+\input{env}
 
 \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
 
@@ -66,7 +69,7 @@
 % \titlehead{The \texttt{kaobook} class}
 % \subject{Use this document as a template}
 
-\title[Le Recueil des Exercices et Résultats Classiques de Mathématiques]{\Huge \textrm{\textsc{Le Recueil des Exercices et Résultats Classiques de Mathématiques}}}
+\title[Le Recueil des Exercices et Résultats Classiques de Mathématiques]{\fontsize{26pt}{28pt}\selectfont \textcolor{BlueViolet}{\textrm{\textsc{Le Recueil d'Exercices et Résultats Classiques de Mathématiques}}} \\ \vspace{0.6cm} \fontsize{16pt}{18pt}\selectfont \textrm{\textsl{de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques}} \\}
 % \subtitle{}
 
 \author[Armand Wayoff]{Armand \textsc{Wayoff}}

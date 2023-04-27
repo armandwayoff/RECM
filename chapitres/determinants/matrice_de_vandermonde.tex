@@ -10,8 +10,8 @@
 
 \newcommand{\vandk}{
 \left(\begin{gathered}
-    \tikzpicture[every node/.style={anchor=south west}]
-        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_{k-1})$};
+    \[every node/.style={anchor=south west}]
+        \node[mitikzpicturenimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_{k-1})$};
         \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
         \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{k}$};
         \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
@@ -57,45 +57,6 @@
     \end{gathered}\right|
 }
 
-\newcommand{\detvandpoly}{
-\left|\begin{gathered}
-    \tikzpicture[every node/.style={anchor=south west}]
-        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_n)$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{n+1}$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{n+1}^{n-1}$};
-        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$P(\alpha_{n+1})$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$P(\alpha_n)$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$P(\alpha_1)$};
-        \draw (0,0.6) -- (2.5,0.6);
-        \draw (2.5,0.6) -- (2.5,2.225);
-        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
-        \draw[dashed] (2.5,0.6) -- (2.5,0);
-    \endtikzpicture
-    \end{gathered}\right|
-}
-
-\newcommand{\detvandzero}{
-\left|\begin{gathered}
-    \tikzpicture[every node/.style={anchor=south west}]
-        \node[minimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_n)$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{n+1}$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (0.95,0) {$\cdots$};
-        \node[minimum width=0.5cm,minimum height=0.5cm] at (1.5,0) {$\alpha_{n+1}^{n-1}$};
-        \node[minimum width=1cm,minimum height=0.5cm] at (2.5,0) {$P(\alpha_{n+1})$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,0.4) {$0$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,1) {$\vdots$};
-        \node[minimum width=1cm,minimum height=1cm] at (2.5,1.4) {$0$};
-        \draw (0,0.6) -- (2.5,0.6);
-        \draw (2.5,0.6) -- (2.5,2.225);
-        \draw[dashed] (2.5,0.6) -- (3.5,0.6);
-        \draw[dashed] (2.5,0.6) -- (2.5,0);
-    \endtikzpicture
-    \end{gathered}\right|
-}
 
 \begin{preuve}
     Nous allons raisonner par récurrence sur la taille de la matrice. Pour tout $n \in \Ne$ on pose
@@ -107,8 +68,8 @@
         On pose $P(X) \defeq \prod\limits_{j=1}^n (X-\alpha_j) \defeq X^n + \sum\limits_{k=0}^{n-1} p_k X^k$. \\
         D'après les propriétés du déterminant, en ajoutant les $n$ premières colonnes respectivement multipliée par $p_k$ à la dernière, on obtient
         \begin{align*}
-            \detvandnplusun &= \detvandpoly \\
-            &= \detvandzero \\
+            \detvandnplusun &= \\
+            &= \\
             &= \det \big( \Vandermonde(\alpha_1, \dots, \alpha_n) \big) P(\alpha_{n+1}) \\
             \text{par hypothèse de récurrence } &= \prod\limits_{1\leqslant i < j \leqslant n}(\alpha_j - \alpha_i) \times \prod\limits_{j=1}^n (\alpha_{n+1}-\alpha_j) \\
             \det \big( \Vandermonde(\alpha_1, \dots, \alpha_{n+1}) \big) &= \prod_{1\leqslant i < j \leqslant n + 1}(\alpha_j - \alpha_i).

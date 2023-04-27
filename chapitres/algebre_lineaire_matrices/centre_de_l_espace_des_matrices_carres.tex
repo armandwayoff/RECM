@@ -11,12 +11,12 @@ Nous voulons démontrer l'égalité de deux ensembles à savoir le centre de $\M
     \begin{itemize}
         \item[$(\subset)$] Posons $A \defeq (a_{i,j})_{1 \leqslant 1, j \leqslant n}$. Si la matrice $A$ appartient au centre de $\M_n(\K)$ alors, en particulier, elle commute avec les matrices élémentaires \note i.e. 
         \marginnote[0cm]{
-            \begin{kaobox}[frametitle=\note Matrices élémentaires de $\M_{n,p}(\K)$]
+            \begin{defi}{\note Matrices élémentaires de $\M_{n,p}(\K)$}
                 Pour tout $(i, j) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket$, on note $\mathrm{E}_{i,j}$ la matrice de taille $(n,p)$ dont tous les coefficients son nuls sauf le coefficient en ligne $i$, colonne $j$, qui est égal à $1$. Autrement dit,
                 $$\mathrm{E}_{i,j} = (\delta_{k,i} \times \delta_{\ell, j})_{(k,\ell) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket}.$$
                 On en déduit que 
                 $$\mathrm{E}_{i,j} \times \mathrm{E}_{k, \ell} = \delta_{j,k} \mathrm{E}_{i, \ell}.$$
-            \end{kaobox}
+            \end{defi}
         }
         $$\forall (i, j) \in \llbracket 1, n \rrbracket^2, A \mathrm{E}_{i,j} = \mathrm{E}_{i,j} A.$$
         En décompasant la matrice $A$ dans la base des matrices élémentaires on obtient

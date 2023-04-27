@@ -22,6 +22,17 @@
                 bending, % figure racines troisième de l'unité
                 matrix % critère de nilpotence par la trace
                 }
+% Pour le schéma de la preuve de la densité des matrices diagonalisables
+\usetikzlibrary{decorations.markings,arrows}
+\tikzset{
+    arrowMe/.style={
+        postaction=decorate,
+        decoration={
+            markings,
+            mark=at position .45 with {\arrow[thick]{#1}}
+        }
+    }
+}
                 
 % Pour la figure de projection orthogonale
 %\usepackage[active,tightpage]{preview}
@@ -122,133 +133,3 @@
 \newenvironment{elem_sol}
   {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{Éléments de solution}}]}
   {\end{proof}}
-
-\usepackage[most]{tcolorbox}
-
-% https://tex.stackexchange.com/questions/434929/adding-a-custom-title-for-each-definition
-
-\newtcolorbox[auto counter,number within=chapter]{defi}[2][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{YellowOrange}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=YellowOrange!10!white,
-  colback=white,
-  coltitle={YellowOrange},  % Black colour for title
-  title={\textsf{Définition \thetcbcounter\ --\ #2.\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{theo}[2][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle=\bfseries,
-  % fontupper=\slshape,
-  % colback=RoyalBlue!10!white,
-  colback=white,
-  coltitle={RoyalBlue},  % Black colour for title
-  title={\textsf{Théorème \thetcbcounter\ --\ #2.\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{prop}[2][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=RoyalBlue!10!white,
-  colback=white,
-  coltitle={RoyalBlue},  % Black colour for title
-  title={\textsf{Proposition \thetcbcounter\ --\ #2.\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{corol}[1][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=RoyalBlue!10!white,
-  colback=white,
-  coltitle={RoyalBlue},  % Black colour for title
-  title={\textsf{Corollaire \thetcbcounter\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{lemme}[1][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=RoyalBlue!10!white,
-  colback=white,
-  coltitle={RoyalBlue},  % Black colour for title
-  title={\textsf{Lemme \thetcbcounter\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox{box_titre}[2][]{
-    lower separated=false,
-    colback=blue!2!white,
-    colframe=gray,
-    colbacktitle=blue!20!white,
-    coltitle=black,
-    enhanced jigsaw,
-    sharp corners,
-    borderline west={2pt}{0pt}{RoyalBlue}, % straight vertical line at the left edge
-    boxrule=0pt, % no real frame,
-    attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
-    boxed title style={boxrule=0pt,colframe=white,},
-title=#2,#1}
-
-\newtcolorbox[auto counter,number within=chapter]{remarque}[1][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{ForestGreen}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=ForestGreen!10!white,
-  colback=white,
-  coltitle={ForestGreen},  % Black colour for title
-  title={\textsf{Remarque \thetcbcounter\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{exercice}[1][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{BrickRed}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  % colback=red!10!white,
-  colback=white,
-  coltitle={BrickRed},  % Black colour for title
-  title={\textsf{Exercice \thetcbcounter\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
-
-\newtcolorbox[auto counter,number within=chapter]{methode}[1][]{%
-  enhanced jigsaw, % better frame drawing
-  borderline west={2pt}{0pt}{darkgray}, % straight vertical line at the left edge
-  sharp corners, % No rounded corners
-  boxrule=0pt, % no real frame,
-  fonttitle={\bfseries},
-  colback=white,
-  coltitle={darkgray},  % Black colour for title
-  title={\textsf{Méthode \thetcbcounter\ }},  % Fixed title
-  attach title to upper, % Move the title into the box
-  #1
-}
