@@ -3,12 +3,12 @@
 \end{prop}
 
 \begin{preuve}
-    \marginnote[0cm]{Un type}
+    \marginnote[0cm]{Source : à compléter}
     \begin{itemize}
         \item[$(\Leftarrow)$] Supposons $f$ diagonalisable. Soit $F$ un sous-espace vectoriel quelconque de $E$. Soit $(e_1, \dots, e_m)$ une base de $F$. Puisqu'on a supposé $f$ diagonalisable, il exsite une base $(v_1, \dots, v_n)$ de $E$ formée de vecteurs propres pour $f$. D'après le théorème de la base incomplète, on peut compléter la base $(e_1, \dots, e_m)$ de $F$ en une base $(e_1, \dots, e_m, e_{m+1}, \dots, e_n)$ de $E$, où on rajouté uniquement des vecteurs de notre base de vecteurs propres (c'est-à-dire $e_{m+1}, \dots, e_n$ ont été pris parmi les $v_i$). En effet, la famille $(e_1, \dots, e_m)$ est libre, et elle est contenue dans la famille génératrice $(e_1, \dots, e_m, v_1, \dots, v_n)$, donc il existe une famille $\mathcal{F}$ de vecteurs de $E$, telle que 
         $$(e_1, \dots, e_m) \subseteq \mathcal{F} \subseteq (e_1, \dots, e_m, v_1, \dots, v_n)$$
         et $\mathcal{F}$ à la fois libre et génératrice. \\
-        \textcolor{red}{il manque une explication supp} \\
+        \textcolor{red}{il manque une explication supplémentaire} \\
         On prend alors $G \defeq \Vect(e_{m+1}, \dots, e_n)$. C'est un supplémentaire de $F$ dans $E$, et il est stable par $f$ car $e_{m+1}, \dots, e_n$ sont des vecteurs propres de $f$.
         \item[$(\Rightarrow)$] Réciproquement, supposons que tout sous-espace vectoriel de $E$ admet un supplémentaire stable par $f$. Considérons
         $$F \defeq \bigoplus_{\lambda \in \Sp f} \Ker(f - \lambda \Id)$$

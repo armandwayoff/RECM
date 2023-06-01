@@ -15,7 +15,7 @@ Intéressons-nous d'abord à la branche de gauche.
     Soit $A \in \M_n(\K)$. La matrice $A$ est nilpotente si et seulement si pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$.
 \end{prop}
 \begin{preuve}
-    \marginnote[-1cm]{\url{http://vonbuhren.free.fr/Agregation/Developpements/dev_thm_burnside.pdf}}
+    \marginnote[-1cm]{Source : \href{http://vonbuhren.free.fr/Agregation/Developpements/dev_thm_burnside.pdf}{Développement - Le théorème de \textsc{Burnside} -- \textsf{vonbuhren.free.fr}}}
     Raisonnons par double implication.
     \marginnote[1cm]{
         \note Soit $A$ une matrice semblable à
@@ -85,7 +85,7 @@ Intéressons-nous d'abord à la branche de gauche.
 
          Ainsi $X \in \Ker V$. Or la matrice $V$ est une matrice de \textsc{Vandermonde} inversible car les $\lambda_i$ sont deux à deux distinctes \note \marginnote[0cm]{\textcolor{red}{renvoyer vers la section sur Vandermonde}} par hypothèse. Nous aboutissons alors à une contradiction car le vecteur $X$ est non nul. On en déduit que la matrice $A$ est nilpotente. \\
         
-        Voyons une autre démonstration pour la réciproque. \\ \marginnote[0cm]{\url{https://www.youtube.com/watch?v=d70IfThN_-A}}
+        Voyons une autre démonstration pour la réciproque. \\ \marginnote[0cm]{Source : \href{https://www.youtube.com/watch?v=d70IfThN_-A}{Critère de nilpotence par la trace et application -- Philippe \textsc{Caldero}}}
         \item[$(\Leftarrow)$] Montrons par récurrence que la matrice $A$ est nilpotente. Plus précisément pour $n \in \N$ on note
         \begin{center}
             $\mathscr{P}_n$: \say{ Soit $A \in \M_n(\K)$. Si pour tout $k \in \llbracket 1, n \rrbracket, \Tr(A^k) = 0$ alors la matrice $A$ est nilpotente }.
@@ -215,7 +215,7 @@ $$\sum_{i=1}^n \lambda_i^j = \Tr(M^j).$$
 
 \begin{preuve}
     \textcolor{red}{à revoir} \\
-    \marginnote[0cm]{\cite{reduc_des_endo} p. 114}
+    \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 114}
     D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines \note, le polynôme caractéristique de la matrice $A$ a pour expression
     $$\chi_A = X^n + (-1)^n \det(A).$$
     Si $\det(A) = 0$, le théorème de \textsc{Cayley}-\textsc{Hamilton} assure que $A$ est nilpotente. Sinon, le polynôme caractéristique est scindé à racines simples donc $A$ est diagonalisable (et d'ailleurs, toutes les valeurs propres ont le même module).

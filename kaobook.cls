@@ -235,7 +235,7 @@
 %----------------------------------------------------------------------------------------
 
 % Set KOMA fonts for book-specific elements
-\addtokomafont{part}{\normalfont\scshape\bfseries\Huge}
+\addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\scshape\bfseries}
 \addtokomafont{partentry}{\normalfont\scshape\bfseries} 
 \addtokomafont{chapter}{\normalfont\scshape\bfseries\fontsize{20pt}{22pt}\selectfont\color{BlueViolet}}
 \addtokomafont{chapterentry}{\normalfont\bfseries}

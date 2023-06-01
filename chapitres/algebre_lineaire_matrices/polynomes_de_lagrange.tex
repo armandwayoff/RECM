@@ -1,4 +1,4 @@
-\marginnote[0cm]{\url{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}}
+\marginnote[0cm]{Source : \href{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}{extrait d'un cours de F. \textsc{Delebecque}}}
 \subsection{Motivations de l'interpolation polynomiale}
 En analyse numérique, une fonction $f$ inconnue explicitement est souvent connue seulement en certains points $x_0, \dots, x_d$, ou évaluable uniquement au moyen de l'appel à un code coûteux. \\
 Mais dans de nombreux cas, on a besoin d'effectuer des opérations (dérivation, intégration, \dots) sur la fonction $f$. \\
@@ -47,7 +47,7 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 }
 
 \begin{preuve}
-    \marginnote[0cm]{\url{https://www.youtube.com/watch?v=blB2SAYpobA}}
+    \marginnote[0cm]{Source : \href{https://www.youtube.com/watch?v=blB2SAYpobA}{\textsl{[UT\#29] Unicité des polynômes de \textsc{Lagrange}} -- Øljen - Les maths en finesse}}
     On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$.
     \begin{alignat*}{2}
         \text{Soit } \varphi\ :\ \R_n[X]\ &\longrightarrow\ \R^{n+1}\\
@@ -79,7 +79,7 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 \end{prop}
 
 \begin{preuve}
-    \marginnote[0cm]{\cite{maths-france}}
+    \marginnote[0cm]{Source : \cite{maths-france}}
     \begin{itemize}
         \item[$\rhd$] On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
         Soit $i \in \llbracket 1, n \rrbracket$. Le polynôme $\Lag_i$ est de degré au plus $n$ et admet $n$ complexes deux à deux distincts $x_j$ pour racines, avec $j \not= i$. Alors, nécessairement, il existe une constante $C$ telle que 
@@ -110,7 +110,7 @@ $$P = \sum_{i=0}^n y_i \Lag_i = \sum_{i=0}^n P(x_i) \Lag_i.$$
 
 \subsection{Lien avec les déterminants de \textsc{Vandermonde}}
 
-\marginnote[0cm]{\cite{maths-france}}
+\marginnote[0cm]{Source : \cite{maths-france}}
 En appliquant la formule des coordonnées d'un polynôme de degré au plus $n$ dans la base $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ au cas particulier où le polynôme $P$ est l'un des éléments de la base canonique $(X^j)_{j \in \llbracket 0, n \rrbracket}$ de $\C_n[X]$, on obtient $\sum\limits_{i=0}^{n} \Lag_i = 1$ et plus généralement, 
 $$\forall j \in \llbracket 0, n \rrbracket,\ X^j = \sum_{i=0}^{n} x_i ^j \Lag_i.$$
 Ainsi, 

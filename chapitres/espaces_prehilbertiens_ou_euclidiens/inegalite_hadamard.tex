@@ -51,10 +51,10 @@ Voyons deux démonstrations de ce résultat; une première en utilisant la déco
 \end{preuve}
 
 \marginnote[0cm]{
-    \begin{kaobox}[frametitle=Parallélotope]
+    \begin{defi}{Parallélotope}
         Soit $(x_1, \dots, x_n)$ une famille libre. Le parallélotope engendré par cette famille est défini par
         $$P \defeq \left\{ x = \sum_{i=1}^n t_i x_i,\ \forall i\ t_i \in [0,1]\right\}.$$
-    \end{kaobox}
+    \end{defi}
 }
 
 L'inégalité d'\textsc{Hadamard} nous apprend que le volume du parallélotope défini par les vecteurs colonnes est inférieur ou égal au produit des normes de ses vecteurs et il y a égalité si et seulement si la matrice est diagonale, ou encore que le parallélotope est rectangle. 
@@ -65,18 +65,18 @@ L'inégalité d'\textsc{Hadamard} nous apprend que le volume du parallélotope d
 \end{prop}
 
 \begin{exercice}    
-\marginnote[0cm]{exercice 4, TD 14 \cite{acamanes}}
+\marginnote[0cm]{Source : exercice 4, TD 14 \cite{acamanes}}
 \begin{enumerate}
     \item Soit $(\gamma_1, \dots, \gamma_n) \in (\Re)^n$. Montrer que $B = (\gamma_i \gamma_j a_{i,j}) \in \mathscr{S}_n^{++}(\R)$. 
     \item Montrer que $\det(A)^{1/n} \leqslant \frac{\Tr(A)}{n}$. \\
     \emph{On pourra utiliser l'inégalité arithmético-géométrique}.
     
     \marginnote[-2cm]{
-    	\begin{kaobox}[frametitle=Inégalité arithmético-géométrique]
+    	\begin{prop}{Inégalité arithmético-géométrique}
             Soient $n \in \Ne$ et $x_1, \dots, x_n$ des réels positifs. Alors, 
             $$\frac{x_1 + \cdots + x_n}{n} \geqslant \sqrt[n]{x_1 \cdots x_n}.$$
             Il y a égalité si et seulement si tous les $x_i$ sont égaux.
-        \end{kaobox}
+        \end{prop}
         Pour d'autres inégalités, lire le chapitre 16, p.117 de la deuxième édition de Raisonnements divins (en fr)
     }
     \item Montrer que pour tout $i \in \llbracket 1, n \rrbracket, a_{i,i} > 0$. On pose $\gamma_i = \frac{1}{\sqrt{a_{i,i}}}$. En déduire l'inégalité d'\textsc{Hadamard}.

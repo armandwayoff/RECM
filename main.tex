@@ -47,9 +47,9 @@
 \input{notations}
 \input{env}
 
-\graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
+% \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
 
-% \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
 \makeglossaries % Make LaTeX produce the files required to compile the glossary
 \input{glossary.tex} % Include the glossary definitions
@@ -69,10 +69,10 @@
 % \titlehead{The \texttt{kaobook} class}
 % \subject{Use this document as a template}
 
-\title[Le Recueil des Exercices et Résultats Classiques de Mathématiques]{\fontsize{26pt}{28pt}\selectfont \textcolor{BlueViolet}{\textrm{\textsc{Le Recueil d'Exercices et Résultats Classiques de Mathématiques}}} \\ \vspace{0.6cm} \fontsize{16pt}{18pt}\selectfont \textrm{\textsl{de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques}} \\}
+\title[Recueil des Exercices et Résultats Classiques de Mathématiques]{\fontsize{26pt}{28pt}\selectfont \textcolor{BlueViolet}{\textrm{\textsc{Recueil d'Exercices et Résultats Classiques de Mathématiques}}} \\ \vspace{0.6cm} \fontsize{16pt}{18pt}\selectfont \textrm{\textsl{de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques}} \\}
 % \subtitle{}
 
-\author[Armand Wayoff]{Armand \textsc{Wayoff}}
+\author[Armand Wayoff]{Armand \textsc{Wayoff} \\ \url{https://armandwayoff.github.io/}}
 
 \date{}
 
@@ -108,7 +108,7 @@
 
 \vspace*{\fill} % plaque le texte en bas de page
 \begin{Large}
-\emph{\say{ Celui qui aura goûté, qui aura vu, ne fût-ce que de loin, la splendide harmonie des lois naturelles, sera mieux disposé à faire peu de cas de ses petits intérêts égoïstes ; il aura un idéal qu’il aimera mieux que lui-même, et c’est là le seul terrain sur lequel on puisse bâtir une morale. Pour cet idéal, il travaillera sans marchander sa peine et sans attendre aucune de ces grossières récompenses qui sont tout pour certains hommes ; et quand il aura pris ainsi l’habitude du désintéressement, cette habitude le suivra partout ; sa vie entière en restera comme parfumée. }}
+\textsl{\say{ Celui qui aura goûté, qui aura vu, ne fût-ce que de loin, la splendide harmonie des lois naturelles, sera mieux disposé à faire peu de cas de ses petits intérêts égoïstes ; il aura un idéal qu’il aimera mieux que lui-même, et c’est là le seul terrain sur lequel on puisse bâtir une morale. Pour cet idéal, il travaillera sans marchander sa peine et sans attendre aucune de ces grossières récompenses qui sont tout pour certains hommes ; et quand il aura pris ainsi l’habitude du désintéressement, cette habitude le suivra partout ; sa vie entière en restera comme parfumée. }}
 \begin{flushright}
 --- Henri \textsc{Poincaré}, \emph{Dernières pensées}.
 \end{flushright}
@@ -127,6 +127,7 @@
 %\setstretch{1} % Uncomment to modify line spacing in the ToC
 %\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
 \setlength{\textheight}{200\hscale} % Manually adjust the height of the ToC pages
+\setlength{\textwidth}{220\vscale}
 
 % Turn on compatibility mode for the etoc package
 \etocstandarddisplaystyle % "toc display" as if etoc was not loaded
@@ -215,10 +216,10 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
 \setchapterstyle{plain} % Output plain chapters from this point onwards
 
 \thispagestyle{empty}
-\newgeometry{left=2cm,right=2cm, top=2cm}
+\newgeometry{left=1cm,right=1cm, top=2cm}
 \chapter{Mathématiciens}
 \begin{multicols}{2}
-\footnotesize
+\small
 \begin{itemize}
     \input{mathematiciens.tex}
 \end{itemize}

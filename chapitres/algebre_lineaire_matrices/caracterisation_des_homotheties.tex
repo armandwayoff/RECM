@@ -11,12 +11,12 @@
     Raisonnons par double implication. 
     \begin{itemize}
         \item[$(\Rightarrow)$] On suppose que l'application $f$ est une homothétie. Alors il existe un scalaire non nul $\lambda$ tel que pour tout $x \in E, f(x) = \lambda x$. Ainsi, la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. 
-        \item[$(\Leftarrow)$] \marginnote[0cm]{\url{http://marocprepa.com/site/homothetiecarac}} On suppose que la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. On pose 
+        \item[$(\Leftarrow)$] \marginnote[0cm]{Source : \href{http://marocprepa.com/site/homothetiecarac}{Une caractérisation des homothéties -- \textsf{marocprepa.com}}} On suppose que la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. On pose 
         $$f:x \mapsto \lambda_x x.$$
         Soient $y \in E$ non nul et $x \in E$. Montrons que $\lambda_x = \lambda_{y}$ ce qui assurera que $f$ est une homothétie. \\
         Distinguons deux cas:
         \begin{itemize}
-            \item \underline{Cas où $x \in \Vect(y)$.} Alors il existe un scalaire non nul $\lambda$ tel que $x = \lambda y$. En composant cette relation par $f$ on obtient
+            \item \textbf{Cas où $x \in \Vect(y)$.} Alors il existe un scalaire non nul $\lambda$ tel que $x = \lambda y$. En composant cette relation par $f$ on obtient
             $$f(x) = \lambda f(y)$$
             \begin{align*}
                 &\text{soit : } \lambda_x x = \lambda \lambda_{y} y, \\
@@ -24,7 +24,7 @@
                 &\text{en factorisant : } \lambda (\lambda_x - \lambda_{y}) y = 0.
             \end{align*}
             Or $\lambda \not= 0$ et $y \not= 0_E$ donc nécessairement $\lambda_x = \lambda_{y}$.
-            \item \underline{Cas où $x \not \in \Vect(y)$.} On pose $z \defeq x + y$. Par définition de l'application $f$, $f(z) = \lambda_z z$ soit $f(z) = \lambda_z(x + y)$. \\
+            \item \textbf{Cas où $x \not \in \Vect(y)$.} On pose $z \defeq x + y$. Par définition de l'application $f$, $f(z) = \lambda_z z$ soit $f(z) = \lambda_z(x + y)$. \\
             On peut aussi écrire $f(z) = f(x) + f(y) = \lambda_x x + \lambda_y y$. \\
             En égalant ces deux expressions, on obtient 
             $$(\lambda_x - \lambda_z) x + (\lambda_{y} - \lambda_z) y = 0$$

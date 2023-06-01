@@ -8,7 +8,7 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
 \end{prop}
 
 \begin{preuve}
-    \marginnote[0cm]{\cite{maths-france} Planche 6 Maths SPE}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche 6 Maths SPE}
     Soient $F \defeq \Vect(x_1, \dots, x_n)$ et $m \defeq \dim F$. Soient $\mathscr{B} \defeq (e_i)_{1 \leqslant i \leqslant m}$ une base orthonormée de $F$ puis $M$ la matrice de la famille $(x_j)_{1 \leqslant j \leqslant n}$ dans la base $\mathscr{B}$. La matrice $M$ est une matrice rectangulaire de format $(m, n)$. \\
     Soit $(i, j) \in \llbracket 1, m \rrbracket \times \llbracket 1, n \rrbracket$. Puisque la base $\mathscr{B}$ est orthonormée, le coefficient $[ \Trsp{M} M ]_{i,j}$ est 
     $$\sum_{k=1}^m m_{k,i} m_{k,j} = \langle x_i, x_j \rangle,$$
@@ -39,7 +39,7 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
 \end{prop}
 
 \begin{preuve}
-    \marginnote[0cm]{\cite{maths-france} Planche 6 Maths SPE}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche 6 Maths SPE}
     D'après (??) et puisque $\Trsp{M}M \in \M_n(\K)$,
     \begin{align*}
         (x_1, \dots, x_n) \text{ liée } &\Leftrightarrow \Rg (x_1, \dots, x_n) < n \\
@@ -126,7 +126,7 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
 Compléter avec \cite{objectif_agregation} p. 185.
 
 \begin{preuve}
-    \marginnote[0cm]{Jérôme Von Buhren}
+    \marginnote[0cm]{Source : Jérôme \textsc{Von Buhren}}
     \begin{itemize}
         \item Si la famille $(x_1, \dots, x_n)$ est liée, le résultat est immédiat.
         \item Raisonnons par récurrence sur $n \in \Ne$ sur la propriété
@@ -148,13 +148,13 @@ Compléter avec \cite{objectif_agregation} p. 185.
 \end{prop}
 
 \marginnote[0cm]{
-    \begin{kaobox}[frametitle=Matrices symétriques positives]
+    \begin{defi}{Matrices symétriques positives}
         L'ensemble des \emph{matrices symétriques positives} est noté $\mathscr{S}_n^+(\R)$. Une matrice $M \in \mathscr{S}_n^+(\R)$ équivaut à chacune des propriétés suivantes:
         \begin{itemize}
             \item pour tout $X \in \M_n(\R), \Trsp{X} M X \geqslant 0$,
             \item $\Sp(M) \subset \Rp.$
         \end{itemize}
-    \end{kaobox}
+    \end{defi}
 }
 
 \begin{preuve}

@@ -10,7 +10,7 @@
 
 \newcommand{\vandk}{
 \left(\begin{gathered}
-    \[every node/.style={anchor=south west}]
+    [every node/.style={anchor=south west}]
         \node[mitikzpicturenimum width=2cm,minimum height=1.5cm] at (-0.16,0.625) {$\Vandermonde(\alpha_1, \dots, \alpha_{k-1})$};
         \node[minimum width=0.5cm,minimum height=0.5cm] at (0,0.05) {$1$};
         \node[minimum width=0.5cm,minimum height=0.5cm] at (0.4, 0) {$\alpha_{k}$};
@@ -30,7 +30,7 @@
 
 \begin{remarque}
     Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. Les matrices de \textsc{Vandermonde} des familles $(\alpha_1, \dots, \alpha_k)$ pour $2 \leqslant k \leqslant n$ sont imbriquées les unes dans les autres de la manière suivante
-    $$\Vandermonde(\alpha_1, \dots, \alpha_k) = \vandk.$$
+    $$\Vandermonde(\alpha_1, \dots, \alpha_k) = ....$$
 \end{remarque}
 
 \begin{prop}{Déterminant de \textsc{Vandermonde}} \labprop{determinant_vandermonde}
@@ -87,7 +87,7 @@
 \end{preuve}
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{maths-france} Planche no 35. Déterminants}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche no 35. Déterminants}
     Pour $a \in \C$, on pose pour tout $x \in \R$, $f_a(x) \defeq \me^{ax}$. Soit $(a_1, \dots, a_n)$, $n$ complexes deux à deux distincts. Montrer que la famille de fonctions $(f_{a_k})_{1 \leqslant k \leqslant n}$ est libre.
 \end{exercice}
 
@@ -104,7 +104,7 @@
 \subsection{Inverse de la matrice de {\textsc{Vandermonde}}}
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{exos_oraux} p.81}
+    \marginnote[0cm]{Source : \cite{exos_oraux} p.81}
     Soient $n \in \Ne$ et $(x_1, \dots, x_n)$ des complexes deux à deux distincts.
     \begin{enumerate}
         \item Montrer que l'application
