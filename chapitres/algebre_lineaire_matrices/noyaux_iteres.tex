@@ -3,7 +3,8 @@
     \begin{itemize}
         \item La suite $\left( \Ker(f^k) \right)_{k \in \N}$ est une suite croissante pour l'inclusion et stationnaire à partir d'un certain rang $r \in \llbracket 0, n \rrbracket$.
         \item La suite $\left( \Im(f^k) \right)_{k \in \N}$ est une suite décroissante pour l'inclusion et stationnaire à partir du même rang $r$. \\
-        (la suite \url{https://bibmath.net/dico/index.php?action=affiche&quoi=./n/noyauxiteres.html}) \\De plus
+        (la suite vient de \href{https://bibmath.net/dico/index.php?action=affiche&quoi=./n/noyauxiteres.html}{Noyaux itérés -- \textsf{Bibm@th.net}}) \\
+        De plus
         $$\Ker(f^r) \oplus \Im(f^r) = E.$$
         Si on note $d_k \defeq \dim \big(\Ker(f^k) \big)$, alors pour tout $k \in \N$, 
         $$d_{k+1} - d_k \geqslant d_{k+2} - d_{k+1},$$
@@ -38,13 +39,19 @@ Voir aussi énoncé de \cite{exos_oraux} p. 44.
         \begin{enumerate}
             \item Montrer que les suites $(N_k)_{k \in \N}$ et $(I_k)_{k \in \N}$ sont respectivement croissante et décroissante pour l'inclusion.
             \item Montrer que $N$ et $I$ sont stables par $f$. 
-            \item Montrer que pour tout $k \in \N$, $(N_k = N_{k+1}) \Rightarrow (N_{k+1} = N_{k+2})$.
+            \item Montrer que pour tout $k \in \N$, 
+            $$(N_k = N_{k+1}) \implies (N_{k+1} = N_{k+2}).$$
         \end{enumerate}
         \item On suppose de plus que $\dim E = n$, $n \in \Ne$.
         \begin{enumerate}
-            \item Soit $A \defeq \{ k \in \N \mid N_k = N_{k+1} \}$ et $B \defeq \{ k \in \N \mid I_k = I_{k+1} \}$. Montrer qu'il existe un entier $p$ inférieur à $n$ tel que $A = B =  \{ k \in \N \mid k \geqslant p \}$.
+            \item Soit 
+            \begin{align*}
+                A &\defeq \ens[\big]{ k \in \N \tq N_k = N_{k+1} } \\
+                \text{et } B &\defeq \ens[\big]{k \in \N \tq I_k = I_{k+1}}.
+            \end{align*}
+            Montrer qu'il existe un entier $p$ inférieur à $n$ tel que $A = B =  \{ k \in \N \mid k \geqslant p \}$.
             \item Montrer que $E = N_p \oplus I_p$.
-            \item Montrer que $f_{\Vert N}$ est nilpotent et que $f_{\Vert I} \in \Gl(I)$.
+            \item Montrer que $f_{\vert N}$ est nilpotent et que $f_{\vert I} \in \Gl(I)$.
         \end{enumerate}
         \item Trouver des exemples où $A$ est vide et $B$ est non vide et où $A$ est non vide et $B$ est vide.
         \item Pour $k \in \N$, on pose $d_k \defeq \dim I_k$. Montrer que la suite $(d_k - d_{k+1})_{k \in \N}$ est décroissante. En déduire le sens de variation de la suite $\big( \dim N_{k+1} - \dim N_k \big)_{k \in \Ne}$.

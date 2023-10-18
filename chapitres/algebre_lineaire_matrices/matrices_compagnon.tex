@@ -108,7 +108,7 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
 \begin{exercice}
     Soit $p$ un entier strictement positif et soit $M$ une matrice de $\M_p(\C)$. \\
     Étant donné un élément $x$ quelconque non nul de $\C^p$ on pose
-    $$\mu \defeq \min \{ r \geqslant 1\ \mid\ (x, Mx, \dots, M^r x) \text{ est liée dans } \C^p\}.$$
+    $$\mu \defeq \min \ens[\Big]{ r \geqslant 1 \tq \big(x, Mx, \dots, M^r x \big) \text{ est liée dans } \C^p}.$$
     \begin{enumerate}
         \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
         $$
@@ -132,12 +132,12 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
     \begin{enumerate}
         \item 
         \begin{itemize}
-            \item La famille $(x, Mx, \dots, M^p x)$ est un système de $p+1$ vecteurs de $\C^p$ d'un espace vectoriel de dimension $p$. Il est donc lié. Il existe donc $\mu$, minimum de $r$ tel que $(x, Mx, \dots, M^r x)$ est lié et $\mu \leqslant p$. 
-            \item Par construction, la famille  $(x, Mx, \dots, M^{\mu-1} x)$ est libre et $(x, Mx, \dots, M^{\mu-1} x, M^\mu x)$ est liée. Il en résulte une égalité: 
+            \item La famille $\big(x, Mx, \dots, M^p x\big)$ est un système de $p+1$ vecteurs de $\C^p$ d'un espace vectoriel de dimension $p$. Il est donc lié. Il existe donc $\mu$, minimum de $r$ tel que $(x, Mx, \dots, M^r x)$ est lié et $\mu \leqslant p$. 
+            \item Par construction, la famille  $\big(x, Mx, \dots, M^{\mu-1} x\big)$ est libre et $\big(x, Mx, \dots, M^{\mu-1} x, M^\mu x\big)$ est liée. Il en résulte une égalité: 
             $$M^\mu(x) = \alpha_0 x + \alpha_1 M x + \cdots + \alpha_{\mu-1} M^{\mu-1} x$$
             pour un unique $\mu$-uplet $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^\mu$. \\
-            \item Notons $f$ l'endomorphisme $x \mapsto Mx$ de $\C^p$ et 
-            $$V \defeq \Vect(x, Mx, \dots, M^{\mu-1} x);$$
+            \item Notons $\fonctionligne{x}{Mx}$ l'endomorphisme de $\C^p$ et 
+            $$V \defeq \Vect\big(x, Mx, \dots, M^{\mu-1} x\big);$$
             l'application $f$ envoie chaque $M^i x$, pour $0 \leqslant i \leqslant \mu - 1$, sur un élément de $V$. Ainsi $V$ est stabilisé par $f$.
             Notons $e_1 \defeq x, e_2 \defeq M x, \dots, e_\mu \defeq M^{\mu-1} x$. Le système $(e_1, \dots, e_\mu)$ est une base de $V$. Complétons ce système par $(e_{\mu+1}, \dots, e_p)$ tels que $(e_1, \dots, e_p)$ est une base de $\C^p$. 
             $$f(e_1) = e_2, \dots, f(e_{\mu-1}) = e_\mu, f(e_\mu) = -\alpha_{\mu-1} e_{\mu-1} - \cdots - \alpha_0 e_1.$$

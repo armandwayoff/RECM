@@ -9,7 +9,7 @@ Le centre de $\M_n(\K)$, c'est-à-dire les matrices $A \in \M_n(\K)$ telles que 
 Nous voulons démontrer l'égalité de deux ensembles à savoir le centre de $\M_n(\K)$ et $\{ \lambda \I_n, \lambda \in \K \}$. Nous allons donc raisonner par double inclusion. 
 \begin{preuve}
     \begin{itemize}
-        \item[$(\subset)$] Posons $A \defeq (a_{i,j})_{1 \leqslant 1, j \leqslant n}$. Si la matrice $A$ appartient au centre de $\M_n(\K)$ alors, en particulier, elle commute avec les matrices élémentaires \note i.e. 
+        \item[$(\subset)$] Posons $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n}$. Si la matrice $A$ appartient au centre de $\M_n(\K)$ alors, en particulier, elle commute avec les matrices élémentaires \note i.e. 
         \marginnote[0cm]{
             \begin{defi}{\note Matrices élémentaires de $\M_{n,p}(\K)$}
                 Pour tout $(i, j) \in \llbracket 1, n \rrbracket \times \llbracket 1, p \rrbracket$, on note $\mathrm{E}_{i,j}$ la matrice de taille $(n,p)$ dont tous les coefficients son nuls sauf le coefficient en ligne $i$, colonne $j$, qui est égal à $1$. Autrement dit,
@@ -20,9 +20,9 @@ Nous voulons démontrer l'égalité de deux ensembles à savoir le centre de $\M
         }
         $$\forall (i, j) \in \llbracket 1, n \rrbracket^2, A \mathrm{E}_{i,j} = \mathrm{E}_{i,j} A.$$
         En décompasant la matrice $A$ dans la base des matrices élémentaires on obtient
-        $$A \mathrm{E}_{i,j} = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{k,\ell} \mathrm{E}_{i,j} = \sum_{k=1}^{n} a_{k,i} \mathrm{E}_{k,j},$$
+        $$A \mathrm{E}_{i,j} = \smashoperator{\sum_{1 \leqslant k, \ell \leqslant n}} a_{k, \ell} \mathrm{E}_{k,\ell} \mathrm{E}_{i,j} = \sum_{k=1}^{n} a_{k,i} \mathrm{E}_{k,j},$$
         et
-        $$\mathrm{E}_{i,j} A = \sum_{1 \leqslant k, \ell \leqslant n} a_{k, \ell} \mathrm{E}_{i,j} \mathrm{E}_{k,\ell} = \sum_{\ell=1}^{n} a_{j,\ell} \mathrm{E}_{i,\ell}.$$
+        $$\mathrm{E}_{i,j} A = \smashoperator{\sum_{1 \leqslant k, \ell \leqslant n}} a_{k, \ell} \mathrm{E}_{i,j} \mathrm{E}_{k,\ell} = \sum_{\ell=1}^{n} a_{j,\ell} \mathrm{E}_{i,\ell}.$$
         Puisque la famille $(\mathrm{E}_{i, j})_{1 \leqslant i, j \leqslant n}$ est libre, on peut identifier les coefficients des deux expressions et on déduit que pour tout $(i, k) \in \llbracket 1, n \rrbracket^2$ tel que $i \not= k, a_{i,k}=0$ et pour tout $(i,j) \in \llbracket 1, n \rrbracket^2, a_{i,i}=a_{j,j}$. \\
         Ainsi, si la matrice $A$ commute avec toutes les matrices, elle est nécessairement de la forme $A = \lambda \I_n$ où $\lambda \in \K$.
         \item[$(\supset)$] Réciproquement, pour tout $\lambda \in \K$ et toute matrice $B \in \M_n(\K), B \times (\lambda \I_n) = (\lambda \I_n) \times B$. 

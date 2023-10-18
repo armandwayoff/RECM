@@ -17,18 +17,18 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
     Puisque $\Rg(x_1, \dots, x_n) = \Rg M$, il s'agit de vérifier que $\Rg(\Trsp{M} M) = \Rg M$. Pour cela, montrons que les matrices $M$ et $\Trsp{M} M$ ont le même noyau. \\
     Soit $X \in \M_{n,1}(\R)$.
     \begin{align*}
-        X \in \Ker M &\Rightarrow MX = 0 \\
-        &\Rightarrow \Trsp{M}MX = 0 \\
-        &\Rightarrow X \in \Ker(\Trsp{M}M)
+        X \in \Ker M &\implies MX = 0 \\
+        &\implies \Trsp{M}MX = 0 \\
+        &\implies X \in \Ker(\Trsp{M}M)
     \end{align*}
     et aussi
     \begin{align*}
-        X \in \Ker \big( \Trsp{M}M \big) &\Rightarrow \Trsp{M}MX = 0 \\
-        &\Rightarrow \Trsp{X}\Trsp{M}MX = 0 \\
-        &\Rightarrow \Trsp{(MX)}MX = 0 \\
-        &\Rightarrow \norme{MX}^2 = 0 \\
-        &\Rightarrow MX = 0 \\
-        &\Rightarrow X \in \Ker M.
+        X \in \Ker \big( \Trsp{M}M \big) &\implies \Trsp{M}MX = 0 \\
+        &\implies \Trsp{X}\Trsp{M}MX = 0 \\
+        &\implies \Trsp{(MX)}MX = 0 \\
+        &\implies \norme{MX}^2 = 0 \\
+        &\implies MX = 0 \\
+        &\implies X \in \Ker M.
     \end{align*}
     Finalement, $\Ker(\Trsp{M}M) = \Ker M$ et donc, d'après le théorème du rang,
     $$\Rg(x_1, \dots, x_n) = \Rg M = \Rg(\Trsp{M}M) = \Rg \big( \Gram(x_1, \dots, x_n) \big).$$
@@ -42,10 +42,10 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
     \marginnote[0cm]{Source : \cite{maths-france} Planche 6 Maths SPE}
     D'après (??) et puisque $\Trsp{M}M \in \M_n(\K)$,
     \begin{align*}
-        (x_1, \dots, x_n) \text{ liée } &\Leftrightarrow \Rg (x_1, \dots, x_n) < n \\
-        &\Leftrightarrow \Rg \Gram(x_1, \dots, x_n) < n \\
-        &\Leftrightarrow \Gram(x_1, \dots, x_n) \not \in \Gl_n(\R) \\
-        &\Leftrightarrow \det \Gram(x_1, \dots, x_n) = 0.
+        (x_1, \dots, x_n) \text{ liée } &\iff \Rg (x_1, \dots, x_n) < n \\
+        &\iff \Rg \Gram(x_1, \dots, x_n) < n \\
+        &\iff \Gram(x_1, \dots, x_n) \not \in \Gl_n(\R) \\
+        &\iff \det \Gram(x_1, \dots, x_n) = 0.
     \end{align*}
     De plus, quand la famille $(x_1, \dots, x_n)$ libre, avec les notations de (??), on a $m=n$ et la matrice $M$ est une matrice carrée, inversible. On peut donc écrire
     $$\det \Gram(x_1, \dots, x_n) = \det \big( \Trsp{M} M \big) = \det(M)^2 > 0.$$
@@ -126,7 +126,7 @@ Le déterminant de \textsc{Gram} permet de calculer des volumes et de tester l'i
 Compléter avec \cite{objectif_agregation} p. 185.
 
 \begin{preuve}
-    \marginnote[0cm]{Source : Jérôme \textsc{Von Buhren}}
+    \marginnote[0cm]{Source : \href{http://vonbuhren.free.fr/Agregation/Developpements/dev_determinant_gram.pdf}{Développement : Déterminant de \textsc{Gram} -- Jérôme \textsc{Von Buhren}, \textsf{vonbuhren.free.fr}}}
     \begin{itemize}
         \item Si la famille $(x_1, \dots, x_n)$ est liée, le résultat est immédiat.
         \item Raisonnons par récurrence sur $n \in \Ne$ sur la propriété

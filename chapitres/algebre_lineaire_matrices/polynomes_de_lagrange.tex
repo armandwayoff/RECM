@@ -48,11 +48,10 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 
 \begin{preuve}
     \marginnote[0cm]{Source : \href{https://www.youtube.com/watch?v=blB2SAYpobA}{\textsl{[UT\#29] Unicité des polynômes de \textsc{Lagrange}} -- Øljen - Les maths en finesse}}
-    On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$.
-    \begin{alignat*}{2}
-        \text{Soit } \varphi\ :\ \R_n[X]\ &\longrightarrow\ \R^{n+1}\\
-        P\ &\longmapsto\ \big(P(x_0), \dots, P(x_n) \big).
-    \end{alignat*}
+    On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. Soit l'application
+    $$
+    \fonction[\varphi]{\R_n[X]}{\R^{n+1}}{P}{\big(P(x_0), \dots, P(x_n) \big)}.
+    $$
     \begin{itemize}
         \item[$\rhd$] Soit $P \in \Ker \varphi$. Alors le polynôme $P$ a $n+1$ racines discintes. Or il est de degré inférieur à $n$ donc est le polynôme nul. On en déduit que $\varphi$ est injective ce qui assure l'\ptnclegras{unicité} des polynômes interpolateurs de \textsc{Lagrange}.
         \item[$\rhd$] Comme $\dim \R_n[X] = \dim \R^{n+1}$ et que l'application $\varphi$ est injective, c'est un isomorphisme \note.

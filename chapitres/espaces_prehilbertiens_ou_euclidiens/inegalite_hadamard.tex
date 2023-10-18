@@ -25,9 +25,9 @@ Voyons deux démonstrations de ce résultat; une première en utilisant la déco
             |\det M | = |\det T | = \prod_{i=1}^{n} |t_{i,i}|.
         \end{equation}
         Par construction, pour tout $i \in \llbracket 1, n \rrbracket, t_{i,i} \defeq \langle X_i, O_i \rangle$ où $O_i$ est un vecteur unitaire. D'après l'inégalité de \textsc{Cauchy}-\textsc{Schwarz}, pour tout $i \in \llbracket 1, n \rrbracket$, 
-        $$|t_{i,i}| = |\langle X_i, O_i \rangle | \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$
+        $$|t_{i,i}| = \big|\langle X_i, O_i \rangle\big| \leqslant \norme{X_i} \underbrace{\norme{O_i}}_{=1}.$$
         Ainsi d'après (\ref{det}), 
-        $$|\det(M)| \leqslant \prod_{i=1}^n \norme{X_i}.$$
+        $$\big|\det(M)\big| \leqslant \prod_{i=1}^n \norme{X_i}.$$
     \end{itemize}
         \textcolor{red}{cas d'égalité}
 \end{preuve}
@@ -53,7 +53,7 @@ Voyons deux démonstrations de ce résultat; une première en utilisant la déco
 \marginnote[0cm]{
     \begin{defi}{Parallélotope}
         Soit $(x_1, \dots, x_n)$ une famille libre. Le parallélotope engendré par cette famille est défini par
-        $$P \defeq \left\{ x = \sum_{i=1}^n t_i x_i,\ \forall i\ t_i \in [0,1]\right\}.$$
+        $$P \defeq \ens[\Bigg]{ x = \sum_{i=1}^n t_i x_i \tq \forall i\ t_i \in [0,1]}.$$
     \end{defi}
 }
 

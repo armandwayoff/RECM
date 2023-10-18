@@ -74,10 +74,9 @@
 \marginnote[0cm]{Source : \cite{reduc_des_endo} p.30}
 \begin{defi}{Endomorphisme $\mathrm{ad}_u$}
     Soit $u$ un endomorphisme de $E$. L'endomorphisme $\mathrm{ad}_u$ de $\Endo(E)$ est défini par
-    \begin{alignat*}{2}
-        \mathrm{ad}_u\ :\ \Endo(E)\ &\longrightarrow\ \Endo(E)\\
-        v\ &\longmapsto\ u \circ v - v \circ u
-    \end{alignat*}
+    $$
+        \fonction[\mathrm{ad}_u]{\Endo(E)}{\Endo(E)}{v}{u \circ v - v \circ u}
+    $$
 \end{defi}
 
 Cet endomorphisme nous sert essentiellement à mesurer le défaut de commutativité. Une première remarque dans ce sens est que le commutant de $u$ est $\mathscr{C}(u) = \Ker(\mathrm{ad}_u)$. 
@@ -129,17 +128,17 @@ A rajouter:
 \begin{figure*}
     \begin{Large}
     \begin{align*}
-        f \text{ diagonalisable} &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ telle que } \Mat_\mathscr{B}(f) \text{ diagonale} \\
-        &\Longleftrightarrow \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
-        &\Longleftrightarrow E = \bigoplus_{\lambda \in \Sp(f)} E_\lambda(f) \\
-        &\Longleftrightarrow \dim E = \sum_{\lambda \in \Sp(f)} \dim E_\lambda(f) \\
-        &\Longleftrightarrow 
+        f \text{ diagonalisable} &\iff \exists \mathscr{B} \text{ base de } E \text{ telle que } \Mat_\mathscr{B}(f) \text{ diagonale} \\
+        &\iff \exists \mathscr{B} \text{ base de } E \text{ formée de vep de } f\\
+        &\iff E = \smashoperator{\bigoplus_{\lambda \in \Sp(f)}} E_\lambda(f) \\
+        &\iff \dim E = \smashoperator{\sum_{\lambda \in \Sp(f)}} \dim E_\lambda(f) \\
+        &\iff 
         \begin{cases}
         \chi_f \text{ est scindé} \\
         \forall \lambda \in \Sp(f), m_{\lambda} = \dim E_\lambda(f)
         \end{cases} \\
-        &\Longleftrightarrow \prod_{\lambda \in \Sp(f)}(X-\lambda) \in \mathrm{Ann}(f)\\
-        &\Longleftrightarrow \exists P \in \mathrm{Ann}(f) \text{ \textsc{sars}} \\
+        &\iff \smashoperator{\prod_{\lambda \in \Sp(f)}}(X-\lambda) \in \mathrm{Ann}(f)\\
+        &\iff \exists P \in \mathrm{Ann}(f) \text{ \textsc{sars}} \\
         &\Longleftarrow f \text{ possède } n \text{ vap distinctes} \\
         &\Longleftarrow \chi_f \text{ \textsc{sars}}\\
         &\Longleftarrow \Mat(f) \in \mathscr{S}_n(\R)

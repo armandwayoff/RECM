@@ -41,7 +41,7 @@
 \section{Suites définies implicitement}
 
 \begin{methode}
-    \marginnote[0cm]{Texte de \cite{oraux_x_ens_3} p. 181.}
+    \marginnote[0cm]{Source : Texte de \cite{oraux_x_ens_3} p. 181.}
     \begin{enumerate}
         \item Montrer l'existence de $x_n$
         \item Démontrer la convergence de la suite $x_n$
@@ -64,7 +64,7 @@ La fonction $f$ doit être continue.
 \end{enumerate}
 
 \section{Techniques classiques}
-\marginnote[0cm]{Arnaud Guyader}
+\marginnote[0cm]{Source : \href{https://perso.lpsm.paris/~aguyader/files/teaching/Series.pdf}{Suites et Séries (L2) (1.4.3) -- Arnaud \textsc{Guyader}}}
 \subsection{Développements asymptotiques}
 
 Dans de nombreuses situations, on conclut sur la nature d'une série en se ramenant à une série plus simple. On a vu que pour les séries à termers positifs, il suffit de se ramener à un équivalent. Ceci n'est plus le cas avec des séries à termes de signe quelconque. Par ailleurs, un équivalent correspond à une approximation au premier ordre, laquelle ne permet pas forcément de conclure. \\
@@ -80,14 +80,14 @@ Considérons une série numérique $\sum u_n$ dont on veut déterminer la nature
 Cadre typique d'application: on réussit à montrer que $(s_{2N})$ converge, disons vers $s$. Alors pour la sous-suite $(s_{2N+1})$, il suffit d'écrire:
 $$s_{2N+1} = s_{2N} + u_{2N+1},$$
 et si la série ne diverge par trivialement, on a
-$$\lim_{N \to + \infty} s_{2N+1} = \lim_{N \to + \infty} s_{2N} = s,$$
+$$\smashoperator{\lim_{N \to + \infty}} s_{2N+1} = \lim_{N \to + \infty} s_{2N} = s,$$
 c'est-à-dire que 
 $$\lim_{N \to \infty} s_N = s,$$
 la série converge. 
 
 \section{Complément: Suites de \textsc{Cauchy}}
 
-Issu du cours de Sophie \textsc{Dede} (Stanislas Paris). \\
+Issu du \href{https://sophiedede.wordpress.com/}{cours de Sophie \textsc{Dede}} (Stanislas Paris). \\
 \begin{defi}{Suite de \textsc{Cauchy}}
     Soit $(u_n)_{n \in \N}$ une suite réelle. La suite $(u_n)_{n \in \N}$ est dite de \textsc{Cauchy} si et seulement si :
     $$\forall \varepsilon > 0, \exists N \in \N, \forall n \geqslant N, \forall p \in \N, |u_{n+p} - u_n| \leqslant \varepsilon.$$

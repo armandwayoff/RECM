@@ -11,7 +11,7 @@
         \textcolor{red}{il manque une explication supplémentaire} \\
         On prend alors $G \defeq \Vect(e_{m+1}, \dots, e_n)$. C'est un supplémentaire de $F$ dans $E$, et il est stable par $f$ car $e_{m+1}, \dots, e_n$ sont des vecteurs propres de $f$.
         \item[$(\Rightarrow)$] Réciproquement, supposons que tout sous-espace vectoriel de $E$ admet un supplémentaire stable par $f$. Considérons
-        $$F \defeq \bigoplus_{\lambda \in \Sp f} \Ker(f - \lambda \Id)$$
+        $$F \defeq \smashoperator{\bigoplus_{\lambda \in \Sp f}} \Ker(f - \lambda \Id)$$
         le sous-espace vectoriel de $E$ formé de la somme directe des sous-espaces propres de $f$. Si $f$ n'était pas diagonalisable, $F$ serait strictement inclus dans $E$. Soit $H$ un hyperplan de $E$ contenant $F$. Alors par hypothèse $H$ admet un supplémentaire stable par $f$. Ce supplémentaire est une droite, engendrée par un vecteur propre de $f$. Mais c'est une contradiction car tous les vecteurs propres de $f$ sont dans $H$. Ainsi, $f$ est diagonalisable. 
     \end{itemize}
 \end{preuve}
@@ -48,12 +48,12 @@ Notes de la correction vue en cours.
         On pose $G = \mathrm{Vect}(\varepsilon_1, \dots, \varepsilon_r)$. De cette manière, $F$ et $G$ sont supplémentaires. Montrons que $G$ est stable par $f$. \\
         Soit $x = \sum\limits_{i=1}^{r} \mu_i \varepsilon_i \in G$. Donc $f(x) = \sum\limits_{i=1}^{r} \mu_i f(\varepsilon_i) =  \sum\limits_{i=1}^{r} \mu_i \lambda_i \varepsilon_i \in G$ et $G$ est stable par $f$.
     
-        \item[$(\Rightarrow)$] Montrons que $f$ est diagonalisable. On va montrer que $E = \bigoplus\limits_{\lambda \in \Sp(f)} E_\lambda (f)$.
+        \item[$(\Rightarrow)$] Montrons que $f$ est diagonalisable. On va montrer que $E = \smashoperator{\bigoplus\limits_{\lambda \in \Sp(f)}} E_\lambda (f)$.
         
         \begin{enumerate}
             \item \underline{Somme directe:} \\
-            On pose $F = \bigoplus\limits_{\lambda \in \Sp(f)} E_\lambda (f)$ et $\Sp(f) = (\lambda_1, \dots, \lambda_r)$. \\
-            Soit $x = \sum\limits_{i=1}^{r} x_i \in F$ où $x_i \in E_{\lambda_i}(f)$. Alors $f(x) = \sum\limits_{i=1}^{r} \underbrace{\lambda_i x_i}_{\in E_{\lambda_i}(f)} \in F$. Donc $F$ est stable par $f$.
+            On pose $F = \smashoperator{\bigoplus\limits_{\lambda \in \Sp(f)}} E_\lambda (f)$ et $\Sp(f) = (\lambda_1, \dots, \lambda_r)$. \\
+            Soit $x = \sum\limits_{i=1}^{r} x_i \in F$ où $x_i \in E_{\lambda_i}(f)$. Alors $f(x) = \sum\limits_{i=1}^{r} \underbrace{\lambda_i x_i}_{\mathclap{\in E_{\lambda_i}(f)}} \in F$. Donc $F$ est stable par $f$.
             \item Montrons que $F = E$. \\
             Par hypothèse, $F$ admet un supplémentaire $G$ dans $\C^n$, stable par $f$. Montrons que $G = \{0\}$ en raisonnant par l'absurde. \\
             On pose $g = f_{\vert F}$. D'après le théorème de \textsc{D'Alembert-Gauss} sur $\C$, $g$ admet au moins une valeur propre $\mu \in \C$ de vep associé $x_\mu$. On montre que $x_\mu \in F \cap G$. Or $F$ et $G$ sont supplémentaires donc $x_\mu = 0_E$: contradiction. D'où le résultat. 

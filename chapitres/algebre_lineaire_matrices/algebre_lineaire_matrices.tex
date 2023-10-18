@@ -148,8 +148,10 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \marginnote[2cm]{
     \begin{prop}{Propriétés de la trace}
         Soit $(A, B) \in \M_n(\K)^2$.
-        $$\Tr(AB) = \Tr(BA),$$
-        $$\Tr(A + \lambda B) = \Tr(A) + \lambda \Tr(B).$$
+        \begin{align*}
+            \Tr(AB) &= \Tr(BA), \\
+            \Tr(A + \lambda B) &= \Tr(A) + \lambda \Tr(B).
+        \end{align*}
     \end{prop}
 }
 
@@ -180,7 +182,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{acamanes}}
     Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note 
-    $$\mathscr{H} \defeq \{ g \in \Endo(F, E);\ f \circ g \circ f = 0\}.$$ 
+    $$\mathscr{H} \defeq \ens[\Big]{ g \in \Endo(F, E) \tq f \circ g \circ f = 0}.$$ 
     Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
 \end{exercice}
 
@@ -201,10 +203,9 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
             \end{methode}
         }
         On pose
-        \begin{alignat*}{2}
-            \psi\ :\ \mathscr{H}\ &\longrightarrow\ \Endo(\Im f, \Ker f) \times \Endo(W, E)\\
-            g\ &\longmapsto\ \left(g_{\vert \Im f}, g_{\vert \Ker f} \right).
-        \end{alignat*}
+        $$
+            \fonction[\psi]{\mathscr{H}}{\Endo(\Im f, \Ker f) \times \Endo(W, E)}{g}{\left(g_{\vert \Im f}, g_{\vert \Ker f} \right)}.
+        $$
         Montrons que $\psi$ est un isomorphisme. 
         \begin{itemize}
             \item[$\rhd$] Montrons que $\psi$ est bien définie: \\
@@ -247,8 +248,8 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
     Soit $W$ un supplémentaire de $\Im f$ dans $F$: $\Im f \oplus W = F$ et soit $V$ un supplémentaire de $\Ker f$ dans $E$: $\Ker f \oplus V = E$. \\
     Soit $\mathscr{B} \defeq (e_1, \dots, e_r, e_{r+1}, \dots, e_p)$ une base adaptée à la décomposition $\Im f \oplus W = F$ et soit $\mathscr{B}' \defeq (\varepsilon_1, \dots, \varepsilon_{n-r}, \varepsilon_{n-r+1}, \dots, \varepsilon_n)$ une base adaptée à la décomposition $\Ker f \oplus V = E$.
     \begin{align*}
-        g \in \mathscr{H} &\Leftrightarrow g(\Im f) \subset \Ker f \\
-        &\Leftrightarrow \Mat_{\mathscr{B}, \mathscr{B}'}(g) = 
+        g \in \mathscr{H} &\iff g(\Im f) \subset \Ker f \\
+        &\iff \Mat_{\mathscr{B}, \mathscr{B}'}(g) = 
         \begin{pmatrix}
             \star & \star \\
             0 & \star
@@ -268,10 +269,9 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
     $$\{0\} = \Ker(u^0) \subset \Ker(u) \subset \cdots \subset \Ker(u^{n-1}) \subset \Ker(u^n) = E$$
     puis, pour tout $k \geqslant n, \Ker(u^n) = E$. \\
     Si $k \in \llbracket 0, n \rrbracket$ alors 
-    \begin{alignat*}{2}
-        u_k\ :\ \Ker(u^{k+1})\ &\longrightarrow\ \Ker(u^k)\\
-        x\ &\longmapsto\ u(x)
-    \end{alignat*}
+    $$
+        \fonction[u_k]{\Ker(u^{k+1})}{\Ker(u^k)}{x}{u(x)}
+    $$
     définit une application linéaire dont le noyau est $\Ker(u^{k+1}) \cap \Ker(u)$, soit $\Ker(u)$. \\
     Le théorème de rang fournit $\dim(\Ker u^k) \geqslant \Rg u_k = \dim( \Ker u^{k+1}) - 1$ d'où $\dim(\Ker u^{k+1}) - \dim(\Ker u^k) \in \{ 0, 1 \}$. \\
     On en déduit déjà que pour tout $k \in \llbracket 0, n \rrbracket, \dim(\Ker u^k) \leqslant k$. \\
@@ -405,7 +405,7 @@ Il s'agit de la réciproque de l'exercice précédent.
     Soit $E$ un $\C$-espace vectoriel de dimension finie, $\alpha \in \Ce$, et $f, g$ des endomorphismes de $E$ tels que:
     $$f \circ g - g \circ f = \alpha f \quad \text{et} \quad g \text{ est diagonalisable}.$$
     \begin{enumerate}
-        \item Montrer que pour tout entier naturel non nul $n$, $f^n \circ g - g \circ f^n = n \alpha f^n$.
+        \item Montrer que pour tout entier naturel non nul $n$, $$f^n \circ g - g \circ f^n = n \alpha f^n.$$
         \item En déduire que $f$ est nilpotent. 
     \end{enumerate}
 \end{exercice}

@@ -6,9 +6,9 @@
     Soit $x \in \Rp$.
     \begin{align*}
         f(x) &= f(x) - \frac{1}{2\etha_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t + \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \\
-        &= \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} (f(x) - f(t)) \d t + \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \\
-        |f(x)| &\leqslant \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} \underbrace{|f(x) - f(t)|}_{\leqslant \varepsilon} \d t + \left| \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \right| \\
-        &\leqslant \varepsilon + \underbrace{\left|\frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \right|}_{\longrightarrow 0 \text{ d'après le critère de \textsc{Cauchy}...}}
+        &= \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} \big(f(x) - f(t) \big) \d t + \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \\
+        |f(x)| &\leqslant \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} \underbrace{\big|f(x) - f(t)\big|}_{\leqslant \varepsilon} \d t + \left| \frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \right| \\
+        &\leqslant \varepsilon + \underbrace{\left|\frac{1}{2\eta_{\varepsilon}} \int_{x-\eta_{\varepsilon}}^{x+\eta_{\varepsilon}} f(t) \d t \right|}_{\mathclap{\longrightarrow 0 \text{ d'après le critère de \textsc{Cauchy}...}}}
     \end{align*}
 \end{solution}
 
@@ -16,6 +16,6 @@
     \begin{defi}{Continuité uniforme}
         Soit $f$ une fonction de $\R$ dans $\R$. La fonction $f$ est \emph{uniformément continue} si
         $$\forall \varepsilon > 0 \quad \exists \eta_{\varepsilon} > 0 \quad \forall(x, y) \in \R^2,$$
-        $$\left( |x-y| \leqslant \eta_{\varepsilon} \Rightarrow |f(x) - f(y)| \leqslant \varepsilon \right).$$
+        $$\left( |x-y| \leqslant \eta_{\varepsilon} \implies |f(x) - f(y)| \leqslant \varepsilon \right).$$
     \end{defi}
 }

@@ -104,12 +104,12 @@ Ces matrices sont des matrices de \textsc{Toeplitz} tridiagonales. Nous les note
 
 \begin{prop}{Spectre d'une matrice de \textsc{Toeplitz}}
     
-    $$\Sp \big( \mathrm{Toep}_n(a,b,c) \big) = \left \{ a + 2 \sqrt{bc} \cos \left( \frac{k \pi}{n+1} \right) ,\ k \in \llbracket 1, n \rrbracket \right \}.$$
+    $$\Sp \big( \mathrm{Toep}_n(a,b,c) \big) = \ens[\bigg]{ a + 2 \sqrt{bc} \cos \left( \frac{k \pi}{n+1} \right) \tq k \in \llbracket 1, n \rrbracket}.$$
 \end{prop}
 
 \begin{preuve}
     \marginnote[0cm]{Source : \href{https://math.stackexchange.com/questions/955168/how-to-find-the-eigenvalues-of-tridiagonal-toeplitz-matrix}{How to find the eigenvalues of tridiagonal \textsc{Toeplitz} matrix? (deuxième réponse) -- \textsf{math.stackexchange.com}}}
-    Dans toute la suite on note $\Delta_n \defeq \det(\mathrm{Toep}_n(a,b,c))$. \\
+    Dans toute la suite on note $\Delta_n \defeq \det \big(\mathrm{Toep}_n(a,b,c) \big)$. \\
     D'après le \nameref{relation_det_toep_trig}, (corollaire 3.1.)
     $$\Delta_n = a \Delta_{n-1} - bc \Delta_{n-2}$$
     avec $\Delta_0 = 1$ et $\Delta_1 = a$.
@@ -167,7 +167,7 @@ Pour tout $x$ réel, déterminer le déterminant de taille $n$
         $$u_n = \lambda r_1^n + \mu r_2^n.$$
         \item Si $(\mathscr{E})$ possède une racine double $r_0 \K$ alors il existe $(\lambda, \mu) \in \K^2$ tel que pour tout $n \in \N$,
         $$u_n = (\lambda + n \mu) r_0^n.$$
-        \item Si $(u_n)$ est une suite à valeurs réelles $(\mathscr{E})$ possède deux racines conjuguées distinctes $r_{1,2} = \rho \me^{\pm \mi \theta}$ alors il existe $(\lambda, \mu) \in \R^2$ tel que pour tout $n \in \N$,
+        \item Si $(u_n)$ est une suite à valeurs réelles $(\mathscr{E})$ possède deux racines conjuguées distinctes $r_{1,2} = \rho \e^{\pm \i \theta}$ alors il existe $(\lambda, \mu) \in \R^2$ tel que pour tout $n \in \N$,
         $$u_n = \rho^n \left( \lambda \cos(\theta n) + \mu \sin(\theta n) \right).$$
     \end{itemize}
     \end{theo}

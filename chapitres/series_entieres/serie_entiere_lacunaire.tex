@@ -5,22 +5,22 @@ Calculer $\sum\limits_{n=0}^{+ \infty} \frac{x^{3n}}{(3n)!}$ pour tout $x \in \R
 \begin{solution}
 Soit $x \in \R$. 
 \begin{align} \label{decomposition_somme_expo}
-    \me^x = \sum_{n=0}^{+ \infty} \frac{x^n}{n!} = \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n}}{(3n)!}}_{ \defeq A} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+1}}{(3n+1)!}}_{\defeq B} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+2}}{(3n+2)!}}_{\defeq C}.
+    \e^x = \sum_{n=0}^{+ \infty} \frac{x^n}{n!} = \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n}}{(3n)!}}_{ \defeq A} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+1}}{(3n+1)!}}_{\defeq B} + \underbrace{\sum_{n=0}^{+ \infty} \frac{x^{3n+2}}{(3n+2)!}}_{\defeq C}.
 \end{align}
 
 \begin{marginfigure}
     \input{illustrations/i_racine_troisieme_unite}
 \end{marginfigure}
 
-On note $\mj \defeq \me^{\mi \frac{2\pi}{3}}$. Soit $n \in \N$. On remarque que $(\mj x)^{3n} = x^{3n}$, $(\mj x)^{3n+1} = \mj x^{3n+1}$ et $(\mj x)^{3n+2} = \mj^2 x^{3n+2}$ (la figure ci-contre permet de se rendre compte géométriquement de cette cyclicité). Donc en évaluant (\ref{decomposition_somme_expo}) respectivement en $\mj x$ et en $\mj^2 x$ on obtient deux nouvelles équations
+On note $\j \defeq \e^{\i \frac{2\pi}{3}}$. Soit $n \in \N$. On remarque que $(\j x)^{3n} = x^{3n}$, $(\j x)^{3n+1} = \j x^{3n+1}$ et $(\j x)^{3n+2} = \j^2 x^{3n+2}$ (la figure ci-contre permet de se rendre compte géométriquement de cette cyclicité). Donc en évaluant (\ref{decomposition_somme_expo}) respectivement en $\j x$ et en $\j^2 x$ on obtient deux nouvelles équations
 $$\begin{cases}
-    \me^x &= A + B + C \\
-    \me^{\mj x} &= A + \mj B + \mj^2 C \\
-    \me^{\mj^2 x} &= A + \mj^2 B + \mj C
+    \e^x &= A + B + C \\
+    \e^{\j x} &= A + \j B + \j^2 C \\
+    \e^{\j^2 x} &= A + \j^2 B + \j C
 \end{cases}.$$
-Comme $1 + \mj + \mj^2 = 0$, en sommant ces trois relations on obtient
-$$A = \frac{1}{3} \left(\me^x + \me^{\mj x}+ \me^{\mj^2 x} \right).$$
-Cette quantité est bien réelle car $\mj^2 = \overline{\mj}$.
+Comme $1 + \j + \j^2 = 0$, en sommant ces trois relations on obtient
+$$A = \frac{1}{3} \left(\e^x + \e^{\j x}+ \e^{\j^2 x} \right).$$
+Cette quantité est bien réelle car $\j^2 = \overline{\j}$.
 \end{solution}
 
 \begin{remarque}

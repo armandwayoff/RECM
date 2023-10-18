@@ -1,14 +1,14 @@
 En mathématiques et plus particulièrement en théorie des probabilités et en statistique, la distance en variation totale (ou distance de variation totale ou encore distance de la variation totale) désigne une distance statistique définie sur l'ensemble des mesures de probabilité d'un espace probabilisable. 
 
 \begin{exercice}
-\marginnote[0cm]{\emph{Exercice 8. Chap. VII}}
+\marginnote[0cm]{Source : \cite{acamanes} (\href{https://acamanes.github.io/psi/psi_doc/exos_e07.pdf}{Exercice 8. Chap. VII)}}
 Soit $\mathscr{E}$ l'espace des suites réelles $(p_n)_{n \in \N}$ telles que la série $\sum |p_n|$ converge, muni de la norme $\Norme{p} = \sum\limits_{n=0}^{+\infty} |p_n|$. Soit $\mathscr{P}$ le sous-ensemble de $\mathscr{E}$ formé des suites réelles positives $(p_n)_{n \in \N}$ telles que $\Norme{p}=1$.
 \begin{enumerate}
     \item Montrer que $\mathscr{P}$ est borné et convexe. \\
     \item Pour $P, Q \in \mathscr{P}$, on pose $d(P, Q) \defeq \sup\limits_{A \subset \N} \left| \sum\limits_{n \in A} p_n - \sum\limits_{n \in A} q_n \right|$. Montrer que $d(P,Q) \in [0,1]$.
     \item Soit $(p,q) \in [0, 1]^2, P = (1-p, p, 0, \dots)$ et $Q = (1-q, q, 0, \dots)$. Déterminer $d(P, Q)$.
-    \item Soient $n \in \N$ et $\lambda \in \Rp$. Montrer l'inégalité $\sum\limits_{k=n+1}^{+\infty} \leqslant \me^{\lambda} \frac{\lambda^{n+1}}{(n+1)!}$.
-    \item Soient $X_\lambda$ et $X_\mu$ deux variables aléatoires suivant une loi de \textsc{Poisson} de paramètres respectifs $\lambda$ et $\mu$. Soit $P_\lambda = (\P(X_\lambda=n))_{n \in \N}$ et $P_\mu = (\P(X_\mu=n))_{n \in \N}$. Soit $n \in \Ne$. Montrer l'inégalité
+    \item Soient $n \in \N$ et $\lambda \in \Rp$. Montrer l'inégalité $\sum\limits_{k=n+1}^{+\infty} \leqslant \e^{\lambda} \frac{\lambda^{n+1}}{(n+1)!}$.
+    \item Soient $X_\lambda$ et $X_\mu$ deux variables aléatoires suivant une loi de \textsc{Poisson} de paramètres respectifs $\lambda$ et $\mu$. Soit $P_\lambda = \big(\P(X_\lambda=n)\big)_{n \in \N}$ et $P_\mu = \big(\P(X_\mu=n)\big)_{n \in \N}$. Soit $n \in \Ne$. Montrer l'inégalité
     $$d(P_\lambda, P_\mu) \leqslant \max_{A \subset \llbracket 0, n \rrbracket} \left| \sum_{k \in A} \P(X_\lambda=k) - \sum_{k \in A} \P(X_\mu=k) \right|$$
     $$+ \frac{\lambda^{n+1}}{(n+1)!} + \frac{\mu^{n+1}}{(n+1)!}.$$
 \end{enumerate}
@@ -28,6 +28,6 @@ Soit $\mathscr{E}$ l'espace des suites réelles $(p_n)_{n \in \N}$ telles que la
         \item Bien justifier l'existence de la borne supérieure.
         \item Considérer une partie $B$ de $\N$ et distinguer quatre cas ($\{0\} \subset B$ et $\{1\} \not\subset B$; $\{0\} \not\subset B$ et $\{1\} \subset B$; $\{0, 1\} \subset B$; $ \{0, 1\} \not\subset B$). Le résultat est $d(P, Q) = |p-q|$.
         \item Passer par la formule de \textsc{Taylor} avec reste intégral.
-        \item Soit $B$ une partie de $\N$. Écrire $B = \left(B \cap \llbracket0, n \rrbracket \right) \cup \{k \in B; k > n\}$. Sommer sur ces deux ensembles, séparer la valeur absolue et majorer à l'aide de la question précédente. (\textcolor{green}{à détailler})
+        \item Soit $B$ une partie de $\N$. Écrire $B = \big(B \cap \llbracket0, n \rrbracket \big) \cup \ens[\big]{k \in B \tq k > n}$. Sommer sur ces deux ensembles, séparer la valeur absolue et majorer à l'aide de la question précédente. (\textcolor{green}{à détailler})
     \end{enumerate}
 \end{elem_sol}

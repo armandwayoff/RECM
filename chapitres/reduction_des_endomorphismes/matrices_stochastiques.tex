@@ -44,7 +44,7 @@ L'exercice suivant étudie le spectre d'une matrice stochastique.
         \begin{enumerate}
             \item Montrer qu'il existe un vecteur propre associé à $\lambda$ tel que $\Ninf{x} = 1$. 
             \item Montrer qu'il existe $i_0 \in \llbracket 1, n \rrbracket$ tel que $\left| \sum\limits_{j=1}^n p_{i_0,j} x_j \right| = 1$.
-            \item Soit $\theta$ l'argument principal de $\sum\limits_{j=1}^n p_{i_0,j} x_j$. Montrer que pour tout $j \in \llbracket 1, n \rrbracket, \Reel \left( \me^{-\mi \theta} x_j \right) = 1$.
+            \item Soit $\theta$ l'argument principal de $\sum\limits_{j=1}^n p_{i_0,j} x_j$. Montrer que pour tout $j \in \llbracket 1, n \rrbracket, \Reel \left( \e^{-\i \theta} x_j \right) = 1$.
             \item En déduire que $\lambda = 1$.
         \end{enumerate}
     \end{enumerate}
@@ -76,21 +76,21 @@ L'exercice suivant étudie le spectre d'une matrice stochastique.
             Et $|\lambda x_{i_0}| = |\lambda||x_{i_0}| = 1 = \left| \sum\limits_{j=1}^n p_{i_0, j} x_j \right|$.
             \item On peut écrire
             \begin{align*}
-                \sum_{j=1}^n p_{i_0, j} x_j &= \me^{\mi \theta} & \text{selon 4)b)} \\
-                &= \me^{\mi \theta} \sum_{j=1}^n p_{i_0, j} &
+                \sum_{j=1}^n p_{i_0, j} x_j &= \e^{\i \theta} & \text{selon 4)b)} \\
+                &= \e^{\i \theta} \sum_{j=1}^n p_{i_0, j} &
             \end{align*}
             et
-            $$\sum_{j=1}^n p_{i_0, j} \left( x_j - \me^{\mi \theta} \right) = 0,$$
-            $$\sum_{j=1}^n p_{i_0, j} \left( x_j \me^{-\mi \theta} - 1 \right) = 0$$
+            $$\sum_{j=1}^n p_{i_0, j} \left( x_j - \e^{\i \theta} \right) = 0,$$
+            $$\sum_{j=1}^n p_{i_0, j} \left( x_j \e^{-\i \theta} - 1 \right) = 0$$
             et
-            $$\Reel \left( \sum_{j=1}^n p_{i_0, j} \left( x_j \me^{- \mi \theta} - 1 \right) \right) = 0$$
-            $$\Rightarrow \sum_{j=1}^n p_{i_0, j} \left( \underbrace{\Reel(x_j \me^{- \mi \theta})}_{|\cdot| \leqslant |x_j \me^{-\mi \theta}| \leqslant |x_j| \leqslant |x_{i_0}| \leqslant 1} - 1 \right) = 0$$
-            donc $|\Reel(x_j \me^{- \mi \theta}) | \leqslant 1$. \\
+            $$\Reel \left( \sum_{j=1}^n p_{i_0, j} \left( x_j \e^{- \i \theta} - 1 \right) \right) = 0$$
+            $$\Rightarrow \sum_{j=1}^n p_{i_0, j} \Big( \underbrace{\Reel \big(x_j \e^{- \i \theta} \big)}_{\mathclap{|\cdot| \leqslant |x_j \e^{-\i \theta}| \leqslant |x_j| \leqslant |x_{i_0}| \leqslant 1}} - 1 \Big) = 0$$
+            donc $|\Reel(x_j \e^{- \i \theta}) | \leqslant 1$. \\
             Somme de termes négatifs qui est nulle donc
-            $$\forall j \in \llbracket 0, n \rrbracket,\ \Reel(x_j \me^{- \mi \theta}) = 1.$$
+            $$\forall j \in \llbracket 0, n \rrbracket,\ \Reel(x_j \e^{- \i \theta}) = 1.$$
             \item Soit $j \in \llbracket 1, n \rrbracket$.
-            $$|x_j \me^{-\mi \theta} = |x_j| = \sqrt{ \Reel (x_j \me^{- \mi \theta})^2 + \Im(x_j \me^{- \mi \theta})^2 } = \sqrt{1 + \Im(x_j \me^{\mi \theta})^2} \leqslant 1$$
-            donc $\Im(x_j \me^{\mi \theta}) = 0$ donc $x_j \me^{\mi \theta} = 1$ et $x = \me^{\mi \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix}$. $Px = \me^{\mi \theta} P \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = \me^{\mi \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = x$. 
+            $$|x_j \e^{-\i \theta} = |x_j| = \sqrt{ \Reel (x_j \e^{- \i \theta})^2 + \Im(x_j \e^{- \i \theta})^2 } = \sqrt{1 + \Im(x_j \e^{\i \theta})^2} \leqslant 1$$
+            donc $\Im(x_j \e^{\i \theta}) = 0$ donc $x_j \e^{\i \theta} = 1$ et $x = \e^{\i \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix}$. $Px = \e^{\i \theta} P \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = \e^{\i \theta} \begin{pmatrix}1 \\ \vdots \\ 1\end{pmatrix} = x$. 
         \end{enumerate}
     \end{enumerate}
 \end{solution}

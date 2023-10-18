@@ -15,7 +15,7 @@ $$
 \subsection{Réduction d'une matrice circulante}
 
 \begin{prop}{Spectre d'une matrice circulante}
-    $$\Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \left \{ \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right),\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
+    $$\Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \ens[\Bigg]{ \sum_{k=0}^{n-1} c_k \exp \left( \i \frac{2kj \pi}{n} \right) \tq k \in \llbracket 0, n-1 \rrbracket }.$$
 \end{prop}
 
 \begin{preuve}
@@ -75,13 +75,13 @@ $$
     $$\chi_{\mathrm{J}_n}(X) &= X \times X^{n-1} + (-1) \times (-1)^{n+1} \times (-1)^{n-1}$$
     soit 
     $$\chi_{\mathrm{J}_n}(X) &= X^n-1.$$
-    Le polynôme caractéristique de $\mathrm{J}_n$ est scindé à racines simples sur $\C$ donc $\mathrm{J}_n$ est diagonalisable et en posant $\omega \defeq \me^{\mi \frac{2 \pi}{n}}$, 
-    $$\Sp(\mathrm{J}_n) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}.$$
+    Le polynôme caractéristique de $\mathrm{J}_n$ est scindé à racines simples sur $\C$ donc $\mathrm{J}_n$ est diagonalisable et en posant $\omega \defeq \e^{\i \frac{2 \pi}{n}}$, 
+    $$\Sp(\mathrm{J}_n) = \mathbb{U}_n = \ens[\Big]{ \omega^k \tq k \in \llbracket 0, n-1 \rrbracket }.$$
     Ainsi, 
     $$\mathrm{J}_n \sim \Diag(1, \omega, \omega^2, \dots, \omega^{n-1})$$
     et donc, comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n)$, par linéarité \note, 
     $$\mathrm{C} \sim \Diag \left(\mathrm{P}_\mathrm{C}(1), \mathrm{P}_\mathrm{C}(\omega), \mathrm{P}_\mathrm{C}(\omega^2), \dots,\mathrm{P}_\mathrm{C}(\omega^{n-1}) \right).$$
-    Ainsi, $\Sp(\mathrm{C}) = \left \{ \mathrm{P}_\mathrm{C}(\omega^k),\ k \in \llbracket 0, n-1 \rrbracket \right \}$.
+    Ainsi, $\Sp(\mathrm{C}) = \ens[\Big]{ \mathrm{P}_\mathrm{C}(\omega^k) \tq k \in \llbracket 0, n-1 \rrbracket }$.
 \end{preuve}    
 
 \marginnote[-3cm]{
@@ -95,7 +95,7 @@ $$
 }
 
 \begin{prop}{Déterminant d'une matrice circulaire}
-    $$\det \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} c_k \exp \left( \mi \frac{2kj \pi}{n} \right) \right).$$
+    $$\det \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} c_k \exp \left( \i \frac{2kj \pi}{n} \right) \right).$$
 \end{prop}
 
 \begin{preuve}
@@ -105,7 +105,7 @@ $$
 \subsection{Calcul des matrices de changement de base}
 
 Nous cherchons à déterminer une base de vecteurs propres de la matrice $\mathrm{C}$. Par le même raisonnement que pour le calcul de son spectre, nous allons d'abord déterminer une base de vecteurs propres de la matrice $\mathrm{J}_n$. \\
-Nous avons montré que $\Sp(\mathrm{J}_n) = \mathbb{U}_n = \left \{ \omega^k,\ k \in \llbracket 0, n-1 \rrbracket \right \}$. \\
+Nous avons montré que $\Sp(\mathrm{J}_n) = \mathbb{U}_n = \ens[\Big]{ \omega^k \tq k \in \llbracket 0, n-1 \rrbracket }$. \\
 Soit $k \in \llbracket 0, n-1 \rrbracket$, un vecteur propre de $\mathrm{J}_n$ associé à la valeur propre $\omega^k$ est
 $$
 \mathrm{X}_k \defeq
@@ -138,7 +138,7 @@ $$P \defeq \big[ \mathrm{X}_1 \cdots \mathrm{X}_n \big].$$
 Le prochain exercice propose de calculer $\Inv{P}$.
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
-    Soient $n \geqslant 2$ et $\omega \defeq \me^{2 \mi \pi / n}$. \\
+    Soient $n \geqslant 2$ et $\omega \defeq \e^{2 \i \pi / n}$. \\
     Soit $P \defeq \big( \omega^{(k-1)(\ell-1)} \big)_{1 \leqslant k, \ell \leqslant n}$. Montrer que la matrice $P$ est inversible et calculer $\Inv{P}$.
 \end{exercice}
 

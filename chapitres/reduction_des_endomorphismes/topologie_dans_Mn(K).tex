@@ -16,12 +16,12 @@
 
 \begin{preuve}
     Soit $A \in \M_n(\C)$. Son polynôme caractéristique $\chi_A$ est de degré $n$ et admet donc au plus $n$ racines. \\
-    Notons $r \defeq \min \big\{ |\lambda|, \lambda \in \Sp(A) \setminus \{0\} \big\}$. \\
+    Notons $r \defeq \min \ens[\Big]{ |\lambda| \tq \lambda \in \Sp(A) \setminus \{0\}}$. \\
     Ainsi,
     $$\forall t \in ]0,r[,\ \chi_A(t) \not= 0$$ 
     soit 
     $$\forall t \in ]0,r[,\ A - t \I_n\in \Gl_n(\C).$$
-    Soit $p_0 \defeq \min \left\{ p\ \middle|\ \frac{1}{p} < r \right\}$. Ainsi, en posant
+    Soit $p_0 \defeq \min \ens[\Big]{ p \tq \frac{1}{p} < r}$. Ainsi, en posant
     $$A_p \defeq A - \frac{1}{p + p_0} \I_n,$$
     la suite $(A_p)_{p \geqslant 0}$ est une suite de matrices inversibles qui converge vers la matrice $A$. \\
     Finalement, pour toute matrice $A \in \M_n(\C)$ nous avons construit une suite de matrices inversibles qui converge vers la matrice $A$, ce qui assure la densité de $\Gl_n(\C)$ dans $\M_n(\C)$.
@@ -101,10 +101,6 @@ $$\chi_{A B} = \chi_{B A}.$$
 \begin{prop}{}
     $\Gl_n(\R)$ est un ouvert de $\M_n(\R)$.
 \end{prop}
-
-\begin{preuve}
-    
-\end{preuve}
 
 \begin{prop}{}
     $\M_n(\R) \setminus \Gl_n(\R)$ est fermé mais non compact (pour $n \geqslant 2$).
@@ -192,10 +188,6 @@ $$\chi_{A B} = \chi_{B A}.$$
 \begin{exercice}
     Montrer que $\Ortho_n(\R)$ est compact. $\Ortho_n(\R)$ est-il convexe ?
 \end{exercice}
-
-\begin{solution}
-    
-\end{solution}
 
 \begin{exercice}
     Montrer que $\Sym_n(\R)$ est fermé.

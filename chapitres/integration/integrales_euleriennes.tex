@@ -1,7 +1,7 @@
-\marginnote[0mm]{Texte de Pierre-Jean \textsc{Hormière}}
+\marginnote[0mm]{Source : \href{https://lescoursdemathsdepjh.monsite-orange.fr/file/7bcfcf82249b1046f185e9a3495845cd.pdf}{Fonction eulériennes -- Pierre-Jean \textsc{Hormière}}}
 De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin} \dots \\
-Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \me^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \me^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \me^{-t} \d t$.
+Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
 
 \subsection{Fonction Gamma d'\textsc{Euler}}
 
@@ -12,7 +12,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 
 \begin{defi}{Fonction Gamma d'\textsc{Euler}}
     La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
-    $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \me^{-t} \d t.$$
+    $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
 \end{defi}
 
 \begin{remarque}
@@ -29,19 +29,19 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 
 \begin{preuve}
     \begin{itemize}
-        \item La fonction $f_x:t \mapsto t^{x-1} \me^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
+        \item La fonction $f_x:t \mapsto t^{x-1} \e^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
         \begin{itemize}
             \item[$\triangleright$] En $+\infty:$ par croissances comparées, $f_x(t) = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f_x$ est intégrable au voisinage de $+\infty$.
             \item[$\triangleright$] En $0$: $f_x(t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $x > 0$.
         \end{itemize}
 
-        \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \me^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
+        \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \e^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
         \begin{align*}
             \text{par croissances comparées} \quad & \lim_{t \to +\infty} u(t) v(t) = 0, \\
             \text{ comme } x > 0 \quad & \lim_{t \to 0} u(t) v(t) = 0.
         \end{align*}
         Ainsi, d'après le théorème d'intégration par parties généralisées, 
-        $$\int_{0}^{+\infty} t^{x-1} \me^{-t} \d t = \underbrace{0}_{\text{crochet}} - \int_{0}^{+\infty} xt^{x-1} (-\me^{-t}) \d t.$$
+        $$\int_{0}^{+\infty} t^{x-1} \e^{-t} \d t = \underbrace{0}_{\mathclap{\text{crochet}}} - \int_{0}^{+\infty} xt^{x-1} (-\e^{-t}) \d t.$$
         soit 
         $$\Gamma(x+1) = x \Gamma(x).$$
         En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
@@ -58,7 +58,7 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
 
 \marginnote[-5cm]{
     \begin{theo}{Théorème (Intégration par parties généralisées)}
-        \cite{acamanes}\\
+        Source : \cite{acamanes}\\
         Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
         $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
         sont de même nature. Si ces quantités sont convergentes, en notant
@@ -73,41 +73,41 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
 }
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{fmaalouf}}
+    \marginnote[0cm]{Source : \cite{fmaalouf}}
     Montrer que la fonction $\Gamma$ est continue sur $\Rpe$.
 \end{exercice}
 
 \begin{prop}{Dérivées successives de la fonction Gamma}
-    $$\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \me^{-t} \d t$$
+    $$\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t$$
 \end{prop}
 
 \begin{elem_preuve}
     Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
     $$\varphi_k:t \mapsto 
     \begin{cases}
-        |\ln t |^k \me^{-t} t^{a-1} & \text{si } t \in ]0, 1], \\
-        |\ln t |^k \me^{-t} t^{A-1} & \text{si } t > 1.
+        |\ln t |^k \e^{-t} t^{a-1} & \text{si } t \in ]0, 1], \\
+        |\ln t |^k \e^{-t} t^{A-1} & \text{si } t > 1.
     \end{cases}
     $$
 \end{elem_preuve}
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{fmaalouf}}
+    \marginnote[0cm]{Source : \cite{fmaalouf}}
     Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$. \\
     Montrer que $\Gamma$ est convexe et étudier ses variations.
 \end{exercice}
 
 \subsection{Formule de \textsc{Stirling}} \label{preuve_stirling}
 
-\textcolor{red}{texte d'intro}
+\textcolor{red}{Ajouter un texte d'introduction}
 
 \begin{theo}{\textsc{Stirling}}
-    $$n! \sim \left(\frac{n}{\me}\right)^n \sqrt{2 \pi n}$$
+    $$n! \sim \left(\frac{n}{\e}\right)^n \sqrt{2 \pi n}$$
 \end{theo}
 
 \begin{elem_preuve}
     \begin{enumerate}
-        \item Montrer que $\left( \frac{n!\me^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
+        \item Montrer que $\left( \frac{n!\e^n}{\sqrt{n}n^n} \right)_{n \in \Ne}$ converge vers $\ell \in \R$
         \item Montrer que $\ell = \sqrt{2 \pi}$ en utilisant l'\nameref{integrale_wallis}:
         $$\Wallis_n \defeq \int_{0}^{\pi/2}\sin^n(t) \d t$$
         \begin{enumerate}
@@ -123,9 +123,9 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
 \end{elem_preuve}
 
 \subsection{L'intégrale de \textsc{Gauss} comme valeur particulière de la fonction Gamma}
-\marginnote[0cm]{\url{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}}
+\marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
 
-$$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \me^{-t} \d t = 2 \int_0^{+ \infty} \me^{-u^2} \d u = \int_{- \infty}^{+ \infty} e^{-u^2} \d u.$$
+$$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t = 2 \int_0^{+ \infty} \e^{-u^2} \d u = \int_{- \infty}^{+ \infty} e^{-u^2} \d u.$$
 
 \subsection{Fonction bêta}
 \begin{defi}{Fonction bêta}
@@ -137,6 +137,14 @@ $$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \me^{-
     Pour tout $(p,q) \in \N^2$,
     $$I_{p,q} = \frac{p! q!}{(p + q + 1)!}.$$
 \end{prop}
+
+\marginnote[0cm]{
+Sources : 
+\begin{itemize}
+    \item \href{https://fr.wikipedia.org/wiki/Intégrale_d'Euler}{Intégrale d'\textsc{Euler} -- \textsf{wikipedia.org}}
+    \item \cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.
+\end{itemize}
+}
 
 \begin{preuve}
     Soit $(p,q) \in \N^2$. Nous allons déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ en faisant une intégration par parties. \\
@@ -152,16 +160,13 @@ $$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \me^{-
     \end{align*}
 \end{preuve}
 
-\url{https://fr.wikipedia.org/wiki/Intégrale_d'Euler} \\
-\cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.
-
 \begin{exercice}
-    \marginnote[0cm]{\cite{acamanes}}
+    \marginnote[0cm]{Souce : \cite{acamanes}}
     Déterminer la nature de la série $\sum I_{n,n}$ et, le cas échéant, calculer sa somme. 
 \end{exercice}
 
 \begin{exercice}
-    \marginnote[0cm]{Clémentine Portal feuille d'exo n°7, exo 11}
+    \marginnote[0cm]{Source : Clémentine \textsc{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
     Déterminer une expression simplifiée de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$, pour tout $(p, q) \in \N^2$.
 \end{exercice}
 

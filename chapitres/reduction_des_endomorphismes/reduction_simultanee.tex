@@ -5,7 +5,7 @@
 
 \begin{prop}{CNS de réduction simultanée}
     Soient $u$ et $v$ deux endomorphimes diagonalisables (resp. trigonalisables). Alors, 
-    $$u, v \text{ codiagonalisables (resp. cotrigonalisables)} \Longleftrightarrow u, v \text{ commutent}.$$
+    $$u, v \text{ codiagonalisables (resp. cotrigonalisables)} \iff u, v \text{ commutent}.$$
 \end{prop}
 
 \begin{preuve} 
@@ -14,7 +14,7 @@
     \begin{itemize}
         \item[$(\Rightarrow)$] Supponsons que les endomorphismes $u$ et $v$ sont codiagonalisables. On note $D$ (resp. $\widetilde{D}$) la matrice diagonale de $u$ dans une base de $E$ (resp. celle de $v$ dans cette même base). Comme ces matrices sont diagonales, $D \times \widetilde{D} = \widetilde{D} \times D$ \note \marginnote[0cm]{\note Le produit de matrices diagonales commute.} et on en déduit que $u$ et $v$ commutent.
         \item[$(\Leftarrow)$] Supposons que les endomorphismes $u$ et $v$ commutent. \\ 
-        Notons $\mathrm{Sp}(u) \defeq \{ \lambda_i,\ i \in \llbracket1, p \rrbracket \}$. Comme $u$ est diagonalisable, 
+        Notons $\mathrm{Sp}(u) \defeq \ens[\big]{ \lambda_i \tq i \in \llbracket1, p \rrbracket }$. Comme $u$ est diagonalisable, 
         $$E = \bigoplus\limits_{i = 1}^{p} E_{\lambda_i}(u).$$
         Soit $i \in \llbracket 1, p \rrbracket$. Comme $v$ commute avec $u - \lambda_i \mathrm{Id}_E$ \note 
         \marginnote[0cm]{
@@ -30,7 +30,7 @@
 \end{preuve}
 
 \begin{remarque}
-    \cite{objectif_agregation} p. 167 
+    \marginnote[0cm]{Source : \cite{objectif_agregation} p. 167}
     \begin{itemize}
         \item La proposition établit que la commutativité est une condition suffisante pour réduire simultanément plusieurs endomorphismes. Remarquez que dans le cas de la diagonalisabilité, elle est aussi nécessaire: si des endomorphismes sont codiagonalisables, alors ils commutent. 
         \item Le seul fait que deux endomorphismes commutent n'implique par leur codiagonalisabilité, ni leur cotrigonalisabilité! Il ne faut pas oublier l'hypothèse faite sur chacun des endomorphismes (diagonalisabilité ou trigonalisabilité).
@@ -57,8 +57,8 @@
 
 \begin{solution}
     \begin{enumerate}
-        \item \textbf{1ère méthode.} Nous allons utiliser l'équivalence
-        $$A \text{ diagonalisable} \Longleftrightarrow \exists P \in \mathrm{Ann}(A) \text{ \textsc{sars}}.$$
+        \item \textbf{1$^\text{ère}$ méthode.} Nous allons utiliser l'équivalence
+        $$A \text{ diagonalisable} \iff \exists P \in \mathrm{Ann}(A) \text{ \textsc{sars}}.$$
         On remarque que $\Phi_{A, 0}: M \mapsto AM$. On montre par récurrence que 
         $$\Phi_{A, 0}^r(M) = A^r M.$$
         Ainsi, si $P$ est un polynôme, $P(\Phi_{A, 0}) = \Phi_{P(A), 0}$ \note. \\
@@ -72,8 +72,8 @@
             \end{align*}
         }
         Comme $A$ est diagonalisable, il existe un polynôme $P$ scindé à racines simples qui est un polynôme annulateur de la matrice $A$. Ainsi, $P(\Phi_{A, 0}) = \Phi_{0, 0} = 0_{\Endo \left( \M_n(\C) \right)}$. Comme $P$ est un polynôme scindé à racines simples qui est annulateur de $\Phi_{A, 0}$, alors $\Phi_{A, 0}$ est diagonalisable. \\
-        \textbf{2ème méthode.} Nous allons utiliser l'équivalence 
-        $$A \text{  diagonalisable} \Longleftrightarrow \exists \text{ une base de $E$ formée de vep de $A$}.$$
+        \textbf{2$^\text{e}$ méthode.} Nous allons utiliser l'équivalence 
+        $$A \text{  diagonalisable} \iff \exists \text{ une base de $E$ formée de vep de $A$}.$$
         Comme $A$ est diagonalisable, il existe une base $(V_1, \dots, V_n)$ de $\M_{n,1}(\C)$ formée de vecteurs propres de $A$ respectivement associés aux valeurs propres $(\lambda_1, \dots, \lambda_n)$. On définit en colonnes la matrices $M_{k, \ell} \defeq [ 0 \cdots 0\ V_k\ 0 \cdots 0]$ où $V_k$ est la colonne $\ell$ de la matrice. En effectuant une multiplication par blocs, on vérifie que $\Phi_{A, 0}(M_{k, \ell}) = A M_{k, \ell} = \lambda_k M_{k, \ell}$. On vérifie ensuite aisément que $(M_{k, \ell})_{1 \leqslant k, \ell \leqslant n}$ est une base de $\M_n(\C)$. On a ainsi exhibé une base de $\M_n(\C)$ formée de vecteurs propres de $\Phi_{A, 0}$. 
         \item On remarque que $\Phi_{A, 0}$ et $\Phi_{0, B}$ commutent. \\
         D'après la question précédente, $\Phi_{A, 0}$ est diagonalisable et on montrerait de même que $\Phi_{0, B}$ est diagonalisable. Ainsi, d'après la propriété de diagonalisation simultanée, $\Phi_{A, 0}$ et $\Phi_{0, B}$ sont simultanément diagonalisables. \\

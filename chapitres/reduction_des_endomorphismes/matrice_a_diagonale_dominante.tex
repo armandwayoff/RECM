@@ -10,7 +10,7 @@
 \end{defi}
 
 \begin{lemme} \label{lemme_hadamard}
-    Toute matrice à diagonale strictement dominante (DSD) est inversible.
+    Toute matrice à diagonale strictement dominante (\textsc{dsd}) est inversible.
 \end{lemme}
 
 \marginnote[2cm]{
@@ -44,7 +44,7 @@
 \begin{preuve}
     Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible \note 
     \marginnote[0cm]{\note Par définition $\det(A-\lambda \I_n) = \chi_A(\lambda) = 0$.}
-    donc n'est pas à DSD i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
+    donc n'est pas à \textsc{dsd} i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
     $$|a_{i,i} - \lambda| \leqslant \sum_{k \not= i} |a_{i,k}|.$$
     Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
 \end{preuve} 
@@ -57,10 +57,10 @@
     \note Prenons un exemple en considèrant la matrice à coefficients complexes
     $$
     \begin{pmatrix}
-        \textcolor{red}{\mi4} & 0 & 2 & \mi3 \\
-        1 & \textcolor{blue}{5+\mi10} & 5 & -1 \\
+        \textcolor{red}{\i4} & 0 & 2 & \i3 \\
+        1 & \textcolor{blue}{5+\i10} & 5 & -1 \\
         0 & 2 & \textcolor{ForestGreen}{1} & 0 \\
-        1 & 2 & 0 & \textcolor{orange}{-8-\mi2}
+        1 & 2 & 0 & \textcolor{orange}{-8-\i2}
     \end{pmatrix}.
     $$
     Ci-dessous sont représentés ses disques de \textsc{Gerschgorin} et les croix correspondent à ses valeurs propres.
@@ -90,7 +90,7 @@
 Ce corollaire permet de restreindre davantage le domaine où se trouvent les valeurs propres d'une matrice. 
 
 \begin{prop}{}
-    Soit $A \in \M_n(\R)$ à DSD telle que $a_{i,i} > 0$ pour tout $i \in \llbracket 1, n \rrbracket$. Alors $\mathrm{det}(A) > 0$. 
+    Soit $A \in \M_n(\R)$ à \textsc{dsd} telle que $a_{i,i} > 0$ pour tout $i \in \llbracket 1, n \rrbracket$. Alors $\mathrm{det}(A) > 0$. 
 \end{prop}
 
 \begin{preuve}

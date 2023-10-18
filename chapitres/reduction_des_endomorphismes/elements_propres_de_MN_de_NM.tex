@@ -1,7 +1,7 @@
 \begin{prop}{}
     Soient $M$ et $N$ dans $\M_n(\K)$.
     \begin{itemize}
-        \item $$0 \in \Sp(MN) \Longleftrightarrow 0 \in \Sp(NM)$$
+        \item $$0 \in \Sp(MN) \iff 0 \in \Sp(NM)$$
         \item Soit $\lambda \in \Ke$,
         $$\dim E_\lambda(MN) = \dim E_\lambda(NM)$$
     \end{itemize}
@@ -12,10 +12,9 @@ Soit $M, N \in \M_n(\K)$.
     \item ...
     \item \emph{Soit $\lambda \in \Ke$, montrer que $\dim(E_\lambda (MN)) = \dim(E_\lambda (NM))$.} \\
     On remarque que si $X \in E_\lambda (MN)$ alors $NX \in E_\lambda (NM)$. On pose alors:
-    \begin{alignat*}{2}
-        \varphi\ :\ E_\lambda (MN)\ &\longrightarrow\ E_\lambda (NM)\\
-        X\ &\longmapsto\ NX
-    \end{alignat*}
+    $$
+        \fonction[\varphi]{E_\lambda (MN)}{E_\lambda (NM)}{X}{NX}.
+    $$
     On montre que $\varphi$ est injective et on en déduit que $\dim(E_\lambda (MN)) \leqslant \dim(E_\lambda (NM))$. Par symétrie des rôles de $M$ et de $N$, on montre l'inégalité dans le sens inverse et on en déduit l'égalité.
     \item ...
     \item ...

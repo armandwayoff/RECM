@@ -1,6 +1,6 @@
 \begin{defi}{Polynômes de \textsc{Hilbert}}
-    On appelle famille des \emph{polynômes de \textsc{Hilbert}} la suite de polynômes $(\Hilb_n)_{n \in \N}$ définie par
-    $$\Hilb_0 \defeq 1,\ \forall n \in \Ne,\ \Hilb_n \defeq \frac{X(X-1)\cdots(X-n+1)}{n!}.$$
+    On appelle famille des \emph{polynômes de \textsc{Hilbert}} la suite de polynômes $\suite{\Hilb}{n}{n \in \N}$ définie par
+    $$\Hilb_0 \defeq 1,\ \forall n \in \Ne,\ \Hilb_n \defeq \frac{X(X-1)\cdots(X-n+1)}{\fact{n}}.$$
 \end{defi}
 
 Voir aussi \nameref{polynome_hilbert} dans la partie algèbre linéaire. 
@@ -8,11 +8,11 @@ Voir aussi \nameref{polynome_hilbert} dans la partie algèbre linéaire.
 \begin{exercice}
     \marginnote[0cm]{Sources : \cite{exos_oraux} p.27, \cite{fmaalouf}}
     \begin{enumerate}
-        \item Montrer que pour tout $n \in \N$, $\Hilb_n(\Z) \subset \Z$. En déduire que le produit de $n$ entiers consécutifs dans $\Z$ est divisible par $n!$.
+        \item Montrer que pour tout $n \in \N$, $\Hilb_n(\Z) \subset \Z$. En déduire que le produit de $n$ entiers consécutifs dans $\Z$ est divisible par $\fact{n}$.
         \item Soient $n \in \Ne$ et $Q \in \R_n[X]$. Montrer que les deux assertions suivantes sont équivalentes:
         \begin{enumerate}[label=(\roman*)]
             \item $Q(\Z) \subset \Z$,
-            \item $\forall m \in \llbracket 0, n \rrbracket, Q(m) \in \Z$.
+            \item $\forall m \in \interent{0}{n}, Q(m) \in \Z$.
             \item $\exists (\lambda_0, \dots, \lambda_n) \in \Z^{n+1} \text{ tel que } Q = \sum\limits_{k=0}^n \lambda_k \Hilb_k$.
         \end{enumerate}
     \end{enumerate}

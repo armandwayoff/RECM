@@ -19,7 +19,7 @@
 \section{Lemme de \textsc{Lebesgue}}
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{maths-france} Planche no 37. Intégration sur un segment}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
     \begin{enumerate}
         \item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $[a, b]$. Montrer que
         $$\lim_{ \lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.$$
@@ -78,7 +78,7 @@
 %\section{Exercice oral}
 %\begin{exercice}
 %    On pose
-%    $$F:x \mapsto \int_x^{+\infty} \frac{\me^{-t}}{t} \d t.$$
+%    $$F:x \mapsto \int_x^{+\infty} \frac{\e^{-t}}{t} \d t.$$
 %    \begin{enumerate}
 %        \item Déterminer l'ensemble de définition de $F$. Étudier brièvement le comportement de la fonction $F$ et tracer sa courbe représentative.
 %        \item Déterminer un  équivalent de $F$ en $+\infty$.
@@ -88,17 +88,17 @@
 
 %\begin{enumerate}
 %    \item $D = ]0, + \infty[$.
-%    \item Intégration par parties ou comparaison série / intégrale: $F(x) \sim_{+\infty} \frac{\me^{x}}{x}$. \\
+%    \item Intégration par parties ou comparaison série / intégrale: $F(x) \sim_{+\infty} \frac{\e^{x}}{x}$. \\
 %    \url{https://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/analyse/integration/integralesimpropres&type=fexo} exercice 38. (à réécrire)\\
-%    On remarque d'abord que $\int_{1}^{+\infty} \frac{\me^{-t}}{t} \d t$ converge: en effet, la fonction $t \mapsto \frac{\me^{-t}}{t}$ est continue et positive sur $[1, + \infty[$ et $\lim\limits_{t \to +\infty} t^2 \frac{\me^{-t}}{t} = 0$. On intègre ensuite par parties, en intégrant $t \mapsto \me^{-t}$ et en dérivant $\t \mapsto \frac{1}{t}$. On obtient, pour $x > 1$, 
-%    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t = \left[ -\frac{\me^{-t}}{t} \right]_x^{+\infty} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t$$
-%    $$\int_x^{+ \infty} \frac{\me^{-t}}{t} \d t= \frac{\me^{-x}}{x} - \int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t.$$
+%    On remarque d'abord que $\int_{1}^{+\infty} \frac{\e^{-t}}{t} \d t$ converge: en effet, la fonction $t \mapsto \frac{\e^{-t}}{t}$ est continue et positive sur $[1, + \infty[$ et $\lim\limits_{t \to +\infty} t^2 \frac{\e^{-t}}{t} = 0$. On intègre ensuite par parties, en intégrant $t \mapsto \e^{-t}$ et en dérivant $\t \mapsto \frac{1}{t}$. On obtient, pour $x > 1$, 
+%    $$\int_x^{+ \infty} \frac{\e^{-t}}{t} \d t = \left[ -\frac{\e^{-t}}{t} \right]_x^{+\infty} - \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t$$
+%    $$\int_x^{+ \infty} \frac{\e^{-t}}{t} \d t= \frac{\e^{-x}}{x} - \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t.$$
 %    Or, au voisinage de $+ \infty$, 
-%    $$\frac{\me^{-t}}{t^2} = o\left( \frac{\me^{-t}}{t} \right).$$
+%    $$\frac{\e^{-t}}{t^2} = o\left( \frac{\e^{-t}}{t} \right).$$
 %    Par intégration des relations de comparaison (les fonctions sont positives et intégrables), on trouve
-%    $$\int_x^{+\infty} \frac{\me^{-t}}{t^2} \d t = o_{+\infty} \left( \int_x^{+\infty} \frac{\me^{-t}}{t} \d t \right).$$
+%    $$\int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t = o_{+\infty} \left( \int_x^{+\infty} \frac{\e^{-t}}{t} \d t \right).$$
 %    On en déduit que
-%    $$\int_x^{+\infty} \frac{\me^{-t}}{t} \d t \sim_{+\infty} \frac{\me^{-x}}{x}.$$
+%    $$\int_x^{+\infty} \frac{\e^{-t}}{t} \d t \sim_{+\infty} \frac{\e^{-x}}{x}.$$
 %    \item À faire.
 %\end{enumerate}
 

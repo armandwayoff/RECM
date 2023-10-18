@@ -10,7 +10,7 @@
         \left| \frac{1}{n} \sum_{k=1}^n u_k - \ell \right| &= \left| \frac{1}{n} \sum_{k=1}^n (u_k - \ell) \right| \\
         \text{par l'inégalité triangulaire} &\leqslant \frac{1}{n} \sum_{k=1}^n |u_k - \ell| \\
         &\leqslant \frac{1}{n} \Bigg( \underbrace{\sum_{k=1}^{n_0-1} |u_k - \ell|}_{\defeq K} + \sum_{k=n_0}^n \underbrace{|u_k - \ell|}_{\leqslant \varepsilon} \Bigg) \\
-        &\leqslant \frac{K}{n} + \varepsilon
+        &\leqslant \frac{K}{n} + \varepsilon.
     \end{align*}
     Or $\lim\limits_{n \to \infty} \frac{K}{n} = 0$ donc il existe un rang $n_1 \in \Ne$ tel que pour tout $n \geqslant n_1, \left| \frac{K}{n} \right| \leqslant \varepsilon$. \\
     Ainsi pour tout $n \geqslant \max \{ n_0, n_1 \}$, 

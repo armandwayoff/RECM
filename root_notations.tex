@@ -1,0 +1,167 @@
+\DeclareMathOperator{\ch}{ch}
+
+\newcommand{\e}{\mathrm{e}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\j}{\mathrm{j}} % racine troisième de l'unité
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rp}{\R_+}
+\newcommand{\Rm}{\R_-}
+\renewcommand{\Re}{\R^\star}
+\newcommand{\Rpe}{\Re_+}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Ce}{\C^\star}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Ke}{\K^\star}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Ne}{\N^\star}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\A}{\mathbb{A}} % Nombres algébriques
+\newcommand{\Premier}{\mathbb{P}} % Nombres premiers
+
+\renewcommand{\d}{\, \mathrm{d}}
+
+% \newcommand{\norme}[1]{\Vert #1 \Vert}
+
+% Complexes
+\DeclareMathOperator{\Reel}{\mathfrak{Re}}
+\DeclareMathOperator{\Imaginaire}{\mathfrak{Im}}
+
+\newcommand{\ptnclegras}[1]{\textbf{#1}}
+\newcommand{\ptnclecadre}[1]{\boxed{#1}}
+
+% Algèbre
+% \newcommand{\Gl}{\mathscr{G}\kern-0.16em\ell}
+\newcommand{\Gl}{\mathrm{GL}}
+\newcommand{\I}{\mathrm{I}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\M}{\mathscr{M}}
+\newcommand{\Endo}{\mathscr{L}}
+\newcommand{\Ortho}{\mathrm{O}}
+\newcommand{\Sym}{\mathscr{S}}
+
+% https://tex.stackexchange.com/questions/48/how-can-i-specify-a-long-list-of-math-operators
+\newcommand{\DeclareMyOperator}[1]{%
+  \expandafter\DeclareMathOperator\csname #1\endcsname{#1}
+}
+\newcommand{\DeclareMathOperators}{\forcsvlist{\DeclareMyOperator}}
+
+\DeclareMathOperators{Rg,Ker,Vect,Sp,Tr,com,Diag,Mat,det} % conflit entre physics et Tr
+
+% Probas
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\V}{\mathbf{V}}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\indicatrice}{\mathbf{1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%https://tex.stackexchange.com/questions/4216/how-to-typeset-correctly
+% :=
+%\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+%                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}                 =}
+% =:
+%\newcommand*{\defeqright}{=\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+%                     \hbox{\scriptsize.}\hbox{\scriptsize.}}}%
+%                      }
+\newcommand{\defeq}{\overset{\mathrm{\tiny def}}{=}}
+\newcommand{\defeqright}{\defeq}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% https://tex.stackexchange.com/questions/349747/equivalence-of-sequence-sim-with-some-text-under      
+\newcommand{\isEquivTo}[1]{%
+  \mathpalette\isEquivToInner{#1}%
+}
+\newcommand{\isEquivToInner}[2]{%
+  \ifx#1\displaystyle
+    \underset{#2}{\sim}
+  \else
+    \sim_{#2}
+  \fi
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\interoo}[2]{\left]#1\,;#2\right[}
+\newcommand{\interff}[2]{\left[#1\,;#2\right]}
+\newcommand{\interof}[2]{\left]#1\,;#2\right]}
+\newcommand{\interfo}[2]{\left[#1\,;#2\right[}
+\newcommand{\interent}[2]{\llbracket #1\,; #2 \rrbracket}
+
+%\newcommand{\intervalle}[4]{%
+%\mathopen{#1}#2\,;#3\mathclose{#4}}
+%\newcommand{\intervalleff}[2]{%
+%\intervalle{[}{#1}{#2}{]}}
+%\newcommand{\intervallefo}[2]{%
+%\intervalle{[}{#1}{#2}{[}}
+%\newcommand{\intervalleof}[2]{%
+%\intervalle{]}{#1}{#2}{]}}
+%\newcommand{\intervalleoo}[2]{%
+%\intervalle{]}{#1}{#2}{[}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\Trsp}[1]{#1^\top}
+
+\newcommand{\Inv}[1]{#1^{-1}}
+
+\newcommand{\fact}[1]{#1\,!}
+
+\newcommand{\chevron}[1]{\say{\,#1\,}}
+
+\newcommand{\note}{\hbox{\scriptsize $\blacklozenge$\ }}
+
+% A REVOIR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\suite}[3]{(#1_#2)_{#3}}
+
+% \newcommand{\somme}[2][x]{%#1_1+\cdots+#1_#2}
+
+\newcommand{\convolution}[2]{#1 \ast #2}
+
+\newcommand{\conjugue}[1]{\overline{#1}}
+
+\newcommand{\module}[1]{\left| #1 \right|}
+
+\DeclarePairedDelimiterX\ens[1]\lbrace\rbrace{\def\tq{\;\delimsize\vert\;}#1} % https://tex.stackexchange.com/questions/253077/how-do-you-create-a-set-in-latex
+
+\newcommand{\fonctionligne}[3][f]{#1 \colon #2 \mapsto #3}
+\newcommand{\fonctionens}[3][f]{#1 \colon #2 \rightarrow #3}
+
+\newcommand{\fonction}[5][f]{
+    #1 \colon \begin{array}{>{\displaystyle}r @{} >{{}}c<{{}} @{} >{\displaystyle}l} 
+          #2 &\longrightarrow& #3 \\[\medskipamount]
+          #4 &\longmapsto& #5 
+         \end{array}
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+% \langle \rangle
+
+\newcommand*{\limite}[4][]{\displaystyle\lim_{\substack{#2\to#3\\#1}}#4}
+
+\newcommand{\faibletoile}[1]{
+    \xrightharpoonup[#1]{}^\star
+}
+
+% Suites remarquables
+\newcommand{\Leg}{\mathrm{L}}
+\newcommand{\Lag}{\mathrm{L}}
+\newcommand{\Hilb}{\mathrm{H}}
+\newcommand{\Hermite}{\mathrm{H}}
+\newcommand{\Bern}{\mathrm{B}}
+\newcommand{\Tcheby}{\mathrm{T}}
+\newcommand{\Wallis}{\mathrm{W}}
+\newcommand{\Cauchy}{\mathrm{C}}
+\newcommand{\Gram}{\mathrm{G}}
+\newcommand{\Bernstein}{\mathrm{B}}
+\newcommand{\Vandermonde}{\mathrm{V}}
+\newcommand{\Harmonique}{\mathrm{H}}
+
+
+\newcommand{\scnums}[1]{\ifmmode\mathsmaller{\newstylenums{#1}}\else\textsmaller{\newstylenums{#1}}\fi} % https://comp.text.tex.narkive.com/idxlcygk/numerals-in-small-caps-font
+
+\newcommand{\definir}[1]{\emph{#1}}
+

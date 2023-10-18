@@ -1,9 +1,9 @@
 \begin{prop}{}
-    $$\int_{0}^{+\infty} \me^{-x^2} \d x = \frac{\sqrt{\pi}}{2}$$
+    $$\int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}$$
 \end{prop}
 
 \begin{exercice}
-    \marginnote[0cm]{\cite{maths-france} Planche no 13. Suites et séries d’intégrales}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
     \begin{enumerate}
         \item \textbf{Première méthode:} \say{ à la main }. \\ 
         Pour $n \in \Ne$, on pose
@@ -14,10 +14,10 @@
             0 &\text{si } x \geqslant n
         \end{cases}.
         $$
-        Pour tout réel positif $x$, on pose $f(x) = \me^{-x^2}$.
+        Pour tout réel positif $x$, on pose $f(x) = \e^{-x^2}$.
         \begin{enumerate}
             \item Montrer que pour tout réel positif $x$, 
-            $$|f(x) - f_n(x)| \leqslant \frac{1}{n \me}.$$
+            $$|f(x) - f_n(x)| \leqslant \frac{1}{n \e}.$$
             \item À l'aide de la suite $(f_n)_{n \in \Ne}$, calculer l'intégrale de \textsc{Gauss}.
         \end{enumerate}
         \item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée }. \\
@@ -30,7 +30,7 @@
         \end{cases}.
         $$
         \begin{enumerate}
-            \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \me^{-x^2}$.
+            \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \e^{-x^2}$.
             \item À l'aide de la convergence dominée, calculer l'intégrale de \textsc{Gauss}.
         \end{enumerate}
     \end{enumerate}

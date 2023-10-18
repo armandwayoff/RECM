@@ -28,7 +28,7 @@
 \end{theo}
 Lire chapitre 7 de \cite{matrices} page 77. \\
 
-La décomposition polaire des matrices est nommée ainsi par analogie avec celle du plan complexe : si $z \in \Ce$, il existe un et un seul couple $(r, q) \in \Rpe \times \mathbb{S}^1$ ($\mathbb{S}^1$ désigne le cercle unité, ensemble des nombres complexes de module $1$), tel que $z = rq$. Si $z$ agit par multiplication sur $\C$ (ou sur $\Ce$), cette action est décomposée en une rotation d'angle $\theta$ (où $q = \exp \mi \theta$) et une homothétie de rapport $r > 0$. \\
+La décomposition polaire des matrices est nommée ainsi par analogie avec celle du plan complexe : si $z \in \Ce$, il existe un et un seul couple $(r, q) \in \Rpe \times \mathbb{S}^1$ ($\mathbb{S}^1$ désigne le cercle unité, ensemble des nombres complexes de module $1$), tel que $z = rq$. Si $z$ agit par multiplication sur $\C$ (ou sur $\Ce$), cette action est décomposée en une rotation d'angle $\theta$ (où $q = \exp \i \theta$) et une homothétie de rapport $r > 0$. \\
 Le fait que ces deux actions commutent entre elles traduit la commutativité du groupe $\Ce$: cette propriété sera perdue dans le décomposition polaire du groupe $\Gl_n(\K)$, cer celui-ci n'est pas abélien. \
 
 \begin{figure}[h!]
@@ -38,9 +38,9 @@ Le fait que ces deux actions commutent entre elles traduit la commutativité du 
         \hline
         Propriété & Version complexe & Version matricielle \\
         \hline \hline
-        Homéomorphisme & $\exp : \R \longrightarrow \Rpe$ & $\exp : \mathscr{S}_n(\R) \longrightarrow \mathscr{S}_n^{++}(\R)$\\
+        Homéomorphisme & $\fonctionens[\exp]{\R}{\Rpe}$ & $\fonctionens[\exp]{\mathscr{S}_n(\R)}{\mathscr{S}_n^{++}(\R)}$\\
         \hline
-        Surjection continue & $\exp : \mi \R \longrightarrow \mathbb{S}^1$ & $\exp : \mathscr{A}_n(\R) \longrightarrow \mathrm{SO}_n(\R)$ \\
+        Surjection continue & $\fonctionens[\exp]{\i \R}{\mathbb{S}^1}$ & $\fonctionens[\exp]{\mathscr{A}_n(\R)}{\mathrm{SO}_n(\R)}$ \\
         \hline
         \textcolor{red}{A COMPLETER}  & & \\
         \hline
@@ -74,7 +74,7 @@ Le produit et l'inversibilité sont stables dans $\mathscr{T}_n^+$.
 \begin{preuve}
     \begin{itemize}
         \item \textbf{Existence.} \\
-        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} \defeq (C_1, \dots, C_n)$ la famille des vecteurs colonnes de la matrice $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme une base de $\R^n$. Appliquons-lui le procédé d'orthonormalisation de \textsc{Gram}-\textsc{Schmidt}. \\
+        On note $\mathscr{B}$ la base canonique de $\R^n$. Soit $\mathscr{C} \defeq (C_1, \dots, C_n)$ la famille des vecteurs colonnes de la matrice $M$ exprimés dans $\mathscr{B}$. Comme $M$ est inversible, $\mathscr{C}$ forme une base de $\R^n$. Appliquons-lui le procédé d'orthonormalisation de \textsc{Gram}--\textsc{Schmidt}. \\
         Il existe une base orthonormée $\mathscr{B}_O \defeq (O_1, \dots, O_n)$ telle que pour tout $i \in \llbracket 1, n \rrbracket$
         $$\mathrm{Vect}(C_1, \dots, C_i) = \mathrm{Vect}(O_1,\dots, O_i) \quad (1) \quad \text{et} \quad \langle C_i, O_i \rangle > 0 \quad (2).$$
         On écrit 

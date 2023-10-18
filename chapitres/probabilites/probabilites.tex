@@ -11,7 +11,7 @@
 % \input{illustrations/i_chaine_de_markov}
 
 \section{Exercice d'oral}
-\marginnote[0cm]{\cite{acamanes}}
+\marginnote[0cm]{Source : \cite{acamanes}}
 \begin{exercice}
     Soit $(\Omega, \mathscr{A}, \P)$ un espace probabilisé. 
     \begin{enumerate}
@@ -29,7 +29,7 @@
 \begin{solution}
 \begin{enumerate}
     \item Soit $I$ un ensemble non vide. 
-    $$I = \bigcup_{n \in \Ne} \underbrace{\left \{ \beta \in B, \P(A_\beta) \geqslant \frac{1}{n} \right \}}_{\defeq I_n}.$$
+    $$I = \bigcup_{n \in \Ne} \underbrace{\ens[\bigg]{ \beta \in B \tq \P\big(A_\beta\big) \geqslant \frac{1}{n} }}_{\defeq I_n}.$$
     Soient $n, p \in \Ne$ et $(\beta_1, \dots, \beta_p) \in (I_n)^p$ deux à deux distincts. Alors
     \begin{align*}
         1 \geqslant \P \left( \bigsqcup_{i=1}^p A_{\beta_i} \right) &= \sum_{i=1}^p \P(A_{\beta_i}) \geqslant \sum_{i=1}^p \frac{1}{n}
@@ -39,7 +39,7 @@
     \item \textcolor{red}{À vérifier} Soit $\omega \in X(\Omega)$. Par indépendance de $X$ avec elle-même,
     $$\P(X = \omega) = \P \big( \{X=\omega\} \cap \{X=\omega\} \big) = \P(X=\omega)^2.$$
     On en déduit que $\P(X=\omega) \in \{ 0, 1 \}$. \\
-    De plus, $\sum\limits_{\omega \in X(\Omega)} \P(X=\omega) = 1$ et donc il existe un unique $\omega_0 \in X(\Omega)$ tel que $X=\omega_0$ presque sûrement i.e. $X$ est presque sûrement constante. 
+    De plus, $\smashoperator{\sum\limits_{\omega \in X(\Omega)}} \P(X=\omega) = 1$ et donc il existe un unique $\omega_0 \in X(\Omega)$ tel que $X=\omega_0$ presque sûrement i.e. $X$ est presque sûrement constante. 
 \end{enumerate}
 \end{solution}
 

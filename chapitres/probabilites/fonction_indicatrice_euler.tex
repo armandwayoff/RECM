@@ -3,7 +3,7 @@
     Autrement dit, 
     \begin{alignat*}{2}
         \varphi\ :\ \Ne\ &\longrightarrow\ \Ne\\
-        n\ &\longmapsto\ \mathrm{Card} \big( \{m \in \Ne\ |\ m \leqslant n \text{ et } m \text{ premier avec } n \} \big).
+        n\ &\longmapsto\ \mathrm{Card} \Big( \ens[\big]{m \in \Ne \tq m \leqslant n \text{ et } m \text{ premier avec } n } \Big).
     \end{alignat*}
 \end{defi}
 
@@ -17,16 +17,16 @@
 
 \begin{preuve}
     (Wikipedia) \\
-    La valeur de l'indicatrice d'\textsc{Euler} s'obtient à partir de la décomposition en facteurs premiers de $n$. On note $n = \prod\limits_{p \in \mathscr{P}_n} p^{k_i}$. Alors, $\varphi(n) = $
+    La valeur de l'indicatrice d'\textsc{Euler} s'obtient à partir de la décomposition en facteurs premiers de $n$. On note $n = \smashoperator{\prod\limits_{p \in \mathscr{P}_n}} p^{k_i}$. Alors, $\varphi(n) = $
 \end{preuve}
 
 \begin{exercice}
-    \marginnote[0cm]{Issu de la RMS 132 3 p.32.}
+    \marginnote[0cm]{Source : RMS 132 3 p.32.}
     Montrer que pour tout $n \in \Ne, \varphi(n) \geqslant \frac{\sqrt{n}}{2}$.
 \end{exercice}
 
 \begin{exercice}
-    \marginnote[0cm]{\emph{Exercice 17. Chap. VI}}
+    \marginnote[0cm]{Source : \cite{acamanes} (\href{https://acamanes.github.io/psi/psi_doc/exos_e06.pdf}{Exercice 17. Chap. VI)}}
     On note $\varphi$ la fonction indicatrice d'\textsc{Euler}. Montrer que 
     $$\forall n \in \Ne \quad n = \sum_{d|n} \varphi(d).$$
 \end{exercice}
@@ -34,9 +34,9 @@
 Les points suivants ne peuvent être compris qu'avec la correction.
 \begin{itemize}
     \item Q2): Résultat à retenir (bien que rappeler dans le DS5):\\
-    $$\forall p \in J \subset \P,\ p \text{ divise } a \Longleftrightarrow \prod_{p \in J} p \text{ divise } a$$
+    $$\forall p \in J \subset \P,\ p \text{ divise } a \iff \prod_{p \in J} p \text{ divise } a$$
     \item Q3): un élément de $\Omega$ est premier avec $n$ si et seulement si il n'est divisible par aucun des diviseurs premiers de $n$. D'où
-    $$\mathbb{P} \left(\{ m \in \Omega\ ;\ m \wedge n = 1 \} \right) = \prod_{p \in \mathscr{P}_n} \left(1 - \frac{1}{p} \right).$$
-    \item Q4): Calculer le cardinal de $B_j = \{ j\cdot d,\ j \in \llbracket 1, k \rrbracket\ ;\ j \wedge k = 1 \}$.
+    $$\mathbb{P} \Big(\ens[\big]{ m \in \Omega \tq m \wedge n = 1} \Big) = \prod_{p \in \mathscr{P}_n} \left(1 - \frac{1}{p} \right).$$
+    \item Q4): Calculer le cardinal de $B_j = \ens[\big]{ j\cdot d,\ j \in \llbracket 1, k \rrbracket \tq j \wedge k = 1}$.
     \item Q5): Montrer que $(B_d)_{d|n}$ forme un SCE de $\Omega$ et en déduire la formule de l'énoncé. $\displaystyle (\Omega = \bigcup_{d|n} B_d)$ \textcolor{green}{à compléter}
 \end{itemize}

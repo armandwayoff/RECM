@@ -88,14 +88,19 @@
 \usepackage{fancyhdr}
 \usepackage{amsfonts} 
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{bm}
 \usepackage{stmaryrd}
-\usepackage{mathrsfs}
+%\usepackage{mathrsfs}
+\usepackage{euscript}
 \usepackage{enumitem}
 \usepackage{xurl}
 \usepackage{dsfont}  % Pour la fonction indicatrice \mathds{1}
+
+
+\usepackage{cfr-lm} % https://tex.stackexchange.com/questions/301699/oldstyle-numbers-in-body-text-computer-modern
 
 % Pour les matrices par blocs
 \newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
@@ -119,17 +124,17 @@
 %}
 
 \newenvironment{preuve}
-  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{Démonstration}}]}
+  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{\emph{Démonstration}}}]}
   {\end{proof}}
   
 \newenvironment{elem_preuve}
-  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{Éléments de démonstration}}]}
+  {\begin{proof}[$\blacksquare$\ \textbf{\textsc{\emph{Éléments de démonstration}}}]}
   {\end{proof}}
 
 \newenvironment{solution}
-  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{Solution}}]}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{\emph{Solution}}}]}
   {\end{proof}}
 
 \newenvironment{elem_sol}
-  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{Éléments de solution}}]}
+  {\renewcommand\qedsymbol{$\lhd$}\begin{proof}[$\blacktriangleright$ \textbf{\textsc{\emph{Éléments de solution}}}]}
   {\end{proof}}

@@ -1,13 +1,13 @@
 \marginnote[0cm]{
-\emph{\say{ Je me détourne avec effroi et horreur de cette plaie lamentable des fonctions continues qui n'ont point de dérivées. }} \\
+\textsl{\say{ Je me détourne avec effroi et horreur de cette plaie lamentable des fonctions continues qui n'ont point de dérivées. }} \\
 \hspace*{\fill} Charles \textsc{Hermite} (1893) \\
-\emph{\say{ C’est un cas où il est vraiment naturel de penser à ces fonctions continues sans dérivées que les mathématiciens ont imaginées, et que l’on regardait à tort comme de
+\textsl{\say{ C’est un cas où il est vraiment naturel de penser à ces fonctions continues sans dérivées que les mathématiciens ont imaginées, et que l’on regardait à tort comme de
 simples curiosités mathématiques, puisque l’expérience peut les suggérer. }} \\
 \hspace*{\fill} Jean \textsc{Perrin} \sidenote{Physicien, chimiste et homme politique français (1870 - 1942), prix Nobel de physique 1926.}, au sujet du mouvement brownien.
 }
 
-\cite{contre-exemples} p. 160 \\
-Jusqu'à la moitié du \textsc{xix}$^\me$ siècle, on pensait généralement qu'une fonction continue était dérivable sauf peut-être en quelques points. \textsc{Ampère} prétendit même l'avoir démontré en 1806. \textsc{Bolzano} donne vers 1830 un exemple de fonction continue, mais dérivable nulle part; cependant ses écrits restent méconnus. En 1854, Bernhard \textsc{Riemann}, propose sans preuve, la fonction:
+Source : \cite{contre-exemples} p. 160 \\
+Jusqu'à la moitié du \textsc{xix}$^\e$ siècle, on pensait généralement qu'une fonction continue était dérivable sauf peut-être en quelques points. \textsc{Ampère} prétendit même l'avoir démontré en 1806. \textsc{Bolzano} donne vers 1830 un exemple de fonction continue, mais dérivable nulle part; cependant ses écrits restent méconnus. En 1854, Bernhard \textsc{Riemann}, propose sans preuve, la fonction:
 $$R:x \mapsto R(x) \defeq \sum_{n=1}^{+\infty} \frac{\sin(n^2 x)}{n^2}.$$
 Karl \textsc{Weierstrass} se déclare incapable de la démontrer. Il faut attendre 1971 pour savoir que $R$ n'est pas dérivable sauf en certains points. En 1872, Karl \textsc{Weierstrass} démontre que si $a$ et $b$ sont des réels tels que $a > 0$, $b > 0$ et $ab > 1 + \frac{3 \pi}{2}$, la fonction:
 $$f : x \mapsto f(x) \defeq \sum_{n=1}^{+\infty} b^n \cos(a^n x)$$
@@ -21,7 +21,7 @@ On note $E$ l'ensemble des fonctions continues sur $[0, 1]$ et $F$ l'ensemble de
 \end{theo}
 
 \begin{preuve}
-    \marginnote[0cm]{\url{https://share.miple.co/content/XEZ7y9BayeSN1}}
+    \marginnote[0cm]{Source : \href{https://share.miple.co/content/XEZ7y9BayeSN1}{Exo Maths X MP \#60 - Densité des fonctions nulle part dérivables -- \textsf{share.miple.co}}}
     Notons:
     \begin{itemize}
         \item $\forall x \in \Rp, \Delta(x) \defeq \min\limits_{n \in \N} |x - n|$,
@@ -47,12 +47,12 @@ On note $E$ l'ensemble des fonctions continues sur $[0, 1]$ et $F$ l'ensemble de
 
 \subsection{Courbe du blancmanger ou de \textsc{Takagi}}
 
-\marginnote[0cm]{\cite{contre-exemples} p. 160}
+\marginnote[0cm]{Source : \cite{contre-exemples} p. 160}
 En 1903, le mathématicien japonais Teiji \textsc{Takagi} (1875-1960) propose les fonctions:
 $$f : x \mapsto f(x) \defeq \sum_{n=0}^{+ \infty} b^n g(a^n x)$$
 où $g$ est la fonction de $g : x \mapsto d(x, \Z)$ (distance de $x$ à $\Z$) de $\R$ dans $\R$ et $a$ et $b$ des réels tels que $0 < b < 1$ et $a \leqslant 4$. Lorsque de plus $ab > 2$, la fonction $f$ a des dérivées supérieures égales à $+\infty$ et inférieures égales à $- \infty$ en tout point de $\R$. \\
 
-\marginnote[0cm]{Alain \textsc{Camanes} DS MPSI1 10/01/2015}
+\marginnote[0cm]{Source : \href{http://alain.camanes.free.fr/archives/mpsi14/ds04.pdf}{Alain \textsc{Camanes} DS MPSI1 10/01/2015}}
 La fonction de \textsc{Takagi} a été introduite par Teiji \textsc{Takagi} en 1903 motivé par les fonctions nulle part dérivables de \textsc{Weierstrass} après une visite en Allemagne de 1897 à 1901. \\
 Une variante de la fonction de \textsc{Takagi}, utilisant la base $10$ et non la base $2$, a été introduite par \textsc{Van der Waerden} en  1930. Bien que non différentiables, ces fonctions possèdent des dérivées infinies en de nombreux points (tout comme la fonction de \textsc{Weierstrass}). C'est pourquoi \textsc{Knopp} a introduit en 1918 une variante de la fonction de \textsc{Takagi} qui, en tout point, n'admet ni de dérivée finie ni de dérivée infinie.
 
@@ -128,13 +128,16 @@ On définit cette courbe par la fonction
 \end{theo}
 
 \begin{preuve}
-    \marginnote[0cm]{\url{https://share.miple.co/content/XEZ7y9BayeSN1}}
+    \marginnote[0cm]{Source : \href{https://share.miple.co/content/XEZ7y9BayeSN1}{Exo Maths X MP \#60 - Densité des fonctions nulle part dérivables -- \textsf{share.miple.co}}}
     Soient $f \in E$ et $W \in F$. La fonction $f - W$ est continue sur $[0, 1]$ donc peut être approchée uniformément par une suite $(A_n)_{n \in \N}$ de fonctions polynomiales définies sur $[0, 1]$ d'après le théorème de \textsc{Weierstrass}. \\
     Pour tout $n \in \N$, notons $B_n \defeq A_n + W$. La fonction $B_n$ est continue et nulle part dérivable puisque si $(B_n)_{n \in \N}$ était dérivable en $x \in [0, 1]$, la fonction $W$ le serait aussi. La suite $(B_n)_{n \in \N}$ est donc une suite de fonctions continues sur $[0,1]$ et nulle part dérivable qui converge uniformément vers la fonction $f$.
 \end{preuve}
 
-- \url{http://christophebertault.fr/documents/articles/Article - Une famille nombreuse de fonctions continues partout derivables nulle part.pdf} \\
-- lire le paragraphe éponyme dans \cite{contre-exemples} page 350. \\
+Pour approfondir : 
+\begin{itemize}
+    \item \href{http://christophebertault.fr/documents/articles/Article - Une famille nombreuse de fonctions continues partout derivables nulle part.pdf}{Une famille nombreuse de fonctions continues partout dérivables nulle part -- Christophe \textsc{Bertault}}
+    \item Le paragraphe éponyme dans \cite{contre-exemples} page 350.
+\end{itemize}
 
 \section{A rajouter}
 

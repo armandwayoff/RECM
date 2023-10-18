@@ -7,22 +7,10 @@
 	numbers=noenddot, % Commenter pour afficher des points après les numéros de chapitre ; les arguments les plus courantes pour cette option sont : enddot, noenddot et auto (voir la documentation KOMAScript pour une explication approfondie).
 ]{kaobook}
 
-\usepackage[french]{babel}
-
-% guillements
-\usepackage[
-    left = \flqq{},% 
-    right = \frqq{},% 
-    leftsub = \flq{},% 
-    rightsub = \frq{} %
-]{dirtytalk}
-
-
 \usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
 
 \usepackage{anyfontsize} % Pour le titre de la page de couverture
 
-\setlist[itemize]{label=$\bullet$}
 
 % Pour faire des pages blanches
 \usepackage{afterpage}
@@ -44,9 +32,11 @@
 \usepackage{kaorefs}
 
 \input{math_packages}
-\input{notations}
+\input{root_packages}
+\input{root_notations}
+\input{style}
 \input{env}
-
+% \usepackage[bitstream-charter]{mathdesign}
 % \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
@@ -198,7 +188,7 @@
     \item \vreflemme{a_completer}
 \end{enumerate}
 
-\underline{Résumé des propriétés des endomorphismes nilpotents:}
+\textbf{Résumé des propriétés des endomorphismes nilpotents:}
 
 Soit $E$ un $K$-espace vectoriel de dimension $n \in \Ne$. Soit $u \in \Endo(E)$ un endomorphisme nilpotent d'ordre de nilpotence $p > 1$. \\
 \cite{objectif_agregation}. Caractérisation de la nilpotence \\
@@ -216,11 +206,11 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
 \setchapterstyle{plain} % Output plain chapters from this point onwards
 
 \thispagestyle{empty}
-\newgeometry{left=1cm,right=1cm, top=2cm}
+\newgeometry{left=0.5cm,right=0.5cm, top=2cm}
 \chapter{Mathématiciens}
 \begin{multicols}{2}
 \small
-\begin{itemize}
+\begin{itemize}[label=]
     \input{mathematiciens.tex}
 \end{itemize}
 \end{multicols}
