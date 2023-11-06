@@ -6,6 +6,30 @@
 
 \newpage
 
+\todoinline{Je suis tombé sur cet exercice sur les polynômes d'Hermine (TPE - PSI - 2016):\\
+Soit $f : x \mapsto \mathrm{e}^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \ dx = \sqrt{\pi}$.\\
+1. Montrer qu'il existe un polynôme $P_n$ tel que $f^{(n)}(x) = f(x) P_n(x)$. Préciser le degré, la parité et le coefficient dominant de $P_n$.
+
+2. Montrer l'existence puis calculer $\int_{-\infty}^{+\infty} f(x) P_n(x) P_m(x) \ dx$.
+
+
+Solution:\\
+1. On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
+
+2. Soient $0 < m \leq n$. Les intégrales sont bien définies car ce sont des $o(1/x^2)$ en $\pm\infty$. Comme les crochets tendent vers $0$, en utilisant les fonctions $t \mapsto f^{(n-1)}(t)$ et $t \mapsto P_m(t)$ qui sont de classe $\mathcal{C}^1$, on remarque que
+\[
+\int_\R f P_n f P_m = \int_\R f^{(n)} P_m = -\int_\R f^{(n-1)} P_m'.
+\]
+Ainsi, en itérant ce procédé, comme $m \leq n$,
+\[
+\int_\R f P_n P_m = (-1)^m \int_\R f^{(n-m)} P_m^{(m)}
+= (-1)^m (-2)^m \int_\R f^{(n-m)}.
+\]
+Ainsi,\\
+* Si $n - m = 0$, i.e. $m = n$, alors $\int_\R f P_n^2 = m! 2^m \sqrt{\pi}$.\\
+* Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
+}
+
 \section{Polynômes de \textsc{Legendre}} \labsec{polynomes_de_legendre}
 \input{chapitres/polynomes/polynomes_legendre}
 

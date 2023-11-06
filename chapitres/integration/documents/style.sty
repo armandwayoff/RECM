@@ -1,0 +1,1620 @@
+% This is file `style.sty',
+%% 
+%% Copyright 2015 by Alain Camanes
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\def\fileversion{0.6}
+\def\filedate{20 juillet 2017}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{style}[2017/07/20]
+
+%%%%%%%%%%%%%%%
+%%% Options %%%
+%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+
+%== Nouvelles conditionnelles ==%
+% Style des pages : cours (defaut) / exo / ds / tp
+\newif\ifcours \courstrue
+\newif\ifexo \exofalse
+\newif\iftd \tdfalse
+\newif\ifdoublepage \doublepagetrue
+\newif\ifds \dsfalse
+\newif\ifdm \dmfalse
+\newif\iftp \tpfalse
+\newif\ifpartieinitqu \partieinitqufalse
+
+% Exercices : enonce (vrai) / correction (faux) / bareme (faux)
+\newif\ifenonce \enoncetrue
+\newif\ifcorrection \correctionfalse
+\newif\ifindications \indicationsfalse
+\newif\ifbareme \baremefalse
+
+% Présentation générale : prof / eleve (defaut)
+\newif\ifprof \proffalse
+\newif\ifeleve \elevetrue
+\newif\ifsource \sourcefalse
+\newif\ifconcours \concourstrue
+\newif\ifsession \sessiontrue
+
+% Cahier de texte
+\newif\ifcahierdetexte \cahierdetextefalse
+
+
+%==============================%
+%== Options du fichier style ==%
+%==============================%
+
+% Quadrichotomie : poly / exercice / ds / tp
+\DeclareOption{poly}{\courstrue\exofalse\dsfalse\dmfalse\tpfalse}
+%?? exotrue -> exofalse
+\DeclareOption{exercice}{\coursfalse\exotrue\dsfalse\dmfalse\tpfalse}
+\DeclareOption{td}{\tdtrue}
+\DeclareOption{ds}{\coursfalse\exofalse\dstrue\dmfalse\tpfalse}
+\DeclareOption{dm}{\coursfalse\exofalse\dsfalse\dmtrue\tpfalse}
+%?? exotrue -> \exofalse
+\DeclareOption{tp}{\coursfalse\exofalse\dsfalse\dmfalse\tptrue}
+
+% Dichotomie : prof / eleve
+\DeclareOption{eleve}{\proffalse\elevetrue}%
+\DeclareOption{prof}{\proftrue\elevefalse}%
+
+% Dichotomie : enonce / pas d'enonce
+%?? \proffalse\elevetrue -> supprimes
+\DeclareOption{enonce}{\enoncetrue}%
+%?? \proffalse\elevetrue -> supprimes
+\DeclareOption{noenonce}{\enoncefalse}%
+
+% Dichotomie : correction / pas de correction
+\DeclareOption{correction}{\correctiontrue}%
+\DeclareOption{nocorrection}{\correctionfalse}%
+
+% Dichotomie : correction / pas de correction
+\DeclareOption{indication}{\indicationstrue}%
+\DeclareOption{noindication}{\indicationsfalse}%
+
+% Dichotomie : bareme / pas de bareme
+\DeclareOption{bareme}{\baremetrue}%
+\DeclareOption{nobareme}{\baremefalse}%
+
+% Dichotomie : source / pas de source
+\DeclareOption{source}{\sourcetrue\concourstrue}%
+\DeclareOption{nosource}{\sourcefalse}%
+
+% Dichotomie : concours / pas de concours
+\DeclareOption{concours}{\concourstrue}%
+\DeclareOption{noconcours}{\concoursfalse}%
+
+% Dichotomie : concours / pas de concours
+\DeclareOption{session}{\sessiontrue}%
+\DeclareOption{nosession}{\sessionfalse}%
+
+% Cahier de texte
+\DeclareOption{cahierdetexte}{\cahierdetextetrue}
+
+\ProcessOptions\relax%
+
+%%%%%%%%%%%%%%%%%
+%%% Compteurs %%%
+%%%%%%%%%%%%%%%%%
+
+\newcounter{proposition}[chapter]
+\newcounter{theoreme}[chapter]
+\newcounter{lemme}[chapter]
+\newcounter{definition}[chapter]
+\newcounter{exercice}[chapter]
+\newcounter{exemple}[chapter]
+\newcounter{cqu}[exercice]
+\newcounter{csqu}[cqu]
+\newcounter{cssqu}[csqu]
+\setcounter{cssqu}{0}
+\newcounter{thetd}
+\setcounter{thetd}{0}
+\newcounter{thedm}
+\setcounter{thedm}{0}
+\newcounter{thetp}
+\setcounter{thetp}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Police / Encodage %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% == Encodage ==%
+\RequirePackage[utf8]{inputenc}% texte en iso
+\RequirePackage[T1]{fontenc}% encodage des polices recent
+\RequirePackage[french]{babel}% francais (accents,...)
+
+% == Polices ==%
+\sloppy% cesures en fin de ligne
+\RequirePackage{frcursive}% ecriture cursive
+\RequirePackage{pifont}% petite main
+\RequirePackage{fge}% fleche
+\RequirePackage{textcomp}% rond de numero
+\RequirePackage{manfnt}% panneau attention
+\RequirePackage{marvosym}% clavier et ding??
+\RequirePackage{eurosym}% euro
+
+% == Tableaux ==%
+\RequirePackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Gestion des dates %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{advdate}    % Advancing/saving dates
+\RequirePackage{datetime}   % Dates formatting
+\RequirePackage{datenumber} % Counters for dates
+
+% \def\mois{\ifcase\month\or
+  % Janvier\or F\'evrier\or Mars\or Avril\or Mai\or Juin\or Juillet\or Ao\hat{u}t\or Septembre\or Octobre\or Novembre\or D\'ecembre\fi}% date
+
+\newcommand{\nextyear}{\advance\year by 1 \the\year \advance\year by -1}
+\newcommand{\prevyear}{\advance\year by -1 \the\year \advance\year by 1}
+
+\def\anneescolaire{
+  \ifnum \month > 7
+  \the\year-\nextyear%
+  \else
+  \prevyear-\the\year%
+  \fi
+}
+
+\newenvironment{avenir}[1]{\bigskip\bigskip{\bf Programme à venir (#1)~:~}\\}{}
+
+\newcommand{\startdate}[1]{
+    \SaveDate    % Saves current date (advdate macro)
+    \SetDate[#1] % Sets custom date   (advdate macro)
+    \setdate{\the\year}{\the\month}{\the\day} % Saves custom date to 
+}
+
+\newcommand{\weekbounds}{%
+    % Date of Monday
+    \twodigit{\thedateday}/\twodigit{\thedatemonth}/{\thedateyear}%
+    ~-~%
+     % Goes to saturday
+    \nextdate\nextdate\nextdate\nextdate\nextdate%
+    % Date of Friday
+    \twodigit{\thedateday}/\twodigit{\thedatemonth}/{\thedateyear}%
+    % Goes to next Monday
+    \nextdate\nextdate%
+}
+
+\newcommand{\addweek}{
+  \nextdate\nextdate\nextdate\nextdate\nextdate\nextdate\nextdate
+}
+
+\newcommand{\prevweek}{
+  \prevdate\prevdate\prevdate\prevdate\prevdate\prevdate\prevdate
+}
+
+
+\newcounter{csemaine}
+\setcounter{csemaine}{0}
+\newcommand{\semaine}[1]{%
+  \ifcahierdetexte
+  \ifthenelse{\isodd{\thecsemaine}}
+  {\bigskip
+  \separate\bigskip}%
+  {\newpage}%
+  \fi
+  \noindent%
+  {\police\color{bleu_sombre}\stepcounter{csemaine}%
+    Semaine~\arabic{csemaine}~(\weekbounds)~:~}%
+  #1%
+  \ifcahierdetexte
+  \phantomsection
+  % \pdfbookmark{Semaine~\arabic{csemaine}}{Semaine~\arabic{csemaine}}
+  \addcontentsline{toc}{chapter}{Semaine~\arabic{csemaine}}
+  \fi
+}
+
+\newcounter{cipt}
+\setcounter{cipt}{0}
+
+\newcounter{cinfo}
+\setcounter{cinfo}{0}
+
+\newcounter{cdl}
+\setcounter{cdl}{0}
+\newcommand{\dl}[1]{\ignorespaces\par{\police\color{rouge_sombre}\stepcounter{cdl}D.L.~\arabic{cdl}~:~}#1}
+
+\newcounter{ctd}
+\setcounter{ctd}{0}
+\newcommand{\td}[1]{\ignorespaces\par{\police\color{vert_olive}\stepcounter{ctd}T.D.~\arabic{ctd}~:~}#1}
+
+\newcommand{\exercices}[1]{\ignorespaces\par{\police\color{vert_olive}Exercices} #1}
+
+\newcounter{cdsm}
+\setcounter{cdsm}{0}
+\newcommand{\dsm}[1]{\ignorespaces\par{\police\color{rossa_corsa}\stepcounter{cdsm} D.S.~\arabic{cdsm}~:~}#1}
+
+\newcounter{cdsipt}
+\setcounter{cdsipt}{0}
+\newcommand{\dsipt}[1]{\ignorespaces\par{\police\color{bordeaux}\stepcounter{cdsipt} D.S. IpT~\arabic{cdsipt}~:~}#1}
+
+\newcounter{cdsoi}
+\setcounter{cdsoi}{0}
+\newcommand{\dsoi}[1]{\ignorespaces\par{\police\color{bordeaux}\stepcounter{cdsoi} D.S. O.I.~\arabic{cdsoi}~:~}#1}
+
+\newcounter{cdc}
+\setcounter{cdc}{0}
+\newcommand{\dc}{\ignorespaces\par{\police\color{bordeaux}\stepcounter{cdc} D.C.~\arabic{cdc}.}}
+
+\newcommand{\vacances}[1]{\vskip1em\ignorespaces\par{\police\color{orange_sombre} Vacances #1}\vskip1em}
+
+\newcounter{cchap}
+\setcounter{cchap}{0}
+\newcommand{\chap}[1]{\ignorespaces\par{\police Chap.~\Roman{cchap}~:~}#1}
+\newcommand{\prevchap}{\addtocounter{cchap}{-1}}
+\newcommand{\nextchap}{\stepcounter{cchap}}
+
+\newcommand{\lundi}{{\par\police\color{bleu_sombre} Lundi%
+\prevweek\twodigit{\thedateday}/\twodigit{\thedatemonth}\addweek%
+.}~}
+\newcommand{\mardi}{{\par\police\color{bleu_sombre} Mardi%
+\prevweek\nextdate\twodigit{\thedateday}/\twodigit{\thedatemonth}\prevdate\addweek%
+.}~}
+\newcommand{\mercredi}{{\par\police\color{bleu_sombre} Mercredi%
+\prevweek\nextdate\nextdate\twodigit{\thedateday}/\twodigit{\thedatemonth}\prevdate\prevdate\addweek
+.}~}
+\newcommand{\jeudi}{{\par\police\color{bleu_sombre} Jeudi%
+\prevweek\nextdate\nextdate\nextdate\twodigit{\thedateday}/\twodigit{\thedatemonth}\prevdate\prevdate\prevdate\addweek
+.}~}
+\newcommand{\vendredi}{{\par\police\color{bleu_sombre} Vendredi.}~}
+
+\newcounter{cex}
+\setcounter{cex}{1}
+\newcommand{\ex}[1]{\ignorespaces\par{\police Ex.~\Roman{cex}~:~}#1}
+\newcommand{\nextex}{\stepcounter{cex}}
+\newcommand{\prevex}{\addtocounter{cex}{-1}}
+
+\newcommand{\ipt}[1]{{\stepcounter{cipt}\par\police\color{vert_sapin} I.P.T.~\arabic{cipt}}~#1}
+\newcommand{\oi}[1]{{\par\police\color{vert_clair} O.I.~}#1}
+
+\newcommand{\info}[1]{{\stepcounter{cinfo}\par\police\color{vert_sapin} T.P.~\arabic{cinfo}}~#1}
+
+\newcommand{\separate}{\begin{center}$\blacksquare\ \blacksquare\ \blacksquare$\end{center}}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Presentation %%%
+%%%%%%%%%%%%%%%%%%%%
+
+% == AMS ==%
+\RequirePackage{amsfonts,amssymb,amsthm,amsmath}
+
+% == Graphiques ==%
+\RequirePackage{graphicx,graphics}
+
+% == Presentation ==%
+\RequirePackage{fancyhdr,framed,lastpage}
+
+% == Couleurs ==%
+\RequirePackage{xcolor}
+\definecolor{bordeaux}{rgb}{0.5,0,0}
+\definecolor{rossa_corsa}{rgb}{0.83,0,0}
+\definecolor{rouge_sombre}{rgb}{0.8,0,0}
+
+\definecolor{vert_sapin}{rgb}{0.04,0.32,0.16}
+\definecolor{vert_olive}{rgb}{0.6,0.8,0.2}
+\definecolor{vert_clair}{rgb}{0.8,1,0.8}
+\definecolor{vert_sombre}{rgb}{0,0.6,0}
+
+\definecolor{orange_sombre}{rgb}{1,0.54,0}
+\definecolor{orange}{rgb}{0.7,0.3,0}
+
+\definecolor{couleur_prof}{rgb}{0.5,0.2,0.2}
+
+\definecolor{gris}{rgb}{0.8,0.8,0.8}
+\definecolor{gris_clair}{rgb}{0.95,0.95,0.95}
+
+\definecolor{bleu_sombre}{rgb}{0,0,0.6}
+\definecolor{bleu_nuit}{rgb}{0.06,0.02,0.42}
+
+%== Todo ==%
+\RequirePackage[color=vert_clair]{todonotes}
+\def\todoa#1{\todo[inline]{#1}}
+
+%== Bibliograhpie ==%
+\RequirePackage[datamodel=../bio,
+            hyperref=true,
+            style=authortitle,
+            sorting=ynt]{biblatex}
+
+
+%% Bibliographie
+
+\DeclareLabelname{\field{name}}
+
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{#1}}
+
+\savebibmacro{cite}
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+    \usebibmacro{cite}}}
+
+\renewcommand*{\nametitledelim}{}
+
+\newbibmacro*{personname}{%
+  \mkbibbold{\printnames{name}}%
+  \iffieldundef{firstname}%
+    {}%
+    {\addspace\printfield{firstname}}}
+
+\DeclareBibliographyDriver{bio}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{personname}%
+  \addspace%
+  \mkbibparens{%
+  \printdate%
+  \iffieldundef{birthplace}{}%
+        {\printtext{ à }\printfield{birthplace}}%
+\printtext{-}%
+\printorigdate%
+  \iffieldundef{deathplace}{}%
+        {\printtext{ à }\printfield{deathplace}}}%
+  \setunit{\labelnamepunct}\newblock%
+\mkbibitalic{\printfield{vitae}}%
+    \usebibmacro{finentry}}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% Mode verbatim %%%
+%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{moreverb} % verbatim encadre
+\RequirePackage{fancybox} % \begin{Sbox}
+\RequirePackage{fancyvrb} % \VerbatimEnvironment
+
+
+%%%%%%%%%%%%%%%%%%%% 
+%%% Mise en page %%%
+%%%%%%%%%%%%%%%%%%%% 
+% == Gestion des marges ==%
+\RequirePackage{geometry}
+
+\iftd
+ \ifdoublepage
+ \geometry{landscape,twocolumn,left=1cm,right=1cm,top=2cm,bottom=2cm}
+ \setlength{\columnsep}{2cm}
+ \setlength{\columnseprule}{0.4pt}
+ \else
+ \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+ \fi
+\else
+ \ifcours
+  \ifcorrection
+  \geometry{landscape,twocolumn,left=1cm,right=1cm,top=2cm,bottom=2cm}
+  \setlength{\columnsep}{2cm}
+  \setlength{\columnseprule}{0.4pt}
+  \else
+  \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+  \fi
+ \else
+  \ifds
+    \ifcorrection
+    \geometry{landscape,twocolumn,left=1cm,right=1cm,top=2cm,bottom=2cm}
+    \setlength{\columnsep}{2cm}
+    \setlength{\columnseprule}{0.4pt}
+    \else
+    \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+    \fi
+  \else
+    \iftp
+      \ifcorrection
+      \geometry{landscape,twocolumn,left=1cm,right=1cm,top=2cm,bottom=2cm}
+      \setlength{\columnsep}{2cm}
+      \setlength{\columnseprule}{0.4pt}
+      \else
+      \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+      \fi
+     \else
+     \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+    \fi
+  \fi
+ \geometry{textwidth=16cm,top=2cm,bottom=2cm}
+ \fi
+\fi
+
+\setlength{\parindent}{0pt}
+
+% == hypertexte ==%
+\RequirePackage[plainpages=false,colorlinks,linkcolor=bleu_sombre,citecolor=rouge_sombre,urlcolor=vert_sombre,breaklinks]{hyperref}
+
+% == Nouveaux champs ==%
+
+\def\subtitle#1{\def\@subtitle{#1}}% sous-titre
+\subtitle{}
+
+\def\etablissement#1{\def\@etablissement{#1}}% etablissement
+\etablissement{}
+
+\def\niveau#1{\def\@niveau{#1}}% niveau
+\niveau{}
+
+\def\module#1{\def\@module{#1}}% module
+\module{}
+
+\def\titre#1{\def\@titre{#1}}% intitule du document
+\titre{}
+
+\def\soustitre#1{\def\@soustitre{#1}}% sous-titre
+\soustitre{}
+
+\def\deadline#1{\def\@deadline{#1}}% deadline
+\deadline{}
+
+\def\date#1{\def\@date{#1}}% date
+\date{}
+
+
+% == Entetes et pieds de page ==%
+\pagestyle{fancy}
+\ifdm
+\else
+  \ifds
+  \else
+    \fancyhead[L]{
+    \scriptsize
+    \ifcours 
+      \nouppercase{\leftmark}
+    \fi
+    \ifexo
+      \@module~\Roman{thetd}
+% .~\@titre
+    \fi
+    \iftp
+      T.P.~\Roman{thetp}
+    \fi
+    }
+    \fancyhead[R]{
+    \scriptsize\@niveau
+    }
+  \fi
+\fi
+
+\cfoot{
+  \ifprof\thepage/\pageref{LastPage}\else%
+  \ifds\ifenonce\thepage/\pageref{LastPage}\fi\else%
+  \thepage%
+  \fi\fi%
+}
+\rfoot{
+\scriptsize\@author
+}
+\lfoot{
+\scriptsize\@etablissement
+}
+
+\ifds
+\renewcommand*{\headrulewidth}{0pt}
+\else
+\ifdm
+\renewcommand*{\headrulewidth}{0pt}
+\else
+\renewcommand*{\headrulewidth}{0.4pt}
+\fi
+\fi
+\renewcommand*{\footrulewidth}{0pt}
+
+% == Nouvelles polices / symboles ==%
+\newcommand*{\police}{\usefont{T1}{ptm}{b}{n}}
+\newcommand*{\gras}[1]{{\police #1}}
+
+\RequirePackage{fontawesome}
+\newcommand*{\entrain}{\ding{45}}
+
+\newcommand{\MP}{{\footnotesize MP}}%
+
+\newcommand*{\pa}{{\police P. A.}}%
+\newcommand*{\programmation}{\Keyboard}
+\newcommand{\maths}{\ding{45}}
+
+% == Page de garde ==%
+\renewcommand{\maketitle}{%
+  \iftd\else%
+  \thispagestyle{empty}%
+  \fi
+  \linespread{2}
+  \begin{flushleft}%
+    \large%
+    % \begin{cursive}%
+    \@etablissement%
+    % \end{cursive}%
+  \end{flushleft}%
+  \vfill
+  \begin{center}%
+    $\blacksquare$ \hskip1em $\blacksquare$ \hskip1em $\blacksquare$%
+    \vfill
+    {\Huge \bf \@title}%
+    \vfill
+    $\blacksquare$ \hskip1em $\blacksquare$ \hskip1em $\blacksquare$%
+    \ifthenelse{\equal{\@subtitle}{}}
+    {}
+    {
+    \vfill
+    {\Huge \bf \@subtitle}%
+    \vfill
+    $\blacksquare$ \hskip1em $\blacksquare$ \hskip1em $\blacksquare$%
+    }
+    \vfill
+    \@date
+    \vfill
+  \end{center}
+  \vfill
+  \begin{flushright}%
+    % \begin{cursive}
+    \large \@author%
+    % \end{cursive}%
+  \end{flushright}%
+  \linespread{1}
+}
+
+% == Chapitre ==%
+
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{
+  \ifprof\thepage/\pageref{LastPage}
+  \else\ifds\ifenonce
+  \thepage/\pageref{LastPage}\fi\else\thepage\fi\fi}
+\fancyfoot[R]{
+\scriptsize\@author
+}
+\fancyfoot[L]{
+\scriptsize\@etablissement
+}
+\renewcommand*{\headrulewidth}{0pt}
+\renewcommand*{\footrulewidth}{0pt}
+}
+
+\def\@chapter[#1]#2{
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\space\thechapter.}%
+      \phantomsection%
+      \addcontentsline{toc}{chapter}%
+      {\protect\numberline{\thechapter}#1}%
+    \else
+      \phantomsection%
+      \addcontentsline{toc}{chapter}%
+      {\protect\numberline{\thechapter}#1}%
+    \fi
+  \else
+    \phantomsection%
+    \addcontentsline{toc}{chapter}{#1}%
+    {\protect\numberline{\thechapter}#1}%
+  \fi
+  \chaptermark{#1}
+  \addtocontents{lof}{\protect\addvspace{10\p@}}%
+  \addtocontents{lot}{\protect\addvspace{10\p@}}%
+  \if@twocolumn
+  % \@topnewpage[
+  \@makechapterhead{#2}%
+  % ]%
+  \else
+  \@makechapterhead{#2}%
+  \@afterheading
+  \fi}
+
+\def\@makechapterhead#1
+{%  
+  \setcounter{cqu}{0}%
+  \setcounter{csqu}{0}%
+  \setcounter{cssqu}{0}%
+  \setcounter{cpartie}{0}%
+  \reset@font%
+  \par%
+  \thispagestyle{plain}%
+  \if@mainmatter%
+  \centerline{%
+    $\blacksquare$\hspace{1em}%
+    {\LARGE \bf %
+      \ifcours
+      Chapitre~\thechapter%
+      \fi
+      \iftp
+      T.P.~\Roman{thetp}
+      \fi
+    }%
+    \hspace{1em}$\blacksquare$
+  }%
+  \vspace{2ex minus 1ex}%
+  \fi%
+  \centerline{
+    \if@mainmatter \relax \else $\blacksquare$ \hspace{1em}\fi
+    {\LARGE \bf #1}
+    \if@mainmatter \relax \else \hspace{1em} $\blacksquare$\fi
+  }%
+  \vspace{2ex minus 1ex}
+}
+
+
+
+% == Redefinition des sections ==%
+\RequirePackage{titlesec}
+\renewcommand{\thesection}{\Roman{section}}
+
+\titleformat{\section}%
+  {\bfseries\large}{\thesection.~}{0pt}{\setcounter{cqu}{0}}
+
+\titlespacing{\section}{0pt}{4ex plus 1ex minus 1ex}{1ex plus 1ex minus 1ex}
+
+
+\titleformat{\subsection}%
+  {\bfseries\normalsize}{\thesubsection~}{0pt}{\setcounter{cqu}{0}}
+
+\titlespacing{\subsection}{0pt}{2ex plus 1ex minus 1ex}{1ex plus 1ex minus 1ex}
+
+%== Autres sections ==%
+% Sous-parties d un probleme
+\newcounter{cpartie}
+\setcounter{cpartie}{0}
+\newcommand*{\partie}[1]{\stepcounter{cpartie}\vskip3ex \centerline{\police Partie~\Roman{cpartie}~:~#1} \vskip1.5ex%
+\ifpartieinitqu\setcounter{cqu}{0}\fi}
+\newcommand*{\partiesimple}[1]{\vskip3ex \centerline{\police #1} \vskip1.5ex\ifpartieinitqu\setcounter{cqu}{0}\fi}
+
+
+% == Exergue ==%
+\newenvironment{exergue}{\begin{flushright}\it\scriptsize}{\end{flushright}}
+\newcommand*{\dans}[1]{,~in\normalfont~#1}
+
+% == Entete ==%
+\ifexo
+\@addtoreset{section}{thetd}
+\@addtoreset{exercice}{thetd}
+\@addtoreset{cpartie}{thetd}
+\fi
+\iftd
+\@addtoreset{section}{thetd}
+\@addtoreset{exercice}{thetd}
+\@addtoreset{cpartie}{thetd}
+\fi
+
+
+\def\entete{%
+  \iftd
+  \clearpage\if@twoside\ifodd\c@page
+    \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi
+  \fi
+  \iftp
+  \clearpage\if@twoside \ifodd\c@page
+    \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi
+  \fi
+  % \newpage
+  \setcounter{cqu}{0}%
+  \setcounter{csqu}{0}%
+  \setcounter{cssqu}{0}%
+  \setcounter{cpartie}{0}%
+  \ifdm
+    \refstepcounter{thedm}
+    \typeout{\@chapapp\space\arabic{thedm}.}%
+    \phantomsection%
+    \addcontentsline{toc}{chapter}%
+    {\protect\numberline{\arabic{thedm}}\@titre}%
+    \markboth{\@niveau}{D.M.~\arabic{thedm}}
+  \fi
+    % \refstepcounter{thetd}
+    % \typeout{\@chapapp\space\arabic{thetd}.}%
+    % \phantomsection%
+    % \addcontentsline{toc}{chapter}%
+    % {\protect\numberline{\arabic{thetd}}\@titre}%
+    % \markboth{\@chapapp\space\arabic{thetd}}{\@niveau}
+  \iftd
+    \refstepcounter{thetd}
+    \typeout{\@chapapp\space\arabic{thetd}.}%
+    \phantomsection%
+    \addcontentsline{toc}{chapter}%
+    {\protect\numberline{\arabic{thetd}}\@titre}%
+    \markboth{\@chapapp\space\arabic{thetd}}{\@niveau}
+  \fi
+  \iftp
+    \refstepcounter{thetp}
+    \typeout{\@chapapp\space\arabic{thetp}.}%
+    \phantomsection%
+    \addcontentsline{toc}{chapter}%
+    {\protect\numberline{\arabic{thetp}}\@titre}%
+    \markboth{\@chapapp\space\arabic{thetp}}{\@niveau}
+  \fi
+  % \setcounter{exercice}{0}
+  % \setcounter{cpartie}{0}
+  \reset@font
+  \par
+  \thispagestyle{plain}
+  \noindent%
+  \iftd
+  \begin{minipage}[t]{0.1\textwidth}%
+  \else
+    \ifds
+      \ifcorrection\begin{minipage}[t]{0.1\textwidth}%
+      \else\begin{minipage}[t]{0.2\textwidth}%
+      \fi
+    \else
+      \iftp
+        \ifcorrection\begin{minipage}[t]{0.1\textwidth}%
+        \else\begin{minipage}[t]{0.2\textwidth}%
+        \fi
+      \else\begin{minipage}[t]{0.2\textwidth}%
+      \fi
+    \fi
+  \fi
+  \noindent {\textsc{\@etablissement}} \hfill\\%
+  \@module%
+  \end{minipage}
+  \hfill%
+  \iftd
+  \begin{minipage}[t]{0.25\textwidth}%
+  \else
+    \ifds
+      \ifcorrection\begin{minipage}[t]{0.25\textwidth}%
+      \else\begin{minipage}[t]{0.5\textwidth}%
+      \fi
+    \else
+      \iftp
+        \ifcorrection\begin{minipage}[t]{0.25\textwidth}%
+        \else\begin{minipage}[t]{0.5\textwidth}%
+        \fi
+      \else\begin{minipage}[t]{0.5\textwidth}%
+      \fi
+    \fi
+  \fi
+  \begin{center}%
+  \Large{
+  \ifcorrection Correction \\ \fi
+  \@titre}\\%
+  {\small \@soustitre}%
+  {\par \small \@deadline}%
+  \end{center}%
+  \end{minipage}%
+  \hfill%
+  \iftd
+    \begin{minipage}[t]{0.1\textwidth}%
+  \else
+    \ifds
+      \ifcorrection\begin{minipage}[t]{0.1\textwidth}%
+      \else\begin{minipage}[t]{0.2\textwidth}%
+      \fi
+    \else
+      \iftp
+        \ifcorrection\begin{minipage}[t]{0.1\textwidth}%
+        \else\begin{minipage}[t]{0.2\textwidth}%
+        \fi
+      \else\begin{minipage}[t]{0.2\textwidth}%
+      \fi
+    \fi
+  \fi
+  \begin{flushright}%
+      {\bf \@niveau} \hfill\\%
+      \@date%
+    \end{flushright}%
+  \end{minipage}
+  \begin{center}%
+    $\blacksquare$ \hskip1em $\blacksquare$ \hskip1em $\blacksquare$%
+  \end{center}%
+  % \vspace{0.5ex minus 1ex}
+  \@afterheading
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros pour environnements %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%== Questions ==%
+\newcommand{\nvellequestion}[3]{%
+% #1 : bareme
+% #2 : niveau a incrementer
+% #3 : compteur a afficher
+\ifnum #2=1 \stepcounter{cqu} \else%
+\ifnum #2=2 \stepcounter{csqu} \else%
+\ifnum #2=3 \stepcounter{cssqu} \else%
+\ifnum #2=4 \stepcounter{cqu}\stepcounter{csqu}\else%
+\ifnum #2=5 \stepcounter{csqu}\stepcounter{cssqu}%
+\fi\fi\fi\fi\fi%
+\par%
+\vspace{1ex minus 0.5ex}%
+\ifbareme%
+\ifx\relax\detokenize{#1}\empty%
+% \if\relax#1\relax%
+\else${}$\hskip-2em {\normalfont\small #1} \vskip-\baselineskip\fi%
+\fi%
+\noindent\gras{#3}%
+}
+
+\newcommand*{\qu}[1][]{
+\nvellequestion{#1}{1}{\arabic{cqu}.}
+}
+
+\newcommand*{\squ}[1][]{
+\nvellequestion{#1}{2}{\hphantom{\arabic{cqu}.~}\alph{csqu})}
+}
+
+\newcommand*{\ssqu}[1][]{
+\nvellequestion{#1}{3}{\hphantom{\arabic{cqu}.\alph{csqu}.}\roman{cssqu}.~}}
+
+\newcommand*{\Ssqu}[1][]{
+\nvellequestion{#1}{3}{\hphantom{\arabic{cqu}}.\alph{csqu}.\roman{cssqu}.~}}
+
+\newcommand*{\Qu}[1][]{
+\nvellequestion{#1}{4}{\arabic{cqu}.~\alph{csqu})}
+}
+
+% Squ : deuxieme niveau de question, cqu.csqu (n incremente que csqu)
+\newcommand*{\Squ}[1][]{%
+  \stepcounter{csqu}%
+  \stepcounter{cssqu}%
+  \par%
+  \vspace{0.5ex minus 0.5ex}%
+  \ifbareme
+  \if\relax#1\relax%
+  \else ${}$\hskip-2em {\normalfont\small #1} \vskip-\baselineskip%
+  \fi%
+  \else \relax
+  \fi%
+  \noindent\hspace{1em}{\police \alph{csqu})~\roman{cssqu}.}
+}
+
+\newcommand\decoration[1]{%
+  \strut%
+  \vadjust{%
+    \llap{\smash{\parbox[t]{\marginparwidth}{\raggedleft#1}}%
+      \kern\marginparsep
+    }
+  }%
+}
+
+
+%== Bareme ==%
+\newcommand*{\bareme}[1]{%
+  \ifbareme%
+  \if\relax#1\relax%
+  \else ${}$\\\vskip-5.5ex${}$\hskip-2em {\bf\small #1}\\ \noindent\ignorespaces\vskip-\baselineskip%
+  \fi%
+  \else \relax%
+  \fi%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition des environnements %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% == Environnements non colores ==%
+\newenvironment{Template_non_colore}[2][]%
+{%
+  \par%
+  \vspace{1ex minus 0.5ex}
+  \noindent{\police #2\@addpunct{.} \ignorespaces}% 
+  \if\relax#1\relax \else {\police ({#1}) \ignorespaces%
+  }\fi%
+  \\*
+  \setlength{\parindent}{0pt}%
+}%
+{%
+  \vspace{1ex minus 0.5ex}%
+}
+
+\newenvironment{objectifs}[1][]
+{\begin{Template_non_colore}[#1]{Objectifs}}
+  {\end{Template_non_colore}}
+
+\newenvironment{remarque}[1][]%
+{\begin{Template_non_colore}[#1]{Remarque}}%
+  {\end{Template_non_colore}}%
+
+\newenvironment{remarques}[1][]
+{\begin{Template_non_colore}[#1]{Remarques}}
+  {\end{Template_non_colore}}
+
+\newenvironment{notation}[1][]
+{\begin{Template_non_colore}[#1]{Notation}}
+  {\end{Template_non_colore}}
+
+\newenvironment{notations}[1][]
+{\begin{Template_non_colore}[#1]{Notations}}
+  {\end{Template_non_colore}}
+
+\newenvironment{rquesubs}[1][]%
+{\begin{Template_non_colore}[#1]{\itshape\small Pour aller plus loin}\itshape\small}%
+  {\end{Template_non_colore}}%
+
+\newenvironment{Rqueprof}
+{%
+  \color{couleur_prof}%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police Remarque\@addpunct{.} }
+  \ignorespaces
+}{%
+}
+
+\newenvironment{rqueprof}
+{%
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifprof% si l'affichage des solutions est active
+  \begin{Rqueprof}%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifprof
+  \end{Rqueprof}%
+  \else
+  \egroup
+  \fi
+}%
+
+\newenvironment{Preuve}
+{%
+  \color{couleur_prof}%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police Preuve\@addpunct{.} }
+  \ignorespaces
+}{%
+\qed
+}
+
+\newenvironment{preuve}
+{%
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifprof% si l'affichage des solutions est active
+  \begin{Preuve}%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifprof
+  \end{Preuve}%
+  \else
+  \egroup
+  \fi
+}%
+
+
+% == Boites decoupables automatiquement ==%
+\newdimen\templatebox@leftmargin  \templatebox@leftmargin=1em
+% \parindent
+\newdimen\templatebox@rightmargin \templatebox@rightmargin=0pt
+\newdimen\templatebox@hskip       \templatebox@hskip=.4em
+\newdimen\templatebox@vskip       \templatebox@vskip=.4ex
+\newdimen\templatebox@thickness   \templatebox@thickness=.6pt
+
+
+\newbox\templatebox@box
+\newbox\templatebox@box@
+\newdimen\templatebox@dim
+
+\def\templatebox@put#1{%
+  \noindent%
+  \hbox{%
+    {\dimen0=\templatebox@leftmargin%
+      \advance\dimen0-\templatebox@hskip%
+      \advance\dimen0-\templatebox@thickness%
+      \hskip\dimen0}%
+    {\color{\templatebox@color} \vrule width \templatebox@thickness}%
+    \hskip\templatebox@hskip%
+    \box#1%
+  }%
+  \par\nobreak}%
+
+\def\templatebox@start{%
+  \ifdim\pagetotal>\textheight% \pagetotal : taille de la page courante
+  \templatebox@dim=2\textheight%
+  \else%
+  \templatebox@dim=\textheight%
+  \fi%
+  \advance\templatebox@dim-\pagetotal% Calcul de la place restante
+  \advance\templatebox@dim1.2\baselineskip%
+  \ifdim\templatebox@dim>\ht\templatebox@box%
+  \templatebox@put\templatebox@box%
+  \else%
+  \setbox\templatebox@box@=\vsplit\templatebox@box to \templatebox@dim%
+  \templatebox@put\templatebox@box@%
+  \templatebox@page%
+  \fi%
+}
+
+\def\templatebox@page{%
+  \ifvoid\templatebox@box%
+  \else%
+  \eject%
+  \ifdim\textheight<\ht\templatebox@box%
+  \setbox\templatebox@box@=\vsplit\templatebox@box to \textheight%
+  \templatebox@put\templatebox@box@%
+  \templatebox@page%
+  \else%
+  \templatebox@put\templatebox@box%
+  \fi%
+  \fi}
+
+\def\templatebox@head#1#2#3#4{%
+}
+
+\newenvironment{Template*}[3][]{%
+  \newcommand*{\templatebox@color}{#3}%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \setlength{\parindent}{0pt}%
+  \noindent%
+  \vbox{%
+    \setbox\templatebox@box@=\hbox{%
+      % Definition de l entete
+      {\color{\templatebox@color}%
+        \noindent{\police #2}% 
+        \if\relax#1\relax \else {\police ~({#1})\ignorespaces%
+        }\fi%
+        \ignorespaces\@addpunct{.}%
+      }}%
+    % Affiche la boite sans l effacer
+    \copy\templatebox@box@%
+    % Souligner le titre
+    {\color{#3}%
+      \hrule width \wd\templatebox@box@ height \templatebox@thickness%
+    }%
+  }%
+  \\*%
+  \templatebox@dim=\hsize% hsize : largeur du paragraphe courant
+  \advance\templatebox@dim-\leftskip%
+  \advance\templatebox@dim-\rightskip%
+  \setbox\templatebox@box=\vbox%
+  \bgroup%
+  \hsize=\templatebox@dim%
+  \advance\hsize -\templatebox@leftmargin%
+  \advance\hsize -\templatebox@rightmargin%
+  \textwidth=\hsize%
+  \linewidth=\hsize%
+  \vskip\templatebox@vskip%
+  \begingroup
+}{
+  \endgroup%
+  \vskip\templatebox@vskip%
+  \egroup%
+  \templatebox@start%
+  \@endparenv
+}
+
+\newenvironment{Template}[4][]{%
+  \stepcounter{#2}%
+  \newcommand*{\templatebox@color}{#4}%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \setlength{\parindent}{0pt}%
+  \noindent%
+  \vbox{%
+    \setbox\templatebox@box@=\hbox{%
+      % Definition de l entete
+      {\color{\templatebox@color}%
+        \noindent{\police #3~\arabic{#2}}% 
+        \if\relax#1\relax \else {\police ~({#1})\ignorespaces%
+        }\fi%
+        \ignorespaces\@addpunct{.}%
+      }}%
+    % Affiche la boite sans l effacer
+    \copy\templatebox@box@%
+    % Souligner le titre
+    {\color{#4}%
+      \hrule width \wd\templatebox@box@ height \templatebox@thickness%
+    }%
+  }%
+  \\*%
+  \templatebox@dim=\hsize% hsize : largeur du paragraphe courant
+  \advance\templatebox@dim-\leftskip%
+  \advance\templatebox@dim-\rightskip%
+  \setbox\templatebox@box=\vbox%
+  \bgroup%
+  \hsize=\templatebox@dim%
+  \advance\hsize -\templatebox@leftmargin%
+  \advance\hsize -\templatebox@rightmargin%
+  \textwidth=\hsize%
+  \linewidth=\hsize%
+  \vskip\templatebox@vskip%
+  \begingroup
+}{
+  \endgroup%
+  \vskip\templatebox@vskip%
+  \egroup%
+  \templatebox@start%
+  \@endparenv
+}
+
+
+% == Environnements colores ==%
+\newenvironment{definition}[1][]
+{%
+  \begin{Template}[#1]{definition}{Définition}{rossa_corsa}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{theoreme}[1][]
+{%
+  \begin{Template}[#1]{theoreme}{Théorème}{bordeaux}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{theoreme*}[1][]
+{%
+  \begin{Template*}[#1]{Théorème}{bordeaux}
+  }{%
+  \end{Template*}
+}
+
+\newenvironment{corollaire}[1][]
+{%
+  \begin{Template}[#1]{theoreme}{Corollaire}{bordeaux}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{propriete}[1][]
+{%
+  \begin{Template}[#1]{proposition}{Propriété}{bleu_nuit}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{proprietes}[1][]
+{%
+  \begin{Template}[#1]{proposition}{Propriétés}{bleu_nuit}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{proposition}[1][]
+{%
+  \begin{Template}[#1]{proposition}{Proposition}{bleu_nuit}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{lemme}[1][]
+{%
+  \begin{Template}[#1]{lemme}{Lemme}{bleu_nuit}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{exemple}[1][]
+{%
+  \begin{Template}[#1]{exemple}{Exemple}{vert_sapin}
+  }{%
+  \end{Template}
+}
+
+\newenvironment{contrexemple}[1][]
+{%
+  \begin{Template}[#1]{exemple}{Contre-Exemple}{vert_sapin}
+  }{%
+  \end{Template}
+}
+
+%%%%%%%%%%%%%%%%%
+%%% Exercices %%%
+%%%%%%%%%%%%%%%%%
+
+% \def{\concours}#1{\def\@concours{#1}}%
+% \concours{}
+
+% \def{\session}#1{\def\@session{#1}}%
+% \session{}
+
+% \def\references#1{\def\@reference{#1}}% module
+% \ifsession\ifconcours\reference{\session}
+
+\newcommand{\source}[1]{\ifsource{\gras{(#1)}}~\else\ignorespaces\fi}
+\newcommand{\concours}[1]{\ifconcours{\small~[#1]\,}\else\ignorespaces\fi}
+\newcommand{\session}[1]{\ifsession{\small~('#1)~}\else\ignorespaces\fi}
+\newcommand{\serie}[1]{\ifsession\gras{'#1}\else\ignorespaces\fi}
+% \newcommand{\liensujet}[1]{\ifsession\gras{'#1}\else\ignorespaces\fi}
+\newcommand{\lienexo}[1]{\ifsession\gras{'#1}\else\ignorespaces\fi}
+\newcommand{\donne}[1]{\ifprof{\,\gras{(#1)}}\else\ignorespaces\fi}
+\newcommand{\sujet}[1]{}
+\newcommand{\numero}[1]{\texttt{[#1]}~}
+
+%== Exercice ==%
+\newenvironment{cours}%
+{%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police Cours\@addpunct{.} }\ignorespaces% ecrit cours en gras suivi d'un point
+}
+{%
+}
+
+%== Exercice ==%
+\newenvironment{TheExercice}[1][]%
+{%
+  \setcounter{cpartie}{0}% met le compteur partie a zero
+  \par%
+  \vspace{2ex plus 1ex minus 1ex}%
+  \noindent%
+  {\police Exercice~\arabic{exercice}\@addpunct{.}~}\ignorespaces% ecrit exercice en gras suivi du numero et d'un point
+  \if\relax#1\relax \else{\police({#1})~}\ignorespaces\fi% place le nom de l'exercice en gras
+}
+{%
+}
+
+\newenvironment{exercice}[1][]% on definit l'argument par defaut
+{%
+  \stepcounter{exercice}%
+  \ifenonce% si l'affichage des solutions est active
+  \begin{TheExercice}[#1]%
+    \else%
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup%
+    \fi%
+  }{%
+    \ifenonce%
+  \end{TheExercice}%
+  \else%
+  \egroup%
+  \fi%
+}%
+
+
+\newenvironment{TheExercice*}[1][]%
+{%
+  \setcounter{cpartie}{0}% met le compteur partie a zero
+  \par%
+  \vspace{2ex plus 1ex minus 1ex}%
+  \noindent%
+  {\police Exercice\@addpunct{.}~}\ignorespaces% ecrit exercice en gras suivi du numero et d'un point
+  \if\relax#1\relax \else{\police({#1})~}\ignorespaces\fi% place le nom de l'exercice en gras
+}
+{%
+}
+
+\newenvironment{exercice*}[1][]% on definit l'argument par defaut
+{%
+  \ifenonce% si l'affichage des solutions est active
+  \begin{TheExercice*}[#1]%
+    \else%
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup%
+    \fi%
+  }{%
+    \ifenonce%
+  \end{TheExercice*}%
+  \else%
+  \egroup%
+  \fi%
+}%
+
+
+%== Probleme numerote ==%
+\newenvironment{TheProbleme}[1][]%
+{%
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \setcounter{cpartie}{0}% met le compteur question a zero
+  \par
+  \vspace{2ex minus 1ex}%
+  \noindent{\police Probl\`eme\@addpunct{.} }\ignorespaces % ecrit exercice en gras suivi du numero et d'un point
+  \if\relax#1\relax \else {\police ({#1}) }\ignorespaces\fi% place le nom de l'exercice en gras
+}
+{%
+}
+
+\newenvironment{probleme}[1][]% on definit l'argument par defaut
+{%
+  \ifenonce% si l'affichage des solutions est active
+  \begin{TheProbleme}[#1]%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifenonce
+  \end{TheProbleme}%
+  \else
+  \egroup
+  \fi
+}%
+
+% == Probleme non numerote ==%
+\newenvironment{TheProbleme*}%
+{%
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \setcounter{cpartie}{0}% met le compteur question a zero
+  \par
+}
+{%
+}
+
+\newenvironment{probleme*}
+{%
+  \ifenonce% si l'affichage des solutions est active
+  \begin{TheProbleme*}%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifenonce
+  \end{TheProbleme*}%
+  \else
+  \egroup
+  \fi
+}%
+
+%== Solution ==%
+\newenvironment{TheSolution}[1][\@empty]% prend un argument
+{%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police%
+    \ifx\@empty#1%
+    Solution de l'exercice~\arabic{exercice}%
+    \else #1\fi%
+    \@addpunct{.} }
+  \ignorespaces
+}{%
+\qed% met un carre a la fin de la solution
+}
+
+\newenvironment{solution}[1][\@empty]% on definit l'argument par defaut
+{%
+  \setcounter{cpartie}{0}% met le compteur partie a zero
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifcorrection% si l'affichage des solutions est active
+  \ifprof\color{couleur_prof}\fi
+  \begin{TheSolution}[#1]%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+    }{%
+  \ifcorrection%
+  \end{TheSolution}%
+  \else
+  \egroup
+  \fi
+}
+
+\newenvironment{TheSolutionpb}[1][\@empty]% prend un argument
+{
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police%
+    \ifx\@empty#1%
+    Solution du problème%
+    \else #1\fi%
+    \@addpunct{.} }
+  \ignorespaces
+}{%
+  \qed% met un carre a la fin de la solution
+}
+
+
+\newenvironment{solutionpb}[1][\@empty]% on definit l'argument par defaut
+{%
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifcorrection% si l'affichage des solutions est active
+  \begin{TheSolutionpb}[#1]%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifcorrection
+  \end{TheSolutionpb}%
+  \else
+  \egroup
+  \fi
+}%
+
+\newenvironment{TheSolution*}[1][\@empty]% prend un argument
+{%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police%
+    \ifx\@empty#1%
+    \else #1%
+    \@addpunct{.}\fi }
+  \ignorespaces
+}{%
+\nopagebreak\qed% met un carre a la fin de la solution
+}
+
+
+\newenvironment{solution*}[1][\@empty]% on definit l'argument par defaut
+{%
+  \setcounter{cpartie}{0}% met le compteur partie a zero
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifcorrection% si l'affichage des solutions est active
+  \begin{TheSolution*}[#1]%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifcorrection
+  \end{TheSolution*}%
+  \else
+  \egroup
+  \fi
+}%
+
+% == Indication ==%
+\newenvironment{TheIndication}[1][\@empty]% prend un argument
+{%
+  \par%
+  \vspace{2ex minus 1ex}%
+  \noindent%
+  {\police%
+    \ifx\@empty#1%
+    Indications pour l'exercice~\arabic{exercice}%
+    \else #1\fi%
+    \@addpunct{.} }
+  \ignorespaces
+}{%
+  \qed% met un carre a la fin de la solution
+}
+
+\newenvironment{indication}[1][\@empty]% on definit l'argument par defaut
+{%
+  \setcounter{cpartie}{0}% met le compteur partie a zero
+  \setcounter{cqu}{0}% met le compteur question a zero
+  \setcounter{csqu}{0}% met le compteur question a zero
+  \setcounter{cssqu}{0}% met le compteur question a zero
+  \ifindications% si l'affichage des solutions est active
+  \ifprof\color{couleur_prof}\fi
+  \begin{TheIndication}[#1]%
+    \else
+    \setbox\z@\vbox% on definit une boite vide
+    \bgroup
+    \fi
+  }{%
+    \ifindications
+  \end{TheIndication}%
+  \else
+  \egroup
+  \fi
+}
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Informatique %%%
+%%%%%%%%%%%%%%%%%%%%
+
+% Environnement~:~Cadre gris
+\newenvironment{essentiel}{%
+  \begin{center}\begin{lrbox}{\@tempboxa}%
+      \begin{minipage}{0.9\textwidth}%
+        \begin{center}
+        }%
+        {\end{center}\end{minipage}\end{lrbox}%
+    \colorbox{gris}{\usebox{\@tempboxa}}\end{center}%
+}
+
+% Environnement~:~Panneau attention
+\newenvironment{attention}%
+{\smallskip\par%
+  \dbend{}%
+  \nopagebreak%
+  \def\FrameCommand{\hspace{3em}}%
+  \MakeFramed {\vspace{-5ex}\advance\hsize-\width \FrameRestore}%
+}%
+{\smallskip\endMakeFramed}
+
+
+\newcommand{\sautdepage}{\ifeleve\ifenonce\newpage\fi\fi}
+
+\newcommand{\npagecorr}{\ifcorrection\newpage\fi}
+
+
+%%%%%%%%%%%%%%%%%%
+%%% Nouveautes %%%
+%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontawesome}
+\RequirePackage{tikz}
+\usetikzlibrary{trees}
+
+
+\newcommand{\dhat}{%
+\begin{tikzpicture}[scale=0.5]
+\draw[fill] plot coordinates {(0,0) (1,0.25) (0,0.5) (-1,0.25) (0,0)};
+\draw[fill] plot coordinates {(0.65,0.175) (0.65,-0.5) (-0.65,-0.5) (-0.65,0.175)};
+\draw[color=white] plot coordinates {(-1,0.2) (0,0) (1,0.2)};
+\draw[very thick] plot coordinates {(0.9,0.25) (0.9,-0.25)};
+\draw[fill]  (0.9,-0.2) circle (0.1);
+\draw[fill,color=white]  (-0.65,-0.52) -- (0,-0.52) arc(0:180:0.325) --cycle;
+\draw[fill,color=white]  (0,-0.52) -- (0.65,-0.52) arc(0:180:0.325) --cycle;
+\end{tikzpicture}
+}
+
+\newcommand{\cherry}{%
+\begin{tikzpicture}[scale=0.1]
+\draw [rotate=-45,fill=black]
+(0,0) .. controls +(0,1) and +(0,2) .. 
+(2,-0.5) .. controls +(0,-1) and +(1,0) ..
+(0,-2.5) .. controls +(-1,0) and +(0,-1) ..
+(-2,-0.5) .. controls +(0,2) and +(0,1) ..
+(0,0)
+;
+\draw [xshift=3.5cm, rotate=45,fill=black]
+(0,0) .. controls +(0,1) and +(0,2 ) .. 
+(2,-0.5) .. controls +(0,-1) and +(1,0) ..
+(0,-2.5) .. controls +(-1,0) and +(0,-1) ..
+(-2,-0.5) .. controls +(0,2) and +(0,1) ..
+(0,0)
+;
+\draw [very thick]
+(0,0) .. controls +(1,1) and +(-0.2,-2) ..
+(1.75,3);
+\draw [very thick]
+(3.5,0) .. controls +(-1,1) and +(0.2,-2) ..
+(1.75,3);
+\end{tikzpicture}
+}
+
+\newcommand{\spider}{
+\begin{tikzpicture}[scale=0.1, baseline={([yshift=-4.5ex]current bounding box.north)}]
+\newcommand{\shif}{(-0.5cm, 0.5cm)}
+% draw the spider
+% tete
+\draw[shift=\shif,rotate=190,fill=black] (0,0) circle(.65cm);
+% corps
+\draw[shift=\shif,rotate=190,fill=black] (0,1) circle(.9cm);
+% pattes gauche de l arriere vers l avant
+\draw[shift=\shif,rotate=190] (0,0) parabola (3,3);
+\draw[shift=\shif,rotate=190] (0,0) parabola (3,0.75);
+\draw[shift=\shif,rotate=190] (0,0) parabola (2,-1);
+\draw[shift=\shif,rotate=190] (0,0) parabola (2,-3);
+\draw[shift=\shif,rotate=190] (0.1,-0.95) arc (-90:90:0.4);
+% pattes droite de l arriere vers l avant
+\draw[shift=\shif,rotate=190] (0,0) parabola (-3,3);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-3,0.75);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-2,-1);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-2,-3);
+\draw[shift=\shif,rotate=190] (-0.1,-0.15) arc (-270:-90:0.4);
+% define coordinate for origin
+\path (0:0cm) coordinate (O);
+% draw the radius of the spiderweb
+\foreach \X in {1,...,7}{
+  \draw [opacity=0.2] ({-(\X)*360/7+90}:0) -- ({-(\X)*360/7+90}:5.5);
+}
+% draw the links
+\foreach \Y in {0,...,3}{
+  \foreach \X in {1,...,7}{
+    \draw [opacity=0.2] ({-(\X-1)*360/7+90}:{\Y*4/3+(\X-1)/7*4/3}) 
+    -- ({-(\X)*360/7+90}:\Y*4/3+\X/7*4/3);
+  };
+}
+\end{tikzpicture}
+}
+
+\newcommand{\programme}[1]{\vskip3ex{\bfseries\large #1\decoration{\dhat}}}
+
+\newcommand{\supplement}[1]{\vskip3ex{\bfseries\large #1\decoration{\cherry}}}

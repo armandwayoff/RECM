@@ -1,0 +1,533 @@
+%% This is file `alphabet.sty',
+%%  
+%% Copyright 2015 by Alain Camanes
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+ 
+\def\fileversion{11.02}
+\def\filedate{20 juillet 2015}
+\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\ProvidesPackage{alphabet}[2015/07/20]
+
+
+%== Pour afficher les codes Capytale
+\newcommand{\capytale}[1]{\textbf{Code Capytale}~:~\texttt{#1}}
+
+%== Pour taper des nombres numeriques
+\RequirePackage[locale = FR]{siunitx}
+
+%== Paquets à identifier ==%
+\newcommand{\Aff}{\mathscr{A}\kern-0.15em\textit{\scriptsize ff}}
+\newcommand{\Is}{\mathscr{Is}}
+\newcommand{\rddots}{\reflectbox{$\ddots$}}
+
+%%%%%%%%%%%%%%%%%
+%%% Alphabets %%%
+%%%%%%%%%%%%%%%%%
+
+% Raccourcis grecs
+\newcommand{\ag}{\alpha}
+\newcommand{\bg}{\beta}
+\newcommand{\Gg}{\Gamma}
+\newcommand{\gag}{\gamma}
+\newcommand{\Dg}{\Delta}
+\newcommand{\dg}{\delta}
+\newcommand{\eg}{\varepsilon}
+\newcommand{\zg}{\zeta}
+\newcommand{\hg}{\eta}
+\newcommand{\Tg}{\Theta}
+\newcommand{\tg}{\theta}
+\newcommand{\ig}{\iota}
+\newcommand{\kg}{\kappa}
+\newcommand{\Lg}{\Lambda}
+\renewcommand{\lg}{\lambda}
+\newcommand{\rg}{\rho}
+\newcommand{\Sg}{\Sigma}
+\newcommand{\sg}{\sigma}
+\newcommand{\Ug}{\Upsilon}
+\newcommand{\ug}{\upsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\Og}{\Omega}
+\newcommand{\omg}{\omega}
+
+% Raccourcis ensemblistes
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Hh}{\mathbb{H}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ss}{\mathfrak{S}}
+\newcommand{\Aa}{\mathfrak{A}}
+
+% Raccourcis lettres rondes
+\RequirePackage{mathrsfs}
+\renewcommand{\AA}{\mathscr{A}}
+\newcommand{\BB}{\mathscr{B}}
+\newcommand{\CC}{\mathscr{C}}
+\newcommand{\DD}{\mathscr{D}}
+\newcommand{\EE}{\mathscr{E}}
+\renewcommand{\FF}{\mathscr{F}}
+\newcommand{\GG}{\mathscr{G}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\II}{\mathscr{I}}
+\newcommand{\JJ}{\mathscr{J}}
+\newcommand{\KK}{\mathscr{K}}
+\newcommand{\LL}{\mathscr{L}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\NN}{\mathscr{N}}
+\newcommand{\OO}{\mathscr{O}}
+\newcommand{\PP}{\mathscr{P}}
+\newcommand{\QQ}{\mathscr{Q}}
+\newcommand{\RR}{\mathscr{R}}
+\renewcommand{\SS}{\mathscr{S}}
+\newcommand{\TT}{\mathscr{T}}
+\newcommand{\UU}{\mathscr{U}}
+\newcommand{\VV}{\mathscr{V}}
+\newcommand{\ZZ}{\mathscr{Z}}
+
+% Pour avoir de grandes tildes
+\renewcommand{\tilde}{\widetilde}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% Environnements %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+% Pour avoir de grands tableaux
+\newenvironment{disarray}%
+ {\everymath{\displaystyle\everymath{}}\array}%
+ {\endarray}
+
+% Encadrements
+\newenvironment{encadrement}{\begin{disarray}{rcccl}}{\end{disarray}}
+
+% Systemes lineaires
+\RequirePackage{array}
+\newenvironment{systeme}{\left\{ \! \begin{array}{r @{\,}c @{\,} l @{\;}>{\scriptstyle}l}}{\end{array}\right.}
+\newcommand{\ot}{\leftarrow}
+
+
+
+%%%%%%%%%%%%%%%
+%%% Logique %%%
+%%%%%%%%%%%%%%%
+\newcommand{\init}{\par{\police Initialisation.~}}
+\newcommand{\hr}{{\par\police Hérédité.~}}
+\newcommand{\ccl}{\par{\police Conclusion.~}}
+
+% Ensembles
+\newcommand{\privede}{\backslash}
+\newcommand{\dcup}{\bigcup\limits}
+\newcommand{\dsqcup}{\bigsqcup\limits}
+\newcommand{\dcap}{\bigcap\limits}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+
+% Logique
+\newcommand{\tq}{~;~}
+\newcommand{\pourtout}{\forall~}
+\newcommand{\existe}{\exists~}
+\newcommand{\unique}{\exists\;!~}
+\newcommand{\implique}{~\Rightarrow~}
+\newcommand{\non}{\textsc{non}~}
+\newcommand{\et}{~\textsc{et}~}
+\newcommand{\ou}{~\textsc{ou}~}
+\newcommand{\nand}{~\textsc{nand}~}
+\newcommand{\nor}{~\textsc{nor}~}
+\newcommand{\xor}{~\textsc{xor}~}
+\newcommand{\equivaut}{~\Leftrightarrow~}
+
+% Arithmetiques
+\RequirePackage{stmaryrd}
+\newcommand{\entiers}[2]{\llbracket#1,#2\rrbracket}
+\DeclareMathOperator{\signe}{signe}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\val}{val}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\pgcd}[2]{#1 \wedge #2}
+\newcommand{\ppcm}[2]{#1 \vee #2}
+
+% Divers
+\newcommand{\stirling}[2]{\left\{\begin{matrix}#1\\#2\end{matrix}\right\}}
+
+
+%%%%%%%%%%%%%%%
+%%% Algebre %%%
+%%%%%%%%%%%%%%%
+
+% Relations d ordre
+\newcommand{\rel}{\preccurlyeq}
+% \DeclareMathOperator{\card}{Card}
+\newcommand{\card}[1]{\left| #1 \right|}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Calcul
+\newcommand{\dsum}{\sum\limits}
+\newcommand{\dprod}{\prod\limits}
+\DeclareMathOperator*{\dtimes}{\displaystyle\vartimes}
+
+% Nombres complexes
+\DeclareMathOperator{\iC}{i}
+\renewcommand{\mod}[1]{~\left[#1\right]}
+\renewcommand{\Re}[1]{\mathscr{R}\!e\left(#1\right)}
+\renewcommand{\Im}[1]{\mathscr{I}\!m\left(#1\right)}
+\renewcommand{\bar}{\overline}
+\renewcommand{\angle}{\widehat}
+\newcommand{\Ind}{\mathrm{Ind}}
+
+% Vecteurs
+\newcommand{\vu}{\vect{u}}
+\newcommand{\vv}{\vect{v}}
+\newcommand{\vw}{\vect{w}}
+\newcommand{\vt}{\vect{t}}
+\newcommand{\vi}{\vect{\imath}}
+\newcommand{\vj}{\vect{\jmath}}
+\newcommand{\vk}{\vect{k}}
+
+% Espaces vectoriels
+\newcommand{\vect}{\overrightarrow}
+\newcommand{\Gl}{\mathscr{G}\!\ell}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Rg}{Rg}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Vect}{Vect}
+\newcommand{\Mat}{\textrm{Mat}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Res}{Res}
+\newcommand{\ps}[2]{\langle#1,#2\rangle}
+% \newcommand{\trans}[1]{\vphantom{#1}^t \! #1}
+\newcommand{\trans}[1]{#1^T}
+\newcommand{\com}[1]{\vphantom{#1}^c \! #1}
+\DeclareMathOperator{\diag}{Diag}
+\newcommand{\indice}[2]{\renewcommand{\arraystretch}{0.5}\begin{array}{@{}c@{}} \scriptscriptstyle #1 \\ \scriptscriptstyle #2\end{array}\renewcommand{\arraystretch}{1}}
+
+\newcommand{\doplus}{\bigoplus\limits}
+
+\newcommand{\Sp}{\mathrm{Sp}}
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\Ann}{\textrm{Ann}}
+
+\newcommand{\oel}[1]{\quad {\scriptscriptstyle #1}}
+
+% Polynomes
+\renewcommand{\degre}{deg}
+\DeclareMathOperator{\lcoef}{cd}
+
+%%%%%%%%%%%%%%%
+%%% Analyse %%%
+%%%%%%%%%%%%%%%
+
+
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norme}[2][]{\left\lVert#2\right\rVert_{#1}}
+\newcommand{\sub}[2][]{\left\lvert\left\lvert\left\lvert#2\right\rvert\right\rvert\right\rvert_{#1}}
+\newcommand{\cond}[2][]{\mathrm{Cond}_{#1}\left(#2\right)}
+
+% Definition fonctions
+\newcommand{\fct}[5]{#1\,:\,#2 \to #3,\, #4 \mapsto #5}
+\newcommand{\Lip}{\LL\!{\it ip}}
+\newcommand{\Esc}{\EE\!{\it sc}}
+
+\newcommand{\dlim}{\lim\limits}
+\newcommand{\dsup}{\sup\limits}
+\newcommand{\dinf}{\inf\limits}
+\newcommand{\dmax}{\max\limits}
+\newcommand{\dmin}{\min\limits}
+
+\newcommand{\vabs}[1]{\left| #1 \right|}
+
+% Les fonctions usuelles
+\DeclareMathOperator{\argch}{Argch}
+\DeclareMathOperator{\argsh}{Argsh}
+\DeclareMathOperator{\argth}{Argth}
+\DeclareMathOperator{\cotan}{cotan}
+\DeclareMathOperator{\arccotan}{Acotan}
+\DeclareMathOperator{\e}{e}
+
+% Integration
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\diint}{\displaystyle \iint}
+\newcommand{\dt}{\:{\text d}t}
+\newcommand{\dx}{\:{\text d}x}
+\newcommand{\dy}{\:{\text d}y}
+\newcommand{\du}{\:{\text d}u}
+\newcommand{\dv}{\:{\text d}v}
+\newcommand{\ds}{\:{\text d}s}
+\newcommand{\dtg}{\:{\text d}\tg}
+\newcommand{\dr}{\:{\text d}r}
+\newcommand{\crochet}[3]{\left[#1\right]_{#2}^{#3}}
+
+% Derivation
+\newcommand{\difx}[1]{\frac{\partial #1}{\partial x}}
+\newcommand{\dify}[1]{\frac{\partial #1}{\partial y}}
+\newcommand{\difz}[1]{\frac{\partial #1}{\partial z}}
+\newcommand{\dift}[1]{\frac{\partial #1}{\partial t}}
+\newcommand{\difr}[1]{\frac{\partial #1}{\partial r}}
+\newcommand{\diftg}[1]{\frac{\partial #1}{\partial \tg}}
+
+
+
+\newcommand{\difxy}[1]{\frac{\partial^2 #1}{\partial x \partial y}}
+\newcommand{\difyx}[1]{\frac{\partial^2 #1}{\partial y \partial x}}
+\newcommand{\difxx}[1]{\frac{\partial^2 #1}{\partial x^2}}
+\newcommand{\difyy}[1]{\frac{\partial^2 #1}{\partial y^2}}
+\newcommand{\difzz}[1]{\frac{\partial^2 #1}{\partial z^2}}
+\newcommand{\difrr}[1]{\frac{\partial^2 #1}{\partial r^2}}
+\newcommand{\difrtg}[1]{\frac{\partial^2 #1}{\partial r \partial \tg}}
+\newcommand{\diftgr}[1]{\frac{\partial^2 #1}{\partial \tg \partial r}}
+\newcommand{\diftgtg}[1]{\frac{\partial^2 #1}{\partial \tg^2}}
+
+\newcommand{\Div}{\textrm{div}}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\Jac}{Jac}
+
+% Topologie
+\newcommand{\interieur}[1]{\overset{\circ}{#1}}
+\newcommand{\adh}[1]{\bar{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Probabilites %%%
+%%%%%%%%%%%%%%%%%%%%
+
+% Pour faire des indicatrices
+\RequirePackage{bbm}
+\newcommand{\indicatrice}[1]{\ensuremath{\mathbbm{1}_{#1}}}
+\newcommand{\comp}[1]{\overline{#1}}
+% \newcommand{\comp}[1]{\vphantom{#1}^c \! #1}
+
+% Probabilites
+\newcommand{\Prob}[1]{\mathbf{P}\left(#1\right)}
+\newcommand{\Probc}[2]{\mathbf{P}_{#2}\left(#1\right)}
+\newcommand{\Esp}[1]{\mathbf{E}\left[#1\right]}
+\newcommand{\Var}[1]{\mathbf{V}\left(#1\right)}
+\newcommand{\Cov}[2]{\mathrm{Cov}\left(#1, #2\right)}
+\newcommand{\loi}{\hookrightarrow}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Informatique %%%
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\commande}[1]{{\color{orange_sombre}\normalfont\tt #1}\index{{\tt #1}}}
+\RequirePackage{xspace}
+\newcommand{\Maple}{{\sf Maple}\xspace}
+\newcommand{\Caml}{{\sf Caml}\xspace}
+
+%============%
+%== Divers ==%
+%============%
+
+% Pour indexer les definitions
+\newcommand*{\defi}[1]{\emph{#1}\index{#1}}
+
+% Raccourcis algorithmique
+\RequirePackage{xspace}
+\newcommand*\Python{\textsf{Python}\xspace}
+\newcommand*\numpy{\textsf{Numpy}\xspace}
+\newcommand*\maple{\textsf{Maple}\xspace}
+\newcommand*\OCaml{\textsf{OCaml}\xspace}
+
+% Raccourcis commandes colorees
+\newcommand*{\light}[1]{{\color{rouge_sombre} #1}}
+\newcommand*{\slight}[1]{{\color{bleu_sombre} \it #1}}
+\newcommand*{\indic}[1]{\par\noindent{\small \it #1}}
+
+% Redefinition de la bibliographie
+\renewcommand*\@cite[2]{#1\if@tempswa , #2\fi}
+\renewcommand*{\@biblabel}[1]{}
+
+% Mise en valeur des resultats
+\newcommand*{\ressou}[1]{\underline{#1}}
+\newcommand*{\resenc}[1]{\begin{center}\boxed{#1}\end{center}}
+\newcommand*{\dapres}[1]{,\, \text{\small #1}}
+
+%============================%
+%== Environnements de code ==%
+%============================%
+\RequirePackage{listings}
+
+\lstset{
+     literate=%
+         {é}{{\'e}}1
+         {à}{{\`a}}1
+         {è}{{\`e}}1
+         {ù}{{\`u}}1
+         {â}{{\'a}}1
+         {ê}{{\'e}}1
+         {î}{{\^i}}1
+         {ô}{{\^o}}1
+         {û}{{\^u}}1
+}
+
+
+% Code Python encadre
+\lstnewenvironment{pcode_important}
+{
+\lstset{
+  language = Python,
+  showstringspaces=false,
+  tabsize=4,
+  commentstyle=\ttfamily,
+  basicstyle=\small\ttfamily,
+  keywordstyle =\bfseries,% underlined bold black keywords
+  backgroundcolor = \color{white},%
+  frame = single,%
+}
+}
+{}
+
+% Code Python
+\lstnewenvironment{pcode}
+{
+\lstset{
+language = Python,
+basicstyle=\small\color{black}, % print whole listing small
+keywordstyle=\bfseries,
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false,
+backgroundcolor=\color{gris_clair},
+commentstyle=\color{orange}\itshape\small,
+morecomment=[s]{"""}{"""},
+frame = single,
+escapeinside={*!}{!*},%
+% numbers = left,
+% numberstyle = \tiny,
+% numbersep = 1pt,
+}
+}
+{}
+
+% Code Caml
+\lstnewenvironment{ccode}
+{
+\lstset{
+language = Caml,
+basicstyle=\small\color{black}, % print whole listing small
+keywordstyle=\color{rouge_sombre},
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false,
+commentstyle=\color{orange}\itshape\small,
+backgroundcolor=\color{gris_clair},
+commentstyle=\color{orange}\itshape\small,
+morecomment=[s]{"""}{"""},
+frame = single,
+escapeinside={*!}{!*},%
+boxpos = c} % no special string spaces
+}
+{}
+
+
+% Code SQL
+\lstnewenvironment{scode}
+{
+\lstset{
+language = SQL,
+basicstyle=\small\color{black}\ttfamily, % print whole listing small
+keywordstyle=\color{rouge_sombre}, % underlined bold black keywords
+% stgringstyle=\ttfamily, % typewriter type for strings
+backgroundcolor=\color{gris_clair},
+frame = single,
+escapeinside={*!}{!*},%
+boxpos = c} % no special string spaces
+}
+{}
+
+% Code Bash
+\lstnewenvironment{bcode}
+{
+\lstset{
+language = bash,
+basicstyle=\footnotesize, % print whole listing small
+keywordstyle=\bfseries, %underlined bold black keywords
+stringstyle=\ttfamily, % typewriter type for strings
+backgroundcolor=\color{gris_clair},
+% frame = none,
+boxpos = c % no special string spaces
+}
+}
+{}
+
+%== Presentation ==%
+\RequirePackage{multicol}
+\raggedcolumns % Colonnes non justifiees verticalement
+\setlength\premulticols{1\baselineskip}
+\RequirePackage{multirow} % Complement pour tableaux
+
+% == Colonnes %==
+\newlength{\sep}
+
+\newenvironment{colonnes}[2][0]{
+  \setlength\sep{#1 pt}
+  \setlength{\columnseprule}{0.5\sep}
+  \vspace{-0.8em minus 0.2em}
+  \begin{multicols}{#2} % utilise l argument pour determiner le nombre de colonnes
+  }
+  {
+  \end{multicols}
+  \vspace{-0.5em minus 0.5em}
+}
+
+
+%%%%%%%%%%%%%%%%
+%%% Symboles %%%
+%%%%%%%%%%%%%%%%
+\newcommand{\araignee}{
+\begin{tikzpicture}[scale=0.1, baseline={([yshift=-4.5ex]current bounding box.north)}]
+\newcommand{\shif}{(-0.5cm, 0.5cm)}
+% draw the spider
+% tete
+\draw[shift=\shif,rotate=190,fill=white] (0,0) circle(.65cm);
+% corps
+\draw[shift=\shif,rotate=190,fill=white] (0,1) circle(.9cm);
+% pattes gauche de l arriere vers l avant
+\draw[shift=\shif,rotate=190] (0,0) parabola (3,3);
+\draw[shift=\shif,rotate=190] (0,0) parabola (3,0.75);
+\draw[shift=\shif,rotate=190] (0,0) parabola (2,-1);
+\draw[shift=\shif,rotate=190] (0,0) parabola (2,-3);
+\draw[shift=\shif,rotate=190] (0.1,-0.95) arc (-90:90:0.4);
+% pattes droite de l arriere vers l avant
+\draw[shift=\shif,rotate=190] (0,0) parabola (-3,3);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-3,0.75);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-2,-1);
+\draw[shift=\shif,rotate=190] (0,0) parabola (-2,-3);
+\draw[shift=\shif,rotate=190] (-0.1,-0.15) arc (-270:-90:0.4);
+% define coordinate for origin
+\path (0:0cm) coordinate (O);
+% draw the radius of the spiderweb
+\foreach \X in {1,...,7}{
+  \draw [opacity=0.2] ({-(\X)*360/7+90}:0) -- ({-(\X)*360/7+90}:5.5);
+}
+% draw the links
+\foreach \Y in {0,...,3}{
+  \foreach \X in {1,...,7}{
+    \draw [opacity=0.6] ({-(\X-1)*360/7+90}:{\Y*4/3+(\X-1)/7*4/3}) 
+    -- ({-(\X)*360/7+90}:\Y*4/3+\X/7*4/3);
+  };
+}
+\end{tikzpicture}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Mise en page %%%
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\puce}{{\tiny $\blacksquare$~}}
+\newcommand{\fleche}{$\color{rouge_sombre}\hookrightarrow\,$}
+\newcommand{\technique}{\resizebox{1em}{!}{\faGears}}
+\newcommand{\piege}{\resizebox{2em}{!}{\araignee}}
+% \newcommand{\cexemple}{\resizebox{2em}{!}{\araignee}}
+\newcommand*{\astuce}{{\rotatebox{20}{$\fgerightarrow$}}}% fleche sioux
+\newcommand*{\classique}{$\heartsuit$}% coeur

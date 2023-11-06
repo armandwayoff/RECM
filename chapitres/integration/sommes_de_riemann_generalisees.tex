@@ -1,3 +1,5 @@
+
+
 \begin{theo}{\textsc{Riemann}}
     \marginnote[0cm]{\cite{acamanes}}
     Pour tout entier naturel $n$ non nul, la \emph{somme de \textsc{Riemann}} associée à $f$ sur le segment $[a, b]$ est 
@@ -9,6 +11,8 @@
 \begin{marginfigure}[-3cm]
     \input{illustrations/i_integrale_de_riemann}
 \end{marginfigure}
+
+\todoinline{On ne gagne pas beaucoup avec continu par morceaux, il y a un seul exemple associé ci-dessous. Peut être regrouper avec l'exercice sur les fonctions décroissantes et intégrables sur $]0, 1]$ ?}
 
 \begin{preuve}
     
@@ -49,5 +53,7 @@ Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
     Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $[0, 1]$. Déterminer le réel $a$ tel que:
-    $$\int_0^1 f(t) \d t - \frac{1}{n} \sum_{k=1}^{n-1} f \left( \frac{k}{n} \right) =\limits_{n \to + \infty} \frac{a}{n} + o \left( \frac{1}{n} \right).$$
-\end{exercice}
+    $$\int_0^1 f(t) \d t - \frac{1}{n} \sum_{k=1}^{n-1} f \left( \frac{k}{n} \right) =\lim\limits_{n \to + \infty} \frac{a}{n} + o \left( \frac{1}{n} \right).$$
+    \end{exercice}
+
+\todoinline{Ça motive pour ajouter les théorèmes d'approximation des intégralles : rectangles gauche, médian, trapèze, Simpson ?}

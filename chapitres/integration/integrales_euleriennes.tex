@@ -101,6 +101,8 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
 
 \textcolor{red}{Ajouter un texte d'introduction}
 
+\todoinline{Pour le calcul de Wallis, utiliser la section précédente. Ça peut être rentable de mettre Wallis à part puis de l'utiliser d'une part pour l'intégrale de Gauss et d'autre part ici.}
+
 \begin{theo}{\textsc{Stirling}}
     $$n! \sim \left(\frac{n}{\e}\right)^n \sqrt{2 \pi n}$$
 \end{theo}
@@ -123,11 +125,16 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
 \end{elem_preuve}
 
 \subsection{L'intégrale de \textsc{Gauss} comme valeur particulière de la fonction Gamma}
-\marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
+
+%%% Commente par Alain car pb de compilation %%%
+% \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
 
 $$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t = 2 \int_0^{+ \infty} \e^{-u^2} \d u = \int_{- \infty}^{+ \infty} e^{-u^2} \d u.$$
 
 \subsection{Fonction bêta}
+
+\todoinline{Retrouver l'exercice de Maths II Centrale qui somme des quantités qui resemblent à ceci !}
+
 \begin{defi}{Fonction bêta}
     Pour tout $(p,q) \in \N^2$, on note
     $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$

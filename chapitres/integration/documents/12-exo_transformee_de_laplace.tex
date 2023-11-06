@@ -1,0 +1,159 @@
+\documentclass[oneside,11pt]{book}
+
+\ifdefined\correction
+  \usepackage[enonce, correction, td, poly]{style}
+\else
+  \usepackage[enonce, nosession, nocorrection, nosource, noconcours, eleve, poly]{style}
+\fi
+% \usepackage[eleve,poly]{style}
+
+% Raccourcis de langage perso
+\usepackage{old_alphabet}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%==========================================
+\title{Cours de PSI}
+\niveau{PSI}
+\author{A. Camanes}
+\date{\anneescolaire}
+\etablissement{Stanislas}
+\frontmatter
+% \maketitle
+\renewcommand{\labelitemi}{$\ast$}
+\renewcommand{\labelitemii}{$\star$}
+\renewcommand{\theenumi}{$(\roman{enumi})$}
+%==========================================
+
+\setcounter{exercice}{22}
+
+%============
+\supplement{Transformée de \cite{Laplace}}
+
+\begin{exercice}
+\source{Dunod - p.734 \& 736}
+Pour toute fonction $f \in \CC(\R_+,\R)$, on note, lorsqu'elle converge, $\LL(f)(p) = \dint_0^{+\infty} \e^{-p t} f(t) \dt$. La fonction $\LL(f)$ est la transformée de~\cite{Laplace} de $f$.
+
+\qu Soient $\lg \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~\cite{Laplace} en précisant son domaine de définition :
+\begin{colonnes}{3}
+\squ $t \mapsto 1$.
+\squ $t \mapsto \e^{\lg t}$.
+\squ $t \mapsto t^n$.
+\end{colonnes}
+
+\qu On suppose que $f$ est bornée. Montrer que $\LL(f)$ est définie et de classe $\CC^\infty$ sur $\R_+^*$.
+
+\qu \gras{Théorème de la valeur finale.} On suppose qu'il existe un réel $\ell$ non nul tel que $\dlim_{+\infty} f(x) = \ell$. Déterminer un équivalent de $\LL(f)$ en $0$.
+
+\medskip
+On suppose $f$ continue uniquement sur $\R_+^*$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. 
+
+\qu Montrer que $\LL(f)$ est définie et continue sur $]p_0,+\infty[$.
+
+\qu \gras{Théorème de la valeur initiale.} On note $\ell = \dlim_{t\to0^+} f(t)$. Déterminer la limite de $p \mapsto p \LL(f)(p)$ en $+\infty$.
+\end{exercice}
+
+\begin{solution}
+\Qu $t \mapsto \e^{-pt}$ est intégrable sur $\R_+$ si et seulement si $p > 0$. Alors, $\LL(f)(p) = \dint_0^{+\infty} \e^{-pt} \dt = \frac{1}{p}$.
+
+\squ $t \mapsto \e^{-(\lg-p)t}$ est intégrable sur $\R_+$ si et seulement si $p > \Re{\lg}$. Alors, $\LL(f)(p) = \dint_0^{+\infty} \e^{-(p-\lg)t} \dt = \frac{1}{p-\lg}$.
+
+\squ Soit $n \in \N^*$ et $f_n : t \mapsto t^n \e^{-pt}$.
+\begin{itemize}
+\item $f_n$ est continue sur $\R_+^*$.
+\item Si $p > 0$, alors $f(t) = o_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\R_+^*$.
+
+Si $p \leq 0$, alors $\dlim_{+\infty} f = +\infty$ et $f$ n'est pas intégrable sur $\R_+^*$.
+\end{itemize}
+Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classique avec des intégrations par parties permet de montrer que
+\[
+\LL(f)(p) = \frac{n!}{p^{n+1}}.
+\]
+
+\gras{Remarque.} À un changement de variable près, on retrouve la fonction $\Gg$ d'Euler.
+
+\qu La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $g : (p, t) \mapsto f(t) \e^{-pt}$.
+\begin{itemize}
+\item Pour tout $t \in \R_+^*$, $g(\cdot, t) : p \mapsto \e^{-p t} f(t)$ est de classe $\CC^\infty$ sur $\R_+^*$ et
+\[
+\pourtout j \in \N,\, \frac{\partial^j g}{\partial p^j} g(p, t) = (-1)^j t^j f(t) \e^{-pt}.
+\]
+
+\item Pour tout $p > 0$, $g(p, \cdot) : t \mapsto (-1)^j t^j \e^{-p t} f(t)$ est continue sur $[0,+\infty[$.
+
+\item Soit $\tilde{p} > 0$. Alors, pour tout $p \geq \tilde{p}$,
+\[
+\abs{(-1)^j t^j f(t) \e^{-p t}} \leq M t^j \e^{- \tilde{p} t} M.
+\]
+De plus, $\phi_j : t \mapsto M t^j \e^{-\tilde{p} t}$ est continue sur $\R_+$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
+\end{itemize}
+Ainsi, $\LL(f)$ est de classe $\CC^\infty$ sur $\R_+^*$.
+
+\qu Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après la question précédente, $\LL(f)$ est bien définie sur $\R_+^*$.
+
+\smallskip
+
+
+On effectue le changement de variable affine $\phi : u \mapsto \frac{u}{p}$. Alors,
+\[
+p \LL(f)(p) = \dint_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \du.
+\]
+Soit $(p_n)$ une suite de réels strictement positifs qui tend vers $0$ et $g_n : u \mapsto \e^{-u} f(u/p_n)$.
+\begin{itemize}
+\item Pour tout $n \in \N$, $g_n$ est continue sur $\R_+$.
+
+\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\dlim_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, $(g_n)$ converge simplement sur $\R_+^*$ vers $u \mapsto \e^{-u} \ell$.
+
+\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leq M \e^{-u}$ et $u \mapsto \e^{-u}$ est intégrable sur $\R_+^*$.
+\end{itemize}
+Ainsi, d'après le théorème de convergence dominée,
+\[
+\dlim_{n\to+\infty} p_n \LL(f)(p_n) = \ell \dint_0^{+\infty} \e^{-u} \du.
+\]
+En utilisant la caractérisation séquentielle de la limite,
+\[
+\dlim_{p\to 0} p \LL(f)(p) = \ell \text{ soit } \LL(f)(p) \sim_0 \frac{\ell}{p}.
+\]
+
+\qu Soit $g : (p, u) \mapsto f(u) \e^{-p u}$.
+\begin{itemize}
+\item $\pourtout t \in \R_+^*,\, g(\cdot, u)$ est continue sur $]p_0, +\infty[$.
+
+\item $\pourtout p > p_0,\, g(p, \cdot)$ est continue sur $\R_+^*$.
+
+\item Soit $\tilde{p} > p_0$. Pour tout $p \geq \tilde{p}$ et $t \in \R_+^*$,
+\[
+\abs{\e^{-p t} f(t)} \leq \e^{- \tilde{p} t} \abs{f(t)}.
+\]
+De plus, $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\R_+^*$ par hypothèse.
+\end{itemize}
+D'après le théorème de continuité sous le signe intégral, $\LL(f)$ est continue sur $]p_0, +\infty[$.
+
+\qu Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
+
+\smallskip
+
+Sinon, on raisonne à coup de $\eg$. Soit $\eg > 0$. Comme $\dlim_{0^+} f = \ell$, il existe $h > 0$ tel que
+\[
+\pourtout t \in ]0, h],\, \abs{f(t) - \ell} \leq \eg.
+\]
+Alors, pour $p > p_0 + 1$ et $\tilde{p} = p_0 + \frac{1}{2}$,
+\begin{align*}
+\abs{p \LL(f)(p) - \ell} &\leq \dint_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \dt \\
+&\leq \dint_0^h p \abs{f(t) - \ell} \e^{-pt} \dt + \dint_h^{+\infty} p \abs{f(t) - \ell} \e^{-pt} \dt\\
+&\leq \eg \left(1 - \underbrace{\e^{-p h}}_{\geq 0}\right)
++ p \dint_h^{+\infty} \abs{f(t)} \e^{-p t} \dt
++ p \dint_h^{+\infty} \abs{\ell} \e^{- p t} \dt \\
+&\leq \eg
++ \dint_h^{+\infty} \abs{f(t)} \e^{-(p-\tilde{p})t - \tilde{p} t} \dt + \abs{\ell} \e^{-p h}\\
+&\leq \eg + p \underbrace{\e^{-(p - \tilde{p}) h}}_{\to 0} \underbrace{\abs{\dint_0^{+\infty} \abs{f(t)} \e^{-\tilde{p} t} \dt}}_{cte} + \abs{f(0)} \e^{-ph} \\
+&\leq 3 \eg,
+\end{align*}
+pour $p$ assez grand. Ainsi, d'après la définition de la limite,
+\[
+\dlim_{p\to +\infty} p \LL(p) = \ell.
+\]
+\end{solution}
+\end{document}

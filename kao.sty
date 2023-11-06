@@ -1012,17 +1012,18 @@
 \ifxetexorluatex
 	\RequirePackage{amssymb} % Must be loaded before unicode-math
 	\RequirePackage[force]{filehook} % Fixes an error
-	\RequirePackage{unicode-math} % Math fonts in xetexorluatex
-    \setromanfont[
-		Scale=1.04
-	]{Libertinus Serif}
-	\setsansfont[
-		Scale=1
-	]{Libertinus Sans}
-	\setmonofont[
-		Scale=.89
-	]{Liberation Mono}
-	\setmathfont{Libertinus Math}
+        %%% Modifie par Alain car pb avec Libertinus %%%
+	% \RequirePackage{unicode-math} % Math fonts in xetexorluatex
+    % \setromanfont[
+		% Scale=1.04
+	% ]{Libertinus Serif}
+	% \setsansfont[
+		% Scale=1
+	% ]{Libertinus Sans}
+	% \setmonofont[
+		% Scale=.89
+	% ]{Liberation Mono}
+	% \setmathfont{Libertinus Math}
     \ifluatex
     \else
         \RequirePackage{morewrites} % Fix some errors related to floats

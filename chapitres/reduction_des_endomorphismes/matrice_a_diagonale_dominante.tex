@@ -66,17 +66,19 @@
     Ci-dessous sont représentés ses disques de \textsc{Gerschgorin} et les croix correspondent à ses valeurs propres.
 }
 
-\begin{marginfigure}
-    \centering
-    \input{illustrations/i_disques_de_gerschgorin}
-\end{marginfigure}
+%%% Commente par Alain car pb de compilation %%%
+
+% \begin{marginfigure}
+    % \centering
+    % \input{illustrations/i_disques_de_gerschgorin}
+% \end{marginfigure}
 
 \begin{corol}
     Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On note
-    \begin{equation*}
-        E &\defeq \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg) \quad
+    \begin{align*}
+        E &\defeq \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg) \quad\\
         E' &\defeq \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{j \not = i} |a_{j, i}| \Bigg).
-    \end{equation*}
+    \end{align*}
     Alors,
     $$\Sp(A) \subset E \cap E'.$$
 \end{corol}

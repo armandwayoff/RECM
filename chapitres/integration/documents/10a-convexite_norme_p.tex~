@@ -1,0 +1,115 @@
+\titre{Convexité \& Normes $p$}
+\entete
+\begin{refsection}
+%%%%%%%
+
+\begin{probleme*}
+%=======
+\partie{Convexité}
+Soient $I$ un intervalle de $\R$ et $f : I \to \R$. La fonction $f$ est \defi{convexe} si
+\[
+\pourtout (x, y) \in I^2,\, \pourtout t \in [0, 1],\, f\left(t x + (1 - t) y\right) \leq t f(x) + (1 - t) f(y).
+\]
+La fonction $f$ est \defi{concave} si $-f$ est convexe.
+
+\qu Montrer que les fonctions affines sont convexes.
+
+\qu Montrer que la courbe représentative d'une fonction convexe se situe toujours au-dessous de chacune de ses cordes.
+
+\qu Montrer, par une récurrence soigneuse, l'inégalité de \cite{Jensen} : si $f$ est convexe, alors
+\[
+\pourtout n \in \N^\ast,\, \pourtout (x_i)_{i\in\entiers{1}{n}} \in I^n,\, \pourtout (\lg_i)_{i\in\entiers{1}{n}} \in [0,1]^n,
+\]
+\[
+\left[\dsum_{i=1}^n \lg_i = 1 \implique f\left(\dsum_{i=1}^n \lg_i x_i\right) \leq \dsum_{i=1}^n \lg_i f(x_i)\right].
+\]
+
+\qu \gras{Croissance du taux d'accroissement.} Pour tout $x_0 \in I$, on pose $\fct{\tau_{x_0}}{I\privede\ens{x_0}}{\R}{x}{\frac{f(x) - f(x_0)}{x - x_0}}$.
+\squ On suppose que, pour tout $x_0 \in I$, $f_{x_0}$ est croissante. En utilisant la croissance de $\phi_{x_0}$ sur $x < \lg x + (1 - \lg) y < y$ (réels à choisir convenablement), montrer que $f$ est convexe.
+
+\squ On suppose que $f$ est convexe. En utilisant l'inégalité de convexité en $x_0 < x = \lg x_0 + (1 - \lg) y < y$, montrer que $\phi_{x_0}$ est croissante sur $]x_0,+\infty[ \cap I$.\\
+On montre de manière analogue que $\phi_{x_0}$ est croissante sur $I \privede \ens{x_0}$.
+
+\newpage
+
+\qu \gras{Caractérisation dérivable.}
+\squ On suppose que $f$ est une fonction dérivable sur $I$. En utilisant la croissance du taux d'accroissement, montrer que $f$ est convexe si et seulement si $f'$ est croissante sur $I$.
+
+\squ En déduire que la courbe représentative d'une fonction convexe se situe toujours au-dessus de ses tangentes.
+
+\qu \gras{Caractérisation deux fois dérivable.} On suppose que $f$ est une fonction deux fois dérivable sur $I$. Montrer que $f$ est convexe si et seulement si $f''$ est positive sur $I$.
+
+\Qu En déduire que les fonctions $\exp$ et $\sin$ sont convexes et que la fonction $\ln$ est concave, sur des ensembles à préciser.
+
+\squ En déduire que
+\begin{align*}
+e^x &\geq 1 + x,\, \pourtout x \in \R.\\
+\frac{2}{\pi}x \leq \sin(x) &\leq x,\, \pourtout x \in \left[0,\frac{\pi}{2}\right].\\
+\ln(1 + x) &\leq x,\, \pourtout x \in ]-1,+\infty[.
+\end{align*}
+
+\qu En déduire l'inégalité arithmético-géométrique :
+\[
+\pourtout n \geq 2,\, \pourtout (x_1,\ldots,x_n) \in \R_+^n,\, \sqrt[n]{x_1 \cdots x_n} \leq \frac{x_1 + \cdots + x_n}{n}.
+\]
+
+% \sautdepage
+
+%=======
+\partie{Inégalités de \cite{Holder}}
+
+Soient $p,\, q \in ]1,+\infty[$ tels que $\frac{1}{p} + \frac{1}{q} = 1$. Les inégalités de \cite{Holder} que nous allons établir généralisent les inégalités de \cite{Cauchy}-\cite{Schwarz}.
+
+\smallskip
+
+Soient $n \in \N^\star$ et $x = (a_i)_{i\in\entiers{1}{n}}$ et $y = (b_i)_{i\in\entiers{1}{n}}$ deux familles de réels strictement positifs et $f$, $g$ sont des fonctions continues sur un intervalle borné $I$ dans $\R_+^*$. On notera $\LL^p(I, \R)$ l'ensemble des fonctions $f$ continues sur $I$ telles que $\abs{f}^p$ soit intégrable sur $I$.
+
+\qu Montrer que pour tout $(u, v) \in (\R_+^*)^2$,
+\[
+\ln(u v) \leq \ln \left\{ \frac{1}{p} u^p + \frac{1}{q} v^q \right\}.
+\]
+
+\qu Montrer que
+\[
+\abs{\dsum_{i=1}^n (a_i b_i)} \leq
+\left( \sum_{i=1}^n a_i^p \right)^{\frac{1}{p}} \cdot \left( \sum_{i=1}^n b_i^q \right)^{\frac{1}{q}}.
+\]
+
+\qu Montrer que
+\[
+\abs{\dint_I f g} \leq \left(\dint_I \abs{f}^p\right)^{1/p} \left(\dint_I \abs{g}^p\right)^{1/p}.
+\]
+En déduire que le produit d'une fonction $\LL^p$ par une fonction $\LL^q$ est dans $\LL^1$ (on rappelle que $\frac{1}{p} + \frac{1}{q} = 1$.
+
+%=======
+\partie{Inégalité de \cite{Minkowski}}
+
+On reprend les notations précédentes. On note $\norme[p]{x} = \left(\dsum_{i=1}^p \abs{a_i}^p\right)^{1/p}$ et $\norme[p]{f} = \left(\dint_I \abs{f}^p\right)^{1/p}$.
+
+\qu Montrer que si $a$ et $b$ sont des réels, alors
+\[
+\abs{a + b}^p \leq (\abs{a} + \abs{b}) \abs{a + b}^{p-1}.
+\]
+
+\Qu En étudiant $\norme[p]{x + y}^p$, montrer que
+\[
+\norme[p]{x + y} \leq \norme[p]{x} + \norme[p]{y}.
+\]
+
+\squ En déduire que $\norme[p]{\cdot}$ est une norme sur $\R^n$.
+
+\squ Déterminer $\dlim_{p\to+\infty} \norme[p]{x}$.
+
+\Qu En étudiant $\norme[p]{f + g}^p$, montrer que
+\[
+\norme[p]{f + g} \leq \norme[p]{f} + \norme[p]{g}.
+\]
+
+\squ En déduire que $\norme[p]{\cdot}$ est une norme sur $\CC(I, \R)$.
+
+\squ Montrer que $\LL^p(I,\R)$ est un espace vectoriel normé.
+
+\squ Déterminer $\dlim_{p\to+\infty} \norme[p]{f}$.
+\end{probleme*}
+\printbibliography[title={Mathématiciens}, heading=subbibliography]
+\end{refsection}

@@ -204,19 +204,22 @@ On déduit des propositions \textcolor{red}{4.6} et \textcolor{red}{4.7} le rés
     Soit $A \in \M_n(\K)$. Si pour tout $k \in \llbracket 1, n-1 \rrbracket, \Tr(A^k) = 0$ alors la matrice $A$ est nilpotente ou diagonalisable.
 \end{prop}
 
-\marginnote[0cm]{(\url{https://fr.wikipedia.org/wiki/Polynôme_caractéristique#Coefficients})
-$$\note \det(X \I_n - M) = X^n - f_1(M) X^{n-1} + \cdots + (-1)^n f_n(M)$$
-où, en notant $(\lambda_1, \dots, \lambda_n)$ les valeurs propres de $M$ prises avec multiplicité,
-$$f_k(M) = s_k(\lambda_1, \dots, \lambda_n)$$
-où $s_k$ désigne le $k$-ème polynôme symétrique élémentaire. \\
-Grâce aux identités de \textsc{Newton}, les coefficients $f_k(M)$ s'expriment comme des fonctions polynomiales des sommes de \textsc{Newton} des valeurs propres:
-$$\sum_{i=1}^n \lambda_i^j = \Tr(M^j).$$
-}
+%%% Commente par Alain car pb de compilation %%%
+% \marginnote[0cm]{(\url{https://fr.wikipedia.org/wiki/Polynôme_caractéristique#Coefficients})
+% $$\note \det(X \I_n - M) = X^n - f_1(M) X^{n-1} + \cdots + (-1)^n f_n(M)$$
+% où, en notant $(\lambda_1, \dots, \lambda_n)$ les valeurs propres de $M$ prises avec multiplicité,
+% $$f_k(M) = s_k(\lambda_1, \dots, \lambda_n)$$
+% où $s_k$ désigne le $k$-ème polynôme symétrique élémentaire. \\
+% Grâce aux identités de \textsc{Newton}, les coefficients $f_k(M)$ s'expriment comme des fonctions polynomiales des sommes de \textsc{Newton} des valeurs propres:
+% $$\sum_{i=1}^n \lambda_i^j = \Tr(M^j).$$
+% }
 
 \begin{preuve}
     \textcolor{red}{à revoir} \\
     \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 114}
-    D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines \note, le polynôme caractéristique de la matrice $A$ a pour expression
+    D'après les formules des sommes de \textsc{Newton} et les relations coefficients-racines
+    % \note
+    , le polynôme caractéristique de la matrice $A$ a pour expression
     $$\chi_A = X^n + (-1)^n \det(A).$$
     Si $\det(A) = 0$, le théorème de \textsc{Cayley}-\textsc{Hamilton} assure que $A$ est nilpotente. Sinon, le polynôme caractéristique est scindé à racines simples donc $A$ est diagonalisable (et d'ailleurs, toutes les valeurs propres ont le même module).
 \end{preuve}

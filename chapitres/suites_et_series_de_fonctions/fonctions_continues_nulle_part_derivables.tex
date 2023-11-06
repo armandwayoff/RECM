@@ -33,7 +33,7 @@ On note $E$ l'ensemble des fonctions continues sur $[0, 1]$ et $F$ l'ensemble de
     \item[$\rhd$] \textbf{Continuité.} La fonction $\Delta$ est minimale sur $\N$ où elle vaut $0$, et est maximale sur $\N + \frac{1}{2}$ où elle vaut $\frac{1}{2}$, d'où $\Ninf{\Delta} \leqslant \frac{1}{2}$ et donc $\Ninf{\Delta_n} \leqslant \frac{1}{2^{n+1}}$. Les fonction $\Delta_n$ étant continues et $\sum \Delta_n$ convergeant normalement, la fonction $W$ est continue. 
     \item[$\rhd$] \textbf{Non-dérivabilité.} Soit $x \in [0, 1]$. On note, pour tout $p \in \N$, 
     $$x_p \defeq \frac{\lfloor 2^p x \rfloor}{2^p} \text{ et } y_p \defeq x_p + \frac{1}{2^p}.$$ 
-    Étudions la limite de $\limits \frac{W(x_p) - W(y_p)}{x_p - y_p}$ quand $p$ tend vers $+ \infty$:
+    Étudions la limite de $\frac{W(x_p) - W(y_p)}{x_p - y_p}$ quand $p$ tend vers $+ \infty$:
     \begin{itemize}
         \item Si $n \geqslant p$, alors $2^n x_p$ et $2^n y_p$ sont des entiers. Donc $\Delta_n(x_p) = \Delta_n(y_p) = 0$ et $\frac{\Delta_n(x_p) - \Delta_n(y_p)}{x_p - y_p} = 0$.
         \item Si $n < p$, alors $x_p, y_p \in I_1 \defeq \left[ x_n, \frac{x_n + y_n}{2} \right]$ ou $x_p, y_p \in I_2 \defeq \left[ \frac{x_n + y_n}{2}, y_n \right]$. $\Delta_n$ a une pente $1$ sur $I_1$ et une pente $-1$ sur $I_2$. Donc $\frac{\Delta_n(x_p) - \Delta_n(y_p)}{x_p - y_p} = (-1)^{\lfloor 2^{n+1} x \rfloor}$. 
@@ -144,4 +144,5 @@ Pour approfondir :
 \begin{itemize}
     \item Intégrale à paramètre vs. série de fonctions
     \item Développements asymptotiques de sommes de séries de fonctions
-\end{itemize}
+    \end{itemize}
+    

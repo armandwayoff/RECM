@@ -9,7 +9,8 @@
 \newcommand{\Rm}{\R_-}
 \renewcommand{\Re}{\R^\star}
 \newcommand{\Rpe}{\Re_+}
-\newcommand{\C}{\mathbb{C}}
+%%% Ajout du re par Alain %%%
+\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Ce}{\C^\star}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\Ke}{\K^\star}
@@ -22,11 +23,17 @@
 
 \renewcommand{\d}{\, \mathrm{d}}
 
-% \newcommand{\norme}[1]{\Vert #1 \Vert}
+\newcommand{\norme}[1]{\Vert #1 \Vert}
+%%% Ajout par Alain car definition manquante %%%
+\newcommand{\Ninf}[1]{\Vert #1 \Vert_\infty}
 
 % Complexes
-\DeclareMathOperator{\Reel}{\mathfrak{Re}}
-\DeclareMathOperator{\Imaginaire}{\mathfrak{Im}}
+% \DeclareMathOperator{\Reel}{\mathfrak{Re}}
+% \DeclareMathOperator{\Imaginaire}{\mathfrak{Im}}
+%%% Modifie par Alain car pb de compilation %%%
+\DeclareMathOperator{\Reel}{\mathscr{Re}}
+\DeclareMathOperator{\Imaginaire}{\mathscr{Im}}
+
 
 \newcommand{\ptnclegras}[1]{\textbf{#1}}
 \newcommand{\ptnclecadre}[1]{\boxed{#1}}
@@ -47,7 +54,8 @@
 }
 \newcommand{\DeclareMathOperators}{\forcsvlist{\DeclareMyOperator}}
 
-\DeclareMathOperators{Rg,Ker,Vect,Sp,Tr,com,Diag,Mat,det} % conflit entre physics et Tr
+%%% Modifie par Alain : suppression de Tr, det dans la liste car conflit %%%
+\DeclareMathOperators{Rg,Ker,Vect,Sp,com,Diag,Mat} % conflit entre physics et Tr
 
 % Probas
 \newcommand{\E}{\mathbf{E}}

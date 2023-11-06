@@ -1,0 +1,193 @@
+\documentclass[oneside,11pt]{book}
+
+\ifdefined\correction
+  \usepackage[td, nobareme, nosession, noenonce, nosource, correction, exercice]{style}
+\else
+  \usepackage[td, bareme, enonce, nocorrection, exercice]{style}
+\fi
+% \usepackage[eleve,poly]{style}
+
+% Raccourcis de langage perso
+\usepackage{alphabet}
+
+% Bibliographie
+\addbibresource{../bio.bib}
+
+% Construction de l'index : taper makeindex nom_de_fichier.idx dans une fenetre de commande
+\usepackage{makeidx}
+\makeindex
+
+% Permet de ne pas sauter de page entre deux chapitres
+\renewcommand{\cleardoublepage}{\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\titre{Calculs approchés d'intégrales}
+\entete
+\begin{refsection}
+%%%%%%%
+
+\begin{probleme*}
+Dans tout le problème, $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\entiers{0}{p}}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \entiers{0}{p}$,
+\[
+x_i = a + i \frac{b-a}{p}.
+\]
+
+Une méthode d'intégration est d'\defi{ordre} au moins $n$ si elle est exacte sur les polynômes de degrés inférieurs ou égaux $n$ et non exacte pour au moins un polynôme de degré $n+1$.
+
+
+%========
+\partie{Méthode des rectangles à gauche}
+
+
+La méthode composée des rectangles à gauche consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles à gauche sur chacune de ces subdivisions :
+\begin{colonnes}{2}
+\[
+I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
+\]
+%
+\columnbreak
+%
+\begin{center}
+  \scalebox{0.3}{\input{figures/approx_rect_g.pdf_t}}
+\end{center}
+\end{colonnes}
+
+Dans toute cette partie, $f$ désigne une fonction de classe $\CC^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \dsup_{[a,b]} \abs{f'}$.
+\qu Montrer que, pour tout $i \in \entiers{0}{p-1}$,
+\[
+\abs{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leq \frac{M_1}{2} (x_{i+1}-x_i)^2.
+\]
+
+
+\qu En déduire que
+\[
+\abs{\int_{[a,b]} f - I_p^g(f)} \leq \frac{M_1 (b-a)^2}{2 p}.
+\]
+
+\qu Montrer que cette borne est atteinte pour $f : x \mapsto x - a$.
+
+\qu Montrer que la méthode des rectangles à gauche est d'ordre $0$.
+
+
+% Par ailleurs, lorsque $g~:~x \mapsto x - a$,
+% \begin{align*}
+% \int_{[a,b]} g - I_p^g(g) &= \int_a^b (x - a) \dx - \frac{b-a}{p} \sum_{i=0}^{p-1} \left(a + i \frac{b-a}{p} - a\right) \\
+    % &= \frac{(b-a)^2}{2} - \frac{(b-a)^2}{p^2} \cdot \frac{(p-1) p}{2} \\
+    % &= \frac{(b-a)^2}{2p}.
+% \end{align*}
+% \end{proof}
+  
+
+%=======
+\partie{Méthode des rectangles médians}
+
+La méthode composée des rectangles médians consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles médians sur chacune de ces subdivisions :
+\begin{colonnes}{2}
+\[
+I_p^m(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right).
+\]
+%
+\columnbreak
+%
+\begin{center}
+\scalebox{0.3}{\input{figures/approx_rect_m.pdf_t}}
+\end{center}
+\end{colonnes}
+
+Dans toute cette partie, $f$ désigne une fonction de classe $\CC^2$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_2 = \dsup_{[a,b]} \abs{f''}$. Pour tout entier $i \in \entiers{0}{p-1}$, on pose $\gag_i = \frac{x_i + x_{i+1}}{2}$
+
+\qu Soit $i \in \entiers{0}{p-1}$.
+\squ Montrer que
+\[
+(x_{i+1} - x_i) f(\gag_i) = \dint_{x_i}^{x_{i+1}} \left(f(\gag_i) + (t - \gag_i) f'(\gag_i) \right) \dt.
+\]
+
+\squ En déduire que
+\[
+\abs{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gag_i)}
+\leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
+\]
+
+\qu Montrer que
+\[
+\abs{\int_{[a,b]} f - I_p^m(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}
+\]
+
+\qu Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+
+\qu Montrer que la méthode des rectangles médians est d'ordre $1$.
+
+
+%======
+\partie{Méthode des trapèzes}
+
+La méthode composée des trapèzes consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des trapèzes sur chacune de ces subdivisions :
+\begin{colonnes}{2}
+\[
+I_p^t(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
+\]
+%
+\columnbreak
+%
+\begin{center}
+\scalebox{0.3}{\input{figures/approx_trap.pdf_t}}
+\end{center}
+\end{colonnes}
+
+On suppose dans cette partie que $f$ est une fonction de classe $\CC^2$ et on note $M_2 = \dsup_{[a,b]} \abs{f''}$. Pour tout $i \in \entiers{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
+
+\qu À l'aide d'intégrations par parties, montrer que, pour tout $i \in \entiers{0}{p-1}$,
+\[
+\dint_{x_i}^{x_{i+1}} f''(t) (t - x_i) (x_{i+1} - t) \dt = - 2 \dint_{x_i}^{x_{i+1}} g_i(t) \dt.
+\]
+
+\qu En déduire que
+\[
+\abs{\int_{[a,b]} f - I_p^t(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
+\]
+
+\qu Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+
+\qu Montrer que la méthode des trapèzes est d'ordre $1$.
+
+\qu Montrer que, lorsque $f'' \geq 0$ (en particulier lorsque $f$ est convexe), pour tout entier naturel $p$, $\dint_{[a,b]} f \leq I_p^t(f)$.
+
+\sautdepage
+
+%=======
+\partie{Méthode de \cite{Simpson}}
+
+La méthode composée de Simpson consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à approcher, sur chacune de ces subdivisions, la fonction $f$ par un polynôme de degré inférieur ou égal à $2$ :
+\[
+I_p^s(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
+\]
+
+\qu Soit $g \in \CC^5([a, b], \R)$ une fonction impaire. On note $K_5 = \dsup_{[a,b]} \abs{g^{(5)}}$. En utilisant la formule de \cite{Taylor} avec reste intégral pour $g$ et $g'$, montrer que
+\[
+\abs{g(x) - \frac{x}{3} (g'(x) + 2 g'(0))} \leq \frac{K_5}{180} \abs{x}^5.
+\]
+
+On suppose dans cette partie que $f$ est une fonction de classe $\CC^4$ sur le segment $[a, b]$. On pose $M_4 = \dsup_{[a,b]} \abs{f^{(4)}}$.
+
+\qu Montrer que, pour tout $i \in \entiers{0}{p-1}$,
+\[
+\abs{F(x_{i+1}) - F(x_i) - \frac{1}{6p} \left[ f(x_{i+1}) + f(x_i) + 4 f\left(\frac{x_{i+1}+x_i}{2}\right) \right]}
+\leq
+\frac{M_4 (x_{i+1} - x_i)^5}{2880}.
+\]
+
+\indic{Poser $g : t \mapsto F\left(\frac{x_{i+1}+x_i}{2}+t\right) - F\left(\frac{x_{i+1}+x_i}{2}-t\right)$.}
+
+\qu En déduire que
+\[
+\abs{I_p^s(f) - \dint_a^b f(t) \dt} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
+\]
+
+On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Ces méthodes sont appelées \defi{méthodes de \cite{Newton}-\cite{Cotes}}. Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. 
+\end{probleme*}
+
+\printbibliography[title={Mathématiciens}, heading=subbibliography]
+\end{refsection}
+\end{document}

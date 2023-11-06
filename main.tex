@@ -12,6 +12,7 @@
 \usepackage{anyfontsize} % Pour le titre de la page de couverture
 
 
+
 % Pour faire des pages blanches
 \usepackage{afterpage}
 \newcommand\pageblanche{
@@ -28,8 +29,8 @@
 % Load mathematical packages for theorems and related environments
 \usepackage[framed=true]{kaotheorems}
 
-% Load the package for hyperreferences
-\usepackage{kaorefs}
+%%%% Ajoute par Alain pour pouvoir compiler le kaorefs %%%%
+\usepackage[french]{babel}
 
 \input{math_packages}
 \input{root_packages}
@@ -38,6 +39,9 @@
 \input{env}
 % \usepackage[bitstream-charter]{mathdesign}
 % \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
@@ -49,6 +53,11 @@
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
 
+%%% Ajoute par Alain
+\usepackage{color}
+\usepackage{todonotes}
+\newcommand{\todoinline}[1]{\todo[color=green!40, bordercolor=red, inline]{#1}}
+
 %----------------------------------------------------------------------------------------
 \begin{document}
 
@@ -59,7 +68,17 @@
 % \titlehead{The \texttt{kaobook} class}
 % \subject{Use this document as a template}
 
-\title[Recueil des Exercices et Résultats Classiques de Mathématiques]{\fontsize{26pt}{28pt}\selectfont \textcolor{BlueViolet}{\textrm{\textsc{Recueil d'Exercices et Résultats Classiques de Mathématiques}}} \\ \vspace{0.6cm} \fontsize{16pt}{18pt}\selectfont \textrm{\textsl{de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques}} \\}
+\title[Recueil des Exercices et Résultats Classiques de Mathématiques]{
+\fontsize{26pt}{28pt}\selectfont
+\textcolor{BlueViolet}{\textrm{\textsc{
+Recueil d'Exercices et Résultats Classiques de Mathématiques
+}}}
+\\ \vspace{0.6cm}
+\fontsize{16pt}{18pt}\selectfont
+\textrm{\textsl{
+de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’illustrations, de remarques, de méthodes et de notes historiques
+}}
+\\}
 % \subtitle{}
 
 \author[Armand Wayoff]{Armand \textsc{Wayoff} \\ \url{https://armandwayoff.github.io/}}
