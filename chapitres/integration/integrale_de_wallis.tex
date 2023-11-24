@@ -53,6 +53,58 @@ Soit $p \in \N$. D'après la relation précédente,
     $$\sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1} = \frac{\arcsin x}{\sqrt{1-x^2}}.$$
 \end{prop}
 
+\begin{preuve}
+    Correction RECOPIEE (pour le cas impair) avec quelques précisions supplémentaires de \url{https://math-os.com/coefficient-binomial-central/} \\
+    Pour tout $x \in \interoo{-1}{1}$, 
+    \begin{align*}
+        \sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1} = \sum_{p=0}^\infty x^{2p+1} \int_0^{\pi/2} \cos(t)^{2p+1} \d t
+    \end{align*}
+    La série d'applications $\sum\limits_{p \geqslant 0} \Big[ t \mapsto x^{2p+1} \cos(t)^{2p+1} (t) \Big]$ converge normalement et donc uniformément car $\sum\limits_{p \geqslant 0} \norm{f_p(t)}_\infty = \sum\limits_{p \geqslant 0} x^{2p+1} < +\infty$ (sur $\interff{0}{\frac{\pi}{2}}$). Nous pouvons donc permuter la somme et l'intégrale :
+    \begin{align*}
+        \sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1} &= \int_0^{\pi/2} x\cos(t) \sum_{p=0}^\infty \Big(\big(x\cos(t) \big)^2 \Big)^p \d t \\
+        &= \int_0^{\pi/2} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
+    \end{align*}
+    On voit rapidement que le changement de variable $u = x \cos(t)$ ne permet pas d'aboutir mais ne remplaçant $\cos(t)^2$ par $1 - \sin(t)^2$ au dénominateur puis en posant $u = x \sin(t)$, il vient:
+    \begin{align*}
+        \sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1} &= \int_0^{\pi/2} \frac{x \cos(t)}{1 - x^2 + x^2 \sin(t)^2} \d t \\
+        &= \int_0^x \frac{1}{1 - x^2 + u^2} \d u \\
+        &= \frac{1}{\sqrt{1 - x^2}} \int_0^x \frac{\frac{1}{\sqrt{1 - x^2}}}{1 + \left(\frac{u}{\sqrt{1-x^2}}\right)^2} \d u \\
+        &= \frac{1}{\sqrt{1 - x^2}} \left[ \arctan \frac{u}{\sqrt{1 - x^2}} \right]^x_0 \\
+        &= \frac{1}{\sqrt{1 - x^2}} \arctan \frac{x}{\sqrt{1 - x^2}}
+    \end{align*}
+\marginnote[-5cm]{
+Montrons que pour tout $x \in \interoo{-1}{1}$
+\[
+\arctan \Big(\frac{x}{\sqrt{1-x^2}} \Big) = \arcsin(x).
+\]
+\begin{tikzpicture}[
+  my angle/.style={
+    every pic quotes/.append style={text=cyan},
+    draw=cyan,
+    angle radius=1cm,
+  }]
+  \coordinate (C) at (-1.5,-1);
+  \coordinate (A) at (1.5,-1);
+  \coordinate (B) at (1.5,1);
+  \draw (C) -- node[above] {$1$} (B) -- node[right] {$x$} (A) -- node[below] {$\sqrt{1-x^2}$} (C);
+  \draw (A) +(-.25,0) |- +(0,.25);
+  \pic [my angle, "$\alpha$"] {angle=A--C--B};
+  % \pic [my angle, "$\beta$"] {angle=C--B--A};
+\end{tikzpicture}
+}
+    Pour la cas pair,
+    \begin{align*}
+        \sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \int_0^{\pi/2} \frac{1}{1 - x^2 \cos(t)^2} \d t \\
+        &= \int_0^1 \frac{1}{1 - x^2 \left(\frac{1-u^2}{1+u^2}\right)^2} \frac{2}{1 + u^2} \d u \quad \text{en posant } u = \tan \frac{t}{2} \\
+        &= \int_0^1 \frac{1 + u^2}{(1 + u^2)^2 - x^2(1-u^2)^2} \d u \\
+        &= \int_0^1 \frac{1 + u^2}{(1 + u^2 - x(1-u^2))(1 + u^2 + x(1-u^2))} \d u \\
+        &= \frac{1}{2} \int_0^1 \left[ \frac{1}{1 + u^2 - x(1-u^2)} + \frac{1}{1 + u^2 + x(1-u^2)}\right] \d u \\
+        &= \frac{1}{2} \int_0^1 \left[\frac{1}{1 - x + (1+x)u^2} + \frac{1}{1 + x + (1-x)u^2} \right] \d u \\
+        &= \frac{1}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}} + \frac{1}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x-1}{x+1}}\\
+        \sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \frac{\pi}{2} \frac{1}{\sqrt{1-x^2}} \quad \text{car $\arctan x + \arctan \frac{1}{x} = \frac{\pi}{2}$ si $x > 0$}
+    \end{align*}
+\end{preuve}
+
 \begin{exercice}
     Soit $x \in ]0,1[$. Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$ puis $\sum\limits_{n=0}^\infty \Wallis_n x^n$.
 \end{exercice}
@@ -96,6 +148,36 @@ $$\int_0^{+ \infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
 \todoinline{Ajouter une preuve.}
 
 \todoarmand{Les exercices 4 et 5 de \url{http://exo7.emath.fr/ficpdf/fic00143.pdf} donnent les liens entre calcul de la surface de la sphère unité de $\R^n$, son volume, la fonction Gamma et les intégrales de Wallis.}
+
+Exercices recopiés : 
+
+\begin{exercice}
+\begin{enumerate}
+    \item Calculer $\int_{-\infty}^{+\infty} \e^{-x^2} \d x$. \\
+    \emph{Indication :} On pourra d'abord calculer $\int_{R^2} \e^{-(x^2 + y^2)} \d x \d y$ en passant en coordonnées polaires. 
+    \item \emph{Calcul de l'aire de la sphère unité de $\R^n$.} Soit $\mathscr{S}_{n-1} = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 = 1}$ la sphère unité de $\R^n$. On note $\mathscr{A}_{n-1}$ son aire. Calculer
+    \[
+    \int_{\R^n} \exp\left({-\sum\limits_{i=1}^n x_i{}^2}\right) \d x_1 \dots \d x_n
+    \]
+    en fonction de $\mathscr{A}_{n-1}$. En déduire l'expression de $\mathscr{A}_{n-1}$ en fonction de la fonction $\Gamma$ :
+    \[
+    \Gamma(s) \defeq \int_0^{+\infty} x^{s-1} \e^{-x} \d x.
+    \]
+    \item \emph{Calcul du volume de la boule unité de $\R^n$.} Soit $\mathscr{B}_n = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 \leqslant 1}$ la boule fermée de rayon $1$ dans $\R^n$. On note $\mathscr{V}_n$ son volume. Montrer que $\mathscr{V}_n = \frac{\mathscr{A}_{n-1}}{n}$. En déduire que:
+    \[
+    \mathscr{V}_n = \frac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1 \right)}.
+    \]
+    \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    \emph{Cet exercice fournit une autre méthode de calcul du volume de la boule unité $\mathscr{B}_n$ de $\R^n$ et de l'aire de la sphère $\mathscr{S}_{n-1} \subset \R^n$.} On conserve les notations de l'exercice précédent. 
+    \begin{enumerate}
+        \item Montrer que $\mathscr{V}_n = I_n \cdot \mathscr{V}_{n-1}$, où $I_n = \int_0^\pi \sin(t)^n \d t$. 
+        \item Vérifier que $I_n = \frac{n-1}{n}I_{n-2}$.
+    \end{enumerate}
+\end{exercice}
 
 \subsection{\textsc{Grain de raisin}: Produit de \textsc{Wallis}}
 
