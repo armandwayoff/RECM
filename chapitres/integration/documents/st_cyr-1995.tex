@@ -1,0 +1,30 @@
+\documentclass[oneside,11pt]{book}
+
+\ifdefined\correction
+  \usepackage[noenonce, correction, source, ds]{style}
+\else
+  \usepackage[enonce, nocorrection, ds]{style}
+\fi
+
+\usepackage{alphabet}
+
+\DeclareMathOperator{\lcoef}{cd}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\etablissement{Stanislas}
+\date{05 septembre 2020}
+\niveau{PSI}
+\module{DS~n°01}
+\titre{Devoir Surveillé}
+\soustitre{4h}
+\author{A. Camanes}
+% \deadline{}
+\entete
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\ast$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../../../archives-devoirs/sources/st_cyr-mp_pc-1995/saint_cyr-mp_pc-1995}
+
+\end{document}

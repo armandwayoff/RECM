@@ -3,13 +3,147 @@
     Soit $f : \Rp \to \R$ une fonction continue, décroissante et intégrable. Montrer que $x f(x) \xrightarrow[x \to +\infty]{} 0$.
 \end{exercice}
 
+\todoinline{On pourrait faire un dessin pour les  points 1 et 2 qui sont classique mais pas très bien compris en minorant/majorant l'aire sous $f$ par l'aire d'un rectangle. On peut aussi illustrer l'encadrement final.}
+
+
 \begin{elem_sol}
-\todoinline{Compléter cette démonstration ?}
+\begin{itemize}
+\item Comme $f$ est décroissante, d'après le théorème de la limite monotone, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
+
+\item Montrons par l'absurde que $f$ est positive. S'il existe $x_0 \geq 0$ tel que $f(x_0) < 0$, comme $f$ est décroissante,
+\[
+\forall\ x \geq x_0,\, f(x) \leq f(x_0).
+\]
+Ainsi,
+\[
+\forall\ x \geq x_0,\, \displaystyle\int_{x_0}^x f(t) \mathrm{d}t \leq f(x_0) (x - x_0).
+\]
+D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \mathrm{d}t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geq 0$.
+
+\item Supposons par l'absurde que $\ell > 0$. Alors, il existe un réel $A$ tel que
+\[
+\forall\ x \geq A,\, f(x) \geq \frac{\ell}{2}.
+\]
+Ainsi,
+\[
+\forall\ x \geq A,\, \displaystyle\int_A^x f(t) \mathrm{d}t \geq \frac{\ell}{2} (x - A).
+\]
+D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_A^x f(t) \mathrm{d}t = +\infty$, ce qui est impossible car $f$ est intégrable.
+
+Finalement, $\lim\limits_{x\to+\infty} f(x) = 0$.
+
+\item Soit $x \geq 0$. Comme $f$ est décroissante,
+\[
+\displaystyle\int_x^{2 x} f(t) \mathrm{d}t \leq (2 x - x) f(x).
+\]
+
+De même,
+\[
+\displaystyle\int_{x/2}^x f(t) \mathrm{d}t \geq \frac{x}{2} f(x).
+\]
+
+Ainsi,
+\[
+\displaystyle\int_x^{2 x} f(t) \mathrm{d}t \leq x f(x) \leq 2 \displaystyle\int_{x/2}^x f(t) \mathrm{d}t.
+\]
+En notant $F : x \mapsto \displaystyle\int_0^x f(t) \mathrm{d}t$, comme $F$ est intégrable, alors $F$ possède une limite finie en $+\infty$.
+
+Alors,
+\[
+F(2 x) - F(x) \leq x f(x) \leq 2 (F(x) - F(x/2)).
+\]
+
+Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
+\end{itemize}
+
 \begin{itemize}
 \item Montrer que $f$ tend vers 0 en utilisant sa décroissance et son intégrabilité. $f$ est donc à valeurs positives. 
 \item Encadrer $x f(x)$ en écrivant $x=2 \cdot \frac{x}{2}$.
 \end{itemize}
 \end{elem_sol}
 
-\todoinline{Concernant les fonctions décroissantes, on pourrait ajouter un exercice qui doit ressembler à (je ne l'ai jamais écrit...) : Soit $f$ décroissante, continue par morceaux et intégrable sur $]0, 1]$. Alors, $\lim\limits_{n\to+\infty} \sum\limits_{k=0}^n f\left(\frac{k}{n}\right) = \int_0^1 f(t) \ dt$. Il se prête à une illustration graphique ! Je mets dans un dossier un article qui contient ce résultat. J'ai un exercice d'oral qui utilise ce résultat. À chercher ?}
-    
+\todoinline{Ajouter une illustration avec une fonction type Riemann ?}
+
+\begin{exercice}
+    \marginnote[0cm]{Source : \cite{truc2019} p. 268}
+    Soit $f : ]0, 1] \to \R$ une fonction continue, décroissante et intégrable. Alors,
+    \[
+    \lim\limits \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+    \]
+\end{exercice}
+
+\begin{elem_sol}
+On note $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right)$.
+\begin{itemize}
+\item Soit $n \geq 1$. On utilise la décroissance de la fonction $f$, pour tout $k \leq t \leq k + 1 \leq n-1$,
+\begin{align*}
+\frac{1}{n} f\left(\frac{k+1}{n}\right) &\leq \displaystyle\int_{k/n}^{(k+1)/n} f(t) \mathrm{d}t \leq \frac{1}{n} f\left(\frac{k}{n}\right)\\
+\frac{1}{n} \sum\limits_{k=2}^{n} f\left(\frac{k}{n}\right) &\leq \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t \leq \frac{1}{n} \sum\limits_{k=1}^{n-1} f\left(\frac{k}{n}\right)\\
+R_n - \frac{1}{n} f\left(\frac{1}{n}\right) &\leq \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t \leq R_n - \frac{f(1)}{n}.
+\end{align*}
+
+Ainsi,
+\begin{align*}
+\displaystyle\int_{1/n}^1 f(t) \mathrm{d}t + \frac{f(1)}{n} &\leq R_n \leq \displaystyle\int_{1/n} f(t) \mathrm{d}t + \frac{1}{n}  f\left(\frac{1}{n}\right).
+\end{align*}
+
+\item Comme $f$ est décroissante et intégrable sur $]0, 1]$,
+\[
+\frac{1}{n} f\left(\frac{1}{n}\right) \leq \displaystyle\int_0^{1/n} f(t) \mathrm{d}t.
+\]
+
+\item Comme $f$ est intégrable sur $]0, 1]$,
+\[
+\lim\limits_{n\to+\infty} \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+\]
+\end{itemize}
+
+Ainsi, d'après le théorème d'encadrement,
+\[
+\lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+\]
+\end{elem_sol}
+
+
+\todoinline{On peut éventuellement ajouter l'exercice suivant. Il s'agit d'une somme de Riemann mais sur $[1, +\infty[$}
+%---------------
+
+\begin{exercice}
+\cite{RMS 888 2016 - ENSAM}
+Soit $f : x \mapsto \frac{1}{x \sqrt{x^2 - 1}}$ définie sur $]1, +\infty[$.
+\begin{enumerate}
+\item Étudier et tracer la fonction $f$.
+
+\smallskip
+Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac{1}{k \sqrt{k^2 - n^2}}$.
+\item Étudier la convergence et la limite de la suite $(S_n)$.
+
+\item Même question avec la suite $(n S_n)$.
+\end{enumerate}
+\end{exercice}
+
+\begin{elem_sol}
+\begin{enumerate}
+\item $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable.
+
+\item D'après la définition de $f$,
+\[
+S_n = \frac{1}{n^2} \sum\limits_{k=n+1}^{+\infty} f(k/n).
+\]
+Comme $f$ est décroissante, pour tout $t \in [k/n,(k+1)/n]$,
+\begin{align*}
+f((k+1)/n) &\leq f(t) \leq f(k/n) \\
+n^{-1} \sum\limits_{k=n+2}^{N+1} f(k/n) &\leq \displaystyle\int_{1+1/n}^{N/n} f(t) \mathrm{d}t \leq n^{-1} \sum\limits_{k=n+1}^{N} f(k/n).
+\end{align*}
+Comme $f(x) \sim_{+\infty} \frac{1}{x^2}$, la suite $(S_{n,N})_N$ est croissante et majorée par $\displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t$ qui est convergente. Ainsi, en passant à la limite dans l'inégalité,
+\begin{align*}
+n S_n - f((n+1)/n) &\leq \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t \leq n S_n \\
+\frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t &\leq S_n \leq \frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t + \frac{1}{n^2} f((n+1)/n).
+\end{align*}
+De plus, $f(x) \sim_1 \frac{1}{\sqrt{2 (x - 1)}}$, donc $f$ est intégrable en $1$ et $(S_n)$ converge vers $0$ car $f((n+1)/n) \sim n^{1/2}$.
+
+\item En reprenant l'encadrement précédent, $\left(n^{-1} f((n+1)/n)\right)$ converge toujours vers $0$ et $(n S_n)$ converge vers $\displaystyle\int_1^{+\infty} f(t) \mathrm{d}t$.
+
+\textbf{Remarque.} $\displaystyle\int^x f(t) \mathrm{d}t = - \arctan\frac{1}{\sqrt{x^2 - 1}}$ et $\displaystyle\int_1^{+\infty} f = \frac{\pi}{2}$.
+\end{enumerate}
+\end{elem_sol}

@@ -1,17 +1,21 @@
+\todoinline{Semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
+
 \begin{exercice}
-    Calculer $\displaystyle \int_0^\pi \ln(\sin t) \d t.$
+\cite{Oraux - CCP-PSI-2016}
+\begin{enumerate}
+\item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
+\item Calculer $I + J$ et en déduire $I$ et $J$.
+\end{enumerate}
+    % Calculer $\displaystyle \int_0^\pi \ln(\sin t) \d t.$
 \end{exercice}
 
+\todoinline{Ajouter une représentation graphique de la fonction ?}
+
 \begin{elem_sol}
-    $=-\pi \ln(2)$
-    \end{elem_sol}
+Soient $I = \int_0^{\pi/2} \ln(\sin(t)) \mathrm{d} t$ et $J = \int_0^{\pi/2} \ln(\cos(t)) \mathrm{d} t$.
 
-\todoinline{En mettre un peu plus sur la démo ? J'ai la version suivante à relire et changer les dt (CCP-PSI-2016) : Soient $I = \int_0^{\pi/2} \ln(\sin(t)) \ dt$ et $J = \int_0^{\pi/2} \ln(\cos(t)) \ dt$.
-1. Montrer que $I$ et $J$ sont convergentes et que $I = J$.
-2. Calculer $I + J$ et en déduire $I$ et $J$.
-
-Solution\\
-1. La fonction $t \mapsto \ln(\sin(t))$ est continue sur $]0,\pi/2]$. De plus,
+\begin{enumerate}
+\item La fonction $t \mapsto \ln(\sin(t))$ est continue sur $]0,\pi/2]$. De plus,
 \[
 \ln(\sin(t)) = \ln(t + o(t)) = \ln(t) + \ln(1 + o(1)) = o(\ln(t)).
 \]
@@ -19,11 +23,12 @@ Ainsi, $t \mapsto \ln(\sin(t))$ est intégrable en $0$.
 
 La formule de changement de variable, avec $\phi : u \mapsto \pi/2 - u$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
 
-2. Comme ces intégrales sont bien définies, en utilisant la relation de Chasles et la symétrie dans la dernière égalité,
+\item Comme ces intégrales sont bien définies, en utilisant la relation de Chasles et la symétrie dans la dernière égalité,
 \[
-I + J = \int_0^{\pi/2} \ln\left(\frac{\sin(2t)}{2}\right) \ dt = \frac{1}{2} \int_0^\pi \ln(\sin(t)) \ dt - \frac{\pi}{2} \ln(2) = I - \frac{\pi}{2} \ln(2).
+I + J = \int_0^{\pi/2} \ln\left(\frac{\sin(2t)}{2}\right) \mathrm{d} t = \frac{1}{2} \int_0^\pi \ln(\sin(t)) \mathrm{d} t - \frac{\pi}{2} \ln(2) = I - \frac{\pi}{2} \ln(2).
 \]
 Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
-}
+\end{enumerate}
+\end{elem_sol}
 
     
