@@ -14,6 +14,60 @@
     \end{itemize}
 \end{solution}
 
+\begin{figure}
+    \centering
+
+
+\begin{tikzpicture}
+
+\tikzset{>=latex} % for LaTeX arrow head
+
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\def\N{100} % number of samples
+
+  \def\xmax{3.5}
+  \def\ymax{3.5}
+  \def\xeps{3}
+  \def\yeps{1.8}
+  \coordinate (O) at (0,0);
+  \coordinate (C) at (0.927575,0);
+  \coordinate (A) at (0.5,0);
+  \coordinate (B) at (2.796001,0);
+  \coordinate (D) at (2.0700,0);
+  \coordinate (X0) at (1.63694,0);
+  \def\yMAX{2.587020}
+
+  % AXIS
+  \draw[->,thick]
+    (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
+  \draw[->,thick]
+    (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$}; %\langle{P}\rangle
+  
+  % PLOT
+  \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
+    plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
+    
+  \draw[dashed,thin] (X0) --++ (0,\yMAX);
+  \draw[dashed,thin] (C) --++ (0,\yeps);
+  \draw[dashed,thin] (D) --++ (0,\yeps);
+  
+  \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
+  \draw[thin] (0,\yeps) -- (\xmax,\yeps);
+  
+  \draw[<->] (\xeps,\yeps) -- (\xeps,\yMAX)
+    node[midway,scale=0.9] {\contour{white}{$\varepsilon$}};
+    
+  \tick{X0}{90} node[below] {$x_0$};
+  \tick{A}{90} node[below] {$a$};
+  \tick{B}{90} node[below] {$b$};
+  \tick{C}{90} node[below] {$c$};
+  \tick{D}{90} node[below] {$d$};
+  
+\end{tikzpicture}
+
+    \caption{Illustration à finir}
+\end{figure}
+
 \subsection{Inclusions entre les $L^p(\Omega)$}
 
 \begin{theo}{}
@@ -33,3 +87,7 @@ Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Ensei
     \]
     pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
 \end{exercice}
+
+\subsection{Cas $p \to 0$}
+
+\url{https://math.stackexchange.com/questions/2351581/convergence-question-about-lp-norm-when-p-tends-to-zero}
