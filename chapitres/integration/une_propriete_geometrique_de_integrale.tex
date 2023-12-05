@@ -4,15 +4,30 @@
 \end{exercice}
 
 \begin{elem_sol}
-    \begin{itemize}
-        \item Justifier que $f^{-1}$ est licite. 
-        \item Calculer le deuxième terme en posant $t = f(u)$.
-        \item Éffectuer une IPP sur le deuxième terme pour conclure. 
-        Donner une interprétation géométrique.
-    \end{itemize}
+    \begin{enumerate}
+    \item Comme $f' > 0$, alors $f$ est strictement croissante. Comme $f$ est continue, d'après le théorème de la bijection monotone, $f$ réalise une bijection de $[a, b]$ sur $[f(a), f(b)]$.
+    
+    \item On utilise le changement de variable $\phi : [a, b] \to [f(a), f(b)],\, u \mapsto f(u)$. Alors, $\phi$ est de classe $\mathscr{C}^1$ et
+    \begin{align*}
+    \int_{f(a)}^{f(b)} f^{-1}(t) \d t\\
+    &= \int_a^b f^{-1}(f(u)) f'(u) \d u\\
+    &= \int_a^b u f'(u) \d u\\
+    &= \left[u f(u)\right]_a^b - \int_a^b f(u) \d u,
+    \end{align*}
+    où on a réalisé une intégration par parties.
+    \end{enumerate}
+
+    Finalement,
+    \[
+    \int_a^b f(t) \d t + \int_{f(a)}^{f(b)} f^{-1}(t) \d t = b f(b) - a f(a).
+    \]
 \end{elem_sol}
 
 
+
+\todoinline{Une version plus claire de mon dessin ?}
+
+\includegraphics{./chapitres/integration/documents/propriete_geometrique.jpg}
 
 Esquisse du dessin \\
 \begin{tikzpicture}[line cap=round, >=latex]
