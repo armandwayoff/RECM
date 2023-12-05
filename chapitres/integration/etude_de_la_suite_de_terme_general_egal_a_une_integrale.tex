@@ -1,0 +1,35 @@
+ \begin{exercice}
+    \marginnote[0cm]{Source : \cite{acamanes} \href{https://acamanes.github.io/psi/psi_doc/exos_e01.pdf}{(Exercice 9. TD I)}}
+    Soit $f$ une fonction supposée continue et positive sur $\interff{a}{b}$. Étudier la suite de terme général 
+    $$u_n \defeq \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}.$$
+ \end{exercice}
+
+\begin{solution}
+    \begin{itemize}
+        \item La démarche consiste à encadrer le terme $u_n$. 
+        \item \textbf{Majoration:} la fonction $f$ est continue et positive sur un segment donc est en particuler, elle y est bornée par un réel positif $M$. Montrons que $u_n \leqslant M$ pour tout $n \in \N$. \emph{ne pas oublier l’argument de la continuité lors du passage à l’intégrale}
+        \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
+        On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
+        \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
+    \end{itemize}
+\end{solution}
+
+\subsection{Inclusions entre les $L^p(\Omega)$}
+
+\begin{theo}{}
+    Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+\end{theo}
+
+\subsection{Cas $0 < p < 1$}
+
+Lorsque l’exposant $p$ satisfait $0 < p < 1$, on constate qu’une inégalité triangulaire ne peut pas être satisfaite, ce qui justifie, pour bénéficier d’une structure naturelle
+d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$. 
+
+Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
+\begin{exercice}
+    On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
+    \[
+    \norm{f + g}_{L^p} \leqslant  \norm{f}_{L^p} + \norm{g}_{L^p}
+    \]
+    pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
+\end{exercice}
