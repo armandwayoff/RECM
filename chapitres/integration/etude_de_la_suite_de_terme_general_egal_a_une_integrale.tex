@@ -1,0 +1,95 @@
+ \begin{exercice}
+    \marginnote[0cm]{Source : \cite{acamanes} \href{https://acamanes.github.io/psi/psi_doc/exos_e01.pdf}{(Exercice 9. TD I)}}
+    Soit $f$ une fonction supposée continue et positive sur $\interff{a}{b}$. Étudier la suite de terme général 
+    $$u_n \defeq \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}.$$
+ \end{exercice}
+
+\begin{solution}
+    \begin{itemize}
+        \item La démarche consiste à encadrer le terme $u_n$. 
+        \item \textbf{Majoration:} la fonction $f$ est continue et positive sur un segment donc est en particuler, elle y est bornée par un réel positif $M$. Montrons que $u_n \leqslant M$ pour tout $n \in \N$. \emph{ne pas oublier l’argument de la continuité lors du passage à l’intégrale}
+        \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
+        On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
+        \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
+    \end{itemize}
+\end{solution}
+
+\todoinline{J'ai un pb avec la clé inline dans le tikz suivant}
+
+
+% \begin{figure}
+    % \centering
+    
+% \begin{tikzpicture}
+
+% \tikzset{>=latex} % for LaTeX arrow head
+
+% \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+% \def\N{100} % number of samples
+
+  % \def\xmax{3.5}
+  % \def\ymax{3.5}
+  % \def\xeps{3}
+  % \def\yeps{1.8}
+  % \coordinate (O) at (0,0);
+  % \coordinate (C) at (0.927575,0);
+  % \coordinate (A) at (0.5,0);
+  % \coordinate (B) at (2.796001,0);
+  % \coordinate (D) at (2.0700,0);
+  % \coordinate (X0) at (1.63694,0);
+  % \def\yMAX{2.587020}
+
+  % % AXIS
+  % \draw[->,thick]
+    % (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
+  % \draw[->,thick]
+    % (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$}; %\langle{P}\rangle
+  
+  % % PLOT
+  % \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
+    % plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
+    
+  % \draw[dashed,thin] (X0) --++ (0,\yMAX);
+  % \draw[dashed,thin] (C) --++ (0,\yeps);
+  % \draw[dashed,thin] (D) --++ (0,\yeps);
+  
+  % \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
+  % \draw[thin] (0,\yeps) -- (\xmax,\yeps);
+  
+  % \draw[<->] (\xeps,\yeps) -- (\xeps,\yMAX)
+    % node[midway,scale=0.9] {\contour{white}{$\varepsilon$}};
+    
+  % \tick{X0}{90} node[below] {$x_0$};
+  % \tick{A}{90} node[below] {$a$};
+  % \tick{B}{90} node[below] {$b$};
+  % \tick{C}{90} node[below] {$c$};
+  % \tick{D}{90} node[below] {$d$};
+  
+% \end{tikzpicture}
+
+    % \caption{Illustration à finir}
+% \end{figure}
+
+\subsection{Inclusions entre les $L^p(\Omega)$}
+
+\begin{theo}{}
+    Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+\end{theo}
+
+\subsection{Cas $0 < p < 1$}
+
+Lorsque l’exposant $p$ satisfait $0 < p < 1$, on constate qu’une inégalité triangulaire ne peut pas être satisfaite, ce qui justifie, pour bénéficier d’une structure naturelle
+d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$. 
+
+Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
+\begin{exercice}
+    On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
+    \[
+    \norm{f + g}_{L^p} \leqslant  \norm{f}_{L^p} + \norm{g}_{L^p}
+    \]
+    pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
+\end{exercice}
+
+\subsection{Cas $p \to 0$}
+
+\url{https://math.stackexchange.com/questions/2351581/convergence-question-about-lp-norm-when-p-tends-to-zero}

@@ -35,11 +35,11 @@ https://fr.wikipedia.org/wiki/Int%C3%A9grale_de_Frullani
 \section{Calcul d'une intégrale impropre}
 \input{chapitres/integration/calcul_une_integrale_impropre}
 
-\section{Intégrales de  \textsc{Bertrand}}
-\input{chapitres/integration/integrales_de_bertrand}
-
 \section{Une propriété géométique de l'intégrale}
 \input{chapitres/integration/une_propriete_geometrique_de_integrale}
+
+\section{Intégrales de  \textsc{Bertrand}}
+\input{chapitres/integration/integrales_de_bertrand}
 
 \section{Permutation somme/intégrale}
 \input{chapitres/integration/permutation_somme_integrale}
@@ -132,9 +132,16 @@ https://fr.wikipedia.org/wiki/Int%C3%A9grale_de_Frullani
 
 \section{Version intégrale du lemme de \textsc{Cesàro}}
 
+\todoarmand{Voir aussi la section \ref{variante_cesaro}.}
+
 \todoinline{Prévoir une application ? Intégrer dans une section Cesaro (suites et intégrales) ? Aller chercher une réciproque avec les fonctions à variation lente ? Est-ce possible ?}
 
-\todoarmand{Pour les applications : \url{http://luls55.free.fr/fichiers/Analyse1/SUITES/11Cesaro.pdf} (II) : déterminer $\lim\limits_{n \to +\infty} w_n$ où $$w_n = \prod_{k=1}^n \left(1 + \frac{2}{k}\right)^{k/n}$$}
+\begin{itemize}
+    \item Pour les applications : \url{http://luls55.free.fr/fichiers/Analyse1/SUITES/11Cesaro.pdf} (II) : déterminer $\lim\limits_{n \to +\infty} w_n$ où $$w_n = \prod_{k=1}^n \left(1 + \frac{2}{k}\right)^{k/n}$$
+    \item \url{http://poiret.aurelien.free.fr/Musculation/Analyse/Theoremes%20Tauberiens/Theoremes%20Tauberiens.pdf}
+    \item \url{https://math-os.com/histoire-lemme-cesaro/}
+\end{itemize}
+
 
 \begin{lemme}
     Soit $f$ une fonction continue telle que $\lim\limits_{+\infty} f = \ell$. Alors 
@@ -156,3 +163,9 @@ https://fr.wikipedia.org/wiki/Int%C3%A9grale_de_Frullani
     $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
     On en déduit le résultat. 
 \end{preuve}
+
+\section{Intégrale de \textsc{Frullani}}
+\input{chapitres/integration/integrale_de_frullani}
+
+\section{Normes $L^p$}
+\input{chapitres/integration/normes_Lp}

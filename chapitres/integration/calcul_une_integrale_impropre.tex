@@ -1,19 +1,21 @@
 \todoinline{Semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
+% \begin{elem_sol}
+    % $=-\pi \ln(2)$
+% \end{elem_sol}
+
 \begin{exercice}
 \cite{Oraux - CCP-PSI-2016}
-\begin{enumerate}
-\item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
-\item Calculer $I + J$ et en déduire $I$ et $J$.
-\end{enumerate}
-    % Calculer $\displaystyle \int_0^\pi \ln(\sin t) \d t.$
+    Soient $I = \int_0^{\pi/2} \ln\sin(t)) \d t$ et $J = \int_0^{\pi/2} \ln(\cos(t)) \d t$.
+    \begin{enumerate}
+        \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
+        \item Calculer $I + J$ et en déduire $I$ et $J$.
+    \end{enumerate}
 \end{exercice}
 
-\todoinline{Ajouter une représentation graphique de la fonction ?}
+% \todoinline{En mettre un peu plus sur la démo ? J'ai la version suivante à relire et changer les dt (CCP-PSI-2016) :}
 
 \begin{elem_sol}
-Soient $I = \int_0^{\pi/2} \ln(\sin(t)) \mathrm{d} t$ et $J = \int_0^{\pi/2} \ln(\cos(t)) \mathrm{d} t$.
-
 \begin{enumerate}
 \item La fonction $t \mapsto \ln(\sin(t))$ est continue sur $]0,\pi/2]$. De plus,
 \[
