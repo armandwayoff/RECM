@@ -1,6 +1,24 @@
+\subsection{Motivation}
+
+On considère une équation différentielle linéaire d'ordre $n$ à coefficients constants
+\[
+x^{(n)}(t) + a_1 x^{(n-1)}(t) + \cdots + a_{n-1} x'(t) + a_n x(t) = 0
+\]
+où la fonction inconnue est une fonction $t \mapsto x(t)$ de $\R$ dans $\R$ et $n$ fois dérivable. \\
+On introduit les fonctions auxiliaires
+\[
+\begin{cases}
+    x_1 &= x \\
+    x_2 &= x_1' = x' \\
+    \vdots \\
+    x_{n-1} &= x'_{n-2} = x^{(n-2)} \\
+    x_n &= x'_{n-1} = x^{(n-1)}
+\end{cases}
+\]
+
 \begin{defi}{Matrice compagnon}
     Soit $P$ le polynôme définit par 
-    $$P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_kX^k \in \K[X].$$
+    $$P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_k X^k \in \K[X].$$
     On appelle \emph{matrice compagnon} de $P$ la matrice
 $$ C_P \defeq
 \begin{pmatrix}
