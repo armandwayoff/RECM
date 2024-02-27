@@ -1,0 +1,33 @@
+\section{Version intégrale du lemme de \textsc{Cesàro}}
+
+\todoarmand{Voir aussi la section \ref{variante_cesaro}.}
+
+\todoinline{Prévoir une application ? Intégrer dans une section Cesaro (suites et intégrales) ? Aller chercher une réciproque avec les fonctions à variation lente ? Est-ce possible ? Il y a des histoires de réciproque avec les fonctions à variation lente et un exercice d'oral de l'X PSI.}
+
+\begin{itemize}
+    \item Pour les applications : \url{http://luls55.free.fr/fichiers/Analyse1/SUITES/11Cesaro.pdf} (II) : déterminer $\lim\limits_{n \to +\infty} w_n$ où $$w_n = \prod_{k=1}^n \left(1 + \frac{2}{k}\right)^{k/n}$$
+    \item \url{http://poiret.aurelien.free.fr/Musculation/Analyse/Theoremes%20Tauberiens/Theoremes%20Tauberiens.pdf}
+    \item \url{https://math-os.com/histoire-lemme-cesaro/}
+\end{itemize}
+
+
+\begin{lemme}
+    Soit $f$ une fonction continue telle que $\lim\limits_{+\infty} f = \ell$. Alors 
+    $$\lim_{x \to + \infty} \frac{1}{x} \int_0^x f(t) \d t = \ell.$$
+\end{lemme}
+
+\begin{preuve}
+    La démonstration est directement adaptée de celle de la version discrète. 
+    Soit $\varepsilon > 0$. Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0,\ |f(x) - \ell| \leqslant \varepsilon$. \\
+    Soit $x > x_0$,
+    \begin{align*}
+        \left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| &= \left| \frac{1}{x} \int_0^x (f(t) - \ell) \d t \right| \\
+        \text{par l'inégalité triangulaire} &\leqslant \frac{1}{x} \int_0^x |f(t) - \ell| \d t \\
+        &\leqslant \frac{1}{x} \Bigg( \underbrace{\int_{0}^{x_0} |f(t) - \ell| \d t}_{\defeq K} + \int_{x_0}^{x} \underbrace{|f(t) - \ell|}_{\leqslant \varepsilon} \d t \Bigg) \\
+        &\leqslant \frac{K}{x} + \varepsilon
+    \end{align*}
+    Or $\lim\limits_{x \to \infty} \frac{K}{x} = 0$ donc il existe $x_1 \in \Rp$ tel que pour tout $x \geqslant x_1, \left| \frac{K}{x} \right| \leqslant \varepsilon$. \\
+    Ainsi pour tout $x \geqslant \max \{ x_0, x_1 \}$, 
+    $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
+    On en déduit le résultat. 
+\end{preuve}
