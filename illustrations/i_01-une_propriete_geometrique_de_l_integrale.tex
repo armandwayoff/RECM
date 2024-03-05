@@ -1,16 +1,16 @@
 \begin{tikzpicture}[line cap=round, >=latex]
 
-\begin{scope}[local bounding box=struct, scale=1]
-
     \def\u{0.5}
     \def\v{0.2}
-
+    
     \def\xa{5}
-    \def\ya{0.5}
+    \def\ya{1.0}
     \def\xb{6.5}
-    \def\yb{1.5}
+    \def\yb{2}
     \def\xc{8}
     \def\yc{4}
+
+\begin{scope}[local bounding box=struct, scale=1]
 
     \path (\xa, \ya)    coordinate (A)
         (\xb, \yb)    coordinate (B)
@@ -29,9 +29,9 @@
         \foreach \x in {\ya00, \ya01,...,\yc.000}   
             \draw[blue!15!white, opacity=0.5] (\x,0) -- ++(0,8);
     \end{scope}
-
+    
     \fill[blue!15!white] (\ya,0) rectangle ++(\yc-\ya,\xa);
-
+ 
     \begin{scope}
         \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
@@ -67,16 +67,70 @@
     \draw[dashed] (0, \xc) node[black,left]{\footnotesize$b$} -- (C');
     \draw[dashed] (\yc, 0) node[black,below]{\footnotesize$f(b)$} -- (C');
 
-    \draw[->, black] (5.5,2) node[above] 
-    {\footnotesize \contour{white}{$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}} to [out=-90,in=180] ($(7,1.5)$);
+    % \draw[->, black] (5.5,2) node[above] 
+    \node at (7,1.2)
+    {\footnotesize \contour{red!15!white}{\color{red}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
 
     % \draw[->, black] (3,-0.5) node[below] 
     % {\footnotesize \contour{white}{$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}} to [out=70,in=-70] ($(3,1.5)$);
-    \node at ((2.5, 5) {\footnotesize \contour{blue!15!white}{$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
+    \node at ((2.5, 5) {\footnotesize \contour{blue!15!white}{\color{blue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
 
     \draw[thick, ->] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
     \draw[thick, ->] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
 
+\end{scope}
+
+\draw[ultra thick, ->] (\xc + 1, 2) -- (11, 2);
+
+\begin{scope}[shift={(12,0))}
+,baseline=(struct.south)
+]
+    \path (\xa, \ya)    coordinate (A)
+        (\xb, \yb)    coordinate (B)
+        (\xc, \yc)  coordinate (C)
+        (\ya, \xa)    coordinate (A')
+        (\yb, \xb)    coordinate (B')
+        (\yc, \xc)  coordinate (C');
+
+    \fill[blue!15!white] (0, \ya) rectangle (\xc, \yc);
+
+    \begin{scope}
+        \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
+        (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
+            (C) |- cycle;
+        \foreach \x in {\xa.000, \xa.001,...,\xc.000}   
+            \draw[red!15!white, opacity=0.5] (\x,-\ya) -- ++(0,10);
+    \end{scope}
+
+    \draw[dashed] 
+        (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
+        (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
+            (C);
+
+
+    \fill[red!15!white] (\xa,0) rectangle ++(\xc-\xa,\ya);
+
+    \fill[green!15!white] (0, 0) rectangle (A);
+    \node at (\xa/2, \ya/2) {\footnotesize \color{green!65!black}$a \times f(a)$};
+
+    \draw[dashed] (\xa, 0) node[black,below]{\footnotesize$a$} -- (A);
+    \draw[dashed] (0, \ya) node[black,left]{\footnotesize$f(a)$} -- (A);
+    
+    \draw[dashed] (\xc, 0) node[black,below]{\footnotesize$b$} -- (C);
+    \draw[dashed] (0, \yc) node[black,left]{\footnotesize$f(b)$} -- (C);
+
+    % \draw[->, black] (5.5,2) node[above] 
+    \node at (7,1.2)
+    {\footnotesize \contour{red!15!white}{\color{red}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
+
+    \node at ((5, 2.5) {\footnotesize \contour{blue!15!white}{\color{blue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
+    
+    \draw[gray] (-.5, -.5) -- (\xc + 0.5, \xc.5) node[below left] {\contour{white}{\footnotesize$y = x$}};
+    
+    \draw[thick, ->] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
+    \draw[thick, ->] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
+
+    \draw[ultra thick, orange] (0, 0) rectangle (\xc, \yc) node[above left] {\footnotesize \color{orange} $b \times f(b)$};
 \end{scope}
 
 \end{tikzpicture}
