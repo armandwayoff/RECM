@@ -1,0 +1,37 @@
+\section{Calculs approchés d'intégrales}
+
+% \todoinline{Je pense que le cas "par morceaux" est pénible à montrer et peu utile. Se limiter à continue me semble suffisant.}
+
+\begin{theo}{\textsc{Riemann}}
+    \marginnote[0cm]{\cite{acamanes}}
+    Pour tout entier naturel $n$ non nul, la \emph{somme de \textsc{Riemann}} associée à $f$ sur le segment $[a, b]$ est 
+    $$S_n \defeq \frac{b-a}{n} \sum\limits_{k=0}^{n-1} f \left( a + k \frac{b-a}{n} \right).$$
+    Si $f$ est continue sur $[a, b]$, alors, 
+    $$\lim_{n \to + \infty} S_n = \int_a^b f(t) \d t.$$
+\end{theo}
+
+%\begin{marginfigure}[-3cm]
+%    \input{illustrations/i_integrale_de_riemann}
+%\end{marginfigure}
+
+\begin{preuve}
+    
+\end{preuve}
+
+\todoinline{Je mettrais plutôt un thème sur les calculs approchés d'intégrales : rectangles gauche, médian, trapèze, Simpson ?}
+
+\subsection{Méthode des rectangles à gauche}
+
+\subsection{Méthode des rectangles médians}
+
+\subsection{Méthode des trapèzes}
+
+\subsection{Méthode de \textsc{Simpson}}
+
+Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur convergence est lente comme le montre l'exercice suivant.
+
+\begin{exercice}
+    \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
+    Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $[0, 1]$. Déterminer le réel $a$ tel que:
+    $$\int_0^1 f(t) \d t - \frac{1}{n} \sum_{k=1}^{n-1} f \left( \frac{k}{n} \right) =\lim\limits_{n \to + \infty} \frac{a}{n} + o \left( \frac{1}{n} \right).$$
+    \end{exercice}
