@@ -2,6 +2,12 @@
 
 \todoinline{Semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
+\todoinline{Illustrer par un graphique ces intégrales ?}
+
+\todoinline{À mon avis, l'intérêt de ce calcul est d'utiliser les symétries associées aux fonctions sinus / cosinus pour pouvoir calculer. Dans le même genre il y a une intégrale sur un segment que je mets ci-dessous.
+
+Je me demande donc s'il ne vaudrait pas mieux renommer cette section en intégrales de fonctions trigonométriques sans primitiver. C'est pas très sexy comme titre, on doit pouvoir l'améliorer ;-)}
+
 % \begin{elem_sol}
     % $=-\pi \ln(2)$
 % \end{elem_sol}
@@ -35,4 +41,28 @@ Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
 \end{enumerate}
 \end{elem_sol}
 
-    
+
+\todoinline{L'exercice dont je parlais plus haut}
+
+\begin{exercice}
+Calculer $\int\limits_0^{\pi/4} \ln(1+\tan x) \d x$.
+\end{exercice}
+
+\begin{elem_sol}
+Ici, les règles de Bioche ne marchent pas. Il va falloir ruser. On commence par supprimer la première fonction qui nous dérange~:~la tangente.
+\begin{align*}
+\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(1+\frac{\sin x}{\cos x}) \d x\\
+ &= \int\limits_0^{\pi/4} \ln(\sin x+\cos x) \d x - \int\limits_0^{\pi/4} \ln(\cos x)\d x.
+\end{align*}
+
+Maintenant, il faut essayer d'éliminer l'intégrale du logarithme (toute tentative de Bioche échoue à nouveau). On remarque alors que
+\[
+\cos x + \sin x = \sqrt{2} \cos\left(x-\frac{\pi}{4}\right).
+\]
+On obtient ainsi
+\begin{align*}
+\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(\sqrt{2}) \d x + \int\limits_0^{\pi/4} \ln(\cos x) \d x + \cdots\\
+& cdots - \int\limits_0^{\pi/4} \ln(\cos x) \d x\\
+&= \frac{\pi}{8} \ln 2.
+\end{align*}
+\end{elem_sol}

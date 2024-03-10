@@ -1,0 +1,117 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Variante du lemme de \textsc{Lebesgue}}
+\begin{prop}{}
+\marginnote[0cm]{Source : \cite{exos_oraux} p.280}
+Soit $a < b$ et $f$ une fonction continue par morceaux sur le segment $[a,b]$. Alors,
+    $$\lim_{n \to +\infty} \int_{a}^{b} f(t) | \sin (nt) | \d t = \frac{2}{\pi} \int_{a}^{b} f(t) \d t.$$
+\end{prop}
+
+\todoinline{Relire et compléter la correction. Trouver une application}
+
+\todoarmand{Pour une application du lemme de Riemann-Lebesgue (qui n'est pas tout à fait l'énoncé d'au-dessus) : exercices 4 et 5 de \url{https://www.louboutin.org/LeSite20182019/mathematiques/Exercices/Ex11_1819.pdf}. Voir plus bas pour les énoncés}
+
+
+\begin{elem_preuve}
+    \begin{enumerate}
+        \item On va montrer ce résultat dans le cas où \ptnclegras{$f$ est constante sur $[a, b]$} (véritable difficulté du problème) 
+        \item On va ensuite montrer ce résultat dans le cas où \ptnclegras{$f$ est une fonction en escalier} en appliquant le résultat précédent sur chacun des intervalles de la subdivision de $[a, b]$.
+        \item Finalement on va montrer le \ptnclegras{cas général} en encadrant $f$ par deux fonctions en escalier (méthode de l'intégrale de $\textsc{Riemann}$).
+    \end{enumerate}
+\end{elem_preuve}
+\begin{preuve}
+    \begin{enumerate}
+        \item On pose $f = \lambda$. On va étudier la limite de l'intégrale
+        $$I_n = \int_{a}^{b} \lambda | \sin(nt) | \d t = \frac{\lambda}{n} \int_{na}^{nb} | \sin(u) | \d u.$$
+        L'idée est alors de découper l'intervalle $[a, b]$ en trois intervalles: des \textcolor{YellowGreen}{extrémités} où l'intégrale tendra vers $0$ puis un intervalle \textcolor{Salmon}{central} de longueur $k_n \pi$ qui sera simple à traiter. \\
+        \textcolor{green}{A mieux rédiger...} \\
+        On pose (qui existent pour $n \geqslant \frac{\pi}{b-a}$)
+        $$c_n = \min( \pi \mathbb{Z} \cap [na, nb]) \text{ et } d_n = \max( \pi \mathbb{Z} \cap [na, nb]).$$
+        $c_n \sim na$ et $d_n \sim nb$. 
+        \item Aucune difficulté.
+        \item Il existe deux fonctions en escalier $\varphi$ et $\psi$ telles que $\varphi \leqslant f \leqslant \psi$ et $\int_{a}^{b} (\psi - \varphi) \leqslant \varepsilon$.
+        \begin{align*}
+            & \left | \int_{a}^{b} f(t) | \sin (nt) | \d t - \frac{2}{\pi} \int_{a}^{b} f(t) \d t \right| \\
+            \leqslant & \left | \int_{a}^{b} [f(t) - \varphi(t) ] | \sin(t) | \d t \right| + \left | \int_{a}^{b} \varphi(t) |\sin(t)| \d t - \frac{2}{\pi} \int_{a}^{b} \varphi(t) \d t \right| + \left| \frac{2}{\pi} \int_{a}^{b} [f(t) - \varphi(t)] \d t \right|
+        \end{align*}
+    \end{enumerate}
+\end{preuve}
+
+Exercices 3, 4, 5 de \url{https://www.louboutin.org/LeSite20182019/mathematiques/Exercices/Ex11_1819.pdf}
+
+\begin{exercice}
+\begin{enumerate}
+    \item Soit $f$ une fonction de classe $\mathscr{C}^1$ sur l'intervalle $\interff{a}{b}$. Montrer que $\lim\limits_{\lambda \to \infty} \int_a^b \sin(\lambda t) f(t) \d t = 0$. 
+    \item Énoncer sans démonstration un résultat analogue avec $\cos(\lambda t)$ et $\e^{\i \lambda t}$.
+    \item Montrer que ce résultat reste valable pour une fonction en escalier. 
+    \item En déduire qu'il est aussi valable pour une fonction continue par morceaux. 
+    \item Montrer que si $f$ est intégrable sur l'intervalle $I$ alors $\lim\limits_{n \to +\infty} \int_I \sin(nt) f(t) \d t = 0$.
+\end{enumerate}
+\end{exercice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercice}
+\begin{enumerate}
+    \item Pour $t$ réel, calculer la somme $S_n(t) = \frac{1}{2} + \cos(t) + \cdots + \cos(nt)$. On écrira le résultat sous la forme $a \frac{\sin b}{\sin c}$. 
+    \item Déterminer deux nombres réel $a$ et $b$ tels que pour tout $n$ entier non nul on ait
+    \[
+    \int_0^\pi \big(a t^2 + bt\big) \cos(nt) \d t = \frac{1}{n^2}.
+    \]
+    \item Montrer que la fonction valant $\frac{at^2 + bt}{\sin(t/2)}$ sur $\interoo{0}{\pi}$ peut être prolongée en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
+    \item Déterminer $\lim\limits_{n \to \infty} \int_0^n \big(a t^2 + bt \big) S_n(t) \d t$.
+    \item Retrouver la valeur de $\sum\limits_{n=1}^\infty \frac{1}{n^2}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{solution}
+\begin{enumerate}
+\item Si $t = 2k \pi$ avec $k \in \Z$ alors $S_n(t) = n + \frac{1}{2}$. \\
+Si $t \in \R \setminus 2 \pi \Z$, calculons plutôt $S_n(t) + \frac{1}{2}$ :
+    \begin{align*}
+    S_n(t) + \frac{1}{2} &= \sum_{k=0}^n \frac{\e^{\i k t} + \e^{-\i k t}}{2} \\
+    &= \frac{1}{2} \left[\sum_{k=0}^n \big(\e^{\i t}\big)^k + \sum_{k=0}^n \big(\e^{-\i t}\big)^k \right] \\
+    &= \frac{1}{2} \left[ \frac{1 - \e^{\i (n+1)t}}{1 - \e^{\i t}} + \frac{1 - \e^{-\i (n+1)t}}{1 - \e^{-\i t}} \right] \\
+    &= \Reel \left( \frac{1 - \e^{\i (n+1)t}}{1 - \e^{\i t}} \right)
+\end{align*}
+Par la méthode de l'angle moitié, 
+\begin{align*}
+    \frac{1 - \e^{\i (n+1)t}}{1 - \e^{\i t}} &= \frac{\e^{\i\frac{(n+1)t}{2}} \Big( \e^{-\i\frac{(n+1)t}{2}} - \e^{\i\frac{(n+1)t}{2}} \Big)}{\e^{\i\frac{t}{2}} \big( \e^{-\i\frac{t}{2}} - \e^{\i\frac{t}{2}} \big)} \\
+    &= \e^{\i \frac{nt}{2}} \frac{\sin \left( \frac{(n+1)t}{2} \right)}{\sin \left( \frac{t}{2} \right)}
+\end{align*}
+soit, 
+\begin{align*}
+    S_n(t) + \frac{1}{2} &= \cos \left(\frac{nt}{2}\right) \frac{\sin \left( \frac{(n+1)t}{2} \right)}{\sin \left( \frac{t}{2} \right)}.
+\end{align*}
+Nous pouvons simplifier le $\frac{1}{2}$ en utilisant la formule $2 \sin(a) \cos(b) =\sin(a+b) + \sin(a-b)$ vraie pour $a$ et $b$ réels. Nous en déduisons que 
+\[
+\cos \left(\frac{nt}{2}\right) \sin \left( \frac{(n+1)t}{2} \right) = \frac{1}{2} \left[ \sin \left( \frac{(2n+1)t}{2} \right) + \sin \left( \frac{t}{2} \right) \right].
+\]
+Finalement, pour $t \in \R \setminus 2 \pi \Z$,
+\[
+S_n(t) = \frac{\sin \left( \frac{(2n+1)t}{2} \right)}{2 \sin \left( \frac{t}{2} \right)}
+\]
+\item Soit $n$ un entier non nul, des intégrations par parties permettent de trouver
+\[
+\int_0^\pi t^2 \cos(n t) \d t = (-1)^n\frac{2\pi}{n^2} \quad \text{et} \quad \int_0^\pi t \cos(n t) \d t = \frac{(-1)^n - 1}{n^2}.
+\]
+On en déduit par linéarité de l'intégrale que 
+\[
+\int_0^\pi \big(a t^2 + bt\big) \cos(nt) \d t = \frac{1}{n^2} \big( (-1)^n 2 a \pi + (-1)^n b - b \big)
+\]
+et on obtient le résultat demandé pour 
+\[
+a = \frac{1}{2 \pi} \quad \text{et} \quad b = -1.
+\]
+\item 
+%\item D'après la première question, 
+%\begin{align*}
+ %   \int_0^{n \pi} \big(a t^2 + bt \big) S_n(t) \d t &= \int_0^{n \pi} \big(a t^2 + bt \big) \frac{\sin \left( \frac{(2n+1)t}{2} \right)}{2 \sin \left( \frac{t}{2} \right)} \d t \\
+ %   &= \sum_{k=0}^{n-1} \int_{k \pi}^{(k+1) \pi} \big(a t^2 + bt \big) \frac{\sin \left( \frac{(2n+1)t}{2} \right)}{2 \sin \left( \frac{t}{2} \right)} \d t \\
+ %   &= \sum_{k=0}^{n-1} \int_{0}^{\pi} \big(a (t-k\pi)^2 + b(t-k\pi) \big) \frac{\sin \left( \frac{(2n+1)t}{2} - \frac{(2n+1)k\pi}{2} \right)}{2 \sin \left( \frac{t}{2} - \frac{k\pi}{2} \right)} \d t \\
+  %  &= 
+%\end{align*}
+\end{enumerate}
+\end{solution}
