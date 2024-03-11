@@ -1,6 +1,7 @@
 \section{Lemme de \textsc{Lebesgue}}
 
 \todoinline{J'ai commenté le marginnote suivant, ça compilait pas avec ! LateX me dit qu'il n'a pas assez de mémoire ! Je ne sais pas ce qui se passe. Une idée ?}
+\todoarmand{Étonnant, pour moi ça ne pose pas de problème à la compilation. Je le laisse en commentaire en attendant}
 \begin{exercice}
 % \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 Soit $a < b$.
@@ -12,6 +13,9 @@ Soit $a < b$.
 \end{exercice}
 
 \todoinline{Remarque en passant. Pourrait-on tracer les fonctions $t \mapsto \sin(\lambda t) f(t)$ et les aires associées pour comprendre (?) pourquoi elles tendent vers 0 ? Je n'ai aucune intuition ici mais on pourrait essayer, non ?}
+
+\todoarmand{Bonne idée ! Je vais faire des expériences avec Geogebra pour essayer de comprendre ce qu'il se passe}
+\todoarmand{Ça me fait penser à la modulation en amplitude des ondes. Les fonctions $f$ et $-f$ définissent une enveloppe dans laquelle la fonction $t \mapsto \sin(\lambda t) f(t)$ oscille et $\lambda$ joue le rôle de pulsation.}
 
 \begin{solution}
     \begin{enumerate}
@@ -51,8 +55,43 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 \todoinline{Insérer III de St Cyr 1995 et indiquer clairement dans la partie polynômes de Bernoulli ce dont on aura besoin ici}
 
+\subsection{Séries de \textsc{Riemann} et nombres de \textsc{Bernoulli}}
 
-
+\begin{enumerate}
+    \item Montrer que pour $N$ entier naturel non nul:
+    \[
+    \forall t \in \interoo{0}{1}, \quad 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+    \]
+    Pour tout entier naturel $n$ strictement positif, on pose:
+    \[
+    \forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{B_n(t) - B_n(0)}{\sin(\pi t)}.
+    \]
+    \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$.
+    \item Montrer (en utilisant éventuellement une intégration par parties) que pour toute fonction $f$ de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, 
+    \[
+    \lim_{x \to + \infty} \int_0^1 f(t) \sin(x t) \d t = 0.
+    \]
+    \item Pour $k$ et $n$ entiers strictement positifs, on défnit:
+    \[
+    I_{n, k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
+    \]
+    Trouver une relation entre $I_{n,k}$ et $I_{n-2, k}$ et en déduire selon la parité de $n$, l'expression de $I_{n,k}$ en fonction de $n$ et de $k$. 
+    \item 
+    \begin{enumerate}
+        \item En utilisant les questions précédentes, trouver, pour $N$ entier naturel, une expression de 
+        \[
+        \int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t
+        \]
+        en fonction de $m$, $N$ et $B_{2m}(0)$.
+        \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $B_{2m}(0)$.
+        \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
+    \end{enumerate}
+    \item Montrer, pour tout $m$ entier naturel non nul, la majoration:
+    \[
+    \sum_{k=1}^\infty \frac{1}{k^{2m}} \leqslant 2
+    \]
+    et en déduire la majoration $\module{B_{2m}(0)} \leqslant \frac{4}{(4 \pi^2)^m}$.
+\end{enumerate}
 
 \todoinline{À voir si on laisse ici ou si on met directement dans la partie Dirichlet.}
 

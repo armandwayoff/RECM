@@ -24,9 +24,61 @@
 
 \todoinline{On peut prendre ce qu'on veut dans les documents, il n'y a pas de copyright. Je n'ai aucune idée. De mémoire il y a un joli dessin pour la méthode des trapèzes. Ce qui est important (à mes yeux) c'est qu'on a à chaque fois, et de manière optimale, la rapidité de la convergence.}
 
+\todoarmand{J'écris tout le contenu du document, ça nous donne une base.}
+
+Dans tout le problème, $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
+\[
+x_i = a + i \frac{b-a}{p}.
+\]
+Une méthode d'intégration est d'\emph{ordre} au moins $n$ si elle est exacte sur les polynômes de degrés inférieurs ou égaux $n$ et non exacte pour au moins un polynôme de degré $n+1$.
+
 \subsection{Méthode des rectangles à gauche}
 
+La méthode composée des rectangles à gauche consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles à gauche sur chacune de ces subdivisions :
+% \begin{columns}{2}
+\[
+I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
+\]
+%
+% \columnbreak
+%
+% \begin{center}
+%   \scalebox{0.3}{\input{chapitres/integration/documents/figures/approx_rect_g.pdf_t}}
+% \end{center}
+% \end{columns}
+
+Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \sup_{[a,b]} \module{f'}$.
+
+\begin{enumerate}
+    \item Montrer que, pour tout $i \in \llbracket 0, p-1 \rrbracket$,
+\[
+\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leq \frac{M_1}{2} (x_{i+1}-x_i)^2.
+\]
+
+    \item En déduire que
+\[
+\module{\int_{[a,b]} f - I_p^g(f)} \leq \frac{M_1 (b-a)^2}{2 p}.
+\]
+
+    \item Montrer que cette borne est atteinte pour $f : x \mapsto x - a$.
+
+    \item Montrer que la méthode des rectangles à gauche est d'ordre $0$.
+\end{enumerate}
+
 \subsection{Méthode des rectangles médians}
+
+La méthode composée des rectangles médians consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles médians sur chacune de ces subdivisions :
+% \begin{columns}{2}
+\[
+I_p^m(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right).
+\]
+%
+% \columnbreak
+%
+% \begin{center}
+% \scalebox{0.3}{\input{chapitres/integration/documents/figures/approx_rect_m.pdf_t}}
+% \end{center}
+% \end{columns}
 
 \subsection{Méthode des trapèzes}
 
