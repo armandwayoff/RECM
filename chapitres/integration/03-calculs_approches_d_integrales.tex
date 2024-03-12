@@ -47,6 +47,11 @@ I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 % \end{center}
 % \end{columns}
 
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/i_rectangles_a_gauche}
+\end{marginfigure}
+
 Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \sup_{[a,b]} \module{f'}$.
 
 \begin{enumerate}
@@ -79,6 +84,11 @@ I_p^m(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right)
 % \scalebox{0.3}{\input{chapitres/integration/documents/figures/approx_rect_m.pdf_t}}
 % \end{center}
 % \end{columns}
+
+\begin{marginfigure}[-5cm]
+    \centering
+    \input{illustrations/i_rectangles_medians}
+\end{marginfigure}
 
 Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$
 
@@ -122,6 +132,11 @@ I_p^t(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
 %\scalebox{0.3}{\input{figures/approx_trap.pdf_t}}
 %\end{center}
 %\end{colonnes}
+
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/i_trapezes}
+\end{marginfigure}
 
 On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
 
