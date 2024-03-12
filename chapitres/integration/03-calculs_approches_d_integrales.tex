@@ -80,9 +80,99 @@ I_p^m(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right)
 % \end{center}
 % \end{columns}
 
+Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$
+
+\begin{enumerate}
+\item Soit $i \in \interent{0}{p-1}$.
+\begin{enumerate}
+    \item Montrer que
+    \[
+    (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
+    \]
+    
+    \item En déduire que
+    \[
+    \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
+    \leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
+    \]
+\end{enumerate}
+
+\item Montrer que
+\[
+\module{\int_{[a,b]} f - I_p^m(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}
+\]
+
+\item Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+
+\item Montrer que la méthode des rectangles médians est d'ordre $1$.
+
+\end{enumerate}
+
 \subsection{Méthode des trapèzes}
 
+La méthode composée des trapèzes consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des trapèzes sur chacune de ces subdivisions :
+%\begin{colonnes}{2}
+\[
+I_p^t(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
+\]
+%
+%\columnbreak
+%
+%\begin{center}
+%\scalebox{0.3}{\input{figures/approx_trap.pdf_t}}
+%\end{center}
+%\end{colonnes}
+
+On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
+
+\begin{enumerate}
+\item À l'aide d'intégrations par parties, montrer que, pour tout $i \in \interent{0}{p-1}$,
+\[
+\int_{x_i}^{x_{i+1}} f''(t) (t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
+\]
+
+\item En déduire que
+\[
+\module{\int_{[a,b]} f - I_p^t(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
+\]
+
+\item Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+
+\item Montrer que la méthode des trapèzes est d'ordre $1$.
+
+\item Montrer que, lorsque $f'' \geq 0$ (en particulier lorsque $f$ est convexe), pour tout entier naturel $p$, $\int_{[a,b]} f \leq I_p^t(f)$.
+
+\end{enumerate}
+
 \subsection{Méthode de \textsc{Simpson}}
+
+La méthode composée de Simpson consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à approcher, sur chacune de ces subdivisions, la fonction $f$ par un polynôme de degré inférieur ou égal à $2$ :
+\[
+I_p^s(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
+\]
+\begin{enumerate}
+\item Soit $g \in \mathscr{C}^5([a, b], \R)$ une fonction impaire. On note $K_5 = \sup_{[a,b]} \module{g^{(5)}}$. En utilisant la formule de \mathsc{Taylor} avec reste intégral pour $g$ et $g'$, montrer que
+\[
+\module{g(x) - \frac{x}{3} (g'(x) + 2 g'(0))} \leq \frac{K_5}{180} \module{x}^5.
+\]
+
+On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \module{f^{(4)}}$.
+
+\item Montrer que, pour tout $i \in \interent{0}{p-1}$,
+\[
+\module{F(x_{i+1}) - F(x_i) - \frac{1}{6p} \left[ f(x_{i+1}) + f(x_i) + 4 f\left(\frac{x_{i+1}+x_i}{2}\right) \right]}
+\leq
+\frac{M_4 (x_{i+1} - x_i)^5}{2880}.
+\]
+
+\emph{Poser $g : t \mapsto F\left(\frac{x_{i+1}+x_i}{2}+t\right) - F\left(\frac{x_{i+1}+x_i}{2}-t\right)$.}
+
+\item En déduire que
+\[
+\module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
+\]
+\end{enumerate}
+On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Ces méthodes sont appelées \emph{méthodes de \textsc{Newton}--\textsc{Cotes}}. Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
 Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur convergence est lente comme le montre l'exercice suivant.
 
