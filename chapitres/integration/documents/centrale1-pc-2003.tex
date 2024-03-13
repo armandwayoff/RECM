@@ -1,0 +1,345 @@
+\documentclass[oneside,11pt]{book}
+
+\ifdefined\correction
+  \usepackage[noenonce, correction, source, ds]{style}
+\else
+  \usepackage[enonce, nocorrection, ds]{style}
+\fi
+
+\usepackage{old_alphabet}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\etablissement{Stanislas}
+\date{09 novembre 2019}
+\niveau{PSI}
+\module{DS~n°03}
+\titre{Devoir Surveillé}
+\soustitre{4h}
+\author{A. Camanes}
+% \deadline{}
+\entete
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\ast$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% =============
+\begin{probleme*}
+
+% \partiesimple{Problème 2}
+
+%-------------
+\partiesimple{Préliminaires}
+
+Soient $a\in \R,\, b \in ]a;+\infty [ \cup \ens{+\infty}$ et $\,f,\, g$ deux applications continues par morceaux sur $[a,b[$ à valeurs strictement positives.
+
+\qu On suppose que $g$ est intégrable sur $[a,b[$.
+\squ Montrer que, en $b$, la relation $f = \circ(g)$ entraîne $\dint_x^{b} f = \circ\left(\dint_x^b g\right)$.
+\indic{
+On n'hésitera pas à raisonner en utilisant des $\eg$.
+}
+		
+\squ Montrer que, en $b$, la relation $f \sim g$ entraîne $\dint_x^{b}f \sim \left(\dint_x^b g\right)$.
+\indic{
+On justifiera l'intégrabilité de $f$ sur les intervalles $[x,b[$ considérés.
+}
+
+\qu On suppose que $g$ n'est pas intégrable sur $[a,b[$
+\squ Montrer que, en $b$, la relation $f = \circ(g)$ entraîne $\dint_a^{x} f(t) \dt = \circ\left(\dint_a^x g(t) \dt\right)$.
+
+Montrer à l'aide d'exemples que l'on ne peut rien dire de l'intégrabilité de $f$ sur $[a,b[$.
+
+\squ Montrer que, en $b$, la relation $f \sim g$ entraîne $\dint_a^{x} f(t) \dt \sim \dint_a^x g(t) \dt$.
+
+Que peut-on dire de l'intégrabilité de $f$ sur $[a,b[$ ?
+
+%=======
+\partie{}
+\Qu Déterminer un équivalent simple de $\dint_x^1 \frac{\e^{t}}{\arcsin(t)} \dt$ en $0^{+}$.
+
+\squ En déduire un équivalent simple de $\dint_{x^3}^{x^2} \frac{\e^{t}}{\arcsin(t)} \dt$ en $0^{+}$.
+
+\Qu À l'aide d'une intégration par parties, montrer que, en $+\infty$, on a $\dint_2^x \frac{\dt}{\ln(t)} \sim \frac{x}{\ln(x)}$.
+
+\squ Plus généralement, si $n$ est un entier naturel, établir le développement asymptotique suivant en $+\infty$ :
+\[
+\dint_{2}^x \frac{\dt}{\ln(t)} = \dsum_{k=0}^{n} \frac{k! x}{\ln^{k+1}(x)} + \circ\left(\frac{x}{\ln^{n+1}(x)}\right).
+\]
+
+\qu Justifier le développement asymptotique suivant en $+\infty$ :
+\[
+\dint_1^x \frac{\e^t}{t^2+1} \dt = \frac{\e^x}{x^2} + \frac{2\e^x}{x^3} + \circ\left(\frac{\e^x}{x^3}\right).
+\]
+	
+%=======
+\partie{}
+Soit $a$ un nombre réel et $f$ une application de classe $\CC^1$ sur $[a,+\infty[$ à valeurs strictement positives. On suppose que le quotient $\frac{x f'(x)}{f(x)}$ tend vers une limite finie $\ag$ en $+\infty.$
+
+\qu Montrer, à l'aide des préliminaires que, en $+\infty$, $\frac{\ln(f(x))}{\ln(x)}$ tend vers $\ag$.
+\indic{
+On peut distinguer le cas $\ag =0$.
+}
+
+\qu On suppose dans cette question $\ag < -1.$
+\squ Montrer que $f$ est intégrable sur $[a,+\infty[$.
+
+\squ Montrer que, en $+\infty$, on a $\dint_x^{+\infty} f(t) \dt \sim -\frac{x f(x)}{\ag + 1}$.
+\indic{
+On pourrra considérer $\frac{x f(x)}{\ag+1}$ et utiliser les préliminaires.
+} 
+
+\qu On suppose dans cette question $\ag > -1.$
+\squ Étudier l'intégrabilité de $f$ sur $[a,+\infty[.$
+
+\squ Montrer que, en $+\infty$, on a $\dint_a^{x} f(t) \dt \sim \frac{x f(x)}{\ag + 1}$.
+
+\squ Donner un exemple d'application $f$ de classe $\CC^1$ sur $[a, +\infty[$ à valeurs positives telle qu'en $+\infty$ le quotient $\dfrac{\ln(f(x))}{\ln(x)}$ tend vers $\ag > -1,$ mais telle que l'on n'ait pas $\dint_a^{x} f(t) \dt \sim \frac{x f(x)}{\ag+1}$.
+
+\Qu Étudier l'intégrabilité sur $[2,+\infty[$ des applications $ x \mapsto \dfrac{1}{x (\ln x)^{\bg}}$ selon les valeurs du réel $\bg$.
+
+\squ Étudier, à l'aide des questions précédentes, l'intégrabilité sur $[2,+\infty[$ des applications $x \mapsto \dfrac{1}{x^{\gag}(\ln x)^{\bg}}$, selon les valeurs des réels $\bg$ et $\gag$.
+
+\squ Que conclure quant à l'intégrabilité de $f$ sur $[a,+\infty[$ dans le cas $\ag =-1$ ?
+\end{probleme*}
+
+\begin{solution*}
+\concours{Centrale 1 - PC - 2003}
+
+
+
+%=============
+\partiesimple{Remarques}
+\setcounter{cqu}{0}
+\qu Les quantificateurs sont ici à poser avec soin. Les démonstrations doivent être irréprochables sous peine de passer à côté d'arguments importants.\\
+Il est à noter, dans l'assertion suivante
+\[
+\pourtout \eg > 0,\, \existe \eta > 0 \tq \ldots
+\]
+la portée des variables se limite à l'assertion. Autrement dit, elles n'ont aucune existence en dehors. C'est pourquoi, lors de la rédaction d'une preuve, on doit écrire : {\it Soit $\eg > 0$. Il existe $\eta > 0$ tel que \ldots. J'en déduis donc que\ldots}.
+
+\qu Les premières démonstrations ne seront pas sans rappeler la démonstration classique du lemme de Cesaro ainsi que des résultats analogues sur les séries entières qui auraient pu être vus en exercice.
+
+\qu Travailler avec les valeurs absolues peut grandement simplifier des raisonnements. Nul besoin de revenir toujours à des encadrements.
+
+\qu Dans la question \gras{I.3.a)}, les équivalents doivent être calculés en utilisant les règles des équivalents. Par exemple, dire que $\e^t \sim_0 1 + t$ n'est pas très heureux. En effet, $\e^t \sim_0 1 + t^2 \sim_0 \e^{-t}$. Le seul résultat intéressant est $\e^t \sim_0 1$.
+
+\qu Dans la question \gras{I.3.a)}, il faut veiller à ne pas additionner des équivalents.
+
+\setcounter{cqu}{0}
+
+%=============
+\partiesimple{Préliminaires}
+\qu La fonction $g$ étant intégrable sur $[a, b[$, elle l'est également sur tout intervalle $[x, b[$ pour tout $x \in [a, b[$.
+
+\squ Soit $\eg > 0$. Les fonctions $f$ et $g$ étant positives et $f = o(g)$, il existe un réel $\bg \in [a, b[$ tel que
+\[
+\pourtout t \in [\bg, b[,\, 0 < f(t) \leq \eg g(t).
+\]
+Ainsi, la fonction $g$ étant intégrable sur $[x, b[$, d'après les théorèmes de comparaison la fonction $f$ l'est également. De plus, d'après la croissance de l'intégrale,
+\[
+\pourtout x \in [\bg, b[,\, 0 \leq \dint_x^b f(t) \dt \leq \eg \dint_x^b g(t) \dt.
+\]
+Ainsi, $\dint_x^b f(t) \dt = o_{a}\left(\dint_x^b g(t) \dt\right)$.
+
+\gras{Remarque.} Ce résultat reste valable pour $f$ de signe quelconque en car l'intégrabilité de $f$ implique la convergence de son intégrale et $\abs{\dint_x^b f(t) \dt} \leq \dint_x^b \abs{f}(t) \dt \leq \eg \dint_x^b g(t) \dt$.
+
+\squ Comme $f = g$, alors $f - g = o(g)$. Ainsi, comme $g$ est intégrable, alors $f - g$ est intégrable. Ainsi, toujours par intégrabilité de $g$, $f$ est également intégrable. Alors, d'après la question précédente,
+\[
+\dint_x^b f(t) \dt - \dint_x^b g(t) \dt = o\left(\dint_x^b g(t) \dt\right).
+\]
+
+\gras{Remarque.} On pouvait également raisonner à nouveau avec les $\eg$, comme suit.\\
+Soit $\eg > 0$. La fonction $g$ étant strictement positive et comme $f \sim g$, il existe $\bg \in [a, b[$ tel que
+\[
+\pourtout t \in [\bg, b[,\, 0 < \abs{f(t) - g(t)} \leq \eg g(t).
+\]
+Ainsi, comme $g$ est intégrable sur $[\bg, b[$, alors $f - g$ l'est également. D'après la croissance de l'intégrale et l'inégalité triangulaire,
+\[
+\pourtout x \in [\bg, b[,\, 0 \leq \abs{\dint_x^b f(t) \dt - \dint_x^b g(t) \dt} \leq \eg \dint_x^b g(t) \dt.
+\]
+Ainsi, $\dint_x^b f(t) \dt \sim \dint_x^b g(t) \dt$.
+
+\qu La fonction $g$ étant strictement positive et non intégrable sur $[a, b[$, alors $\dint_a^x g(t) \dt \to +\infty$ lorsque $x \to b$. En particulier, $x \mapsto \dint_a^x g(t) \dt$ est strictement positive sur un voisinage de $b$.
+
+\squ Soit $\eg > 0$. En reprenant les arguments de la question \gras{1.a)}, il existe $\bg \in [a, b[$ tel que
+\[
+\pourtout t \in [\bg, b[,\, 0 < f(t) \leq \eg g(t).
+\]
+En utilisant la relation de Chasles et la croissance de l'intégrale,
+\begin{align*}
+0 &\leq \frac{\dint_a^x f(t) \dt}{\dint_a^x g(t) \dt} = \frac{\dint_a^\bg f(t) \dt}{\dint_a^x g(t) \dt} + \frac{\dint_\bg^x f(t) \dt}{\dint_a^x g(t) \dt}\\
+&\leq \frac{\dint_a^\bg f(t) \dt}{\dint_a^x g(t) \dt} + \eg \frac{\dint_\bg^x f(t) \dt}{\dint_a^x g(t) \dt} \leq \frac{\dint_a^\bg f(t) \dt}{\dint_a^x g(t) \dt} + \eg.
+\end{align*}
+Ainsi, comme $\dint_a^x g(t) \dt \to + \infty$, il existe un réel $\tilde{\bg}$ tel que
+\[
+\pourtout x \in [\tilde{\bg},b[,\, 0 < \frac{\dint_a^x f(t) \dt}{\dint_a^x g(t) \dt} \leq 2 \eg.
+\]
+Ainsi, $\dint_a^x f(t) \dt = o\left(\dint_a^x g(t) \dt\right)$.
+
+\gras{Remarque.} Comme en \gras{1.a)}, on remarque ici que nous pouvons généraliser ce résultat ) des fonctions $f$ de signe quelconque.
+
+\begin{itemize}
+\item Si $[a, b[ = [1, +\infty[$, $f : t \mapsto \frac{1}{t^2}$ et $g : \mapsto \frac{1}{t}$. Alors, $f = o_{+\infty}(g)$, $f$ est intégrable sur $[1, +\infty[$ mais $g$ ne l'est pas.
+
+\item Si $[a, b[ = [1, +\infty[$, $f : t \mapsto \frac{1}{t}$ et $g : \mapsto \frac{1}{\sqrt{t}}$. Alors, $f = o_{+\infty}(g)$,  et $f$ et $g$ ne sont pas intégrables sur $[1, +\infty[$.
+\end{itemize}
+
+\squ D'après les théorèmes de comparaison des intégrales, comme $g$ n'est pas intégrable sur $[a, b[$ et $g \sim f$, alors $f$ n'est pas intégrable sur $[a, b[$.
+
+De plus, comme $f - g = o(g)$, alors, d'après la question précédente, $\dint_a^x (f(t) - g(t)) \dt = o\left(\dint_a^x g(t) \dt\right)$.
+
+Ainsi, $\dint_a^x f(t) \dt \sim \dint_a^x g(t) \dt$.
+
+%=======
+\partie{}
+
+\Qu Les fonctions $f : t \mapsto \frac{\e^t}{\arcsin(t)}$ et $g : t \mapsto \frac{1}{t}$ sont continues sur $]0, 1]$. De plus, $g$ n'est pas intégrable sur $]0, 1]$. Ainsi, comme $\dint_x^1 \frac{\dt}{t} = - \ln(x)$, d'après la question \gras{2.a)},
+\[
+\dint_x^1 \frac{\e^t}{\arcsin(t)} \dt \sim_{0^+} -\ln(x).
+\]
+
+\squ En utilisant la question précdédente et en utilisant la relation de Chasles,
+\begin{align*}
+\dint_{x^3}^{x^2} \frac{\e^t}{\arcsin(t)} \dt &= \dint_{x^3}^1 \frac{\e^t}{\arcsin(t)} \dt - \dint_{x^2}^1 \frac{\e^t}{\arcsin(t)} \dt \\
+&= -\ln(x^3) + o(\ln(x^3)) + \ln(x^2) + o(\ln(x^2)) \\
+&= - \ln(x) + o(\ln(x)) \\
+&\sim - \ln(x).
+\end{align*}
+
+\Qu Soit $x \geq 2$. Les fonctions $t \mapsto \frac{1}{\ln(t)}$ et $t \mapsto t$ sont de classe $\CC^1$ sur $[2, x]$. Ainsi, d'après la formule d'intégration par parties,
+\[
+\dint_2^x \frac{\dt}{\ln(t)} = \frac{x}{\ln(x)} - \frac{2}{\ln(2)} + \dint_2^x \frac{\dt}{(\ln t)^2}.
+\]
+
+En posant $f : t \mapsto \frac{1}{(\ln t)^2}$ et $g : t \mapsto \frac{1}{\ln(t)}$, alors $f = o(g)$ et $g$ n'est pas intégrable sur $[2,+\infty[$ car $\frac{1}{t} = o(g)$. Ainsi, $\dint_2^x \frac{\dt}{(\ln t)^2} = o\left(\dint_2^x \frac{\dt}{\ln t}\right)$. Enfin, d'après les théorèmes de comparaison, $\dlim_{x\to+\infty} \frac{x}{\ln x} = +\infty$. Finalement,
+\[
+\dint_2^x \frac{\dt}{\ln(t)} \sim \frac{x}{\ln(x)}.
+\]
+
+\squ On montre par récurrence sur $n$ que
+\[
+\dint_2^x \frac{\dt}{\ln(t)} = \dsum_{k=0}^n \frac{k! x}{\ln^{k+1}(x)} - \dsum_{k=0}^n \frac{k! 2}{\ln^{k+1}(2)} + (n+1)! \dint_2^x \frac{\dt}{\ln^{n+2}(t)}.
+\]
+
+L'initialisation a été prouvée à la question précédente.
+
+Soit $n \in \N$. Supposons la propriété vraie à l'ordre $n$. Alors, en utilisant une intégration par parties,
+\[
+\dint_2^x \frac{\dt}{\ln^{n+2}(t)} = \frac{x}{\ln^{n+2}(x)} - \frac{2}{\ln^{n+2}(2)} + (n + 2) \dint_2^x \frac{\dt}{\ln^{n+3}(t)},
+\]
+et l'hérédité est démontrée.
+
+Enfin, en utilisant le résultat de la question \gras{2.a)} des préliminaires aux fonctions $f : t \mapsto \frac{1}{\ln^{n+3}(t)}$ et $g : t \mapsto \frac{1}{\ln^{n+2}(t)}$, on a bien $f = o(g)$ et $g$ n'est pas intégrable sur $[2,+\infty[$ car $\frac{1}{t} = o(g)$. Ainsi,
+\[
+\dint_2^x \frac{\dt}{\ln^{n+2}(t)} \sim \frac{x}{\ln^{n+2}(x)}
+\]
+et $\dint_2^x \frac{\dt}{\ln^{n+2}(t)} = o\left(\frac{x}{\ln^{n+1}(x)}\right)$.
+
+De plus, $\dlim_{x\to+\infty} \dsum_{k=0}^n \frac{k! x}{\ln^{k+1}(x)} = +\infty$, donc
+\[
+\dint_2^x \frac{\dt}{\ln(t)} = \dsum_{k=0}^x \frac{k! x}{\ln^{k+1}(x)} + o\left(\frac{x}{\ln^{n+1}(x)}\right).
+\]
+
+\squ On utilise une stratégie voisine de la stratégie précédente. En utilisant des intégrations par parties,
+\begin{align*}
+\dint_1^x \frac{\e^t}{1 + t^1} \dt &= \dint_1^x \frac{\e^t}{t^2} \dt - \dint_1^x \frac{\e^t}{t^2 (t^2 + 1)} \dt \\
+&= \frac{\e^x}{x^2} + 2 \frac{\e^x}{x^3} - 3 \e + 6 \dint_1^x \frac{\e^t}{t^4} \dt - \dint_1^x \frac{\e^t}{t^2 (t^2 + 1)} \dt \\
+&= \frac{\e^x}{x^2} + 2 \frac{\e^x}{x^3} - 3 \e + \dint_1^x \frac{\e^t}{t^4} \left(\frac{5 t^2 + 6}{t^2 + 1}\right) \dt.
+\end{align*}
+Ainsi, comme les fonctions $f : t \mapsto \frac{3 \e^t}{t^4}$ et $g : t \mapsto \frac{\e^t}{t^4} \left(\frac{5 t^2 + 6}{t^2 + 1}\right)$ sont équivalentes et que $g$ n'est pas intégrable car $\frac{1}{t} = o(g)$, alors
+\[
+\dint_1^x \frac{5 \e^t}{t^4} \dt \sim \dint_1^x g(t) \dt.
+\]
+
+Ensuite, en utilisant une intégration par parties,
+\[
+\dint_1^x \frac{5 \e^t}{t^4} \dt = 4 \frac{\e^x}{x^4} - 5 \e + 20 \dint_1^x \frac{\e^t}{t^3} \dt.
+\]
+
+En posant $f : t \mapsto \frac{\e^t}{t^5}$ et $g : t \mapsto \frac{\e^t}{t^4}$, alors $f = o(g)$ et $g$ n'est pas intégrable sur $[1, +\infty[$, donc $\dint_1^x f(t) \dt = o\left(\dint_1^x g(t) \dt\right)$, soit
+\[
+\dint_1^x \frac{5 \e^t}{t^4} \dt \sim \frac{5 \e^x}{x^4}.
+\]
+
+Finalement, $\dint_1^x \frac{\e^t}{t^4}\left(\frac{5 t^2 + 6}{t^2 + 1}\right) \dt \sim \frac{5 \e^x}{x^4}$ et
+\[
+\dint_1^x \frac{\e^t}{t^2 + 1} \dt = \frac{\e^x}{x^2} + 2 \frac{\e^x}{x^3} + o\left(\frac{\e^x}{x^3}\right).
+\]
+
+%=======
+\partie{}
+
+\qu On raisonne par disjonction de cas.
+\begin{itemize}
+\item Si $\ag \neq 0$. On pose $a' = \max\ens{a, 1}$. On applique le résultat de la question \gras{2.b)} des préliminaires au couple $(\phi, g)$ défini sur $[a', +\infty[$ par $\phi : t \mapsto \frac{f'(t)}{f(t)}$ et $g : t \mapsto \frac{\ag}{t}$ permet de conclure en remarquant que $\phi \sim g$ au de $+\infty$ et que $g$ n'est pas intégrable sur $[1,+\infty[$. Ainsi, $\dint_{a'}^{x} \frac{f'(t)}{f(t)} \dt \sim \dint_{a'}^x \frac{\ag}{t} \dt$, i.e.
+\[
+\ln(f(x)) - \ln(f(a')) \sim \ag (\ln(x) - \ln(a'))
+\]
+ou encore
+\[
+\ln(f(x)) \sim \ag \ln(x),
+\]
+car les constantes sont négligeables devant le logarithme.
+
+\item Si $\ag = 0$. On pose $a' = \max\ens{a, 1}$. On applique le résultat de la question \gras{2.a)} des préliminaires au couple $(\phi, g)$ défini sur $[a', +\infty[$ par $\phi : t \mapsto \frac{f'(t)}{f(t)}$ et $g : t \mapsto \frac{1}{t}$ permet de conclure en remarquant que $\phi = o(g)$ et que g n’est pas intégrable sur $[1, +\infty[$. Alors,
+\[
+\ln(f(x)) = \ln(f(a')) + \dint_{a'}^x \frac{f'(t)}{f(t)} \dt = o(\ln(x)).
+\]
+\end{itemize}
+
+Dans tous les cas, $\dlim_{x\to+\infty} \frac{\ln(f(x))}{\ln(x)} = \ag$.
+
+\Qu D'après la question précédente, il existe une fonction $\eg$ telle que $\dlim_{x\to+\infty} \eg(x) = 0$ et
+\[
+\ln(f(x)) - \ln(x \ag) = \eg (x) \ln(x).
+\]
+
+En posant $\dg = \frac{-1-\ag}{2} > 0$, il existe $A > 0$ tel que pour tout $x > A$,
+\[
+\ag + \eg(x) < \ag + \dg = \frac{-1+\ag}{2} < -1.
+\]
+Ainsi, pour $x > \max\ens{1 , A , a}$, $0 < f(x) < x \ag + \dg$ et, par comparaison avec une fonction de Riemann intégrable sur $[1, +\infty[$, la fonction $f$, qui est continue, est intégrable sur $[a, +\infty[$.
+
+\squ Le résultat de la question \gras{1.b)} des préliminaires appliqué au couple $(f, g)$ défini sur $[a, +\infty[$ par $g : t \mapsto \frac{f(t) + tf ' (t)}{\ag+1}$ permet de conclure en remarquant que $f \sim g$ et que que $f$ est intégrable sur $[a, +\infty[$ et donc $g$ également. Alors, pour tout $x > \max\ens{1, A, a}$, $0 < xf(x) < x \ag + \dg + 1$ et $\lim_{x\to+\infty} x f(x)$ existe et vaut $0$. Alors,
+\[
+\dint_x^{+\infty} f(t) \dt \sim \dint_x^{+\infty} \frac{f(t) + tf ' (t)}{1+\ag} \dt
+\]
+et
+\[
+\dint_x^{+\infty} f(t) \dt \sim - \frac{x f(x)}{\ag + 1}.
+\]
+
+\Qu D'après la question \gras{II.1}, il existe une fonction $\eg$ telle que $\dlim_{x\to+\infty} \eg(x) = 0$ et
+\[
+\ln(f(x)) - \ln(x^\ag) = \eg (x) \ln(x).
+\]
+Ainsi, en posant $\dg = \frac{1 + \ag}{2}$, il existe $A' > 0$ tel que pour tout $x > A'$,
+\[
+\ag + \eg (x) > \ag - \dg > - 1.
+\]
+Ainsi, pour tout $x > \max\ens{1, A', a}$, $0 < x^{\ag - \dg} < f(x)$. D'après le théorème de comparaison avec une fonction de Riemann non intégrable sur $[1, +\infty[$, la fonction continue $f$ n’est pas intégrable sur $[a, +\infty[$.
+
+\squ On applique le résultat de la question \gras{2.b)} des préliminaires au couple $(f, g)$ défini sur $[a, +\infty[$ par $g : t \mapsto \frac{f(t) + tf'(t)}{\ag+1}$. On remarque que $f \sim g$ au voisinage de $+\infty$ et que $f$ n’est pas intégrable sur $[a, +\infty[$. Ainsi,
+\[
+\dint_a^x f(t) \dt \sim \dint_a^{x} \frac{f(t) + t f'(t)}{\ag + 1} \dt \sim \frac{x f(x)}{\ag+1} - \frac{a f(a)}{\ag+1} \sim \frac{x f(x)}{\ag+1},
+\]
+car pour tout $x > \max\ens{1, A', a}$, $0 < x^{\ag-\dg+1} < x f(x)$ et $\dlim_{x\to+\infty} x f(x) = +\infty$. Ainsi,
+\[
+\dint_a^x f(t) \dt \sim \frac{x f(x)}{\ag+1}.
+\]
+
+\squ La fonction $f : t \mapsto 2 + \sin(t)$ est de classe $\CC^1$ sur $[0, +\infty[$ et strictement positive. De plus, $\dlim_{x\to+\infty} \frac{\ln(f(x))}{\ln(2 + \sin(x))} > 0$ et cette quantité est bien strictement supérieure à $-1$.
+
+Cependant, $\dint_0^x f(t) \dt = \dint_0^x (2 + sin t) \dt = 2 x - \cos x + 1$, qui n’est pas équivalent à $x (2 + sin x)$ quand x tend vers $+\infty$, car le rapport de ces quantités n'admet pas de limite en $+\infty$.
+
+\Qu Le changement de variable $\CC^1$ bijectif $u \mapsto \ln(u)$ permet de se ramener à l’étude des fonctions de Riemann. Ainsi, l’application $x \mapsto \frac{1}{x \ln^\bg(x)}$ est intégrable sur $[2, +\infty[$ si et seulement si $\bg > 1$.
+
+
+\squ En appliquant les résultats des questions \gras{II.2.} et \gras{II.3} à la fonction $f : x \mapsto \frac{1}{x^\gag \ln^\bg(x)}$, la fonciton $f$ est de classe $\CC^1$ sur $[2, +\infty[$ et $\frac{x f'(x)}{f(x)} = -\left(\gag + \frac{\bg}{\ln(x)}\right)$ donc $\dlim_{x\to+\infty} \frac{x f'(x)}{f(x)} = -\gag$. Alors,
+\begin{itemize}
+\item Si $\gag > 1$, la fonction $f$ est intégrable sur $[2, +\infty[$, d’après \gras{II.2.a)}.
+\item Si $\gag < 1$, la fonction $f$ n’est pas intégrable sur $[2, +\infty[$, d’après \gras{II.3.a)}.
+\end{itemize}
+
+\end{solution*}
+\end{document}

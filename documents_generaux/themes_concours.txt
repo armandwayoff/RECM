@@ -1,0 +1,120 @@
+%% Reprendre à partir de x1 - PC - 1993
+
+
+Suites numériques :
+* Accélération de convergence : extrapolation de Richardson - CCP - PSI - 2001
+  	       Méthode de Romberg : St Cyr - MP - 1995
+* Théorème de réordonnancement de Riemann : Centrale - PSI - 2009 (et Rudin - Principes d'analyse mathématiques - de mémoire)
+* Rapidité de convergence : Centrale - PC - 2017
+  	      		  Méthodes de résolution de g(x) = 0
+* suites implicites : E3A - PC - 2000
+* produits infinis : E3A - PSI - 2004
+
+Séries numériques :
+* approximation de e : banque pt - 2014
+* série harmonique aléatoire : bceas - 2016
+
+Fonctions :
+* contrôle des dérivées : Centrale - PC - 2001
+* absolument monotones : Centrale - MP - 1998
+* formule d'Euler-Maclaurin : Centrale - MP - 2011
+
+Séries de fonctions :
+* zeta de Riemann : CCP - MP - 2008
+       	  	    Centrale - PC - 2018
+		    Mines - MP - 1994
+* séries trigonométriques : CCP - MP - 2017
+* fonction de Cantor-Lebesgue : CCP - MP - 2020
+voir aussi courbe du blancmanger, j'ai un sujet de dm de sup sur le sujet
+* lien avec équations différentielles : Bessel : CCP - PSI - 2018
+* rayons de convergence des DSE : Centrale - PC - 2004
+  	    		    	   Centrale - PSI - 2008
+
+
+Intégration :
+* Quadrature de Gauss : CCP - PC - 2019
+  	     	       Centrale - PC - 2021
+* Transformée / Méthode (?) de Laplace : sinus cardinal : CCP - PSI - 2020
+  	      	 	 Centrale - PSI - 2012
+* Méthode de Laplace : X - PC - 2014
+			 Mines - PC - 2017
+* Relations de comparaison : Centrale - PC - 2003
+* Fonction Gamma : Centrale - PSI - 2011
+* dilogarithme : E3A - MP - 2011
+* intégrale de Gauss : E3A - PC - 2011
+* intégrale de Dirichlet : ENSAIT - 1996
+  	       		 Centrale - PSI - 2000
+* Forme intégrale de la fonction zeta : X - PSI - 2007
+
+
+
+Probabilités & Variables aléatoires
+* Marches aléatoires : CAPES - 2012
+        sur un graphe : CCP - PC - 2019
+        EM Lyon - 2018
+	Mines - PSI - 2016
+	Mines - MP - 2020
+* Approximations Poisson : CCIP - ECS - 2007
+  		 	   Mines - PSI - 2015
+* Processus de Galton-Watson : Centrale - PSI - 2015
+  	       		     et BCPST ??
+* Grandes déviations : Centrale - PSI - 2017
+* Entropie : Centrale - TIS - 2017
+  	     CB sup à rechercher
+	     Mines - PSI - 2005
+* Fonction génératrice des moments : Centrale - PSI - 2018     
+* Mélange de cartes : ESSEC - 2011
+* Médiane : BCPST - Ulm - 1991
+
+Algèbre matricielle :
+* Matrices de Sylvester : CCP - PC - 2004
+* Racines carrées de matrices : CCP - MP - 2005
+  	  	     	      ESCP - 1998
+* Résultant : CCP - MP - 2009
+* Localisation des racines : Oral sur Cassini - réf. à retrouver
+* Commutant : CCP - MP - 2012
+* Matrices stochastiques : Mines - PSI - 2007
+  	   		 Mines - PC - 2017
+* Matrices de Kac : CCP - PSI - 2020
+* Matrices de permutation : Centrale - PSI - 2016
+* Sous-espaces stables : Centrale - PC - 2015
+* Matrices magiques : Centrale - PSI - 1997
+* Valeurs singulières : Centrale - PSI - 2009
+  	  	      	Application à l'analyse en composantes principales
+* Exponentielle de matrices : Centrale - PSI - 2013
+  		   	    HEC - 2007
+* Matrice semblable à sa transposée (sans connaître Jordan) : Centrale - TSI - 2003
+* Normes matricielles : application à l'informatique pour l'inversion ?
+* produit de Kronecker : ESIM - PC, PSI - 2001
+
+Polynômes :
+* Tchebychev : E3A - MP - 2009 (?)
+  	       Minimisation du phénomène de Gibbs
+	       E3A - PSI - 2014
+* Localisation des racines : E3A - PSI - 2008
+* Décomposition en somme de projecteurs : Mines - PC - 2014
+* Endomorphismes échangeurs : Mines - PSI - 2017
+* Endomorphismes cycliques : exos d'oral à rechercher
+
+
+Algèbre euclidienne
+* Théorème de Muntz : Mines - MP - 2009
+* Matrices sympleptiques : Mines - PSI - 2015
+
+Fonctions de plusieurs variables :
+* Fonctions coercives : X - PSI - 2012
+
+Dénombrement :
+* Opérateurs de translation & formule d'inversion : Centrale - PC - 2016
+* Nombre de n-combinaisons : Mines - PSI - 1999
+
+
+Équations différentielles :
+* Stabilité : CCP - PC - 2014
+              Centrale - PSI - 2006
+	      Centrale - PSI - 2004
+* Contrôlabilité : Oral X PSI - réf. à retrouver
+* Wronskien : CCP - PSI - 2008
+  	    Mines - PC - 2016 (peu lisible)
+* fonctions de Bessel : E3A - MP - 2015
+* discrétisation : X - PSI - 2018
