@@ -66,3 +66,27 @@ On obtient ainsi
 &= \frac{\pi}{8} \ln 2.
 \end{align*}
 \end{elem_sol}
+
+\todoinline{Si on décide d'élargir à l'utilisation des symétries, il y a l'exercice suivant que j'aime bien.}
+
+\begin{exercice}
+Justifier l'existence puis calculer l'intégale $\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
+\end{exercice}
+
+\todoinline{Ajouter l'existence dans preuve et relire le calcul.}
+
+\begin{elem_sol}
+D'après la relation de Chasles,
+\[
+\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
+= \int\limits_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int\limits_1^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x.
+\]
+
+Dans la seconde intégrale, on effectue le changement de variable $\phi : [1, +\infty[ \to ]0, 1],\, u \mapsto \frac{1}{u}$ qui est bien $\mathscr{C}^1$ et bijectif :
+\begin{align*}
+\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
+&= \int\limits_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int\limits_0^1 \frac{\frac{1}{u} \ln \frac{1}{u}}{(1 + \frac{1}{u^2})^2} \times \frac{1}{u^2} \d u\\
+&= \int\limits_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x - \int\limits_0^1 \frac{u \ln(u)}{(u^2 + 1)^2} \d u\\
+&= 0.
+\end{align*}
+\end{elem_sol}

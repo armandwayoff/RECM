@@ -26,6 +26,8 @@
 
 \todoarmand{J'écris tout le contenu du document, ça nous donne une base.}
 
+\todoinline{OK, je relirai également. Je viens de penser aussi à  Centrale - PC - 2021 qui fait les méthodes de quadrature.}
+
 Dans tout le problème, $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
 \[
 x_i = a + i \frac{b-a}{p}.
@@ -161,12 +163,14 @@ On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^2$ 
 
 \subsection{Méthode de \textsc{Simpson}}
 
+\todoinline{Ci-dessous, j'ai changé le mathsc en textsc devant Taylor car chez moi ça ne compilait pas}
+
 La méthode composée de Simpson consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à approcher, sur chacune de ces subdivisions, la fonction $f$ par un polynôme de degré inférieur ou égal à $2$ :
 \[
 I_p^s(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
 \]
 \begin{enumerate}
-\item Soit $g \in \mathscr{C}^5([a, b], \R)$ une fonction impaire. On note $K_5 = \sup_{[a,b]} \module{g^{(5)}}$. En utilisant la formule de \mathsc{Taylor} avec reste intégral pour $g$ et $g'$, montrer que
+\item Soit $g \in \mathscr{C}^5([a, b], \R)$ une fonction impaire. On note $K_5 = \sup_{[a,b]} \module{g^{(5)}}$. En utilisant la formule de \textsc{Taylor} avec reste intégral pour $g$ et $g'$, montrer que
 \[
 \module{g(x) - \frac{x}{3} (g'(x) + 2 g'(0))} \leq \frac{K_5}{180} \module{x}^5.
 \]

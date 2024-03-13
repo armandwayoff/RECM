@@ -1,5 +1,7 @@
 \section{Intégrales de  \textsc{Bertrand}}
 
+\todoinline{J'ai relu. Sans illustrations et sans application, est-ce qu'on le laisse ? Ou alors on trouve une application, mais je n'en ai pas sous le coude à l'instant !}
+
 \begin{theo}{\textsc{Bertrand}}
     Soient $(\alpha, \beta) \in  \R^2$ et 
     $$f:t \mapsto \frac{1}{t^{\alpha} \ln^{\beta} (t)}.$$
@@ -20,10 +22,12 @@
     \begin{enumerate}
         \item[$\rhd$] \textbf{Cas où $\alpha > 1$.} Soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
         $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
-        Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
-        \item[$\rhd$] \textbf{Cas où $\alpha < 1$.} Soit $\gamma \in ]\alpha, 1[$.Par croissances comparées,
+        Or, d'après la convergence des intégrales de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
+
+        \item[$\rhd$] \textbf{Cas où $\alpha < 1$.} Soit $\gamma \in ]\alpha, 1[$. Par croissances comparées,
         $$t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty$$
-        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après le théorème de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
+        donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après la convergence des intégrales de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
+        
         \item[$\rhd$] \textbf{Cas où $\alpha = 1$.} Revenons aux intégrales partielles: soit $X > 2$,
         $$\int_{2}^{X} \frac{1}{t \ln^{\beta} (t)} \d t = 
         \begin{cases}
