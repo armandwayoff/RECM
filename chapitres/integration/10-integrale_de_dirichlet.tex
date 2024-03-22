@@ -7,6 +7,8 @@
 \todoarmand{J'aime bien l'exercice 167 avec cette idée de "perturber" l'intégrande avec $e^{-xt}$. Je trouve ça plus naturel que de supposer des relations non triviales ou introduire des fonctions sans comprendre d'où elles viennent. \\
 On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation différentielle.}
 
+\todoarmand{J'ajoute ces énoncés à la fin de la section}
+
 \begin{prop}{}
     L'intégrale de \textsc{Dirichlet} (1829) est l'intégrale de la fonction sinus cardinal sur la demi-droite des réels positifs
     $$\int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\pi}{2}.$$
@@ -92,6 +94,32 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
     \marginnote[0cm]{fic00126}
     Pour $x$ réel non nul, $f(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!}$ ce qui reste vrai pour $x = 0$. La fonction $f$ est donc développable en série entière sur $\R$ et en particulier, la fonction $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
 \end{solution}
+
+\todoarmand{Énoncés issus de bestiaire.pdf}
+
+\begin{exercice}
+    Exercice 167 p.179 \\
+    On considère l'application $f(x) = \int_0^\infty \frac{\sin(t)}{t} \e^{-xt} \d t$.
+    \begin{enumerate}
+        \item Montrer que $f \in \mathscr{C}^1(\Rpe)$.
+        \item En déduire une forme explicite de $f$ sur $\Rpe$. 
+        \item Montrer que $f$ est continue à l'origine. 
+        \item En déduire que $\int_0^\infty \frac{\sin(t)}{t} \d t = \frac{\pi }{2}$.
+    \end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+    Exercice 170 p. 184 \\
+    Soient $f(x) = \int_0^\infty \frac{\sin(t)}{t+x} \d t$, $g(x) = \int_0^\infty \frac{\e^{-xt}}{t^2 + 1} \d t$. 
+    \begin{enumerate}
+        \item Montrer que $f, g \in \mathscr{C}^2(\Re)$. \\
+        \textit{Pour $f$, on pourra commencer par montrer que $f(x) = \int_0^\infty \frac{1 - \cos(t)}{(t+x)^2} \d t$.}
+        \item Montrer que $f$ et $g$ sont solutions de l'équation différentielle $y'' + y + \frac{1}{x}$.
+        \item En déduire que $f-g$ est $2 \pi$-périodique (sur son domaine de définition).
+        \item Montrer que $f$ et $g$ sont équivalentes à $\frac{1}{x}$ en $+\infty$ puis, que $f = g$.
+        \item En déduire la valeur de $\int_0^\infty \frac{\sin(t)}{t} \d t$.
+    \end{enumerate}
+\end{exercice}
 
 \todoinline{J'ai mis ENSAIT - MP - 96 dans les documents. On l'ajoute ici ?}
 
