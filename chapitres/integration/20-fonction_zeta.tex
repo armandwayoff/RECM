@@ -1,0 +1,46 @@
+
+
+%---------------
+
+\begin{exercice}
+
+[Fonction Zêta de {Riemann}, ]%
+{Rudin Ex.16 p.131}%
+Pour tout réel $s > 1$, on pose $\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}$.
+\begin{itemize}
+\item Montrer que $\zeta(s) = s \int_1^\infty \frac{\lfloor x\rfloor}{x^{s + 1}} \d x$.
+% \indic{Indication : Comparer l'intégrale sur le segment $[1,N]$ et la somme partielle.}
+
+\item Montrer que $\zeta(s) = \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x$.
+
+\item Montrer que cette dernière intégrale converge pour tout $s > 0$.
+\end{itemize}
+\end{exercice}
+
+
+\begin{solution}
+\begin{itemize}
+\item En utilisant la relation de Chasles,
+\begin{align*}
+s \int_1^N \frac{\lfloor x\rfloor}{x^{s+1}} \d x &= \sum_{n=1}^{N-1} s \int_n^{n+1} \frac{\lfloor x\rfloor}{x^{s+1}} \d x \\
+&= \sum_{n=1}^{N-1} n \left[-\frac{1}{(n+1)^s} + \frac{1}{n^s}\right] \\
+&= \sum_{n=1}^{N-1} \frac{1}{n^{s-1}} - \sum_{n=1}^{N-1} \frac{1}{(n+1)^{s-1}} + \sum_{n=1}^{N-1} \frac{1}{(n+1)^s} \\
+&= 1 - \frac{1}{N^{s-1}} + \sum_{n=2}^N \frac{1}{n^s} \\
+&\to \zeta(s)
+\end{align*}
+
+\item En utilisant la relation précédente,
+\begin{align*}
+s \int_1^M \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x &= s \int_1^M x^{-s} \d x - s \int_1^M \frac{\lfloor x\rfloor}{x^{s+1}} \d x \\
+&= \frac{s}{s-1} \left[1 - \frac{1}{M^{s-1}}\right] - s \int_1^M \frac{\lfloor x\rfloor}{x^{s+1}} \d x \\
+&\to \frac{s}{s-1} - \zeta(s)
+\end{align*}
+On obtient ainsi la convergence de l'intégrale.
+
+\item D'après la définition de la fonction partie entière,
+\[
+\abs{\frac{x-\lfloor x\rfloor}{x^{s+1}}} \leq \frac{1}{x^{s+1}}
+\]
+Ainsi, cette intégrale est convergente dès que $s > 0$. Cette formule permet d'étendre la définition de la fonction $\zeta$ sur $\R_+^*$.
+\end{itemize}
+\end{solution}

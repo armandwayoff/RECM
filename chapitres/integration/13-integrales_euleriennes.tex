@@ -112,6 +112,84 @@ $$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t
 
 \todoarmand{Centrale Maths 2 MP 2015}
 
+
+
+%--------------
+
+\begin{exercice}%
+{RMS 833}%
+{16}%
+{Centrale}%
+Pour tout entier naturel $n$, on note $u_n = \sum_{k=0}^n \frac{1}{\binom{n}{k}}$.
+\begin{itemize}
+\item Écrire une fonction \verb?binomial(n, k)? qui renvoie $\binom{n}{k}$. Tracer, pour $n \in \ens{5, 8, 9}$, les points $\left(\binom{n}{k}\right)_{2\leq k \leq n-2}$.
+
+\item Montrer que, pour tout $2 \leq k \leq n-2$, $\binom{n}{k} \geq \binom{n}{2}$.
+
+\item Pour tout $n \in \N$, on note $A_n$ le point de coordonnées $(n, u_n)$. Afficher les $31$ premiers termes $A_0,\ldots,A_{30}$. Conjecturer le comportement asymptotique de $(u_n)$.
+
+\item Démontrer rigoureusement la convergence de $(u_n)$.
+
+Soit $p \geq 2$ et $q \in \N$. On pose $S(p) = \sum_{n=p}^{+\infty} \frac{1}{\binom{n}{p}}$.
+
+\item Montrer l'existence de $S(p)$.
+
+\item On note $S_N = \sum_{n=p}^N \binom{n}{p}^{-1}$. Tracer $(p-1) S_{200}(p)$ en fonction de $p$ pour $p \in \entiers{2}{50}$.
+
+\item Exprimer $I(p, q) = \int_0^1 t^p (1 - t)^q \d t$ en fonction d'un coefficient binomial.
+
+\item En déduire que $S(p) = \frac{p}{p-1}$.
+\end{itemize}
+\end{exercice}
+
+\begin{preuve}
+\begin{itemize}
+\item
+
+\item D'après la définition des coefficients binomiaux,
+\[
+\frac{\binom{n}{k}}{\binom{n}{2}} = \frac{n (n-1) \cdots (n-k+1) 2}{k (k-1) \cdots 3 \cdot 2 \cdot n (n-1)} \geq 1.
+\]
+
+\item D'après la question précédente,
+\[
+2 \leq u_{n+1} \leq 2 + \sum_{k=2}^{n-2} \frac{1}{\binom{n}{2}} \leq 2 + \frac{2(n-3)}{n (n-2)}.
+\]
+Ainsi, $\lim_{n\to+\infty} u_n = 2$.
+
+\item D'après la définition,
+\[
+\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\left(\frac{1}{n^2}\right).
+\]
+Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $S(p)$ est bien définie.
+
+\item À l'aide d'une intégration par parties, $I_{p,q} = \frac{q}{p+1} I_{p+1,q-1}$. De plus, $I_{p,0} = \frac{1}{p+1}$. Ainsi,
+\[
+I_{p,q} = \frac{q (q-1) \cdots 1}{(p+1) \cdots (p+q)} I_{p+q,0} = \frac{1}{p+q+1} \binom{p+q}{p}^{-1}.
+\]
+
+\item D'après le calcul précédent, si $p \geq 1$,
+\begin{align*}
+S_N(p) &= \sum_{n=0}^{N} \binom{n+p}{p}^{-1} = \sum_{n=0}^{N} (n+p+1) I_{n,p} \\
+&= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p t^n (1 - t)^p \d t \\
+&\to \int_0^1 (1 -t)^{p-2} \d t + \int_0^1 p (1 - t)^{p-1} \d t 
+= \frac{1}{p-1} + p \frac{1}{p} = \frac{p}{p-1},
+\end{align*}
+où le théorème de convergence dominée a pu être appliqué car toutes les sommes partielles sont croissantes et leur limite est intégrable car continue.
+
+% \gras{Remarque.} On peut obtenir directement :
+% \[
+% \binom{n}{p}^{-1} = \binom{n-1}{p-1}^{-1} - \frac{n-p}{n-p+1} \binom{n}{p-1}^{-1}.
+% \]
+% Ainsi,
+% \begin{align*}
+% S(p) &= \sum_{n=0}^{+\infty} \binom{n+p}{n}^{-1} = 1 + \sum_{n=1}^{+\infty} \binom{n+p-1}{n-1}^{-1} - \frac{p}{p+1} \sum_{n=1}^{+\infty} \binom{n+p}{p-1}^{-1} \\
+% &= 1 + S(p) - \frac{p}{p+1} S(p+1).
+% \end{align*}
+\end{itemize}
+\end{preuve}
+
+
 \begin{defi}{Fonction bêta}
     Pour tout $(p,q) \in \N^2$, on note
     $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
@@ -206,5 +284,5 @@ Cette limite vaut donc
     Déterminer une expression simplifiée de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$, pour tout $(p, q) \in \N^2$.
 \end{exercice}
 
-\begin{solution}
-\end{solution}
+\begin{preuve}
+\end{preuve}

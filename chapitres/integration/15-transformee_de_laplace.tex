@@ -20,3 +20,150 @@ Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interp
     \item Caractérisation séquentielle de la limite
     \item Théorème de convergence dominée
 \end{itemize}
+
+\todoinline{Ajout d'exercices en vrac ci-dessous}
+
+\begin{exercice}
+{Dunod - p.734 \& 736}
+Pour toute fonction $f \in \mathscr{C}(\R_+,\R)$, on note, lorsqu'elle converge, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-p t} f(t) \d t$. La fonction $\mathscr{L}(f)$ est la transformée de~{Laplace} de $f$.
+\begin{enumerate}
+\item Soient $\lg \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~{Laplace} en précisant son domaine de définition :
+\begin{enumerate}
+\item $t \mapsto 1$.
+\item $t \mapsto \e^{\lg t}$.
+\item $t \mapsto t^n$.
+\end{enumerate}
+
+\item On suppose que $f$ est bornée. Montrer que $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+
+\item {Théorème de la valeur finale.} On suppose qu'il existe un réel $\ell$ non nul tel que $\lim_{+\infty} f(x) = \ell$. Déterminer un équivalent de $\mathscr{L}(f)$ en $0$.
+
+\medskip
+On suppose $f$ continue uniquement sur $\R_+^*$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. 
+
+\item Montrer que $\mathscr{L}(f)$ est définie et continue sur $]p_0,+\infty[$.
+
+\item {Théorème de la valeur initiale.} On note $\ell = \lim_{t\to0^+} f(t)$. Déterminer la limite de $p \mapsto p \mathscr{L}(f)(p)$ en $+\infty$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\begin{enumerate}
+\item $t \mapsto \e^{-pt}$ est intégrable sur $\R_+$ si et seulement si $p > 0$. Alors, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}$.
+
+\item $t \mapsto \e^{-(\lg-p)t}$ est intégrable sur $\R_+$ si et seulement si $p > \Re{\lg}$. Alors, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-(p-\lg)t} \d t = \frac{1}{p-\lg}$.
+
+\item Soit $n \in \N^*$ et $f_n : t \mapsto t^n \e^{-pt}$.
+\begin{itemize}
+\item $f_n$ est continue sur $\R_+^*$.
+\item Si $p > 0$, alors $f(t) = o_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\R_+^*$.
+
+Si $p \leq 0$, alors $\lim_{+\infty} f = +\infty$ et $f$ n'est pas intégrable sur $\R_+^*$.
+\end{itemize}
+Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classique avec des intégrations par parties permet de montrer que
+\[
+\mathscr{L}(f)(p) = \frac{n!}{p^{n+1}}.
+\]
+
+{Remarque.} À un changement de variable près, on retrouve la fonction $\Gamma$ d'Euler.
+\end{enumerate}
+
+\item La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $g : (p, t) \mapsto f(t) \e^{-pt}$.
+\begin{itemize}
+\item Pour tout $t \in \R_+^*$, $g(\cdot, t) : p \mapsto \e^{-p t} f(t)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$ et
+\[
+\forall\, j \in \N,\, \frac{\partial^j g}{\partial p^j} g(p, t) = (-1)^j t^j f(t) \e^{-pt}.
+\]
+
+\item Pour tout $p > 0$, $g(p, \cdot) : t \mapsto (-1)^j t^j \e^{-p t} f(t)$ est continue sur $[0,+\infty[$.
+
+\item Soit $\tilde{p} > 0$. Alors, pour tout $p \geq \tilde{p}$,
+\[
+\abs{(-1)^j t^j f(t) \e^{-p t}} \leq M t^j \e^{- \tilde{p} t} M.
+\]
+De plus, $\phi_j : t \mapsto M t^j \e^{-\tilde{p} t}$ est continue sur $\R_+$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
+\end{itemize}
+Ainsi, $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+
+\item Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après la question précédente, $\mathscr{L}(f)$ est bien définie sur $\R_+^*$.
+
+\smallskip
+
+
+On effectue le changement de variable affine $\phi : u \mapsto \frac{u}{p}$. Alors,
+\[
+p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u.
+\]
+Soit $(p_n)$ une suite de réels strictement positifs qui tend vers $0$ et $g_n : u \mapsto \e^{-u} f(u/p_n)$.
+\begin{itemize}
+\item Pour tout $n \in \N$, $g_n$ est continue sur $\R_+$.
+
+\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\lim_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, $(g_n)$ converge simplement sur $\R_+^*$ vers $u \mapsto \e^{-u} \ell$.
+
+\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leq M \e^{-u}$ et $u \mapsto \e^{-u}$ est intégrable sur $\R_+^*$.
+\end{itemize}
+Ainsi, d'après le théorème de convergence dominée,
+\[
+\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u.
+\]
+En utilisant la caractérisation séquentielle de la limite,
+\[
+\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell \text{ soit } \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
+\]
+
+\item Soit $g : (p, u) \mapsto f(u) \e^{-p u}$.
+\begin{itemize}
+\item $\forall\, t \in \R_+^*,\, g(\cdot, u)$ est continue sur $]p_0, +\infty[$.
+
+\item $\forall\, p > p_0,\, g(p, \cdot)$ est continue sur $\R_+^*$.
+
+\item Soit $\tilde{p} > p_0$. Pour tout $p \geq \tilde{p}$ et $t \in \R_+^*$,
+\[
+\abs{\e^{-p t} f(t)} \leq \e^{- \tilde{p} t} \abs{f(t)}.
+\]
+De plus, $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\R_+^*$ par hypothèse.
+\end{itemize}
+D'après le théorème de continuité sous le signe intégral, $\mathscr{L}(f)$ est continue sur $]p_0, +\infty[$.
+
+\item Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
+
+\smallskip
+
+Sinon, on raisonne à coup de $\eg$. Soit $\eg > 0$. Comme $\lim_{0^+} f = \ell$, il existe $h > 0$ tel que
+\[
+\forall\, t \in ]0, h],\, \abs{f(t) - \ell} \leq \eg.
+\]
+Alors, pour $p > p_0 + 1$ et $\tilde{p} = p_0 + \frac{1}{2}$,
+\begin{align*}
+\abs{p \mathscr{L}(f)(p) - \ell} &\leq \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
+&\leq \int_0^h p \abs{f(t) - \ell} \e^{-pt} \d t + \int_h^{+\infty} p \abs{f(t) - \ell} \e^{-pt} \d t\\
+&\leq \eg \left(1 - \underbrace{\e^{-p h}}_{\geq 0}\right)
++ p \int_h^{+\infty} \abs{f(t)} \e^{-p t} \d t
++ p \int_h^{+\infty} \abs{\ell} \e^{- p t} \d t \\
+&\leq \eg
++ \int_h^{+\infty} \abs{f(t)} \e^{-(p-\tilde{p})t - \tilde{p} t} \d t + \abs{\ell} \e^{-p h}\\
+&\leq \eg + p \underbrace{\e^{-(p - \tilde{p}) h}}_{\to 0} \underbrace{\abs{\int_0^{+\infty} \abs{f(t)} \e^{-\tilde{p} t} \d t}}_{cte} + \abs{f(0)} \e^{-ph} \\
+&\leq 3 \eg,
+\end{align*}
+pour $p$ assez grand. Ainsi, d'après la définition de la limite,
+\[
+\lim_{p\to +\infty} p \mathscr{L}(p) = \ell.
+\]
+\end{enumerate}
+\end{preuve}
+
+%---------------
+
+\begin{exercice}
+{ESCP 2013 - QC}%
+Soit $f~:~\R_+ \to \R$ une fonction continue telle que $\int_0^{+\infty} f(t) \d t$ converge. Montrer que, pour tout réel $x$ positif, $\int_0^{+\infty} \e^{-x t} f(t) \d t$ converge.
+\end{exercice}
+
+\begin{preuve}
+Lorsque $x = 0$, l'intégrale converge par hypothèse.
+
+Pour $x > 0$. La fonction $F$ admet une limite en $+\infty$ et elle est continue. Ainsi, $F$ est bornée. Ainsi, comme $F$ est bornée et $x > 0$, alors $F(t) \e^{-x t} \to 0$ lorsque $x \to +\infty$.
+
+Enfin, à l'aide d'une intégration par parties, comme la fonction $F~:~x \mapsto \int_0^x f(t) \d t$ est de classe $\mathscr{C}^1$ sur $\R_+$ de dérivée égale à $f$, l'intégrale $\int_0^{+\infty} \e^{-x t} f(t) \d t$ est de même nature que $\int_0^{+\infty} \e^{-x t} F(t) \d t$. Enfin, comme $\abs{\e^{-x t} F(t)} \leq M \e^{-x t}$, alors $\int_0^{+\infty} \e^{-x t} F(t) \d t$ converge.
+\end{preuve}

@@ -90,10 +90,10 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
     Montrer que $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
 \end{exercice}
 
-\begin{solution}
+\begin{preuve}
     \marginnote[0cm]{fic00126}
     Pour $x$ réel non nul, $f(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!}$ ce qui reste vrai pour $x = 0$. La fonction $f$ est donc développable en série entière sur $\R$ et en particulier, la fonction $f$ est de classe $\mathscr{C}^\infty$ sur $\R$.
-\end{solution}
+\end{preuve}
 
 \todoarmand{Énoncés issus de bestiaire.pdf}
 
@@ -107,6 +107,86 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
         \item En déduire que $\int_0^\infty \frac{\sin(t)}{t} \d t = \frac{\pi }{2}$.
     \end{enumerate}
 \end{exercice}
+
+
+
+%---------------
+
+\begin{exercice}%
+{RMS - Autres Écoles - 178}%
+{IMT}%
+{16}%
+On note $I = \int_0^{+\infty} \frac{\sin(t)}{t} \d t$ et $F(x) = \int_0^{+\infty} \frac{\sin(t)}{t} (1 - \e^{-x t}) \d t$.
+\begin{enumerate}
+\item Montrer que $I$ est bien définie.
+\item Montrer que $F$ est définie sur $[0,+\infty[$, que $F$ est continue sur $[0, +\infty[$ et que $F$ est dérivable sur $]0, +\infty[$.
+\item En déduire la valeur de $I$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item Les fonctions $u : t \mapsto 1 - \cos(t)$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\R_+^*$. De plus, le produit $u v$ a des limites nulles en $0$ et $+\infty$. Ainsi, d'après la formule d'intégration par parties, $I$ a même nature que
+\[
+\int_0^{+\infty} \frac{1 - \cos t}{t^2} \d t,
+\]
+dont l'intégrande est continue sur $]0, +\infty[$, prolongeable par continuité par $\frac{1}{2}$ en $0$ et majorée par $t \mapsto \frac{1}{t^2}$ en $+\infty$, donc est intégrable.
+
+\item 
+\begin{itemize}
+\item $F(x)$ est la somme de $I$ et de l'intégrale de $f : (x, t) \mapsto \frac{\sin t}{t} \e^{- x t}$.
+\begin{itemize}
+\item $f(x, .)$ est continue sur $\R_+^*$.
+\item $f(x, .)$ admet pour limite $1$ en $0$.
+\item $\abs{f(x, .)}$ est un $o(1/t^2)$ en $+\infty$.
+\end{itemize}
+Ainsi, $F$ est bien définie sur $\R_+$.
+
+\item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant $u : t \mapsto \int_t^{+\infty} \frac{\sin t}{t} \d t$ et $v : t \mapsto (1 - \e^{-x t})$. Comme le produit $u v$ admet des limites nulles en $0$ et $+\infty$, alors
+\begin{align*}
+F(x) &= -x \int_{0}^{+\infty} u(t) \e^{- x t} \d t \\
+&= -\int_0^{+\infty} u\left(\frac{v}{x}\right) \e^{-v} \dv.
+\end{align*}
+Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ et
+\[
+\abs{u\left(\frac{u}{x}\right) \e^{-u}} \leq M \e^{-u},
+\]
+qui est une fonction intégrable. Ainsi, d'après le théorème de convergence dominée,
+\[
+\lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t) \e^{-v} \dv = 0.
+\]
+Ainsi, $F$ est continue en $0$.
+
+\item Avec les notations de la question précédente,
+\[
+\forall\, x \in [a, +\infty[,\, \abs{\frac{\partial f}{\partial x}(x, t)} \leq \e^{-a t}.
+\]
+Ainsi, la fonction $F$ est de classe $\mathscr{C}^1$ sur $[a, +\infty[$, donc sur $\R_+^*$.
+\end{itemize}
+
+De plus, pour tout $x > 0$,
+\[
+F'(x) = \int_0^{+\infty} \sin(t) \e^{-x t} \d t = \frac{1}{1 + x^2}.
+\]
+
+\item D'après la question précédente, il existe une constante $C \in \R$ telle que
+\[
+\forall\, x > 0,\, F(x) = C + \arctan(x).
+\]
+
+Comme $F(0) = 0$, et par continuité de la fonction $F$, alors $C = 0$.
+
+Enfin, $F(x) = I - \int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t$ et
+\[
+\abs{\int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t} \leq \int_0^{+\infty} \e^{-x t} \d t \leq \frac{1}{x}.
+\]
+Ainsi, $\lim_{x\to+\infty} F(x) = I$ et
+\[
+I = \frac{\pi}{2}.
+\]
+\end{enumerate}
+\end{preuve}
+
 
 \begin{exercice}
     Exercice 170 p. 184 \\

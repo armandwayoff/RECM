@@ -1,6 +1,53 @@
 \section{Normes $L^p$}
 \ref{normes_lp_et_inegalites}
 
+
+
+%---------------
+
+\begin{exercice}%
+
+Soit $f \in \mathscr{C}([0,1],\R_+^\ast)$ et $I(y) = \int_0^1 f(x)^y \d x$.
+\begin{enumerate}
+\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
+\item Montrer que $I$ est une fonction dérivable sur $\R_+$.
+\item En déduire que
+\[
+\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\]
+\end{enumerate}
+\end{exercice}
+
+
+\begin{preuve}
+\begin{enumerate}
+\item Comme $g$ est dérivable, d'après le théorème de Taylor-Young, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
+\begin{align*}
+g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
+&= \exp\left\{g'(0) + o(1)\right\} \\
+&\to \e^{g'(0)}.
+\end{align*}
+
+\item En posant $F: (x, y) \mapsto f(x)^y$, alors
+\[
+\abs{\frac{\partial F}{\partial y}(x, y)} = \abs{\ln(f(x)) f(x)^y}.
+\]
+
+La fonction $\ln \circ f$ étant bornée sur $[0, 1]$ car continue, on peut appliquer le théorème de dérivation sous le signe intégral sur $[0, a]$ par majoration par $M \cdot M^a$.
+
+D'après le théorème de dérivation sous le signe intégral,
+\begin{align*}
+I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
+I'(0) &= \int_0^1 \ln(f(x)) \d x
+\end{align*}
+
+\item Finalement,
+\[
+\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\]
+\end{enumerate}
+\end{preuve}
+
 \subsection{Cas $p = +\infty$}
 
 \subsubsection{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
@@ -10,7 +57,7 @@
     $$u_n \defeq \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}.$$
  \end{exercice}
 
-\begin{solution}
+\begin{preuve}
     \begin{itemize}
         \item La démarche consiste à encadrer le terme $u_n$. 
         \item \textbf{Majoration:} la fonction $f$ est continue et positive sur un segment donc est en particuler, elle y est bornée par un réel positif $M$. Montrons que $u_n \leqslant M$ pour tout $n \in \N$. \emph{ne pas oublier l’argument de la continuité lors du passage à l’intégrale}
@@ -18,7 +65,7 @@
         On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
         \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
     \end{itemize}
-\end{solution}
+\end{preuve}
 
 \todoinline{J'ai un pb avec la clé inline dans le tikz suivant}
 

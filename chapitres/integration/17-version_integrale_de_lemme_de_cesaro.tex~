@@ -33,33 +33,4 @@ Exercices 51, 52, 53 de \url{http://vonbuhren.free.fr/Prepa/Colles/integration_i
         \]
         \item En déduire que l'intégrale $J$ converge et calculer sa valeur.
     \end{enumerate}
-    \end{exercice}
-
-\todoinline{Ajout en vrac d'exercices ci-dessous}
-
-
-
-%---------------
-
-\begin{exercice}
-{Mines}
-{16}
-{RMS 728}
-Montrer l'existence puis calculer la valeur de $\int_0^{+\infty} \frac{\tanh(3x) - \tanh(x)}{x} \d x$.
 \end{exercice}
-
-\begin{preuve}
-La fonction $f$ est continue sur $\R_+^\ast$, prolongeable par continuité par $2$ en $0$. De plus, en $+\infty$,
-\[
-\tanh(3 x) - \tanh(x) = \frac{1 - \e^{-6x}}{1 + \e^{-6 x}} - \frac{1 - \e^{-2x}}{1 + \e^{-2x}} = 2 \e^{-2x} + o(\e^{-2x}),
-\]
-et $f$ est un $o(1/x^2)$. Ainsi, $f$ est intégrable sur $\R_+^\ast$.
-
-À l'aide d'une formule de changement de variables,
-\[
-\int_0^M \frac{\tanh(3 x) - \tanh(x)}{x} \d x = \int_{M}^{3M} \frac{\tanh(x)}{x} \d x
-\]
-Or, quand $M$ est grand, $\abs{\tanh(x) - 1} \leq \eta$ et $\int_M^{3M} \frac{\tanh(x) - 1}{x} \d x \leq \eta \ln(3)$.
-
-Finalement, $\int_0^{+\infty} \frac{\tanh(3x) - \tanh(x)}{x} \d x = \ln(3)$.
-\end{preuve}

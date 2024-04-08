@@ -1,0 +1,62 @@
+
+
+%---------------
+
+\begin{exercice}%
+{RMS 890 2016}%
+{ENSAM}%
+Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $\R_+$ et à valeurs réelles telle que $f(0) = 0$. On suppose que $f$ et $f''$ sont de carrés intégrables. Montrer que $f'$ est de carré intégrable et que
+\[
+\left(\int_0^{+\infty} (f')^2\right)^2 \leq \left(\int_0^{+\infty} f^2\right) \left(\int_0^{+\infty} (f'')^2\right).
+\]
+\end{exercice}
+
+\begin{solution}
+En utilisant l'inégalité de Cauchy-Schwarz sur $[0, N]$,
+\[
+\left(\int_0^N f f''\right)^2 \leq \int_0^N f^2 \int_0^N (f'')^2.
+\]
+En effectuant une intégration par parties, le membre de gauche vaut
+\[
+(f(M) f'(M) - f(0) f'(0)) - \int_0^N (f')^2.
+\]
+Supposons par l'absurde que $f'$ ne soit pas de carré intégrable. Alors, l'intégrale tend vers $+\infty$ et l'intégrale de gauche converge. Ainsi, $f(M) f'(M)$ tend vers $+\infty$ et cette quantité est plus grande que $K$ pour $M$ assez grand. Alors,
+\[
+f(N)^2 - f(M_0)^2 = \int_{M_0}^N f(t) f'(t) \d t \geq K (N - M_0),
+\]
+et $f$ n'est pas de carré intégrable.
+
+Ainsi, $f'^2$ est de carré intégrable et, en utilisant la remarque précédente, $f(M) f'(M)$ converge et ceci nécessairement vers $0$. On en déduit l'inégalité.
+
+Le cas d'égalité est le cas d'égalité dans l'inégalité de Cauchy-Schwarz qui correspond ici à $f'' = 0$ (mais alors $f = 0$ car $f$ est de carré intégrable) ou $f = \lg f''$ ce qui correspond à $f = A \cos(\omega t + \phi)$ qui n'est pas de carré intégrable ou à $f = A \cosh(\omega t + \phi)$ qui ne l'est pas non plus. La borne n'est donc jamais atteinte.
+\end{solution}
+
+%---------------
+
+\begin{exercice}%
+{Mines}%
+{17}%
+Soit $f \in \mathscr{C}^1(\R_+,\R)$ telle que $f^2$ et $f'^2$ soient intégrables sur $\R_+$. Montrer qu'il existe une constante $c$ (indépendante de $f$) telle que
+\[
+\abs{f(0)}^4 \leq c \int_0^{+\infty} f^2 \cdot \int_0^{+\infty} f'^2.
+\]
+\end{exercice}
+
+\begin{solution}
+La fonction $f$ étant de classe $\mathscr{C}^1$, d'après la formule d'intégration par parties,
+\[
+\int_0^x f f' = \left[f^2\right]_0^x - \int_0^x f f'.
+\]
+Comme $f$ et $f'$ sont de carrés intégrables, alors le produit $f f'$ est $L^2$ et, d'après l'égalité précédente, $f^2$ possède une limite en $+\infty$. Comme $f^2$ est intégrable sur $\R_+$, cette limite est nécessairement nulle (par l'absurde en distinguant limite $< 0$ et limite $> 0$).
+
+En passant à la limite dans l'égalité précédente,
+\[
+-f^2(0) = 2 \int_0^{+\infty} f f'.
+\]
+Enfin, d'après l'inégalité de Cauchy-Schwarz,
+\[
+f^4(0) \leq 4 \norme[2]{f}^2 \norme[2]{f'}^2.
+\]
+\end{solution}
+
+\todoinline{Inégalité de Poincaré - ENS - D2 - ??}
