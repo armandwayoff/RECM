@@ -1,0 +1,154 @@
+\documentclass[
+	a4paper, % Format du livre
+	fontsize=8pt, % Taille de la police (texte de base)
+	twoside=true,
+	chapterentrydots=true,
+	numbers=noenddot,
+]{kaobook}
+
+\usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
+
+\usepackage{anyfontsize} % Pour le titre de la page de couverture
+
+% Pour faire des pages blanches
+\usepackage{afterpage}
+\newcommand\pageblanche{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{main.bib} % Bibliography file
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+%%%% Ajoute par Alain pour pouvoir compiler le kaorefs %%%%
+\usepackage[french]{babel}
+
+\input{math_packages}
+\input{root_packages}
+\input{root_notations}
+\input{style}
+\input{env}
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+% \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+
+% \makeglossaries % Make LaTeX produce the files required to compile the glossary
+% \input{glossary.tex} % Include the glossary definitions
+
+% \makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+
+% Reset sidenote counter at chapters
+%\counterwithin*{sidenote}{chapter}
+
+%%% Ajoute par Alain
+\usepackage{color}
+\usepackage{todonotes}
+\newcommand{\todoinline}[1]{\todo[color=green!40, bordercolor=red, inline]{#1}}
+
+\newcommand{\entiers}[2]{\llbracket#1,#2\rrbracket}
+\newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
+
+\usepackage{mathrsfs}
+
+
+% \usepgfplotslibrary{external} 
+% \tikzexternalize
+
+
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	BOOK INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[Recueil des Exercices et Résultats Classiques de Mathématiques]{
+Recueil d'Exercices et Résultats Classiques de Mathématiques
+}
+
+\author[Armand Wayoff]{Armand \textsc{Wayoff} \\ \url{https://armandwayoff.github.io/}}
+
+\date{}
+
+% \publishers{}
+
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Denotes the start of the pre-document content, uses roman numerals
+
+%----------------------------------------------------------------------------------------
+%	OPENING PAGE
+%----------------------------------------------------------------------------------------
+
+\maketitle
+
+
+\mainmatter % Indique le début du contenu principal du document, réinitialise la numérotation des pages et utilise les chiffres arabes.
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+\input{remarques}
+
+\pagelayout{wide}
+\addpart{Analyse}
+\pagelayout{margin}
+
+\input{chapitres/integration/integration_remarques}
+
+\input{chapitres/integration/01-une_propriete_geometrique_de_l_integrale}
+
+\input{chapitres/integration/02-lemme_de_lebesgue}
+
+\input{chapitres/integration/03-calculs_approches_d_integrales}
+
+\input{chapitres/integration/04-fonction_integrable_et_decroissante_sur_R_plus}
+
+\input{chapitres/integration/05-calcul_une_integrale_impropre}
+
+\input{chapitres/integration/06-integrales_de_bertrand}
+
+\input{chapitres/integration/07-permutation_somme_integrale}
+
+\input{chapitres/integration/08-integration_des_relations_de_comparaisons}
+
+% Le fichier suivant est vide
+% \input{chapitres/integration/09-transformee_de_fourier_de_la_loi_normale}
+
+\input{chapitres/integration/10-integrale_de_dirichlet}
+
+\input{chapitres/integration/11-integrale_de_gauss}
+
+\input{chapitres/integration/12-integrale_de_wallis}
+
+\input{chapitres/integration/13-integrales_euleriennes}
+
+\input{chapitres/integration/14-theoreme_de_fubini}
+
+\input{chapitres/integration/15-transformee_de_laplace}
+
+\input{chapitres/integration/16-integrale_de_frullani}
+
+\input{chapitres/integration/17-version_integrale_de_lemme_de_cesaro}
+
+\input{chapitres/integration/18-normes_Lp}
+
+\input{chapitres/integration/19-integrale_dependant_des_bornes}
+
+\input{chapitres/integration/20-fonction_zeta}
+
+\input{chapitres/integration/21-inegalites_integrales}
+
+\input{chapitres/integration/22-sommes_de_riemann}
+% \printbibliography[heading=bibintoc, title=Références]
+
+% \printindex % Output the index
+
+\end{document}

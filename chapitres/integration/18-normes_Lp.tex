@@ -2,51 +2,8 @@
 \ref{normes_lp_et_inegalites}
 
 
+\todoinline{On peut aussi montrer l'inclusion des $L^p$ lorsqu'on intègre sur un segment, c'est ensuite utile dans la théorie de Lebesgue, dans le cadre des probabilités. Il y a une réciproque pour savoir quand $L^p \subset L^q$. J'ai des notes là-dessus, mais faut voir si c'est faisable niveau prépa.}
 
-%---------------
-
-\begin{exercice}%
-
-Soit $f \in \mathscr{C}([0,1],\R_+^\ast)$ et $I(y) = \int_0^1 f(x)^y \d x$.
-\begin{enumerate}
-\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
-\item Montrer que $I$ est une fonction dérivable sur $\R_+$.
-\item En déduire que
-\[
-\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
-\]
-\end{enumerate}
-\end{exercice}
-
-
-\begin{preuve}
-\begin{enumerate}
-\item Comme $g$ est dérivable, d'après le théorème de Taylor-Young, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
-\begin{align*}
-g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
-&= \exp\left\{g'(0) + o(1)\right\} \\
-&\to \e^{g'(0)}.
-\end{align*}
-
-\item En posant $F: (x, y) \mapsto f(x)^y$, alors
-\[
-\abs{\frac{\partial F}{\partial y}(x, y)} = \abs{\ln(f(x)) f(x)^y}.
-\]
-
-La fonction $\ln \circ f$ étant bornée sur $[0, 1]$ car continue, on peut appliquer le théorème de dérivation sous le signe intégral sur $[0, a]$ par majoration par $M \cdot M^a$.
-
-D'après le théorème de dérivation sous le signe intégral,
-\begin{align*}
-I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
-I'(0) &= \int_0^1 \ln(f(x)) \d x
-\end{align*}
-
-\item Finalement,
-\[
-\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
-\]
-\end{enumerate}
-\end{preuve}
 
 \subsection{Cas $p = +\infty$}
 
@@ -144,5 +101,50 @@ Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Ensei
 \end{exercice}
 
 \subsection{Cas $p \to 0$}
+
+%---------------
+
+\begin{exercice}%
+
+Soit $f \in \mathscr{C}([0,1],\R_+^\ast)$ et $I(y) = \int_0^1 f(x)^y \d x$.
+\begin{enumerate}
+\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
+\item Montrer que $I$ est une fonction dérivable sur $\R_+$.
+\item En déduire que
+\[
+\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\]
+\end{enumerate}
+\end{exercice}
+
+
+\begin{preuve}
+\begin{enumerate}
+\item Comme $g$ est dérivable, d'après le théorème de Taylor-Young, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
+\begin{align*}
+g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
+&= \exp\left\{g'(0) + o(1)\right\} \\
+&\to \e^{g'(0)}.
+\end{align*}
+
+\item En posant $F: (x, y) \mapsto f(x)^y$, alors
+\[
+\abs{\frac{\partial F}{\partial y}(x, y)} = \abs{\ln(f(x)) f(x)^y}.
+\]
+
+La fonction $\ln \circ f$ étant bornée sur $[0, 1]$ car continue, on peut appliquer le théorème de dérivation sous le signe intégral sur $[0, a]$ par majoration par $M \cdot M^a$.
+
+D'après le théorème de dérivation sous le signe intégral,
+\begin{align*}
+I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
+I'(0) &= \int_0^1 \ln(f(x)) \d x
+\end{align*}
+
+\item Finalement,
+\[
+\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\]
+\end{enumerate}
+\end{preuve}
 
 \url{https://math.stackexchange.com/questions/2351581/convergence-question-about-lp-norm-when-p-tends-to-zero}

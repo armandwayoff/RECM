@@ -1,24 +1,28 @@
 \section{Lemme de \textsc{Lebesgue}}
 
-\todoinline{J'ai commenté le marginnote suivant, ça compilait pas avec ! LateX me dit qu'il n'a pas assez de mémoire ! Je ne sais pas ce qui se passe. Une idée ?}
-\todoarmand{Étonnant, pour moi ça ne pose pas de problème à la compilation. Je le laisse en commentaire en attendant}
-\begin{exercice}
+\todoinline{Parvenir à décommenter le marginnote suivant. D'après mes recherches sur internet, il faudrait "externaliser" la compilation des figures en pdflatex qui demandent trop de ressources.}
+
+\begin{lemme}
 % \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 Soit $a < b$.
-    \begin{enumerate}
-        \item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $[a, b]$. Montrer que
-        $$\lim_{ \lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.$$
-        \item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$[a, b]$.
-    \end{enumerate}
-\end{exercice}
-
-\todoinline{Remarque en passant. Pourrait-on tracer les fonctions $t \mapsto \sin(\lambda t) f(t)$ et les aires associées pour comprendre (?) pourquoi elles tendent vers 0 ? Je n'ai aucune intuition ici mais on pourrait essayer, non ?}
-
-\todoarmand{C'est un cas particulier du théorème de Riemann-Lebesgue dans la théorie de Fourier : (où $\mathcal{F}$ est la TF)
-Si $f \in L^1\big(\R^d\big)$, alors
-\[\mathcal{F} f \in \mathscr{C}^0\big(\R^d\big) \quad \text{et} \quad \lim\limits_{|\xi| \to \infty} \mathcal{F} f(\xi) = 0.
+\begin{enumerate}
+\item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $[a, b]$. Alors,
+\[
+\lim_{ \lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.
 \]
+
+\item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$[a, b]$.
+\end{enumerate}
+\end{lemme}
+
+\todoinline{
+Ajout du graphique suivant, à supprimer ou améliorer en coloriant les aires positives et négatives ?
 }
+
+On constate sur la figure suivante que plus $\lambda$ est grand, plus les oscillations sont élevées et plus les aires comptées positivement et négativement se compensent.
+\begin{center}
+\includegraphics[width=0.75\textwidth]{illustrations/integration-02_lebesgue.png}
+\end{center}
 
 \begin{solution}
     \begin{enumerate}
@@ -32,7 +36,7 @@ Si $f \in L^1\big(\R^d\big)$, alors
         \todoinline{Là on admet un théorème d'approximation non trivial et hors programme en PCSI. Il faut voir ce qu'on indique en introduction du chapitre ?}
         Soit $\varepsilon > 0$. Il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leq \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
         \[
-        \left|\int_a^b \sin(\lg t) \varphi(t) \d t\right| \leq \varepsilon.
+        \left|\int_a^b \sin(\lambda t) \varphi(t) \d t\right| \leq \varepsilon.
         \]
         Finalement, d'après l'inégalité triangulaire, pour tout $\lambda > \lambda_0$,
         \begin{align*}
@@ -56,9 +60,19 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 % \todoarmand{Cela me convient, nous pouvons supprimer la variante. On pourrait la remplacer par le  mais en renvoyant vers un exercice du chapitre polynômes.}
 
-\todoinline{Insérer III de St Cyr 1995 et indiquer clairement dans la partie polynômes de Bernoulli ce dont on aura besoin ici}
+\todoinline{Insérer III de  et indiquer clairement dans la partie polynômes de Bernoulli ce dont on aura besoin ici}
 
-\subsection{Séries de \textsc{Riemann} et nombres de \textsc{Bernoulli}}
+\subsection{Application au calcul de $\zeta(2m)$}
+
+\todoinline{Citer sujet St Cyr 1995}
+
+\todoinline{Faire référence à une section sur $\zeta$ et une section sur Bernoulli}
+
+On note $(B_n)$ la suite des polynômes de Bernoulli et, pour tout $x > 1$, $\zeta(x) = \sum\limits_{k=1}^{+\infty} \frac{1}{k^x}$.
+
+\begin{theo}
+Pour tout $m \geq 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
+\end{theo}
 
 \begin{enumerate}
     \item Montrer que pour $N$ entier naturel non nul:
@@ -165,7 +179,7 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 \end{solution}
 
-\todoinline{À voir si on laisse ici ou si on met directement dans la partie Dirichlet.}
+\subsection{Application au calcul de l'intégrale de Dirichlet}
 
 \begin{exercice}
 \begin{enumerate}
