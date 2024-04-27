@@ -60,13 +60,21 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 % \todoarmand{Cela me convient, nous pouvons supprimer la variante. On pourrait la remplacer par le  mais en renvoyant vers un exercice du chapitre polynômes.}
 
-\todoinline{Insérer III de  et indiquer clairement dans la partie polynômes de Bernoulli ce dont on aura besoin ici}
+\bigskip
 
-\subsection{Application au calcul de $\zeta(2m)$}
+
+\todoinline{Ajouter des liens dans le texte ci-dessous.}
+
+Nous allons utiliser le lemme de Lebesgue pour calculer certaines valeurs de la fonction $\zeta$ de Riemann. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'intégrale de Dirichlet.
+
+\todoinline{Partie re-rédigée, à relire !}
 
 \todoinline{Citer sujet St Cyr 1995}
 
 \todoinline{Faire référence à une section sur $\zeta$ et une section sur Bernoulli}
+
+\todoinline{Dans la partie sur Bernoulli, il faudra :
+la symétrie, la dérivée et les valeurs de $B_2(0)$ et $B_4(0)$}
 
 On note $(B_n)$ la suite des polynômes de Bernoulli et, pour tout $x > 1$, $\zeta(x) = \sum\limits_{k=1}^{+\infty} \frac{1}{k^x}$.
 
@@ -74,46 +82,76 @@ On note $(B_n)$ la suite des polynômes de Bernoulli et, pour tout $x > 1$, $\ze
 Pour tout $m \geq 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
 \end{theo}
 
+On rappelle que 
+\begin{align*}
+B_n(1 - x) &= (-1)^n B_n(x),\\
+B_n'(x) &= n B_{n-1}(x).
+\end{align*}
+
+\begin{elem_sol}
+Pour $k$ et $n$ entiers strictement positifs, on défnit:
+\[
+I_{n, k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
+\]
+
 \begin{enumerate}
-    \item Montrer que pour $N$ entier naturel non nul:
-    \[
-    \forall t \in \interoo{0}{1}, \quad 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
-    \]
-    Pour tout entier naturel $n$ strictement positif, on pose:
-    \[
-    \forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{B_n(t) - B_n(0)}{\sin(\pi t)}.
-    \]
-    \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$.
-    \item Montrer (en utilisant éventuellement une intégration par parties) que pour toute fonction $f$ de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, 
-    \[
-    \lim_{x \to + \infty} \int_0^1 f(t) \sin(x t) \d t = 0.
-    \]
-    \item Pour $k$ et $n$ entiers strictement positifs, on défnit:
-    \[
-    I_{n, k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
-    \]
-    Trouver une relation entre $I_{n,k}$ et $I_{n-2, k}$ et en déduire selon la parité de $n$, l'expression de $I_{n,k}$ en fonction de $n$ et de $k$. 
-    \item 
-    \begin{enumerate}
-        \item En utilisant les questions précédentes, trouver, pour $N$ entier naturel, une expression de 
-        \[
-        \int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t
-        \]
-        en fonction de $m$, $N$ et $B_{2m}(0)$.
-        \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $B_{2m}(0)$.
-        \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
-    \end{enumerate}
-    \item Montrer, pour tout $m$ entier naturel non nul, la majoration:
-    \[
-    \sum_{k=1}^\infty \frac{1}{k^{2m}} \leqslant 2
-    \]
-    et en déduire la majoration $\module{B_{2m}(0)} \leqslant \frac{4}{(4 \pi^2)^m}$.
+\item Pour tout entier $p > 0$,
+\[
+I_{2p, k} = \frac{(-1)^{p-1}}{(2 k \pi)^{2p}} \quad \text{et} \quad I_{2p+1,k} = 0.
+\]
+
+En effet, en utilisant deux intégrations par parties successives,
+\[
+I_{n,k} = \frac{1}{4k^2 \pi^2} \big(B_{n-1}(1) - B_{n-1}(0) - I_{n-2, k} \big).
+\]
+De plus, $I_{0,k} = 0$, $I_{1,k} = 0$, $I_{2,k} = \frac{1}{4 \pi^2}$? Donc,
+\[
+\forall n \geqslant 3,\, I_{n,k} = - \frac{1}{4 k^2 \pi^2}I_{n-2, k}.
+\]
+On obtient ainsi le résultat annoncé
 \end{enumerate}
 
-\begin{solution}
-    
-\begin{enumerate}
-    \item Pour tout $t \in \interoo{0}{1}$, $\e^{2 \i k \pi t} \not= 1$. Ainsi, d'après la somme des termes d'une suite géométrique, 
+Pour tout entier naturel $n$ strictement positif, on pose:
+\[
+\forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{B_n(t) - B_n(0)}{\sin(\pi t)}.
+\]
+
+\begin{enumerate}[resume]
+\item Pour tout $n \geq 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$. En effet,
+
+\begin{itemize}
+\item D'après les quotients de fonctions de classe $\mathscr{C}^1$ dont le dénominateur ne s'annule pas, la fonction $\varphi_n$ est de classe $\mathscr{C}^1$ sur $\interoo{0}{1}$.
+
+\item La fonction $B_n$ étant polynomiale, elle est de classe $\mathscr{C}^1$ en $0$ et, en utilisant la formule de \textsc{Taylor}--\textsc{Young},
+\begin{align*}
+\varphi_n(t) &= \frac{B'_n(0)t + \frac{B''_n(0)}{2}t^2 + o(t^2)}{\pi t \big(1 + o(t) \big)} \\
+&= \frac{B'_n(0)}{\pi} + \frac{B''_n(0)}{2 \pi}t + o(t).
+\end{align*}
+
+Ainsi, $\lim\limits_0 \varphi_n = \frac{B'_n(0)}{\pi}$ et $\varphi_n$ est une fonction prolongeable par continuité en $0$.
+
+\item
+% De plus, $\lim\limits_{t \to 0} \frac{\varphi_n(t) - \frac{B'_n(0)}{\pi}}{t} = \frac{B''_n(0)}{2 \pi}$.
+%
+De plus, pour tout $t$ non nul, $\varphi'_n(t) = \frac{B'_n(t) \sin(\pi t) - \big(B_n(t) - B_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}$. Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, alors $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} B''_n(0)$.
+
+D'après le théorème de prolongement des dérivées, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
+
+Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme, pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, alors la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
+\end{itemize}
+\end{enumerate}
+
+Pour tout $N$ entier naturel non nul et $t \in \interoo{0}{1}$, on pose :
+\[
+D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+\]
+
+\begin{enumerate}[resume]
+\item Cette quantité, appelée noyau de Dirichlet, s'exprime simplement à l'aide de la fonction sinus :
+\[
+D_n(t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+\]
+En effet, pour tout $t \in \interoo{0}{1}$, $\e^{2 \i k \pi t} \not= 1$. Ainsi, d'après la somme des termes d'une suite géométrique, 
     \begin{align*}
         \sum_{k=0}^N \e^{2 \i k \pi t} &= \frac{\e^{2 \i (N+1) \pi} - 1}{\e^{2 \i \pi} - 1} \\
         &= \e^{\i N \pi} \frac{\sin(N+1) \pi t}{\sin(\pi t)}. \\
@@ -122,75 +160,34 @@ Pour tout $m \geq 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
         &= \frac{\sin\big((2N+1) \pi t \big) + \sin( \pi t)}{\sin(\pi t)} - 1 \\
         &= \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
     \end{align*}
-    \item La fonction $B_n$ étant polynomiale, elle est de classe $\mathscr{C}^1$ en $0$ et, en utilisant la formule de \textsc{Taylor}--\textsc{Young},
-    \begin{align*}
-        \varphi_n(t) &= \frac{B'_n(0)t + \frac{B''_n(0)}{2}t^2 + o(t^2)}{\pi t \big(1 + o(t) \big)} \\
-        &= \frac{B'_n(0)}{\pi} + \frac{B''_n(0)}{2 \pi}t + o(t).
-    \end{align*}
-    Ainsi, $\lim\limits_0 \varphi_n = \frac{B'_n(0)}{\pi}$ et $\varphi_n$ est une fonction prolongeable par continuité en $0$. De plus, $\lim\limits_{t \to 0} \frac{\varphi_n(t) - \frac{B'_n(0)}{\pi}}{t} = \frac{B''_n(0)}{2 \pi}$. \\
-    De plus, pour tout $t$ non nul, $\varphi'_n(t) = \frac{B'_n(t) \sin(\pi t) - \big(B_n(t) - B_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}$. Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, alors $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} B''_n(0)$. \\
-    Ainsi, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$. \\
-    Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme, pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, alors la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
-    \item Soit $f$ une fonction continue sur $\interff{0}{1}$. Comme les fonctions $t \mapsto f(t)$ et $t \mapsto \sin(xt)$ sont de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, d'après la formule d'intégration par parties, 
-    \begin{align*}
-        \int_0^1 f(t) \sin(xt) \d t &= \frac{f(1) \cos(x) - f(0)}{x} - \frac{1}{x} \int_0^1 f'(t) \cos(xt) \d t \\
-        \module{\int_0^1 f(t) \sin(x t) \d t} &\leqslant \frac{\module{f(1)} + \module{f(0)}}{\module{x}} + \frac{1}{\module{x}} \int_0^1 \module{f'(t)} \d t.
-    \end{align*}
-    Ainsi, d'après le théorème d'encadrement, 
-    \[
-    \lim_{x \to \infty} \int_0^1 f(t) \sin(xt) \d t = 0.
-    \]
-    \item On utilise deux intégrations par parties successives pour obtenir
-    \[
-    I_{n,k} = \frac{1}{4k^2 \pi^2} \big(B_{n-1}(1) - B_{n-1}(0) - I_{n-2, k} \big).
-    \]
-    Ainsi, $I_{0,k} = 0$, $I_{1,k} = 0$, $I_{2,k} = \frac{1}{4 \pi^2}$ et, pour tout $n \geqslant 3, I_{n,k} = - \frac{1}{4 k^2 \pi^2}I_{n-2, k}$. Ainsi, 
-    \[
-    \forall p > 0, \quad I_{2p, k} = \frac{(-1)^{p-1}}{(2 k \pi)^{2p}} \quad \text{et} \quad I_{2p+1,k} = 0.
-    \]
-    \item 
-    \begin{enumerate}
-        \item D'après la définition de $\varphi_{2m}$,
-        \begin{align*}
-            \int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t &= \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
-            &= \int_0^1 \big( B_{2m}(t) - B_{2m}(0) \big) \d t + \cdots \\
-            &\cdots + 2 \sum_{k=1}^N \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \cos(2 k \pi t) \d t \\
-            &= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
-        \end{align*}
-        \item Comme la fonction $\varphi_{2m}$ est de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, alors en utilisant les questions précédentes, 
-        \[
-        \sum_{k=1}^{+\infty} \frac{1}{k^{2m}} = (-1)^{m-1} 2^{2m-1} \pi^{2m} B_{2m}(0).
-        \]
-        \item D'après la question précédente, 
-        \begin{align*}
-            \sum_{k=1}^{+\infty} \frac{1}{k^2} &= 2 \pi^2 B_2(0) = \frac{\pi^2}{6} \\
-            \sum_{k=1}^{+\infty} \frac{1}{k^4} &= -2^3 \pi^4 B_4(0) = \frac{\pi^4}{90}.
-        \end{align*}
-    \end{enumerate}
-    \item Comme, pour $k \geqslant 2$, $k^{2m} \geqslant 4^m$, alors
-    \[
-    \sum_{k=1}^{+\infty} \frac{1}{k^{2m}} \leqslant 1 + \sum_{k=2}^{+\infty} \frac{1}{4^m} = 1 + \frac{1}{16} \cdot \frac{4}{3} < 2.
-    \]
-    Ainsi, 
-    \[
-    \module{B_{2m}(0)} \leqslant \frac{4}{(4\pi^2)^m}.
-    \]
+
+\item Ainsi,
+\[
+\int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t
+= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
+\]
+
+En effet, d'après la définition de $\varphi_{2m}$,
+\begin{align*}
+\int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t &= \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
+&= \int_0^1 \big( B_{2m}(t) - B_{2m}(0) \big) \d t + \cdots \\
+&\cdots + 2 \sum_{k=1}^N \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \cos(2 k \pi t) \d t \\
+&= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
+\end{align*}
+
+\item D'après le lemme de Lebesgue,
+\[
+\lim_{N\to+\infty} \int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t = 0
+\]
+et on obtient bien le résultat annoncé.
 \end{enumerate}
+\end{elem_sol}
 
-\end{solution}
 
-\subsection{Application au calcul de l'intégrale de Dirichlet}
-
-\begin{exercice}
-\begin{enumerate}
-    \item Justifier l'existence de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$. 
-    \item Calculer $I_n = \int_0^\pi \frac{\sin \left(n + \frac{1}{2}\right)t}{2 \sin \frac{t}{2}} \d t$. \\
-    \emph{Indication :} Calculer $I_{n+1} - I_n$. 
-    \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
-    \item Soit $f$ une fonction de classe $\mathscr{C}^1$ sur l'intervalle $\interff{a}{b}$. Montrer que 
-    \[
-    \lim_{\lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.
-    \]
-    \item En déduire la valeur de l'intégrale $I$.
-\end{enumerate}
-\end{exercice}
+\begin{remarque}
+En utilisant les valeurs remarquables des premiers polynômes de Bernoulli, on obtient
+\begin{align*}
+\sum_{k=1}^{+\infty} \frac{1}{k^2} &= 2 \pi^2 B_2(0) = \frac{\pi^2}{6} \\
+\sum_{k=1}^{+\infty} \frac{1}{k^4} &= -2^3 \pi^4 B_4(0) = \frac{\pi^4}{90}.
+\end{align*}
+\end{remarque}

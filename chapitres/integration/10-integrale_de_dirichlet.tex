@@ -64,6 +64,23 @@ On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation di
     \end{align*}
 \end{preuve}
 
+        
+\subsection{Calcul de l'intégrale de Dirichlet via le lemme de Lebesgue}
+
+\begin{exercice}
+\begin{enumerate}
+    \item Justifier l'existence de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$. 
+    \item Calculer $I_n = \int_0^\pi \frac{\sin \left(n + \frac{1}{2}\right)t}{2 \sin \frac{t}{2}} \d t$. \\
+    \emph{Indication :} Calculer $I_{n+1} - I_n$. 
+    \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
+    \item Soit $f$ une fonction de classe $\mathscr{C}^1$ sur l'intervalle $\interff{a}{b}$. Montrer que 
+    \[
+    \lim_{\lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.
+    \]
+    \item En déduire la valeur de l'intégrale $I$.
+\end{enumerate}
+\end{exercice}
+
 \subsection{Intégrale de \textsc{Dirichlet} via une intégrale à paramètre}
 
 Soit la transformée de \textsc{Laplace} de la fonction sinus cardinal:
