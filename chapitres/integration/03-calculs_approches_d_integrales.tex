@@ -28,15 +28,20 @@
 \todoarmand{Le II.C fait un lien avec la section 5.5 sur les familles de polynômes orthogonaux. \\
 Le III permet d'avoir une application des polynômes / nombres de Bernoulli}
 
-Dans tout le problème, $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
+Soient $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
 \[
 x_i = a + i \frac{b-a}{p}.
 \]
+
+\todoinline{Doit-on définir la notion d'"exacte" dans la définition suivante ?}
+
+\begin{definition}
 Une méthode d'intégration est d'\emph{ordre} au moins $n$ si elle est exacte sur les polynômes de degrés inférieurs ou égaux $n$ et non exacte pour au moins un polynôme de degré $n+1$.
+\end{definition}
 
 \subsection{Méthode des rectangles à gauche}
 
-La méthode composée des rectangles à gauche consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles à gauche sur chacune de ces subdivisions :
+La méthode des rectangles à gauche consiste, pour chacun des intervalles de la subdivision, à approcher l'aire sous la courbe représentative de $f$ par celle d'un rectangle dont la hauteur correspond à la valeur de $f$ sur la borne de gauche. Plus précisément, on considère la quantité :
 % \begin{columns}{2}
 \[
 I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
@@ -54,24 +59,38 @@ I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
     \input{illustrations/i_rectangles_a_gauche}
 \end{marginfigure}
 
+\begin{prop}
+La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
+\end{prop}
+
+\begin{elem_sol}
 Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \sup_{[a,b]} \module{f'}$.
 
 \begin{enumerate}
-    \item Montrer que, pour tout $i \in \llbracket 0, p-1 \rrbracket$,
+\item D'après la formule de Taylor avec reste intégal, pour tout $i \in \llbracket 0, p-1 \rrbracket$,
 \[
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leq \frac{M_1}{2} (x_{i+1}-x_i)^2.
 \]
 
-    \item En déduire que
-\[
-\module{\int_{[a,b]} f - I_p^g(f)} \leq \frac{M_1 (b-a)^2}{2 p}.
-\]
 
-    \item Montrer que cette borne est atteinte pour $f : x \mapsto x - a$.
+\item En utilisant la relation de Chasles,
+\begin{align*}
+\module{\int_{[a,b]} f - I_p^g(f)}
+&\leq \sum_{i=1}^{p-1} \module{\int_{[x_i,x_{i+1}]} f - (x_{i+1} - x_i) f(x_i)}\\
+&\leq \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2\\
+&\leq \frac{M_1}{2} (b - a) \sum_{i=1}^{p-1} (x_{i+1} - x_i)\\
+&\leq \frac{M_1 (b-a)^2}{2 p}.
+\end{align*}
 
-    \item Montrer que la méthode des rectangles à gauche est d'ordre $0$.
+\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto x - a$.
+
+\item La méthode des rectangles est exacte si $f$ est constante. Ce pendant, si $f : x \mapsto x$, alors la méthode ne donne pas la valeur exacte de l'intégrale.
 \end{enumerate}
+\end{elem_sol}
 
+\todoinline{Reprendre la suite}
+
+%-----------
 \subsection{Méthode des rectangles médians}
 
 La méthode composée des rectangles médians consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles médians sur chacune de ces subdivisions :
