@@ -19,7 +19,10 @@ for i, k in enumerate([1, 5, 50, 100]):
     lab = "{k}, {I:.2f}".format(k=k, I=I)
     ax[i].set_title(r"$x \mapsto \sin($"+str(k)+r"$\cdot x) f(x)$")
     ax[i].plot(X, Y, label=lab, linewidth=0.5)
+    ax[i].plot(X, g(X), '--r', label=lab, linewidth=0.5)
+    ax[i].plot(X, -g(X), '--r', label=lab, linewidth=0.5)
     ax[i].fill_between(X, positive_area, color='blue', alpha=0.3)
     ax[i].fill_between(X, negative_area, color='red', alpha=0.3)
+    # plt.axes([0, max(X), -max(g(X)), max(g(X))]) 
 
-plt.savefig("integration-02_lebesgue.png")
+plt.savefig("integration-02_lebesgue.png", dpi=300)

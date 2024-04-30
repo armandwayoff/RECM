@@ -1,27 +1,7 @@
 \section{Calculs approchés d'intégrales}
 
-% \todoinline{Je pense que le cas "par morceaux" est pénible à montrer et peu utile. Se limiter à continue me semble suffisant.}
 
-%\begin{theo}{\textsc{Riemann}}
-%    \marginnote[0cm]{\cite{acamanes}}
-%    Pour tout entier naturel $n$ non nul, la \emph{somme de \textsc{Riemann}} associée à $f$ sur le segment $[a, b]$ est 
-%    $$S_n \defeq \frac{b-a}{n} \sum\limits_{k=0}^{n-1} f \left( a + k \frac{b-a}{n} \right).$$
-%    Si $f$ est continue sur $[a, b]$, alors, 
-%    $$\lim_{n \to + \infty} S_n = \int_a^b f(t) \d t.$$
-%\end{theo}
-
-%\begin{marginfigure}[-3cm]
-%    \input{illustrations/i_integrale_de_riemann}
-%\end{marginfigure}
-
-
-% \todoinline{Je mettrais plutôt un thème sur les calculs approchés d'intégrales : rectangles gauche, médian, trapèze, Simpson ?}
-
-% \todoarmand{Comptez-vous reprendre comme tels les exercices que vous avez mis dans le dossier documents ?}
-
-\todoinline{On peut prendre ce qu'on veut dans les documents, il n'y a pas de copyright. Je n'ai aucune idée. De mémoire il y a un joli dessin pour la méthode des trapèzes. Ce qui est important (à mes yeux) c'est qu'on a à chaque fois, et de manière optimale, la rapidité de la convergence.}
-
-\todoarmand{J'écris tout le contenu du document, ça nous donne une base.}
+\todoinline{Texte réécrit, à relire avec attention en raison des copier-coller...}
 
 \todoinline{OK, je relirai également. Je viens de penser aussi à  Centrale - PC - 2021 qui fait les méthodes de quadrature.}
 
@@ -39,32 +19,25 @@ x_i = a + i \frac{b-a}{p}.
 Une méthode d'intégration est d'\emph{ordre} au moins $n$ si elle est exacte sur les polynômes de degrés inférieurs ou égaux $n$ et non exacte pour au moins un polynôme de degré $n+1$.
 \end{definition}
 
+%-----------
 \subsection{Méthode des rectangles à gauche}
 
 La méthode des rectangles à gauche consiste, pour chacun des intervalles de la subdivision, à approcher l'aire sous la courbe représentative de $f$ par celle d'un rectangle dont la hauteur correspond à la valeur de $f$ sur la borne de gauche. Plus précisément, on considère la quantité :
-% \begin{columns}{2}
 \[
 I_p^g(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 \]
-%
-% \columnbreak
-%
-% \begin{center}
-%   \scalebox{0.3}{\input{chapitres/integration/documents/figures/approx_rect_g.pdf_t}}
-% \end{center}
-% \end{columns}
 
 \begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_rectangles_a_gauche}
 \end{marginfigure}
 
-\begin{prop}
+\begin{prop}{}{}
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
 \end{prop}
 
 \begin{elem_sol}
-Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \sup_{[a,b]} \module{f'}$.
+On suppose que $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_1 = \sup_{[a,b]} \module{f'}$.
 
 \begin{enumerate}
 \item D'après la formule de Taylor avec reste intégal, pour tout $i \in \llbracket 0, p-1 \rrbracket$,
@@ -84,132 +57,190 @@ Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^1$ sur
 
 \item De plus, on montre que cette borne est atteinte pour $f : x \mapsto x - a$.
 
-\item La méthode des rectangles est exacte si $f$ est constante. Ce pendant, si $f : x \mapsto x$, alors la méthode ne donne pas la valeur exacte de l'intégrale.
+\item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $f : x \mapsto x - a$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
 \end{enumerate}
 \end{elem_sol}
-
-\todoinline{Reprendre la suite}
 
 %-----------
 \subsection{Méthode des rectangles médians}
 
-La méthode composée des rectangles médians consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des rectangles médians sur chacune de ces subdivisions :
-% \begin{columns}{2}
+La méthode des rectangles médians consiste, pour chacun des intervalles de la subdivision, à approcher l'aire sous la courbe représentative de $f$ par celle d'un rectangle dont la hauteur correspond à la valeur de $f$ au milieu de la subdivision. Plus précisément, on considère la quantité :
 \[
 I_p^m(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2} \right).
 \]
-%
-% \columnbreak
-%
-% \begin{center}
-% \scalebox{0.3}{\input{chapitres/integration/documents/figures/approx_rect_m.pdf_t}}
-% \end{center}
-% \end{columns}
 
-\begin{marginfigure}[-5cm]
+\begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_rectangles_medians}
 \end{marginfigure}
 
-Dans toute cette partie, $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$
+\begin{prop}{}{}
+La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
+\end{prop}
 
-\begin{enumerate}
-\item Soit $i \in \interent{0}{p-1}$.
-\begin{enumerate}
-    \item Montrer que
-    \[
-    (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
-    \]
-    
-    \item En déduire que
-    \[
-    \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
-    \leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
-    \]
-\end{enumerate}
+\begin{elem_sol}
+On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $[a, b]$. On note $F$ une primitive de $f$ et $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
 
-\item Montrer que
+\todoinline{Reprendre le graphique.}
+\begin{enumerate}
+\item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou le graphique suivant permet de montrer que :
 \[
-\module{\int_{[a,b]} f - I_p^m(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}
+ (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
+    \]
+
+\includegraphics[width=0.2\textwidth]{./chapitres/integration/documents/figures/rectangles_medians.jpg}
+    
+
+\item Ainsi, d'après la formule de Taylor avec reste intégral,
+\begin{align*}
+\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
+&= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}\\
+&\leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
+\end{align*}
+
+\item Comme pour la méthode des rectangles à gauche, la formule de Chasles permet de montrer que
+\[
+\module{\int_{[a,b]} f - I_p^m(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}.
 \]
 
-\item Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
-\item Montrer que la méthode des rectangles médians est d'ordre $1$.
-
+\item La méthode des rectangles médians est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre que la méthode des rectangles médians ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $1$.
 \end{enumerate}
+\end{elem_sol}
 
+%-----------
 \subsection{Méthode des trapèzes}
 
-La méthode composée des trapèzes consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à appliquer la méthode simple des trapèzes sur chacune de ces subdivisions :
-%\begin{colonnes}{2}
+La méthode des trapèzes consiste, pour chacun des intervalles de la subdivision, à approcher l'aire sous la courbe représentative de $f$ par celle d'un trapèze. Plus précisément, on considère la quantité :
 \[
 I_p^t(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
 \]
-%
-%\columnbreak
-%
-%\begin{center}
-%\scalebox{0.3}{\input{figures/approx_trap.pdf_t}}
-%\end{center}
-%\end{colonnes}
 
 \begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_trapezes}
 \end{marginfigure}
 
-On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
+\begin{prop}{}{}
+La méthode des trapèzes est d'ordre $2$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
+\end{prop}
+
+\begin{elem_sol}
+On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
 
 \begin{enumerate}
-\item À l'aide d'intégrations par parties, montrer que, pour tout $i \in \interent{0}{p-1}$,
+\item À l'aide de deux intégrations par parties successives, on montre que, pour tout $i \in \interent{0}{p-1}$,
 \[
 \int_{x_i}^{x_{i+1}} f''(t) (t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
 \]
 
-\item En déduire que
+\item D'après la relation précédente, on établit que
+\begin{align*}
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^t(f)}
+&\leq \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
+&\leq \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
+&\leq \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
+\end{align*}
+
+\item Comme pour les méthodes précédentes, on utilise ensuite la relation de Chasles pour obtenir
 \[
 \module{\int_{[a,b]} f - I_p^t(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
 \]
 
-\item Montrer que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
-\item Montrer que la méthode des trapèzes est d'ordre $1$.
-
-\item Montrer que, lorsque $f'' \geq 0$ (en particulier lorsque $f$ est convexe), pour tout entier naturel $p$, $\int_{[a,b]} f \leq I_p^t(f)$.
-
+\item La méthode des trapèzes est exacte si $f$ est un polynôme de degré 1. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre 2.
 \end{enumerate}
+\end{elem_sol}
+
+\begin{remarque}
+Lorsque $f$ est de classe $\mathscr{C}^2$ est convexe, alors $f'' \geq 0$ et, pour tout entier naturel $p$, $\int_{[a,b]} f \leq I_p^t(f)$. On obtient ainsi une valeur approchée par excès de l'intégrale.
+\end{remarque}
 
 \subsection{Méthode de \textsc{Simpson}}
 
-\todoinline{Ci-dessous, j'ai changé le mathsc en textsc devant Taylor car chez moi ça ne compilait pas}
-
-La méthode composée de Simpson consiste à découper le segment $[a, b]$ en $p$ sous-segments puis à approcher, sur chacune de ces subdivisions, la fonction $f$ par un polynôme de degré inférieur ou égal à $2$ :
+La méthode de simpson consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
 \[
 I_p^s(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
 \]
+
+\begin{prop}{}{}
+Dans la méthode de Simpson, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
+\end{prop}
+
+\begin{elem_sol}
+On suppose que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \module{f^{(4)}}$.
+
+Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
 \begin{enumerate}
-\item Soit $g \in \mathscr{C}^5([a, b], \R)$ une fonction impaire. On note $K_5 = \sup_{[a,b]} \module{g^{(5)}}$. En utilisant la formule de \textsc{Taylor} avec reste intégral pour $g$ et $g'$, montrer que
+\item D'après la formule de Taylor avec reste intégral appliquée à une primitive $F$ de $f$,
+\begin{align*}
+F(\gamma_i + h_i)
+&= F(\gamma_i) + h_i f(\gamma_i) + \frac{h_i^2}{2} f'(\gamma_i) + \frac{h_i^3}{6} f''(\gamma_i) + \frac{h_i^4}{24} f'''(\gamma_i) + \frac{h_i^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i + t h_i) \d t,\\
+f(\gamma_i - h_i)
+&= F(\gamma_i) - h_i f(\gamma_i) + \frac{h_i^2}{2} f'(\gamma_i) - \frac{h_i^3}{6} f''(\gamma_i) + \frac{h_i^4}{24} f'''(\gamma_i) - \frac{h_i^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i - t h_i) \d t.
+\end{align*}
+
+Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, en soustrayant les deux relations précédentes, on obtient
+\begin{align*}
+F(x_{i+1}) - F(x_i)
+&= 2 h_i f(\gamma_i) + \frac{h_i^3}{3} f''(\gamma_i) + \frac{h_i^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+% \\
+% \int_{x_i}^{x_{i+1}} f(t) \d t
+% &= \frac{b - a}{p} f(\gamma_i) + \frac{(b - a)^3}{24 p^3} f''(\gamma_i) + \frac{(b - a)^5}{32 \times 24 p^5} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+\end{align*}
+
+Ainsi,
+\begin{align*}
+&\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}\\
+&\leq \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i^2 f''(\gamma_i)\right]} + \frac{h_i^5 2 M_4}{5! p^5}.
+\end{align*}
+
+\item En utilisant la formule de Taylor avec reste intégral pour la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$, on obtient comme précédemment
 \[
-\module{g(x) - \frac{x}{3} (g'(x) + 2 g'(0))} \leq \frac{K_5}{180} \module{x}^5.
+\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i^2 f(\gamma_i)} \leq \frac{h_i^4 \times 2 M_4}{4!}.
 \]
 
-On suppose dans cette partie que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \module{f^{(4)}}$.
+\item Finalement,
+\begin{align*}
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
+&\leq h_i^5 \left[\frac{2}{3 \times 4!} + \frac{2}{5!}\right]\\
+&\leq \frac{2 h_i^5}{45}
+\leq \frac{(x_{i+1} - x_i)^5}{720}.
+\end{align*}
 
-\item Montrer que, pour tout $i \in \interent{0}{p-1}$,
+\todoinline{Je crois qu'on peut atteindre un facteur $\frac{1}{2880}$ mais je ne parviens pas à faire mieux sans regarder en détail les restes intégraux !}
+
+\item On conclut à l'aide de la relation de Chasles :
 \[
-\module{F(x_{i+1}) - F(x_i) - \frac{1}{6p} \left[ f(x_{i+1}) + f(x_i) + 4 f\left(\frac{x_{i+1}+x_i}{2}\right) \right]}
-\leq
-\frac{M_4 (x_{i+1} - x_i)^5}{2880}.
+\module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{720 p^4}.
 \]
-
-\emph{Poser $g : t \mapsto F\left(\frac{x_{i+1}+x_i}{2}+t\right) - F\left(\frac{x_{i+1}+x_i}{2}-t\right)$.}
-
-\item En déduire que
-\[
-\module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
-\]
+% \[
+% \module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
+% \]
 \end{enumerate}
+\end{elem_sol}
+
+\todoinline{Reprendre la section suivante.}
+
+%-----------
+\subsection{Et ensuite ?}
+
+Soit $n$ un entier naturel non nul. Soit $i \in \interent{0}{p-1}$. On note $(y_{i,0},\ldots,y_{i,n})$ une subdivision régulière de l'intervalle $\interff{x_i}{x_{i+1}}$.
+
+On note $(L_{i,0},\ldots,L_{i,p})$ la famille des polynômes d'interpolation de Lagrange aux points $(y_{i,0},\ldots,y_{i,n})$. Pour tout entier $i \in \interent{0}{n}$, on note $\lambda_i = \int_a^b L_i(t) \d t$. La méthode de Newton-Cotes approche l'intégrale $\int_a^b f(t) \d t$ par
+\[
+I_p(f) = \sum_{i=0}^p \lambda_i f(x_i).
+\]
+
+On peut montrer que :
+\begin{itemize}
+\item lorsque $n = 1$, on retrouve la formule des trapèzes.
+
+\item lorque $n = 2$, on retrouve la méthode de Simpson.
+\end{itemize}
+
 On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Ces méthodes sont appelées \emph{méthodes de \textsc{Newton}--\textsc{Cotes}}. Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
 Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur convergence est lente comme le montre l'exercice suivant.
