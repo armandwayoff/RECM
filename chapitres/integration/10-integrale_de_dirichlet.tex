@@ -1,4 +1,4 @@
-\section{Intégrale de \textsc{Dirichlet}}
+\section{Intégrale de \textsc{Dirichlet}}\label{sec:intDirichlet}
 
 \todoinline{Peut-être pourrait on ajouter son utilisation en physique (un truc en diffration). Pour moi les souvenirs sont un peu lointains...}
 
@@ -162,7 +162,7 @@ Ainsi, $F$ est bien définie sur $\R_+$.
 \item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant $u : t \mapsto \int_t^{+\infty} \frac{\sin t}{t} \d t$ et $v : t \mapsto (1 - \e^{-x t})$. Comme le produit $u v$ admet des limites nulles en $0$ et $+\infty$, alors
 \begin{align*}
 F(x) &= -x \int_{0}^{+\infty} u(t) \e^{- x t} \d t \\
-&= -\int_0^{+\infty} u\left(\frac{v}{x}\right) \e^{-v} \dv.
+&= -\int_0^{+\infty} u\left(\frac{v}{x}\right) \e^{-v} \d v.
 \end{align*}
 Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ et
 \[
@@ -170,7 +170,7 @@ Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ 
 \]
 qui est une fonction intégrable. Ainsi, d'après le théorème de convergence dominée,
 \[
-\lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t) \e^{-v} \dv = 0.
+\lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t) \e^{-v} \d v = 0.
 \]
 Ainsi, $F$ est continue en $0$.
 
