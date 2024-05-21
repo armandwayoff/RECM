@@ -1,13 +1,11 @@
 \section{Fonctions décroissantes}
 
+\todoinline{Ici, on n'a pas de théorème, que des exercices. Ce n'est pas un problème mais chercherait-on une présentation uniforme sur ces premiers thèmes ?}
+
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{exos_oraux} p. 268}
     Soit $f : \Rp \to \R$ une fonction continue, décroissante et intégrable. Montrer que $x f(x) \xrightarrow[x \to +\infty]{} 0$.
 \end{exercice}
-
-\todoinline{On pourrait faire un dessin pour les points 1 et 2 qui sont classiques mais pas très bien compris en minorant/majorant l'aire sous $f$ par l'aire d'un rectangle.\\
-%
-On peut aussi essayer d'illustrer l'encadrement final.}
 
 \begin{marginfigure}[-2cm]
     \centering
@@ -51,6 +49,9 @@ De même,
 \displaystyle\int_{x/2}^x f(t) \mathrm{d}t \geq \frac{x}{2} f(x).
 \]
 
+\todoinline{On pourrait illustrer les deux inégalités précédentes en dessinant les aires sous des rectangles en hachuré et les aires sous les courbes en couleur pastel. On pourrait mettre une couleur pour $[x/2, x]$ et une différente sur $[x, 2x]$}
+
+
 Ainsi,
 \[
 \displaystyle\int_x^{2 x} f(t) \mathrm{d}t \leq x f(x) \leq 2 \displaystyle\int_{x/2}^x f(t) \mathrm{d}t.
@@ -66,18 +67,9 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 \end{itemize}
 \end{elem_sol}
 
-\todoarmand{Correction : exercice 3 de \url{http://ddmaths.free.fr/section115.html}}
-\todoinline{J'ai rédigé à ma sauce ci-dessus}
+\todoarmand{Mettre un lien vers \url{http://ddmaths.free.fr/section115.html} ou pas car c'est très classique}
 
 
-% \begin{itemize}
-% \item Montrer que $f$ tend vers 0 en utilisant sa décroissance et son intégrabilité. $f$ est donc à valeurs positives. 
-% \item Encadrer $x f(x)$ en écrivant $x=2 \cdot \frac{x}{2}$.
-% \end{itemize}
-% \end{elem_sol}
-
-
-\todoinline{Ajouter une illustration avec une fonction type Riemann ?}
 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{truc2019} p. 268}
@@ -86,6 +78,8 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
     \lim\limits \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
     \]
 \end{exercice}
+
+\todoinline{Ajouter une illustration avec une fonction type Riemann $x \mapsto \frac{1}{\sqrt{x}}$ sur $]0, 1]$ ?}
 
 \begin{elem_sol}
 On note $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right)$.
@@ -119,7 +113,10 @@ Ainsi, d'après le théorème d'encadrement,
 \]
 \end{elem_sol}
 
-\todoinline{On peut éventuellement ajouter l'exercice suivant. Il s'agit d'une somme de Riemann mais sur $]1, +\infty[$}
+\begin{remarque}
+Une étude plus détaillée de ce résultats et de ses limites est discutée dans \cite{truc2019} p. 268.
+\end{remarque}
+
 %---------------
 
 \begin{exercice}
@@ -135,6 +132,8 @@ Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac
 \item Même question avec la suite $(n S_n)$.
 \end{enumerate}
 \end{exercice}
+
+\todoinline{Illustrer $n S_n$ et $\int_{1}^{+\infty} f(t) \d t$ sur un même graphique ?}
 
 \begin{elem_sol}
 \begin{enumerate}

@@ -91,7 +91,7 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \begin{elem_sol}
 On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
 
-\todoinline{Reprendre le graphique.}
+\todoinline{On pourrait hachurer les intégrales de chaque côté de la tangente afin de montrer que les aires se compensent ?}
 \begin{enumerate}
 \item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou le graphique suivant permet de montrer que :
 \[
@@ -170,7 +170,7 @@ On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = 
 \end{elem_sol}
 
 \begin{remarque}
-Lorsque $f$ est de classe $\mathscr{C}^2$ est convexe, alors $f'' \geq 0$ et, pour tout entier naturel $p$, $\int_{[a,b]} f \leq I_p^t(f)$. On obtient ainsi une valeur approchée par excès de l'intégrale.
+Lorsque $f$ est de classe $\mathscr{C}^2$ est convexe, alors $f'' \geq 0$ et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leq I_p^t(f)$}. On obtient ainsi une valeur approchée par excès de l'intégrale.
 \end{remarque}
 
 \subsection{Méthode de \textsc{Simpson}}
@@ -239,17 +239,37 @@ Ainsi,
 \end{enumerate}
 \end{elem_sol}
 
-\todoinline{Reprendre la section suivante.}
-
 %-----------
 \subsection{Et ensuite ?}
 
-Soit $n$ un entier naturel non nul. Soit $i \in \interent{0}{p-1}$. On note $(y_{i,0},\ldots,y_{i,n})$ une subdivision régulière de l'intervalle $\interff{x_i}{x_{i+1}}$.
+Nous constatons que, pour chacune des méthodes précédentes, la stratégie est identique :
+\begin{itemize}
+\item découper le segment en une subdivision régulière $a = x_0 \leq \cdots \leq x_n = b$,
 
-On note $(L_{i,0},\ldots,L_{i,p})$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} aux points $(y_{i,0},\ldots,y_{i,n})$. Pour tout entier $i \in \interent{0}{n}$, on note $\lambda_i = \int_a^b L_i(t) \d t$. La méthode de Newton-Cotes approche l'intégrale $\int_a^b f(t) \d t$ par
+\item sur chacun des intervalles de cette subdivision, approcher la fonction par une fonction dont l'intégrale est plus simple.
+
+Sur l'intervalle $[x_i, x_{i+1}]$ : pour la méthode des rectangles, on approche la fonction par une droite horizontale, pour celle des trapèzes, par une droite affine passant par les points $(x_i, f(x_i))$ et $(x_{i+1}, f(x_{i+1}))$.
+\end{itemize}
+
+Plus généralement, on peut découper le segment $[x_i, x_{i+1}]$ en une subdivision régulière $x_i = y_{i,0} \leq \ldots \leq y_{i,p} \leq x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de Lagrange qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0}), \ldots, (y_{i,p}, f(y_{i,p}))$.
+
+Cette méthode est appelée \emph{méthode de \textsc{Newton}--\textsc{Cotes}}.
+
+Plus précisément, on considère une subdivision $0 = y_0 \leq \ldots \leq y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
 \[
-I_p(f) = \sum_{i=0}^p \lambda_i f(x_i).
+\forall\ i \in \interent{0}{p},\, L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
 \]
+
+On pose alors $\lg_j = \int_0^1 L_j(t) \d t$.
+
+On approche alors l'intégrale de $f$ sur $[x_i, x_{i+1}]$ par la somme
+\[
+I_p^i(f) = (x_{i+1} - x_i) \sum_{j=0}^p \lg_j g(x_i + (x_{i+1} - x_i) y_j),
+\]
+puis l'intégrale sur le segment $[a, b]$ par
+\[
+I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \sum_{j=0}^p \lg_j f(x_i + (x_{i+1} - x_i) y_j).
+\] 
 
 On peut montrer que :
 \begin{itemize}
@@ -258,12 +278,9 @@ On peut montrer que :
 \item lorque $n = 2$, on retrouve la méthode de Simpson.
 \end{itemize}
 
-On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Ces méthodes sont appelées \emph{méthodes de \textsc{Newton}--\textsc{Cotes}}. Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
+On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
-Les sommes de \textsc{Riemann} permettent de calculer des intégrales mais leur convergence est lente comme le montre l'exercice suivant.
+\todoinline{On pourrait renvoyer vers le livre Demailly - Analyse numérique et équations différentielles}
 
-\begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
-    Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $[0, 1]$. Déterminer le réel $a$ tel que:
-    $$\int_0^1 f(t) \d t - \frac{1}{n} \sum_{k=1}^{n-1} f \left( \frac{k}{n} \right) =\lim\limits_{n \to + \infty} \frac{a}{n} + o \left( \frac{1}{n} \right).$$
-    \end{exercice}
+
+\todoinline{Je pense qu'il faudrait mettre les quadratures ailleurs pour éviter un thème trop long ? Un thème à part ? Une application dans la partie polynômes orthogonaux ?}
