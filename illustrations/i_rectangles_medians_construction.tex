@@ -2,6 +2,7 @@
 \coordinate (xm) at (3,{f(3)});
 
 \draw[fill=teal!20!white] (2,0) rectangle (4,{f(3)});
+\fill[red, opacity=0.2,ultra thick] (2,0) -- (2,{g(2)}) -- (4, {g(4)}) -- (4, 0);
 
 \draw[dashed] (3, 0) -- (3,{f(3)});
 \draw[dashed] (2, {f(3)}) -- (2,{g(2)});

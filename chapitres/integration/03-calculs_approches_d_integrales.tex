@@ -115,7 +115,7 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segmen
 
 \item Comme pour la méthode des rectangles à gauche, la formule de \textsc{Chasles} permet de montrer que
 \[
-\module{\int_{[a,b]} f - I_p^m(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}.
+\module{\int_{\interff{a}{b}} f - I_p^\mathrm{m}(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}.
 \]
 
 \item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
@@ -129,7 +129,7 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segmen
 
 La méthode des trapèzes consiste, pour chacun des intervalles de la subdivision, à approcher l'aire sous la courbe représentative de $f$ par celle d'un trapèze. Plus précisément, on considère la quantité :
 \[
-I_p^t(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
+I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2}.
 \]
 
 \begin{marginfigure}[0cm]
@@ -142,7 +142,7 @@ La méthode des trapèzes est d'ordre $2$. De plus, si $f$ est de classe $\maths
 \end{prop}
 
 \begin{elem_sol}
-On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $[x_i, x_{i+1}]$ de $f$ et $g_i = f - \phi_i$.
+On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
 
 \begin{enumerate}
 \item À l'aide de deux intégrations par parties successives, on montre que, pour tout $i \in \interent{0}{p-1}$,
@@ -152,32 +152,32 @@ On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = 
 
 \item D'après la relation précédente, on établit que
 \begin{align*}
-\module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^t(f)}
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
 &\leq \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
 &\leq \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
 &\leq \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
 \end{align*}
 
-\item Comme pour les méthodes précédentes, on utilise ensuite la relation de Chasles pour obtenir
+\item Comme pour les méthodes précédentes, on utilise ensuite la relation de \textsc{Chasles} pour obtenir
 \[
-\module{\int_{[a,b]} f - I_p^t(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
+\module{\int_{\interff{a}{b}} f - I_p^\mathrm{t}(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
 \]
 
 \item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
-\item La méthode des trapèzes est exacte si $f$ est un polynôme de degré 1. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre 2.
+\item La méthode des trapèzes est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $2$.
 \end{enumerate}
 \end{elem_sol}
 
 \begin{remarque}
-Lorsque $f$ est de classe $\mathscr{C}^2$ est convexe, alors $f'' \geq 0$ et, pour tout entier naturel $p$, $\int_{[a,b]} f \leq I_p^t(f)$. On obtient ainsi une valeur approchée par excès de l'intégrale.
+Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe, alors $f'' \geq 0$ et, pour tout entier naturel $p$, $\int_{\interff{a}{b}} f \leq I_p^\mathrm{t}(f)$. On obtient ainsi une valeur approchée par excès de l'intégrale.
 \end{remarque}
 
 \subsection{Méthode de \textsc{Simpson}}
 
-La méthode de simpson consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
+La méthode de \textsc{Simpson} consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
 \[
-I_p^s(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
+I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
 \]
 
 \begin{prop}{}{}
