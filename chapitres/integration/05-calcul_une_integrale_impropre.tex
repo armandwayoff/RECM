@@ -1,12 +1,39 @@
-\section{Calcul d'une intégrale impropre}
+\section{Utilisation de symétries}
 
-\todoinline{Semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
+\todoinline{Modification du titre et de l'ordre pour avoir segment / impropre et trigo / impropre et pas 1/x}
 
-\todoinline{Illustrer par un graphique ces intégrales ?}
+\begin{exercice}
+On pose $I = \int\limits_0^{\pi/4} \ln(1+\tan x) \d x$.
+\begin{enumerate}
+\item Pour tout $x$ réel, exprimer $\cos(x) + \sin(x)$ en fonction de $\cos\left(x - \frac{\pi}{4}\right)$.
 
-\todoinline{À mon avis, l'intérêt de ce calcul est d'utiliser les symétries associées aux fonctions sinus / cosinus pour pouvoir calculer. Dans le même genre il y a une intégrale sur un segment que je mets ci-dessous.
+\item En déduire la valeur de $I$.
+\end{enumerate}
+\end{exercice}
 
-Je me demande donc s'il ne vaudrait pas mieux renommer cette section en intégrales de fonctions trigonométriques sans primitiver. C'est pas très sexy comme titre, on doit pouvoir l'améliorer ;-)}
+\begin{elem_sol}
+L'intégrande est bien une fonction continue sur le segment $[0, \pi/4]$ donc l'intégrale est bien définie.
+\begin{enumerate}
+\item En utilisant les formules d'addition,
+\[
+\cos x + \sin x = \sqrt{2} \cos\left(x-\frac{\pi}{4}\right).
+\]
+
+\item On commence substituer la fonction tangente pour faire apparaître des symétries :
+\begin{align*}
+\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(1+\frac{\sin x}{\cos x}) \d x\\
+ &= \int\limits_0^{\pi/4} \ln(\sin x+\cos x) \d x - \int\limits_0^{\pi/4} \ln(\cos x)\d x.
+\end{align*}
+
+On utilise ensuite la question précédente puis un changement de variable affine :
+\begin{align*}
+\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(\sqrt{2}) \d x + \int\limits_0^{\pi/4} \ln(\cos x) \d x - \int\limits_0^{\pi/4} \ln(\cos x) \d x\\
+&= \frac{\pi}{8} \ln 2.
+\end{align*}
+\end{enumerate}
+\end{elem_sol}
+
+\todoinline{L'intégrale suivante semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
 \begin{exercice}
 \cite{Oraux - CCP-PSI-2016}
@@ -25,13 +52,13 @@ Je me demande donc s'il ne vaudrait pas mieux renommer cette section en intégra
 
 \begin{elem_sol}
 \begin{enumerate}
-\item La fonction $t \mapsto \ln(\sin(t))$ est continue sur $]0,\pi/2]$. De plus,
+\item La fonction $t \mapsto \ln(\sin(t))$ est continue sur $]0,\pi/2]$. De plus, en $0$,
 \[
 \ln(\sin(t)) = \ln(t + o(t)) = \ln(t) + \ln(1 + o(1)) = o(\ln(t)).
 \]
 Ainsi, $t \mapsto \ln(\sin(t))$ est intégrable en $0$.
 
-La formule de changement de variable, avec $\phi : u \mapsto \pi/2 - u$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
+Le changement de variable affine $\phi : u \mapsto \pi/2 - u$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
 
 \item Comme ces intégrales sont bien définies, en utilisant la relation de Chasles et la symétrie dans la dernière égalité,
 \[
@@ -41,43 +68,26 @@ Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
 \end{enumerate}
 \end{elem_sol}
 
-
-\todoinline{L'exercice dont je parlais plus haut}
-
 \begin{exercice}
-Calculer $\int\limits_0^{\pi/4} \ln(1+\tan x) \d x$.
+On pose $I = \int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
+\begin{enumerate}
+\item Justifier l'existence de $I$.
+
+\item En découpant l'intervalle $]0, +\infty[$ en $]0, 1] \cup [1, +\infty[$ et en effectuant un changement de variable, calculer $I$.
+\end{enumerate}
 \end{exercice}
 
 \begin{elem_sol}
-Ici, les règles de Bioche ne marchent pas. Il va falloir ruser. On commence par supprimer la première fonction qui nous dérange~:~la tangente.
-\begin{align*}
-\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(1+\frac{\sin x}{\cos x}) \d x\\
- &= \int\limits_0^{\pi/4} \ln(\sin x+\cos x) \d x - \int\limits_0^{\pi/4} \ln(\cos x)\d x.
-\end{align*}
+\begin{enumerate}
+\item La fonction $f \colon x \mapsto \frac{x \ln(x)}{(1 + x^2)^2}$ est continue sur $\interoo{0}{+\infty}$.
 
-Maintenant, il faut essayer d'éliminer l'intégrale du logarithme (toute tentative de Bioche échoue à nouveau). On remarque alors que
-\[
-\cos x + \sin x = \sqrt{2} \cos\left(x-\frac{\pi}{4}\right).
-\]
-On obtient ainsi
-\begin{align*}
-\int\limits_0^{\pi/4} \ln(1+\tan x) \d x &= \int\limits_0^{\pi/4} \ln(\sqrt{2}) \d x + \int\limits_0^{\pi/4} \ln(\cos x) \d x + \cdots\\
-& \cdots - \int\limits_0^{\pi/4} \ln(\cos x) \d x\\
-&= \frac{\pi}{8} \ln 2.
-\end{align*}
-\end{elem_sol}
+Comme $f$ tend vers $0$ en $0$ par croissances comparées, on peut la prolonger par continuité en $0$ en posant $f(0) = 0$.
 
-\todoinline{Si on décide d'élargir à l'utilisation des symétries, il y a l'exercice suivant que j'aime bien.}
+De plus, $\frac{x \ln(x)}{(1+x^2)^2} = o_{+\infty} \left( \frac{1}{x^2} \right)$.
 
-\begin{exercice}
-Justifier l'existence puis calculer l'intégale $\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
-\end{exercice}
+On en déduit que l'intégrale $\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$ converge.
 
-\todoinline{Ajouter l'existence dans preuve et relire le calcul.}
-
-\begin{elem_sol}
-La fonction $f \colon x \mapsto \frac{x \ln(x)}{(1 + x^2)^2}$ est continue sur $\interoo{0}{+\infty}$ et elle tend vers $0$ en $0$ par croissances comparées. On peut donc la prolonger par continuité en $0$ en posant $f(0) = 0$. De plus, $\frac{x \ln(x)}{(1+x^2)^2} = o_{+\infty} \left( \frac{1}{x^2} \right)$. On en déduit que l'intégrale $\int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$ existe bien. \\
-D'après la relation de Chasles,
+\item D'après la relation de Chasles,
 \[
 \int\limits_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
 = \int\limits_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int\limits_1^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x.
@@ -90,4 +100,5 @@ Dans la seconde intégrale, on effectue le changement de variable $\phi : [1, +\
 &= \int\limits_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x - \int\limits_0^1 \frac{u \ln(u)}{(u^2 + 1)^2} \d u\\
 &= 0.
 \end{align*}
+\end{enumerate}
 \end{elem_sol}
