@@ -1,21 +1,51 @@
 \section{Permutation somme/intégrale}
 
+\todoinline{Rédaction des éléments de preuves - À relire pour éviter les coquilles plus ou moins grosses !}
+
 \begin{exercice}    
-    Justifier les convergences, puis l'égalité:
-    $$\sum_{n=0}^{+ \infty} \frac{(-1)^n (2n+1)}{(2n+1)^2 + x^2} = \frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (xt)}{\ch t} \d t.$$
+Justifier la convergence de l'intégrale, puis l'égalité:
+\[
+\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (xt)}{\ch t} \d t = \sum_{n=0}^{+ \infty} \frac{(-1)^n (2n+1)}{(2n+1)^2 + x^2}.
+\]
 \end{exercice}
 
 \begin{elem_sol}
-    \begin{itemize}
-        \item $\frac{1}{2 \ch(t)} = \frac{\e^{-t}}{1 + \e^{-2t}}$
-        \item ...
-    \end{itemize}
+\begin{enumerate}
+\item La fonction $f \colon t \mapsto \frac{\cos(x t)}{2 \ch(t)}$ est continue sur $[0, +\infty[$. De plus, $|f(t)| \leq \frac{1}{\ch(t)}$ et $\frac{1}{\ch(t)} \sim_{+\infty} 2 \e^{-t}$. Ainsi, la fonction $f$ est intégrable sur $[0, +\infty[$ et l'intégrale converge.
+
+\item En utilisant le développement en série entière de la fonction inverse,
+\begin{align*}
+f(t)
+&= \frac{\cos(x t)}{\e^t + \e^{-t}}
+= \e^{-t} \cos(x t) (1 + \e^{-2t})^{-1}\\
+&= \e^{-t} \cos(x t) \sum_{n=0}^{+\infty} (-1)^n \e^{-2 n t}\\
+&= \sum_{n=0}^{+\infty} (-1)^n \cos(x t) \e^{(\i x - (2 n + 1)) t}.
+\end{align*}
+
+Nous posons par la suite $f_n \colon t \mapsto (-1)^n \cos(x t) \e^{- (2 n + 1) t}$.
+
+\item En utilisant la formule d'Euler,
+\begin{align*}
+(-1)^n \int_0^{+\infty} f_n(t) \d t
+&= \Re\left(\int_0^{+\infty} \e^{(\i x - (2 n + 1)) t} \d t\right)\\
+&= \Re\left(-\frac{1}{\i x - (2 n + 1)}\right)\\
+&= \frac{2 n + 1}{x^2 + (2 n + 1)^2}.
+\end{align*}
+
+\item Remarquons que la série de terme général $(-1)^n \e^{- (2 n + 1) t}$ est une série alternée. Ainsi,
+\begin{align*}
+\left|\sum_{n=N+1}^{+\infty} (-1)^n \e^{-(2 n + 1) t}\right|
+&\leq \e^{-(2 N + 1) t}\\
+\left| f(t) - \sum_{n=0}^N (-1)^n \cos(x t) \e^{-(2n+1) t}\right|
+\left|\sum_{n=0}^N f_n(t)\right| &\leq |f(t)| + \e^{-t}.
+\end{align*}
+
+Ainsi, $\sum_{n=0}^N f_n$ converge presque sûrement vers $f$ et ses sommes partielles sont dominées par une fonction intégrable. Donc, d'après le théorème de convergence dominée,
+\begin{align*}
+\int_0^{+\infty} f(t) \d t\\
+&= \lim_{N\to+\infty} \sum_{n=0}^N \int_0^{+\infty} f_n(t) \d t\\
+\int_0^{+\infty} \frac{\cos(x t)}{2 \ch(t)} \d t
+&= \sum_{n=0}^{+\infty} \frac{(-1)^n (2 n + 1)}{x^2 + (2 n + 1)^2}.
+\end{align*}
+\end{enumerate}
 \end{elem_sol}
-
-\begin{solution}
-    \begin{itemize}
-        \item Assurons-nous tout d'abord de la convergence de la série. Le terme général de cette série a un signe alterné et dont la valeur absolue \dots
-    \end{itemize}
-\end{solution}
-
-\todoinline{Compléter cette preuve. Choisir les permutations qui seront à mettre car on peut en trouver beaucoup !}
