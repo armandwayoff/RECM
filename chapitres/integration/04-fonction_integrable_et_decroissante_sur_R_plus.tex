@@ -49,6 +49,12 @@ De même,
 \displaystyle\int_{x/2}^x f(t) \mathrm{d}t \geq \frac{x}{2} f(x).
 \]
 
+\begin{marginfigure}
+    \centering
+    \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus_bis}
+    \caption{ébauche}
+\end{marginfigure}
+
 \todoinline{On pourrait illustrer les deux inégalités précédentes en dessinant les aires sous des rectangles en hachuré et les aires sous les courbes en couleur pastel. On pourrait mettre une couleur pour $[x/2, x]$ et une différente sur $[x, 2x]$}
 
 
@@ -73,9 +79,9 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{truc2019} p. 268}
-    Soit $f : ]0, 1] \to \R$ une fonction continue, décroissante et intégrable. Alors,
+    Soit $f : \interof{0}{1} \to \R$ une fonction continue, décroissante et intégrable. Alors,
     \[
-    \lim\limits \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+    \lim\limits_{n \to +\infty} \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
     \]
 \end{exercice}
 
