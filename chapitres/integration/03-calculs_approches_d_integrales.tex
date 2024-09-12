@@ -91,14 +91,11 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \begin{elem_sol}
 On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
 
-\todoinline{On pourrait hachurer les intégrales de chaque côté de la tangente afin de montrer que les aires se compensent ?}
 \begin{enumerate}
 \item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou le graphique suivant permet de montrer que :
 \[
  (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
     \]
-
-\includegraphics[width=0.2\textwidth]{./chapitres/integration/documents/figures/rectangles_medians.jpg}
 
 \begin{figure}
     \centering

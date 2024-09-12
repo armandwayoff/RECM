@@ -1,4 +1,67 @@
-\section{Intégration des relations de comparaisons}
+%--------
+\section{Comparaisons Séries / Intégrales}
+% \section{Intégration des relations de comparaisons}
+
+\todoinline{Le sujet de centrale est très prometteur au début puis utilise des résultats beaucoup plus faibles que ceux démontrés en préliminaires. Je propose de déplacer ce résultat dans la partie Séries numériques}
+
+% Source : Centrale - PC - Maths 1 - 2003
+\begin{prop}{}
+Il existe deux constantes $\gamma$ et $\delta$ telles que
+\[
+n! = \delta n^{n + \frac{1}{2}} \e^{-n} \left(1 + \frac{1}{12 n} + o\left(\frac{1}{n}\right)\right).
+\]
+\end{prop}
+
+\begin{itemize}
+\item On suppose que $f$ et $g$ sont positives et vérifient $f(x) \sim_b g(x)$. Si $\int_a^b f(t) \d t$ converge, alors $\int_x^b f(t) \d t \sim_b \int_x^b g(t) \d t$.
+
+Soit $\epsilon > 0$. La fonction $g$ étant strictement positive et comme $f \sim g$, il existe $\beta \in [a, b[$ tel que
+\[
+\forall\, t \in [\beta, b[,\, 0 < \abs{f(t) - g(t)} \leq \epsilon g(t).
+\]
+Ainsi, comme $g$ est intégrable sur $[\beta, b[$, alors $f - g$ l'est également. D'après la croissance de l'intégrale et l'inégalité triangulaire,
+\[
+\forall\, x \in [\beta, b[,\, 0 \leq \abs{\int_x^b f(t) \d t - \int_x^b g(t) \d t} \leq \epsilon \int_x^b g(t) \d t.
+\]
+Ainsi, $\int_x^b f(t) \d t \sim \int_x^b g(t) \d t$.
+
+\item Si $a_n \sim b_n$ sont positifs et les termes généraux de séries convergentes, alors $\sum_{k=n+1}^{+\infty} a_k \sim \sum_{k=n+1}^{+\infty} b_k$.
+
+Il suffit d'appliquer le résultat précédent aux fonctions en escalier
+\[
+f(t) = \sum_{k=0}^{+\infty} a_k \indicatrice{[k,k+1[}
+\text{ et }
+g(t) = \sum_{k=0}^{+\infty} b_k \indicatrice{[k, k+1[}.
+\]
+
+\item On pose $b_n = 1 + \left(n - \frac{1}{2}\right) \ln\left(1 - \frac{1}{n}\right)$ pour $n \geq 2$ et $b_0 = 0$, $b_1 = 1$.
+
+On remarque que $b_n \sim -\frac{1}{12 n^2}$. Comme $\sum a_n$ et $\sum b_n$ convergent, alors
+\[
+\sum_{k=n+1}^{+\infty} a_n \sim \sum_{k=n+1}^{+\infty} b_n.
+\]
+
+\item En utilisant les comparaisons séries / intégrales,
+\[
+\sum_{k=n+1}^{+\infty} \frac{1}{k^2} \sim \int_n^{+\infty} \frac{\d t}{t^2} = \frac{1}{n}.
+\]
+\todoinline{À justifier}
+
+
+Ainsi, il existe un réel $\ell$ tel que
+\[
+\sum_{k=0}^n b_k = \ln\left(\frac{n! \e^n}{n^{n+\frac{1}{2}}}\right) = \ell + \frac{1}{12 n} + o\left(\frac{1}{n}\right).
+\]
+
+En utilisant la fonction expontentielle,
+\[
+\frac{n! \e^n}{n^{n+\frac{1}{2}}} = \e^{\ell} \times \e^{\frac{1}{12 n} + o\left(\frac{1}{n}\right)}.
+\]
+
+On obtient le résultat attendu en utilisant un développement limité de la fonction exponentielle.
+\end{itemize}
+
+
 
 \begin{prop}{}
     Soit $f: \Rp \rightarrow \C$ une fonction continue par morceaux et $g, h:\Rp \rightarrow \Rp$ deux fonctions continues par morceaux, strictement positives. On suppose que $f = o_{+\infty}(g)$ et $f \sim_{+\infty} h$.\\
