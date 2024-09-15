@@ -101,15 +101,13 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 %-----------        
 \subsection{Calcul via le lemme de Lebesgue}
 
-\todoinline{Preuve ajoutée, à relire}
-
 \begin{exercice}
 \begin{enumerate}
     \item Calculer $I_n = \int_0^\pi \frac{\sin \left(n + \frac{1}{2}\right)t}{2 \sin \frac{t}{2}} \d t$. \\
     \emph{Indication :} Calculer $I_{n+1} - I_n$. 
 
     \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
-    \item En déduire la valeur de l'intégrale $I$.\\
+    \item En déduire la valeur de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$.\\
     \emph{Indication :} On utilisera le lemme de Lebegue
 \end{enumerate}
 \end{exercice}
@@ -120,21 +118,21 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 \begin{align*}
 I_{n+1} - I_n
 &= \int_0^\pi \frac{\sin\left(n + 1 + \frac{1}{2}\right) t - \sin\left(n + \frac{1}{2}\right) t}{2 \sin \frac{t}{2}} \d t\\
-&= 2 \int_0^\pi \cos (n + 1) t \d t
-= \frac{2}{n + 1} \left[\sin(n + 1) t\right]_{0}^\pi
+&= \int_0^\pi \cos (n + 1) t \d t
+= \frac{1}{n + 1} \left[\sin(n + 1) t\right]_{0}^\pi
 = 0.
 \end{align*}
 
-Ainsi, la suite $(I_n)$ est croissante et $I_0 = \frac{\pi}{4}$. Donc, pour tout $n$ entier naturel, $I_n = \frac{\pi}{4}$.
+Ainsi, la suite $(I_n)$ est constante et $I_0 = \frac{\pi}{2}$. Donc, pour tout $n$ entier naturel, $I_n = \frac{\pi}{2}$.
 
 \item La fonction $f$ est continue et dérivable sur $]0; \pi]$. De plus, pour tout réel $x \in ]0; \pi]$,
-$f(x) = \frac{x - 2 \sin(x/2)}{2 x \sin(x/2)}$.
+$f(x) = \frac{2 \sin(x/2) - x}{2 x \sin(x/2)}$.
 
 En utilisant les développements limités classiques,
 \[
 f(x)
-\sim \frac{\frac{x^3}{24}}{x^2}
-\sim \frac{x}{24}.
+\sim -\frac{\frac{x^3}{24}}{x^2}
+\sim -\frac{x}{24}.
 \]
 Ainsi, $f$ est prolongeable par continuité en $0$ par $f(0) = 0$.
 
@@ -154,7 +152,7 @@ Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le théorème de prolongem
 \begin{align*}
 \int_0^{(n + 1/2) \pi} \frac{\sin t}{t} \d t
 &= \int_0^\pi \frac{\sin (n + 1/2) t}{t} \d t\\
-&= \int_0^\pi \frac{\sin(n + 1/2) t}{t} - \frac{\sin (n + 1/2) t}{2 \sin (t/2)} \d t + \frac{\sin (n + 1/2) t}{2 \sin(t/2)} \d t\\
+&= \int_0^\pi \left[ \frac{\sin(n + 1/2) t}{t} - \frac{\sin (n + 1/2) t}{2 \sin (t/2)} + \frac{\sin (n + 1/2) t}{2 \sin(t/2)} \right] \d t\\
 &= \int_0^\pi f(t) \sin((n + 1/2) t) \d t - I_n.
 \end{align*}
 Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de Lebesgue,
