@@ -170,6 +170,7 @@ Finalement, $I = \frac{\pi}{2}$.
 
 \todoinline{Je garderai plutôt le troisième exercice qui est issu d'un sujet de concours et est plus simple même s'il ne parle pas de transfo de Laplace directement.}
 
+\begin{comment}
 \begin{exercice}
     Exercice 167 p.179 (bestiaire.pdf) \\
     On considère l'application $f(x) = \int_0^\infty \frac{\sin(t)}{t} \e^{-xt} \d t$.
@@ -180,7 +181,9 @@ Finalement, $I = \frac{\pi}{2}$.
         \item En déduire que $\int_0^\infty \frac{\sin(t)}{t} \d t = \frac{\pi }{2}$.
     \end{enumerate}
 \end{exercice}
+\end{comment}
 
+\begin{comment}
 \begin{exercice}
 Soit la transformée de \textsc{Laplace} de la fonction sinus cardinal:
 $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
@@ -190,6 +193,7 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
     \item \emph{Calculer $F$ sur $\Rpe$, en déduire la valeur de la fonction de \textsc{Dirichlet}}
 \end{enumerate}
 \end{exercice}
+\end{comment}
 
 \begin{preuve}
 \begin{enumerate}
@@ -391,14 +395,16 @@ Finalement, on obtient
 
 \todoinline{On pourrait garder cette ouverture en citant ENSAIT-MP-1996 comme source. On peut également ouvrir vers les intégrales de Borwein}
 
+\todoarmand{J'aime bien l'idée de l'ouverture vers les intégrales de Borwein. C'est aussi l'occasion d'évoquer la transformée de Fourier et le produit de convolution il me semble, mais c'est peut être trop ambitieux. Une ressource intéressante \url{https://perso.telecom-paristech.fr/rioul/publis/202301rioul.pdf}}
+
 À l'aide d'intégrations par parties, on peut montrer que
 \[
-\dint_0^{+\infty} \left(\frac{\sin t}{t}\right)^2 \d t
-= \dint_0^{+\infty} \left(\frac{\sin t}{t}\right)^4 \d t
+\int_0^{+\infty} \left(\frac{\sin t}{t}\right)^2 \d t
+= \int_0^{+\infty} \left(\frac{\sin t}{t}\right)^4 \d t
 = \frac{\pi}{2}.
 \]
 
 En utilisant la linéarisation du sinus, on peut montrer que
 \[
-\dint_0^{+\infty} \frac{(\sin t)^3}{t^2} \d t = \frac{3 \ln(3)}{4}.
+\int_0^{+\infty} \frac{(\sin t)^3}{t^2} \d t = \frac{3 \ln(3)}{4}.
 \]
