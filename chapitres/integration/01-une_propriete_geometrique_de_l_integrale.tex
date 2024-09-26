@@ -40,8 +40,10 @@ Cette représentation graphique permet d'illustrer géométriquement la formule 
 
 En effet, si $f,\, g$ sont de classe $\mathcal{C}^1$ et strictement monotones, alors elles sont bijectives. On a de plus \mbox{$(f \circ g^{-1})^{-1} = g \circ f^{-1}$}. Ainsi, en appliquant la relation précédente à la fonction $f \circ g^{-1}$, on obtient
 \begin{align*}
-\int_{g(a)}^{g(b)} (f \circ g^{-1})(u) \,\mathrm{d}u + \int_{(f\circ g^{-1})(g(a))}^{(f\circ g^{-1})(g(b)} (f \circ g^{-1})^{-1}(u) \,\mathrm{d}u
-&= g(b) (f \circ g^{-1})(g(b)) - g(a) (f \circ g^{-1})(g(a))\\
+\int_{g(a)}^{g(b)} (f \circ g^{-1})(u) \,\mathrm{d}u + \int_{(f\circ g^{-1})(g(a))}^{(f\circ g^{-1})(g(b)} (f \circ g^{-1})^{-1}(u) \,\mathrm{d}u &= \begin{multlined}[t] 
+g(b) (f \circ g^{-1})(g(b)) \\
+- g(a) (f \circ g^{-1})(g(a))
+\end{multlined} \\
 \int_{g(a)}^{g(b)} (f \circ g^{-1})(u) \,\mathrm{d}u + \int_{f(a)}^{f(b)} (g \circ f^{-1})(u) \,\mathrm{d}u
 &= g(b) f(b) - g(a) f(a).
 \end{align*}
