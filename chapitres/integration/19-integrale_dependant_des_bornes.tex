@@ -1,33 +1,138 @@
 \section{Intégrale à paramètre dans les bornes}
 
-\begin{itemize}
-    \item On pose $f:x \mapsto \int_{x}^{x^2} \frac{\d t}{\ln (t)}$.
-    $$\displaystyle f(x) = \int_{x}^{x^2} \frac{t}{t \ln (t)} \d t \leqslant x^2 \int_{x}^{x^2} \frac{\d t}{t \ln(t)} = x^2 \bigl[ \ln (\ln (t)) \bigr]_x^{x^2} = x^2 \ln(2).$$
-\end{itemize}
+\section{Autour du logarithme intégral}
 
-\section{Exercice oral}
+\todoinline{Ajouter une représentation graphique de $f$.}
+
+\begin{prop}
+Pour tout $x \in ]0, 1[$, on définit $f(x) = \int_x^{x^2} \frac{\d t}{\ln(t)}$.
+\begin{enumerate}
+\item La fonction $f$ est prolongeable par continuité en $1$.
+
+\item La fonction $f$ est dérivable sur $[0, 1]$.
+\end{enumerate}
+\end{prop}
+
+\begin{remarque}
+La fonction $x \mapsto \int_0^x \frac{1}{\ln(t)} \d t$ est la fonction logarithme intégral.
+\end{remarque}
+
+\begin{elem_sol}
+\begin{enumerate}
+\item Soit $t \in ]x^2, 1]$. Comme la fonction logarithme est concave, sa courbe représentative se situe en-dessous de sa tangente en $1$ et
+\[
+\ln(t) - \ln(1) \leq t - 1.
+\]
+
+\medskip
+
+Toujours par concavité de la fonction logarithme, la corde reliant les points de coordonnées $(x^2, \ln(x^2))$ et $(1, 0)$ se situe en-dessous de la courbe représentant le logarithme, soit :
+\[
+\frac{\ln(x^2) - \ln(1)}{x^2 - 1} (t - 1) \leq \ln(t).
+\]
+
+\item En utilisant l'encadrement précédent, pour tout $t \in ]x^2, 1[$,
+\begin{align*}
+\frac{1}{t - 1} \leq \frac{1}{\ln(t)} &\leq \frac{x^2 - 1}{2 \ln(x)} \times \frac{1}{t - 1}\\
+\frac{x^2 - 1}{2 \ln(x)} \int_x^{x^2} \frac{\d t}{t - 1} &\leq f(x) \leq \int_x^{x^2} \frac{\d t}{t - 1}\\
+\frac{x^2 - 1}{2 \ln(x)} \ln \abs{\frac{x^2 - 1}{x - 1}} &\leq f(x) \leq \ln\abs{\frac{x^2 - 1}{x - 1}}\\
+\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\abs{x + 1} &\leq f(x) \leq \ln\abs{x + 1}.
+\end{align*}
+
+Ainsi, d'après le théorème d'encadrement, $\lim_{x\to 1} f(x) = \ln(2)$.
+
+\item En utilisant la dérivation par rapport aux bornes,
+\begin{align*}
+f'(x)
+&= 2 x \frac{1}{\ln(x^2)} - x \frac{1}{\ln(x)}\\
+&= \frac{x - 1}{\ln(x)}.
+\end{align*}
+
+La fonction $f$ est prolongeable par continuité sur $]0, 1]$ et dérivable sur $]0, 1[$. De plus, $\lim_{x\to 1} f'(x) = 1$. D'après le théorème de prolongement dérivable, $f$ est dérivable en $1$ et $f'(1) = 1$.
+\end{enumerate}
+\end{elem_sol}
+
+%========
+\section{Un développement asymptotique}
+
+\todoinline{Ajouter une représentation graphique de $F$ et des premiers termes du développement ?}
+
 \begin{exercice}
    On pose
    $$F:x \mapsto \int_x^{+\infty} \frac{\e^{-t}}{t} \d t.$$
-   \begin{enumerate}
-       \item Déterminer l'ensemble de définition de $F$. Étudier brièvement le comportement de la fonction $F$ et tracer sa courbe représentative.
-       \item Déterminer un  équivalent de $F$ en $+\infty$.
-       \item Montrer que $F(1) - F(x) - \ln x$ converge vers un réel. (pas sûr de cette question).
-   \end{enumerate}
+\begin{enumerate}
+\item Déterminer l'ensemble de définition de $F$. Étudier brièvement le comportement de la fonction $F$ et tracer sa courbe représentative.
+
+\item Montrer que $F(x) \sim_{+\infty} \frac{\e^{-x}}{x}$.
+
+\item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\left(\frac{\e^{-x}}{x^2}\right)$.
+       
+\item Montrer que $F(x) \sim_0 \ln(x)$.
+\end{enumerate}
 \end{exercice}
 
+\begin{elem_sol}
 \begin{enumerate}
-   \item $D = ]0, + \infty[$.
-   \item Intégration par parties ou comparaison série / intégrale: $F(x) \sim_{+\infty} \frac{\e^{x}}{x}$. \\
-   \url{https://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/analyse/integration/integralesimpropres&type=fexo} exercice 38. (à réécrire)\\
-   On remarque d'abord que $\int_{1}^{+\infty} \frac{\e^{-t}}{t} \d t$ converge: en effet, la fonction $t \mapsto \frac{\e^{-t}}{t}$ est continue et positive sur $[1, + \infty[$ et $\lim\limits_{t \to +\infty} t^2 \frac{\e^{-t}}{t} = 0$. On intègre ensuite par parties, en intégrant $t \mapsto \e^{-t}$ et en dérivant $t \mapsto \frac{1}{t}$. On obtient, pour $x > 1$, 
-   $$\int_x^{+ \infty} \frac{\e^{-t}}{t} \d t = \left[ -\frac{\e^{-t}}{t} \right]_x^{+\infty} - \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t$$
-   $$\int_x^{+ \infty} \frac{\e^{-t}}{t} \d t= \frac{\e^{-x}}{x} - \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t.$$
-   Or, au voisinage de $+ \infty$, 
-   $$\frac{\e^{-t}}{t^2} = o\left( \frac{\e^{-t}}{t} \right).$$
-   Par intégration des relations de comparaison (les fonctions sont positives et intégrables), on trouve
-   $$\int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t = o_{+\infty} \left( \int_x^{+\infty} \frac{\e^{-t}}{t} \d t \right).$$
-   On en déduit que
-   $$\int_x^{+\infty} \frac{\e^{-t}}{t} \d t \sim_{+\infty} \frac{\e^{-x}}{x}.$$
-   \item À faire.
+\item   La fonction $f : t \mapsto \frac{\e^{-t}}{t}$ est positive et continue sur $\R^*$.
+
+\begin{itemize}
+\item D'après le théorème des croissances comparées, $\frac{\e^{-t}}{t} = o_{+\infty}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
+
+\item Comme $f(t) \sim_0 \frac{1}{t}$, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_0^1 \frac{\e^{-t}}{t} \d t$ diverge.
+\end{itemize}
+
+Ainsi, le domaine de définition de $F$ est $]0, + \infty[$.
+
+Les fonctions $u : t \mapsto -\e^{-t}$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\R_+^*$ et $\lim_{t\to+\infty} u(t) v(t) = 0$. Ainsi, d'après le théorème d'intégration par parties, pour $x > 1$, 
+\begin{align*}
+F(x)
+&= \int_x^{+ \infty} \frac{\e^{-t}}{t} \d t 
+= \frac{\e^{-x}}{x} - \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t.
+\end{align*}
+
+De plus,
+\begin{align*}
+\int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t
+&\leq \e^{-x} \int_x^{+\infty} \frac{1}{t^2} \d t
+\leq \frac{\e^{-x}}{x^2}.
+\end{align*}
+
+Ainsi,
+$$\frac{\e^{-t}}{t^2} = o_{+\infty}\left( \frac{\e^{-t}}{t} \right).$$
+
+D'où,
+\[
+\int_x^{+\infty} \frac{\e^{-t}}{t} \d t \sim_{+\infty} \frac{\e^{-x}}{x}.
+\]
+
+\begin{remarque}
+On aurait également pu utiliser les théorèmes d'intégration des relations de comparaison car $\e^{-x}/x = o(\e^{-x}/x^2)$.
+\end{remarque}
+
+\item On effectue une nouvelle intégration par parties avec $u : t \mapsto \e^{-t}$ et $v : t \mapsto \frac{1}{t^2}$. On obtient ainsi
+\begin{align*}
+F(x)
+&= \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} - \int_x^{+\infty} \frac{2 \e^{-t}}{t^3} \d t.
+\end{align*}
+
+On montre alors comme précédemment que l'intégrable est négligeable, en $+\infty$, devant $\frac{\e^{-x}}{x^2}$.
+
+\item En utilisant la relation de Chasles,
+\begin{align*}
+F(x)
+&= \int_x^1 \frac{\e^{-t}}{t} \d t + \int_1^{+\infty} \frac{\e^{-t}}{t} \d t.
+\end{align*}
+
+De plus, la fonction exponentielle étant convexe, pour tout $t > 0$,
+\begin{align*}
+1 - t \leq \e^{-t} &\leq 1\\
+\frac{1}{t} - 1 &\leq \frac{\e^{-t}}{t} \leq \frac{1}{t}\\
+\ln(x) - (1 - x) &\leq \int_x^1 \frac{\e^{-t}}{t} \d t \leq \ln(x).
+\end{align*}
+
+D'après le théorème d'encadrement, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 \ln(x)$ et
+\[
+F(x) \sim_0 \ln(x).
+\]
 \end{enumerate}
+\end{elem_sol}

@@ -1,15 +1,27 @@
+\section{Intégrale de Poisson : une utilisation des sommes de Riemann}
 
+\todoinline{Pourrait-on trouver le contexte où cette intégrale apparaît ?}
 
 %---------------
 
+\begin{prop}
+Pour tout $x \in \R_+$, on pose $I(x) = \int_0^\pi \ln(1 - 2 x \cos t + x^2) \d t$. Alors, pour tout $x$ réel positif,
+\begin{align*}
+I(x) &= 2 \pi \ln(x).
+\end{align*}
+\end{prop}
+
 \begin{exercice}{Intégrale de \cite{Poisson}}
-Pour tout $x > 1$, on pose $I(x) = \int_0^\pi \ln(1 - 2 x \cos t + x^2) \d t$.
 \begin{enumerate}
-\item Montrer que $I$ est bien définie.
+\item Montrer que $I$ est bien définie sur $\R_+$.
 
-\item Soit $n \in \N^\star$. Déterminer une expression simple de $\sum_{k=0}^{n-1} \ln\left(1 - 2 x \cos\left(\frac{k\pi}{n}\right) + x^2\right)$.
+\item Soit $n \in \N^\star$ et $x \neq 1$. Déterminer une expression simple de $\sum_{k=0}^{n-1} \ln\left(1 - 2 x \cos\left(\frac{k\pi}{n}\right) + x^2\right)$.
 
-\item En déduire la valeur de $I$.
+\item En déduire la valeur de $I(x)$ pour $x \neq 1$.
+
+\item Montrer que $I(1) = 2 \pi\ln(2) + 4 \int_0^{\pi/2} \ln(\sin(u)) \d u$.
+
+\item En déduire la valeur de $I(1)$.
 \end{enumerate}
 \end{exercice}
 
@@ -21,7 +33,7 @@ De plus, en $t = 0$, $1 - 2 x + x^2 = (1 - x)^2 > 0$ car $x \neq 1$.
 
 En $t = \pi$, $1 + 2 x + x^2 = (1 + x)^2 > 0$ car $x \neq 1$.
 
-Ainsi, $I(x)$ est bien définie pour $x > 1$.
+Ainsi, $I(x)$ est bien définie pour $x \neq 1$.
 
 \item En utilisant les factorisations classiques ainsi que les résultats sur les racines $n$-èmes de l'unité,
 \begin{align*}
@@ -31,41 +43,22 @@ Ainsi, $I(x)$ est bien définie pour $x > 1$.
 &= \frac{x^{2n} - 1}{x + 1} (x - 1)
 \end{align*}
 
-\item D'après les calculs précédents, et en utilisant une somme de Riemann, de $f$ de pas $\frac{\pi}{2n}$,
+\item D'après les calculs précédents, et en utilisant une somme de Riemann de pas $\frac{\pi}{2n}$,
 \begin{align*}
-S_n(f) &= \frac{\pi}{2n} \ln(x^{2n}-1) - \frac{\pi}{n} \ln \frac{x+1}{x-1} \\
-&= 2 \pi \ln(x) + \frac{\pi}{n} \ln \left(1 - x^{-2n}\right) - \frac{\pi}{n} \ln \frac{x+1}{x-1} \\
-&\to 2 \pi \ln(x)
+S_n(f) &= \frac{\pi}{2n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}} \\
+&= 2 \pi \ln\abs{x} + \frac{\pi}{n} \ln \abs{1 - x^{-2n}} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}}.
 \end{align*}
-\end{enumerate}
-\end{solution}
 
-%---------------
+Ainsi, $\lim_{x\to +\infty} S_n(f) = 2 \pi \ln\abs{x}$.
 
-\begin{exercice}
+Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\abs{x}$.
 
-[Intégrale de {Poisson}]%
-Montrer que $\int_0^\pi \ln(2 - 2 \cos(t)) \d t$ est bien définie et déterminer sa valeur.
-\end{exercice}
-
-\begin{solution}
-\item La fonction $t \mapsto \ln(2 - 2 \cos(t))$ est continue sur $]0,\pi]$.
-
-D'après les propriétés des fonctions trigonométriques,
+\item D'après les propriétés des fonctions trigonométriques,
 \begin{align*}
 \ln(2 - 2 \cos(t)) &= \ln(2(1 - \cos(t))) \\
 &= \ln(4 \sin^2(t/2)) \\
 &= \ln(4) + 2 \ln(\sin(t/2))
 \end{align*}
-Or, $\sin \frac{t}{2} = \frac{t}{2} - \frac{t^3}{6} + o(t^3)$. Ainsi,
-\[
-\ln(\sin(t/2)) = \ln(t/2) + \ln(1-t^3/3+o(t^2))
-\]
-Comme le second terme du second membre est équivalent à $t^3/3$, alors
-\[
-\ln(\sin(t/2)) \sim_0 \ln(t/2)
-\]
-De plus, comme ces fonctions sont de signe constant, $t \mapsto \ln(2 - 2 \cos(t))$ est intégrable sur $]0,1[$.
 
 \item En effectuant le changement de variable $\phi : u \mapsto 2 u$,
 \begin{align*}
@@ -86,5 +79,7 @@ Ainsi,
 \[
 \int_0^{\pi/2} \ln(\sin(t)) \d t = -\frac{\pi}{2} \ln(2)
 \]
-D'où $I(2) = 0$ et $I$ est continue en $1$\ldots
+
+D'où $I(1) = 0$.
+\end{enumerate}
 \end{solution}
