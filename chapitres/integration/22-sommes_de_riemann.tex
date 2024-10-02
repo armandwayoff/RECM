@@ -1,6 +1,10 @@
 \section{Intégrale de Poisson : une utilisation des sommes de Riemann}
 
 \todoinline{Pourrait-on trouver le contexte où cette intégrale apparaît ?}
+\todoarmand{
+Un dm \url{http://alain.troesch.free.fr/2023/Fichiers/dm11.pdf} qui montre comment le calcul de cette intégrale peut se ramener à
+l’intégrale du noyau de Poisson.
+}
 
 %---------------
 
@@ -52,7 +56,12 @@ S_n(f) &= \frac{\pi}{2n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x
 Ainsi, $\lim_{x\to +\infty} S_n(f) = 2 \pi \ln\abs{x}$.
 
 Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\abs{x}$.
-
+\begin{marginfigure}[-15cm]
+    \centering
+    \includegraphics[scale=0.08]{illustrations/Journal_de_l_ecole_polytechnique_cahier_17_1815.png}
+    % \includepdf[pages={3},scale=.4]{Journal_de_l_ecole_polytechnique_cahier_17_1815.pdf}
+    \caption{\chevron{Suite du mémoire sur les intégrales définies}, Journal de l'École polytechnique, Cahier 17, X (1815), 612-631 (\url{https://gallica.bnf.fr/ark:/12148/bpt6k433673r/f614.item})}
+\end{marginfigure}
 \item D'après les propriétés des fonctions trigonométriques,
 \begin{align*}
 \ln(2 - 2 \cos(t)) &= \ln(2(1 - \cos(t))) \\

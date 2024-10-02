@@ -1,4 +1,67 @@
-\section{Fonction Zeta de Riemann}
+\section{Prolongement de fonctions (par des intégrales)}
+
+\subsection{Prolongement par continuité d'une fonction à variable réelle / Régularité du sinus cardinal sur $\R$}
+
+La fonction $\fonction[f]{\Re}{\R}{x}{\frac{\sin(x)}{x}}$ admet un prolongement par continuité en $0$, appelé \emph{sinus cardinal}. En effet, considérons la fonction
+\[
+    g(x) \defeq
+    \begin{cases} 
+        \frac{\sin x}{x} &\text{si } x \not= 0 \\ 
+        1 &\text{sinon} 
+    \end{cases}.
+\]
+Cette fonction est continue en $0$ puisque, pour tout $x \in \Re$,
+\[
+\module{g(x) - g(0)} = \module{\frac{\sin(x) - 0}{x - 0} - 1} \xrightarrow[x \to 0]{} \module{\sin'(0) - 1} = \module{\cos(0) - 1} = 0. 
+\]
+La fonction $g$ constitue donc un prolongement de la fonction $f$ en $0$. \\
+De plus, en utilisant le développement en série entière de la fonction sinus, on peut écrire pour $x$ réel non nul, 
+\[
+g(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!},
+\]
+ce qui reste vrai pour $x = 0$. La fonction $g$ est donc développable en série entière sur $\R$ et en particulier, la fonction $g$ est de classe $\mathscr{C}^\infty$ sur $\R$.
+\marginnote[0cm]{fic00126}
+
+\subsection{Fonction Gamma d'\textsc{Euler}}\label{prolongementFonctionGamma}
+
+On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secinteuleriennes}).
+\begin{defi}{Fonction Gamma d'\textsc{Euler}}
+    La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
+    $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
+\end{defi}
+
+\begin{prop}{}
+    \begin{itemize}
+        \item La fonction $\Gamma$ est définie si et seulement si $x>0$.
+        \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$. \\
+        En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
+    \end{itemize}
+\end{prop}
+
+\begin{preuve}
+    \begin{itemize}
+        \item La fonction $f_x:t \mapsto t^{x-1} \e^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
+        \begin{itemize}
+            \item[$\triangleright$] En $+\infty:$ par croissances comparées, $f_x(t) = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f_x$ est intégrable au voisinage de $+\infty$.
+            \item[$\triangleright$] En $0$: $f_x(t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $x > 0$.
+        \end{itemize}
+
+        \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \e^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
+        \begin{align*}
+            \text{par croissances comparées} \quad & \lim_{t \to +\infty} u(t) v(t) = 0, \\
+            \text{ comme } x > 0 \quad & \lim_{t \to 0} u(t) v(t) = 0.
+        \end{align*}
+        Ainsi, d'après le théorème d'intégration par parties généralisées, 
+        $$\int_{0}^{+\infty} t^{x-1} \e^{-t} \d t = \underbrace{0}_{\mathclap{\text{crochet}}} - \int_{0}^{+\infty} xt^{x-1} (-\e^{-t}) \d t.$$
+        soit 
+        $$\Gamma(x+1) = x \Gamma(x).$$
+        En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
+        $$\forall n \in \Ne, \Gamma(n+1) = n!$$
+    \end{itemize}
+\end{preuve}
+
+
+\subsection{Fonction Zêta de Riemann}
 
 \todoinline{Pourrait être mis dans une section : prolongement de fonctions par des intégrales ; au même titre que $\Gamma$ prolonge la factorielle. Il faudrait peut être mettre un mot sur l'unicité du prolongement analytique.}
 

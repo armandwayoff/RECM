@@ -1,4 +1,4 @@
-\section{Intégrales eulériennes}
+\section{Intégrales eulériennes}\label{secinteuleriennes}
 
 \marginnote[0mm]{Source : \href{https://lescoursdemathsdepjh.monsite-orange.fr/file/7bcfcf82249b1046f185e9a3495845cd.pdf}{Fonction eulériennes -- Pierre-Jean \textsc{Hormière}}}
 De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
@@ -29,27 +29,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     \end{itemize}
 \end{prop}
 
-\begin{preuve}
-    \begin{itemize}
-        \item La fonction $f_x:t \mapsto t^{x-1} \e^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
-        \begin{itemize}
-            \item[$\triangleright$] En $+\infty:$ par croissances comparées, $f_x(t) = o_{+\infty} \left(\frac{1}{t^2} \right)$. D'après le théorème de comparaison des fonctions à termes positifs, $f_x$ est intégrable au voisinage de $+\infty$.
-            \item[$\triangleright$] En $0$: $f_x(t) \sim_0 t^{x-1}$ qui est intégrable d'après \textsc{Riemann} si et seulement si $1-x < 1$ i.e. si et seulement si $x > 0$.
-        \end{itemize}
-
-        \item Soit $x > 0$. Calculons $\Gamma(x+1)$ en effectuant une intégration par parties. Posons $u:t \mapsto \e^{-t}$ et $v:t \mapsto t^x$, toutes deux de classe $\mathscr{C}^1$ sur $\Rp$. Vérifions la convergence du \emph{crochet}:
-        \begin{align*}
-            \text{par croissances comparées} \quad & \lim_{t \to +\infty} u(t) v(t) = 0, \\
-            \text{ comme } x > 0 \quad & \lim_{t \to 0} u(t) v(t) = 0.
-        \end{align*}
-        Ainsi, d'après le théorème d'intégration par parties généralisées, 
-        $$\int_{0}^{+\infty} t^{x-1} \e^{-t} \d t = \underbrace{0}_{\mathclap{\text{crochet}}} - \int_{0}^{+\infty} xt^{x-1} (-\e^{-t}) \d t.$$
-        soit 
-        $$\Gamma(x+1) = x \Gamma(x).$$
-        En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
-        $$\forall n \in \Ne, \Gamma(n+1) = n!$$
-    \end{itemize}
-\end{preuve}
+La démonstration est donnée dans \ref{prolongementFonctionGamma}.
 
 Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
 
