@@ -2,7 +2,11 @@
 
 \section{Autour du logarithme intégral}
 
-\todoinline{Ajouter une représentation graphique de $f$.}
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/logarithme_integral.pgf}
+    \caption{Graphe de la fonction $f \colon x \mapsto \int_x^{x^2} \frac{\d t}{\ln(t)}$}
+\end{marginfigure}
 
 \begin{prop}
 Pour tout $x \in ]0, 1[$, on définit $f(x) = \int_x^{x^2} \frac{\d t}{\ln(t)}$.
@@ -55,8 +59,6 @@ La fonction $f$ est prolongeable par continuité sur $]0, 1]$ et dérivable sur 
 %========
 \section{Un développement asymptotique}
 
-\todoinline{Ajouter une représentation graphique de $F$ et des premiers termes du développement ?}
-
 \begin{exercice}
    On pose
    $$F:x \mapsto \int_x^{+\infty} \frac{\e^{-t}}{t} \d t.$$
@@ -67,9 +69,20 @@ La fonction $f$ est prolongeable par continuité sur $]0, 1]$ et dérivable sur 
 
 \item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\left(\frac{\e^{-x}}{x^2}\right)$.
        
-\item Montrer que $F(x) \sim_0 \ln(x)$.
+\item Montrer que $F(x) \sim_0 -\ln(x)$.
 \end{enumerate}
 \end{exercice}
+
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/un_developpement_asymptotique.pgf}
+    \caption{Représentation graphique de la fonction $F$ et des premiers termes de son développement asymptotique en $+\infty$}
+\end{marginfigure}
+\begin{marginfigure}[10cm]
+    \centering
+    \input{illustrations/un_developpement_asymptotique_en0.pgf}
+    \caption{Représentation graphique de la fonction $F$ proche de $0$}
+\end{marginfigure}
 
 \begin{elem_sol}
 \begin{enumerate}
@@ -127,12 +140,12 @@ De plus, la fonction exponentielle étant convexe, pour tout $t > 0$,
 \begin{align*}
 1 - t \leq \e^{-t} &\leq 1\\
 \frac{1}{t} - 1 &\leq \frac{\e^{-t}}{t} \leq \frac{1}{t}\\
-\ln(x) - (1 - x) &\leq \int_x^1 \frac{\e^{-t}}{t} \d t \leq \ln(x).
+-\ln(x) - (1 - x) &\leq \int_x^1 \frac{\e^{-t}}{t} \d t \leq -\ln(x).
 \end{align*}
 
-D'après le théorème d'encadrement, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 \ln(x)$ et
+D'après le théorème d'encadrement, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 -\ln(x)$ et
 \[
-F(x) \sim_0 \ln(x).
+F(x) \sim_0 -\ln(x).
 \]
 \end{enumerate}
 \end{elem_sol}
