@@ -1,10 +1,9 @@
 \section{Intégrale de \textsc{Gauss}}
 
-\todoinline{
-Pour les moments de la gaussienne, voir \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}}
-
 \begin{prop}{}
-    $$\int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}$$
+    \begin{equation}\label{eqIntGauss}
+        \int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}        
+    \end{equation}
 \end{prop}
 
 \begin{exercice}
@@ -43,6 +42,35 @@ Pour les moments de la gaussienne, voir \url{https://djalil.chafai.net/blog/2024
 
 \begin{preuve}
 \end{preuve}
+
+\subsection{Moments de la gaussienne}
+
+D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}.
+
+\begin{prop}{}
+    \[
+    \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!
+    \]
+\end{prop}
+\begin{preuve}
+    La dérivée $n$-ième par rapport à $\beta$ de l'intégrale suivante
+    \[
+    \int_\R \e^{-\beta x^2} \d x = \sqrt{\frac{\pi}{\beta}},
+    \]
+    que l'on obtient aisément par un changement de variable linéaire dans \ref{eqIntGauss}, s'écrit
+    \[
+    (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x = \sqrt{\pi} (-1)^n \beta^{-\frac{2n+1}{2}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right) = (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right),
+    \]
+    et en prenant $\beta = \frac{1}{2 \sigma^2}$, on obtient
+    \[
+    \int_\R x^{2n} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sqrt{\pi (2 \sigma^2)^{2n+1}} \prod_{k=1}^n \left( \frac{2k-1}{2} \right)
+    \]
+    soit 
+    \[
+    \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!.
+    \]
+\end{preuve}
+
 
 \subsection{Calcul de l'intégrale de \textsc{Gauss} avec celle de \textsc{Wallis}}
 \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
