@@ -118,3 +118,56 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
 \todoinline{J'ai mis dans "documents" le sujet Centrale PC 2003 - Il fait à la fois des relations de comparaisons, de l'intégrale de Bertrand à la fin et une intégrale fonction des bornes. C'est peut être une bonne idée !}
 
 \todoarmand{Effectivement, c'est une bonne idée. Ça permettrait de supprimer l'exercice sur l'intégrale de Bertrand et de l'intégrer avec celui-ci}
+
+\begin{exercice}
+Soient $a\in \R,\, b \in \interoo{a}{+\infty} \cup \ens{+\infty}$ et $f, g$ deux applications continues par morceaux sur $\interfo{a}{b}$ à valeurs strictement positives.
+\begin{enumerate}
+    \item On suppose que $g$ est intégrable sur $\interfo{a}{b}$.
+    \begin{enumerate}
+        \item Montrer que, en $b$, la relation $f = o(g)$ entraîne $\int_x^{b} f = o\left(\int_x^b g\right)$. \\
+        \emph{
+        On n'hésitera pas à raisonner en utilisant des $\eg$.
+        }
+        \item Montrer que, en $b$, la relation $f \sim g$ entraîne $\int_x^{b}f \sim \left(\int_x^b g\right)$. \\
+        \emph{
+        On justifiera l'intégrabilité de $f$ sur les intervalles $\interfo{x}{b}$ considérés.
+        }
+    \end{enumerate}
+    \item On suppose que $g$ n'est pas intégrable sur $\interfo{a}{b}$
+    \begin{enumerate}
+        \item Montrer que, en $b$, la relation $f = o(g)$ entraîne $\int_a^{x} f(t) \d t = o\left(\int_a^x g(t) \d t\right)$.
+        Montrer à l'aide d'exemples que l'on ne peut rien dire de l'intégrabilité de $f$ sur $\interfo{a}{b}$.
+        \item Montrer que, en $b$, la relation $f \sim g$ entraîne $\int_a^{x} f(t) \d t \sim \int_a^x g(t) \d t$.
+        Que peut-on dire de l'intégrabilité de $f$ sur $\interfo{a}{b}$ ?
+    \end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+Soit $a$ un nombre réel et $f$ une application de classe $\mathscr{C}^1$ sur $\interfo{a}{+\infty}$ à valeurs strictement positives. On suppose que le quotient $\frac{x f'(x)}{f(x)}$ tend vers une limite finie $\alpha$ en $+\infty.$
+\begin{enumerate}
+    \item Montrer, à l'aide des préliminaires que, en $+\infty$, $\frac{\ln(f(x))}{\ln(x)}$ tend vers $\alpha$. \\
+    \emph{
+    On peut distinguer le cas $\alpha = 0$.
+    }
+    \item On suppose dans cette question $\alpha < -1.$
+    \begin{enumerate}
+        \item Montrer que $f$ est intégrable sur $\interfo{a}{+\infty}$.
+        \item Montrer que, en $+\infty$, on a $\int_x^{+\infty} f(t) \d t \sim -\frac{x f(x)}{\alpha + 1}$. \\
+        \emph{
+        On pourrra considérer $\frac{x f(x)}{\alpha+1}$ et utiliser les préliminaires.
+        } 
+    \end{enumerate}
+    \item On suppose dans cette question $\alpha > -1.$
+    \begin{enumerate}
+        \item Étudier l'intégrabilité de $f$ sur $\interfo{a}{+\infty}.$
+        \item Montrer que, en $+\infty$, on a $\int_a^{x} f(t) \d t \sim \frac{x f(x)}{\alpha + 1}$.
+        \item Donner un exemple d'application $f$ de classe $\mathscr{C}^1$ sur $\interfo{a}{+\infty}$ à valeurs positives telle qu'en $+\infty$ le quotient $\frac{\ln(f(x))}{\ln(x)}$ tend vers $\alpha > -1,$ mais telle que l'on n'ait pas $\int_a^{x} f(t) \d t \sim \frac{x f(x)}{\alpha+1}$.
+    \end{enumerate}
+    \item Étudier l'intégrabilité sur $\interfo{2}{+\infty}$ des applications $ x \mapsto \frac{1}{x (\ln x)^{\beta}}$ selon les valeurs du réel $\beta$.
+    \begin{enumerate}
+        \item Étudier, à l'aide des questions précédentes, l'intégrabilité sur $\interfo{2}{+\infty}$ des applications $x \mapsto \frac{1}{x^{\gamma}(\ln x)^{\beta}}$, selon les valeurs des réels $\beta$ et $\gamma$.
+        \item Que conclure quant à l'intégrabilité de $f$ sur $\interfo{a}{+\infty}$ dans le cas $\alpha =-1$ ?
+    \end{enumerate}
+\end{enumerate}
+\end{exercice}
