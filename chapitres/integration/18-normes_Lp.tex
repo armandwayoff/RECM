@@ -1,30 +1,111 @@
 \section{Normes $L^p$}
 \ref{normes_lp_et_inegalites}
 
-
 \todoinline{On peut aussi montrer l'inclusion des $L^p$ lorsqu'on intègre sur un segment, c'est ensuite utile dans la théorie de Lebesgue, dans le cadre des probabilités. Il y a une réciproque pour savoir quand $L^p \subset L^q$. J'ai des notes là-dessus, mais faut voir si c'est faisable niveau prépa.}
 
 
-\subsection{Cas $p = +\infty$}
+\begin{definition}
+Soient $p \in \N$ et $I$ une intervalle de $\R$. Une fonction est de classe $L^p$ sur $I$ si $f^p$ est intégrable. On note alors
+\[
+\norm{f}_{L^p} = \left(\int_I \module{f}^p\right)^{1/p}.
+\]
+On note $L^p(I)$ l'ensemble des fonctions de classes $L^p$ sur $I$.
+\end{definition}
 
-\subsubsection{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
- \begin{exercice}
-    \marginnote[0cm]{Source : \cite{acamanes} \href{https://acamanes.github.io/psi/psi_doc/exos_e01.pdf}{(Exercice 9. TD I)}}
-    Soit $f$ une fonction supposée continue et positive sur $\interff{a}{b}$. Étudier la suite de terme général 
-    $$u_n \defeq \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}.$$
- \end{exercice}
+\todoinline{mettre une remarque pour indiquer que, dans le cadre plus général de la théorie de l'intégrale de Lebesgue, on ne demande plus le caractère continu ?}
+
+%-----------
+\subsection{Limite $p \to +\infty$}
+
+\todoinline{Je pense qu'il faut mettre une illustration avec des graphes de $f(t)^n$ et de l'aire associée où on verrait bien que le max prend le dessus sur les autres points.}
+
+
+% \subsubsection{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
+
+\begin{theo}{}
+Soit $f$ une fonction continue sur le segment $[a, b]$. Alors,
+\[
+\lim_{p\to+\infty} \norm{f}_{L^p} = \norm{f}_\infty.
+\]
+\end{theo}
+
+\todoinline{Ajouter $\norm{\cdot}_\infty$ à un index des notations.}
+
+% \begin{exercice}
+    % \marginnote[0cm]{Source : \cite{acamanes} \href{https://acamanes.github.io/psi/psi_doc/exos_e01.pdf}{(Exercice 9. TD I)}}
+    % Soit $f$ une fonction supposée continue et positive sur $\interff{a}{b}$. Étudier la suite de terme général 
+    % $$u_n \defeq \left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}.$$
+ % \end{exercice}
+
+
+\begin{exercice}
+Soit $f$ une fonction continue sur le segment $[a, b]$.
+\begin{enumerate}
+\item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leq c_p \norm{f}_\infty$.
+
+\item Soit $\epsilon > 0$. Montrer qu'il existe un segment $[c, d] \subset [a, b]$ tel que
+\[
+\forall\, x \in [c, d],\, f(x) \geq \norm{f}_{L^\infty} - \epsilon.
+\]
+
+\item En déduire qu'il existe un réel $d_p$ tel que
+\[
+d_p (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
+\]
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
 
 \begin{preuve}
-    \begin{itemize}
-        \item La démarche consiste à encadrer le terme $u_n$. 
-        \item \textbf{Majoration:} la fonction $f$ est continue et positive sur un segment donc est en particuler, elle y est bornée par un réel positif $M$. Montrons que $u_n \leqslant M$ pour tout $n \in \N$. \emph{ne pas oublier l’argument de la continuité lors du passage à l’intégrale}
-        \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
-        On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
-        \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
-    \end{itemize}
+la fonction $f$ est continue sur un segment donc est en particuler, elle y est bornée. Ainsi, $\norm{f}_\infty$ est bien défini.
+
+\begin{enumerate}
+\item Comme, pour tout $t \in [a, b]$, $\module{f(t)} \leq \norm{f}_\infty$, la croissance de l'intégrale assure que
+\[
+\int_a^b \module{f(t)}^p \d t \leq \int_a^b (\norm{f}_\infty)^p \d t.
+\]
+On obtient ainsi la majoration demandée, avec $c_p = (b - a)^{1/p}$.
+
+\item Comme $f$ est continue, elle atteint ses bornes sur $[a, b]$ et il existe un réel $x_0$ tel que $f(x_0) = \norm{f}_\infty$.
+
+Toujours comme $f$ est continue, il existe un réel $\eta$ tel uqe pour tout $x \in [a, b]$,
+\[
+\module{x - x_0} \leq \eta \Rightarrow \module{f(x) - f(x_0)} \leq \epsilon.
+\]
+
+En particulier, pour $x \in [x_0-\eta, x_0+\eta] \cap [a, b]$,
+\[
+f(x) \geq f(x_0) - \epsilon = \norm{f}_\infty - \epsilon.
+\]
+On note $[c, d] = [x_0-\eta, x_0+\eta] \cap [a, b]$.
+
+\item En utilisant la croissance de l'intégrale, on obtient ainsi
+\[
+(d - c)^{1/p} (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
+\]
+
+\item D'après les questions précédentes, pour tout $p \in \N$ et pour tout $\epsilon > 0$,
+\[
+(d - c)^{1/p} (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
+\]
+
+Comme cette propriété est vraie pour tout $\epsilon > 0$, alors
+
+\[
+(d - c)^{1/p} \norm{f}_\infty \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
+\]
+
+Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p} = 1$, le théorème d'encadrement permet de conclure.
+
+% \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
+        % On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
+        % \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
+    % \end{itemize}
+\end{enumerate}
 \end{preuve}
 
-\todoinline{J'ai un pb avec la clé inline dans le tikz suivant}
+\todoinline{Je ne parviens pas à compiler la figure suivante}
 
 
 % \begin{figure}
@@ -34,7 +115,7 @@
 
 % \tikzset{>=latex} % for LaTeX arrow head
 
-% \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+% % \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
 % \def\N{100} % number of samples
 
   % \def\xmax{3.5}
@@ -53,17 +134,18 @@
   % \draw[->,thick]
     % (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
   % \draw[->,thick]
-    % (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$}; %\langle{P}\rangle
+  % % (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$};
+  % \langle{P}\rangle
   
   % % PLOT
-  % \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
+  % % \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
     % plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
     
   % \draw[dashed,thin] (X0) --++ (0,\yMAX);
   % \draw[dashed,thin] (C) --++ (0,\yeps);
   % \draw[dashed,thin] (D) --++ (0,\yeps);
   
-  % \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
+  % % \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
   % \draw[thin] (0,\yeps) -- (\xmax,\yeps);
   
   % \draw[<->] (\xeps,\yeps) -- (\xeps,\yMAX)
@@ -80,36 +162,24 @@
     % \caption{Illustration à finir}
 % \end{figure}
 
-\subsection{Inclusions entre les $L^p(\Omega)$}
+\subsection{Limite $p \to 0$}
 
 \begin{theo}{}
-    Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+Soit $f \in \mathscr{C}([0,1],\R^*)$. Alors,
+\[
+\lim_{p\to0} \norm{f}_{L^p} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\]
 \end{theo}
-
-\subsection{Cas $0 < p < 1$}
-
-Lorsque l’exposant $p$ satisfait $0 < p < 1$, on constate qu’une inégalité triangulaire ne peut pas être satisfaite, ce qui justifie, pour bénéficier d’une structure naturelle
-d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$. 
-
-Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
-\begin{exercice}
-    On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
-    \[
-    \norm{f + g}_{L^p} \leqslant  \norm{f}_{L^p} + \norm{g}_{L^p}
-    \]
-    pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
-\end{exercice}
-
-\subsection{Cas $p \to 0$}
 
 %---------------
 
 \begin{exercice}%
-
-Soit $f \in \mathscr{C}([0,1],\R_+^\ast)$ et $I(y) = \int_0^1 f(x)^y \d x$.
+Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs positives et on pose $I(y) = \int_0^1 f(x)^y \d x$.
 \begin{enumerate}
 \item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
+
 \item Montrer que $I$ est une fonction dérivable sur $\R_+$.
+
 \item En déduire que
 \[
 \lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
@@ -132,9 +202,13 @@ g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
 \abs{\frac{\partial F}{\partial y}(x, y)} = \abs{\ln(f(x)) f(x)^y}.
 \]
 
-La fonction $\ln \circ f$ étant bornée sur $[0, 1]$ car continue, on peut appliquer le théorème de dérivation sous le signe intégral sur $[0, a]$ par majoration par $M \cdot M^a$.
+La fonction $\ln \circ f$ est continue sur le segment $[0, 1]$ donc elle est bornée par une constante $M$. Ainsi,
+\begin{align*}
+\module{F(x, y)} &\leq \e^{a M},\\
+\module{\frac{\partial F}{\partial y}(x, y)} &\leq M \cdot \e^{a M}.
+\end{align*}
 
-D'après le théorème de dérivation sous le signe intégral,
+D'après le théorème de dérivation sous le signe intégral, la fonction $I$ est dérivable sur $[0, 1[$ et
 \begin{align*}
 I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
 I'(0) &= \int_0^1 \ln(f(x)) \d x
@@ -148,3 +222,150 @@ I'(0) &= \int_0^1 \ln(f(x)) \d x
 \end{preuve}
 
 \url{https://math.stackexchange.com/questions/2351581/convergence-question-about-lp-norm-when-p-tends-to-zero}
+
+
+%-----------
+\subsection{Cas $p \geq 1$}
+
+Lorsque l’exposant $p$ satisfait $0 < p < 1$, on constate qu’une inégalité triangulaire ne peut pas être satisfaite, ce qui justifie, pour bénéficier d’une structure naturelle
+d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
+
+\begin{theo}{Inégalité de Minkowski}
+Soit $p \geq 1$. Alors, si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
+\[
+\norm{f + g}_{L^p} \leq \norm{f}_{L^p} + \norm{g}_{L^p}.
+\]
+Ainsi, $L^p(I)$ est un espace vectoriel et $\norm{\cdot}_{L^p}$ est une norme.
+\end{theo}
+
+\begin{remarque}
+Les cas $p = 1$ et $p = +\infty$ sont aisément vérifiables. On se limite par la suite au cas $1 < p < +\infty$.
+\end{remarque}
+
+Cette inégalité repose sur le théorème suivant :
+\begin{theo}{Inégalité de Hölder}
+Soient $1 < p < +\infty$, $q$ tel que $\frac{1}{p} + \frac{1}{q} = 1$ et $f$ et $g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $L^p(I)$ et $g \in L^p(I)$, alors $f g$ appartient à $L^1(I)$ et
+\[
+\int_I f g \leq \norm{f}_{L^p} \norm{g}_{L^q}.
+\]
+\end{theo}
+
+\begin{remarque}
+Lorsque $p = 2$, alors $q = 2$ et on retrouve l'inégalité de Cauchy-Schwarz.
+\end{remarque}
+
+\begin{exercice}
+Les cas où $\norm{f}_{L^p} = 0$ ou $\norm{g}_{L^q} = 0$ sont triviaux. On se limite donc au cas où ces quantités sont non nulles et on pose
+\[
+F = \frac{f}{\norm{f}_{L^p}}
+\text{ et }
+G = \frac{g}{\norm{g}_{L^q}}.
+\]
+Soit $x \in I$.
+\begin{enumerate}
+\item Montrer qu'il existe deux réels $s$ et $t$ tels que $F(x) = \e^{t/p}$ et $G(x) = \e^{s/q}$.
+
+\item Montrer que $\e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t$.
+
+\item En déduire l'inégalité de Hölder.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item Pour tout $x$ réel, $F(x)$ et $G(x)$ sont deux réels strictement positifs, on pose $t = p \ln(F(x))$ et $s = q \ln(G(x))$.
+
+\item Rappelons que $\frac{1}{p} + \frac{1}{q} = 1$. Pour tous $s$ et $t$ réels, comme la fonction exponentielle est convexe, d'après l'inégalité de Jensen,
+\[
+\e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t.
+\]
+
+\item Alors,
+\begin{align*}
+F(x) G(x) &\leq \frac{1}{p} F(x)^p + \frac{1}{q} G(x)^q
+\end{align*}
+Comme $F^p$ et $G^q$ sont intégrables, alors $F G$ est intégrable et
+\[
+\int_I F G \leq \frac{1}{p} + \frac{1}{q} = 1.
+\]
+La linéarité de l'intégrale permet alors de conclure.
+\end{enumerate}
+\end{preuve}
+
+\begin{exercice}
+Soit $f$ et $g$ deux fonctions de classe $L^p$ sur $I$.
+\begin{enumerate}
+\item Montrer que $\module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p$.
+
+\item En déduire que $(f + g) \in L^p(I)$.
+
+\item En décomposant $(f + g)^p = f (f + g)^{p-1} + g (f + g)^{p-1}$, en déduire l'inégalité de Minkowski.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item Pour tout $x \in I$,
+\begin{itemize}
+\item soit $\module{f(x)} \leq \module{g(x)}$ et $\module{f(x) + g(x)}^p \leq 2^p \module{g(x)}^p$,
+\item soit $\module{g(x)} \leq \module{f(x)}$ et $\module{f(x) + g(x)}^p \leq 2^p \module{f(x)}^p$.
+\end{itemize}
+Ainsi, dans tous les cas,
+\[
+\module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p.
+\]
+
+\item D'après la question précédente et le théorème de comparaison des intégrales, $f + g \in L^p(I)$.
+
+\item En utilisant la décomposition proposée, on remarque que
+\begin{align*}
+\left(\module{f + g}^{p-1}\right)^q
+&= \module{f + g}^{q(p-1)}
+= \module{f + g}^p.
+\end{align*}
+Ainsi, $\module{f + g}^{p-1} \in L^q(I)$.
+
+Ainsi, en appliquant deux fois l'inégalité d'Hölder,
+\begin{align*}
+\norme{f + g}_{L^p}^p
+&= \norme{|f| \cdot |f + g|^{p-1}}_{L^1}
++ \norme{|g| \cdot |f + g|^{p-1}}_{L^1}\\
+&\leq \norm{f}_{L^p}^p \norm{f + g}_{L^p}^{p/q}
++ \norm{g}_{L^p}^p \norm{f + g}_{L^p}{p/q}\\
+&\leq \norm{f + g}_{L^p}^{p/q} \left(\norm{f}_{L^p} + \norm{f}_{L^q}\right).
+\end{align*}
+
+On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
+\end{enumerate}
+\end{preuve}
+
+Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
+% \begin{exercice}
+    % On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
+    % \[
+    % \norm{f + g}_{L^p} \leqslant  \norm{f}_{L^p} + \norm{g}_{L^p}
+    % \]
+    % pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
+% \end{exercice}
+
+%-----------
+\subsection{Inclusions entre les $L^p$}
+
+\begin{theo}{}
+Si $I$ est un intervalle borné, non note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leq \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+    % Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+\end{theo}
+
+\begin{preuve}
+Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à tous les espaces $L^q$. Ainsi, d'après l'inégalité de Hölder,
+\begin{align*}
+\norm{f}_{L^p}^p
+&\leq \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}\\
+&\leq \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
+\end{align*}
+\end{preuve}
+
+\begin{remarque}
+En utilisant des intégrales de Riemann, on montre que ces inclusions sont fausses dès que $I$ n'est pas borné.
+\end{remarque}
+\todoinline{Expliciter la remarque précédente ?}
