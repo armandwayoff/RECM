@@ -1,9 +1,10 @@
 \section{Transformée de \textsc{Laplace}} 
 \label{transformee_laplace}
 
-\todoinline{Rechercher l'exercice corrigé sur les théorèmes des valeurs initiales / finales.}
+\todoinline{On pourrait tenter une illustration ? La transformée de Laplace d'une fonction échelon ?}
 
-La transformation de \textsc{Laplace} généralise la transformation de \textsc{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique. \\
+La transformation de \textsc{Laplace} généralise la transformation de \textsc{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
+
 Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi; il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
 
 \begin{defi}{Transformée de \textsc{Laplace}}
@@ -13,46 +14,39 @@ Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interp
 \end{defi}
 
 \marginnote[0cm]{Sources : \cite{exos_oraux} + \cite{acamanes} (Exercice cerise Ch. 12)}
-\underline{Démonstration du théorème de la valeur finale:}
-\begin{itemize}
-    \item Généralisation classique du théorème des bornes $\leadsto$ $f$ est bornée
-    \item Changement de variable: $\varphi: u \mapsto \frac{u}{p}$
-    \item Caractérisation séquentielle de la limite
-    \item Théorème de convergence dominée
-\end{itemize}
+% \underline{Démonstration du théorème de la valeur finale:}
+% \begin{itemize}
+    % \item Généralisation classique du théorème des bornes $\leadsto$ $f$ est bornée
+    % \item Changement de variable: $\varphi: u \mapsto \frac{u}{p}$
+    % \item Caractérisation séquentielle de la limite
+    % \item Théorème de convergence dominée
+% \end{itemize}
 
-\todoinline{Ajout d'exercices en vrac ci-dessous}
+%-----------
+\subsection{Exemples de transformées de Laplace}
 
 \begin{exercice}
-{Dunod - p.734 \& 736}
-Pour toute fonction $f \in \mathscr{C}(\R_+,\R)$, on note, lorsqu'elle converge, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-p t} f(t) \d t$. La fonction $\mathscr{L}(f)$ est la transformée de~{Laplace} de $f$.
-\begin{enumerate}
-\item Soient $\lg \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~{Laplace} en précisant son domaine de définition :
+Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~{Laplace} en précisant son domaine de définition :
 \begin{enumerate}
 \item $t \mapsto 1$.
-\item $t \mapsto \e^{\lg t}$.
+\item $t \mapsto \e^{\lambda t}$.
 \item $t \mapsto t^n$.
-\end{enumerate}
-
-\item On suppose que $f$ est bornée. Montrer que $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
-
-\item {Théorème de la valeur finale.} On suppose qu'il existe un réel $\ell$ non nul tel que $\lim_{+\infty} f(x) = \ell$. Déterminer un équivalent de $\mathscr{L}(f)$ en $0$.
-
-\medskip
-On suppose $f$ continue uniquement sur $\R_+^*$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. 
-
-\item Montrer que $\mathscr{L}(f)$ est définie et continue sur $]p_0,+\infty[$.
-
-\item {Théorème de la valeur initiale.} On note $\ell = \lim_{t\to0^+} f(t)$. Déterminer la limite de $p \mapsto p \mathscr{L}(f)(p)$ en $+\infty$.
 \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
 \begin{enumerate}
-\begin{enumerate}
-\item $t \mapsto \e^{-pt}$ est intégrable sur $\R_+$ si et seulement si $p > 0$. Alors, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}$.
+\item $t \mapsto \e^{-pt}$ est intégrable sur $\R_+$ si et seulement si $p > 0$. Alors,
+\[
+\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}.
+\]
 
-\item $t \mapsto \e^{-(\lg-p)t}$ est intégrable sur $\R_+$ si et seulement si $p > \Re{\lg}$. Alors, $\mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-(p-\lg)t} \d t = \frac{1}{p-\lg}$.
+\item $t \mapsto \e^{-(\lambda-p)t}$ est intégrable sur $\R_+$ si et seulement si $p > \mathrm{Re}(\lambda)$. Alors,
+\[
+\mathscr{L}(f)(p)
+= \int_0^{+\infty} \e^{-(p-\lambda)t} \d t
+= \frac{1}{p-\lambda}.
+\]
 
 \item Soit $n \in \N^*$ et $f_n : t \mapsto t^n \e^{-pt}$.
 \begin{itemize}
@@ -65,10 +59,25 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \[
 \mathscr{L}(f)(p) = \frac{n!}{p^{n+1}}.
 \]
-
-{Remarque.} À un changement de variable près, on retrouve la fonction $\Gamma$ d'Euler.
 \end{enumerate}
+\end{preuve}
 
+\begin{remarque}
+À un changement de variable près, on reconnaît, pour la dernière transformée de Laplace, la fonction $\Gamma$ d'Euler.
+\end{remarque}
+
+\begin{theo}{}
+\begin{enumerate}
+\item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+
+\item Si $\int_0^{+\infty} f(t) \d t$ converge, alors $\mathscr{L}(f)$ est définie sur $\R_+$.
+
+\item Si $f$ est continue uniquement sur $\R_+^*$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$, alors $\mathscr{L}(f)$ est définie et continue sur $]p_0,+\infty[$.
+\end{enumerate}
+\end{theo}
+
+\begin{preuve}
+\begin{enumerate}
 \item La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $g : (p, t) \mapsto f(t) \e^{-pt}$.
 \begin{itemize}
 \item Pour tout $t \in \R_+^*$, $g(\cdot, t) : p \mapsto \e^{-p t} f(t)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$ et
@@ -86,31 +95,19 @@ De plus, $\phi_j : t \mapsto M t^j \e^{-\tilde{p} t}$ est continue sur $\R_+$, e
 \end{itemize}
 Ainsi, $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
 
-\item Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après la question précédente, $\mathscr{L}(f)$ est bien définie sur $\R_+^*$.
+\item Lorsque $p = 0$, l'intégrale $\int_0^{+\infty} \e^{-0\cdot t} f(t) \d t$ converge par hypothèse et $\mathscr{L}(f)(0)$ est donc bien définie.
 
-\smallskip
+\medskip
 
+Soit $p > 0$. Comme $f$ est continue, on note $F : x \mapsto \int_0^x f(t) \d t$ sa primitive qui s'annule en $0$.
 
-On effectue le changement de variable affine $\phi : u \mapsto \frac{u}{p}$. Alors,
+Par hypothèse, $F$ possède une limite finie en $+\infty$. Ainsi, d'après le théorème d'intégration par parties, $\int_0^{+\infty} \e^{-p t} f(t) \d t$ et $\int_0^{+\infty} \e^{-p t} F(t) \d t$ sont de même nature.
+
+Enfin, comme $F$ est continue sur $\Rp$ et admet une limite finie en $+\infty$, alors $F$ est bornée sur $\Rp$. Il existe donc une constante $M$ telle que
 \[
-p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u.
+\module{\e^{-p t} F(t)} \leq M \e^{-p t}.
 \]
-Soit $(p_n)$ une suite de réels strictement positifs qui tend vers $0$ et $g_n : u \mapsto \e^{-u} f(u/p_n)$.
-\begin{itemize}
-\item Pour tout $n \in \N$, $g_n$ est continue sur $\R_+$.
-
-\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\lim_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, $(g_n)$ converge simplement sur $\R_+^*$ vers $u \mapsto \e^{-u} \ell$.
-
-\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leq M \e^{-u}$ et $u \mapsto \e^{-u}$ est intégrable sur $\R_+^*$.
-\end{itemize}
-Ainsi, d'après le théorème de convergence dominée,
-\[
-\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u.
-\]
-En utilisant la caractérisation séquentielle de la limite,
-\[
-\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell \text{ soit } \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
-\]
+Ainsi, $t \mapsto \e^{-p t} F(t)$ est intégrable, donc $\int_0^{+\infty} \e^{-p t} F(t) \d t$ converge et $\mathscr{L}(f)(p)$ est bien définie.
 
 \item Soit $g : (p, u) \mapsto f(u) \e^{-p u}$.
 \begin{itemize}
@@ -125,45 +122,140 @@ En utilisant la caractérisation séquentielle de la limite,
 De plus, $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\R_+^*$ par hypothèse.
 \end{itemize}
 D'après le théorème de continuité sous le signe intégral, $\mathscr{L}(f)$ est continue sur $]p_0, +\infty[$.
+\end{enumerate}
+\end{preuve}
 
-\item Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
 
-\smallskip
 
-Sinon, on raisonne à coup de $\eg$. Soit $\eg > 0$. Comme $\lim_{0^+} f = \ell$, il existe $h > 0$ tel que
+%-----------
+\subsection{Théorème de la valeur finale}
+
+\begin{theo}{Théorème de la valeur finale}
+On suppose qu'il existe un réel $\ell$ non nul tel que $\lim_{+\infty} f(x) = \ell$. Alors,
 \[
-\forall\, t \in ]0, h],\, \abs{f(t) - \ell} \leq \eg.
+\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell.
 \]
-Alors, pour $p > p_0 + 1$ et $\tilde{p} = p_0 + \frac{1}{2}$,
-\begin{align*}
-\abs{p \mathscr{L}(f)(p) - \ell} &\leq \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
-&\leq \int_0^h p \abs{f(t) - \ell} \e^{-pt} \d t + \int_h^{+\infty} p \abs{f(t) - \ell} \e^{-pt} \d t\\
-&\leq \eg \left(1 - \underbrace{\e^{-p h}}_{\geq 0}\right)
-+ p \int_h^{+\infty} \abs{f(t)} \e^{-p t} \d t
-+ p \int_h^{+\infty} \abs{\ell} \e^{- p t} \d t \\
-&\leq \eg
-+ \int_h^{+\infty} \abs{f(t)} \e^{-(p-\tilde{p})t - \tilde{p} t} \d t + \abs{\ell} \e^{-p h}\\
-&\leq \eg + p \underbrace{\e^{-(p - \tilde{p}) h}}_{\to 0} \underbrace{\abs{\int_0^{+\infty} \abs{f(t)} \e^{-\tilde{p} t} \d t}}_{cte} + \abs{f(0)} \e^{-ph} \\
-&\leq 3 \eg,
-\end{align*}
-pour $p$ assez grand. Ainsi, d'après la définition de la limite,
+\end{theo}
+
+\begin{exercice}
+On se place sous les hypothèses du théorème.
+\begin{enumerate}
+\item Montrer que $\mathscr{L}(f)$ est définie sur $\Rpe$.
+
+\item Montrer que $p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u$.
+
+\item Montrer que, si $(p_n)$ est une suite de réels strictement positifs qui tend vers $0$, alors $\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell$.
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après le théorème précédent, $\mathscr{L}(f)$ est bien définie sur $\R_+^*$.
+
+\item On effectue le changement de variable affine $\phi : u \mapsto \frac{u}{p}$. Alors,
 \[
-\lim_{p\to +\infty} p \mathscr{L}(p) = \ell.
+p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u.
+\]
+
+\item Posons $g_n : u \mapsto \e^{-u} f(u/p_n)$.
+\begin{itemize}
+\item Pour tout $n \in \N$, $g_n$ est continue sur $\R_+$.
+
+\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\lim_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, $(g_n)$ converge simplement sur $\R_+^*$ vers $u \mapsto \e^{-u} \ell$.
+
+\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leq M \e^{-u}$ et $u \mapsto \e^{-u}$ est intégrable sur $\R_+^*$.
+\end{itemize}
+Ainsi, d'après le théorème de convergence dominée,
+\[
+\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u = \ell.
+\]
+
+\item En utilisant la caractérisation séquentielle de la limite,
+\[
+\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell \text{ soit } \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]
 \end{enumerate}
 \end{preuve}
 
-%---------------
+%-----------
+\subsection{Théorème de la valeur initiale}
+
+\begin{theo}{Théorème de la valeur initiale}
+On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. On suppose de plus qu'il existe un réel $\ell$ tel que $\lim_{t\to0^+} f(t) = \ell$. Alors,
+\[
+\lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
+\]
+\end{theo}
 
 \begin{exercice}
-{ESCP 2013 - QC}%
-Soit $f~:~\R_+ \to \R$ une fonction continue telle que $\int_0^{+\infty} f(t) \d t$ converge. Montrer que, pour tout réel $x$ positif, $\int_0^{+\infty} \e^{-x t} f(t) \d t$ converge.
+\begin{enumerate}
+\item Comment conclure si la fonction $f$ est bornée ?
+\end{enumerate}
+
+On suppose dans la suite que $f$ n'est pas nécessairement bornée. Soit $\epsilon > 0$.
+\begin{enumerate}[resume]
+\item Montrer que $\mathscr{L}(f)(p)$ est bien définie pour $p$ assez grand.
+
+\item Montrer qu'il existe un réel $h$ tel que
+\[
+\int_0^h p \module{f(t) - \ell} \e^{-p t} \d t \leq \epsilon.
+\]
+
+\item Montrer qu'il existe un réel $\tilde{p}$ et une constante $c$ tels que pour tout $p \geq \tilde{p}$,
+\[
+p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
+\leq c p \e^{-(p-\tilde{p}) h}.
+\]
+
+\item Conclure.
+\end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-Lorsque $x = 0$, l'intégrale converge par hypothèse.
+\begin{enumerate}
+\item  Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
 
-Pour $x > 0$. La fonction $F$ admet une limite en $+\infty$ et elle est continue. Ainsi, $F$ est bornée. Ainsi, comme $F$ est bornée et $x > 0$, alors $F(t) \e^{-x t} \to 0$ lorsque $x \to +\infty$.
+\item Comme $\lim_{t\to0^+} f(t) = \ell$, il existe $h > 0$ tel que
+\[
+\forall\, t \in ]0, h],\, \abs{f(t) - \ell} \leq \epsilon.
+\]
+Ainsi,
+\begin{align*}
+\int_0^h p \abs{f(t) - \ell} \e^{-p t} \d t
+&\leq \epsilon \left(1 - \underbrace{\e^{-p h}}_{\geq 0}\right)
+\leq \epsilon
+.
+\end{align*}
 
-Enfin, à l'aide d'une intégration par parties, comme la fonction $F~:~x \mapsto \int_0^x f(t) \d t$ est de classe $\mathscr{C}^1$ sur $\R_+$ de dérivée égale à $f$, l'intégrale $\int_0^{+\infty} \e^{-x t} f(t) \d t$ est de même nature que $\int_0^{+\infty} \e^{-x t} F(t) \d t$. Enfin, comme $\abs{\e^{-x t} F(t)} \leq M \e^{-x t}$, alors $\int_0^{+\infty} \e^{-x t} F(t) \d t$ converge.
+\item Posons $\tilde{p} = p_0 + \frac{1}{2}$. Alors, pour $p \geq \tilde{p}$,
+\begin{align*}
+p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
+&= p \int_h^{+\infty} \module{f(t)} \e^{-(p - \tilde{p}) t - \tilde{p} t} \d t\\
+&\leq p \e^{-(p-\tilde{p}) h} \int_h^{+\infty} \module{f(t)} \e^{- \tilde{p} t} \d t\\
+&\leq c p \e^{-(p-\tilde{p}) h}.
+\end{align*}
+
+\item Finalement, en utilisant l'inégalité triangulaire et la relation de Chasles, pour $p \geq \tilde{p}$,
+\begin{align*}
+\abs{p \mathscr{L}(f)(p) - \ell}
+&\leq \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
+&\leq \int_0^h p \abs{f(t) - \ell} \e^{-pt} \d t
++ p \int_h^{+\infty} \abs{f(t)} \e^{-p t} \d t
++ p \int_h^{+\infty} \abs{\ell} \e^{- p t} \d t \\
+&\leq \epsilon + c p \e^{-(p-\tilde{p})h} + \module{\ell} \e^{-p h}.
+\end{align*}
+
+Comme $\lim_{p\to+\infty} \e^{-p h} = \lim_{p\to+\infty} p \e^{-(p-\tilde{p})h} = 0$, pour $p$ assez grand,
+\[
+\abs{p \mathscr{L}(f)(p) - \ell}
+\leq 3 \epsilon.
+\]
+
+Ainsi, d'après la définition de la limite,
+\[
+\lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
+\]
+\end{enumerate}
 \end{preuve}
