@@ -2,7 +2,7 @@
 
 \todoarmand{Voir aussi la section \ref{variante_cesaro}.}
 
-\todoinline{Prévoir une application ? Intégrer dans une section Cesaro (suites et intégrales) ? Aller chercher une réciproque avec les fonctions à variation lente ? Est-ce possible ? Il y a des histoires de réciproque avec les fonctions à variation lente et un exercice d'oral de l'X PSI.}
+\todoinline{Je mettrais ceci dans un thème Cesaro, dans une partie analyse élémentaire en mettant la version avec les suites, la version $2^{-n} \sum_{k=0}^n \binom{n}{k} u_k \to \ell$ et la version $f(x + 1) - f(x) \to \ell$.}
 
 \begin{itemize}
     \item Pour les applications : \url{http://luls55.free.fr/fichiers/Analyse1/SUITES/11Cesaro.pdf} (II) : déterminer $\lim\limits_{n \to +\infty} w_n$ où $$w_n = \prod_{k=1}^n \left(1 + \frac{2}{k}\right)^{k/n}$$
@@ -11,23 +11,77 @@
 \end{itemize}
 
 
-\begin{lemme}
-    Soit $f$ une fonction continue telle que $\lim\limits_{+\infty} f = \ell$. Alors 
-    $$\lim_{x \to + \infty} \frac{1}{x} \int_0^x f(t) \d t = \ell.$$
-\end{lemme}
+\begin{theo}
+Soit $f$ une fonction continue sur $\R_+$ et $\ell \in \overline{\R}$ tels que $\lim\limits_{+\infty} f = \ell$. Alors 
+\[
+\lim_{x \to + \infty} \frac{1}{x} \int_0^x f(t) \d t = \ell.
+\]
+\end{theo}
+
+\begin{exercice}
+Soit $f$ une fonction continue sur $\R_+$ telle que $\lim\limits_{x\to+\infty} f(x) = \ell$. On suppose que $\ell \in \R$. Soit $\epsilon > 0$.
+\begin{enumerate}
+\item Montrer qu'il existe $x_0 \in \R_+$ tel que
+\[
+\forall\ x \geq x_0,\, \module{f(x) - \ell} \leq \epsilon.
+\]
+
+\item En déduire qu'il existe une constante $K$ telle que pour tout $x \geq x_0$,
+\[
+\module{\frac{1}{x} \int_0^x f(t) \d t - \ell} \leqslant \frac{K}{x} + \varepsilon.
+\]
+
+\item Conclure.
+
+\item Démontrer le résultat lorsque $\ell = +\infty$.
+\end{enumerate}
+\end{exercice}
 
 \begin{preuve}
-    La démonstration est directement adaptée de celle de la version discrète. 
-    Soit $\varepsilon > 0$. Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0,\ |f(x) - \ell| \leqslant \varepsilon$. \\
-    Soit $x > x_0$,
-    \begin{align*}
-        \left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| &= \left| \frac{1}{x} \int_0^x (f(t) - \ell) \d t \right| \\
-        \text{par l'inégalité triangulaire} &\leqslant \frac{1}{x} \int_0^x |f(t) - \ell| \d t \\
-        &\leqslant \frac{1}{x} \Bigg( \underbrace{\int_{0}^{x_0} |f(t) - \ell| \d t}_{\defeq K} + \int_{x_0}^{x} \underbrace{|f(t) - \ell|}_{\leqslant \varepsilon} \d t \Bigg) \\
-        &\leqslant \frac{K}{x} + \varepsilon
-    \end{align*}
-    Or $\lim\limits_{x \to \infty} \frac{K}{x} = 0$ donc il existe $x_1 \in \Rp$ tel que pour tout $x \geqslant x_1, \left| \frac{K}{x} \right| \leqslant \varepsilon$. \\
-    Ainsi pour tout $x \geqslant \max \{ x_0, x_1 \}$, 
-    $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
-    On en déduit le résultat. 
+La démonstration est directement adaptée de celle de la version discrète. 
+\begin{enumerate}
+\item Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0,\ |f(x) - \ell| \leqslant \varepsilon$. \\
+
+\item Comme la fonction $f$ est continue sur le segment $[0, x_0]$, elle est bornée sur ce segment par une constante $K$. Ainsi, en utilisant la relation de Chasles,
+\begin{align*}
+\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| &= \left| \frac{1}{x} \int_0^x (f(t) - \ell) \d t \right| \\
+\text{par l'inégalité triangulaire} &\leqslant \frac{1}{x} \int_0^x |f(t) - \ell| \d t \\
+&\leqslant \frac{1}{x} \Bigg( \underbrace{\int_{0}^{x_0} |f(t) - \ell| \d t}_{\defeq K} + \int_{x_0}^{x} \underbrace{|f(t) - \ell|}_{\leqslant \varepsilon} \d t \Bigg) \\
+&\leqslant \frac{K}{x} + \varepsilon
+\end{align*}
+
+\item Comme $\lim\limits_{x \to \infty} \frac{K}{x} = 0$, il existe $x_1 \in \Rp$ tel que pour tout $x \geqslant x_1, \left| \frac{K}{x} \right| \leqslant \varepsilon$.
+
+Ainsi pour tout $x \geqslant \max \{ x_0, x_1 \}$, 
+$$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
+On en déduit le résultat. 
+
+\item On suppose que $\ell = +\infty$. Soit $M \in \Rp$.
+
+Comme $f$ tend vers $+\infty$ en $+\infty$, il existe $x_0 \in \Rp$ tel que
+\[
+\forall x \geq x_0,\, f(x) \geq M.
+\]
+
+Comme $f$ est continue sur le segment $[0, x_0]$, elle est bornée par une constante $K$ sur ce segment.
+
+Ainsi, en utilisant la relation de Chasles et l'inégalité triangulaire, pour tout $x \geq x_0$,
+\begin{align*}
+\frac{1}{x} \int_0^x f(t) \d t
+&\geq \frac{1}{x} \int_0^{x_0} f(t) \d t + \frac{1}{x} \int_{x_0}^x f(t) \d t\\
+&\geq -\frac{K}{x} + M (x - x_0).
+\end{align*}
+
+Comme $\lim\limits_{x\to+\infty} \frac{K}{x} = 0$ et $\lim\limits_{x\to+\infty} M (x - x_0) = +\infty$, il existe un réel $x_1$ tel que
+\[
+\forall\, x \geq x_1,\, \frac{K}{x} \geq -\frac{1}{2} \text{ et } M (x - x_0) \geq M + \frac{1}{2}.
+\]
+Ainsi, pour tout $x \geq \max{x_0, x_1}$,
+\begin{align*}
+\frac{1}{x} \int_0^x f(t) \d t
+&\geq M.
+\end{align*}
+
+Finalement, $\lim\limits_{x\to+\infty} \frac{1}{x}\int_0^x f(t) \d t = +\infty$.
+\end{enumerate}
 \end{preuve}
