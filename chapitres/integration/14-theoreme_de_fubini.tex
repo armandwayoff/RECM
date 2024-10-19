@@ -1,16 +1,26 @@
 \section{Théorème de \textsc{Fubini}}
 
-\marginnote[-2mm]{Ce théorème a été démontré par le mathématicien italien Guido \textsc{Fubini} en 1907.}
+\url{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./f/fubini.html} pour quelques éléments historiques sur les intégrales multiples. 
+
+\marginnote[-2mm]{Ce théorème a été démontré par le mathématicien italien Guido \textsc{Fubini} (1879--1943) en 1907.}
 \begin{theo}{\textsc{Fubini}}
     Soit $f: [a,b] \times [c, d] \to \K$ une application continue. Alors,
     $$\int_{a}^{b} \left ( \int_{c}^{d} f(x,y) \d y \right) \d x = \int_{c}^{d} \left ( \int_{a}^{b} f(x,y) \d x \right) \d y.$$
 \end{theo}
 
-\begin{marginfigure}[5cm]
+% \begin{marginfigure}[5cm]
+\begin{figure}
     \centering
     \input{illustrations/i_theoreme_de_fubini}
-    \caption*{\centering Cette figure ne correspond pas au théorème de \textsc{Fubini}}
-\end{marginfigure}
+    \caption{Découpage horizontal}
+\end{figure}
+% \end{marginfigure}
+
+\begin{figure}
+    \centering
+    \input{illustrations/i_theoreme_de_fubini_bis}
+    \caption{Découpage vertical}
+\end{figure}
 
 Nous allons voir la démonstration de ce résultat sous forme d'exercice.
 
@@ -29,8 +39,7 @@ Nous allons voir la démonstration de ce résultat sous forme d'exercice.
         $$\int_{a}^{x} \left( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
     \end{enumerate}
 \end{exercice}
-
-\todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
+% \todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
 
 \marginnote[0cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{solution}
