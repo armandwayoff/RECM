@@ -8,19 +8,18 @@
     $$\int_{a}^{b} \left ( \int_{c}^{d} f(x,y) \d y \right) \d x = \int_{c}^{d} \left ( \int_{a}^{b} f(x,y) \d x \right) \d y.$$
 \end{theo}
 
-% \begin{marginfigure}[5cm]
-\begin{figure}
-    \centering
-    \input{illustrations/i_theoreme_de_fubini}
-    \caption{Découpage horizontal}
-\end{figure}
-% \end{marginfigure}
-
-\begin{figure}
+\begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_theoreme_de_fubini_bis}
     \caption{Découpage vertical}
-\end{figure}
+\end{marginfigure}
+\begin{marginfigure}[5cm]
+% \begin{figure}
+    \centering
+    \input{illustrations/i_theoreme_de_fubini}
+    \caption{Découpage horizontal}
+% \end{figure}
+\end{marginfigure}
 
 Nous allons voir la démonstration de ce résultat sous forme d'exercice.
 
@@ -39,9 +38,10 @@ Nous allons voir la démonstration de ce résultat sous forme d'exercice.
         $$\int_{a}^{x} \left( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
     \end{enumerate}
 \end{exercice}
-% \todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
+\todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
+\todoarmand{Je propose les deux figures ci-contre (qui sont à peaufiner). Est-ce qu'on garde cette version de tranches épaisses à la "Riemann" ou bien on fait plutôt une version comme dans \url{https://math.hawaii.edu/~kcorea/courses/spring_2023/244/static/15.1-scan.pdf} p.7}
 
-\marginnote[0cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
+\marginnote[2cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{solution}
 \begin{enumerate}
 \item Les hypothèses de régularité du théorème de continuité des intégrales à paramètre sont immédiates.
@@ -72,3 +72,34 @@ Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur 
 \end{solution}    
 
 \todoinline{C'est une très belle application des théorèmes de régularité sous le signe intégral. On pourrait le garder comme tel. Mais avoir une application serait certainement intéressant. Je n'en ai pas sous le coude...}
+\todoarmand{Une application possible : le produit de convolution. J'ai pour l'instant simplement repris le théorème de l'un de mes cours de première année.}
+
+\begin{theo}{}
+    Soient $u$ et $v$ deux fonctions de $L^1(\R^d)$. \textcolor{red}{Pour presque tout} $x \in \R^d$, on peut définir
+    \begin{equation}\label{defconvolution}
+    (u \ast v)(x) = \int_{\R^d} u(x-y) v(y) \d y = \int_{\R^d} u(y) v(x-y) \d y.
+    \end{equation}
+    La fonction $u \ast v$ ainsi définie est appelée le \emph{produit de convolution} de $u$ et $v$. Elle appartient à $L^1(\R^d)$ et 
+    \[
+    \norm{u \ast v}_{L^1} \leqslant \norm{u}_{L^1} \norm{v}_{L^1}.
+    \]
+\end{theo}
+\begin{preuve}
+    L'existence des intégrales \ref{defconvolution} n'est pas évidente : à $x$ fixé, il s'agit d'intégrer le produit de deux fonctions intégrables. Mais un tel produit n'est pas intégrable en général. Dans ce cas particulier, nous allons le déduire tu théorème de \textsc{Fubini}. On a
+    \[
+    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \int_{\R^d} \module{v(y)} \left( \int_{\R^d} \module{u(x - y)} \d x \right) \d y.
+    \]
+    En effectuant le changement de variable $z = x - y$ (à $y$ fixé), il vient
+    \[
+    \int_{\R^d} \module{u(x-y)} \d x = \int_{\R^d} \module{u(z)} \d z = \norm{u}_{L^1}.
+    \]
+    Ainsi l'égalité précédente s'écrit
+    \[
+    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \norm{u}_{L^1} \int_{\R^d} \module{v(y)} \d y = \norm{u}_{L^1} \norm{v}_{L^1}.
+    \]
+    Il s'ensuit que la fonction $(x,y) \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d \times \R^d)$. Le théorème de \textsc{Fubini} nous permet donc de dire que pour presque tout $x$, la fonction $y \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d)$, ce qui donne un sens à la première intégrale dans \ref{defconvolution}, la seconde s'en déduisant par le changement de variable $z = x - y$ (à $x$ fixé). Il reste à constater que 
+    \[
+    \norm{u \ast v}_{L^1} = \int_{\R^d} \module{\int_{\R^d} u(x-y)v(y) \d y} \d x \leqslant \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y,
+    \]
+    où l'on vient de voir que la dernière intégrale n'est autre que $\norm{u}_{L^1} \norm{v}_{L^1}$.
+\end{preuve}

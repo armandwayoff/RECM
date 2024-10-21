@@ -26,14 +26,20 @@ Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$
 
 % \subsubsection{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
 
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/normesLp_pinfini.pgf}
+    \caption{ébauche}
+\end{marginfigure}
+
 \begin{theo}{}
 Soit $f$ une fonction continue sur le segment $[a, b]$. Alors,
 \[
 \lim_{p\to+\infty} \norm{f}_{L^p} = \norm{f}_\infty.
 \]
 \end{theo}
-
-\todoinline{Ajouter $\norm{\cdot}_\infty$ à un index des notations.}
+Voir l'index des notations \ref{indexnotations} pour la définition de la norme $\norm{\,\cdot\,}_\infty$.
+% \todoinline{Ajouter $\norm{\cdot}_\infty$ à un index des notations.}
 
 % \begin{exercice}
     % \marginnote[0cm]{Source : \cite{acamanes} \href{https://acamanes.github.io/psi/psi_doc/exos_e01.pdf}{(Exercice 9. TD I)}}
@@ -112,59 +118,61 @@ Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p
 \todoinline{Je ne parviens pas à compiler la figure suivante}
 
 
-% \begin{figure}
-    % \centering
+\begin{comment}
+\begin{figure}[H]
+    \centering
     
-% \begin{tikzpicture}
+\begin{tikzpicture}
 
-% \tikzset{>=latex} % for LaTeX arrow head
+\tikzset{>=latex} % for LaTeX arrow head
 
-% % \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
-% \def\N{100} % number of samples
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+ \def\N{100} % number of samples
 
-  % \def\xmax{3.5}
-  % \def\ymax{3.5}
-  % \def\xeps{3}
-  % \def\yeps{1.8}
-  % \coordinate (O) at (0,0);
-  % \coordinate (C) at (0.927575,0);
-  % \coordinate (A) at (0.5,0);
-  % \coordinate (B) at (2.796001,0);
-  % \coordinate (D) at (2.0700,0);
-  % \coordinate (X0) at (1.63694,0);
-  % \def\yMAX{2.587020}
+  \def\xmax{3.5}
+  \def\ymax{3.5}
+  \def\xeps{3}
+  \def\yeps{1.8}
+  \coordinate (O) at (0,0);
+  \coordinate (C) at (0.927575,0);
+  \coordinate (A) at (0.5,0);
+  \coordinate (B) at (2.796001,0);
+  \coordinate (D) at (2.0700,0);
+  \coordinate (X0) at (1.63694,0);
+  \def\yMAX{2.587020}
 
-  % % AXIS
-  % \draw[->,thick]
-    % (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
-  % \draw[->,thick]
-  % % (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$};
-  % \langle{P}\rangle
+  % AXIS
+  \draw[->,thick]
+    (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$};
   
-  % % PLOT
-  % % \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
-    % plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
+  \langle{P}\rangle
+  
+  % PLOT
+  \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
+    plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
     
-  % \draw[dashed,thin] (X0) --++ (0,\yMAX);
-  % \draw[dashed,thin] (C) --++ (0,\yeps);
-  % \draw[dashed,thin] (D) --++ (0,\yeps);
+  \draw[dashed,thin] (X0) --++ (0,\yMAX);
+  \draw[dashed,thin] (C) --++ (0,\yeps);
+  \draw[dashed,thin] (D) --++ (0,\yeps);
   
-  % % \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
-  % \draw[thin] (0,\yeps) -- (\xmax,\yeps);
+  % \draw[thin] (0,\yMAX) -- (\xmax,\yMAX) node[left] at (0,\yMAX) {$M$};
+  \draw[thin] (0,\yeps) -- (\xmax,\yeps);
   
-  % \draw[<->] (\xeps,\yeps) -- (\xeps,\yMAX)
-    % node[midway,scale=0.9] {\contour{white}{$\varepsilon$}};
+  \draw[<->] (\xeps,\yeps) -- (\xeps,\yMAX)
+    node[midway,scale=0.9] {\contour{white}{$\varepsilon$}};
     
-  % \tick{X0}{90} node[below] {$x_0$};
-  % \tick{A}{90} node[below] {$a$};
-  % \tick{B}{90} node[below] {$b$};
-  % \tick{C}{90} node[below] {$c$};
-  % \tick{D}{90} node[below] {$d$};
+  \tick{X0}{90} node[below] {$x_0$};
+  \tick{A}{90} node[below] {$a$};
+  \tick{B}{90} node[below] {$b$};
+  \tick{C}{90} node[below] {$c$};
+  \tick{D}{90} node[below] {$d$};
   
-% \end{tikzpicture}
+\end{tikzpicture}
 
-    % \caption{Illustration à finir}
-% \end{figure}
+    \caption{Illustration à finir}
+\end{figure}
+\end{comment}
 
 \subsection{Limite $p \to 0$}
 
@@ -373,3 +381,5 @@ Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à to
 En utilisant des intégrales de Riemann, on montre que ces inclusions sont fausses dès que $I$ n'est pas borné.
 \end{remarque}
 \todoinline{Expliciter la remarque précédente ?}
+Supposons $p > r$. Soit $\alpha > 0$ et $f(x) = \frac{1}{1+\module{x}^\alpha}$, $x \in \R$. Si on choisit $1/p < \alpha < 1/r$, alors $f \in L^p(\R)$ mais $f \not\in L^r(\R)$, donc $L^p(\R) \not\subset L^r(\R)$. \\
+Soient $\alpha > 0$ et $g(x) = \frac{1}{\module{x}^\alpha (1+x^2)}$, $x \in \R$. Si on choisit $1/p <  \alpha < 1/r$, $f \in L^r(\R)$ mais $f \not\in L^p(\R)$, donc $L^r(\R) \not\in L^p(\R)$.
