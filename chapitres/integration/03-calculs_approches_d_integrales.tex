@@ -41,7 +41,9 @@ I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 \begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_rectangles_a_gauche}
+    \caption{Illustration de la méthode des rectangles à gauche}
 \end{marginfigure}
+\marginnote[6cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
 
 \begin{prop}{}{}
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
@@ -70,7 +72,6 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segmen
 \item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $f : x \mapsto x - a$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
 \end{enumerate}
 \end{elem_sol}
-Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}
 
 %-----------
 \subsection{Méthode des rectangles médians}
@@ -87,7 +88,10 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_rectangles_medians}
+    \caption{Illustration de la méthode des rectangles médians}
 \end{marginfigure}
+\marginnote[6cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
+
 
 \begin{elem_sol}
 On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
@@ -122,8 +126,6 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segmen
 \end{enumerate}
 \end{elem_sol}
 
-Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}
-
 %-----------
 \subsection{Méthode des trapèzes}
 
@@ -135,7 +137,9 @@ I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2
 \begin{marginfigure}[0cm]
     \centering
     \input{illustrations/i_trapezes}
+    \caption{Illustration de la méthode des trapèzes}
 \end{marginfigure}
+\marginnote[6cm]{Animation de la méthode des trapèzes : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/03-methode_des_trapezes.mp4}}
 
 \begin{prop}{}{}
 La méthode des trapèzes est d'ordre $2$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
@@ -168,8 +172,6 @@ On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = 
 \item La méthode des trapèzes est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $2$.
 \end{enumerate}
 \end{elem_sol}
-
-Animation de la méthode des trapèzes : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/03-methode_des_trapezes.mp4}
 
 \begin{remarque}
 Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe, alors $f'' \geq 0$ et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leq I_p^\mathrm{t}(f)$}. On obtient ainsi une valeur approchée par excès de l'intégrale.

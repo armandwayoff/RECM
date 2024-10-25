@@ -69,6 +69,7 @@ D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussi
     \[
     \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!.
     \]
+    Cette dernière notation se nomme la \emph{double factorielle}.
 \end{preuve}
 
 
@@ -95,7 +96,7 @@ $$\int_0^{+ \infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
 \int_0^{\sqrt{n}} \left(1 - \frac{t^2}{n}\right)^n \d t \leq \int_0^{\sqrt{n}} \e^{-t^2} \d t \leq \int_0^{+\infty} \frac{\d t}{\left(1 + \frac{t^2}{n}\right)^n}.
 \]
 
-\item En déduire que $\int_0^{\sqrt{n}} \e^{-t^2} \d t \sim \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(\theta) \d tg$.
+\item En déduire que $\int_0^{\sqrt{n}} \e^{-t^2} \d t \sim \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(\theta) \d \theta$.
 {En utilisant les intégrales de {Wallis}, on montre que $\int_0^{+\infty} \e^{-t^2} \d t = \frac{\sqrt{\pi}}{2}$.}
 \end{itemize}
 \end{exercice}
@@ -125,7 +126,7 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 {X-ENS}
 {16}%
 Soient $f$ et $g$ les fonctions définies pour tout $x \in \R_+$ par $f(x) = \int_0^1 \frac{e^{-(t^2+1) x^2}}{1 + t^2} \d t$ et $g(x) = \int_0^x e^{-t^2} \d t$.
-\begin{itemize}
+\begin{enumerate}
 \item Calculer $f(0)$ puis $\lim_{x\to+\infty} f(x)$.
 
 \item Montrer que $f$ est de classe $\mathscr{C}^1$ sur $\R_+$ et que, pour tout $x \in \R_+$, $-2 g'(x) g(x) = f'(x)$.
@@ -142,11 +143,11 @@ Pour tout réel positif $t$ non nul, on pose $S(t) = \sum_{n=1}^{+\infty} h(n t)
 \item Déterminer un équivalent de $S(t)$ lorsque $t$ tend vers $0^+$.
 
 \item Déterminer un équivalent de $\sum_{n=1}^{+\infty} x^{n^2}$ lors que $x$ tend vers $1^-$.
-\end{itemize}
+\end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-\begin{itemize}
+\begin{enumerate}
 \item D'après la définition, $f(0) = \int_0^1 \frac{1}{1 + t^2} \d t = \arctan(1) = \frac{\pi}{4}$.
 
 On remarque que l'intégrande est majorée par $t \mapsto \frac{1}{1+ t^2}$ qui est intégrable donc en appliquant le théorème de convergence dominée,
@@ -203,7 +204,7 @@ Ainsi, d'après la question précédente,
 \[
 \sum_{n=1}^{+\infty} x^{n^2} \sim_1 \frac{\sqrt{\pi}}{2 \sqrt{\abs{\ln(x)}}}.
 \]
-\end{itemize}
+\end{enumerate}
 \end{preuve}
 
 \todoinline{Pour avoir une application, on peut regarder la remarque dans le chapitre sur les polynômes d'Hermite ou alors calculer la transformée de Fourier d'une gaussienne.\\
@@ -227,15 +228,15 @@ Polynômes d'{Hermite}
 {TPE}
 {16}
 Soit $f : x \mapsto \e^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \d x = \sqrt{\pi}$.
-\begin{itemize}
+\begin{enumerate}
 \item Montrer qu'il existe un polynôme $P_n$ tel que $f^{(n)}(x) = f(x) P_n(x)$. Préciser le degré, la parité et le coefficient dominant de $P_n$.
 
 \item Montrer l'existence puis calculer $\int_{-\infty}^{+\infty} f(x) P_n(x) P_m(x) \d x$.
-\end{itemize}
+\end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-\begin{itemize}
+\begin{enumerate}
 \item On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
 
 \item Soient $0 < m \leq n$. Les intégrales sont bien définies car ce sont des $o(1/x^2)$ en $\pm\infty$. Comme les crochets tendent vers $0$, en utilisant les fonctions $t \mapsto f^{(n-1)}(t)$ et $t \mapsto P_m(t)$ qui sont de classe $\mathscr{C}^1$, on remarque que
@@ -252,7 +253,7 @@ Ainsi,
 \item Si $n - m = 0$, i.e. $m = n$, alors $\int_\R f P_n^2 = m! 2^m \sqrt{\pi}$.
 \item Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
 \end{itemize}
-\end{itemize}
+\end{enumerate}
 \end{preuve}
 
 
@@ -264,17 +265,17 @@ Ainsi,
 Transformée de~{Fourier} d'une gaussienne
 
 On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + i t x} \d t$.
-\begin{itemize}
+\begin{enumerate}
 \item Montrer que la fonction $f$  est définie sur $\R$.
 \item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} i t \e^{-t^2 + i t x} \d t$.
 \item Montrer que $f$ vérifie l'équation différentielle $2 y' + x y = 0$.
 {On pourra utiliser une intégration par parties.}
 \item En déduire la valeur de $f$ connaissant $f(0) = \sqrt{\pi}$.
-\end{itemize}
+\end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-\begin{itemize}
+\begin{enumerate}
 \item $\abs{\phi(x, t)} \leq \e^{-t^2}$ est une fonction intégrable.
 
 \item $\abs{\frac{\partial \phi}{\partial x}(x, t)} \leq t \e^{-t^2}$ est intégrable sur $\R$ et $f'(x) = \int_\R i t \e^{-t^2 + i t x} \d t$.
@@ -287,5 +288,5 @@ f'(x) &= -\frac{x}{2} f(x).
 \end{align*}
 
 \item $f(x) = \lg \e^{-x^2/4} = \sqrt{\pi} \e^{-x^2/4}$.
-\end{itemize}
+\end{enumerate}
 \end{preuve}

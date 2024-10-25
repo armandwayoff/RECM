@@ -128,7 +128,8 @@
    plot[variable=\y,domain=\d:\c,samples=50,smooth] (\a,\y,{f(\a,\y)}) 
    --
    cycle;
-   
+
+\begin{comment}
 % surface 1: mesh lines  
 \foreach \k [evaluate=\k as \x using \a + \k * \step] in {-1,...,\N} {
     \draw[meshcolor] plot[variable=\y,domain=\c:\d,samples=50,smooth] (\a+\x+0.1,\y,{f(\a+\x+0.1,\y)});
@@ -136,6 +137,20 @@
 \foreach \k [evaluate=\k as \i using \c + \k * \step] in {-2,...,\N} {
     \draw[meshcolor] plot[domain=\a:\b,samples=50,smooth] (\x,\c+\i+0.1,{f(\x,\c+\i+0.1)});
 }
+\end{comment}
+
+    % Define your color for shading
+    \definecolor{curvecolor}{rgb}{0.1, 0.6, 0.8}
+    \definecolor{filltop}{rgb}{0.3, 0.7, 1.0}
+
+    % Draw the shaded surface with lighting effects
+    \shade[thick, draw=curvecolor, left color=filltop!80!white, right color=filltop!20!black, opacity=0.4, smooth]
+        (\a,\c,{f(\a,\c)}) --
+        plot[domain=\a:\b, samples=50, smooth] ({\x},{\c},{f(\x,\c)}) --
+        plot[variable=\y, domain=\c:\d, samples=50, smooth] (\b,{\y},{f(\b,\y)}) --
+        plot[domain=\b:\a, samples=50, smooth] (\x,\d,{f(\x,\d)}) --
+        plot[variable=\y, domain=\d:\c, samples=50, smooth] (\a,\y,{f(\a,\y)}) --
+        cycle;
 
  %======================
  \end{tikzpicture}

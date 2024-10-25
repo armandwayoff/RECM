@@ -96,11 +96,11 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
 \begin{preuve}
     Distinguons trois cas selon les valeurs prises par $\alpha$:
     \begin{enumerate}
-        \item[$\rhd$] \textbf{Cas où $\alpha > 1$.} Soit $\gamma \in ]1, \alpha[$. Par croissances comparées,
+        \item[$\rhd$] \textbf{Cas où $\alpha > 1$.} Soit $\gamma \in \interoo{1}{\alpha}$. Par croissances comparées,
         $$\displaystyle \frac{1}{t^{\alpha} \ln^{\beta} (t)} = o_{+ \infty} \left( \frac{1}{t^{\gamma}} \right).$$
         Or, d'après la convergence des intégrales de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ est intégrable sur $[2, +\infty[$ car $\gamma > 1$. Ainsi, en appliquant les théorèmes de comparaison, $\int_2^{+ \infty} f$ converge.
 
-        \item[$\rhd$] \textbf{Cas où $\alpha < 1$.} Soit $\gamma \in ]\alpha, 1[$. Par croissances comparées,
+        \item[$\rhd$] \textbf{Cas où $\alpha < 1$.} Soit $\gamma \in \interoo{\alpha}{1}$. Par croissances comparées,
         $$t^{\gamma} f(t) \xrightarrow[t \to + \infty]{} + \infty$$
         donc à partir d'un certain rang, $f(t) \geqslant \frac{1}{t^{\gamma}} > 0$. Or, d'après la convergence des intégrales de \textsc{Riemann}, la fonction $t \mapsto \frac{1}{t^\gamma}$ n'est intégrable pas sur $[2, +\infty[$ car $\gamma < 1$. Ainsi, en appliquant les théorèmes de comparaison (les intégrandes sont positives), $\int_2^{+ \infty} f$ diverge.
         

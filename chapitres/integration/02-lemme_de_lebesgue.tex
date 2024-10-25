@@ -2,6 +2,9 @@
 
 \todoinline{Parvenir à décommenter le marginnote suivant. D'après mes recherches sur internet, il faudrait "externaliser" la compilation des figures en pdflatex qui demandent trop de ressources.}
 
+\begin{marginfigure}[0cm]
+    \includegraphics[width=0.9\textwidth]{illustrations/integration-02_lebesgue.png}
+\end{marginfigure}
 \begin{lemme}
 % \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 Soit $a < b$.
@@ -14,16 +17,16 @@ Soit $a < b$.
 \item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$[a, b]$.
 \end{enumerate}
 \end{lemme}
-
 On constate sur la figure suivante que plus $\lambda$ est grand, plus les oscillations sont élevées et plus les aires comptées positivement et négativement se compensent.
-\begin{center}
-\includegraphics[width=0.75\textwidth]{illustrations/integration-02_lebesgue.png}
-\end{center}
-
 \begin{solution}
     \begin{enumerate}
         \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $[a, b]$, on peut effectuer une intégration par parties qui fournit pour $\lambda > 0$:
-        $$\left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \left( -\big[ \cos(\lambda t) f(t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \leqslant \frac{1}{\lambda} \left( |f(a)| + |f(b)| + \int_a^b |f'(t)| \d t \right).$$
+        \[
+        \begin{multlined}[t]
+        \left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \left( -\big[ \cos(\lambda t) f(t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \\
+        \leqslant \frac{1}{\lambda} \left( |f(a)| + |f(b)| + \int_a^b |f'(t)| \d t \right).
+        \end{multlined}
+        \]
         Cette dernière expression tend vers $0$ quand $\lambda$ tend vers $+ \infty$, et donc $\int_a^b f(t) \sin(\lambda t) \d t$ tend vers $0$ quand $\lambda$ tend vers $+\infty$.
         \item Si la fonction $f$ est simplement supposée continue par morceaux, on ne peut donc plus effectuer une intégration par parties. \\
         Le résultat est clair si $f = 1$, car pour $\lambda > 0$, $\left| \int_a^b \sin(\lambda t) \d t \right| = \left| \frac{\cos(\lambda a) - \cos(\lambda b)}{\lambda} \right| \leqslant \frac{2}{\lambda}$. \\
@@ -61,11 +64,9 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 \todoinline{Ajouter des liens dans le texte ci-dessous.}
 
-Nous allons utiliser le lemme de \textsc{Lebesgue} pour calculer certaines valeurs de la fonction $\zeta$ de \textsc{Riemann}. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \textsc{Dirichlet}}.
+Nous allons utiliser le lemme de \textsc{Lebesgue} pour calculer certaines valeurs de la fonction $\zeta$ de \textsc{Riemann}. La fonction zêta de \textsc{Riemann} est également abordée dans la sous-section \ref{subsec:fonctionZeta}. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \textsc{Dirichlet}}.
 
 \todoinline{Partie re-rédigée, à relire !}
-
-\todoinline{Faire référence à une section sur $\zeta$ et une section sur Bernoulli}
 
 \todoinline{Dans la partie sur Bernoulli, il faudra :
 la symétrie, la dérivée et les valeurs de $B_2(0)$ et $B_4(0)$}
