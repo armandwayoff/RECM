@@ -69,8 +69,8 @@ D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussi
     \[
     \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!.
     \]
-    Cette dernière notation se nomme la \emph{double factorielle}.
 \end{preuve}
+Cette dernière notation se nomme la \emph{double factorielle}.
 
 
 \subsection{Calcul de l'intégrale de \textsc{Gauss} avec celle de \textsc{Wallis}}
@@ -90,7 +90,7 @@ $$\int_0^{+ \infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
 %---------------
 
 \begin{exercice}
-\begin{itemize}
+\begin{enumerate}
 \item Montrer que
 \[
 \int_0^{\sqrt{n}} \left(1 - \frac{t^2}{n}\right)^n \d t \leq \int_0^{\sqrt{n}} \e^{-t^2} \d t \leq \int_0^{+\infty} \frac{\d t}{\left(1 + \frac{t^2}{n}\right)^n}.
@@ -98,11 +98,11 @@ $$\int_0^{+ \infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
 
 \item En déduire que $\int_0^{\sqrt{n}} \e^{-t^2} \d t \sim \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(\theta) \d \theta$.
 {En utilisant les intégrales de {Wallis}, on montre que $\int_0^{+\infty} \e^{-t^2} \d t = \frac{\sqrt{\pi}}{2}$.}
-\end{itemize}
+\end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-\begin{itemize}
+\begin{enumerate}
 \item Rappelons que $\ln(1 + x) \leq x$. Ainsi, $\left(1 - \frac{t^2}{n}\right)^n \leq \e^{-t^2}$. De même, $-\ln(1+t^2/n) \geq -t^2/n$ et $\e^{-\frac{t^2}{n}} \geq \left(1 + \frac{t^2}{n}\right)^{-n}$.
 
 On obtient ainsi le résultat en intégrant entre $0$ et $\sqrt{n}$. De plus, $\left(1 + \frac{t^2}{n}\right)^{-n} = O(1/t^2)$ donc l'intégrale est convergente.
@@ -115,7 +115,7 @@ On obtient ainsi le résultat en intégrant entre $0$ et $\sqrt{n}$. De plus, $\
 En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est décroissante. De plus, en utilisant une intégration par parties, on obtient une relation de récurrence puis $I_{n+1} \sim I_n$.
 
 {On obtiendra ce résultat plus simplement en utilisant le théorème de convergence dominée.}
-\end{itemize}
+\end{enumerate}
 \end{preuve}
 
 
