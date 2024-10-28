@@ -1,79 +1,255 @@
 \section{Intégrale de \textsc{Gauss}}
 
-\begin{prop}{}
+\begin{theo}{}
     \begin{equation}\label{eqIntGauss}
         \int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}        
     \end{equation}
-\end{prop}
+\end{theo}
+
+\todoinline{On ajoute le graphe de la fonction avec l'aire coloriée ?}
+
+%-----------
+\subsection{Calculs de l'intégrale}
+
+\todoinline{Je supprimerais la première manière de calculer qui est un peu naïve quand ont a le théorème de convergence dominée. Ça permettrait de gagner du volume.}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
-    \begin{enumerate}
-        \item \textbf{Première méthode:} \say{ à la main }. \\ 
-        Pour $n \in \Ne$, on pose
-        $$
-        f_n(x) \defeq
-        \begin{cases}
-            \left(1 - \frac{x}{n} \right)^n &\text{si } x \in [0, n] \\
-            0 &\text{si } x \geqslant n
-        \end{cases}.
-        $$
-        Pour tout réel positif $x$, on pose $f(x) = \e^{-x^2}$.
-        \begin{enumerate}
-            \item Montrer que pour tout réel positif $x$, 
-            $$|f(x) - f_n(x)| \leqslant \frac{1}{n \e}.$$
-            \item À l'aide de la suite $(f_n)_{n \in \Ne}$, calculer l'intégrale de \textsc{Gauss}.
-        \end{enumerate}
-        \item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée }. \\
-        Pour $n \in \Ne$, on pose
-        $$
-        f_n(x) \defeq
-        \begin{cases}
-            \left(1 - \frac{x^2}{n} \right)^n &\text{si } x \in [0, \sqrt{n}] \\
-            0 &\text{si } x > \sqrt{n}
-        \end{cases}.
-        $$
-        \begin{enumerate}
-            \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \e^{-x^2}$.
-            \item À l'aide de la convergence dominée, calculer l'intégrale de \textsc{Gauss}.
-        \end{enumerate}
+\marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
+On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $f : t \mapsto \e^{-t^2}$.
+
+\begin{enumerate}
+\item Montrer que $I$ est une intégrale convergente.
+
+On propose ensuite de déterminer la valeur de $I$.
+
+\item \textbf{Première méthode:} \say{ à la main }. \\ 
+Pour $n \in \Ne$, on pose
+$$
+f_n(x) \defeq
+\begin{cases}
+\left(1 - \frac{x}{n} \right)^n &\text{si } x \in [0, n] \\
+0 &\text{si } x \geqslant n
+\end{cases}.
+$$
+Pour tout réel positif $x$, on pose $f(x) = \e^{-x}$.
+\begin{enumerate}
+\item Étudier la fonction $f - f_n$ et en déduire que pour tout $x$ réel positif, 
+$$|f(x) - f_n(x)| \leqslant \frac{1}{n \e}.$$
+
+\item On pose $I_n= \int_0^{+\infty} f_n(x^2) \d x$. Montrer que $\module{I_n - I} \leq \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
+
+\item En déduire la valeur de $I$.
+\end{enumerate}
+
+\item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée et les intégrales de Wallis }. \\
+On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(x)$.
+\begin{enumerate}
+\item Montrer que $(f_n)_{n\in\N}$ converge simplement vers $f$.
+
+\item À l'aide du théorème de convergence dominée, en déduire que $\lim\limits_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x$.
+
+\item On rappelle que, d'après les résultats sur les intégrales de Wallis,
+\[
+\lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos^{2n+1}(t) \d t \to \frac{\sqrt{\pi}}{2}.
+\]
+
+En déduire la valeur de $I$.
+\end{enumerate}
+% Pour $n \in \Ne$, on pose
+        % $$
+        % f_n(x) \defeq
+        % \begin{cases}
+            % \left(1 - \frac{x^2}{n} \right)^n &\text{si } x \in [0, \sqrt{n}] \\
+            % 0 &\text{si } x > \sqrt{n}
+        % \end{cases}.
+        % $$
+        % \begin{enumerate}
+            % \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \e^{-x^2}$.
+            % \item À l'aide de la convergence dominée, calculer l'intégrale de \textsc{Gauss}.
+        % \end{enumerate}
     \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
+\begin{enumerate}
+\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $[0, +\infty[$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de Riemann, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $[0, +\infty[$.
+
+\item
+
+\item
+\begin{enumerate}
+\item Soit $t \in \R$. Soit $n \geq t^2$. Alors, $t \in [0, \sqrt{n}]$, soit
+\[
+f_n(t)
+= \left(1 - \frac{t^2}{n}\right)^n
+= \exp\left(n \ln\left(1 - \frac{t^2}{\sqrt{n}}\right)\right).
+\]
+
+D'après les équivalents classiques, $\ln\left(1 - \frac{t^2}{\sqrt{n}}\right) \sim -\frac{t^2}{n}$.
+
+Ainsi, d'après la continuité de la fonction exponentielle en $t^2$,
+\[
+\lim_{n\to+\infty} f_n(t) = \e^{-t^2}.
+\]
+
+\item On vérifie les hypothèses du théorème.
+\begin{itemize}
+\item $t \mapsto \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(t) \in \mathscr{C}^-(\R_+)$.
+
+\item D'après la question précédente, $f_n(t) \to \e^{-t^2}$.
+
+\item $f \in \mathscr{C}^-(\R_+, \R_+)$.
+
+\item En utilisant l'inégalité de convexité du logarithme, pour $t \in [0, \sqrt{n}]$,
+\[
+\abs{f_n(t)}
+= \exp\left(n \ln\left(1 - \frac{t^2}{n}\right)\right)
+\leq \e^{-t^2}.
+\]
+Ainsi, pour tout $t \in \R_+$, $\abs{f_n(t)} \leq f(t)$, qui est bien intégrable.
+\end{itemize}
+
+D'après le théorème de convergence dominée,
+\[
+\lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-t^2} \d t.
+\]
+
+\item En effectuant le changement de variable $\phi : [0,\pi/2] \to [0,\sqrt{n}],\, t \mapsto \sqrt{n} \sin(t)$ qui est bien $\mathscr{C}^1$ et strictement croissant,
+\begin{align*}
+\int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x &= \int_0^{\pi/2} (1 - \sin^2(t))^n \sqrt{n} \cos(t) \d t \\
+&= \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \\
+&\to \frac{\sqrt{\pi}}{2}.
+\end{align*}
+Finalement, $I = \frac{\sqrt{\pi}}{2}$.
+\end{enumerate}
+\end{enumerate}
 \end{preuve}
+
+\todoinline{Peut-on superposer les graphes de $f_n$ pour $2-3$ valeurs de $n$ et celui de $f$ pour visualiser la convergence simple ?}
+
+\todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
+\begin{remarque}
+La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n > 0$ et tout réel $u \in ]-n, n[$, 
+\[
+\left(1 + \frac{u}{n} \right)^n \leqslant \e^u \leqslant \left( 1 - \frac{u}{n} \right)^{-n},
+\]
+puis que
+\[
+\int_0^{\sqrt{n}} \left( 1 - \frac{x^2}{n} \right)^n \d x \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \int_0^{\sqrt{n}} \left( 1 + \frac{x^2}{n} \right)^{-n} \d x.
+\]
+En utilisant un changement de variables puis les intégrales de Wallis, on obtient alors l'encadement :
+\[
+\sqrt{n} \Wallis_{2n+1} \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \sqrt{n} \Wallis_{2n-2}.
+\]
+\end{remarque}
+
+\begin{remarque}
+En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, alors $\int_\R \e^{-x^2} \d x = \sqrt{\pi}$.
+\end{remarque}
+
+\todoinline{Ajouter une remarque pour son utilisation en probas ? Avec un dessin d'une planche de Galton ?}
 
 \subsection{Moments de la gaussienne}
 
 D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}.
 
-\begin{prop}{}
+\todoinline{Je prends $\sigma = \frac{1}{\sqrt{2}}$ pour plus coller à la section précédente et simplifier les notations. On peut bien sûr revenir à un $\sigma$ qcq si tu préfères. J'ai rédigé la dérivation sous le signe intégral}
+
+\begin{theo}{} Pour tout $n$ entier naturel,
     \[
-    \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!
+    \int_\R x^{2n} \e^{-x^2} \d x
+    = \frac{\sqrt{\pi}}{2^n} \prod_{k=1}^n (2k - 1)
+    = \frac{\sqrt{\pi}}{4^n} \times n! \binom{2n}{n}.
     \]
-\end{prop}
+\end{theo}
+
+\begin{exercice}
+\begin{enumerate}
+\item Pour tout $\beta > 0$, déterminer la valeur de $\int_\R \e^{-\beta x^2} \d x$.
+
+\item Calculer la dérivée $n$-ième de la fonction $f : \beta \mapsto \sqrt{\frac{\pi}{\beta}}$.
+
+\item En déduire le résultat annoncé.
+\end{enumerate}
+\end{exercice}
+
 \begin{preuve}
-    La dérivée $n$-ième par rapport à $\beta$ de l'intégrale suivante
-    \[
-    \int_\R \e^{-\beta x^2} \d x = \sqrt{\frac{\pi}{\beta}},
-    \]
-    que l'on obtient aisément par un changement de variable linéaire dans \ref{eqIntGauss}, s'écrit
-    \[
-    (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x = \sqrt{\pi} (-1)^n \beta^{-\frac{2n+1}{2}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right) = (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right),
-    \]
-    et en prenant $\beta = \frac{1}{2 \sigma^2}$, on obtient
-    \[
-    \int_\R x^{2n} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sqrt{\pi (2 \sigma^2)^{2n+1}} \prod_{k=1}^n \left( \frac{2k-1}{2} \right)
-    \]
-    soit 
-    \[
-    \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!.
-    \]
+\begin{enumerate}
+\item Le changement de variable affine $x \mapsto \frac{x}{\sqrt{\beta}}$ dans l'intégrale permet d'obtenir l'intégrale de Gauss. Ainsi,
+\[
+\int_\R \e^{-\beta x^2} \d x
+= \int_\R \e^{-\beta u^2} \times \frac{1}{\sqrt{\beta}} \d u
+= \sqrt{\frac{\pi}{\beta}}.
+\]
+
+\item Comme $f(\beta) = \sqrt{\pi} \beta^{-1/2}$, une récurrence permet d'obtenir :
+\begin{align*}
+f_n'(\beta)
+&= \sqrt{\pi} (-1)^n \beta^{-\frac{2n+1}{2}} \prod_{k=1}^n \left(\frac{1}{2} + k - 1\right)\\
+&= (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
+\end{align*}
+
+\item Posons $g : (beta, x) \mapsto \e^{-\beta x^2}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
+\begin{enumerate}
+\item Pour tout $x \in \R$, la fonction $g(\cdot, x)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+
+\item Pour tout $n$ entier naturel et $x \in \R$,
+\[
+\frac{\partial^n g}{\partial \beta^n}(\beta, x) = (-1)^n x^{2n} \e^{-\beta x^2}\]
+donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \cdot)$ est continue sur $\R$.
+
+\item Pour tout $a > 0$, pour tout $\beta \in [a, +\infty[$ et pour tout $x \in \R$,
+\[
+\module{\frac{\partial^n g}{\partial \beta^n}(\beta, x)} = x^{2n} \e^{-a x^2}
+\]
+qui est une fonction intégrable.
+\end{enumerate}
+
+En utilisant le théorème de dérivation sous le signe intégral, la fonction $I(\cdot)$ est de classe $\mathscr{CC}^\infty$ et pour tout $n$ entier naturel,
+\[
+I^{(n)}(\beta)
+= (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x.
+\]
+
+Finalement, on obtient l'égalité :
+\[
+\int_\R x^{2n} \e^{-\beta x^2} \d x
+= \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
+\]
+
+Évazluer en $x = 1$ permet d'obtenir le résultat annoncé.
+\end{enumerate}
 \end{preuve}
-Cette dernière notation se nomme la \emph{double factorielle}.
+
+
+% \begin{prop}{}
+    % \[
+    % \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!
+    % \]
+% \end{prop}
+% \begin{preuve}
+    % La dérivée $n$-ième par rapport à $\beta$ de l'intégrale suivante
+    % \[
+    % \int_\R \e^{-\beta x^2} \d x = \sqrt{\frac{\pi}{\beta}},
+    % \]
+    % que l'on obtient aisément par un changement de variable linéaire dans \ref{eqIntGauss}, s'écrit
+    % \[
+    % (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x = \sqrt{\pi} (-1)^n \beta^{-\frac{2n+1}{2}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right) = (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \left( \frac{1}{2} + k - 1 \right),
+    % \]
+    % et en prenant $\beta = \frac{1}{2 \sigma^2}$, on obtient
+    % \[
+    % \int_\R x^{2n} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sqrt{\pi (2 \sigma^2)^{2n+1}} \prod_{k=1}^n \left( \frac{2k-1}{2} \right)
+    % \]
+    % soit 
+    % \[
+    % \int_\R x^{2n} \frac{1}{\sqrt{2 \pi \sigma^2}} \e^{-\frac{x^2}{2 \sigma^2}} \d x = \sigma^{2n} \prod_{k=1}^n (2k - 1) = \sigma^{2n} (2n-1) !!.
+    % \]
+% \end{preuve}
+% Cette dernière notation se nomme la \emph{double factorielle}.
 
 
 \subsection{Calcul de l'intégrale de \textsc{Gauss} avec celle de \textsc{Wallis}}
+\todoinline{À supprimer suite à la remarque précédente ?}
 \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
 On peut aisément utiliser les intégrales de \textsc{Wallis} pour calculer l'intégrale de \text{Gauss}. \\
 On utilise pour cela l'encadrement suivant, issu de la construction de la fonction exponentielle par la méthode d'\textsc{Euler}: pour tout entier $n > 0$ et tout réel $u \in ]-n, n[$, 
@@ -107,7 +283,7 @@ $$\int_0^{+ \infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}.$$
 
 On obtient ainsi le résultat en intégrant entre $0$ et $\sqrt{n}$. De plus, $\left(1 + \frac{t^2}{n}\right)^{-n} = O(1/t^2)$ donc l'intégrale est convergente.
 
-\item On pose $\phi : t \mapsto \sqrt{n} \sin(t)$ dans la première intégrale et $\psi : t \mapsto \sqrt{n} \tan(t)$ dans la seconde. On obtient ainsi l'encadrement
+\item On pose $\varphi : t \mapsto \sqrt{n} \sin(t)$ dans la première intégrale et $\psi : t \mapsto \sqrt{n} \tan(t)$ dans la seconde. On obtient ainsi l'encadrement
 \begin{align*}
 \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \leq \int_0^{\sqrt{n}} \e^{-t^2} \d t &\leq \sqrt{n} \int_0^{\pi/2} \cos^{2n-2}(t) \d t\\
 & \leq \sqrt{n} \int_0^{\pi/2} \cos^{2n-3}(t) \d t.
@@ -119,6 +295,122 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 \end{preuve}
 
 
+
+% \todoinline{Pour avoir une application, on peut regarder la remarque dans le chapitre sur les polynômes d'Hermite ou alors calculer la transformée de Fourier d'une gaussienne.\\
+% Dans le document bestiaire.pdf, on peut trouver :\\
+% * une preuve par étude d'intégrale à paramètre en page 178\\
+% * une preuve avec Wallis en p. 223 mais je l'ai déjà quelque part rédigée}
+
+% \todoarmand{
+% * Je ne vois pas de quelle remarque vous parlez \\
+% * On peut calculer la transformée de Fourier d'une gaussienne, ça pourrait aussi être l'occasion de dire un mot sur ce qu'est la TF. \\
+% * J'aime bien la preuve avec Wallis, il faudrait alors mettre cette section après celle sur Wallis. Il faut voir comment l'intégrer (c'est le cas de le dire) avec les autres exercices sur Wallis et Stirling pour ne pas trop se répéter.
+% }
+
+%-----------
+\subsection{Transformée de Fourier}
+
+\begin{theo}{}
+Pour tout $x$ réel,
+\[
+\int_{-\infty}^{+\infty} \e^{i t x} \e^{-t^2} \d t
+= \sqrt{\pi} \e^{-\frac{x^2}{4}}.
+\]
+\end{theo}
+
+\begin{exercice}
+On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + i t x} \d t$.
+\begin{enumerate}
+\item Montrer que la fonction $f$  est définie sur $\R$.
+
+\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} i t \e^{-t^2 + i t x} \d t$.
+
+\item Montrer que $f$ vérifie l'équation différentielle $2 y' + x y = 0$.
+{On pourra utiliser une intégration par parties.}
+
+\item En déduire la valeur de $f$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve} On pose $g : (x, t) \mapsto \e^{-t^2 + i t x}$.
+\begin{enumerate}
+\item Pour tout $(x, t) \in \R^2$,  $\abs{g(x, t)} \leq \e^{-t^2}$. Ainsi, $g(x, \cdot)$ est une fonction intégrable pour tout $x$ réel.
+
+\item Les hypothèses de régularité sont aisément vérifiables. De plus,
+\[
+\module{\frac{\partial g}{\partial x}(x, t)} = t \e^{-t^2}
+\]
+qyu est intégrable sur $\R$.
+
+Ainsi, en appliquant le théorème de dérivation sous le signe intégral, la fonction $f$ est dérivable et
+\[
+f'(x) = \int_\R i t \e^{-t^2 + i t x} \d t.
+\]
+
+\item En utilisant une intégration par parties généralisée dont le crochet converge,
+\begin{align*}
+f'(x) &= \int_\R t \e^{-t^2} i \e^{i t x} \d t \\
+&= \left[-\frac{1}{2} \e^{-t^2} i \e^{i t x}\right]_{-\infty}^{+\infty} - \int_\R \frac{x}{2} \e^{-t^2} \e^{i t x} \d t \\
+f'(x) &= -\frac{x}{2} f(x).
+\end{align*}
+
+\item L'ensemble des solutions de l'équation du différentielle du premier ordre $2 y' + x y = 0$ est
+\[
+\left\{x \mapsto \lambda \e^{-\frac{x^2}{4}},\, \lambda \in \R\right\}.
+\]
+
+D'après le calcul de l'intégrale de Gauss, $f(0) = \sqrt{\pi}$. Ainsi,
+\[
+f(x) = \sqrt{\pi} \e^{-\frac{x^2}{4}}.
+\]
+\end{enumerate}
+\end{preuve}
+
+
+\subsection{À trier}
+
+\todoinline{On met cet exercice avec les polynômes orthogonaux ?}
+
+%---------------
+
+\begin{exercice}
+Polynômes d'{Hermite}
+{RMS 2017 154 - Autres écoles}
+{TPE}
+{16}
+Soit $f : x \mapsto \e^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \d x = \sqrt{\pi}$.
+\begin{enumerate}
+\item Montrer qu'il existe un polynôme $P_n$ tel que $f^{(n)}(x) = f(x) P_n(x)$. Préciser le degré, la parité et le coefficient dominant de $P_n$.
+
+\item Montrer l'existence puis calculer $\int_{-\infty}^{+\infty} f(x) P_n(x) P_m(x) \d x$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
+
+\item Soient $0 < m \leq n$. Les intégrales sont bien définies car ce sont des $o(1/x^2)$ en $\pm\infty$. Comme les crochets tendent vers $0$, en utilisant les fonctions $t \mapsto f^{(n-1)}(t)$ et $t \mapsto P_m(t)$ qui sont de classe $\mathscr{C}^1$, on remarque que
+\[
+\int_\R f P_n f P_m = \int_\R f^{(n)} P_m = -\int_\R f^{(n-1)} P_m'.
+\]
+Ainsi, en itérant ce procédé, comme $m \leq n$,
+\[
+\int_\R f P_n P_m = (-1)^m \int_\R f^{(n-m)} P_m^{(m)}
+= (-1)^m (-2)^m \int_\R f^{(n-m)}.
+\]
+Ainsi,
+\begin{itemize}
+\item Si $n - m = 0$, i.e. $m = n$, alors $\int_\R f P_n^2 = m! 2^m \sqrt{\pi}$.
+\item Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
+\end{itemize}
+\end{enumerate}
+\end{preuve}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\todoinline{Je supprimerais l'exercice suivant}
 
 %---------------
 
@@ -204,89 +496,5 @@ Ainsi, d'après la question précédente,
 \[
 \sum_{n=1}^{+\infty} x^{n^2} \sim_1 \frac{\sqrt{\pi}}{2 \sqrt{\abs{\ln(x)}}}.
 \]
-\end{enumerate}
-\end{preuve}
-
-\todoinline{Pour avoir une application, on peut regarder la remarque dans le chapitre sur les polynômes d'Hermite ou alors calculer la transformée de Fourier d'une gaussienne.\\
-Dans le document bestiaire.pdf, on peut trouver :\\
-* une preuve par étude d'intégrale à paramètre en page 178\\
-* une preuve avec Wallis en p. 223 mais je l'ai déjà quelque part rédigée}
-
-\todoarmand{
-* Je ne vois pas de quelle remarque vous parlez \\
-* On peut calculer la transformée de Fourier d'une gaussienne, ça pourrait aussi être l'occasion de dire un mot sur ce qu'est la TF. \\
-* J'aime bien la preuve avec Wallis, il faudrait alors mettre cette section après celle sur Wallis. Il faut voir comment l'intégrer (c'est le cas de le dire) avec les autres exercices sur Wallis et Stirling pour ne pas trop se répéter.
-}
-
-
-
-%---------------
-
-\begin{exercice}
-Polynômes d'{Hermite}
-{RMS 2017 154 - Autres écoles}
-{TPE}
-{16}
-Soit $f : x \mapsto \e^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \d x = \sqrt{\pi}$.
-\begin{enumerate}
-\item Montrer qu'il existe un polynôme $P_n$ tel que $f^{(n)}(x) = f(x) P_n(x)$. Préciser le degré, la parité et le coefficient dominant de $P_n$.
-
-\item Montrer l'existence puis calculer $\int_{-\infty}^{+\infty} f(x) P_n(x) P_m(x) \d x$.
-\end{enumerate}
-\end{exercice}
-
-\begin{preuve}
-\begin{enumerate}
-\item On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
-
-\item Soient $0 < m \leq n$. Les intégrales sont bien définies car ce sont des $o(1/x^2)$ en $\pm\infty$. Comme les crochets tendent vers $0$, en utilisant les fonctions $t \mapsto f^{(n-1)}(t)$ et $t \mapsto P_m(t)$ qui sont de classe $\mathscr{C}^1$, on remarque que
-\[
-\int_\R f P_n f P_m = \int_\R f^{(n)} P_m = -\int_\R f^{(n-1)} P_m'.
-\]
-Ainsi, en itérant ce procédé, comme $m \leq n$,
-\[
-\int_\R f P_n P_m = (-1)^m \int_\R f^{(n-m)} P_m^{(m)}
-= (-1)^m (-2)^m \int_\R f^{(n-m)}.
-\]
-Ainsi,
-\begin{itemize}
-\item Si $n - m = 0$, i.e. $m = n$, alors $\int_\R f P_n^2 = m! 2^m \sqrt{\pi}$.
-\item Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
-\end{itemize}
-\end{enumerate}
-\end{preuve}
-
-
-
-%---------------
-
-\begin{exercice}
-
-Transformée de~{Fourier} d'une gaussienne
-
-On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + i t x} \d t$.
-\begin{enumerate}
-\item Montrer que la fonction $f$  est définie sur $\R$.
-\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} i t \e^{-t^2 + i t x} \d t$.
-\item Montrer que $f$ vérifie l'équation différentielle $2 y' + x y = 0$.
-{On pourra utiliser une intégration par parties.}
-\item En déduire la valeur de $f$ connaissant $f(0) = \sqrt{\pi}$.
-\end{enumerate}
-\end{exercice}
-
-\begin{preuve}
-\begin{enumerate}
-\item $\abs{\phi(x, t)} \leq \e^{-t^2}$ est une fonction intégrable.
-
-\item $\abs{\frac{\partial \phi}{\partial x}(x, t)} \leq t \e^{-t^2}$ est intégrable sur $\R$ et $f'(x) = \int_\R i t \e^{-t^2 + i t x} \d t$.
-
-\item En utilisant une intégration par parties généralisée,
-\begin{align*}
-f'(x) &= \int_\R t \e^{-t^2} i \e^{i t x} \d t \\
-&= \left[-\frac{1}{2} \e^{-t^2} i \e^{i t x}\right]_{-\infty}^{+\infty} - \int_\R \frac{x}{2} \e^{-t^2} \e^{i t x} \d t \\
-f'(x) &= -\frac{x}{2} f(x).
-\end{align*}
-
-\item $f(x) = \lg \e^{-x^2/4} = \sqrt{\pi} \e^{-x^2/4}$.
 \end{enumerate}
 \end{preuve}
