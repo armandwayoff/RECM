@@ -1,7 +1,13 @@
 \section{Intégrale de \textsc{Gauss}}
 
 \begin{theo}{}
-    \begin{equation}\label{eqIntGauss}
+On montre que
+\[
+\int_0^{+\infty} \e^{-x^2} \d x = \lim_{n\to+\infty} \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x.
+\]
+
+Ainsi,
+\begin{equation}\label{eqIntGauss}
         \int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}        
     \end{equation}
 \end{theo}
@@ -11,11 +17,9 @@
 %-----------
 \subsection{Calculs de l'intégrale}
 
-\todoinline{Je supprimerais la première manière de calculer qui est un peu naïve quand ont a le théorème de convergence dominée. Ça permettrait de gagner du volume.}
-
 \begin{exercice}
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
-On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $f : t \mapsto \e^{-t^2}$.
+On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $f : x \mapsto \e^{-x^2}$.
 
 \begin{enumerate}
 \item Montrer que $I$ est une intégrale convergente.
@@ -25,20 +29,29 @@ On propose ensuite de déterminer la valeur de $I$.
 \item \textbf{Première méthode:} \say{ à la main }. \\ 
 Pour $n \in \Ne$, on pose
 $$
-f_n(x) \defeq
+g_n(x) \defeq
 \begin{cases}
 \left(1 - \frac{x}{n} \right)^n &\text{si } x \in [0, n] \\
 0 &\text{si } x \geqslant n
 \end{cases}.
 $$
-Pour tout réel positif $x$, on pose $f(x) = \e^{-x}$.
+
+On pose $g : x \mapsto \e^{-x}$ et $h_n = g - g_n$·
 \begin{enumerate}
-\item Étudier la fonction $f - f_n$ et en déduire que pour tout $x$ réel positif, 
-$$|f(x) - f_n(x)| \leqslant \frac{1}{n \e}.$$
+\item Montrer que $h_n$ atteint son maximum sur $[0, n]$. On notera $x_n$ l'abscisse d'un point en laquelle $h_n$ atteint ce maximum.
 
-\item On pose $I_n= \int_0^{+\infty} f_n(x^2) \d x$. Montrer que $\module{I_n - I} \leq \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
+\item Montrer que $h_n$ est à valeurs positives.
 
-\item En déduire la valeur de $I$.
+\item Montrer que $h_n(x_n) = \frac{x_n \e^{-x_n}}{n}$.
+
+\item En étudiant la fonction $u \mapsto u \e^{-u}$, en déduire que
+\[
+\module{h_n} \leq \frac{1}{n \e}.
+\]
+
+\item On pose $I_n= \int_0^{+\infty} g_n(x^2) \d x$. Montrer que $\module{I_n - I} \leq \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
+
+\item En déduire le résultat attendu.
 \end{enumerate}
 
 \item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée et les intégrales de Wallis }. \\
@@ -47,6 +60,7 @@ On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(x)
 \item Montrer que $(f_n)_{n\in\N}$ converge simplement vers $f$.
 
 \item À l'aide du théorème de convergence dominée, en déduire que $\lim\limits_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x$.
+\end{enumerate}
 
 \item On rappelle que, d'après les résultats sur les intégrales de Wallis,
 \[
@@ -67,7 +81,6 @@ En déduire la valeur de $I$.
             % \item Montrer que la suite $(f_n)_{n \in \Ne}$ converge simplement sur $\Rp$ vers la fonction $f:x \mapsto \e^{-x^2}$.
             % \item À l'aide de la convergence dominée, calculer l'intégrale de \textsc{Gauss}.
         % \end{enumerate}
-    \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
@@ -75,6 +88,72 @@ En déduire la valeur de $I$.
 \item La fonction $x \mapsto \e^{-x^2}$ est continue sur $[0, +\infty[$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de Riemann, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $[0, +\infty[$.
 
 \item
+\begin{enumerate}
+\item Pour tout $x \geq n$, $h_n(x) = \e^{-x} \leq \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $[0, n]$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
+
+\item En utilisant l'inégalité de convexité du logarithme, pour $x \in [0, n]$,
+\[
+g_n(x)
+= \exp\left(n \ln\left(1 - \frac{x}{n}\right)\right)
+\leq \e^{-x}.
+\]
+Ainsi, $h_n$ est à valeurs positives.
+
+\item Pour tout $x \in [0, n]$,
+\[
+h_n'(x) = -\e^{-x} + \left(1 - \frac{x}{n}\right)^{n-1}.
+\]
+Ainsi, $h_n'(0) = 0$ et $h_n'(n) = - \e^{-n} < 0$.
+
+Comme $h_n'(n) < 0$, alors $h_n$ est décroissante sur un voisinage de $n$. De plus, $h_n$ est positive et $h_n(0) = 0$. Ainsi, $x_n \in ]0, n[$. Comme $h_n$ est dérivable et atteint son maximum sur l'ouvert $]0, n[$, alors $h_n'(x_n) = 0$, soit
+\[
+\e^{-x_n} = \left(1 - \frac{x_n}{n}\right)^{n-1}.
+\]
+
+Alors,
+\begin{align*}
+h_n(x_n)
+&= \e^{-x_n} - \left(1 - \frac{x_n}{n}\right)^n
+= \e^{-x_n} - \left(1 - \frac{x_n}{n}\right) \e^{-x_n}\\
+&= \frac{x_n \e^{-x_n}}{n}.
+\end{align*}
+
+\item La fonction $u \mapsto u \e^{-u}$ est dérivable et sa dérivée vaut $u \mapsto \e^{-u} (1 - u)$. Elle atteint donc son maximum en $1$ et la valeur de ce maximum est $\e^{-1}$.
+
+D'après la question précédente, pour tout $x \in \Rp$,
+\begin{align*}
+\module{h_n(x)}
+&\leq h_n(x_n)
+\leq \frac{1}{n \e}.
+\end{align*}
+
+\item D'après la question précédente, pour tout $x$ réel positif,
+\[
+\module{\e^{-x^2} - \left(1 - \frac{x^2}{n}\right)^n} \indicatrice{[0,n]}(x)
+\leq \frac{1}{n \e}.
+\]
+
+Ainsi,
+\begin{align*}
+\module{I_n - I}
+&\leq \int_0^{+\infty} \module{h_n(x^2)} \d x\\
+&\leq \int_0^{\sqrt{n}} \module{h_n(x^2)} \d x + \int_{\sqrt{n}}^{+\infty} \module{h_n(x^2)} \d x\\
+&\leq \int_0^{\sqrt{n}} \frac{1}{n\e} \d x + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x\\
+&\leq \frac{1}{\sqrt{n} \e} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x.
+\end{align*}
+
+\item Comme $x \mapsto \e^{-x^2}$ est intégrable, alors
+\[
+\lim_{n\to+\infty} \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x = 0.
+\]
+
+Ainsi, d'après le théorème d'encadrement,
+\[
+\lim_{n\to+\infty} I_n
+= \lim_{n\to+\infty} \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x
+= \int_0^{+\infty} \e^{-x^2} \d x.
+\]
+\end{enumerate}
 
 \item
 \begin{enumerate}
@@ -113,6 +192,7 @@ D'après le théorème de convergence dominée,
 \[
 \lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-t^2} \d t.
 \]
+\end{enumerate}
 
 \item En effectuant le changement de variable $\phi : [0,\pi/2] \to [0,\sqrt{n}],\, t \mapsto \sqrt{n} \sin(t)$ qui est bien $\mathscr{C}^1$ et strictement croissant,
 \begin{align*}
@@ -121,7 +201,6 @@ D'après le théorème de convergence dominée,
 &\to \frac{\sqrt{\pi}}{2}.
 \end{align*}
 Finalement, $I = \frac{\sqrt{\pi}}{2}$.
-\end{enumerate}
 \end{enumerate}
 \end{preuve}
 
