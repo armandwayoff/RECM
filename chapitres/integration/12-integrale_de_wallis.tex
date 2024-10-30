@@ -394,57 +394,109 @@ Ainsi, d'après le théorème de convergence dominée,
 
 \subsection{Volume d'une boule en dimension \texorpdfstring{$n$}{n}}
 
+\begin{definition}{}
+La boule unité de $\R^n$ est définie par
+\[
+\mathscr{B}_n = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 \leqslant 1}.
+\]
+Le volume de $\mathscr{B}_n$ est défini par l'intégrale multiple :
+\[
+\mathscr{V}_n \defeq \idotsint_{x_1^2 + \cdots + x_n^2 \leqslant 1} \d x_1 \cdots \d x_n.
+\]
+\end{definition}
+
+\begin{theo}{}
+Pour tout $n$ entier naturel non nul,
+\[
+\mathscr{V}_{2n} = \frac{\pi^n}{n!}
+\text{ et }
+\mathscr{V}_{2n+1} = \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
+\]
+\end{theo}
+
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{fmaalouf}}
-    Pour $n \in \Ne$ et $R \in \Rpe$ on désigne par $V_n(R)$ le volume de la boule de $\R^n$ de centre $O$ et de rayon $R$, 
-    $$V_n(R) \defeq \idotsint_{x_1^2 + \cdots + x_n^2 \leqslant R^2} \d x_1 \cdots \d x_n.$$
-    Montrer que pour tout $p \in \Ne$, 
-    $$V_{2p}(R) = \frac{\pi^p R^{2p}}{p!}.$$
-\end{exercice}
-
-\todoinline{Ajouter une preuve.}
-\todoarmand{Je suis entrain de réfléchir à une démo, mais ça me paraît difficile sans la notion de jacobien.}
-
-\begin{preuve}
-    
-\end{preuve}
-
-\todoarmand{Les exercices 4 et 5 de \url{http://exo7.emath.fr/ficpdf/fic00143.pdf} donnent les liens entre calcul de la surface de la sphère unité de $\R^n$, son volume, la fonction Gamma et les intégrales de Wallis.}
-
-Exercices recopiés : 
-
-\begin{exercice}
+Pour tout $n$ entier naturel non nul, on note
+\[
+I_n = \int_0^\pi \sin(t)^n \d t.
+\]
 \begin{enumerate}
-    \item Calculer $\int_{-\infty}^{+\infty} \e^{-x^2} \d x$. \\
-    \emph{Indication :} On pourra d'abord calculer $\int_{R^2} \e^{-(x^2 + y^2)} \d x \d y$ en passant en coordonnées polaires. 
-    \item \emph{Calcul de l'aire de la sphère unité de $\R^n$.} Soit $\mathscr{S}_{n-1} = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 = 1}$ la sphère unité de $\R^n$. On note $\mathscr{A}_{n-1}$ son aire. Calculer
-    \[
-    \int_{\R^n} \exp\left({-\sum\limits_{i=1}^n x_i{}^2}\right) \d x_1 \dots \d x_n
-    \]
-    en fonction de $\mathscr{A}_{n-1}$. En déduire l'expression de $\mathscr{A}_{n-1}$ en fonction de la fonction $\Gamma$ :
-    \[
-    \Gamma(s) \defeq \int_0^{+\infty} x^{s-1} \e^{-x} \d x.
-    \]
-    \item \emph{Calcul du volume de la boule unité de $\R^n$.} Soit $\mathscr{B}_n = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 \leqslant 1}$ la boule fermée de rayon $1$ dans $\R^n$. On note $\mathscr{V}_n$ son volume. Montrer que $\mathscr{V}_n = \frac{\mathscr{A}_{n-1}}{n}$. En déduire que:
-    \[
-    \mathscr{V}_n = \frac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1 \right)}.
-    \]
-    \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
+\item Exprimer $I_n$ en fonction de l'intégrale de Wallis $\Wallis_n$.
+
+\item En déduire l'expression de $I_n$ en fonction de $n$.
+
+\item Montrer que $\mathscr{V}_n = I_n \times \mathscr{V}_{n-1}$.
+
+\item En déduire l'expression de $\mathscr{V}_n$ en fonction de $n$.
 \end{enumerate}
 \end{exercice}
 
-\begin{exercice}
-    \emph{Cet exercice fournit une autre méthode de calcul du volume de la boule unité $\mathscr{B}_n$ de $\R^n$ et de l'aire de la sphère $\mathscr{S}_{n-1} \subset \R^n$.} On conserve les notations de l'exercice précédent. 
-    \begin{enumerate}
-        \item Montrer que $\mathscr{V}_n = I_n \cdot \mathscr{V}_{n-1}$, où $I_n = \int_0^\pi \sin(t)^n \d t$. 
-        \item Vérifier que $I_n = \frac{n-1}{n}I_{n-2}$.
-    \end{enumerate}
-\end{exercice}
+\begin{preuve}
+\begin{enumerate}
+\item En utilisant les symétries de la fonction sinus,
+\begin{align*}
+I_n
+&= \int_0^{\pi} \sin(t)^n \d t\\
+&= \int_0^{\frac{\pi}{2}} \sin(t)^n \d t + \int_{\frac{\pi}{2}}^\pi \sin(t)^n \d t\\
+&= 2 \int_0^{\frac{\pi}{2}} \sin(t)^n \d t
+= 2 \Wallis_n.
+\end{align*}
+
+\item D'après la question précédente, pour tout $n$ entier naturel,
+\begin{align*}
+I_{2n} &= \frac{(2n)!}{2^{2n} (n!)^2} \frac{\pi}{2},\\
+I_{2n+1} &= \frac{2^{2n} (n!)^2}{(2n+1)!}.
+\end{align*}
+
+\item D'après la définition,
+\begin{align*}
+\mathscr{V}_n
+&= \int_{-1}^1 \left(\int_{x_2^2 + \cdots + x_n^2 \leq 1 - x_1^2} \d x_2 \cdots \d x_n\right) \d x_1.
+\end{align*}
+Comme $\int_{x_2^2 + \cdots + x_n^2 \leq 1} \d x_2 \cdots \d x_n$ est le volume de la boule de rayon $1 - x_1^2$, cette quantité est égale à $\sqrt{1 - x_1^2}^{n-1} \mathscr{V}_{n-1}$. Ainsi,
+\begin{align*}
+\mathscr{V}_n
+&= \mathscr{V}_{n-1} \int_{-1}^1 \sqrt{1 - x_1^2}^{n-1} \d x_1\\
+&= \mathscr{V}_{n-1} \times I_n,
+\end{align*}
+où on a utilisé le changement de variables $x_1 = \cos(\theta)$.
+
+\item D'après la question précédente,
+\begin{align*}
+\mathscr{V}_n
+&= 2 \Wallis_n \mathscr{V}_{n-1}\\
+&= 2^{n-2} \prod_{k=3}^n \Wallis_k \times \mathscr{V}_2.
+\end{align*}
+Or, $\mathscr{V}_2$ est l'aire d'un disque de rayon $1$ qui vaut $\pi$. Alors,
+\[
+\mathscr{V}_n = \pi 2^{n-2} \prod_{k=3}^n \Wallis_k.
+\]
+
+Rappelons enfin que $\Wallis_k \Wallis_{k+1} = \frac{\pi}{2(k+1)}$. Ainsi, en distinguant selon la parité de $n$,
+\begin{align*}
+\mathscr{V}_{2n}
+&= \pi 2^{2n-2} \prod_{k=3}^{2n} \Wallis_k\\
+&= \pi 2^{2n-2} \prod_{k=2}^{n} \frac{\pi}{2 \times 2 k)}\\
+&= \frac{\pi 2^{n-2} \pi^{n-1}}{2^{2(n-1)} \times n!}
+= \frac{\pi^n}{n!}.
+\end{align*}
+et
+\begin{align*}
+\mathscr{V}_{2n+1}
+&= 2 \Wallis_{2n+1} \mathscr{V}_n\\
+&= 2 \times \frac{2^{2n} (n!)^2}{(2n+1)!} \times \frac{\pi^n}{n!}\\
+&= \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
+\end{align*}
+\end{enumerate}
+\end{preuve}
 
 \todoarmand{Interprétation physique des hypersphères}
+\begin{remarque}
 Un peu de physique 
 
 Interprétons physiquement ces considérations : en physique statistique on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule; lorsque celles-ci sont en très grand nombre l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (liées à la vitesse); reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13); on peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons-là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
+\end{remarque}
+
+
 
 
 \subsection{\textsc{Grain de raisin}: Produit de \textsc{Wallis}}
@@ -469,4 +521,54 @@ Interprétons physiquement ces considérations : en physique statistique on util
     $$\lim_{n \to +\infty} \frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\pi}{2}.$$
     Or d'après le calcul des intégrales de \textsc{Wallis}:
     $$\frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\frac{2^{2p}(p!)^2}{(2p+1)!}}{\frac{(2p)!}{2^{2p}(p!)^2}} = \prod_{k=1}^n \frac{4k^2}{4k^2-1}.$$
-\end{preuve}
+    \end{preuve}
+
+
+    %-----------
+\subsection{À trier}
+
+\todoinline{Cet exercice, je le supprimerais ou alors le mettre avec les intégrales de Gauss ?}
+
+% \begin{exercice}
+    % \marginnote[0cm]{Source : \cite{fmaalouf}}
+    % Pour $n \in \Ne$ et $R \in \Rpe$ on désigne par $V_n(R)$ le volume de la boule de $\R^n$ de centre $O$ et de rayon $R$, 
+    % $$V_n(R) \defeq \idotsint_{x_1^2 + \cdots + x_n^2 \leqslant R^2} \d x_1 \cdots \d x_n.$$
+    % Montrer que pour tout $p \in \Ne$, 
+    % $$V_{2p}(R) = \frac{\pi^p R^{2p}}{p!}.$$
+% \end{exercice}
+
+% \todoinline{Ajouter une preuve.}
+% \todoarmand{Je suis entrain de réfléchir à une démo, mais ça me paraît difficile sans la notion de jacobien.}
+
+
+% \todoarmand{Les exercices 4 et 5 de \url{http://exo7.emath.fr/ficpdf/fic00143.pdf} donnent les liens entre calcul de la surface de la sphère unité de $\R^n$, son volume, la fonction Gamma et les intégrales de Wallis.}
+
+% Exercices recopiés : 
+
+\begin{exercice}
+\begin{enumerate}
+    \item Calculer $\int_{-\infty}^{+\infty} \e^{-x^2} \d x$. \\
+    \emph{Indication :} On pourra d'abord calculer $\int_{R^2} \e^{-(x^2 + y^2)} \d x \d y$ en passant en coordonnées polaires. 
+    \item \emph{Calcul de l'aire de la sphère unité de $\R^n$.} Soit $\mathscr{S}_{n-1} = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 = 1}$ la sphère unité de $\R^n$. On note $\mathscr{A}_{n-1}$ son aire. Calculer
+    \[
+    \int_{\R^n} \exp\left({-\sum\limits_{i=1}^n x_i{}^2}\right) \d x_1 \dots \d x_n
+    \]
+    en fonction de $\mathscr{A}_{n-1}$. En déduire l'expression de $\mathscr{A}_{n-1}$ en fonction de la fonction $\Gamma$ :
+    \[
+    \Gamma(s) \defeq \int_0^{+\infty} x^{s-1} \e^{-x} \d x.
+    \]
+    \item \emph{Calcul du volume de la boule unité de $\R^n$.} Soit $\mathscr{B}_n = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 \leqslant 1}$ la boule fermée de rayon $1$ dans $\R^n$. On note $\mathscr{V}_n$ son volume. Montrer que $\mathscr{V}_n = \frac{\mathscr{A}_{n-1}}{n}$. En déduire que:
+    \[
+    \mathscr{V}_n = \frac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1 \right)}.
+    \]
+    \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
+\end{enumerate}
+\end{exercice}
+
+% \begin{exercice}
+    % \emph{Cet exercice fournit une autre méthode de calcul du volume de la boule unité $\mathscr{B}_n$ de $\R^n$ et de l'aire de la sphère $\mathscr{S}_{n-1} \subset \R^n$.} On conserve les notations de l'exercice précédent. 
+    % \begin{enumerate}
+        % \item Montrer que $\mathscr{V}_n = I_n \cdot \mathscr{V}_{n-1}$, où $I_n = \int_0^\pi \sin(t)^n \d t$. 
+        % \item Vérifier que $I_n = \frac{n-1}{n}I_{n-2}$.
+    % \end{enumerate}
+% \end{exercice}
