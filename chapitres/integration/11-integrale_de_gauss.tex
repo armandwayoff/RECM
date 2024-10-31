@@ -1,12 +1,16 @@
 \section{Intégrale de \textsc{Gauss}}
 
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/i_integrale_de_gauss}
+    \caption{Intégrale de \textsc{Gauss}}
+\end{marginfigure}
+
 \begin{theo}{}
     \begin{equation}\label{eqIntGauss}
         \int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\pi}}{2}        
     \end{equation}
 \end{theo}
-
-\todoinline{On ajoute le graphe de la fonction avec l'aire coloriée ?}
 
 %-----------
 \subsection{Calculs de l'intégrale}
@@ -46,11 +50,14 @@ On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(x)
 \begin{enumerate}
 \item Montrer que $(f_n)_{n\in\N}$ converge simplement vers $f$.
 
-\item À l'aide du théorème de convergence dominée, en déduire que $\lim\limits_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x$.
+\item À l'aide du théorème de convergence dominée, en déduire que 
+\[
+\lim\limits_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x.
+\]
 
 \item On rappelle que, d'après les résultats sur les intégrales de Wallis,
 \[
-\lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos^{2n+1}(t) \d t \to \frac{\sqrt{\pi}}{2}.
+\lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos^{2n+1}(t) \d t = \frac{\sqrt{\pi}}{2}.
 \]
 
 En déduire la valeur de $I$.
@@ -70,6 +77,12 @@ En déduire la valeur de $I$.
     \end{enumerate}
 \end{exercice}
 
+\begin{marginfigure}[2cm]
+    \centering
+    \input{illustrations/integrale_gauss_conv_simple.pgf}
+    \caption{Illustration de la convergence simple de la suite $(f_n)_{n \in \N}$ vers $f$}
+\end{marginfigure}
+
 \begin{preuve}
 \begin{enumerate}
 \item La fonction $x \mapsto \e^{-x^2}$ est continue sur $[0, +\infty[$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de Riemann, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $[0, +\infty[$.
@@ -82,7 +95,7 @@ En déduire la valeur de $I$.
 \[
 f_n(t)
 = \left(1 - \frac{t^2}{n}\right)^n
-= \exp\left(n \ln\left(1 - \frac{t^2}{\sqrt{n}}\right)\right).
+= \exp \left(n \ln\left(1 - \frac{t^2}{\sqrt{n}}\right)\right).
 \]
 
 D'après les équivalents classiques, $\ln\left(1 - \frac{t^2}{\sqrt{n}}\right) \sim -\frac{t^2}{n}$.
@@ -125,11 +138,9 @@ Finalement, $I = \frac{\sqrt{\pi}}{2}$.
 \end{enumerate}
 \end{preuve}
 
-\todoinline{Peut-on superposer les graphes de $f_n$ pour $2-3$ valeurs de $n$ et celui de $f$ pour visualiser la convergence simple ?}
-
 \todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
 \begin{remarque}
-La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n > 0$ et tout réel $u \in ]-n, n[$, 
+La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n > 0$ et tout réel $u \in \interoo{-n}{n}$, 
 \[
 \left(1 + \frac{u}{n} \right)^n \leqslant \e^u \leqslant \left( 1 - \frac{u}{n} \right)^{-n},
 \]
@@ -189,7 +200,7 @@ f_n'(\beta)
 &= (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
 \end{align*}
 
-\item Posons $g : (beta, x) \mapsto \e^{-\beta x^2}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
+\item Posons $g : (\beta, x) \mapsto \e^{-\beta x^2}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
 \begin{enumerate}
 \item Pour tout $x \in \R$, la fonction $g(\cdot, x)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
 
@@ -217,7 +228,7 @@ Finalement, on obtient l'égalité :
 = \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
 \]
 
-Évazluer en $x = 1$ permet d'obtenir le résultat annoncé.
+Évaluer en $x = 1$ permet d'obtenir le résultat annoncé.
 \end{enumerate}
 \end{preuve}
 
