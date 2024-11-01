@@ -1,8 +1,12 @@
 \section{Intégrales eulériennes}\label{secinteuleriennes}
 
 \marginnote[0mm]{Source : \href{https://lescoursdemathsdepjh.monsite-orange.fr/file/7bcfcf82249b1046f185e9a3495845cd.pdf}{Fonction eulériennes -- Pierre-Jean \textsc{Hormière}}}
-De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines. \\
-Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin} \dots \\
+De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
+
+Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
+
+\todoinline{Dans la phrase suivante, tu te rappelles à quoi tu pensais pour les nombreuses façons ? Il me semble que le prolongement analytique est unique, non ? Mes cours d'analyse complexe sont un peu loin...}
+
 Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
 
 \subsection{Fonction Gamma d'\textsc{Euler}}
@@ -21,22 +25,43 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. 
 \end{remarque} 
 
-\begin{prop}{}
-    \begin{itemize}
-        \item La fonction $\Gamma$ est définie si et seulement si $x>0$.
-        \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$. \\
-        En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
-    \end{itemize}
-\end{prop}
+\begin{theo}{}
+\begin{itemize}
+\item La fonction $\Gamma$ est définie sur $\Rpe$.
 
-La démonstration est donnée dans \ref{prolongementFonctionGamma}.
+\item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
 
-Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
+En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
+\end{itemize}
+\end{theo}
 
-\begin{exercice}
-    \marginnote[0cm]{\cite{fmaalouf}}
-    Caculer $\Gamma \left( \frac{1}{2} \right)$, puis $\Gamma \left( n + \frac{1}{2} \right)$ pour tout $n \in \Ne$.
-\end{exercice}
+\begin{preuve}
+\begin{itemize}
+\item On pose $f_x : t \mapsto t^{x - 1} \e^{-t}$.
+
+$f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
+
+Comme $f_x(t) = o_{+\infty}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de Riemann, $f_x$ est intégrable sur $[1,+\infty[$.
+
+Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $]0, 1]$ si et seulement si $x > 0$.
+
+Finalement, $\Gamma$ est définie sur $\R_+^\star$.
+
+\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\mathscr{C}^1$ sur $\R_+^\star$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. D'après la formule d'intégration par parties généralisée,
+\[
+\int_0^{+\infty} t^x \e^{-t} \d t = x \int_0^{+\infty} t^{x-1} \e^{-t} \d t
+\]
+et $\Gamma(x+1) = x \Gamma(x)$.
+
+\item $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = n!$.
+\end{itemize}
+\end{preuve}
+
+% La démonstration est donnée dans \ref{prolongementFonctionGamma}.
+
+% Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
+
+\todoinline{Si on rappelle l'IPP ici, peut être faut-il le faire avec d'autres théorèmes ?}
 
 \marginnote[-5cm]{
     \begin{theo}{Théorème (Intégration par parties généralisées)}
@@ -54,129 +79,152 @@ Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fon
     \end{theo}
 }
 
+\begin{theo}{Régularité}
+La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
+\[
+\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
+\]
+\end{theo}
+
+\begin{preuve}
+\begin{itemize}
+\item \textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $f : (x, t) \mapsto t^{x-1} \e^{-t}$.
+\begin{itemize}
+\item Soit $t \in \Rpe$. Alors, $f(\cdot, t)$ est continue sur $[a, A]$.
+
+\item Soit $x \in [a, A]$. Alors, $f(x, \cdot)$ est continue sur $\Rpe$.
+
+\item Pour tout $(x, t) \in [a, A] \times \R_+^*$,
+\[
+\abs{f(x, t)} \leq \phi(t) = 
+\begin{cases}
+\frac{\e^{-t}}{t^{1-a}} &\text{ si } t \in ]0, 1],\\
+t^{A-1} \e^{-t} &\text{ si } t \in [1, +\infty[
+\end{cases}
+\]
+La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur $\R_+^*$.
+\end{itemize}
+Finalement, d'après le théorème de continuité sous le signe intégral, $\Gamma$ est continue sur $[a, A]$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
+
+\item On applique le théorème de dérivation sous le signe intégral sur l'intervalle $[a, A]$.
+\begin{itemize}
+\item $f(\cdot, t) : t \mapsto t^{x - 1} \e^{-t}$ est de classe $\mathscr{C}^k$ sur $[a, A]$.
+
+\item $\partial_1^j f(x, t) = \ln(t)^j t^{x - 1} \e^{-t}$ et $t \mapsto \partial_1^j f(x, t)$ est continue sur $\R_+^*$.
+
+\item Pour tout $x \in [a, A]$,
+\[
+\abs{\partial_1^j f(x, t)} \leq
+\begin{cases}
+\abs{\ln(t)}^j \e^{-t} t^{a-1} &\text{ si } t < 1 \\
+\abs{\ln(t)}^j \e^{-t} t^{A-1} &\text{ si } t \geq 1
+\end{cases}
+\]
+
+En notant $\phi_j$ cette fonction,
+\begin{itemize}
+\item $\phi_j$ est continue sur $\R_+^*$.
+\item $\phi_j(t) = o_{+\infty}(1/t^2)$ et $\phi_j(t) = o_0(t^{x/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\R_+$.
+\end{itemize}
+\end{itemize}
+Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
+\[
+\Gamma^{(j)}(x) = \int_0^{+\infty} (\ln(t))^j t^{x-1} \e^{-t} \d t.
+\]
+\end{itemize}
+\end{preuve}
+
+% \begin{elem_preuve}
+    % Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
+    % $$\varphi_k:t \mapsto 
+    % \begin{cases}
+        % |\ln t |^k \e^{-t} t^{a-1} & \text{si } t \in ]0, 1], \\
+        % |\ln t |^k \e^{-t} t^{A-1} & \text{si } t > 1.
+    % \end{cases}
+    % $$
+% \end{elem_preuve}
+
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{fmaalouf}}
-    Montrer que la fonction $\Gamma$ est continue sur $\Rpe$.
-\end{exercice}
-
-\begin{prop}{Dérivées successives de la fonction Gamma}
-    $$\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t$$
-\end{prop}
-
-\begin{elem_preuve}
-    Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
-    $$\varphi_k:t \mapsto 
-    \begin{cases}
-        |\ln t |^k \e^{-t} t^{a-1} & \text{si } t \in ]0, 1], \\
-        |\ln t |^k \e^{-t} t^{A-1} & \text{si } t > 1.
-    \end{cases}
-    $$
-\end{elem_preuve}
-
-\begin{exercice}
-    \marginnote[0cm]{Source : \cite{fmaalouf}}
-    Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$. \\
-    Montrer que $\Gamma$ est convexe et étudier ses variations.
-\end{exercice}
-
-\subsection{L'intégrale de \textsc{Gauss} comme valeur particulière de la fonction Gamma}
-
-%%% Commente par Alain car pb de compilation %%%
-% \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
-
-$$\Gamma \left( \frac{1}{2} \right) = \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t = 2 \int_0^{+ \infty} \e^{-u^2} \d u = \int_{- \infty}^{+ \infty} e^{-u^2} \d u.$$
-
-\subsection{Fonction bêta}
-
-\todoinline{Retrouver l'exercice de Maths II Centrale qui somme des quantités qui resemblent à ceci !}
-
-\todoarmand{Centrale Maths 2 MP 2015}
-
-
-
-%--------------
-
-\begin{exercice}%
-{RMS 833}%
-{16}%
-{Centrale}%
-Pour tout entier naturel $n$, on note $u_n = \sum_{k=0}^n \frac{1}{\binom{n}{k}}$.
+\marginnote[0cm]{Source : \cite{fmaalouf}}
 \begin{enumerate}
-\item Écrire une fonction \verb?binomial(n, k)? qui renvoie $\binom{n}{k}$. Tracer, pour $n \in \ens{5, 8, 9}$, les points $\left(\binom{n}{k}\right)_{2\leq k \leq n-2}$.
+\item Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$.
 
-\item Montrer que, pour tout $2 \leq k \leq n-2$, $\binom{n}{k} \geq \binom{n}{2}$.
-
-\item Pour tout $n \in \N$, on note $A_n$ le point de coordonnées $(n, u_n)$. Afficher les $31$ premiers termes $A_0,\ldots,A_{30}$. Conjecturer le comportement asymptotique de $(u_n)$.
-
-\item Démontrer rigoureusement la convergence de $(u_n)$.
-
-Soit $p \geq 2$ et $q \in \N$. On pose $S(p) = \sum_{n=p}^{+\infty} \frac{1}{\binom{n}{p}}$.
-
-\item Montrer l'existence de $S(p)$.
-
-\item On note $S_N = \sum_{n=p}^N \binom{n}{p}^{-1}$. Tracer $(p-1) S_{200}(p)$ en fonction de $p$ pour $p \in \entiers{2}{50}$.
-
-\item Exprimer $I(p, q) = \int_0^1 t^p (1 - t)^q \d t$ en fonction d'un coefficient binomial.
-
-\item En déduire que $S(p) = \frac{p}{p-1}$.
+\item Montrer que $\Gamma$ est convexe.
+% et étudier ses variations.
 \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
 \begin{enumerate}
-\item D'après la définition des coefficients binomiaux,
+\item Comme $\Gamma$ est continue en $1$, alors
 \[
-\frac{\binom{n}{k}}{\binom{n}{2}} = \frac{n (n-1) \cdots (n-k+1) 2}{k (k-1) \cdots 3 \cdot 2 \cdot n (n-1)} \geq 1.
+\lim_{x\to0} \Gamma(x + 1) = \Gamma(1) = \int_0^{+\infty} \e^{-t} \d t = 1.
 \]
 
-\item D'après la question précédente,
+De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
 \[
-2 \leq u_{n+1} \leq 2 + \sum_{k=2}^{n-2} \frac{1}{\binom{n}{2}} \leq 2 + \frac{2(n-3)}{n (n-2)}.
-\]
-Ainsi, $\lim_{n\to+\infty} u_n = 2$.
-
-\item D'après la définition,
-\[
-\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\left(\frac{1}{n^2}\right).
-\]
-Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $S(p)$ est bien définie.
-
-\item À l'aide d'une intégration par parties, $I_{p,q} = \frac{q}{p+1} I_{p+1,q-1}$. De plus, $I_{p,0} = \frac{1}{p+1}$. Ainsi,
-\[
-I_{p,q} = \frac{q (q-1) \cdots 1}{(p+1) \cdots (p+q)} I_{p+q,0} = \frac{1}{p+q+1} \binom{p+q}{p}^{-1}.
+\Gamma(x) \sim_0 \frac{1}{x}.
 \]
 
-\item D'après le calcul précédent, si $p \geq 1$,
-\begin{align*}
-S_N(p) &= \sum_{n=0}^{N} \binom{n+p}{p}^{-1} = \sum_{n=0}^{N} (n+p+1) I_{n,p} \\
-&= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p t^n (1 - t)^p \d t \\
-&\to \int_0^1 (1 -t)^{p-2} \d t + \int_0^1 p (1 - t)^{p-1} \d t 
-= \frac{1}{p-1} + p \frac{1}{p} = \frac{p}{p-1},
-\end{align*}
-où le théorème de convergence dominée a pu être appliqué car toutes les sommes partielles sont croissantes et leur limite est intégrable car continue.
-
-% \gras{Remarque.} On peut obtenir directement :
-% \[
-% \binom{n}{p}^{-1} = \binom{n-1}{p-1}^{-1} - \frac{n-p}{n-p+1} \binom{n}{p-1}^{-1}.
-% \]
-% Ainsi,
-% \begin{align*}
-% S(p) &= \sum_{n=0}^{+\infty} \binom{n+p}{n}^{-1} = 1 + \sum_{n=1}^{+\infty} \binom{n+p-1}{n-1}^{-1} - \frac{p}{p+1} \sum_{n=1}^{+\infty} \binom{n+p}{p-1}^{-1} \\
-% &= 1 + S(p) - \frac{p}{p+1} S(p+1).
-% \end{align*}
+\item D'après l'étude précédente, pour tout $x > 0$,
+\[
+\Gamma''(x) = \int_0^{+\infty} (\ln(t))^2 t^{x-1} \e^{-t} \d t.
+\]
+Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
 \end{enumerate}
 \end{preuve}
 
+\todoinline{On peut montrer que $\Gamma$ est l'unique fonction telle que $\ln \Gamma$ est convexe, $\Gamma(1) = 1$ et $\Gamma(x + 1) = x \Gamma(x)$. On le met ici ? (Source : Rudin)\\
+On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisable.}
+
+
+%-----------
+\subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
+
+\begin{theo}{}
+$\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$
+et pour tout $n \in \Ne$,
+$\Gamma\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
+\end{theo}
+% \begin{exercice}
+    \marginnote[0cm]{\cite{fmaalouf}}
+    % Caculer $\Gamma \left( \frac{1}{2} \right)$, puis $\Gamma \left( n + \frac{1}{2} \right)$ pour tout $n \in \Ne$.
+% \end{exercice}
+
+\todoinline{Le marginnote suivant ne compile pas chez moi}
+% \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
+
+\begin{preuve}
+On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$. Alors,
+\begin{align*}
+\Gamma \left( \frac{1}{2} \right)
+&= \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t\\
+&= 2 \int_0^{+ \infty} \e^{-u^2} \d u \\
+&= \int_{- \infty}^{+ \infty} e^{-u^2} \d u\\
+&= \sqrt{\pi},
+\end{align*}
+d'après les résultats sur l'intégrale de Gauss.
+
+Le second point s'obtient en utilisant l'égalité
+\[
+\Gamma\left(n + \frac{1}{2}\right) = \frac{n + 2}{2} \Gamma\left(n - 1 + \frac{1}{2}\right).
+\]
+\end{preuve}
+
+%-----------
+\subsection{Fonction bêta}
+
+\todoinline{J'ai changé les $I_{p,q}$ en $B(p, q)$ pour coller à la définition classique de la fonction Bêta}
 
 \begin{defi}{Fonction bêta}
-    Pour tout $(p,q) \in \N^2$, on note
-    $$I_{p,q} \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
+Pour tout $(p,q) \in \N^2$, on note
+$$B(p, q) \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
 \end{defi}
 
-\begin{prop}{Expression factiorelle de la fonction bêta}
-    Pour tout $(p,q) \in \N^2$,
-    $$I_{p,q} = \frac{p! q!}{(p + q + 1)!}.$$
-\end{prop}
+\begin{theo}{Expression factiorelle de la fonction bêta}
+Pour tout $(p,q) \in \N^2$,
+    $$B(p, q) = \frac{p! q!}{(p + q + 1)!}.$$
+\end{theo}
 
 \marginnote[0cm]{
 Sources : 
@@ -186,49 +234,52 @@ Sources :
 \end{itemize}
 }
 
-\begin{preuve}
-    Soit $(p,q) \in \N^2$. Nous allons déterminer une relation entre $I_{p,q}$ et $I_{p+1, q-1}$ en faisant une intégration par parties. \\
-    On pose $u:t\mapsto \frac{1}{p+1} t^{p+1}$ et $v:t\mapsto (1-t)^q$, toutes deux de classe $\mathscr{C}^1$ sur $[0, 1]$. Alors, 
-    \begin{align*}
-        I_{p,q} &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\
-        I_{p,q} &= \frac{q}{p+1} I_{p+1, q-1}.
-    \end{align*}
-    On en déduit que 
-    \begin{align*}
-        I_{p,q} &= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} I_{p+q,0} \\
-        I_{p,q} &= \frac{p! q!}{(p + q + 1)!}.
-    \end{align*}
-\end{preuve}
-
-\todoinline{Je crois pas que ce soit la même chose que le renforcement de Polya qui converge vers une loi Beta, mais il faut regarder plus en détail pour être sûr (si on garde).}
-
-\todoarmand{Je suis partant pour garder cet exercice}
-
-\begin{exercice}%
-{RMS 2017 1071 \& 1073}%
-{Centrale 16'}%
+\begin{exercice}
 \begin{enumerate}
-\item Soit $(p, q) \in (\N^\ast)^2$. Calculer l'intégrale $\int_0^1 x^p (1 - x)^q \d x$.
+\item Déterminer $B(p, 0)$.
 
-\item Soit $p \in \N^\ast$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et pour tout $i \in \entiers{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \N^\ast$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
-\begin{itemize}
-\item Exprimer $\mathbf{P}(A_n)$ sous forme d'une somme.
+\item Pour tout $(p, q) \in \N \times \Ne$, montrer que
+\[
+B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
+\]
 
-\item On note $b_{n,p}$ la probabilité que la prochaine boule tirée soit blanche sachant que $A_n$ est réalisé. Exprimer $b_{n,p}$.
-\item Calculer $\lim\limits_{p\to+\infty} b_{n,p}$.
-\end{itemize}
+\item Conclure.
 \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
-\begin{itemize}
-\item En effectuant une intégration par parties, dès que $q > 0$, alors $I_{p,q} = \frac{q}{p+1} I_{p+1, q-1}$. Ainsi, par récurrence,
-\[
-I_{p,q} = \prod_{k=0}^{q-1} \frac{q - k}{p+1+k} I_{p+q, 0} = \frac{q! p!}{(p+q+1)!}.
-\]
+\begin{enumerate}
+\item $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
-\item
-\begin{itemize}
+\item On pose $u:t\mapsto \frac{1}{p+1} t^{p+1}$ et $v:t\mapsto (1-t)^q$, toutes deux de classe $\mathscr{C}^1$ sur $[0, 1]$. Alors, d'après la formule d'intégration par parties, 
+\begin{align*}
+B(p,q) &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\
+B(p,q) &= \frac{q}{p+1} B(p+1, q-1).
+\end{align*}
+
+On en déduit que 
+\begin{align*}
+B(p, q)
+&= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q, 0) \\
+&= \frac{p! q!}{(p + q + 1)!}.
+\end{align*}
+\end{enumerate}
+\end{preuve}
+
+\begin{exercice}%
+\todoinline{D'après Oral Centrale 2016}
+Soit $p \in \N^\ast$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et, pour tout $i \in \entiers{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \N^\ast$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
+
+\begin{enumerate}
+\item Exprimer $\mathbf{P}(A_n)$ sous forme d'une somme.
+
+\item On note $b_{n,p}$ la probabilité que la prochaine boule tirée soit blanche sachant que $A_n$ est réalisé. Exprimer~$b_{n,p}$.
+\item Calculer $\lim\limits_{p\to+\infty} b_{n,p}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
 \item En utilisant la formule des probabilités totales,
 \begin{align*}
 \mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}(A_n | U_i) \mathbf{P}(U_i) \\
@@ -248,19 +299,116 @@ Cette limite vaut donc
 \[
 \frac{2n+1}{n+1} \cdot \frac{n! (n+1)!}{(2n+2)!} \cdot \frac{(2n+1)!}{n! n!}  = \frac{2n+1}{2n+2}.
 \]
-\end{itemize}
-\end{itemize}
+\end{enumerate}
 \end{preuve}
 
-\begin{exercice}
-    \marginnote[0cm]{Souce : \cite{acamanes}}
-    Déterminer la nature de la série $\sum I_{n,n}$ et, le cas échéant, calculer sa somme. 
-\end{exercice}
+%-----------
+\subsection{Des fonctions Bêta et des sommes}
+
 
 \begin{exercice}
     \marginnote[0cm]{Source : Clémentine \textsc{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
-    Déterminer une expression simplifiée de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$, pour tout $(p, q) \in \N^2$.
+Soit $(p, q) \in \N^2$.
+
+Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$.
 \end{exercice}
 
 \begin{preuve}
+En utilisant la formule du binôme de Newton puis la linéarité de l'intégrale,
+\begin{align*}
+B(p, q)
+&= \int_0^1 t^p (1 - t)^q \d t\\
+&= \int_0^1 t^p \left(\sum_{k=0}^q \binom{q}{k} (-1)^k t^k\right) \d t\\
+&= \sum_{k=0}^q \binom{q}{k} (-1)^k \left(\int_0^1 t^{p + k} \d t\right)\\
+&= \sum_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p + k + 1}.
+\end{align*}
+Ainsi,
+\[
+\sum_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p + k + 1}
+= \frac{p! q!}{(p + q + 1)!}
+= \frac{\binom{p+q+1}{p}^{-1}}{p + q + 1}.
+\]
+\end{preuve}
+
+%---------------
+
+\begin{exercice}
+\todoinline{Source : Oral Mines 2018}
+Montrer que $\sum B(n,n)$ converge et déterminer sa somme.
+\end{exercice}
+
+\begin{solution}
+D'après la définition, $0 \leq B(n, n) \leq \frac{1}{4^n}$. Ainsi, $\sum B(n, n)$ converge.
+
+Comme $t^p (1 - t)^q \geq 0$ pour $t \in [0, 1]$, d'après le théorème d'interversion série / intégrale,
+\begin{align*}
+\sum_{n=0}^{+\infty} B(n, n)
+&= \int_0^1 \left(\sum_{n=0}^{+\infty} t^n (1 - t)^n\right) \d t \\
+&= \int_0^1 \frac{\d t}{1 - t(1 - t)}\\
+&= \frac{4}{3} \int_0^1 \frac{\d t}{\left[\frac{2}{\sqrt{3}}(t - 1/2)\right]^2 + 1} \\
+&= \frac{2}{\sqrt{3}} \left[\arctan\left(\frac{2}{\sqrt{3}} (t-1/2)\right)\right]_0^1 \\
+&= \frac{4}{\sqrt{3}} \arctan\frac{1}{\sqrt{3}} \\
+&= \frac{2\pi}{3\sqrt{3}}
+\end{align*}
+\end{solution}
+
+% --------------
+
+\begin{exercice}%
+\todoinline{Source : D'après un oral Centrale 2016}%
+Soit $p \geq 2$ et $q \in \N$. On pose $S(p) = \sum_{n=p}^{+\infty} \binom{n}{p}^{-1}$.
+\begin{enumerate}
+\item Montrer l'existence de $S(p)$.
+
+\item Montrer que $S_N(p) = \sum_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum_{n=0}^N (n + p + 1) B(n, p)$.
+
+\item En déduire que $S(p) = \frac{p}{p-1}$.
+\end{enumerate}
+\end{exercice}
+
+\begin{preuve}
+\begin{enumerate}
+\item D'après la définition des coefficients binomiaux,
+\[
+\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\left(\frac{1}{n^2}\right).
+\]
+Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $S(p)$ est bien définie.
+
+\item D'après le théorème précédent,
+\[
+B(p, q) = \frac{p! q!}{(p + q + 1) (p + q)!} = \frac{\binom{p+q}{p}^{-1}}{p + q + 1}.
+\]
+
+Ainsi, si $p \geq 1$,
+\begin{align*}
+S_N(p)
+&= \sum_{n=0}^{N} \binom{n+p}{p}^{-1}
+= \sum_{n=0}^{N} (n+p+1) B(n, p) \\
+&= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p t^n (1 - t)^p \d t.
+\end{align*}
+
+De plus,
+\[
+\lim_{N\to+\infty} \sum_{n=0}^N (n + 1) t^n (1 - t)^p = (1 - t)^{p-2}
+\text{ et }
+\lim_{N\to+\infty} \sum_{n=0}^N t^n (1 - t)^p = (1 - t)^{p-1}.
+\]
+Comme ces suites sont croissantes et que les fonctions limites sont intégrables sur $[0, 1]$, d'après le théorème de convergence dominée,
+\begin{align*}
+S(p)
+&= \int_0^1 (1 -t)^{p-2} \d t + \int_0^1 p (1 - t)^{p-1} \d t 
+= \frac{1}{p-1} + p \frac{1}{p}
+= \frac{p}{p-1}.
+\end{align*}
+
+% \gras{Remarque.} On peut obtenir directement :
+% \[
+% \binom{n}{p}^{-1} = \binom{n-1}{p-1}^{-1} - \frac{n-p}{n-p+1} \binom{n}{p-1}^{-1}.
+% \]
+% Ainsi,
+% \begin{align*}
+% S(p) &= \sum_{n=0}^{+\infty} \binom{n+p}{n}^{-1} = 1 + \sum_{n=1}^{+\infty} \binom{n+p-1}{n-1}^{-1} - \frac{p}{p+1} \sum_{n=1}^{+\infty} \binom{n+p}{p-1}^{-1} \\
+% &= 1 + S(p) - \frac{p}{p+1} S(p+1).
+% \end{align*}
+\end{enumerate}
 \end{preuve}
