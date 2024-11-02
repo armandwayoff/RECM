@@ -1,6 +1,15 @@
 \section{Intégrale de \textsc{Dirichlet}}\label{sec:intDirichlet}
 
+\todoarmand{Éléments historiques : \url{https://hsm.stackexchange.com/a/6827}}
+
 \todoinline{Peut-être pourrait on ajouter son utilisation en physique (un truc en diffration). Pour moi les souvenirs sont un peu lointains...}
+\marginnote[0cm]{Dans le cadre de la diffraction de \textsc{Fraunhofer}, si l'on appelle $D$ la distance entre l'écran et la fente, alors l'intensité $I$ en un point $x$ de l'écran s'écrit
+\[
+I(x) = I_0\, \mathrm{sinc}\mathopen{}\left(\frac{\pi a}{\lambda D}\, x\right)^2
+\]
+où $\mathrm{sinc}$ est la fonction \textsl{sinus cardinal}, $a$ est la largeur de la fente et $\lambda$  est la longueur d'onde de la radiation lumineuse. \\
+\url{https://fr.wikipedia.org/wiki/Diffraction_par_une_fente}, pour des figures: \url{https://physique.ensc-rennes.fr/tp_diffraction.php} et \url{https://tikz.net/optics_diffraction/}
+}
 
 \todoinline{Je mets dans les documents le fichier bestiaire.pdf qui appelle cette intégrale "intégrale de Cauchy" et qui donne plusieurs preuves abordables, la première avec lemme de Riemann-Lebesgue. On en choisit une ? deux ? Qu'en penses tu ?}
 
@@ -11,55 +20,64 @@ On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation di
 
 \todoinline{Je commente ci-dessous ce que je pense des différentes parties}
 
+\begin{defi}{Sinus cardinal}
+    On nomme \definir{sinus cardinal} la fonction définie par
+    \[
+    \fonction[\mathrm{sinc}]{\Re}{\R}{x}{\frac{\sin(x)}{x}}.
+    \]
+\end{defi}
 
 \begin{prop}{}
-    L'intégrale de \textsc{Dirichlet} (1829) est l'intégrale de la fonction sinus cardinal sur la demi-droite des réels positifs
-    $$\int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\pi}{2}.$$
+    L'intégrale de \textsc{Dirichlet} (1829) est l'intégrale de la fonction sinus cardinal sur la demi-droite des réels positifs \todoarmand{changer la formulation}
+    \[
+    \int_{0}^{+\infty} \frac{\sin x}{x} \d x.
+    \]
 \end{prop}
 
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}[0cm]
     \input{illustrations/i_sinus_cardinal}
 \end{marginfigure}
-
+Nous proposons deux démonstrations de l'existence de l'intégrale de \textsc{Dirichlet}, une première utilisant le théorème des séries alternées et une deuxième utilisant l'intégration par parties. \\
+Nous démontrons en fait l'existence de l'intégrale $\int_1^{+\infty} \frac{\sin x}{x} \d x$, ce qui entraîne immédiatement l'existence de l'intégrale de \textsc{Dirichlet}.
 \begin{preuve}
-Une preuve utilisant le théorème des séries alternées.
-
 \begin{enumerate}
-\item La fonction $t \mapsto \frac{\sin t}{t}$ est continue sur $]0, 1]$. Comme elle est prolongeable par la valeur $1$ en $0$, elle est intégrable sur $]0, 1]$.
-
-\item Soit $n \geq 1$.
+\item La fonction $t \mapsto \frac{\sin t}{t}$ est continue sur $\interof{0}{1}$. Comme elle est prolongeable par la valeur $1$ en $0$, elle est intégrable sur $\interof{0}{1}$.
+\item Soit $n \geqslant 1$, par un changement de variable affine,
 \[
-\int_{n\pi}^{(n+1)\pi} \frac{\sin t}{t} \d t = (-1)^n \int_0^\pi \frac{\sin u}{u + n \pi} \d u
+\int_{n\pi}^{(n+1)\pi} \frac{\sin t}{t} \d t = (-1)^n \int_0^\pi \frac{\sin u}{u + n \pi} \d u.
 \]
-En notant $u_n$ cette quantité, comme sinus est positive sur $[0,\pi]$,
-\begin{enumerate}
+En notant $u_n$ cette quantité, comme la fonction sinus est positive sur $[0,\pi]$,
+\begin{comment}
 \item $u_n u_{n+1} \leq 0$,
 \item $\abs{u_n} \leq \frac{1}{n\pi} \int_0^\pi \sin(u) \d u$ soit $u_n \to 0$,
 \item $\abs{u_{n+1}} \leq \abs{u_n}$.
-\end{enumerate}
+\end{comment}
+\[
+u_n u_{n+1} \leq 0, \quad \abs{u_n} \leq \frac{1}{n\pi} \int_0^\pi \sin(u) \d u \text{ soit } u_n \to 0, \quad \text{et} \quad \abs{u_{n+1}} \leq \abs{u_n}.
+\]
 Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge. Attention, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure.
 
 \item On pose $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$.
 \end{enumerate}
 \end{preuve}
-
-\begin{preuve}
-Une preuve utilisant l'intégration par parties.
-\begin{enumerate}
-\item Les fonctions $u : t \mapsto -\cos(t)$ et $v : t \mapsto 1/t$ sont de classe $\mathscr{C}^1$ sur $[1,+\infty[$ et $\lim_{+\infty} u v = 0$. Ainsi, $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos(t)}{t^2}$ sont de même nature.
-\begin{enumerate}
-\item $t \mapsto \frac{\cos(t)}{t^2}$ est continue sur $[1,+\infty[$.
-\item $\frac{\abs{\cos(t)}}{t^2} \leq \frac{1}{t^2}$ est intégrable sur $[1,+\infty[$.
-\end{enumerate}
-D'après les théorèmes de comparaison, $t \mapsto \frac{\abs{\cos(t)}}{t^2}$ est intégrable et $\int_1^{+\infty} \frac{\cos(t)}{t^2} \d t$ converge. Ainsi, $\int_1^{+\infty} \frac{\sin t}{t} \d t$ converge.
-\end{enumerate}
+\begin{preuve}\label{demo2existenceIntegraleDirichlet}
+Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos(t)}{t^2} \d t$ sont de même nature. \\
+D'une part, la fonction $t \mapsto \frac{\cos(t)}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos(t)}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos(t)}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos(t)}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
 \end{preuve}
+
+
 
 \begin{remarque}
 L'intégration par parties préserve la régularité de l'intégrale mais ne préserve pas l'intégrabilité.
 \end{remarque}
 
 \todoarmand{Sous section "Régularité du sinus cardinal sur $\R$" déplacée dans la section "Prolongement de fonctions" mais toujours à voir si on la garde}
+
+\begin{prop}{}
+    \[
+    \int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\pi}{2}.
+    \]
+\end{prop}
 
 %-----------
 \subsection{Non intégrabilité}
@@ -81,15 +99,15 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 
 %-----------        
 \subsection{Calcul via le lemme de Lebesgue}
-
+\marginnote[0cm]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \textsc{Lebesgue}}}
 \begin{exercice}
 \begin{enumerate}
-    \item Calculer $I_n = \int_0^\pi \frac{\sin \left(n + \frac{1}{2}\right)t}{2 \sin \frac{t}{2}} \d t$. \\
+    \item Calculer $I_n = \displaystyle \int_0^\pi \frac{\sin\mathopen{}\big[(n + 1/2)t\big]}{2 \sin \frac{t}{2}} \d t$. \\
     \emph{Indication :} Calculer $I_{n+1} - I_n$. 
 
     \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
     \item En déduire la valeur de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$.\\
-    \emph{Indication :} On utilisera le lemme de Lebegue
+    \emph{Indication :} On utilisera le lemme de \textsc{Lebesgue}
 \end{enumerate}
 \end{exercice}
 
@@ -98,7 +116,7 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 \item En utilisant les formules de trigonométrie,
 \begin{align*}
 I_{n+1} - I_n
-&= \int_0^\pi \frac{\sin\left(n + 1 + \frac{1}{2}\right) t - \sin\left(n + \frac{1}{2}\right) t}{2 \sin \frac{t}{2}} \d t\\
+&= \int_0^\pi \frac{\sin\big[(n + 1 + 1/2)\big] t - \sin\big[(n + 1/2) t\big]}{2 \sin \frac{t}{2}} \d t\\
 &= \int_0^\pi \cos (n + 1) t \d t
 = \frac{1}{n + 1} \left[\sin(n + 1) t\right]_{0}^\pi
 = 0.
@@ -106,8 +124,7 @@ I_{n+1} - I_n
 
 Ainsi, la suite $(I_n)$ est constante et $I_0 = \frac{\pi}{2}$. Donc, pour tout $n$ entier naturel, $I_n = \frac{\pi}{2}$.
 
-\item La fonction $f$ est continue et dérivable sur $]0; \pi]$. De plus, pour tout réel $x \in ]0; \pi]$,
-$f(x) = \frac{2 \sin(x/2) - x}{2 x \sin(x/2)}$.
+\item La fonction $f$ est continue et dérivable sur $\interof{0}{\pi}$. De plus, pour tout réel $x \in \interof{0}{\pi}$, $f(x) = \frac{2 \sin(x/2) - x}{2 x \sin(x/2)}$.
 
 En utilisant les développements limités classiques,
 \[
@@ -115,30 +132,27 @@ f(x)
 \sim -\frac{\frac{x^3}{24}}{x^2}
 \sim -\frac{x}{24}.
 \]
-Ainsi, $f$ est prolongeable par continuité en $0$ par $f(0) = 0$.
+Ainsi, la fonction $f$ est prolongeable par continuité en $0$ par $f(0) = 0$.
 
 \medskip
 
-La fonction $f$ est dérivable sur $]0;\pi]$ et pour tout $x \in ]0;\pi]$,
+La fonction $f$ est dérivable sur $\interof{0}{\pi}$ et pour tout $x \in \interof{0}{\pi}$,
 \begin{align*}
-f'(x)
-&= -\frac{1}{x^2} + \frac{\cos(x/2)}{4 \sin(x/2)^2}\\
-&= \frac{\cos(x/2) - 4 \sin(x/2)^2}{4 x^2 \sin(x/2)^2}\\
-&\sim -\frac{1}{24}.
+f'(x) = -\frac{1}{x^2} + \frac{\cos(x/2)}{4 \sin(x/2)^2} = \frac{\cos(x/2) - 4 \sin(x/2)^2}{4 x^2 \sin(x/2)^2} \sim -\frac{1}{24}.
 \end{align*}
 
-Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le théorème de prolongement dérivable, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $[0; \pi]$.
+Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le théorème de prolongement dérivable, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
 
-\item En utilisant le lemme de Lebesgue pour les fonctions de classe $\mathscr{C}^1$, on en déduit que
+\item En utilisant le lemme de \textsc{Lebesgue} pour les fonctions de classe $\mathscr{C}^1$, on en déduit que
 \begin{align*}
 \int_0^{(n + 1/2) \pi} \frac{\sin t}{t} \d t
-&= \int_0^\pi \frac{\sin (n + 1/2) t}{t} \d t\\
-&= \int_0^\pi \left[ \frac{\sin(n + 1/2) t}{t} - \frac{\sin (n + 1/2) t}{2 \sin (t/2)} + \frac{\sin (n + 1/2) t}{2 \sin(t/2)} \right] \d t\\
-&= \int_0^\pi f(t) \sin((n + 1/2) t) \d t - I_n.
+&= \int_0^\pi \frac{\sin\big[(n + 1/2) t\big]}{t} \d t\\
+&= \int_0^\pi \left[ \frac{\sin\big[(n + 1/2) t\big]}{t} - \frac{\sin\big[(n + 1/2) t\big]}{2 \sin (t/2)} + \frac{\sin\big[(n + 1/2) t\big]}{2 \sin(t/2)} \right] \d t\\
+&= \int_0^\pi f(t) \sin\big[(n + 1/2) t\big] \d t - I_n.
 \end{align*}
-Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de Lebesgue,
+Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de \textsc{Lebesgue},
 \[
-\lim_{n\to+\infty} \int_0^\pi f(t) \sin((n + 1/2) t) \d t = 0.
+\lim_{n\to+\infty} \int_0^\pi f(t) \sin\big[(n + 1/2) t\big] \d t = 0.
 \]
 
 Finalement, $I = \frac{\pi}{2}$.
@@ -190,38 +204,39 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
 {16}%
 On note $I = \int_0^{+\infty} \frac{\sin(t)}{t} \d t$ et $F(x) = \int_0^{+\infty} \frac{\sin(t)}{t} (1 - \e^{-x t}) \d t$.
 \begin{enumerate}
-\item Montrer que $I$ est bien définie.
-\item Montrer que $F$ est définie sur $[0,+\infty[$, que $F$ est continue sur $[0, +\infty[$ et que $F$ est dérivable sur $]0, +\infty[$.
+\item Montrer que l'intégrale $I$ est bien définie.
+\item Montrer que l'intégrale $F$ est définie sur $\interfo{0}{+\infty}$, continue sur $\interfo{0}{+\infty}$ et dérivable sur $\interoo{0}{+\infty}$.
 \item En déduire la valeur de $I$.
 \end{enumerate}
 \end{exercice}
 
 \begin{preuve}
+\marginnote[0cm]{Reformulation de la démonstration \ref{demo2existenceIntegraleDirichlet}}
 \begin{enumerate}
-\item Les fonctions $u : t \mapsto 1 - \cos(t)$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\R_+^*$. De plus, le produit $u v$ a des limites nulles en $0$ et $+\infty$. Ainsi, d'après la formule d'intégration par parties, $I$ a même nature que
+\item Les fonctions $\fonctionligne[u]{t}{1 - \cos(t)}$ et $\fonctionligne[v]{t}{\frac{1}{t}}$ sont de classe $\mathscr{C}^1$ sur $\Rpe$. De plus, le produit $u v$ a des limites nulles en $0$ et $+\infty$. Ainsi, d'après la formule d'intégration par parties, l'intégrale $I$ a même nature que
 \[
 \int_0^{+\infty} \frac{1 - \cos t}{t^2} \d t,
 \]
-dont l'intégrande est continue sur $]0, +\infty[$, prolongeable par continuité par $\frac{1}{2}$ en $0$ et majorée par $t \mapsto \frac{1}{t^2}$ en $+\infty$, donc est intégrable.
+dont l'intégrande est continue sur $\interoo{0}{+\infty}$, prolongeable par continuité par $\frac{1}{2}$ en $0$ et majorée par la fonction $t \mapsto \frac{1}{t^2}$ en $+\infty$, donc est intégrable.
 
 \item 
 \begin{enumerate}
-\item $F(x)$ est la somme de $I$ et de l'intégrale de $f : (x, t) \mapsto \frac{\sin t}{t} \e^{- x t}$.
-\begin{enumerate}
-\item $f(x, .)$ est continue sur $\R_+^*$.
-\item $f(x, .)$ admet pour limite $1$ en $0$.
-\item $\abs{f(x, .)}$ est un $o(1/t^2)$ en $+\infty$.
+\item L'intégrale $F(x)$ est la somme de $I$ et de l'intégrale de $\fonctionligne[f]{(x, t)}{\frac{\sin t}{t} \e^{- x t}}$.
+\begin{enumerate}[label=(\roman*)]
+\item $f(x, \cdot\,)$ est continue sur $\Rpe$.
+\item $f(x, \cdot\,)$ admet pour limite $1$ en $0$.
+\item $\abs{f(x, \cdot\,)}$ est un $o(1/t^2)$ en $+\infty$.
 \end{enumerate}
-Ainsi, $F$ est bien définie sur $\R_+$.
+Ainsi, l'intégrale $F$ est bien définie sur $\R_+$.
 
-\item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant $u : t \mapsto \int_t^{+\infty} \frac{\sin t}{t} \d t$ et $v : t \mapsto (1 - \e^{-x t})$. Comme le produit $u v$ admet des limites nulles en $0$ et $+\infty$, alors
+\item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car le sinus cardinal $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant les fonctions $\fonctionligne[u]{t}{\int_t^{+\infty} \frac{\sin u}{u} \d u}$ et $\fonctionligne[v]{t}{(1 - \e^{-x t})}$. Comme le produit $u v$ admet des limites nulles en $0$ et $+\infty$, 
 \begin{align*}
 F(x) &= -x \int_{0}^{+\infty} u(t) \e^{- x t} \d t \\
-&= -\int_0^{+\infty} u\left(\frac{v}{x}\right) \e^{-v} \d v.
+&= -\int_0^{+\infty} u\mathopen{}\left(\frac{v}{x}\right) \e^{-v} \d v.
 \end{align*}
 Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ et
 \[
-\abs{u\left(\frac{u}{x}\right) \e^{-u}} \leq M \e^{-u},
+\abs{u\mathopen{}\left(\frac{u}{x}\right) \e^{-u}} \leq M \e^{-u},
 \]
 qui est une fonction intégrable. Ainsi, d'après le théorème de convergence dominée,
 \[
@@ -231,9 +246,9 @@ Ainsi, $F$ est continue en $0$.
 
 \item Avec les notations de la question précédente,
 \[
-\forall\, x \in [a, +\infty[,\, \abs{\frac{\partial f}{\partial x}(x, t)} \leq \e^{-a t}.
+\forall\, x \in \interfo{a}{+\infty},\quad \abs{\frac{\partial f}{\partial x}(x, t)} \leqslant \e^{-a t}.
 \]
-Ainsi, la fonction $F$ est de classe $\mathscr{C}^1$ sur $[a, +\infty[$, donc sur $\R_+^*$.
+Ainsi, la fonction $F$ est de classe $\mathscr{C}^1$ sur $\interfo{a}{+\infty}$, donc sur $\Rpe$.
 \end{enumerate}
 
 De plus, pour tout $x > 0$,
@@ -243,14 +258,14 @@ F'(x) = \int_0^{+\infty} \sin(t) \e^{-x t} \d t = \frac{1}{1 + x^2}.
 
 \item D'après la question précédente, il existe une constante $C \in \R$ telle que
 \[
-\forall\, x > 0,\, F(x) = C + \arctan(x).
+\forall\, x > 0,\quad F(x) = C + \arctan(x).
 \]
 
 Comme $F(0) = 0$, et par continuité de la fonction $F$, alors $C = 0$.
 
 Enfin, $F(x) = I - \int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t$ et
 \[
-\abs{\int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t} \leq \int_0^{+\infty} \e^{-x t} \d t \leq \frac{1}{x}.
+\abs{\int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t} \leqslant \int_0^{+\infty} \e^{-x t} \d t = \frac{1}{x}.
 \]
 Ainsi, $\lim_{x\to+\infty} F(x) = I$ et
 \[

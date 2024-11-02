@@ -1,23 +1,47 @@
 \begin{tikzpicture}
+\contourlength{2pt}
 \begin{axis}[
-    width=7.5cm,
+    % width=7.5cm,
     % grid=both,
     xmin=-11,
     xmax=11,
-    ymin=-0.3,
-    ymax=1.2,
-    xlabel=$x$,
-    ylabel=$\mathrm{sinc}(x)$,
-    axis lines=center,
-    xticklabels={$-3\pi$, $-2\pi$, $-\pi$, $\pi$, $2\pi$, $3\pi$},
+    ymin=-0.25,
+    ymax=1.15,
+    xlabel=$x$,               
+    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
+    % ylabel=$\mathrm{sinc}(x)$,
+    axis lines=middle,
+    axis line style=thick,
+    axis line style={-latex},
+    xticklabels={},
     xtick={-3*3.141592, -2*3.141592, -3.141592, 3.141592, 2*3.141592, 3*3.141592},
-    ytick={0, 1}
+    ytick={0, 1},
 ]
-  \addplot[
-    domain=-15:15,
-    violet,
-    ultra thick,
-    samples=100,
-  ] plot[thin] {sin(deg(x))/x};
+  \addplot[domain=-15:15, blue, samples=200, name path=B] plot[thick] {sin(deg(x))/x};
+
+  \path[name path=xaxis]
+      (-15,0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+    \addplot[blue!25, opacity=0.9] fill between[of=xaxis and B];
+  
+  \node[blue,above left] at (-2,0.5) {$\displaystyle x \mapsto \frac{\sin(x)}{x}$};
+\end{axis}
+\begin{axis}[
+    % width=7.5cm,
+    % grid=both,
+    xmin=-11,
+    xmax=11,
+    ymin=-0.25,
+    ymax=1.15,
+    xlabel=$x$,               
+    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
+    % ylabel=$\mathrm{sinc}(x)$,
+    axis lines=middle,
+    % axis line style=thick,
+    % axis line style={-latex},
+    axis line style={draw=none},
+    xticklabels={\contour{white}{$-3\pi$}, \contour{white}{$-2\pi$}, \contour{white}{$-\pi$}, \contour{white}{$\pi$}, \contour{white}{$2\pi$}, \contour{white}{$3\pi$}},
+    xtick={-3*3.141592, -2*3.141592, -3.141592, 3.141592, 2*3.141592, 3*3.141592},
+    ytick={0, 1},
+]
 \end{axis}
 \end{tikzpicture}

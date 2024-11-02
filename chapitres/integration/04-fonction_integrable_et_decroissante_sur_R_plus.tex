@@ -6,7 +6,7 @@
 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{exos_oraux} p. 268}
-    Soit $f : \Rp \to \R$ une fonction continue, décroissante et intégrable. Montrer que $x f(x) \xrightarrow[x \to +\infty]{} 0$.
+    Soit $\fonctionens[f]{\Rp}{\R}$ une fonction continue, décroissante et intégrable. Montrer que $x f(x) \to 0$ lorsque $x \to +\infty$.
 \end{exercice}
 
 \begin{marginfigure}[-2cm]
@@ -19,36 +19,36 @@
 \begin{itemize}
 \item Comme $f$ est décroissante, d'après le théorème de la limite monotone, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
 
-\item Montrons par l'absurde que $f$ est positive. S'il existe $x_0 \geq 0$ tel que $f(x_0) < 0$, comme $f$ est décroissante,
+\item Montrons par l'absurde que $f$ est positive. S'il existe $x_0 \geqslant 0$ tel que $f(x_0) < 0$, comme $f$ est décroissante,
 \[
-\forall\ x \geq x_0,\, f(x) \leq f(x_0).
+\forall\ x \geqslant x_0,\quad f(x) \leq f(x_0).
 \]
 Ainsi,
 \[
-\forall\ x \geq x_0,\, \displaystyle\int_{x_0}^x f(t) \mathrm{d}t \leq f(x_0) (x - x_0).
+\forall\ x \geqslant x_0,\quad \displaystyle\int_{x_0}^x f(t) \d t \leqslant f(x_0) (x - x_0).
 \]
-D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \mathrm{d}t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geq 0$.
+D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \d t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geqslant 0$.
 
 \item Supposons par l'absurde que $\ell > 0$. Alors, il existe un réel $A$ tel que
 \[
-\forall\ x \geq A,\, f(x) \geq \frac{\ell}{2}.
+\forall\ x \geqslant A,\quad f(x) \geqslant \frac{\ell}{2}.
 \]
 Ainsi,
 \[
-\forall\ x \geq A,\, \displaystyle\int_A^x f(t) \mathrm{d}t \geq \frac{\ell}{2} (x - A).
+\forall\ x \geqslant A,\quad \displaystyle\int_A^x f(t) \d t \geqslant \frac{\ell}{2} (x - A).
 \]
 D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_A^x f(t) \mathrm{d}t = +\infty$, ce qui est impossible car $f$ est intégrable.
 
 Finalement, $\lim\limits_{x\to+\infty} f(x) = 0$.
 
-\item Soit $x \geq 0$. Comme $f$ est décroissante,
+\item Soit $x \geqslant 0$. Comme $f$ est décroissante,
 \[
-\displaystyle\int_x^{2 x} f(t) \mathrm{d}t \leq (2 x - x) f(x).
+\int_x^{2 x} f(t) \d t \leqslant (2 x - x) f(x).
 \]
 
 De même,
 \[
-\displaystyle\int_{x/2}^x f(t) \mathrm{d}t \geq \frac{x}{2} f(x).
+\int_{x/2}^x f(t) \d t \geqslant \frac{x}{2} f(x).
 \]
 
 \begin{marginfigure}
@@ -62,13 +62,13 @@ De même,
 
 Ainsi,
 \[
-\displaystyle\int_x^{2 x} f(t) \mathrm{d}t \leq x f(x) \leq 2 \displaystyle\int_{x/2}^x f(t) \mathrm{d}t.
+\int_x^{2 x} f(t) \d t \leqslant x f(x) \leqslant 2 \int_{x/2}^x f(t) \d t.
 \]
-En notant $F : x \mapsto \displaystyle\int_0^x f(t) \mathrm{d}t$, comme $F$ est intégrable, alors $F$ possède une limite finie en $+\infty$.
+En notant $\fonctionligne[F]{x}{\displaystyle\int_0^x f(t) \d t}$, comme $f$ est intégrable, alors $F$ possède une limite finie en $+\infty$.
 
-Alors,
+Ainsi,
 \[
-F(2 x) - F(x) \leq x f(x) \leq 2 (F(x) - F(x/2)).
+F(2 x) - F(x) \leqslant x f(x) \leqslant 2 (F(x) - F(x/2)).
 \]
 
 Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
@@ -81,9 +81,9 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{truc2019} p. 268}
-    Soit $f : \interof{0}{1} \to \R$ une fonction continue, décroissante et intégrable. Alors,
+    Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. Alors,
     \[
-    \lim\limits_{n \to +\infty} \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+    \lim\limits_{n \to +\infty} \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right) =\int_0^1 f(t) \d t.
     \]
 \end{exercice}
 
@@ -96,32 +96,34 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 \begin{elem_sol}
 On note $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right)$.
 \begin{itemize}
-\item Soit $n \geq 1$. On utilise la décroissance de la fonction $f$, pour tout $k \leq t \leq k + 1 \leq n-1$,
+\item Soit $n \geqslant 1$. En utilisant la décroissance de la fonction $f$, pour tout $k \leqslant t \leqslant k + 1 \leqslant n-1$,
 \begin{align*}
-\frac{1}{n} f\left(\frac{k+1}{n}\right) &\leq \displaystyle\int_{k/n}^{(k+1)/n} f(t) \mathrm{d}t \leq \frac{1}{n} f\left(\frac{k}{n}\right)\\
-\frac{1}{n} \sum\limits_{k=2}^{n} f\left(\frac{k}{n}\right) &\leq \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t \leq \frac{1}{n} \sum\limits_{k=1}^{n-1} f\left(\frac{k}{n}\right)\\
-R_n - \frac{1}{n} f\left(\frac{1}{n}\right) &\leq \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t \leq R_n - \frac{f(1)}{n}.
+\frac{1}{n} f\mathopen{}\left(\frac{k+1}{n}\right) &\leqslant \int_{k/n}^{(k+1)/n} f(t) \d t \leqslant \frac{1}{n} f\mathopen{}\left(\frac{k}{n}\right),\\
+\intertext{en sommant pour $k \in \interent{1}{n-1}$}
+\frac{1}{n} \sum\limits_{k=2}^{n} f\mathopen{}\left(\frac{k}{n}\right) &\leqslant \displaystyle\int_{1/n}^1 f(t) \d t \leqslant \frac{1}{n} \sum\limits_{k=1}^{n-1} f\mathopen{}\left(\frac{k}{n}\right),\\
+\intertext{soit}
+R_n - \frac{1}{n} f\mathopen{}\left(\frac{1}{n}\right) &\leqslant \displaystyle\int_{1/n}^1 f(t) \d t \leqslant R_n - \frac{f(1)}{n}.
 \end{align*}
 
 Ainsi,
 \begin{align*}
-\displaystyle\int_{1/n}^1 f(t) \mathrm{d}t + \frac{f(1)}{n} &\leq R_n \leq \displaystyle\int_{1/n} f(t) \mathrm{d}t + \frac{1}{n}  f\left(\frac{1}{n}\right).
+\displaystyle\int_{1/n}^1 f(t) \d t + \frac{f(1)}{n} &\leqslant R_n \leqslant \displaystyle\int_{1/n} f(t) \d t + \frac{1}{n}  f\mathopen{}\left(\frac{1}{n}\right).
 \end{align*}
 
 \item Comme $f$ est décroissante et intégrable sur $]0, 1]$,
 \[
-\frac{1}{n} f\left(\frac{1}{n}\right) \leq \displaystyle\int_0^{1/n} f(t) \mathrm{d}t.
+\frac{1}{n} f\mathopen{}\left(\frac{1}{n}\right) \leqslant \displaystyle\int_0^{1/n} f(t) \d t.
 \]
 
 \item Comme $f$ est intégrable sur $]0, 1]$,
 \[
-\lim\limits_{n\to+\infty} \displaystyle\int_{1/n}^1 f(t) \mathrm{d}t = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+\lim\limits_{n\to+\infty} \displaystyle\int_{1/n}^1 f(t) \d t = \displaystyle\int_0^1 f(t) \d t.
 \]
 \end{itemize}
 
 Ainsi, d'après le théorème d'encadrement,
 \[
-\lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \mathrm{d}t.
+\lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \d t.
 \]
 \end{elem_sol}
 
@@ -133,12 +135,12 @@ Une étude plus détaillée de ce résultats et de ses limites est discutée dan
 
 \begin{exercice}
 \cite{RMS 888 2016 - ENSAM}
-Soit $f : x \mapsto \frac{1}{x \sqrt{x^2 - 1}}$ définie sur $]1, +\infty[$.
+Soit $\fonctionligne[f]{x}{\frac{1}{x \sqrt{x^2 - 1}}}$ définie sur $\interoo{1}{+\infty}$.
 \begin{enumerate}
 \item Étudier et tracer la fonction $f$.
-
-\smallskip
+\end{enumerate}
 Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac{1}{k \sqrt{k^2 - n^2}}$.
+\begin{enumerate}[resume]
 \item Étudier la convergence et la limite de la suite $(S_n)$.
 
 \item Même question avec la suite $(n S_n)$.
@@ -155,11 +157,11 @@ Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac
 
 \begin{elem_sol}
 \begin{enumerate}
-\item $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable.
+\item La fonction $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable.
 
 \item D'après la définition de $f$,
 \[
-S_n = \frac{1}{n^2} \sum\limits_{k=n+1}^{+\infty} f(k/n).
+S_n = \frac{1}{n^2} \sum\limits_{k=n+1}^{+\infty} f\mathopen{}\left(\frac{k}{n}\right).
 \]
 Comme $f$ est décroissante, pour tout $t \in [k/n,(k+1)/n]$,
 \begin{align*}
