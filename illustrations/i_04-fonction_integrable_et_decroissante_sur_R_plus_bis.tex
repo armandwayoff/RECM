@@ -34,8 +34,12 @@
           at={(axis cs:-5.2,4)},
           anchor=west, font=\scriptsize
         },
-        declare function={f(\x)=e^(-\x^2/8);},
+        % ,declare function={f(\x)=e^(-\x^2/8);},
         ] 
+
+\pgfmathdeclarefunction{f}{1}{%
+\pgfmathparse{e^(-#1^2/8)}%
+}
       \addplot[name path=A,very thick,color=\colfonc, mark=none, domain=0:\xmax] {f(x)} node [above=2mm,near start] {$f$};
           
       % \addplot[mark=*,fill=white] coordinates {(\xzero,{f(\xzero)})};

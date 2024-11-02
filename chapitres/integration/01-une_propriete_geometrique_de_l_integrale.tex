@@ -4,7 +4,7 @@
 \todoinline{Changement de titre - Modification en proposition - Ajout de la remarque}
 
 
-\begin{prop}
+\begin{prop}{}
 Soit $f$ de classe $\mathscr{C}^1$ sur $[a, b]$ telle que $f'$ soit strictement positive sur $[a, b]$. Alors,
 \[
 \int_{a}^{b} f(t) \d t + \int_{f(a)}^{f(b)} f^{-1}(t) \d t = b f(b) - a f(a).
@@ -31,16 +31,19 @@ Soit $f$ de classe $\mathscr{C}^1$ sur $[a, b]$ telle que $f'$ soit strictement 
     \]
 \end{elem_sol}
 
-\begin{center}
-\input{illustrations/i_01-une_propriete_geometrique_de_l_integrale}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \input{illustrations/i_01-une_propriete_geometrique_de_l_integrale}
+    \caption{Illustration géométrique de la formule d'intégration par parties}
+    \label{fig:i_01-une_propriete_geometrique_de_l_integrale}
+\end{figure}
 
 \begin{remarque}
-Cette représentation graphique permet d'illustrer géométriquement la formule d'intégration par parties.
+La représentation graphique \ref{fig:i_01-une_propriete_geometrique_de_l_integrale} permet d'illustrer géométriquement la formule d'intégration par parties.
 
 En effet, si $f,\, g$ sont de classe $\mathcal{C}^1$ et strictement monotones, alors elles sont bijectives. On a de plus \mbox{$(f \circ g^{-1})^{-1} = g \circ f^{-1}$}. Ainsi, en appliquant la relation précédente à la fonction $f \circ g^{-1}$, on obtient
 \begin{align*}
-\int_{g(a)}^{g(b)} (f \circ g^{-1})(u) \,\mathrm{d}u + \int_{(f\circ g^{-1})(g(a))}^{(f\circ g^{-1})(g(b)} (f \circ g^{-1})^{-1}(u) \,\mathrm{d}u &= \begin{multlined}[t] 
+\int_{g(a)}^{g(b)} (f \circ g^{-1})(u) \,\mathrm{d}u + \int_{(f\circ g^{-1})(g(a))}^{(f\circ g^{-1})(g(b))} (f \circ g^{-1})^{-1}(u) \,\mathrm{d}u &= \begin{multlined}[t] 
 g(b) (f \circ g^{-1})(g(b)) \\
 - g(a) (f \circ g^{-1})(g(a))
 \end{multlined} \\

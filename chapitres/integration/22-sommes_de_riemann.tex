@@ -15,6 +15,7 @@ I(x) &= 2 \pi \ln(x).
 \end{align*}
 \end{prop}
 
+
 \begin{exercice}{Intégrale de \cite{Poisson}}
 \begin{enumerate}
 \item Montrer que $I$ est bien définie sur $\R_+$.
@@ -28,6 +29,7 @@ I(x) &= 2 \pi \ln(x).
 \item En déduire la valeur de $I(1)$.
 \end{enumerate}
 \end{exercice}
+
 
 \begin{solution}
 \begin{enumerate}
@@ -46,7 +48,6 @@ Ainsi, $I(x)$ est bien définie pour $x \neq 1$.
 &= \prod_{k=0}^{n-1} \left(x - \e^{2ik\pi/(2n)}\right) \prod_{k=n+1}^{2n} \left(x - \e^{2ik\pi/(2n)}\right) \\
 &= \frac{x^{2n} - 1}{x + 1} (x - 1)
 \end{align*}
-
 \item D'après les calculs précédents, et en utilisant une somme de Riemann de pas $\frac{\pi}{2n}$,
 \begin{align*}
 S_n(f) &= \frac{\pi}{2n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}} \\
@@ -56,12 +57,6 @@ S_n(f) &= \frac{\pi}{2n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x
 Ainsi, $\lim_{x\to +\infty} S_n(f) = 2 \pi \ln\abs{x}$.
 
 Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\abs{x}$.
-\begin{marginfigure}[-15cm]
-    \centering
-    \includegraphics[scale=0.08]{illustrations/Journal_de_l_ecole_polytechnique_cahier_17_1815.png}
-    % \includepdf[pages={3},scale=.4]{Journal_de_l_ecole_polytechnique_cahier_17_1815.pdf}
-    \caption{\chevron{Suite du mémoire sur les intégrales définies}, Journal de l'École polytechnique, Cahier 17, X (1815), 612-631 (\url{https://gallica.bnf.fr/ark:/12148/bpt6k433673r/f614.item})}
-\end{marginfigure}
 \item D'après les propriétés des fonctions trigonométriques,
 \begin{align*}
 \ln(2 - 2 \cos(t)) &= \ln(2(1 - \cos(t))) \\
@@ -75,6 +70,8 @@ Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\abs{x}$.
 &= 2 \pi \ln(2) + 4 \int_0^{\pi/2} \ln(\sin(u)) \d u
 \end{align*}
 Or, $\int_0^{\pi/2} \ln(\sin(u)) \d u = \int_0^{\pi/2} \ln(\cos(u)) \d u$. Ainsi,
+% \begin{comment}
+
 \begin{align*}
 \int_0^{\pi/2} \ln(\sin(u)) \d u + \int_0^{\pi/2} \ln(\cos(u)) \d u
 &= \int_0^{\pi/2} \ln(\sin(2 t)) \d t - \frac{\pi}{2} \ln(2) \\
@@ -90,5 +87,13 @@ Ainsi,
 \]
 
 D'où $I(1) = 0$.
+% \end{comment}
 \end{enumerate}
 \end{solution}
+
+\begin{marginfigure}[-5cm]
+    \centering
+    \includegraphics[scale=0.08]{illustrations/Journal_de_l_ecole_polytechnique_cahier_17_1815.png}
+    % \includepdf[pages={3},scale=.4]{Journal_de_l_ecole_polytechnique_cahier_17_1815.pdf}
+    \caption{\chevron{Suite du mémoire sur les intégrales définies}, Journal de l'École polytechnique, Cahier 17, X (1815), 612-631 (\url{https://gallica.bnf.fr/ark:/12148/bpt6k433673r/f614.item})}
+\end{marginfigure}

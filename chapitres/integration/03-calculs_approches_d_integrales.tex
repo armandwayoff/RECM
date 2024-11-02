@@ -12,14 +12,10 @@ Nous abordons dans cette section quelques méthodes dont le but est d’estimer 
 \[
 I = \int_a^b f(t) \d t.
 \]
-Ces méthodes nous fourniront une valeur approchée $\widetilde{I}$ de l'intégrale $I$ de sorte que 
+Ces méthodes nous fourniront une valeur approchée $\widetilde{I}$ de l'intégrale $I$ de sorte que \chevron{$\widetilde{I} \approx I$}. \\
+Soient $a$ et $b$ deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
 \[
-\widetilde{I} \approx I.
-\]
-
-Soient $a$ et $b$ désignent deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
-\[
-x_i = a + i \frac{b-a}{p}.
+x_i = a + i\, \frac{b-a}{p}.
 \]
 
 \todoinline{Doit-on définir la notion d'"exacte" dans la définition suivante ?}
@@ -38,12 +34,12 @@ La méthode des rectangles à gauche consiste, pour chacun des intervalles de la
 I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 \]
 
-\begin{marginfigure}[0cm]
+\begin{marginfigure}[-3cm]
     \centering
     \input{illustrations/i_rectangles_a_gauche}
     \caption{Illustration de la méthode des rectangles à gauche}
 \end{marginfigure}
-\marginnote[6cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
+\marginnote[3cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
 
 \begin{prop}{}{}
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
@@ -55,21 +51,21 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segmen
 \begin{enumerate}
 \item D'après la formule de \textsc{Taylor} avec reste intégal, pour tout $i \in \interent{0}{p-1}$,
 \[
-\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leq \frac{M_1}{2} (x_{i+1}-x_i)^2.
+\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leqslant \frac{M_1}{2} (x_{i+1}-x_i)^2.
 \]
 
 \item En utilisant la relation de \textsc{Chasles},
 \begin{align*}
-\module{\int_{\interff{a}{b}} f - I_p^\mathrm{g}(f)}
-&\leq \sum_{i=1}^{p-1} \module{\int_{\interff{x_i}{x_{i+1}}} f - (x_{i+1} - x_i) f(x_i)}\\
-&\leq \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2\\
+\module{\int_{\interff{a}{b}} f(t) \d t - I_p^\mathrm{g}(f)}
+&\leqslant \sum_{i=1}^{p-1} \module{\int_{\interff{x_i}{x_{i+1}}} f(x) \d x - (x_{i+1} - x_i) f(x_i)}\\
+&\leqslant \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2\\
 % &\leq \frac{M_1}{2} (b - a) \sum_{i=1}^{p-1} (x_{i+1} - x_i)\\
-&\leq \frac{M_1 (b-a)^2}{2 p}.
+&\leqslant \frac{M_1 (b-a)^2}{2 p}.
 \end{align*}
 
-\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto x - a$.
+\item De plus, on montre que cette borne est atteinte pour $\fonctionligne[f]{x}{x - a}$.
 
-\item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $f : x \mapsto x - a$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
+\item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $\fonctionligne[f]{x}{x - a}$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
 \end{enumerate}
 \end{elem_sol}
 
@@ -85,39 +81,39 @@ I_p^\mathrm{m}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2
 La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
 \end{prop}
 
-\begin{marginfigure}[0cm]
+\begin{marginfigure}[-3cm]
     \centering
     \input{illustrations/i_rectangles_medians}
     \caption{Illustration de la méthode des rectangles médians}
 \end{marginfigure}
-\marginnote[6cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
+\marginnote[3cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
 
 
 \begin{elem_sol}
 On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
 
 \begin{enumerate}
-\item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou le graphique suivant permet de montrer que :
+\item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou la figure \ref{fig:i_rectangles_medians_construction} permet de montrer que :
 \[
  (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
-    \]
-
-\begin{figure}
-    \centering
-    \input{illustrations/i_rectangles_medians_construction}
-\end{figure}
-    
-
+\]    
 \item Ainsi, d'après la formule de \textsc{Taylor} avec reste intégral,
 \begin{align*}
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
 &= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}\\
-&\leq \frac{M_2}{24} (x_{i+1} - x_i)^3.
+&\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
 \end{align*}
+
+\begin{marginfigure}[0cm]
+    \centering
+    \input{illustrations/i_rectangles_medians_construction}
+    \caption{}
+    \label{fig:i_rectangles_medians_construction}
+\end{marginfigure}
 
 \item Comme pour la méthode des rectangles à gauche, la formule de \textsc{Chasles} permet de montrer que
 \[
-\module{\int_{[a,b]} f - I_p^\mathrm{m}(f)} \leq \frac{M_2 (b-a)^3}{24 p^2}.
+\module{\int_{[a,b]} f(t) \d t- I_p^\mathrm{m}(f)} \leqslant \frac{M_2 (b-a)^3}{24 p^2}.
 \]
 
 \item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
@@ -151,20 +147,20 @@ On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = 
 \begin{enumerate}
 \item À l'aide de deux intégrations par parties successives, on montre que, pour tout $i \in \interent{0}{p-1}$,
 \[
-\int_{x_i}^{x_{i+1}} f''(t) (t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
+\int_{x_i}^{x_{i+1}} f''(t)\,(t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
 \]
 
 \item D'après la relation précédente, on établit que
 \begin{align*}
 \module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
-&\leq \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
-&\leq \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
-&\leq \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
+&\leqslant \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
+&\leqslant \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
+&\leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
 \end{align*}
 
 \item Comme pour les méthodes précédentes, on utilise ensuite la relation de \textsc{Chasles} pour obtenir
 \[
-\module{\int_{[a,b]} f - I_p^\mathrm{t}(f)} \leq \frac{M_2 (b-a)^3}{12 p^2}.
+\module{\int_{[a,b]} f(t) \d t - I_p^\mathrm{t}(f)} \leqslant \frac{M_2 (b-a)^3}{12 p^2}.
 \]
 
 \item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
@@ -173,11 +169,87 @@ On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = 
 \end{enumerate}
 \end{elem_sol}
 
+\begin{marginfigure}[0cm]
+\begin{subfigure}{.5\textwidth}
+    \centering
+    % \input{illustrations/sponge_9-inc}
+\begin{tikzpicture}[scale=0.6]
+
+\pgfmathdeclarefunction{f}{1}{%
+    \pgfmathparse{((#1 - 3) / 1.5)^2 + 1}%
+}
+% ,declare function={f(\x)=((\x-3)/1.5)^2+1;}]
+\coordinate (start) at (.8,{f(.8)});
+\coordinate (x0) at (1,{f(1)});
+\coordinate (x1) at (2,{f(2)});
+\coordinate (x2) at (3,{f(3)});
+\coordinate (x3) at (4,{f(4)});
+\coordinate (x4) at (5,{f(5)});
+\coordinate (end) at (5.05,{f(5.05)});
+
+\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(2,{f(2)})--(2,0);
+\draw[fill=teal!20!white] (2,0)--(2,{f(2)})--(3,{f(3)})--(3,0);
+\draw[fill=teal!20!white] (3,0)--(3,{f(3)})--(4,{f(4)})--(4,0);
+\draw[fill=teal!20!white] (4,0)--(4,{f(4)})--(5,{f(5)})--(5,0);
+
+
+%\draw (5,0)--(5,{f(5)});
+% \draw [-latex] (-0.5,0) -- (6,0); % node (xaxis) [below] {$x$};
+% \draw [-latex] (0,-0.5) -- (0,4); % node [left] {$f(x)$};
+\foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3, 5/b=x_4}
+ % \draw[xshift=\x cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\xtext$};
+\draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)});                 
+\foreach \n in {0,1,2,3,4}
+\draw[blue,fill=blue] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
+% \draw[latex-latex] (2,1)--(3,1) node[midway, anchor=south] {$\frac{b-a}{p}$};      
+\end{tikzpicture}
+    \caption{Cas convexe}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+    \centering
+    % \input{illustrations/sponge_27-inc}
+\begin{tikzpicture}[scale=0.6
+% ,declare function={f(\x)=-((\x-3)/1.5)^2+3.5;}
+]
+
+\pgfmathdeclarefunction{f}{1}{%
+    \pgfmathparse{-((#1 - 3) / 1.5)^2 + 3.5}%
+}
+\coordinate (start) at (.8,{f(.8)});
+\coordinate (x0) at (1,{f(1)});
+\coordinate (x1) at (2,{f(2)});
+\coordinate (x2) at (3,{f(3)});
+\coordinate (x3) at (4,{f(4)});
+\coordinate (x4) at (5,{f(5)});
+\coordinate (end) at (5.05,{f(5.05)});
+
+\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(2,{f(2)})--(2,0);
+\draw[fill=teal!20!white] (2,0)--(2,{f(2)})--(3,{f(3)})--(3,0);
+\draw[fill=teal!20!white] (3,0)--(3,{f(3)})--(4,{f(4)})--(4,0);
+\draw[fill=teal!20!white] (4,0)--(4,{f(4)})--(5,{f(5)})--(5,0);
+
+
+%\draw (5,0)--(5,{f(5)});
+% \draw [-latex] (-0.5,0) -- (6,0); % node (xaxis) [below] {$x$};
+% \draw [-latex] (0,-0.5) -- (0,4); % node [left] {$f(x)$};
+\foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3, 5/b=x_4}
+ % \draw[xshift=\x cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\xtext$};
+\draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)});                 
+\foreach \n in {0,1,2,3,4}
+\draw[blue,fill=blue] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
+% \draw[latex-latex] (2,1)--(3,1) node[midway, anchor=south] {$\frac{b-a}{p}$};      
+\end{tikzpicture}
+    \caption{Cas concave}
+\end{subfigure}
+\caption{\todoarmand{Ne faire que $3$ subdivisions}}
+\end{marginfigure}
+
 \begin{remarque}
-Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe, alors $f'' \geq 0$ et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leq I_p^\mathrm{t}(f)$}. On obtient ainsi une valeur approchée par excès de l'intégrale.
+Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe (resp. concave), alors $f'' \geqslant 0$ (resp. $\leqslant 0$) et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leqslant I_p^\mathrm{t}(f)$} (resp. \mbox{$\int_{[a,b]} f \geqslant I_p^\mathrm{t}(f)$}). On obtient ainsi une valeur approchée par excès (resp. par défaut) de l'intégrale.
 \end{remarque}
 
 \subsection{Méthode de \textsc{Simpson}}
+\todoarmand{Faire une figure}
 
 La méthode de \textsc{Simpson} consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
 \[
@@ -185,20 +257,21 @@ I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\fra
 \]
 
 \begin{prop}{}{}
-Dans la méthode de Simpson, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
+Dans la méthode de \textsc{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
 \end{prop}
 
 \begin{elem_sol}
-On suppose que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \module{f^{(4)}}$.
+On suppose que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
 
 Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
 \begin{enumerate}
-\item D'après la formule de Taylor avec reste intégral appliquée à une primitive $F$ de $f$,
+\item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$,
 \begin{align*}
 F(\gamma_i + h_i)
 &= \begin{aligned}[t]F(\gamma_i) + h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) + \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i + t h_i) \d t,\\
 \end{aligned} \\
-f(\gamma_i - h_i)
+\intertext{et}
+F(\gamma_i - h_i)
 &= \begin{aligned}[t]F(\gamma_i) - h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) - \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ - \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i - t h_i) \d t.
 \end{aligned}
 \end{align*}
@@ -206,7 +279,7 @@ f(\gamma_i - h_i)
 Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, en soustrayant les deux relations précédentes, on obtient
 \begin{align*}
 F(x_{i+1}) - F(x_i)
-&= 2 h_i f(\gamma_i) + \frac{h_i^3}{3} f''(\gamma_i) + \frac{h_i^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+&= 2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
 % \\
 % \int_{x_i}^{x_{i+1}} f(t) \d t
 % &= \frac{b - a}{p} f(\gamma_i) + \frac{(b - a)^3}{24 p^3} f''(\gamma_i) + \frac{(b - a)^5}{32 \times 24 p^5} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
@@ -214,28 +287,30 @@ F(x_{i+1}) - F(x_i)
 
 Ainsi,
 \begin{align*}
-&\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}\\
-&\leq \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i^2 f''(\gamma_i)\right]} + \frac{h_i^5 2 M_4}{5! p^5}.
+% &
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
+% \\&
+\leqslant \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i{}^2 f''(\gamma_i)\right]} + \frac{h_i{}^5 2 M_4}{5! p^5}.
 \end{align*}
 
-\item En utilisant la formule de Taylor avec reste intégral pour la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$, on obtient comme précédemment
+\item En utilisant la formule de \textsc{Taylor} avec reste intégral pour la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$, on obtient comme précédemment
 \[
-\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i^2 f(\gamma_i)} \leq \frac{h_i^4 \times 2 M_4}{4!}.
+\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i{}^2 f(\gamma_i)} \leqslant \frac{h_i{}^4 \times 2 M_4}{4!}.
 \]
 
 \item Finalement,
 \begin{align*}
 \module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
-&\leq h_i^5 \left[\frac{2}{3 \times 4!} + \frac{2}{5!}\right]\\
-&\leq \frac{2 h_i^5}{45}
-\leq \frac{(x_{i+1} - x_i)^5}{720}.
+&\leqslant h_i{}^5 \left[\frac{2}{3 \times 4!} + \frac{2}{5!}\right]\\
+&\leqslant \frac{2 h_i{}^5}{45}
+\leqslant \frac{(x_{i+1} - x_i)^5}{720}.
 \end{align*}
 
 \todoinline{Je crois qu'on peut atteindre un facteur $\frac{1}{2880}$ mais je ne parviens pas à faire mieux sans regarder en détail les restes intégraux !}
 
-\item On conclut à l'aide de la relation de Chasles :
+\item On conclut à l'aide de la relation de \textsc{Chasles} :
 \[
-\module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{720 p^4}.
+\module{\int_a^b f(t) \d t - I_p^\mathrm{s}(f)} \leq \frac{M_4 (b-a)^5}{720 p^4}.
 \]
 % \[
 % \module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
@@ -248,41 +323,53 @@ Ainsi,
 
 Nous constatons que, pour chacune des méthodes précédentes, la stratégie est identique :
 \begin{itemize}
-\item découper le segment en une subdivision régulière $a = x_0 \leq \cdots \leq x_n = b$,
+\item découper le segment en une subdivision régulière $a = x_0 \leqslant \cdots \leqslant x_n = b$,
 
 \item sur chacun des intervalles de cette subdivision, approcher la fonction par une fonction dont l'intégrale est plus simple.
 
 Sur l'intervalle $[x_i, x_{i+1}]$ : pour la méthode des rectangles, on approche la fonction par une droite horizontale, pour celle des trapèzes, par une droite affine passant par les points $(x_i, f(x_i))$ et $(x_{i+1}, f(x_{i+1}))$.
 \end{itemize}
 
-Plus généralement, on peut découper le segment $[x_i, x_{i+1}]$ en une subdivision régulière $x_i = y_{i,0} \leq \ldots \leq y_{i,p} \leq x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de Lagrange qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0}), \ldots, (y_{i,p}, f(y_{i,p}))$.
+Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en une subdivision régulière $x_i = y_{i,0} \leqslant \ldots \leqslant y_{i,p} \leqslant x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de \textsc{Lagrange} qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0}), \ldots, (y_{i,p}, f(y_{i,p}))$.
 
 Cette méthode est appelée \emph{méthode de \textsc{Newton}--\textsc{Cotes}}.
 
-Plus précisément, on considère une subdivision $0 = y_0 \leq \ldots \leq y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
+Plus précisément, on considère une subdivision $0 = y_0 \leqslant \ldots \leqslant y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
 \[
-\forall\ i \in \interent{0}{p},\, L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
+\forall\ i \in \interent{0}{p},\quad L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
 \]
 
-On pose alors $\lg_j = \int_0^1 L_j(t) \d t$.
+On pose alors $\gamma_j = \int_0^1 L_j(t) \d t$.
 
 On approche alors l'intégrale de $f$ sur $[x_i, x_{i+1}]$ par la somme
 \[
-I_p^i(f) = (x_{i+1} - x_i) \sum_{j=0}^p \lg_j g(x_i + (x_{i+1} - x_i) y_j),
+I_p^i(f) = (x_{i+1} - x_i) \sum_{j=0}^p \gamma_j g(x_i + (x_{i+1} - x_i) y_j),
 \]
 puis l'intégrale sur le segment $[a, b]$ par
 \[
-I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \sum_{j=0}^p \lg_j f(x_i + (x_{i+1} - x_i) y_j).
+I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \bigg[ \sum_{j=0}^p \gamma_j f(x_i + (x_{i+1} - x_i) y_j) \bigg].
 \] 
 
 On peut montrer que :
 \begin{itemize}
 \item lorsque $n = 1$, on retrouve la formule des trapèzes.
 
-\item lorque $n = 2$, on retrouve la méthode de Simpson.
+\item lorque $n = 2$, on retrouve la méthode de \textsc{Simpson}.
 \end{itemize}
 
-On peut montrer que la méthode de Simpson est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de Simpson,\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
+On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \textsc{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
+
+\todoarmand{On pourrait faire un tableau récapitulatif ?}
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c}
+    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de convergence} \\
+    \hline
+    À gauche & $1$ & $O(1/p)$ \\
+         & 
+    \end{tabular}
+    \caption{Résumé des propriétés des méthodes}
+\end{table}
 
 \todoinline{On pourrait renvoyer vers le livre Demailly - Analyse numérique et équations différentielles}
 
