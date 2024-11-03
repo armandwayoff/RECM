@@ -63,6 +63,31 @@
 
 \newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
 
+
+\usepackage{amsmath} % for \dfrac
+\usepackage{tikz}
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{pgfplots} % for the axis environment
+\usepackage{xcolor}
+\usepackage[outline]{contour} % halo around text
+\contourlength{2pt}
+\usetikzlibrary{positioning,calc}
+\usetikzlibrary{backgrounds}% required for 'inner frame sep'
+%\usepackage{adjustbox} % add whitespace (trim)
+
+% to fill an area under function
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=newest} % TikZ coordinates <-> axes coordinates
+% https://tex.stackexchange.com/questions/240642/add-vertical-line-of-equation-x-2-and-shade-a-region-in-graph-by-pgfplots
+
+% plot aspect ratio
+%\def\axisdefaultwidth{8cm}
+%\def\axisdefaultheight{6cm}
+
+% number of sample points
+
+
 %----------------------------------------------------------------------------------------
 \begin{document}
 
