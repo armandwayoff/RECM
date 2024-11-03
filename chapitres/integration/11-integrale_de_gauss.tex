@@ -21,47 +21,53 @@ Ainsi,
 %-----------
 \subsection{Calcul de l'intégrale}
 
+\begin{marginfigure}[5cm]
+    \centering
+    \input{illustrations/integrale_gauss_conv_simple.pgf}
+    \caption{Illustration de la convergence simple de la suite $(f_n)_{n \in \N}$ vers $f$}
+\end{marginfigure}
+
 \begin{exercice}
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
-On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $f : x \mapsto \e^{-x^2}$.
+On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $\fonctionligne[f]{x}{\e^{-x^2}}$.
 
 \begin{enumerate}
 \item Montrer que $I$ est une intégrale convergente.
-
+\end{enumerate}
 On propose ensuite de déterminer la valeur de $I$.
-
-\item \textbf{Première méthode:} \say{ à la main }. \\ 
+\begin{enumerate}[resume]
+\item \textbf{Première méthode: \say{ à la main }.} \\ 
 Pour $n \in \Ne$, on pose
 $$
 g_n(x) \defeq
 \begin{cases}
-\left(1 - \frac{x}{n} \right)^n &\text{si } x \in [0, n] \\
+\left(1 - \frac{x}{n} \right)^n &\text{si } x \in \interff{0}{n} \\
 0 &\text{si } x \geqslant n
 \end{cases}.
 $$
 
-On pose $g : x \mapsto \e^{-x}$ et $h_n = g - g_n$·
+On pose $\fonctionligne[g]{x}{\e^{-x}}$ et $h_n = g - g_n$·
 \begin{enumerate}
-\item Montrer que $h_n$ atteint son maximum sur $[0, n]$. On notera $x_n$ l'abscisse d'un point en laquelle $h_n$ atteint ce maximum.
+\item Montrer que $h_n$ atteint son maximum sur $\interff{0}{n}$. On notera $x_n$ l'abscisse d'un point en laquelle $h_n$ atteint ce maximum.
 
 \item Montrer que $h_n$ est à valeurs positives.
 
-\item Montrer que $h_n(x_n) = \frac{x_n \e^{-x_n}}{n}$.
+\item Montrer que $h_n(x_n) = \frac{x_n}{n} \e^{-x_n}$.
 
 \item En étudiant la fonction $u \mapsto u \e^{-u}$, en déduire que
 \[
-\module{h_n} \leq \frac{1}{n \e}.
+\module{h_n} \leqslant \frac{1}{n \e}.
 \]
 
-\item On pose $I_n= \int_0^{+\infty} g_n(x^2) \d x$. Montrer que $\module{I_n - I} \leq \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
+\item On pose $I_n= \int_0^{+\infty} g_n(x^2) \d x$. Montrer que $\module{I_n - I} \leqslant \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
 
 \item En déduire le résultat attendu.
 \end{enumerate}
 
-\item \textbf{Deuxième méthode:} \say{ avec le théorème de convergence dominée et les intégrales de Wallis }. \\
-On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(x)$.
+\item \textbf{Deuxième méthode: avec le théorème de convergence dominée et les intégrales de \textsc{Wallis.}} \\
+On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(x)$.
 \begin{enumerate}
-\item Montrer que $(f_n)_{n\in\N}$ converge simplement vers $f$.
+\item Montrer que la suite $(f_n)_{n\in\N}$ converge simplement vers $f$.
 
 \item À l'aide du théorème de convergence dominée, en déduire que 
 \[
@@ -69,9 +75,9 @@ On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(x)
 \]
 \end{enumerate}
 
-\item On rappelle que, d'après les résultats sur les intégrales de Wallis,
+\item On rappelle que, d'après les résultats sur les intégrales de \textsc{Wallis},
 \[
-\lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos^{2n+1}(t) \d t = \frac{\sqrt{\pi}}{2}.
+\lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos(t)^{2n+1} \d t = \frac{\sqrt{\pi}}{2}.
 \]
 
 En déduire la valeur de $I$.
@@ -90,35 +96,29 @@ En déduire la valeur de $I$.
         % \end{enumerate}
 \end{exercice}
 
-\begin{marginfigure}[2cm]
-    \centering
-    \input{illustrations/integrale_gauss_conv_simple.pgf}
-    \caption{Illustration de la convergence simple de la suite $(f_n)_{n \in \N}$ vers $f$}
-\end{marginfigure}
-
 \begin{preuve}
 \begin{enumerate}
-\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $[0, +\infty[$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de Riemann, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $[0, +\infty[$.
+\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de \textsc{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
 \item
 \begin{enumerate}
-\item Pour tout $x \geq n$, $h_n(x) = \e^{-x} \leq \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $[0, n]$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
+\item Pour tout $x \geqslant n$, $h_n(x) = \e^{-x} \leqslant \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $\interff{0}{n}$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
 
-\item En utilisant l'inégalité de convexité du logarithme, pour $x \in [0, n]$,
+\item En utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{n}$,
 \[
 g_n(x)
-= \exp\left(n \ln\left(1 - \frac{x}{n}\right)\right)
-\leq \e^{-x}.
+= \exp\mathopen{}\left(n \ln\mathopen{}\left(1 - \frac{x}{n}\right)\right)
+\leqslant \e^{-x} = g(x).
 \]
 Ainsi, $h_n$ est à valeurs positives.
 
-\item Pour tout $x \in [0, n]$,
+\item Pour tout $x \in \interff{0}{n}$,
 \[
 h_n'(x) = -\e^{-x} + \left(1 - \frac{x}{n}\right)^{n-1}.
 \]
 Ainsi, $h_n'(0) = 0$ et $h_n'(n) = - \e^{-n} < 0$.
 
-Comme $h_n'(n) < 0$, alors $h_n$ est décroissante sur un voisinage de $n$. De plus, $h_n$ est positive et $h_n(0) = 0$. Ainsi, $x_n \in ]0, n[$. Comme $h_n$ est dérivable et atteint son maximum sur l'ouvert $]0, n[$, alors $h_n'(x_n) = 0$, soit
+Comme $h_n'(n) < 0$, alors $h_n$ est décroissante sur un voisinage de $n$. De plus, $h_n$ est positive et $h_n(0) = 0$. Ainsi, $x_n \in \interoo{0}{n}$. Comme $h_n$ est dérivable et atteint son maximum sur l'ouvert $\interoo{0}{n}$, alors $h_n'(x_n) = 0$, soit
 \[
 \e^{-x_n} = \left(1 - \frac{x_n}{n}\right)^{n-1}.
 \]
@@ -136,26 +136,26 @@ h_n(x_n)
 D'après la question précédente, pour tout $x \in \Rp$,
 \begin{align*}
 \module{h_n(x)}
-&\leq h_n(x_n)
-\leq \frac{1}{n \e}.
+\leqslant h_n(x_n)
+\leqslant \frac{1}{n \e}.
 \end{align*}
 
 \item D'après la question précédente, pour tout $x$ réel positif,
 \[
-\module{\e^{-x^2} - \left(1 - \frac{x^2}{n}\right)^n} \indicatrice{[0,n]}(x)
-\leq \frac{1}{n \e}.
+\module{\e^{-x^2} - \left(1 - \frac{x^2}{n}\right)^n} \indicatrice{\interff{0}{n}}(x^2)
+\leqslant \frac{1}{n \e}.
 \]
 
 Ainsi,
 \begin{align*}
 \module{I_n - I}
-&\leq \int_0^{+\infty} \module{h_n(x^2)} \d x\\
-&\leq \int_0^{\sqrt{n}} \module{h_n(x^2)} \d x + \int_{\sqrt{n}}^{+\infty} \module{h_n(x^2)} \d x\\
-&\leq \int_0^{\sqrt{n}} \frac{1}{n\e} \d x + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x\\
-&\leq \frac{1}{\sqrt{n} \e} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x.
+&\leqslant \int_0^{+\infty} \module{h_n(x^2)} \d x\\
+&\leqslant \int_0^{\sqrt{n}} \module{h_n(x^2)} \d x + \int_{\sqrt{n}}^{+\infty} \module{h_n(x^2)} \d x\\
+&\leqslant \int_0^{\sqrt{n}} \frac{1}{n\e} \d x + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x\\
+&\leqslant \frac{1}{\sqrt{n} \e} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x.
 \end{align*}
 
-\item Comme $x \mapsto \e^{-x^2}$ est intégrable, alors
+\item Comme la fonction $x \mapsto \e^{-x^2}$ est intégrable,
 \[
 \lim_{n\to+\infty} \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x = 0.
 \]
@@ -166,60 +166,61 @@ Ainsi, d'après le théorème d'encadrement,
 = \lim_{n\to+\infty} \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x
 = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
+\todoarmand{Je trouve que le terme du milieu porte à confusion, la première égalité est une définition tandis que la deuxième est un résultat.}
 \end{enumerate}
 
 \item
 \begin{enumerate}
-\item Soit $t \in \R$. Soit $n \geq t^2$. Alors, $t \in [0, \sqrt{n}]$, soit
+\item Soit $x \in \Rp$ tel que $n \geqslant x^2$. Alors, $x \in \interff{0}{\sqrt{n}}$ et 
 \[
-f_n(t)
-= \left(1 - \frac{t^2}{n}\right)^n
-= \exp \left(n \ln\left(1 - \frac{t^2}{\sqrt{n}}\right)\right).
+f_n(x)
+= \left(1 - \frac{x^2}{n}\right)^n
+= \exp\mathopen{}\left(n \ln\mathopen{}\left(1 - \frac{x^2}{n}\right)\right).
 \]
 
-D'après les équivalents classiques, $\ln\left(1 - \frac{t^2}{\sqrt{n}}\right) \sim -\frac{t^2}{n}$.
+D'après les équivalents classiques, $\ln\mathopen{}\left(1 - \frac{x^2}{n}\right) \sim -\frac{x^2}{n}$.
 
-Ainsi, d'après la continuité de la fonction exponentielle en $t^2$,
+Ainsi, d'après la continuité de la fonction exponentielle en $x^2$,
 \[
-\lim_{n\to+\infty} f_n(t) = \e^{-t^2}.
+\lim_{n\to+\infty} f_n(x) = \e^{-x^2}.
 \]
 
-\item On vérifie les hypothèses du théorème.
+\item On vérifie les hypothèses du théorème:
 \begin{itemize}
-\item $t \mapsto \left(1 - \frac{x^2}{n}\right)^n \indicatrice{[0,\sqrt{n}[}(t) \in \mathscr{C}^-(\R_+)$.
+\item pour tout $n \in \N$, la fonction $f_n$ est continue par morceaux sur $\Rp$, % $t \mapsto \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(t) \in \mathscr{C}^-(\R_+)$.
 
-\item D'après la question précédente, $f_n(t) \to \e^{-t^2}$.
+\item d'après la question précédente, la suite $(f_n)_{n\in\N}$ converge simplement vers $f$, qui est continue par morceaux, 
 
-\item $f \in \mathscr{C}^-(\R_+, \R_+)$.
+% \item la fonction $f \in \mathscr{C}^-(\R_+, \R_+)$.
 
-\item En utilisant l'inégalité de convexité du logarithme, pour $t \in [0, \sqrt{n}]$,
+\item en utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{\sqrt{n}}$,
 \[
-\abs{f_n(t)}
-= \exp\left(n \ln\left(1 - \frac{t^2}{n}\right)\right)
-\leq \e^{-t^2}.
+\abs{f_n(x)}
+= \exp\mathopen{}\left(n \ln\left(1 - \frac{x^2}{n}\right)\right)
+\leqslant \e^{-x^2}.
 \]
-Ainsi, pour tout $t \in \R_+$, $\abs{f_n(t)} \leq f(t)$, qui est bien intégrable.
+Ainsi, pour tout $x \in \R_+$, $\abs{f_n(x)} \leqslant f(x)$, qui est bien intégrable.
 \end{itemize}
 
 D'après le théorème de convergence dominée,
 \[
-\lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-t^2} \d t.
+\lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
 \end{enumerate}
 
-\item En effectuant le changement de variable $\phi : [0,\pi/2] \to [0,\sqrt{n}],\, t \mapsto \sqrt{n} \sin(t)$ qui est bien $\mathscr{C}^1$ et strictement croissant,
+\item En effectuant le changement de variable $\fonction[\phi]{\interff{0}{\pi/2}}{\interff{0}{\sqrt{n}}}{t}{\sqrt{n} \sin(t)}$ qui est bien de classe $\mathscr{C}^1$ et strictement croissant,
 \begin{align*}
-\int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x &= \int_0^{\pi/2} (1 - \sin^2(t))^n \sqrt{n} \cos(t) \d t \\
-&= \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \\
-&\to \frac{\sqrt{\pi}}{2}.
+\int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x &= \int_0^{\pi/2} \big(1 - \sin(t)^2\big)^n \sqrt{n} \cos(t) \d t \\
+&= \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \xrightarrow[n \to \infty]{} \frac{\sqrt{\pi}}{2}.
 \end{align*}
 Finalement, $I = \frac{\sqrt{\pi}}{2}$.
 \end{enumerate}
 \end{preuve}
 
-\todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
+% \todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
+\marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
 \begin{remarque}
-La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n > 0$ et tout réel $u \in \interoo{-n}{n}$, 
+La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n \in \Ne$ et tout réel $u \in \interoo{-n}{n}$, 
 \[
 \left(1 + \frac{u}{n} \right)^n \leqslant \e^u \leqslant \left( 1 - \frac{u}{n} \right)^{-n},
 \]
@@ -227,14 +228,14 @@ puis que
 \[
 \int_0^{\sqrt{n}} \left( 1 - \frac{x^2}{n} \right)^n \d x \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \int_0^{\sqrt{n}} \left( 1 + \frac{x^2}{n} \right)^{-n} \d x.
 \]
-En utilisant un changement de variables puis les intégrales de Wallis, on obtient alors l'encadement :
+En utilisant un changement de variable puis les intégrales de \textsc{Wallis}, on obtient alors l'encadement 
 \[
-\sqrt{n} \Wallis_{2n+1} \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \sqrt{n} \Wallis_{2n-2}.
+\sqrt{n}\, \Wallis_{2n+1} \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \sqrt{n}\, \Wallis_{2n-2}.
 \]
 \end{remarque}
 
 \begin{remarque}
-En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, alors $\int_\R \e^{-x^2} \d x = \sqrt{\pi}$.
+En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2} \d x = \sqrt{\pi}$.
 \end{remarque}
 
 \todoinline{Ajouter une remarque pour son utilisation en probas ? Avec un dessin d'une planche de Galton ?}
@@ -256,7 +257,7 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, alors $\int_\R \e^
 \begin{enumerate}
 \item Pour tout $\beta > 0$, déterminer la valeur de $\int_\R \e^{-\beta x^2} \d x$.
 
-\item Calculer la dérivée $n$-ième de la fonction $f : \beta \mapsto \sqrt{\frac{\pi}{\beta}}$.
+\item Calculer la dérivée $n$-ième de la fonction $\fonctionligne[f]{\beta}{\sqrt{\frac{\pi}{\beta}}}$.
 
 \item En déduire le résultat annoncé.
 \end{enumerate}
@@ -264,37 +265,37 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, alors $\int_\R \e^
 
 \begin{preuve}
 \begin{enumerate}
-\item Le changement de variable affine $x \mapsto \frac{x}{\sqrt{\beta}}$ dans l'intégrale permet d'obtenir l'intégrale de Gauss. Ainsi,
+\item Le changement de variable affine $u = \sqrt{\beta}\, x$ dans l'intégrale permet d'obtenir l'intégrale de \textsc{Gauss}. Ainsi,
 \[
 \int_\R \e^{-\beta x^2} \d x
-= \int_\R \e^{-\beta u^2} \times \frac{1}{\sqrt{\beta}} \d u
+= \int_\R \e^{-u^2} \times \frac{1}{\sqrt{\beta}} \d u
 = \sqrt{\frac{\pi}{\beta}}.
 \]
 
-\item Comme $f(\beta) = \sqrt{\pi} \beta^{-1/2}$, une récurrence permet d'obtenir :
+\item Comme $f(\beta) = \sqrt{\pi}\, \beta^{-1/2}$, une récurrence permet d'obtenir :
 \begin{align*}
 f_n'(\beta)
 &= \sqrt{\pi} (-1)^n \beta^{-\frac{2n+1}{2}} \prod_{k=1}^n \left(\frac{1}{2} + k - 1\right)\\
 &= (-1)^n \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
 \end{align*}
 
-\item Posons $g : (\beta, x) \mapsto \e^{-\beta x^2}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
+\item Posons $\fonctionligne[g]{(\beta, x)}{\e^{-\beta x^2}}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
 \begin{enumerate}
-\item Pour tout $x \in \R$, la fonction $g(\cdot, x)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+\item Pour tout $x \in \R$, la fonction $g(\,\cdot\,, x)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
 
-\item Pour tout $n$ entier naturel et $x \in \R$,
+\item Pour tout $n \in \N$ et $x \in \R$,
 \[
 \frac{\partial^n g}{\partial \beta^n}(\beta, x) = (-1)^n x^{2n} \e^{-\beta x^2}\]
-donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \cdot)$ est continue sur $\R$.
+donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \,\cdot\,)$ est continue sur $\R$.
 
-\item Pour tout $a > 0$, pour tout $\beta \in [a, +\infty[$ et pour tout $x \in \R$,
+\item Pour tout $a > 0$, pour tout $\beta \in \interfo{a}{+\infty}$ et pour tout $x \in \R$,
 \[
-\module{\frac{\partial^n g}{\partial \beta^n}(\beta, x)} = x^{2n} \e^{-a x^2}
+\module{\frac{\partial^n g}{\partial \beta^n}(\beta, x)} \leqslant x^{2n} \e^{-a x^2}
 \]
 qui est une fonction intégrable.
 \end{enumerate}
 
-En utilisant le théorème de dérivation sous le signe intégral, la fonction $I(\cdot)$ est de classe $\mathscr{CC}^\infty$ et pour tout $n$ entier naturel,
+En utilisant le théorème de dérivation sous le signe intégral, la fonction $I(\,\cdot\,)$ est de classe $\mathscr{C}^\infty$ et pour tout $n$ entier naturel,
 \[
 I^{(n)}(\beta)
 = (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x.
@@ -306,7 +307,7 @@ Finalement, on obtient l'égalité :
 = \sqrt{\frac{\pi}{\beta^{2n+1}}} \prod_{k=1}^n \frac{2k-1}{2}.
 \]
 
-Évaluer en $x = 1$ permet d'obtenir le résultat annoncé.
+Évaluer en $\beta = 1$ permet d'obtenir le résultat annoncé.
 \end{enumerate}
 \end{preuve}
 
@@ -336,7 +337,7 @@ Finalement, on obtient l'égalité :
 % \end{preuve}
 % Cette dernière notation se nomme la \emph{double factorielle}.
 
-
+\begin{comment}
 \subsection{Calcul de l'intégrale de \textsc{Gauss} avec celle de \textsc{Wallis}}
 \todoinline{À supprimer suite à la remarque précédente ?}
 \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
@@ -395,24 +396,27 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 % * On peut calculer la transformée de Fourier d'une gaussienne, ça pourrait aussi être l'occasion de dire un mot sur ce qu'est la TF. \\
 % * J'aime bien la preuve avec Wallis, il faudrait alors mettre cette section après celle sur Wallis. Il faut voir comment l'intégrer (c'est le cas de le dire) avec les autres exercices sur Wallis et Stirling pour ne pas trop se répéter.
 % }
+\end{comment}
 
 %-----------
-\subsection{Transformée de Fourier}
+\subsection{Transformée de Fourier d'une gaussienne}
+
+\todoarmand{On pourrait traiter le cas un peu plus général de la TF de $x \mapsto \e^{-a x^2}$ et ajouter une illustration}
 
 \begin{theo}{}
 Pour tout $x$ réel,
 \[
-\int_{-\infty}^{+\infty} \e^{i t x} \e^{-t^2} \d t
-= \sqrt{\pi} \e^{-\frac{x^2}{4}}.
+\int_{-\infty}^{+\infty} \e^{\i t x} \e^{-t^2} \d t
+= \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
 \end{theo}
 
 \begin{exercice}
-On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + i t x} \d t$.
+On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
 \begin{enumerate}
 \item Montrer que la fonction $f$  est définie sur $\R$.
 
-\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} i t \e^{-t^2 + i t x} \d t$.
+\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} \i t \e^{-t^2 + \i t x} \d t$.
 
 \item Montrer que $f$ vérifie l'équation différentielle $2 y' + x y = 0$.
 {On pourra utiliser une intégration par parties.}
@@ -421,25 +425,25 @@ On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + i t x} \d t$.
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve} On pose $g : (x, t) \mapsto \e^{-t^2 + i t x}$.
+\begin{preuve} On pose $\fonctionligne[g]{(x, t)}{\e^{-t^2 + \i t x}}$.
 \begin{enumerate}
-\item Pour tout $(x, t) \in \R^2$,  $\abs{g(x, t)} \leq \e^{-t^2}$. Ainsi, $g(x, \cdot)$ est une fonction intégrable pour tout $x$ réel.
+\item Pour tout $(x, t) \in \R^2$,  $\abs{g(x, t)} \leqslant \e^{-t^2}$. Ainsi, la fonction $g(x, \,\cdot\,)$ est intégrable pour tout $x$ réel.
 
 \item Les hypothèses de régularité sont aisément vérifiables. De plus,
 \[
 \module{\frac{\partial g}{\partial x}(x, t)} = t \e^{-t^2}
 \]
-qyu est intégrable sur $\R$.
+qui est intégrable sur $\R$.
 
 Ainsi, en appliquant le théorème de dérivation sous le signe intégral, la fonction $f$ est dérivable et
 \[
-f'(x) = \int_\R i t \e^{-t^2 + i t x} \d t.
+f'(x) = \int_\R \i t \e^{-t^2 + \i t x} \d t.
 \]
 
 \item En utilisant une intégration par parties généralisée dont le crochet converge,
 \begin{align*}
-f'(x) &= \int_\R t \e^{-t^2} i \e^{i t x} \d t \\
-&= \left[-\frac{1}{2} \e^{-t^2} i \e^{i t x}\right]_{-\infty}^{+\infty} - \int_\R \frac{x}{2} \e^{-t^2} \e^{i t x} \d t \\
+f'(x) &= \int_\R t \e^{-t^2} \i \e^{\i t x} \d t \\
+&= \left[-\frac{1}{2} \e^{-t^2} \i \e^{\i t x}\right]_{-\infty}^{+\infty} - \int_\R \frac{x}{2} \e^{-t^2} \e^{\i t x} \d t \\
 f'(x) &= -\frac{x}{2} f(x).
 \end{align*}
 
@@ -448,14 +452,14 @@ f'(x) &= -\frac{x}{2} f(x).
 \left\{x \mapsto \lambda \e^{-\frac{x^2}{4}},\, \lambda \in \R\right\}.
 \]
 
-D'après le calcul de l'intégrale de Gauss, $f(0) = \sqrt{\pi}$. Ainsi,
+D'après le calcul de l'intégrale de \textsc{Gauss}, $f(0) = \sqrt{\pi}$. Ainsi,
 \[
-f(x) = \sqrt{\pi} \e^{-\frac{x^2}{4}}.
+f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
 \end{enumerate}
 \end{preuve}
 
-\subsection{}
+\subsection{À trier}
 
 \begin{exercice}
 \begin{enumerate}
@@ -476,9 +480,6 @@ f(x) = \sqrt{\pi} \e^{-\frac{x^2}{4}}.
     \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
 \end{enumerate}
 \end{exercice}
-
-
-\subsection{À trier}
 
 \todoinline{On met cet exercice avec les polynômes orthogonaux ?}
 

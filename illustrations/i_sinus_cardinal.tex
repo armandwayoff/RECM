@@ -1,5 +1,5 @@
 \begin{tikzpicture}
-\contourlength{2pt}
+    
 \begin{axis}[
     % width=7.5cm,
     % grid=both,
@@ -7,8 +7,6 @@
     xmax=11,
     ymin=-0.25,
     ymax=1.15,
-    xlabel=$x$,               
-    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
     % ylabel=$\mathrm{sinc}(x)$,
     axis lines=middle,
     axis line style=thick,
@@ -16,7 +14,10 @@
     xticklabels={},
     xtick={-3*3.141592, -2*3.141592, -3.141592, 3.141592, 2*3.141592, 3*3.141592},
     ytick={0, 1},
+    xlabel=$x$,
+    every axis x label/.style={at={(current axis.right of origin)},anchor=south},
 ]
+              
   \addplot[domain=-15:15, blue, samples=200, name path=B] plot[thick] {sin(deg(x))/x};
 
   \path[name path=xaxis]
@@ -32,8 +33,6 @@
     xmax=11,
     ymin=-0.25,
     ymax=1.15,
-    xlabel=$x$,               
-    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
     % ylabel=$\mathrm{sinc}(x)$,
     axis lines=middle,
     % axis line style=thick,
