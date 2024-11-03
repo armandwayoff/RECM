@@ -19,7 +19,7 @@ Ainsi,
 \end{theo}
 
 %-----------
-\subsection{Calculs de l'intégrale}
+\subsection{Calcul de l'intégrale}
 
 \begin{exercice}
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
@@ -241,8 +241,6 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, alors $\int_\R \e^
 
 \subsection{Moments de la gaussienne}
 
-D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}.
-
 \todoinline{Je prends $\sigma = \frac{1}{\sqrt{2}}$ pour plus coller à la section précédente et simplifier les notations. On peut bien sûr revenir à un $\sigma$ qcq si tu préfères. J'ai rédigé la dérivation sous le signe intégral}
 
 \begin{theo}{} Pour tout $n$ entier naturel,
@@ -253,6 +251,7 @@ D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussi
     \]
 \end{theo}
 
+\marginnote[0cm]{D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}}
 \begin{exercice}
 \begin{enumerate}
 \item Pour tout $\beta > 0$, déterminer la valeur de $\int_\R \e^{-\beta x^2} \d x$.
@@ -455,6 +454,28 @@ f(x) = \sqrt{\pi} \e^{-\frac{x^2}{4}}.
 \]
 \end{enumerate}
 \end{preuve}
+
+\subsection{}
+
+\begin{exercice}
+\begin{enumerate}
+    \item Calculer $\int_{-\infty}^{+\infty} \e^{-x^2} \d x$. \\
+    \emph{Indication :} On pourra d'abord calculer $\int_{R^2} \e^{-(x^2 + y^2)} \d x \d y$ en passant en coordonnées polaires. 
+    \item \emph{Calcul de l'aire de la sphère unité de $\R^n$.} Soit $\mathscr{S}_{n-1} = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 = 1}$ la sphère unité de $\R^n$. On note $\mathscr{A}_{n-1}$ son aire. Calculer
+    \[
+    \int_{\R^n} \exp\left({-\sum\limits_{i=1}^n x_i{}^2}\right) \d x_1 \dots \d x_n
+    \]
+    en fonction de $\mathscr{A}_{n-1}$. En déduire l'expression de $\mathscr{A}_{n-1}$ en fonction de la fonction $\Gamma$ :
+    \[
+    \Gamma(s) \defeq \int_0^{+\infty} x^{s-1} \e^{-x} \d x.
+    \]
+    \item \emph{Calcul du volume de la boule unité de $\R^n$.} Soit $\mathscr{B}_n = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 \leqslant 1}$ la boule fermée de rayon $1$ dans $\R^n$. On note $\mathscr{V}_n$ son volume. Montrer que $\mathscr{V}_n = \frac{\mathscr{A}_{n-1}}{n}$. En déduire que:
+    \[
+    \mathscr{V}_n = \frac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1 \right)}.
+    \]
+    \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
+\end{enumerate}
+\end{exercice}
 
 
 \subsection{À trier}
