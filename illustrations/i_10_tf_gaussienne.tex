@@ -1,0 +1,80 @@
+\begin{tikzpicture}
+    % xlabel style={font=\small},
+    % ylabel style={font=\small},
+    % legend style={font=\small, at={(0.95,0.95)}, anchor=north east},
+    \begin{groupplot}[
+        % width=7.5cm,
+        % grid=both,
+        group style={
+                group name=plots,
+                group size=2 by 1,
+                horizontal sep=2cm,
+            },
+        axis lines=middle,
+        axis line style=thick,
+        axis line style={-latex},
+        every axis x label/.style={at={(current axis.right of origin)},anchor=south},
+        legend cell align={left}
+        ]
+        
+    % Left plot: Gaussian functions
+    \nextgroupplot[
+        % xlabel={$t$},
+        xmin=-15, xmax=15,
+        ymin=0, ymax=1.2,
+        ytick={0, 1},
+    ]
+    
+    % Plot Gaussian functions for different sigma values
+    \addplot[blue, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 1^2))};
+    % \addlegendentry{$\sigma = 1$}
+    \addplot[red, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 2^2))};
+    % \addlegendentry{$\sigma = 2$}
+    \addplot[orange, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 3^2))};
+     %\addlegendentry{$\sigma = 3$}
+    \addplot[purple, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 4^2))};
+    % \addlegendentry{$\sigma = 4$}
+    \addplot[green!50!black, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 5^2))};
+    % \addlegendentry{$\sigma = 5$}
+
+    % Right plot: Fourier Transform magnitudes
+    \nextgroupplot[
+        % xlabel={$f$},
+        xmin=-0.5, xmax=0.5,
+        ymin=0, ymax=15,
+        xtick={-0.4, -0.2, 0.2, 0.4},
+        ytick={5 * sqrt(2 * pi)},
+        xticklabels={$-0{,}4$, $-0{,}2$,$0{,}2$, $0{,}4$},
+        yticklabels={$12{,}53$}
+    ]
+
+    % Plot Fourier Transforms for different sigma values
+    \addplot[blue, thick, domain=-1:1, samples=200] {1 * sqrt(2 * pi) * exp(-2 * pi^2 * 1^2 * x^2)}; \label{sigma1}
+    
+    \addplot[red, thick, domain=-1:1, samples=200] {2 * sqrt(2 * pi) * exp(-2 * pi^2 * 2^2 * x^2)}; \label{sigma2}
+
+    \addplot[orange, thick, domain=-1:1, samples=400] {3 * sqrt(2 * pi) * exp(-2 * pi^2 * 3^2 * x^2)}; \label{sigma3}
+    
+    \addplot[purple, thick, domain=-1:1, samples=400] {4 * sqrt(2 * pi) * exp(-2 * pi^2 * 4^2 * x^2)}; \label{sigma4}
+    
+    \addplot[green!50!black, thick, domain=-1:1, samples=400] {5 * sqrt(2 * pi) * exp(-2 * pi^2 * 5^2 * x^2)}; \label{sigma5}
+    
+    \end{groupplot}
+
+    % Add FT arrow and text
+    \draw[thick, -latex] (plots c1r1.east) node[left=10pt] {$\mathrm{e}^{-\frac{x^2}{2 \sigma^2}}$} -- (plots c2r1.west) node[midway, above=5pt] {Transformée} node[midway, below=5pt] {de \textsc{Fourier}} node[right=10pt] {$\sigma \sqrt{2\pi}\, \mathrm{e}^{-2 \sigma^2 \pi^2 \xi^2}$};
+    
+    \matrix[
+        matrix of nodes,
+        anchor=south,
+        draw=none,
+        inner sep=5pt
+        ]at([xshift=4.5cm,yshift=-1cm]plots c1r1.north)
+    {
+        \ref{sigma1} $\sigma = 1$
+        \ref{sigma2} $\sigma = 2$
+        \ref{sigma3} $\sigma = 3$\\
+        \ref{sigma4} $\sigma = 4$
+        \ref{sigma5} $\sigma = 5$\\
+    };
+\end{tikzpicture}
