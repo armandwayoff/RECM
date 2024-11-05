@@ -6,6 +6,7 @@ De premières tentatives pour définir la factorielle de valeurs non entières r
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
 
 \todoinline{Dans la phrase suivante, tu te rappelles à quoi tu pensais pour les nombreuses façons ? Il me semble que le prolongement analytique est unique, non ? Mes cours d'analyse complexe sont un peu loin...}
+\todoarmand{Malheureusement, la source dont vient le texte n'est plus accessible, je vais poursuivre mes recherches.}
 
 Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $]-1, +\infty[$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
 
@@ -37,13 +38,13 @@ En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$.
 
 \begin{preuve}
 \begin{itemize}
-\item On pose $f_x : t \mapsto t^{x - 1} \e^{-t}$.
+\item On pose $\fonctionligne[f_x]{t}{t^{x - 1} \e^{-t}}$.
 
-$f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
+La fonction $f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
 
-Comme $f_x(t) = o_{+\infty}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de Riemann, $f_x$ est intégrable sur $[1,+\infty[$.
+Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de \textsc{Riemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
 
-Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $]0, 1]$ si et seulement si $x > 0$.
+Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$.
 
 Finalement, $\Gamma$ est définie sur $\R_+^\star$.
 
@@ -53,7 +54,7 @@ Finalement, $\Gamma$ est définie sur $\R_+^\star$.
 \]
 et $\Gamma(x+1) = x \Gamma(x)$.
 
-\item $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = n!$.
+\item On remarque que $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = n!$.
 \end{itemize}
 \end{preuve}
 
@@ -62,6 +63,7 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 % Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
 
 \todoinline{Si on rappelle l'IPP ici, peut être faut-il le faire avec d'autres théorèmes ?}
+\todoarmand{Oui, on pourrait faire une compilation des théorèmes utilisés sur l'ensemble des chapitres sur l'intégration.}
 
 \marginnote[-5cm]{
     \begin{theo}{Théorème (Intégration par parties généralisées)}
@@ -82,54 +84,54 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 \begin{theo}{Régularité}
 La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
 \[
-\forall k \in \N,\ \forall x \in \R_+^\star,\ \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
+\forall k \in \N,\quad \forall x \in \R_+^\star,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
 \]
 \end{theo}
 
 \begin{preuve}
 \begin{itemize}
-\item \textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $f : (x, t) \mapsto t^{x-1} \e^{-t}$.
+\item \textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $\fonctionligne[f]{(x, t)}{t^{x-1} \e^{-t}}$.
 \begin{itemize}
-\item Soit $t \in \Rpe$. Alors, $f(\cdot, t)$ est continue sur $[a, A]$.
+\item Soit $t \in \Rpe$. Alors, $f(\,\cdot\,, t)$ est continue sur $\interff{a}{A}$.
 
-\item Soit $x \in [a, A]$. Alors, $f(x, \cdot)$ est continue sur $\Rpe$.
+\item Soit $x \in \interff{a}{A}$. Alors, $f(x, \cdot)$ est continue sur $\Rpe$.
 
-\item Pour tout $(x, t) \in [a, A] \times \R_+^*$,
+\item Pour tout $(x, t) \in \interff{a}{A} \times \Rpe$,
 \[
-\abs{f(x, t)} \leq \phi(t) = 
+\abs{f(x, t)} \leqslant \phi(t) = 
 \begin{cases}
-\frac{\e^{-t}}{t^{1-a}} &\text{ si } t \in ]0, 1],\\
-t^{A-1} \e^{-t} &\text{ si } t \in [1, +\infty[
+\frac{\e^{-t}}{t^{1-a}} &\text{ si } t \in \interof{0}{1},\\
+t^{A-1} \e^{-t} &\text{ si } t \in \interfo{1}{+\infty}
 \end{cases}
 \]
-La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur $\R_+^*$.
+La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur $\Rpe$.
 \end{itemize}
-Finalement, d'après le théorème de continuité sous le signe intégral, $\Gamma$ est continue sur $[a, A]$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
+Finalement, d'après le théorème de continuité sous le signe intégral, $\Gamma$ est continue sur $\interff{a}{A}$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
 
-\item On applique le théorème de dérivation sous le signe intégral sur l'intervalle $[a, A]$.
+\item On applique le théorème de dérivation sous le signe intégral sur l'intervalle $\interff{a}{A}$:
 \begin{itemize}
-\item $f(\cdot, t) : t \mapsto t^{x - 1} \e^{-t}$ est de classe $\mathscr{C}^k$ sur $[a, A]$.
+\item la fonction $\fonctionligne[f(\,\cdot\,, t)]{t}{t^{x - 1} \e^{-t}}$ est de classe $\mathscr{C}^k$ sur $\interff{a}{A}$.
 
-\item $\partial_1^j f(x, t) = \ln(t)^j t^{x - 1} \e^{-t}$ et $t \mapsto \partial_1^j f(x, t)$ est continue sur $\R_+^*$.
+\item la dérivée partielle $\partial_1^j f(x, t) = \ln(t)^j t^{x - 1} \e^{-t}$ et $t \mapsto \partial_1^j f(x, t)$ est continue sur $\Rpe$.
 
-\item Pour tout $x \in [a, A]$,
+\item pour tout $x \in \interff{a}{A}$,
 \[
-\abs{\partial_1^j f(x, t)} \leq
+\abs{\partial_1^j f(x, t)} \leqslant
 \begin{cases}
 \abs{\ln(t)}^j \e^{-t} t^{a-1} &\text{ si } t < 1 \\
-\abs{\ln(t)}^j \e^{-t} t^{A-1} &\text{ si } t \geq 1
+\abs{\ln(t)}^j \e^{-t} t^{A-1} &\text{ si } t \geqslant 1
 \end{cases}
 \]
 
 En notant $\phi_j$ cette fonction,
 \begin{itemize}
-\item $\phi_j$ est continue sur $\R_+^*$.
-\item $\phi_j(t) = o_{+\infty}(1/t^2)$ et $\phi_j(t) = o_0(t^{x/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\R_+$.
+\item $\phi_j$ est continue sur $\Rpe$.
+\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0(t^{x/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
 \end{itemize}
 \end{itemize}
 Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 \[
-\Gamma^{(j)}(x) = \int_0^{+\infty} (\ln(t))^j t^{x-1} \e^{-t} \d t.
+\Gamma^{(j)}(x) = \int_0^{+\infty} (\ln t)^j t^{x-1} \e^{-t} \d t.
 \]
 \end{itemize}
 \end{preuve}
@@ -156,7 +158,7 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 
 \begin{preuve}
 \begin{enumerate}
-\item Comme $\Gamma$ est continue en $1$, alors
+\item Comme $\Gamma$ est continue en $1$, 
 \[
 \lim_{x\to0} \Gamma(x + 1) = \Gamma(1) = \int_0^{+\infty} \e^{-t} \d t = 1.
 \]
@@ -166,9 +168,9 @@ De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
 \Gamma(x) \sim_0 \frac{1}{x}.
 \]
 
-\item D'après l'étude précédente, pour tout $x > 0$,
+\item D'après l'étude de régularité précédente, pour tout $x > 0$,
 \[
-\Gamma''(x) = \int_0^{+\infty} (\ln(t))^2 t^{x-1} \e^{-t} \d t.
+\Gamma''(x) = \int_0^{+\infty} (\ln t)^2 t^{x-1} \e^{-t} \d t.
 \]
 Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
 \end{enumerate}
@@ -177,14 +179,27 @@ Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
 \todoinline{On peut montrer que $\Gamma$ est l'unique fonction telle que $\ln \Gamma$ est convexe, $\Gamma(1) = 1$ et $\Gamma(x + 1) = x \Gamma(x)$. On le met ici ? (Source : Rudin)\\
 On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisable.}
 
+\marginnote[0cm]{Patrice Lassère, p. 210}
+\begin{exercice}
+    Montrer que 
+    \[
+    \Gamma'(1) = \lim_{x \to \infty} \int_0^n \left(1 - \frac{t}{n} \right)^n \ln(t) \d t
+    \]
+    pour en déduire que 
+    \[
+    \Gamma'(1) = - \gamma \defeq \lim_{n \to \infty} \left(1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln(n) \right).
+    \]
+    La constante $\gamma$ est la constante d'\textsc{Euler}. On pourra effectuer le changement de variable $u = 1 - \frac{t}{n}$.
+\end{exercice}
 
 %-----------
 \subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
+\marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \textsc{Gauss}}}
 
 \begin{theo}{}
-$\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$
+$\Gamma\mathopen{}\left(\frac{1}{2}\right) = \sqrt{\pi}$
 et pour tout $n \in \Ne$,
-$\Gamma\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
+$\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
 \end{theo}
 % \begin{exercice}
     \marginnote[0cm]{\cite{fmaalouf}}
@@ -197,13 +212,13 @@ $\Gamma\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
 \begin{preuve}
 On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$. Alors,
 \begin{align*}
-\Gamma \left( \frac{1}{2} \right)
+\Gamma\mathopen{}\left( \frac{1}{2} \right)
 &= \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t\\
 &= 2 \int_0^{+ \infty} \e^{-u^2} \d u \\
-&= \int_{- \infty}^{+ \infty} e^{-u^2} \d u\\
+&= \int_{- \infty}^{+ \infty} \e^{-u^2} \d u\\
 &= \sqrt{\pi},
 \end{align*}
-d'après les résultats sur l'intégrale de Gauss.
+d'après les résultats sur l'intégrale de \textsc{Gauss}.
 
 Le second point s'obtient en utilisant l'égalité
 \[
@@ -214,7 +229,7 @@ Le second point s'obtient en utilisant l'égalité
 %-----------
 \subsection{Fonction bêta}
 
-\todoinline{J'ai changé les $I_{p,q}$ en $B(p, q)$ pour coller à la définition classique de la fonction Bêta}
+% \todoinline{J'ai changé les $I_{p,q}$ en $B(p, q)$ pour coller à la définition classique de la fonction Bêta}
 
 \begin{defi}{Fonction bêta}
 Pour tout $(p,q) \in \N^2$, on note
@@ -249,9 +264,9 @@ B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
 
 \begin{preuve}
 \begin{enumerate}
-\item $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
+\item On a immédiatement $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
-\item On pose $u:t\mapsto \frac{1}{p+1} t^{p+1}$ et $v:t\mapsto (1-t)^q$, toutes deux de classe $\mathscr{C}^1$ sur $[0, 1]$. Alors, d'après la formule d'intégration par parties, 
+\item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
 \begin{align*}
 B(p,q) &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\
 B(p,q) &= \frac{q}{p+1} B(p+1, q-1).
@@ -266,9 +281,9 @@ B(p, q)
 \end{enumerate}
 \end{preuve}
 
+\marginnote[0cm]{\todoinline{D'après Oral Centrale 2016}}
 \begin{exercice}%
-\todoinline{D'après Oral Centrale 2016}
-Soit $p \in \N^\ast$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et, pour tout $i \in \entiers{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \N^\ast$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
+Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et, pour tout $i \in \interent{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \Ne$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
 
 \begin{enumerate}
 \item Exprimer $\mathbf{P}(A_n)$ sous forme d'une somme.
@@ -288,10 +303,10 @@ Soit $p \in \N^\ast$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque
 
 \item En utilisant le même raisonnement que précédemment,
 \[
-b_{n,p} = \frac{\frac{1}{p} \sum_{i=1}^p \left(1 - \frac{i}{p}\right)^{n+1} \left(\frac{i}{p}\right)^n}{\frac{1}{p} \sum_{i=1}^p \left(1 - \frac{i}{p}\right)^{n} \left(\frac{i}{p}\right)^n} \cdot \frac{\binom{2n+1}{n+1}}{\binom{2n}{n}}.
+b_{n,p} = \frac{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n+1} \left(\frac{i}{p}\right)^n}{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n} \left(\frac{i}{p}\right)^n} \cdot \frac{\binom{2n+1}{n+1}}{\binom{2n}{n}}.
 \]
 
-\item En utilisant les limites des sommes de Riemann,
+\item En utilisant les limites des sommes de \textsc{Riemann},
 \[
 \lim\limits_{p\to+\infty} b_{n,p} = \frac{2n+1}{n+1} \cdot \frac{\int_0^1 (1 - x)^{n+1} x^n \d x}{\int_0^1 (1 - x)^n x^n \d x}.
 \]
@@ -314,7 +329,7 @@ Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k}
 \end{exercice}
 
 \begin{preuve}
-En utilisant la formule du binôme de Newton puis la linéarité de l'intégrale,
+En utilisant la formule du binôme de \textsc{Newton} puis la linéarité de l'intégrale,
 \begin{align*}
 B(p, q)
 &= \int_0^1 t^p (1 - t)^q \d t\\
@@ -332,15 +347,15 @@ Ainsi,
 
 %---------------
 
+\marginnote[0cm]{\todoinline{Source : Oral Mines 2018}}
 \begin{exercice}
-\todoinline{Source : Oral Mines 2018}
-Montrer que $\sum B(n,n)$ converge et déterminer sa somme.
+Montrer que la série $\sum B(n,n)$ converge et déterminer sa somme.
 \end{exercice}
 
 \begin{solution}
-D'après la définition, $0 \leq B(n, n) \leq \frac{1}{4^n}$. Ainsi, $\sum B(n, n)$ converge.
+D'après la définition, $0 \leqslant B(n, n) \leqslant \frac{1}{4^n}$. Ainsi, $\sum B(n, n)$ converge.
 
-Comme $t^p (1 - t)^q \geq 0$ pour $t \in [0, 1]$, d'après le théorème d'interversion série / intégrale,
+Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le théorème d'interversion série / intégrale,
 \begin{align*}
 \sum_{n=0}^{+\infty} B(n, n)
 &= \int_0^1 \left(\sum_{n=0}^{+\infty} t^n (1 - t)^n\right) \d t \\
@@ -354,13 +369,13 @@ Comme $t^p (1 - t)^q \geq 0$ pour $t \in [0, 1]$, d'après le théorème d'inter
 
 % --------------
 
+\marginnote[0cm]{\todoinline{Source : D'après un oral Centrale 2016}}
 \begin{exercice}%
-\todoinline{Source : D'après un oral Centrale 2016}%
-Soit $p \geq 2$ et $q \in \N$. On pose $S(p) = \sum_{n=p}^{+\infty} \binom{n}{p}^{-1}$.
+Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} \binom{n}{p}^{-1}$.
 \begin{enumerate}
 \item Montrer l'existence de $S(p)$.
 
-\item Montrer que $S_N(p) = \sum_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum_{n=0}^N (n + p + 1) B(n, p)$.
+\item Montrer que $S_N(p) = \sum\limits_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum\limits_{n=0}^N (n + p + 1) B(n, p)$.
 
 \item En déduire que $S(p) = \frac{p}{p-1}$.
 \end{enumerate}
@@ -370,7 +385,7 @@ Soit $p \geq 2$ et $q \in \N$. On pose $S(p) = \sum_{n=p}^{+\infty} \binom{n}{p}
 \begin{enumerate}
 \item D'après la définition des coefficients binomiaux,
 \[
-\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\left(\frac{1}{n^2}\right).
+\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\mathopen{}\left(\frac{1}{n^2}\right).
 \]
 Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $S(p)$ est bien définie.
 
@@ -379,21 +394,21 @@ Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $
 B(p, q) = \frac{p! q!}{(p + q + 1) (p + q)!} = \frac{\binom{p+q}{p}^{-1}}{p + q + 1}.
 \]
 
-Ainsi, si $p \geq 1$,
+Ainsi, si $p \geqslant 1$,
 \begin{align*}
 S_N(p)
 &= \sum_{n=0}^{N} \binom{n+p}{p}^{-1}
 = \sum_{n=0}^{N} (n+p+1) B(n, p) \\
-&= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p t^n (1 - t)^p \d t.
+&= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p\, t^n (1 - t)^p \d t.
 \end{align*}
 
 De plus,
 \[
 \lim_{N\to+\infty} \sum_{n=0}^N (n + 1) t^n (1 - t)^p = (1 - t)^{p-2}
-\text{ et }
+\quad \text{et} \quad 
 \lim_{N\to+\infty} \sum_{n=0}^N t^n (1 - t)^p = (1 - t)^{p-1}.
 \]
-Comme ces suites sont croissantes et que les fonctions limites sont intégrables sur $[0, 1]$, d'après le théorème de convergence dominée,
+Comme ces suites sont croissantes et que les fonctions limites sont intégrables sur $\interff{0}{1}$, d'après le théorème de convergence dominée,
 \begin{align*}
 S(p)
 &= \int_0^1 (1 -t)^{p-2} \d t + \int_0^1 p (1 - t)^{p-1} \d t 
@@ -412,3 +427,15 @@ S(p)
 % \end{align*}
 \end{enumerate}
 \end{preuve}
+
+\subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
+
+Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \textsc{Wallis} $\Wallis_n$, on obtient
+\[
+\Wallis_n = \frac{1}{2} \int_0^1 t^{\frac{n-1}{2}} (1-t)^{-\frac{1}{2}} \d t
+\]
+soit 
+\[
+\Wallis_n = \frac{1}{2} B\mathopen{}\left( \frac{n-1}{2}, -\frac{1}{2} \right) = \frac{1}{2} \frac{\Gamma\mathopen{}\left(\frac{n+1}{2}\right) \sqrt{\pi}}{\Gamma\mathopen{}\left(\frac{n}{2}+1\right)}
+\]
+\url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
