@@ -5,23 +5,23 @@
 
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 
-\begin{marginfigure}[1cm]
+\begin{marginfigure}[-2cm]
     \includegraphics[width=0.9\textwidth]{illustrations/integration-02_lebesgue.png}
     \caption{Illustration des aires compensées dans le cadre du lemme de \textsc{Lebesgue} \todoarmand{titre à modifier}}
 \end{marginfigure}
 \begin{lemme}\label{lemmeLebesgue} Soit $a < b$.
 \begin{enumerate}
-\item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $[a, b]$. Alors,
+\item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $\interff{a}{b}$. Alors,
 \[
 \lim_{ \lambda \to +\infty} \int_a^b \sin(\lambda t) f(t) \d t = 0.
 \]
-\item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$[a, b]$.
+\item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$\interff{a}{b}$.
 \end{enumerate}
 \end{lemme}
 On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus les oscillations sont élevées et plus les aires comptées positivement et négativement se compensent.
 \begin{solution}
     \begin{enumerate}
-        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $[a, b]$, on peut effectuer une intégration par parties qui fournit pour $\lambda > 0$:
+        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour $\lambda > 0$:
         \[
         \begin{multlined}[t]
         \left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \left( -\big[ \cos(\lambda t) f(t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \\
@@ -35,19 +35,19 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
         Le résultat s'étend aux fonctions constantes par linéarité de l'intégrale puis aux fonctions constantes par morceaux par additivité par rapport à l'intervalle d'intégration, c'est-à-dire aux fonctions en escaliers. 
         \todoarmand{J'ai commenté la définition de la norme $L^\infty$ puisqu'elle est donnée dans l'index des notations.}
         % Pour toute fonction $g$ continue par morceaux sur $[a, b]$, on note $\|g\|_{\infty} = \sup_{[a, b]} |g|$.\\
-        Soit alors $f$ une fonction continue par morceaux sur $[a, b]$. \\
+        Considérons donc $f$ une fonction continue par morceaux sur $\interff{a}{b}$. \\
         \todoinline{Là on admet un théorème d'approximation non trivial et hors programme en PCSI. Il faut voir ce qu'on indique en introduction du chapitre ?}
         \todoarmand{On pourrait donner le théorème au début du chapitre, en précisant les filières pour lesquelles il est hors programme.}
-        Soit $\varepsilon > 0$, il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leq \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
+        Soit $\varepsilon > 0$, il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leqslant \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
         \[
-        \left| \varphi(t) \int_a^b \sin(\lambda t) \d t\right| \leq \varepsilon.
+        \left| \varphi(t) \int_a^b \sin(\lambda t) \d t\right| \leqslant \varepsilon.
         \]
         Finalement, d'après l'inégalité triangulaire, pour tout $\lambda > \lambda_0$,
         \begin{align*}
         \left|\int_a^b f(t) \sin(\lambda t) \d t\right|
-        &\leq         \left|\int_a^b (f(t) - \varphi(t)) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
-        &\leq \norme{f - \varphi}_\infty (b - a) + \varepsilon\\
-        &\leq \varepsilon (1 + b - a).
+        &\leqslant         \left|\int_a^b (f(t) - \varphi(t)) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
+        &\leqslant \norme{f - \varphi}_\infty (b - a) + \varepsilon\\
+        &\leqslant \varepsilon (1 + b - a).
         \end{align*}
 Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0$.
         \end{enumerate}
@@ -80,7 +80,7 @@ On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de
 \todoarmand{Il y a bien un lien vers le thème sur les polynômes de Bernoulli}
 
 \begin{theo}{}
-Pour tout entier $m \geq 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
+Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
 \end{theo}
 
 L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une démonstration de ce résultat. 
@@ -149,10 +149,10 @@ I_{n,k} = \frac{1}{4k^2 \pi^2} \big(B_{n-1}(1) - B_{n-1}(0) - I_{n-2, k} \big).
 \]
 De plus, $I_{0,k} = 0$, $I_{1,k} = 0$, $I_{2,k} = \frac{1}{4 \pi^2}$. Donc,
 \[
-\forall n \geqslant 3,\, I_{n,k} = - \frac{1}{4 k^2 \pi^2}I_{n-2, k}.
+\forall n \geqslant 3,\quad I_{n,k} = - \frac{1}{4 k^2 \pi^2}I_{n-2, k}.
 \]
 On obtient ainsi le résultat annoncé.
-\item Pour tout $n \geq 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et le prolongement est de classe $\mathscr{C}^1$. En effet,
+\item Pour tout $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et le prolongement est de classe $\mathscr{C}^1$. En effet,
 
 \begin{itemize}
 \item D'après les quotients de fonctions de classe $\mathscr{C}^1$ dont le dénominateur ne s'annule pas, la fonction $\varphi_n$ est de classe $\mathscr{C}^1$ sur $\interoo{0}{1}$.
@@ -172,7 +172,7 @@ De plus, pour tout $t$ non nul, $\displaystyle \varphi'_n(t) = \frac{B'_n(t) \si
 \marginnote[0cm]{Théorème de prolongement des dérivées \todoarmand{Mettre en évidence les théorèmes / prop. utilisés ?}}
 D'après le \textsl{théorème de prolongement des dérivées}, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
 
-Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme, pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
+Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
 \end{itemize}
 \end{enumerate}
 
