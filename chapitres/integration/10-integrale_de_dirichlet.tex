@@ -55,7 +55,7 @@ En notant $u_n$ cette quantité, comme la fonction sinus est positive sur $[0,\p
 \[
 u_n u_{n+1} \leq 0, \quad \abs{u_n} \leq \frac{1}{n\pi} \int_0^\pi \sin(u) \d u \text{ soit } u_n \to 0, \quad \text{et} \quad \abs{u_{n+1}} \leq \abs{u_n}.
 \]
-Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge. Attention, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure.
+\marginnote[-7pt]{\mystartext{\hyperref[thm:seriesAlternees]{Théorème des séries alternées}}}Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge. Attention, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure.
 
 \item On pose $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$.
 \end{enumerate}

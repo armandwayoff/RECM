@@ -41,7 +41,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 \begin{exercice}{Intégrale d'\textsc{Euler}}
 \cite{Oraux - CCP-PSI-2016}
-    Soient $I = \int_0^{\pi/2} \ln(\sin t) \d t$ et $J = \int_0^{\pi/2} \ln(\cos t) \d t$.
+    Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
     \begin{enumerate}
         \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
         \item Calculer $I + J$ et en déduire $I$ et $J$.
@@ -52,18 +52,18 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 \begin{elem_sol}
 \begin{enumerate}
-\item La fonction $t \mapsto \ln(\sin t)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
+\item La fonction $x \mapsto \ln(\sin x)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
 \[
-\ln(\sin t) = \ln\mathopen{}\big(t + o(t)\big) = \ln(t) + \ln\mathopen{}\big(1 + o(1)\big) = o(\ln t).
+\ln(\sin x) = \ln\mathopen{}\big(x + o(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + o(1)\big) = o(\ln x).
 \]
 \todoarmand{Revérifier ce développement}
-Ainsi, la fonction $t \mapsto \ln(\sin t)$ est intégrable en $0$.
+Ainsi, la fonction $x \mapsto \ln(\sin x)$ est intégrable en $0$.
 
 Le changement de variable affine $\fonctionligne[\phi]{u}{\frac{\pi}{2} - u}$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
 
 \item Comme ces intégrales sont bien définies, en utilisant la relation de \textsc{Chasles} et la symétrie dans la dernière égalité,
 \begin{align*}
-I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(t) \cos(t) \big) \d t = \int_0^{\pi/2} \ln(\frac{\sin(2t)}{2}) \d t = \frac{1}{2} \int_0^\pi \ln(\sin t) \d t - \frac{\pi}{2} \ln(2) \\
+I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(x) \cos(x) \big) \d x = \int_0^{\pi/2} \ln(\frac{\sin(2x)}{2}) \d x = \frac{1}{2} \int_0^\pi \ln(\sin x) \d x - \frac{\pi}{2} \ln(2) \\
 &= I - \frac{\pi}{2} \ln(2).
 \end{align*}
 Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.

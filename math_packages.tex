@@ -10,6 +10,36 @@
 % Pour l'index des notations
 \usepackage{longtable}
 
+
+\usepackage{ifthen}
+
+\newcommand{\mystartext}[1]{%
+  \ifthenelse{\isodd{\thepage}}%
+    {#1 $\bigstar$}% If the page number is even
+    {$\bigstar$ #1}% If the page number is odd
+}
+
+%%%%%%%%%%%%%%%%%%
+% Pour créer des annexes par chapitre
+% https://tex.stackexchange.com/questions/120716/appendix-after-each-chapter
+\usepackage{appendix}
+\usepackage{chngcntr}
+
+% Start of subappendices environment
+\AtBeginEnvironment{subappendices}{%
+\newpage
+\addcontentsline{toc}{section}{Annexes}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+}
+
+% End of subappendices environment
+\AtEndEnvironment{subappendices}{%
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+}
+%%%%%%%%%%%%%%%%%%
+
 % Pour la fonction Gamma
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
