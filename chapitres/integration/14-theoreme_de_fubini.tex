@@ -74,7 +74,7 @@ Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur 
 \todoinline{C'est une très belle application des théorèmes de régularité sous le signe intégral. On pourrait le garder comme tel. Mais avoir une application serait certainement intéressant. Je n'en ai pas sous le coude...}
 \todoarmand{Une application possible : le produit de convolution. J'ai pour l'instant simplement repris le théorème de l'un de mes cours de première année.}
 
-\begin{theo}{}
+\begin{theo}
     Soient $u$ et $v$ deux fonctions de $L^1(\R^d)$. \textcolor{red}{Pour presque tout} $x \in \R^d$, on peut définir
     \begin{equation}\label{defconvolution}
     (u \ast v)(x) = \int_{\R^d} u(x-y) v(y) \d y = \int_{\R^d} u(y) v(x-y) \d y.
@@ -84,7 +84,7 @@ Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur 
     \norm{u \ast v}_{L^1} \leqslant \norm{u}_{L^1} \norm{v}_{L^1}.
     \]
 \end{theo}
-\begin{preuve}
+\begin{demo}
     L'existence des intégrales \ref{defconvolution} n'est pas évidente : à $x$ fixé, il s'agit d'intégrer le produit de deux fonctions intégrables. Mais un tel produit n'est pas intégrable en général. Dans ce cas particulier, nous allons le déduire tu théorème de \textsc{Fubini}. On a
     \[
     \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \int_{\R^d} \module{v(y)} \left( \int_{\R^d} \module{u(x - y)} \d x \right) \d y.
@@ -102,6 +102,6 @@ Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur 
     \norm{u \ast v}_{L^1} = \int_{\R^d} \module{\int_{\R^d} u(x-y)v(y) \d y} \d x \leqslant \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y,
     \]
     où l'on vient de voir que la dernière intégrale n'est autre que $\norm{u}_{L^1} \norm{v}_{L^1}$.
-\end{preuve}
+\end{demo}
 
 \todoarmand{On pourrait ensuite proposer quelques exercices sur le calcul du produit de convolution de fonctions classiques. C'est aussi l'occasion de faire de jolies illustrations.}

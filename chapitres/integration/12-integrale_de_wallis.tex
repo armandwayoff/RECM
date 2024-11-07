@@ -4,21 +4,21 @@
 Les intégrales de \textsc{Wallis} ont été introduites par John \textsc{Wallis} (1616--1703), notamment pour développer le nombre $\pi$ en un produit infini de rationnels; le \textsl{produit de \textsc{Wallis}}, énoncé en 1656 dans son ouvrage \emph{Arithmetica infinitorum}. \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Source}.
 }
 
-\begin{defi}{Intégrale de \textsc{Wallis}}
+\begin{defi}[Intégrale de \textsc{Wallis}]
 Pour tout entier naturel $n$, on nomme \definir{intégrale de \textsc{Wallis}} l'intégrale définie par
 \[
 \Wallis_n \defeq \int_{0}^{\frac{\pi}{2}} \sin(x)^n \d x.
 \]
 \end{defi}
-\begin{prop}{}
+\begin{prop}
 De façon équivalente, on peut définir l'intégrale de \textsc{Wallis} par 
 \[
 \Wallis_n = \int_{0}^{\frac{\pi}{2}} \cos(x)^n \d x.
 \]
 \end{prop}
-\begin{elem_preuve}
+\begin{elemdemo}
 Effectuer le changement de variable $t = \frac{\pi}{2} - x$. 
-\end{elem_preuve}
+\end{elemdemo}
 
 %-----------
 \subsection{Calcul de l'intégrale et démonstration de ses propriétés}
@@ -50,7 +50,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le théorème de la limite monotone.
 \item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
@@ -122,7 +122,7 @@ Ainsi, pour tout $n$ entier naturel,
 \Wallis_n \sim \sqrt{\frac{\pi}{2 n}}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Formule de \textsc{Stirling}} \label{preuve_stirling}
@@ -150,7 +150,7 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item En utilisant les développements limités classiques,
 \begin{align*}
@@ -208,7 +208,7 @@ Ainsi,
 n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Séries génératrices}
@@ -249,7 +249,7 @@ On considère la formule dans le cas des termes impairs. Pour tout $p$ entier na
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Comme la fonction cosinus est bornée par $1$,
 \[
@@ -324,7 +324,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \frac{2}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}}.
 \end{align*}
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %---------------
 
@@ -335,7 +335,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis_n$.
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Posons $u_n = (-1)^n \Wallis_n$. D'après les propriétés des intégrales de \textsc{Wallis} démontrées dans l'exercice \ref{exo:propWallis},
 \begin{itemize}
@@ -366,7 +366,7 @@ Ainsi, d'après le théorème de convergence dominée,
 \abs{f_n} = \frac{1 - (-1)^{n+1} \cos^{n+1}(t)}{1 + \cos(t)} \leqslant 2.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 % \begin{exercice}{}
 % Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$.
@@ -439,7 +439,7 @@ I_n = \int_0^\pi \sin(t)^n \d t.
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item En utilisant les symétries de la fonction sinus,
 \begin{align*}
@@ -497,7 +497,7 @@ et
 &= \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
 \end{align*}
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \begin{remarque}
 Interprétons physiquement ces considérations : en physique statistique on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule; lorsque celles-ci sont en très grand nombre l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (liées à la vitesse); reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13); on peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons-là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
@@ -523,12 +523,12 @@ Interprétons physiquement ces considérations : en physique statistique on util
     $$\prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{\pi}{2}.$$
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     Puisque $\Wallis_{2n} \sim \Wallis_{2n+1}$, 
     $$\lim_{n \to +\infty} \frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\pi}{2}.$$
     Or d'après le calcul des intégrales de \textsc{Wallis}:
     $$\frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\frac{2^{2p}(p!)^2}{(2p+1)!}}{\frac{(2p)!}{2^{2p}(p!)^2}} = \prod_{k=1}^n \frac{4k^2}{4k^2-1}.$$
-    \end{preuve}
+\end{demo}
 
 
     %-----------

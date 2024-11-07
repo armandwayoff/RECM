@@ -4,7 +4,6 @@
 \todoarmand{Je n'ai pas de problème de compilation avec le marginnote.}
 
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
-
 \begin{marginfigure}[-2cm]
     \includegraphics[width=0.9\textwidth]{illustrations/integration-02_lebesgue.png}
     \caption{Illustration des aires compensées dans le cadre du lemme de \textsc{Lebesgue} \todoarmand{titre à modifier}}
@@ -45,14 +44,13 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
         Finalement, d'après l'inégalité triangulaire, pour tout $\lambda > \lambda_0$,
         \begin{align*}
         \left|\int_a^b f(t) \sin(\lambda t) \d t\right|
-        &\leqslant         \left|\int_a^b (f(t) - \varphi(t)) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
+        &\leqslant         \left|\int_a^b \big(f(t) - \varphi(t)\big) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
         &\leqslant \norme{f - \varphi}_\infty (b - a) + \varepsilon\\
         &\leqslant \varepsilon (1 + b - a).
         \end{align*}
 Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0$.
         \end{enumerate}
 \end{solution}
-
 
 % \todoinline{
 % La variante proposée ci-dessous me semble difficile.
@@ -79,12 +77,11 @@ On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de
 
 \todoarmand{Il y a bien un lien vers le thème sur les polynômes de Bernoulli}
 
-\begin{theo}{}
+\begin{theo}
 Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
 \end{theo}
 
 L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une démonstration de ce résultat. 
-
 \begin{exercice}
 \begin{enumerate}
     \item Pour $k$ et $n$ entiers strictement positifs \todoarmand{ou bien Pour tout $k,n \in \Ne$}, on définit les intégrales
@@ -101,31 +98,27 @@ L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une
     \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$.
     \item Montrer que pour $N$ entier naturel non nul:
     \[
-    \forall t \in \interoo{0}{1}, \quad 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+    \forall t \in \interoo{0}{1}, \quad 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
     \]
-    \begin{comment}
-    \item Montrer (en utilisant éventuellement une intégration par parties) que pour toute fonction $f$ de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, 
-    \[
-    \lim_{x \to +\infty} \int_0^1 f(t) \sin(x t) \d t = 0.
-    \]
-    \end{comment}
+    % \item Montrer (en utilisant éventuellement une intégration par parties) que pour toute fonction $f$ de classe $\mathscr{C}^1$ sur $\interff{0}{1}$, 
+    % \[
+    % \lim_{x \to +\infty} \int_0^1 f(t) \sin(x t) \d t = 0.
+    % \]
     \item \begin{enumerate}
         \item En utilisant les questions précédentes, trouver, pour $N$ un entier naturel, une expression de l'intégrale
         \[
-        \int_0^1 \varphi_{2m}(t) \sin \big( (2N+1) \pi t \big) \d t
+        \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big( (2N+1) \pi t \big) \d t
         \]
         en fonction de $m$, $N$ et de $B_{2m}(0)$.
         \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $B_{2m}(0)$.
         \end{enumerate}
-    \begin{comment}
-        \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
+    %     \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
     % \end{enumerate}
-    \item Montrer, pour tout $m$ entier naturel non nul, la majoration:
-    \[
-    \sum_{k=1}^\infty \frac{1}{k^{2m}} \leqslant 2
-    \]
-    et en déduire la majoration $\module{B_{2m}(0)} \leqslant \frac{4}{(4 \pi^2)^m}$.
-    \end{comment}
+    % \item Montrer, pour tout $m$ entier naturel non nul, la majoration:
+    % \[
+    % \sum_{k=1}^\infty \frac{1}{k^{2m}} \leqslant 2
+    % \]
+    % et en déduire la majoration $\module{B_{2m}(0)} \leqslant \frac{4}{(4 \pi^2)^m}$.
 \end{enumerate}
 \end{exercice}
 
@@ -136,7 +129,7 @@ B_n(1 - x) &= (-1)^n B_n(x),\\
 B_n'(x) &= n B_{n-1}(x).
 \end{align*}
 
-\begin{elem_sol}
+\begin{elemsolution}
 \begin{enumerate}
 \item Pour tout entier $p > 0$,
 \[
@@ -169,7 +162,7 @@ Ainsi, $\lim\limits_{t \to 0} \varphi_n(t) = \frac{B'_n(0)}{\pi}$ et $\varphi_n$
 % De plus, $\lim\limits_{t \to 0} \frac{\varphi_n(t) - \frac{B'_n(0)}{\pi}}{t} = \frac{B''_n(0)}{2 \pi}$.
 %
 De plus, pour tout $t$ non nul, $\displaystyle \varphi'_n(t) = \frac{B'_n(t) \sin(\pi t) - \big(B_n(t) - B_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}$. Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, on obtient $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} B''_n(0)$.
-\marginnote[-7pt]{\mystartext{\hyperref[thm:prolongementDesDerivees]{Théorème de prolongement des dérivées}} \todoarmand{Mettre en évidence les théorèmes / prop. utilisés ?}}D'après le théorème de prolongement des dérivées, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
+\marginnote[-7pt]{\theoremeutilise{\hyperref[thm:prolongementDesDerivees]{Théorème de prolongement des dérivées}} \todoarmand{Mettre en évidence les théorèmes / prop. utilisés ?}}D'après le théorème de prolongement des dérivées, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
 
 Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
 \end{itemize}
@@ -177,49 +170,48 @@ Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour
 
 Pour tout $N$ entier naturel non nul et $t \in \interoo{0}{1}$, on pose :
 \[
-D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
 \]
 
 \begin{enumerate}[resume]
 \item Cette quantité, appelée \textsl{noyau de \textsc{Dirichlet}}\marginnote{\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \textsc{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}}, s'exprime simplement à l'aide de la fonction sinus :
 \[
-D_n(t) = \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+D_n(t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
 \]
 En effet, pour tout $t \in \interoo{0}{1}$, $\e^{2 \i k \pi t} \not= 1$. Ainsi, d'après la somme des termes d'une suite géométrique, 
     \begin{align*}
         \sum_{k=0}^N \e^{2 \i k \pi t} &= \frac{\e^{2 \i (N+1) \pi} - 1}{\e^{2 \i \pi} - 1} \\
         &= \e^{\i N \pi} \frac{\sin(N+1) \pi t}{\sin(\pi t)}. \\
         \intertext{En prenant les parties réelles,}
-        \sum_{k=0}^N \cos(2 k \pi t) &= \cos(N \pi t) \frac{\sin \big((N+1) \pi t \big)}{\sin(\pi t)} \\
-        1 + 2 \sum_{k=1}^N \cos(2 k \pi t) &= 2 \frac{\cos(N \pi t) \sin \big((N+1) \pi t\big)}{\sin(\pi t)} - 1 \\
-        &= \frac{\sin\big((2N+1) \pi t \big) + \sin( \pi t)}{\sin(\pi t)} - 1 \\
-        &= \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)}.
+        \sum_{k=0}^N \cos(2 k \pi t) &= \cos(N \pi t) \frac{\sin\mathopen{}\big((N+1) \pi t \big)}{\sin(\pi t)} \\
+        1 + 2 \sum_{k=1}^N \cos(2 k \pi t) &= 2 \frac{\cos(N \pi t) \sin\mathopen{}\big((N+1) \pi t\big)}{\sin(\pi t)} - 1 \\
+        &= \frac{\sin\mathopen{}\big((2N+1) \pi t \big) + \sin( \pi t)}{\sin(\pi t)} - 1 \\
+        &= \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
     \end{align*}
 
 \item 
 \begin{enumerate}
     \item Ainsi,
 \[
-\int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t
+\int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t
 = - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
 \]
 
 En effet, d'après la définition de $\varphi_{2m}$,
 \begin{align*}
-\int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t &= \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \frac{\sin\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
+\int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t &= \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
 &= \int_0^1 \big( B_{2m}(t) - B_{2m}(0) \big) \d t + \cdots \\
 &\quad \cdots + 2 \sum_{k=1}^N \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \cos(2 k \pi t) \d t \\
 &= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
 \end{align*}
 \item D'après le lemme de \textsc{Lebesgue},
 \[
-\lim_{N\to+\infty} \int_0^1 \varphi_{2m}(t) \sin \big((2N+1) \pi t \big) \d t = 0
+\lim_{N\to+\infty} \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t = 0
 \]
 et on obtient bien le résultat annoncé.
 \end{enumerate}
 \end{enumerate}
-\end{elem_sol}
-
+\end{elemsolution}
 
 \begin{remarque}
 En utilisant les valeurs remarquables des premiers polynômes de \textsc{Bernoulli}, on obtient

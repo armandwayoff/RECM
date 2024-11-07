@@ -25,12 +25,12 @@ ce qui reste vrai pour $x = 0$. La fonction $g$ est donc développable en série
 \subsection{Fonction Gamma d'\textsc{Euler}}\label{prolongementFonctionGamma}
 
 On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secinteuleriennes}).
-\begin{defi}{Fonction Gamma d'\textsc{Euler}}
+\begin{defi}[Fonction Gamma d'\textsc{Euler}]
     La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
 \end{defi}
 
-\begin{prop}{}
+\begin{prop}
     \begin{itemize}
         \item La fonction $\Gamma$ est définie si et seulement si $x>0$.
         \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$. \\
@@ -38,7 +38,7 @@ On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secin
     \end{itemize}
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     \begin{itemize}
         \item La fonction $f_x:t \mapsto t^{x-1} \e^{-t}$ est continue sur $]0, + \infty[$ comme produit de fonctions qui y sont continues. La fonction $f_x$ est donc intégrable sur tout segment de $]0, +\infty[$. Il reste à étudier son intégrabilité en $0$ et en $+ \infty$:
         \begin{itemize}
@@ -58,7 +58,7 @@ On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secin
         En particulier, $\Gamma(1) = 1$ et pour tout $n \in \Ne, \Gamma(n+1) = n \Gamma(n)$. Donc
         $$\forall n \in \Ne, \Gamma(n+1) = n!$$
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 
 \subsection{Fonction zêta de Riemann}\label{subsec:fonctionZeta}

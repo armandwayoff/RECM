@@ -6,7 +6,7 @@
     \caption{Intégrale de \textsc{Gauss}}
 \end{marginfigure}
 
-\begin{theo}{}
+\begin{theo}
 On montre que
 \[
 \int_0^{+\infty} \e^{-x^2} \d x = \lim_{n\to+\infty} \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x.
@@ -96,7 +96,7 @@ En déduire la valeur de $I$.
         % \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de \textsc{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
@@ -104,7 +104,7 @@ En déduire la valeur de $I$.
 \begin{enumerate}
 \item Pour tout $x \geqslant n$, $h_n(x) = \e^{-x} \leqslant \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $\interff{0}{n}$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
 
-\item En utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{n}$,
+\item \marginnote[-7pt]{\theoremeutilise{Inégalité de convexité du logarithme}}En utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{n}$,
 \[
 g_n(x)
 = \exp\mathopen{}\left(n \ln\mathopen{}\left(1 - \frac{x}{n}\right)\right)
@@ -215,7 +215,7 @@ D'après le théorème de convergence dominée,
 \end{align*}
 Finalement, $I = \frac{\sqrt{\pi}}{2}$.
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 % \todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
 \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
@@ -244,7 +244,7 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2}
 
 \todoinline{Je prends $\sigma = \frac{1}{\sqrt{2}}$ pour plus coller à la section précédente et simplifier les notations. On peut bien sûr revenir à un $\sigma$ qcq si tu préfères. J'ai rédigé la dérivation sous le signe intégral}
 
-\begin{theo}{} Pour tout $n$ entier naturel,
+\begin{theo} Pour tout $n$ entier naturel,
     \[
     \int_\R x^{2n} \e^{-x^2} \d x
     = \frac{\sqrt{\pi}}{2^n} \prod_{k=1}^n (2k - 1)
@@ -263,7 +263,7 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2}
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Le changement de variable affine $u = \sqrt{\beta}\, x$ dans l'intégrale permet d'obtenir l'intégrale de \textsc{Gauss}. Ainsi,
 \[
@@ -309,7 +309,7 @@ Finalement, on obtient l'égalité :
 
 Évaluer en $\beta = 1$ permet d'obtenir le résultat annoncé.
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 
 % \begin{prop}{}
@@ -403,7 +403,7 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 
 \todoarmand{On pourrait traiter le cas un peu plus général de la TF de $x \mapsto \e^{-a x^2}$ et ajouter une illustration}
 
-\begin{theo}{}
+\begin{theo}
 Pour tout $x$ réel,
 \[
 \int_{-\infty}^{+\infty} \e^{\i t x} \e^{-t^2} \d t
@@ -425,7 +425,7 @@ On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve} On pose $\fonctionligne[g]{(x, t)}{\e^{-t^2 + \i t x}}$.
+\begin{demo} On pose $\fonctionligne[g]{(x, t)}{\e^{-t^2 + \i t x}}$.
 \begin{enumerate}
 \item Pour tout $(x, t) \in \R^2$,  $\abs{g(x, t)} \leqslant \e^{-t^2}$. Ainsi, la fonction $g(x, \,\cdot\,)$ est intégrable pour tout $x$ réel.
 
@@ -457,7 +457,7 @@ D'après le calcul de l'intégrale de \textsc{Gauss}, $f(0) = \sqrt{\pi}$. Ainsi
 f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \begin{figure}
     \centering
@@ -506,7 +506,7 @@ Soit $f : x \mapsto \e^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
 
@@ -525,7 +525,7 @@ Ainsi,
 \item Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
 \end{itemize}
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -558,7 +558,7 @@ Pour tout réel positif $t$ non nul, on pose $S(t) = \sum_{n=1}^{+\infty} h(n t)
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item D'après la définition, $f(0) = \int_0^1 \frac{1}{1 + t^2} \d t = \arctan(1) = \frac{\pi}{4}$.
 
@@ -617,4 +617,4 @@ Ainsi, d'après la question précédente,
 \sum_{n=1}^{+\infty} x^{n^2} \sim_1 \frac{\sqrt{\pi}}{2 \sqrt{\abs{\ln(x)}}}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}

@@ -63,7 +63,7 @@
 
 \newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
 
-
+\usepackage{comment}
 \usepackage{amsmath} % for \dfrac
 \usepackage{tikz}
 \tikzset{>=latex} % for LaTeX arrow head
@@ -244,6 +244,7 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 % TODO : choisir des preuves ? généraliser selon le commentaire ?
 \input{chapitres/integration/10-integrale_de_dirichlet}
 
+
 % TODO Alain : relire la suite
 \input{chapitres/integration/12-integrale_de_wallis}
 
@@ -268,29 +269,11 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \input{chapitres/integration/20-fonction_zeta}
 
 \input{chapitres/integration/21-inegalites_integrales}
-
+% \begin{comment}
 \input{chapitres/integration/22-sommes_de_riemann}
+% \end{comment}
 
-
-\begin{subappendices}
-\section{Annexes}
-\subsection{Théorèmes}
-\begin{theo}{Prolongement des dérivées}\label{thm:prolongementDesDerivees}
-
-\end{theo}
-\subsection{Rappels}
-\end{subappendices}
-
-\begin{comment}
-\begin{subappendices}
-\subsection{Théorèmes utilisés}
-% \section{Some title for an appendix}
-\begin{theo}{}
-    fffffffffffffffffffffffff
-\end{theo}
-\subsection{Rappel de cours}
-\end{subappendices}
-\end{comment}
+\input{chapitres/integration/annexes}
 
 % \printbibliography[heading=subbibintoc]
 
@@ -365,7 +348,7 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
 \centering
 \begin{longtable}{cl}
 \multicolumn{1}{c}{\textbf{Notation}} & \multicolumn{1}{c}{\textbf{Définition}} \\
-$\norm{\,\cdot\,}_\infty$ & $\norm{f}_\infty = \sup_{x \in I} \module{f(x)}$               
+$\norm{\,\cdot\,}_\infty$ & $\norm{f}_\infty = \sup_{x \in I} \module{f(x)}$         
 \end{longtable}
 \end{table}
 

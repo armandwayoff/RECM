@@ -8,9 +8,13 @@ Un thème assez développé sur la transformée de Laplace : \url{https://cahier
 
 La transformation de \textsc{Laplace} généralise la transformation de \textsc{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
 
-Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi; il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
+Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
 
-\begin{defi}{Transformée de \textsc{Laplace}}
+\begin{defi}[Fonction causale]
+    
+\end{defi}
+
+\begin{defi}[Transformée de \textsc{Laplace}]
     Pour tout fonction $f \in \mathscr{C}(\Rp, \R)$, on note, lorsqu'elle converge, 
     $$\mathscr{L}(f)(p) \defeq \int_{0}^{+ \infty} \e^{-pt} f(t) \d t.$$
     La fonction $\mathscr{L}(f)$ est la \emph{transformée de \textsc{Laplace} de f}.
@@ -30,12 +34,12 @@ Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interp
 
 \begin{marginfigure}[0cm]
     \centering
-    \input{illustrations/transformee_de_laplace.pgf}
+    % \input{illustrations/transformee_de_laplace.pgf}
     \caption{Une fonction échelon et sa transformée de \textsc{Laplace}}
 \end{marginfigure}
 
 \begin{exercice}
-Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~{Laplace} en précisant son domaine de définition :
+Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~\textsc{Laplace} en précisant le domaine de définition :
 \begin{enumerate}
 \item $t \mapsto 1$.
 \item $t \mapsto \e^{\lambda t}$.
@@ -43,9 +47,9 @@ Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, dé
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
-\item $t \mapsto \e^{-pt}$ est intégrable sur $\R_+$ si et seulement si $p > 0$. Alors,
+\item La fonction $t \mapsto \e^{-pt}$ est intégrable sur $\Rp$ si et seulement si $p > 0$. Ainsi, la transformée 
 \[
 \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}.
 \]
@@ -69,13 +73,13 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \mathscr{L}(f)(p) = \frac{n!}{p^{n+1}}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \begin{remarque}
 À un changement de variable près, on reconnaît, pour la dernière transformée de Laplace, la fonction $\Gamma$ d'Euler.
 \end{remarque}
 
-\begin{theo}{}
+\begin{theo}
 \begin{enumerate}
 \item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
 
@@ -85,7 +89,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \end{enumerate}
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $g : (p, t) \mapsto f(t) \e^{-pt}$.
 \begin{itemize}
@@ -132,14 +136,14 @@ De plus, $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\R_+^*$ par hyp
 \end{itemize}
 D'après le théorème de continuité sous le signe intégral, $\mathscr{L}(f)$ est continue sur $]p_0, +\infty[$.
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 
 
 %-----------
 \subsection{Théorème de la valeur finale}
 
-\begin{theo}{Théorème de la valeur finale}
+\begin{theo}[Théorème de la valeur finale]
 On suppose qu'il existe un réel $\ell$ non nul tel que $\lim_{+\infty} f(x) = \ell$. Alors,
 \[
 \lim_{p\to 0} p \mathscr{L}(f)(p) = \ell.
@@ -159,7 +163,7 @@ On se place sous les hypothèses du théorème.
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après le théorème précédent, $\mathscr{L}(f)$ est bien définie sur $\R_+^*$.
 
@@ -186,12 +190,12 @@ Ainsi, d'après le théorème de convergence dominée,
 \lim_{p\to 0} p \mathscr{L}(f)(p) = \ell \text{ soit } \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Théorème de la valeur initiale}
 
-\begin{theo}{Théorème de la valeur initiale}
+\begin{theo}[Théorème de la valeur initiale]
 On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. On suppose de plus qu'il existe un réel $\ell$ tel que $\lim_{t\to0^+} f(t) = \ell$. Alors,
 \[
 \lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
@@ -222,7 +226,7 @@ p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item  Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
 
@@ -267,7 +271,7 @@ Ainsi, d'après la définition de la limite,
 \lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \subsection{Transformée de \textsc{Laplace} et produit de convolution} 
 

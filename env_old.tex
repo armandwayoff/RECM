@@ -1,0 +1,192 @@
+\usepackage[most]{tcolorbox}
+
+\def\rad{4}
+\def\epaisseur{0.5}
+\def\margeinter{5}
+
+% RedOrange
+\newtcolorbox[auto counter,number within=section]{defi}[2][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{black}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Mahogany,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=Mahogany!5!white,
+  coltitle={Mahogany},  % Black colour for title
+  title={\textsc{Définition} \thetcbcounter\ --\ #2.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{theo}[2][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{RoyalBlue}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Periwinkle,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle=\bfseries,
+  % fontupper=\slshape,
+  colback=Periwinkle!5!white,
+  coltitle={Periwinkle},  % Black colour for title
+  title={\textsc{Théorème} \thetcbcounter\ --\ #2.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{methode}[1][]{%  
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{darkgray}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=darkgray,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=darkgray!5!white,
+  coltitle={darkgray},  % Black colour for title
+  title={\textsc{Méthode} \thetcbcounter\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{lemme}[1][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{RoyalBlue}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Periwinkle,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=Periwinkle!5!white,
+  coltitle={Periwinkle},  % Black colour for title
+  title={\textsc{Lemme} \thetcbcounter\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+
+\newtcolorbox[auto counter,number within=section]{corol}[1][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{RoyalBlue}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Periwinkle,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=Periwinkle!5!white,
+  coltitle={Periwinkle},  % Black colour for title
+  title={\textsc{Corollaire} \thetcbcounter\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{prop}[2][]{%  
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{RoyalBlue}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Periwinkle,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=Periwinkle!5!white,
+  coltitle={Periwinkle},  % Black colour for title
+  title={\textsc{Proposition} \thetcbcounter\ --\ #2.\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{remarque}[1][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{ForestGreen}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=JungleGreen,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=JungleGreen!5!white,
+  coltitle={JungleGreen},  % Black colour for title
+  title={\textsc{Remarque} \thetcbcounter\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}
+
+\newtcolorbox[auto counter,number within=section]{exercice}[1][]{%
+  breakable,
+  boxsep=\margeinter pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  enhanced jigsaw, % better frame drawing
+  % borderline west={1pt}{5pt}{ForestGreen}, % straight vertical line at the left edge
+  % sharp corners, % No rounded corners
+  colframe=Mulberry,
+  arc=\rad pt,
+  boxrule=0pt, % no real frame,
+  leftrule=\epaisseur mm,
+  rightrule=\epaisseur mm,
+  fonttitle={\bfseries},
+  colback=Mulberry!5!white,
+  coltitle={Mulberry},  % Black colour for title
+  title={\textsc{Exercice} \thetcbcounter\ },  % Fixed title
+  attach title to upper, % Move the title into the box
+  #1
+}

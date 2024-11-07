@@ -20,14 +20,14 @@ On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation di
 
 \todoinline{Je commente ci-dessous ce que je pense des différentes parties}
 
-\begin{defi}{Sinus cardinal}
+\begin{defi}[Sinus cardinal]
     On nomme \definir{sinus cardinal} la fonction définie par
     \[
     \fonction[\mathrm{sinc}]{\Re}{\R}{x}{\frac{\sin(x)}{x}}.
     \]
 \end{defi}
 
-\begin{prop}{}
+\begin{prop}
     L'intégrale de \textsc{Dirichlet} (1829) est l'intégrale de la fonction sinus cardinal sur la demi-droite des réels positifs \todoarmand{changer la formulation}
     \[
     \int_{0}^{+\infty} \frac{\sin x}{x} \d x.
@@ -39,7 +39,7 @@ On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation di
 \end{marginfigure}
 Nous proposons deux démonstrations de l'existence de l'intégrale de \textsc{Dirichlet}, une première utilisant le théorème des séries alternées et une deuxième utilisant l'intégration par parties. \\
 Nous démontrons en fait l'existence de l'intégrale $\int_1^{+\infty} \frac{\sin x}{x} \d x$, ce qui entraîne immédiatement l'existence de l'intégrale de \textsc{Dirichlet}.
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item La fonction $t \mapsto \frac{\sin t}{t}$ est continue sur $\interof{0}{1}$. Comme elle est prolongeable par la valeur $1$ en $0$, elle est intégrable sur $\interof{0}{1}$.
 \item Soit $n \geqslant 1$, par un changement de variable affine,
@@ -55,15 +55,15 @@ En notant $u_n$ cette quantité, comme la fonction sinus est positive sur $[0,\p
 \[
 u_n u_{n+1} \leq 0, \quad \abs{u_n} \leq \frac{1}{n\pi} \int_0^\pi \sin(u) \d u \text{ soit } u_n \to 0, \quad \text{et} \quad \abs{u_{n+1}} \leq \abs{u_n}.
 \]
-\marginnote[-7pt]{\mystartext{\hyperref[thm:seriesAlternees]{Théorème des séries alternées}}}Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge. Attention, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure.
+\marginnote[-7pt]{\theoremeutilise{\hyperref[thm:seriesAlternees]{Théorème des séries alternées}}}Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge. Attention, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure.
 
 \item On pose $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$.
 \end{enumerate}
-\end{preuve}
-\begin{preuve}\label{demo2existenceIntegraleDirichlet}
+\end{demo}
+\begin{demo}\label{demo2existenceIntegraleDirichlet}
 Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos(t)}{t^2} \d t$ sont de même nature. \\
 D'une part, la fonction $t \mapsto \frac{\cos(t)}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos(t)}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos(t)}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos(t)}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
-\end{preuve}
+\end{demo}
 
 
 
@@ -73,7 +73,7 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 
 \todoarmand{Sous section "Régularité du sinus cardinal sur $\R$" déplacée dans la section "Prolongement de fonctions" mais toujours à voir si on la garde}
 
-\begin{prop}{}
+\begin{prop}
     \[
     \int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\pi}{2}.
     \]
@@ -82,11 +82,11 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 %-----------
 \subsection{Non intégrabilité}
 
-\begin{prop}{}
-    La fonction sinus cardinal $\mathrm{sinc}:t \mapsto \frac{\sin(t)}{t}$ n'est pas intégrable sur $]0, +\infty[$.
+\begin{prop}
+    La fonction sinus cardinal $\fonctionligne[\mathrm{sinc}]{t}{\frac{\sin(t)}{t}}$ n'est pas intégrable sur $\interoo{0}{+\infty}$.
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     \marginnote[0cm]{Source : \href{https://www.agreg-maths.fr/uploads/versions/1175/dirichlet.pdf}{Intégrale de \textsc{Dirichlet} -- Florian \textsc{Dussap}}}
     Soit $N \in \Ne$, alors:
     \begin{align*}
@@ -95,11 +95,11 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
         &\geqslant \sum_{k=0}^{N-1} \frac{1}{(k+1) \pi} \int_0^\pi \sin x \d x \\
         &\geqslant \frac{2}{\pi} \sum_{k=1}^N \frac{1}{k} \xrightarrow[N \to + \infty]{} + \infty.
     \end{align*}
-\end{preuve}
+\end{demo}
 
 %-----------        
 \subsection{Calcul via le lemme de Lebesgue}
-\marginnote[0cm]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \textsc{Lebesgue}}}
+\marginnote[7pt]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \textsc{Lebesgue}}}
 \begin{exercice}
 \begin{enumerate}
     \item Calculer $I_n = \displaystyle \int_0^\pi \frac{\sin\mathopen{}\big[(n + 1/2)t\big]}{2 \sin \frac{t}{2}} \d t$. \\
@@ -111,7 +111,7 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item En utilisant les formules de trigonométrie,
 \begin{align*}
@@ -157,7 +157,7 @@ Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de \textsc{Lebesgue},
 
 Finalement, $I = \frac{\pi}{2}$.
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Calcul via une intégrale à paramètre}
@@ -210,7 +210,7 @@ On note $I = \int_0^{+\infty} \frac{\sin(t)}{t} \d t$ et $F(x) = \int_0^{+\infty
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \marginnote[0cm]{Reformulation de la démonstration \ref{demo2existenceIntegraleDirichlet}}
 \begin{enumerate}
 \item Les fonctions $\fonctionligne[u]{t}{1 - \cos(t)}$ et $\fonctionligne[v]{t}{\frac{1}{t}}$ sont de classe $\mathscr{C}^1$ sur $\Rpe$. De plus, le produit $u v$ a des limites nulles en $0$ et $+\infty$. Ainsi, d'après la formule d'intégration par parties, l'intégrale $I$ a même nature que
@@ -272,14 +272,14 @@ Ainsi, $\lim_{x\to+\infty} F(x) = I$ et
 I = \frac{\pi}{2}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Une preuve par équations différentielles}
 
 \begin{exercice}
     Exercice 170 p. 184 \\
-    Soient $f(x) = \int_0^\infty \frac{\sin(t)}{t+x} \d t$, $g(x) = \int_0^\infty \frac{\e^{-xt}}{t^2 + 1} \d t$. 
+    Soient $f(x) = \int_0^\infty \frac{\sin(t)}{t+x} \d t$ et $g(x) = \int_0^\infty \frac{\e^{-xt}}{t^2 + 1} \d t$. 
     \begin{enumerate}
         \item Montrer que $f, g \in \mathscr{C}^2(\Re)$. \\
         \textit{Pour $f$, on pourra commencer par montrer que $f(x) = \int_0^\infty \frac{1 - \cos(t)}{(t+x)^2} \d t$.}
@@ -292,16 +292,15 @@ I = \frac{\pi}{2}.
     \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
-\item On pose $g : (x, t) \mapsto \frac{\e^{-x y}}{t^2 + 1}$. Alors, pour tout $(x, t) \in [a, +\infty[ \times \R_+$,
+\item On pose $\fonctionligne[g]{(x, t)}{\frac{\e^{-x y}}{t^2 + 1}}$. Alors, pour tout $(x, t) \in \interfo{a}{+\infty} \times \Rp$,
 \begin{align*}
-\abs{g(x, t)} &\leq \frac{1}{1 + t^2},\\
-\abs{\frac{\partial g}{\partial x}(x, t)} &\leq \frac{t \e^{-a t}}{1 + t^2},\\
-\abs{\frac{\partial^2 g}{\partial x^2}(x, t)} &\leq \frac{t^2 \e^{-a t}}{1 + t^2}.
+\abs{g(x, t)} &\leqslant \frac{1}{1 + t^2},\\
+\abs{\frac{\partial g}{\partial x}(x, t)} &\leqslant \frac{t \e^{-a t}}{1 + t^2},\\
+\abs{\frac{\partial^2 g}{\partial x^2}(x, t)} &\leqslant \frac{t^2 \e^{-a t}}{1 + t^2}.
 \end{align*}
-
-Ainsi, d'après le théorème de dérivation sous le signe intégral, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\R_+^*$ et
+\marginnote[-7pt]{\theoremeutilise{Théorème de dérivation sous le signe intégral}}Ainsi, d'après le théorème de dérivation sous le signe intégral, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\Rpe$ et
 \begin{align*}
 g''(x)
 &= \int_0^{+\infty} \frac{t^2 \e^{-x t}}{1 + t^2} \d t\\
@@ -316,18 +315,18 @@ f(x)
 &= \left[\frac{1 - \cos(t)}{t + x}\right]_0^{+\infty} + \int_0^{+\infty} \frac{1 - \cos(t)}{(t + x)^2} \d t\\
 &= \int_0^{+\infty} \frac{1 - \cos(t)}{(t + x)^2} \d t.
 \end{align*}
-En posant $h(x, y) = \frac{1 - \cos(t)}{(t + x)^2}$, pour tout $(x, t) \in [a, +\infty[ \times \R_+$,
+En posant $h(x, y) = \frac{1 - \cos(t)}{(t + x)^2}$ pour tout $(x, t) \in \interfo{a}{+\infty} \times \Rp$,
 \begin{align*}
-\abs{h(x, t)} &\leq \frac{1}{(t + a)^2}\\
-\abs{\frac{\partial h}{\partial x}(x, t)} &\leq \frac{2}{(t + a)^3}\\
-\abs{\frac{\partial^2 h}{\partial x^2}(x, t)} &\leq \frac{6}{(t + a)^3}.
+\abs{h(x, t)} &\leqslant \frac{1}{(t + a)^2}\\
+\abs{\frac{\partial h}{\partial x}(x, t)} &\leqslant \frac{2}{(t + a)^3}\\
+\abs{\frac{\partial^2 h}{\partial x^2}(x, t)} &\leqslant \frac{6}{(t + a)^3}.
 \end{align*}
 Ainsi, la fonction $f$ est de classe $\mathscr{C}^2$ sur $\R_+^*$ et, à l'aide d'intégrations par parties,
 \begin{align*}
 f''(x)
-&= \int_0^{+\infty} \frac{6 (1 - \cos(t))}{(t + x)^4} \d t\\
-&= \int_0^{+\infty} \frac{2 \sin(t)}{(t + x)^3} \d t\\
-&= \int_0^{+\infty} \frac{\cos(t)}{(t + x)^2} \d t\\
+&= \int_0^{+\infty} \frac{6 (1 - \cos t)}{(t + x)^4} \d t\\
+&= \int_0^{+\infty} \frac{2 \sin t}{(t + x)^3} \d t\\
+&= \int_0^{+\infty} \frac{\cos t}{(t + x)^2} \d t\\
 &= \int_0^{+\infty} \frac{\d t}{(t + x)^2} - \int_0^{+\infty} \frac{1 - \cos t}{(t + x)^2} \d t\\
 &= \frac{1}{x} - f(x).
 \end{align*}
@@ -337,25 +336,25 @@ f''(x)
 \item En utilisant l'expression précédente,
 \begin{align*}
 f(x)
-&= \frac{1}{x} - \int_0^{+\infty} \frac{2 \sin(t)}{(t + x)^3} \d t.
+&= \frac{1}{x} - \int_0^{+\infty} \frac{2 \sin t}{(t + x)^3} \d t.
 \end{align*}
-Or, $\abs{\int_0^{+\infty} \frac{2 \sin(t)}{(t + x)^3} \d t} \leq \frac{2}{x^2}$. Ainsi, $f(x) \sim_{+\infty} \frac{1}{x}$.
+Or, $\abs{\int_0^{+\infty} \frac{2 \sin t}{(t + x)^3} \d t} \leqslant \frac{2}{x^2}$. Ainsi, $f(x) \sim_{+\infty} \frac{1}{x}$.
 
 De même, en $+\infty$,
 \begin{align*}
 \abs{g(x)}
-&\leq \int_0^{+\infty} \e^{- x t} \d t
-\leq \frac{1}{x}.
+&\leqslant \int_0^{+\infty} \e^{- x t} \d t
+\leqslant \frac{1}{x}.
 \end{align*}
 
 D'après les points précédents, $\lim_{x\to+\infty} (f - g) = 0$. Comme $f - g$ est périodique, alors $f - g$ est la fonction nulle.
 
 Ainsi,
 \[
-\forall\, x > 0,\, \int_0^{+\infty} \frac{\sin(t)}{t + x} \d t = \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t.
+\forall\, x > 0,\quad \int_0^{+\infty} \frac{\sin t}{t + x} \d t = \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t.
 \]
 
-\item Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leq \frac{1}{1 + t^2}$, d'après le théorème de convergence dominée,
+\item \marginnote[-7pt]{\theoremeutilise{Théorème de convergence dominée}}Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leqslant \frac{1}{1 + t^2}$, d'après le théorème de convergence dominée,
 \[
 \lim_{x\to 0} \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t
 = \int_0^{+\infty} \frac{\d t}{1 + t^2}
@@ -364,11 +363,11 @@ Ainsi,
 
 De plus,
 \begin{align*}
-\abs{\int_0^{+\infty} \frac{\sin(t)}{t + x} \d t - \int_0^{+\infty} \frac{\sin(t)}{t} \d t}
-\leq \int_0^1 \frac{x \abs{\sin(t)}}{t (t + x)} \d t + \int_1^{+\infty} \frac{x \abs{\sin t}}{t (t + x)} \d t.
+\abs{\int_0^{+\infty} \frac{\sin t}{t + x} \d t - \int_0^{+\infty} \frac{\sin t}{t} \d t}
+\leqslant \int_0^1 \frac{x \abs{\sin t}}{t (t + x)} \d t + \int_1^{+\infty} \frac{x \abs{\sin t}}{t (t + x)} \d t.
 \end{align*}
 
-Le premier terme tend vers $0$ par convergence dominée, avec la domination $t \mapsto \frac{\abs{\sin t}}{t}$ qui est bien intégrable sur $[0, 1]$.
+Le premier terme tend vers $0$ par convergence dominée, avec la domination $t \mapsto \frac{\abs{\sin t}}{t}$ qui est bien intégrable sur $\interff{0}{1}$.
 
 Le second terme tend vers $0$ par domination par $x \int_1^{+\infty} \frac{\d t}{t^2}$.
 
@@ -379,7 +378,7 @@ Finalement, on obtient
 = \frac{\pi}{2}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 
 %-----------

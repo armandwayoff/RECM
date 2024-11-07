@@ -11,7 +11,7 @@ On pose $I = \int_0^{\pi/4} \ln(1+\tan x) \d x$.
 \end{enumerate}
 \end{exercice}
 
-\begin{elem_sol}
+\begin{elemsolution}
 L'intégrande est bien une fonction continue sur le segment $\interff{0}{\pi/4}$ donc l'intégrale est bien définie.
 \begin{enumerate}
 \item En utilisant les formules d'addition,
@@ -31,7 +31,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 &= \frac{\pi}{8} \ln 2.
 \end{align*}
 \end{enumerate}
-\end{elem_sol}
+\end{elemsolution}
 
 \begin{marginfigure}[0cm]
     \input{illustrations/i_integrale_trigonometrique}
@@ -39,8 +39,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 % \todoinline{L'intégrale suivante semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
-\begin{exercice}{Intégrale d'\textsc{Euler}}
-\cite{Oraux - CCP-PSI-2016}
+\begin{exercice}[Intégrale d'\textsc{Euler}, {\cite{Oraux - CCP-PSI-2016}}]
     Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
     \begin{enumerate}
         \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
@@ -50,7 +49,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 % \todoinline{En mettre un peu plus sur la démo ? J'ai la version suivante à relire et changer les dt (CCP-PSI-2016) :}
 
-\begin{elem_sol}
+\begin{elemsolution}
 \begin{enumerate}
 \item La fonction $x \mapsto \ln(\sin x)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
 \[
@@ -68,7 +67,7 @@ I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(x) \cos(x) \big) \d x = \int_0^
 \end{align*}
 Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
 \end{enumerate}
-\end{elem_sol}
+\end{elemsolution}
 
 \begin{exercice}
 On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
@@ -79,7 +78,7 @@ On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
 \end{enumerate}
 \end{exercice}
 
-\begin{elem_sol}
+\begin{elemsolution}
 \begin{enumerate}
 \item La fonction $f \colon x \mapsto \frac{x \ln(x)}{(1 + x^2)^2}$ est continue sur $\interoo{0}{+\infty}$.
 
@@ -103,4 +102,4 @@ Dans la seconde intégrale, on effectue le changement de variable $\fonction[\ph
 &= 0.
 \end{align*}
 \end{enumerate}
-\end{elem_sol}
+\end{elemsolution}

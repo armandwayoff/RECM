@@ -15,7 +15,7 @@
     \caption{ébauche}
 \end{marginfigure}
 
-\begin{elem_sol}
+\begin{elemsolution}
 \begin{itemize}
 \item Comme $f$ est décroissante, d'après le théorème de la limite monotone, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
 
@@ -73,7 +73,7 @@ F(2 x) - F(x) \leqslant x f(x) \leqslant 2 (F(x) - F(x/2)).
 
 Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 \end{itemize}
-\end{elem_sol}
+\end{elemsolution}
 
 \todoarmand{Mettre un lien vers \url{http://ddmaths.free.fr/section115.html} ou pas car c'est très classique}
 
@@ -93,7 +93,7 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
     \caption{Exemple d'une fonction continue, décroissante et intégrable sur $\interof{0}{1}$.}
 \end{marginfigure}
 
-\begin{elem_sol}
+\begin{elemsolution}
 On note $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right)$.
 \begin{itemize}
 \item Soit $n \geqslant 1$. En utilisant la décroissance de la fonction $f$, pour tout $k \leqslant t \leqslant k + 1 \leqslant n-1$,
@@ -125,7 +125,7 @@ Ainsi, d'après le théorème d'encadrement,
 \[
 \lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \d t.
 \]
-\end{elem_sol}
+\end{elemsolution}
 
 \begin{remarque}
 Une étude plus détaillée de ce résultats et de ses limites est discutée dans \cite{truc2019} p. 268.
@@ -133,8 +133,7 @@ Une étude plus détaillée de ce résultats et de ses limites est discutée dan
 
 %---------------
 
-\begin{exercice}
-\cite{RMS 888 2016 - ENSAM}
+\begin{exercice}[{\cite{RMS 888 2016 - ENSAM}}]
 Soit $\fonctionligne[f]{x}{\frac{1}{x \sqrt{x^2 - 1}}}$ définie sur $\interoo{1}{+\infty}$.
 \begin{enumerate}
 \item Étudier et tracer la fonction $f$.
@@ -155,7 +154,7 @@ Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac
     \caption{La convergence est très lente, donc je ne suis pas sûr que cette illustration soit très convaincante}
 \end{marginfigure}
 
-\begin{elem_sol}
+\begin{elemsolution}
 \begin{enumerate}
 \item La fonction $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable.
 
@@ -179,4 +178,4 @@ De plus, $f(x) \sim_1 \frac{1}{\sqrt{2 (x - 1)}}$, donc $f$ est intégrable en $
 
 \textbf{Remarque.} $\displaystyle\int^x f(t) \mathrm{d}t = - \arctan\frac{1}{\sqrt{x^2 - 1}}$ et $\displaystyle\int_1^{+\infty} f = \frac{\pi}{2}$.
 \end{enumerate}
-\end{elem_sol}
+\end{elemsolution}

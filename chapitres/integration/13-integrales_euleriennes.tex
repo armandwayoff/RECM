@@ -7,7 +7,8 @@ Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales 
 
 \todoinline{Dans la phrase suivante, tu te rappelles à quoi tu pensais pour les nombreuses façons ? Il me semble que le prolongement analytique est unique, non ? Mes cours d'analyse complexe sont un peu loin...}
 \todoarmand{Malheureusement, la source dont vient le texte n'est plus accessible, je vais poursuivre mes recherches.}
-\todoarmand{\url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des \chevron{pseudo} fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
+\todoarmand{
+\url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
 
 Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $\interoo{-1}{+\infty}$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
 \todoarmand{Introduction à réécrire à partir de la ressource ci-dessus.}
@@ -19,7 +20,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 %    \caption*{\centering Graphe de la fonction Gamma}
 %\end{marginfigure}
 
-\begin{defi}{Fonction Gamma d'\textsc{Euler}}
+\begin{defi}[Fonction Gamma d'\textsc{Euler}]
     La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
 \end{defi}
@@ -28,7 +29,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. 
 \end{remarque} 
 
-\begin{theo}{}
+\begin{theo}
 \begin{itemize}
 \item La fonction $\Gamma$ est définie sur $\Rpe$.
 
@@ -38,7 +39,7 @@ En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$.
 \end{itemize}
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
 \begin{itemize}
 \item On pose $\fonctionligne[f_x]{t}{t^{x - 1} \e^{-t}}$.
 
@@ -58,7 +59,7 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 
 \item On remarque que $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = n!$.
 \end{itemize}
-\end{preuve}
+\end{demo}
 
 % La démonstration est donnée dans \ref{prolongementFonctionGamma}.
 
@@ -68,7 +69,7 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 \todoarmand{Oui, on pourrait faire une compilation des théorèmes utilisés sur l'ensemble des chapitres sur l'intégration.}
 
 \marginnote[-5cm]{
-    \begin{theo}{Théorème (Intégration par parties généralisées)}
+    \begin{theo}[Théorème (Intégration par parties généralisées)]
         Source : \cite{acamanes}\\
         Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
         $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
@@ -83,14 +84,14 @@ et $\Gamma(x+1) = x \Gamma(x)$.
     \end{theo}
 }
 
-\begin{theo}{Régularité}
+\begin{theo}[Régularité]
 La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
 \[
 \forall k \in \N,\quad \forall x \in \R_+^\star,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
 \]
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
 \begin{itemize}
 \item \textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $\fonctionligne[f]{(x, t)}{t^{x-1} \e^{-t}}$.
 \begin{itemize}
@@ -136,7 +137,7 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 \Gamma^{(j)}(x) = \int_0^{+\infty} (\ln t)^j t^{x-1} \e^{-t} \d t.
 \]
 \end{itemize}
-\end{preuve}
+\end{demo}
 
 % \begin{elem_preuve}
     % Utiliser une domination locale sur un segment $[a, A] \subset \R_+^\star$ par la fonction:
@@ -158,7 +159,7 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item Comme $\Gamma$ est continue en $1$, 
 \[
@@ -176,7 +177,7 @@ De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
 \]
 Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \todoinline{On peut montrer que $\Gamma$ est l'unique fonction telle que $\ln \Gamma$ est convexe, $\Gamma(1) = 1$ et $\Gamma(x + 1) = x \Gamma(x)$. On le met ici ? (Source : Rudin)\\
 On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisable.}
@@ -198,7 +199,7 @@ On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisa
 \subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
 \marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \textsc{Gauss}}}
 
-\begin{theo}{}
+\begin{theo}
 $\Gamma\mathopen{}\left(\frac{1}{2}\right) = \sqrt{\pi}$
 et pour tout $n \in \Ne$,
 $\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
@@ -211,7 +212,7 @@ $\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}
 \todoinline{Le marginnote suivant ne compile pas chez moi}
 % \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
 
-\begin{preuve}
+\begin{demo}
 On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$. Alors,
 \begin{align*}
 \Gamma\mathopen{}\left( \frac{1}{2} \right)
@@ -226,19 +227,19 @@ Le second point s'obtient en utilisant l'égalité
 \[
 \Gamma\left(n + \frac{1}{2}\right) = \frac{n + 2}{2} \Gamma\left(n - 1 + \frac{1}{2}\right).
 \]
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Fonction bêta}
 
 % \todoinline{J'ai changé les $I_{p,q}$ en $B(p, q)$ pour coller à la définition classique de la fonction Bêta}
 
-\begin{defi}{Fonction bêta}
+\begin{defi}[Fonction bêta]
 Pour tout $(p,q) \in \N^2$, on note
 $$B(p, q) \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
 \end{defi}
 
-\begin{theo}{Expression factiorelle de la fonction bêta}
+\begin{theo}[Expression factiorelle de la fonction bêta]
 Pour tout $(p,q) \in \N^2$,
     $$B(p, q) = \frac{p! q!}{(p + q + 1)!}.$$
 \end{theo}
@@ -264,7 +265,7 @@ B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item On a immédiatement $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
@@ -281,7 +282,7 @@ B(p, q)
 &= \frac{p! q!}{(p + q + 1)!}.
 \end{align*}
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \marginnote[0cm]{\todoinline{D'après Oral Centrale 2016}}
 \begin{exercice}%
@@ -295,7 +296,7 @@ Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urn
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item En utilisant la formule des probabilités totales,
 \begin{align*}
@@ -317,7 +318,7 @@ Cette limite vaut donc
 \frac{2n+1}{n+1} \cdot \frac{n! (n+1)!}{(2n+2)!} \cdot \frac{(2n+1)!}{n! n!}  = \frac{2n+1}{2n+2}.
 \]
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 %-----------
 \subsection{Des fonctions Bêta et des sommes}
@@ -330,7 +331,7 @@ Soit $(p, q) \in \N^2$.
 Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$.
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 En utilisant la formule du binôme de \textsc{Newton} puis la linéarité de l'intégrale,
 \begin{align*}
 B(p, q)
@@ -345,7 +346,7 @@ Ainsi,
 = \frac{p! q!}{(p + q + 1)!}
 = \frac{\binom{p+q+1}{p}^{-1}}{p + q + 1}.
 \]
-\end{preuve}
+\end{demo}
 
 %---------------
 
@@ -383,7 +384,7 @@ Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} 
 \end{enumerate}
 \end{exercice}
 
-\begin{preuve}
+\begin{demo}
 \begin{enumerate}
 \item D'après la définition des coefficients binomiaux,
 \[
@@ -428,7 +429,7 @@ S(p)
 % &= 1 + S(p) - \frac{p}{p+1} S(p+1).
 % \end{align*}
 \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
 

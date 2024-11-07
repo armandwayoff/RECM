@@ -5,7 +5,7 @@
 \todoinline{Le sujet de centrale est très prometteur au début puis utilise des résultats beaucoup plus faibles que ceux démontrés en préliminaires. Je propose de déplacer ce résultat dans la partie Séries numériques}
 
 % Source : Centrale - PC - Maths 1 - 2003
-\begin{prop}{}
+\begin{prop}
 Il existe deux constantes $\gamma$ et $\delta$ telles que
 \[
 n! = \delta n^{n + \frac{1}{2}} \e^{-n} \left(1 + \frac{1}{12 n} + o\left(\frac{1}{n}\right)\right).
@@ -63,7 +63,7 @@ On obtient le résultat attendu en utilisant un développement limité de la fon
 
 
 
-\begin{prop}{}
+\begin{prop}
     Soit $f: \Rp \rightarrow \C$ une fonction continue par morceaux et $g, h:\Rp \rightarrow \Rp$ deux fonctions continues par morceaux, strictement positives. On suppose que $f = o_{+\infty}(g)$ et $f \sim_{+\infty} h$.\\
     \begin{itemize}
         \item Si $g$ et $h$ ne sont pas intégrables sur $\Rp$,
@@ -78,7 +78,7 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
 
 \todoinline{J'ai relu. Sans illustrations et sans application, est-ce qu'on le laisse ? Ou alors on trouve une application, mais je n'en ai pas sous le coude à l'instant !}
 
-\begin{theo}{Intégrales de \textsc{Bertrand}}
+\begin{theo}[Intégrales de \textsc{Bertrand}]
     Soient $(\alpha, \beta) \in  \R^2$ et 
     $$f:t \mapsto \frac{1}{t^{\alpha} \ln^{\beta} (t)}.$$
     Alors,
@@ -93,7 +93,7 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
 
 % \todoinline{On écrit plutôt $\int_2^{+\infty} f(t) dt$ et $\int_{[2,+\infty[} f$.}
 
-\begin{preuve}
+\begin{demo}
     Distinguons trois cas selon les valeurs prises par $\alpha$:
     \begin{enumerate}
         \item[$\rhd$] \textbf{Cas où $\alpha > 1$.} Soit $\gamma \in \interoo{1}{\alpha}$. Par croissances comparées,
@@ -113,7 +113,7 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
         $$
         On en déduit que l'intégrale de la fonction $t \mapsto \frac{1}{t \ln^{\beta} (t)}$ converge sur $[2, + \infty[$ si et seulement si $\beta > 1$.
     \end{enumerate}
-\end{preuve}
+\end{demo}
 
 \todoinline{J'ai mis dans "documents" le sujet Centrale PC 2003 - Il fait à la fois des relations de comparaisons, de l'intégrale de Bertrand à la fin et une intégrale fonction des bornes. C'est peut être une bonne idée !}
 
