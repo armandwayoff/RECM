@@ -2,8 +2,7 @@
 \label{transformee_laplace}
 
 \todoinline{On pourrait tenter une illustration ? La transformée de Laplace d'une fonction échelon ?}
-\todoarmand{J'ai proposé une illustration mais j'aimerais la compléter avec d'autres transformées de fonctions usuelles. \\
-Un thème assez développé sur la transformée de Laplace : \url{https://cahier-de-prepa.fr/ecg2-saintlouis/download?id=289}
+\todoarmand{Un thème assez développé sur la transformée de Laplace : \url{https://cahier-de-prepa.fr/ecg2-saintlouis/download?id=289}
 }
 
 La transformation de \textsc{Laplace} généralise la transformation de \textsc{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
@@ -11,11 +10,19 @@ La transformation de \textsc{Laplace} généralise la transformation de \textsc{
 Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
 
 \begin{defi}[Fonction causale]
-    
+\begin{itemize}
+    \item On appelle \definir{fonction causale} une fonction définie sur $\R$ dont le support est borné à gauche en $0$ \emph{i.e.} $f$ est nulle pour tout $x < 0$. 
+    \item On appelle fonction causale toute fonction définie sur $\R$, nulle sur $\interoo{-\infty}{0}$ et continue par morceaux sur $\interfo{0}{+\infty}$.
+\end{itemize}
 \end{defi}
+\todoarmand{Choisir une formulation et la modifier un peu.}
+
+\begin{remarque}
+    Étant donnée une fonction $g$ non causale, il suffit de considérer $f(x) = H(x) g(x)$, où $H$ est la fonction \textsc{Heaviside}, pour obtenir la fonction correspondante en version causale.
+\end{remarque}
 
 \begin{defi}[Transformée de \textsc{Laplace}]
-    Pour tout fonction $f \in \mathscr{C}(\Rp, \R)$, on note, lorsqu'elle converge, 
+    Soit $f \in \mathscr{C}(\Rp, \R)$ une fonction causale. On note, lorsqu'elle converge, 
     $$\mathscr{L}(f)(p) \defeq \int_{0}^{+ \infty} \e^{-pt} f(t) \d t.$$
     La fonction $\mathscr{L}(f)$ est la \emph{transformée de \textsc{Laplace} de f}.
 \end{defi}
@@ -30,21 +37,15 @@ Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interp
 % \end{itemize}
 
 %-----------
-\subsection{Exemples de transformées de Laplace}
-
-\begin{marginfigure}[0cm]
-    \centering
-    % \input{illustrations/transformee_de_laplace.pgf}
-    \caption{Une fonction échelon et sa transformée de \textsc{Laplace}}
-\end{marginfigure}
+\subsection{Exemples de transformées de \textsc{Laplace}}
 
 \begin{exercice}
 Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~\textsc{Laplace} en précisant le domaine de définition :
-\begin{enumerate}
-\item $t \mapsto 1$.
-\item $t \mapsto \e^{\lambda t}$.
-\item $t \mapsto t^n$.
-\end{enumerate}
+\begin{tasks}(3)
+    \task $t \mapsto 1$.
+    \task $t \mapsto \e^{\lambda t}$.
+    \task $t \mapsto t^n$.
+\end{tasks}
 \end{exercice}
 
 \begin{demo}
@@ -54,19 +55,19 @@ Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, dé
 \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}.
 \]
 
-\item $t \mapsto \e^{-(\lambda-p)t}$ est intégrable sur $\R_+$ si et seulement si $p > \mathrm{Re}(\lambda)$. Alors,
+\item La fonction $t \mapsto \e^{-(\lambda-p)t}$ est intégrable sur $\Rp$ si et seulement si $p > \Reel(\lambda)$. Alors,
 \[
 \mathscr{L}(f)(p)
 = \int_0^{+\infty} \e^{-(p-\lambda)t} \d t
 = \frac{1}{p-\lambda}.
 \]
 
-\item Soit $n \in \N^*$ et $f_n : t \mapsto t^n \e^{-pt}$.
+\item Soit $n \in \Ne$ et $\fonctionligne[f_n]{t}{t^n \e^{-pt}}$.
 \begin{itemize}
-\item $f_n$ est continue sur $\R_+^*$.
-\item Si $p > 0$, alors $f(t) = o_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\R_+^*$.
+\item La fonction $f_n$ est continue sur $\Rpe$.
+\item Si $p > 0$, alors $f(t) = o_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\Rpe$.
 
-Si $p \leq 0$, alors $\lim_{+\infty} f = +\infty$ et $f$ n'est pas intégrable sur $\R_+^*$.
+Si $p \leqslant 0$, alors $\lim_{+\infty} f = +\infty$ et $f$ n'est pas intégrable sur $\Rpe$.
 \end{itemize}
 Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classique avec des intégrations par parties permet de montrer que
 \[
@@ -75,78 +76,80 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \end{enumerate}
 \end{demo}
 
+\todoarmand{Résoudre problème avec adjustbox{valign=c}}
+\todoarmand{Ajouter les derniers graphes}
+\input{chapitres/integration/15-transformee_de_laplace-tableau}
+
 \begin{remarque}
-À un changement de variable près, on reconnaît, pour la dernière transformée de Laplace, la fonction $\Gamma$ d'Euler.
+À un changement de variable près, on reconnaît, pour la dernière transformée de Laplace, la fonction Gamma d'\textsc{Euler}.\marginnote[0pt]{\href{subsec:FonctionGammaEuler}{\faLink~Fonction Gamma d'\textsc{Euler}}}
 \end{remarque}
+
 
 \begin{theo}
 \begin{enumerate}
-\item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+\item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\Rpe$.
 
-\item Si $\int_0^{+\infty} f(t) \d t$ converge, alors $\mathscr{L}(f)$ est définie sur $\R_+$.
+\item Si $\int_0^{+\infty} f(t) \d t$ converge, alors $\mathscr{L}(f)$ est définie sur $\Rp$.
 
-\item Si $f$ est continue uniquement sur $\R_+^*$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$, alors $\mathscr{L}(f)$ est définie et continue sur $]p_0,+\infty[$.
+\item Si $f$ est continue uniquement sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, la fonction $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\Rp$, alors $\mathscr{L}(f)$ est définie et continue sur $\interoo{p_0}{+\infty}$.
 \end{enumerate}
 \end{theo}
 
 \begin{demo}
 \begin{enumerate}
-\item La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $g : (p, t) \mapsto f(t) \e^{-pt}$.
+\item \marginnote[-7pt]{\theoremeutilise{Théorème de dérivation sous le signe intégral}}La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $\fonctionligne[g]{(p, t)}{f(t) \e^{-pt}}$.
 \begin{itemize}
-\item Pour tout $t \in \R_+^*$, $g(\cdot, t) : p \mapsto \e^{-p t} f(t)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$ et
+\item Pour tout $t \in \Rpe$, la fonction $\fonctionligne[g(\,\cdot\,, t)]{p}{\e^{-p t} f(t)}$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$ et
 \[
-\forall\, j \in \N,\, \frac{\partial^j g}{\partial p^j} g(p, t) = (-1)^j t^j f(t) \e^{-pt}.
+\forall j \in \N,\quad \frac{\partial^j g}{\partial p^j} g(p, t) = (-1)^j t^j f(t) \e^{-pt}.
 \]
 
-\item Pour tout $p > 0$, $g(p, \cdot) : t \mapsto (-1)^j t^j \e^{-p t} f(t)$ est continue sur $[0,+\infty[$.
+\item Pour tout $p > 0$, la fonction $\fonctionligne[g(p,\,\cdot\,)]{t}{(-1)^j t^j \e^{-p t} f(t)}$ est continue sur $\interfo{0}{+\infty}$.
 
-\item Soit $\tilde{p} > 0$. Alors, pour tout $p \geq \tilde{p}$,
+\item Soit $\tilde{p} > 0$. Alors, pour tout $p \geqslant \tilde{p}$,
 \[
-\abs{(-1)^j t^j f(t) \e^{-p t}} \leq M t^j \e^{- \tilde{p} t} M.
+\abs{(-1)^j t^j f(t) \e^{-p t}} \leqslant M t^j \e^{- \tilde{p} t} M.
 \]
-De plus, $\phi_j : t \mapsto M t^j \e^{-\tilde{p} t}$ est continue sur $\R_+$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
+De plus, la fonction $\fonctionligne[\phi_j]{t}{M t^j \e^{-\tilde{p} t}}$ est continue sur $\Rp$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
 \end{itemize}
-Ainsi, $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\R_+^*$.
+Ainsi, la transformée de \textsc{Laplace} $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
 
 \item Lorsque $p = 0$, l'intégrale $\int_0^{+\infty} \e^{-0\cdot t} f(t) \d t$ converge par hypothèse et $\mathscr{L}(f)(0)$ est donc bien définie.
 
 \medskip
 
-Soit $p > 0$. Comme $f$ est continue, on note $F : x \mapsto \int_0^x f(t) \d t$ sa primitive qui s'annule en $0$.
+Soit $p > 0$. Comme $f$ est continue, on note $\fonctionligne[F]{x}{\int_0^x f(t) \d t}$ sa primitive qui s'annule en $0$.
 
-Par hypothèse, $F$ possède une limite finie en $+\infty$. Ainsi, d'après le théorème d'intégration par parties, $\int_0^{+\infty} \e^{-p t} f(t) \d t$ et $\int_0^{+\infty} \e^{-p t} F(t) \d t$ sont de même nature.
+Par hypothèse, $F$ possède une limite finie en $+\infty$. Ainsi, d'après le théorème d'intégration par parties, les intégrales $\int_0^{+\infty} \e^{-p t} f(t) \d t$ et $\int_0^{+\infty} \e^{-p t} F(t) \d t$ sont de même nature.
 
 Enfin, comme $F$ est continue sur $\Rp$ et admet une limite finie en $+\infty$, alors $F$ est bornée sur $\Rp$. Il existe donc une constante $M$ telle que
 \[
-\module{\e^{-p t} F(t)} \leq M \e^{-p t}.
+\module{\e^{-p t} F(t)} \leqslant M \e^{-p t}.
 \]
-Ainsi, $t \mapsto \e^{-p t} F(t)$ est intégrable, donc $\int_0^{+\infty} \e^{-p t} F(t) \d t$ converge et $\mathscr{L}(f)(p)$ est bien définie.
+Ainsi, la fonction $t \mapsto \e^{-p t} F(t)$ est intégrable, donc $\int_0^{+\infty} \e^{-p t} F(t) \d t$ converge et $\mathscr{L}(f)(p)$ est bien définie.
 
-\item Soit $g : (p, u) \mapsto f(u) \e^{-p u}$.
+\item Soit $\fonctionligne[g]{(p, u)}{f(u) \e^{-p u}}$.
 \begin{itemize}
-\item $\forall\, t \in \R_+^*,\, g(\cdot, u)$ est continue sur $]p_0, +\infty[$.
-
-\item $\forall\, p > p_0,\, g(p, \cdot)$ est continue sur $\R_+^*$.
-
-\item Soit $\tilde{p} > p_0$. Pour tout $p \geq \tilde{p}$ et $t \in \R_+^*$,
+\item $\forall t \in \Rpe$, $g(\,\cdot\,, u)$ est continue sur $\interoo{p_0}{+\infty}$.
+\item $\forall p > p_0$, $g(p, \cdot)$ est continue sur $\Rpe$.
+\item Soit $\tilde{p} > p_0$. Pour tout $p \geqslant \tilde{p}$ et $t \in \Rpe$,
 \[
-\abs{\e^{-p t} f(t)} \leq \e^{- \tilde{p} t} \abs{f(t)}.
+\abs{\e^{-p t} f(t)} \leqslant \e^{- \tilde{p} t} \abs{f(t)}.
 \]
-De plus, $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\R_+^*$ par hypothèse.
+De plus, la fonction $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\Rpe$ par hypothèse.
 \end{itemize}
-D'après le théorème de continuité sous le signe intégral, $\mathscr{L}(f)$ est continue sur $]p_0, +\infty[$.
+\marginnote[-7pt]{\theoremeutilise{Théorème de continuité sous le signe intégral}}D'après le théorème de continuité sous le signe intégral, la transformée $\mathscr{L}(f)$ est continue sur $\interoo{p_0}{+\infty}$.
 \end{enumerate}
 \end{demo}
-
 
 
 %-----------
 \subsection{Théorème de la valeur finale}
 
 \begin{theo}[Théorème de la valeur finale]
-On suppose qu'il existe un réel $\ell$ non nul tel que $\lim_{+\infty} f(x) = \ell$. Alors,
+On suppose qu'il existe un réel $\ell$ non nul tel que $\lim\limits_{x \to +\infty} f(x) = \ell$. Alors,
 \[
-\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell.
+\lim_{p\to 0} p\, \mathscr{L}(f)(p) = \ell.
 \]
 \end{theo}
 
@@ -155,9 +158,9 @@ On se place sous les hypothèses du théorème.
 \begin{enumerate}
 \item Montrer que $\mathscr{L}(f)$ est définie sur $\Rpe$.
 
-\item Montrer que $p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u$.
+\item Montrer que $p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\big(\frac{u}{p}\big) \d u$.
 
-\item Montrer que, si $(p_n)$ est une suite de réels strictement positifs qui tend vers $0$, alors $\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell$.
+\item Montrer que, si $(p_n)$ est une suite de réels strictement positifs qui tend vers $0$, alors $\lim\limits_{n\to+\infty} p_n\, \mathscr{L}(f)(p_n) = \ell$.
 
 \item Conclure.
 \end{enumerate}
@@ -165,29 +168,29 @@ On se place sous les hypothèses du théorème.
 
 \begin{demo}
 \begin{enumerate}
-\item Comme $f$ est continue sur $\R_+$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\R_+$. Ainsi, d'après le théorème précédent, $\mathscr{L}(f)$ est bien définie sur $\R_+^*$.
+\item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\Rp$.\marginnote[0pt]{\theoremeutilise{Théorème des bornes}}Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
 
-\item On effectue le changement de variable affine $\phi : u \mapsto \frac{u}{p}$. Alors,
+\item On effectue le changement de variable affine $\fonctionligne[\phi]{u}{\frac{u}{p}}$. Alors,
 \[
-p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\left(\frac{u}{p}\right) \d u.
+p\, \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\mathopen{}\left(\frac{u}{p}\right) \d u.
 \]
 
-\item Posons $g_n : u \mapsto \e^{-u} f(u/p_n)$.
+\item Posons $\fonctionligne[g_n]{u}{\e^{-u} f(u/p_n)}$.
 \begin{itemize}
-\item Pour tout $n \in \N$, $g_n$ est continue sur $\R_+$.
+\item Pour tout $n \in \N$, la fonction $g_n$ est continue sur $\Rp$.
 
-\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\lim_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, $(g_n)$ converge simplement sur $\R_+^*$ vers $u \mapsto \e^{-u} \ell$.
+\item Soit $u > 0$. D'après les hypothèses sur la fonction $f$, $\lim\limits_{n\to+\infty} \e^{-u} f(u/p_n) = \e^{-u} \ell$. Ainsi, la suite de fonctions $(g_n)$ converge simplement sur $\Rpe$ vers $u \mapsto \e^{-u} \ell$.
 
-\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leq M \e^{-u}$ et $u \mapsto \e^{-u}$ est intégrable sur $\R_+^*$.
+\item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leqslant M \e^{-u}$ et la fonction $u \mapsto \e^{-u}$ est intégrable sur $\Rpe$.
 \end{itemize}
-Ainsi, d'après le théorème de convergence dominée,
+\marginnote[-7pt]{\theoremeutilise{Théorème de convergence dominée}}Ainsi, d'après le théorème de convergence dominée,
 \[
-\lim_{n\to+\infty} p_n \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u = \ell.
+\lim_{n\to+\infty} p_n\, \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u = \ell.
 \]
 
-\item En utilisant la caractérisation séquentielle de la limite,
+\item \marginnote[-7pt]{\theoremeutilise{Caractérisation séquentielle de la limite}}En utilisant la caractérisation séquentielle de la limite,
 \[
-\lim_{p\to 0} p \mathscr{L}(f)(p) = \ell \text{ soit } \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
+\lim_{p\to 0} p\, \mathscr{L}(f)(p) = \ell \quad \text{soit} \quad \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]
 \end{enumerate}
 \end{demo}
@@ -196,9 +199,9 @@ Ainsi, d'après le théorème de convergence dominée,
 \subsection{Théorème de la valeur initiale}
 
 \begin{theo}[Théorème de la valeur initiale]
-On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\R_+$. On suppose de plus qu'il existe un réel $\ell$ tel que $\lim_{t\to0^+} f(t) = \ell$. Alors,
+On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, pour pour tout $p > p_0$, $t \mapsto \e^{-p t} f(t)$ est intégrable sur $\Rp$. On suppose de plus qu'il existe un réel $\ell$ tel que $\lim_{t\to0^+} f(t) = \ell$. Alors,
 \[
-\lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
+\lim_{p\to+\infty} p\, \mathscr{L}(f)(p) = \ell.
 \]
 \end{theo}
 
@@ -207,19 +210,19 @@ On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, po
 \item Comment conclure si la fonction $f$ est bornée ?
 \end{enumerate}
 
-On suppose dans la suite que $f$ n'est pas nécessairement bornée. Soit $\epsilon > 0$.
+On suppose dans la suite que $f$ n'est pas nécessairement bornée. Soit $\varepsilon > 0$.
 \begin{enumerate}[resume]
 \item Montrer que $\mathscr{L}(f)(p)$ est bien définie pour $p$ assez grand.
 
 \item Montrer qu'il existe un réel $h$ tel que
 \[
-\int_0^h p \module{f(t) - \ell} \e^{-p t} \d t \leq \epsilon.
+\int_0^h p \module{f(t) - \ell} \e^{-p t} \d t \leqslant \varepsilon.
 \]
 
-\item Montrer qu'il existe un réel $\tilde{p}$ et une constante $c$ tels que pour tout $p \geq \tilde{p}$,
+\item Montrer qu'il existe un réel $\tilde{p}$ et une constante $c$ tels que pour tout $p \geqslant \tilde{p}$,
 \[
 p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
-\leq c p \e^{-(p-\tilde{p}) h}.
+\leqslant c p\,\e^{-(p-\tilde{p}) h}.
 \]
 
 \item Conclure.
@@ -228,47 +231,47 @@ p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 
 \begin{demo}
 \begin{enumerate}
-\item  Si $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
+\item  Si la fonction $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
 
 \item Comme $\lim_{t\to0^+} f(t) = \ell$, il existe $h > 0$ tel que
 \[
-\forall\, t \in ]0, h],\, \abs{f(t) - \ell} \leq \epsilon.
+\forall t \in \interof{0}{h}, \abs{f(t) - \ell} \leqslant \varepsilon.
 \]
 Ainsi,
 \begin{align*}
 \int_0^h p \abs{f(t) - \ell} \e^{-p t} \d t
-&\leq \epsilon \left(1 - \underbrace{\e^{-p h}}_{\geq 0}\right)
-\leq \epsilon
+&\leqslant \varepsilon\big(1 - \underbrace{\e^{-p h}}_{\geqslant 0}\big)
+\leqslant \varepsilon
 .
 \end{align*}
 
-\item Posons $\tilde{p} = p_0 + \frac{1}{2}$. Alors, pour $p \geq \tilde{p}$,
+\item Posons $\tilde{p} = p_0 + \frac{1}{2}$. Alors, pour $p \geqslant \tilde{p}$,
 \begin{align*}
 p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 &= p \int_h^{+\infty} \module{f(t)} \e^{-(p - \tilde{p}) t - \tilde{p} t} \d t\\
-&\leq p \e^{-(p-\tilde{p}) h} \int_h^{+\infty} \module{f(t)} \e^{- \tilde{p} t} \d t\\
-&\leq c p \e^{-(p-\tilde{p}) h}.
+&\leqslant p\, \e^{-(p-\tilde{p}) h} \int_h^{+\infty} \module{f(t)} \e^{- \tilde{p} t} \d t\\
+&\leqslant c p\, \e^{-(p-\tilde{p}) h}.
 \end{align*}
 
-\item Finalement, en utilisant l'inégalité triangulaire et la relation de Chasles, pour $p \geq \tilde{p}$,
+\item Finalement, en utilisant l'inégalité triangulaire et la relation de \textsc{Chasles}, pour $p \geqslant \tilde{p}$,
 \begin{align*}
-\abs{p \mathscr{L}(f)(p) - \ell}
-&\leq \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
-&\leq \int_0^h p \abs{f(t) - \ell} \e^{-pt} \d t
+\abs{p\, \mathscr{L}(f)(p) - \ell}
+&\leqslant \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
+&\leqslant \int_0^h p \abs{f(t) - \ell} \e^{-pt} \d t
 + p \int_h^{+\infty} \abs{f(t)} \e^{-p t} \d t
 + p \int_h^{+\infty} \abs{\ell} \e^{- p t} \d t \\
-&\leq \epsilon + c p \e^{-(p-\tilde{p})h} + \module{\ell} \e^{-p h}.
+&\leqslant \varepsilon + c p\, \e^{-(p-\tilde{p})h} + \module{\ell} \e^{-p h}.
 \end{align*}
 
-Comme $\lim_{p\to+\infty} \e^{-p h} = \lim_{p\to+\infty} p \e^{-(p-\tilde{p})h} = 0$, pour $p$ assez grand,
+Comme $\lim\limits_{p\to+\infty} \e^{-p h} = \lim\limits_{p\to+\infty} p\, \e^{-(p-\tilde{p})h} = 0$, pour $p$ assez grand,
 \[
-\abs{p \mathscr{L}(f)(p) - \ell}
-\leq 3 \epsilon.
+\abs{p\, \mathscr{L}(f)(p) - \ell}
+\leqslant 3 \varepsilon.
 \]
 
 Ainsi, d'après la définition de la limite,
 \[
-\lim_{p\to+\infty} p \mathscr{L}(f)(p) = \ell.
+\lim_{p\,\to+\infty} p\, \mathscr{L}(f)(p) = \ell.
 \]
 \end{enumerate}
 \end{demo}
