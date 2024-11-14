@@ -1,0 +1,64 @@
+\chapter{Intégrales généralisées}
+
+%== Graphique
+\begin{center}
+\begin{tikzpicture}[scale=0.8, every node/.style={transform shape}]
+  % Place nodes
+  \node [block] (init) {$\displaystyle\int_I f$ ?};
+  \node [decision, below of=init] (regularite) {Régularité ?};
+  \node [decision, right of=regularite, xshift=1cm] (decoupage) {$]a, b[$\\$=
+$\\$]a, c] \cup [c, b[$};
+  \node [decision, below of=regularite, yshift=-2em] (reel) {$a \in \mathbb{R}$};
+  \node [decision, right of=reel, xshift=0.5cm] (plg) {Prolongement continu};
+  \node [cloud, right of=plg, xshift=1.5cm] (cv) {Converge};
+  \node [decision, below of=reel, yshift=-0.5cm] (primitive) {$\displaystyle\int^x f = F(x)$};
+  \node [decision, right of=primitive] (limfct) {$F(a) \to \ell \in \mathbb{R}$};
+  \node [decision, below of=primitive, yshift=-2em] (positive) {$f \geqslant 0$};
+  \node [decision, right of=positive] (comparaison) {$f = O_a(g)$};
+  \node [cloud, above right of=comparaison, xshift=1.5cm, yshift=-1cm] (dv) {diverge${}^\ast$};
+  \node [decision, left of=positive, text width=7em] (integrable) {$\int_I |f|$};
+  \node [decision, below of=positive, yshift=-2em] (chgtvar) {Changement de variables};
+  \node [block, right of=chgtvar, xshift=2cm] (chgtvarint) {$\int_J |\varphi'|  \cdot f \circ \varphi$\\ converge ?};
+  \node [decision, below of=chgtvar] (ipp) {I.P.P.};
+  \node [block, right of=ipp, xshift=2cm] (ippint) {$\int_I u' v$\\ converge ?};
+  \node [cloud, left of=ipp] (etc) {Autres idées ?};
+
+  % Draw edges
+  \path [line] (init) -- (regularite);
+  \path [line] ($(regularite)!0.5!(reel)$) coordinate (rrm)
+      (regularite) -- node [sloped, above] {$1$ pt}
+                      node [sloped, below] {$]a, c]$, $[c, a[$}
+      (reel);
+  \path [line] (regularite) -- node [above] {plusieurs} node [below] {pts} (decoupage);
+  \path [draw, very thick] (decoupage) |- (rrm);
+  \path [line] (reel) -- node [above] {oui} (plg);
+  \path [line] (plg) -- node [above] {oui} (cv);
+  \path [line] ($(reel)!0.5!(primitive)$) coordinate (rpm)
+    (reel) -- node [near start, sloped, above] {non} (primitive);
+  \path [draw, very thick] (plg) |- node [near start, sloped, above] {non} (rpm);
+  \path [line] (primitive) -- node [above] {oui} (limfct);
+  \path [line] ($(primitive)!0.5!(positive)$) coordinate (ppm)
+    (primitive) -- node [near start, sloped, below] {non} (positive);
+  \path [line] (limfct.north east) -| node [near start, above] {$\ell\in\mathbb{R}$} (cv);
+  \path [line] (limfct.south east) -| node [near start, above, xshift=1em] {$\ell\in \{-\infty, +\infty\}$} (dv);
+  \path [draw, very thick] (limfct) |- node [near start, sloped, above] {non} (ppm);
+  \path [line] (positive.north west) -- node [above] {non (1)} (integrable.north east);
+  \path [line] (integrable.south east) -- (positive.south west);
+  \path [line] (positive) -- (comparaison);
+  \path [line] (comparaison.north east) -| node [near start, above] {$f \sim_a g$} node [near start, below] {$\int_I |g|$ diverge} (dv);
+  \path [line] (comparaison.south east) -| node [below, sloped, near end] {$\int_I |g|$ converge} (cv);
+  \path [line] ($(positive)!0.5!(chgtvar)$) coordinate (pcm)
+      (positive) -- node [sloped, below] {non (2)} (chgtvar);
+
+
+  \path [draw, very thick] (comparaison.south) |- (pcm);
+  \path [line] (chgtvar) -- node [above] {$\mathcal{C}^1$} node [below] {bijectif} (chgtvarint);
+  \path [line] (chgtvarint.south west) -- node [above, sloped] {non} (ipp.north east);
+  \path [line] (ipp) -- node [above] {crochet} node [below] {converge} (ippint);
+  \path [line] (ippint.east) -- ([xshift=3cm]ippint.east) |- (init.east);
+  \path [line] (ipp.south west) -| (etc.south);
+  \path [line] (chgtvarint.east) -- ([xshift=3cm]chgtvarint.east) |- (init.east);
+\end{tikzpicture}
+\end{center}
+%
+$\ast$ Si $g = o_a(f)$ sont positives et $\int_a g$ diverge, alors $\int_a f$ diverge.

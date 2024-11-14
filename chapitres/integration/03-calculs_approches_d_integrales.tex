@@ -38,7 +38,7 @@ I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
 \end{prop}
 
-\todoinline{Ajout de l'exercice}
+\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
 \begin{enumerate}
@@ -99,24 +99,44 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \end{marginfigure}
 \marginnote[3cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
 
-\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat - Lire la suite.}
+\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
 
+\begin{exercice}
+Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
+\begin{enumerate}
+\item Montrer que
+\[
+\forall\, i \in \interent{0}{p-1},\,
+(x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
+\]    
 
+\item Montrer que
+\[
+\forall\, i \in \interent{0}{p-1},\,
+\module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)} \leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
+\]
+
+\item En déduire que
+\[
+\module{\int_{[a,b]} f(t) \d t- I_p^\mathrm{m}(f)} \leqslant \frac{M_2 (b-a)^3}{24 p^2}.
+\]
+
+\item Appliquer l'inégalité précédente à la fonction $x \mapsto (x - a)^2$.
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
 
 
 \begin{elemsolution}
-On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
-
 \begin{enumerate}
-\item Soit $i \in \interent{0}{p-1}$. Un simple calcul ou la figure \ref{fig:i_rectangles_medians_construction} permet de montrer que :
-\[
- (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
-\]    
+\item Il s'agit d'un simple calcul ou d'une interprétation de la figure \ref{fig:i_rectangles_medians_construction}.
+
 \item Ainsi, d'après la formule de \textsc{Taylor} avec reste intégral,
 \begin{align*}
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
-&= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}\\
-&\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
+&= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}
+\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
 \end{align*}
 
 \begin{marginfigure}[0cm]
@@ -126,12 +146,9 @@ On suppose que $f$ désigne une fonction de classe $\mathscr{C}^2$ sur le segmen
     \label{fig:i_rectangles_medians_construction}
 \end{marginfigure}
 
-\item Comme pour la méthode des rectangles à gauche, la formule de \textsc{Chasles} permet de montrer que
-\[
-\module{\int_{[a,b]} f(t) \d t- I_p^\mathrm{m}(f)} \leqslant \frac{M_2 (b-a)^3}{24 p^2}.
-\]
+\item Comme pour la méthode des rectangles à gauche, il s'agit d'une application de la formule de \textsc{Chasles}.
 
-\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+\item On montre que la borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
 \item La méthode des rectangles médians est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre que la méthode des rectangles médians ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $1$.
 \end{enumerate}
@@ -153,32 +170,53 @@ I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2
 \marginnote[6cm]{Animation de la méthode des trapèzes : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/03-methode_des_trapezes.mp4}}
 
 \begin{prop}
-La méthode des trapèzes est d'ordre $2$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
+La méthode des trapèzes est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
 \end{prop}
 
-\begin{elemsolution}
-On suppose que $f$ est une fonction de classe $\mathscr{C}^2$ et on note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
+\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
 
+\begin{exercice}
+Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
 \begin{enumerate}
-\item À l'aide de deux intégrations par parties successives, on montre que, pour tout $i \in \interent{0}{p-1}$,
+\item Montrer que
 \[
+\forall\, i \in \interent{0}{p-1},\,
 \int_{x_i}^{x_{i+1}} f''(t)\,(t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
 \]
+
+\item Montrer que
+\[
+\forall\, i \in \interent{0}{p-1},\,
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
+\leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
+\]
+
+\item En déduire que
+\[
+\module{\int_{[a,b]} f(t) \d t - I_p^\mathrm{t}(f)} \leqslant \frac{M_2 (b-a)^3}{12 p^2}.
+\]
+
+\item Appliquer l'égalité précédente à la fonction $x \mapsto (x - a)^2$.
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
+
+\begin{elemsolution}
+\begin{enumerate}
+\item Il suffit d'effectuer deux intégrations par parties successives.
 
 \item D'après la relation précédente, on établit que
 \begin{align*}
 \module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
 &\leqslant \int_{x_i}^{x_{i+1}} \module{f(t) - \phi_i(t)} \d t\\
-&\leqslant \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t\\
-&\leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
+&\leqslant \frac{M_2}{2} \int_{x_i}^{x_{i+1}} (t - x_i) (x_{i+1} - t) \d t
+\leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
 \end{align*}
 
-\item Comme pour les méthodes précédentes, on utilise ensuite la relation de \textsc{Chasles} pour obtenir
-\[
-\module{\int_{[a,b]} f(t) \d t - I_p^\mathrm{t}(f)} \leqslant \frac{M_2 (b-a)^3}{12 p^2}.
-\]
+\item Comme pour les méthodes précédentes, on utilise la relation de \textsc{Chasles}.
 
-\item De plus, on montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
+\item On montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
 \item La méthode des trapèzes est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $2$.
 \end{enumerate}
@@ -275,10 +313,36 @@ I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\fra
 Dans la méthode de \textsc{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
 \end{prop}
 
-\begin{elemsolution}
-On suppose que $f$ est une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
+\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
+\todoinline{Tu aurais le courage de vérifier le calcul suivant ?}
+
+\begin{exercice}
+Soit $f$ une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
 
 Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
+\begin{enumerate}
+\item Montrer que pour tout $i \in \interent{0}{p-1}$,
+\[
+F(x_{i+1}) - F(x_i)
+= 2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+\]
+
+\item Montrer que pour tout $i \in \interent{0}{p-1}$,
+\[
+\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i{}^2 f(\gamma_i)} \leqslant \frac{h_i{}^4 \times 2 M_4}{4!}.
+\]
+
+\item En déduire que pour tout $i \in \interent{0}{p-1}$,
+\[
+\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
+\leqslant \frac{(x_{i+1} - x_i)^5}{720}.
+\]
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
+
+\begin{elemsolution}
 \begin{enumerate}
 \item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$,
 \begin{align*}
@@ -291,37 +355,19 @@ F(\gamma_i - h_i)
 \end{aligned}
 \end{align*}
 
-Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, en soustrayant les deux relations précédentes, on obtient
-\begin{align*}
-F(x_{i+1}) - F(x_i)
-&= 2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
-% \\
-% \int_{x_i}^{x_{i+1}} f(t) \d t
-% &= \frac{b - a}{p} f(\gamma_i) + \frac{(b - a)^3}{24 p^3} f''(\gamma_i) + \frac{(b - a)^5}{32 \times 24 p^5} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
-\end{align*}
+Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, le résultat s'obtient en soustrayant les deux relations précédentes.
 
-Ainsi,
-\begin{align*}
-% &
-\module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
-% \\&
-\leqslant \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i{}^2 f''(\gamma_i)\right]} + \frac{h_i{}^5 2 M_4}{5! p^5}.
-\end{align*}
 
-\item En utilisant la formule de \textsc{Taylor} avec reste intégral pour la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$, on obtient comme précédemment
-\[
-\module{f(x_{i+1}) + f(x_i) - 2 f(\gamma_i) - h_i{}^2 f(\gamma_i)} \leqslant \frac{h_i{}^4 \times 2 M_4}{4!}.
-\]
+\item On applique la formule de \textsc{Taylor} avec reste intégral à la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$.
 
 \item Finalement,
 \begin{align*}
 \module{\int_{x_i}^{x_{i+1}} f(t) \d t - \frac{h_i}{3} \left[f(x_i) + 4 f(\gamma_i) + f(x_{i+1})\right]}
+&\leqslant \module{\frac{h_i}{3} \left[f(x_i) - 2 f(\gamma_i) + f(x_{i+1}) - h_i{}^2 f''(\gamma_i)\right]} + \frac{h_i{}^5 2 M_4}{5! p^5}\\
 &\leqslant h_i{}^5 \left[\frac{2}{3 \times 4!} + \frac{2}{5!}\right]\\
 &\leqslant \frac{2 h_i{}^5}{45}
 \leqslant \frac{(x_{i+1} - x_i)^5}{720}.
 \end{align*}
-
-\todoinline{Je crois qu'on peut atteindre un facteur $\frac{1}{2880}$ mais je ne parviens pas à faire mieux sans regarder en détail les restes intégraux !}
 
 \item On conclut à l'aide de la relation de \textsc{Chasles} :
 \[
@@ -345,7 +391,7 @@ Nous constatons que pour chacune des méthodes précédentes la stratégie est i
 Sur l'intervalle $[x_i, x_{i+1}]$ : pour la méthode des rectangles, on approche la fonction par une droite horizontale, pour celle des trapèzes, par une droite affine passant par les points $(x_i, f(x_i))$ et $(x_{i+1}, f(x_{i+1}))$.
 \end{itemize}
 
-Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en une subdivision régulière $x_i = y_{i,0} \leqslant \ldots \leqslant y_{i,p} \leqslant x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de \textsc{Lagrange} qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0}), \ldots, (y_{i,p}, f(y_{i,p}))$.
+Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en une subdivision régulière $x_i = y_{i,0} \leqslant \ldots \leqslant y_{i,p} \leqslant x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de \textsc{Lagrange} qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0})), \ldots, (y_{i,p}, f(y_{i,p}))$.
 
 Cette méthode est appelée \emph{méthode de \textsc{Newton}--\textsc{Cotes}}.
 
@@ -374,19 +420,22 @@ On peut montrer que :
 
 On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \textsc{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
-\todoarmand{On pourrait faire un tableau récapitulatif ?}
+\todoinline{Mettre ici un lien vers un thème sur les polynômes d'interpolation de Lagrange}
+
+\todoarmand{J'ai complété le tableau}
+
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c|c}
-    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de convergence} \\
+    \begin{tabular}{c|c|c|c}
+    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de convergence} & Newton-Cotes \\
     \hline
-    À gauche & $1$ & $O(1/p)$ \\
-         & 
+    À gauche & $1$ & $O(1/p)$ & X\\
+    À droite & $1$ & $O(1/p)$ & X\\
+    Médians & $1$ & $O(1/p^2)$ & X\\
+    Trapèzes & $1$ & $O(1/p^2)$ & 1\\
+    Simpson & $3$ & $O(1/p^4)$ & 2
     \end{tabular}
     \caption{Résumé des propriétés des méthodes}
 \end{table}
 
-\todoinline{On pourrait renvoyer vers le livre Demailly - Analyse numérique et équations différentielles}
-
-
-\todoinline{Je pense qu'il faudrait mettre les quadratures ailleurs pour éviter un thème trop long ? Un thème à part ? Une application dans la partie polynômes orthogonaux ?}
+\todoinline{On pourrait ajouter vers le livre Demailly - Analyse numérique et équations différentielles}
