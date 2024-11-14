@@ -33,7 +33,7 @@ Effectuer le changement de variable $t = \frac{\pi}{2} - x$.
 \end{theo}
 Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 \begin{exercice}\label{exo:propWallis}
-\begin{enumerate}
+\begin{questions}
 \item Montrer que la suite $(\Wallis_n)_{n\in\N}$ est décroissante et minorée.
 
 \item Pour tout $n$ entier naturel non nul, montrer que $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$.
@@ -47,11 +47,11 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 \item Montrer que $\Wallis_n \Wallis_{n+1} = \frac{\pi}{2 (n + 1)}$.
 
 \item En déduire que $\Wallis_n \sim \sqrt{\frac{\pi}{2n}}$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le théorème de la limite monotone.
 \item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
     \begin{align*}
@@ -121,15 +121,15 @@ Ainsi, pour tout $n$ entier naturel,
 \[
 \Wallis_n \sim \sqrt{\frac{\pi}{2 n}}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Formule de \textsc{Stirling}} \label{preuve_stirling}
 
 \todoinline{Ajouter un texte d'introduction}
 
-\begin{theo}{Formule de \textsc{Stirling}}
+\begin{theo}[Formule de \textsc{Stirling}]
 \[
 n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n
 \]
@@ -137,7 +137,7 @@ n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n
 
 \begin{exercice}
 Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac{1}{2}}}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $\left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1\sim \frac{1}{12 n^2}$.
 
 \item En déduire que la série $\sum \ln \frac{u_{n+1}}{u_n}$ converge.
@@ -147,11 +147,11 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac
 \item À l'aide des intégrales de \textsc{Wallis}, déterminer la valeur~de~$\ell$.
 
 \item En déduire la formule de \textsc{Stirling}.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item En utilisant les développements limités classiques,
 \begin{align*}
 \left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1
@@ -207,8 +207,8 @@ Ainsi,
 \[
 n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Séries génératrices}
@@ -233,7 +233,7 @@ Pour tout $x \in \interoo{-1}{1}$,
 \marginnote[2cm]{Exercice inspiré de l'article \href{https://math-os.com/coefficient-binomial-central/}{Coefficient Binomial Central : un aperçu} (Annexe 2) du site \href{https://math-os.com/bienvenue/}{math-os.com} de René \textsc{Adad}}
 \begin{exercice}
 On considère la formule dans le cas des termes impairs. Pour tout $p$ entier naturel, on pose $\fonctionligne[f_p]{t}{\cos(t)^{2p+1} x^{2p+1}}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $\sum f_p$ converge normalement sur $\interff{0}{\frac{\pi}{2}}$.
 
 \item En déduire que
@@ -246,11 +246,11 @@ On considère la formule dans le cas des termes impairs. Pour tout $p$ entier na
 \item Reprendre le raisonnement précédent avec le changement de variable $\fonctionligne[\phi]{u}{\tan\frac{u}{2}}$ pour conclure dans le cas pair.
 
 \item Reprendre les raisonnements précédents pour démontrer la dernière formule.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Comme la fonction cosinus est bornée par $1$,
 \[
 \norm{f_p}_{\infty} = \module{x}^{2p+1}.
@@ -323,8 +323,8 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 &= 2 \times \frac{1}{1+x} \times \frac{1}{\sqrt{\frac{1-x}{1+x}}} \left[ \arctan\mathopen{}\left( \frac{u}{\sqrt{\frac{1-x}{1+x}}} \right) \right]_0^1 \\
 \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \frac{2}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}}.
 \end{align*}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %---------------
 
@@ -335,7 +335,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis_n$.
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 \begin{enumerate}
 \item Posons $u_n = (-1)^n \Wallis_n$. D'après les propriétés des intégrales de \textsc{Wallis} démontrées dans l'exercice \ref{exo:propWallis},
 \begin{itemize}
@@ -366,7 +366,7 @@ Ainsi, d'après le théorème de convergence dominée,
 \abs{f_n} = \frac{1 - (-1)^{n+1} \cos^{n+1}(t)}{1 + \cos(t)} \leqslant 2.
 \]
 \end{enumerate}
-\end{demo}
+\end{solution}
 
 % \begin{exercice}{}
 % Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$.
@@ -428,7 +428,7 @@ Pour tout $n$ entier naturel non nul, on note
 \[
 I_n = \int_0^\pi \sin(t)^n \d t.
 \]
-\begin{enumerate}
+\begin{questions}
 \item Exprimer $I_n$ en fonction de l'intégrale de \textsc{Wallis} $\Wallis_n$.
 
 \item En déduire l'expression de $I_n$ en fonction de $n$.
@@ -436,11 +436,11 @@ I_n = \int_0^\pi \sin(t)^n \d t.
 \item Montrer que $\mathscr{V}_n = I_n \times \mathscr{V}_{n-1}$.
 
 \item En déduire l'expression de $\mathscr{V}_n$ en fonction de $n$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item En utilisant les symétries de la fonction sinus,
 \begin{align*}
 I_n
@@ -496,8 +496,8 @@ et
 &= 2 \times \frac{2^{2n} (n!)^2}{(2n+1)!} \times \frac{\pi^n}{n!}\\
 &= \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
 \end{align*}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \begin{remarque}
 Interprétons physiquement ces considérations : en physique statistique on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule; lorsque celles-ci sont en très grand nombre l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (liées à la vitesse); reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13); on peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons-là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}

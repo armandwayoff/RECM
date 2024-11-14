@@ -26,24 +26,24 @@ Nous allons voir la démonstration de ce résultat sous forme d'exercice.
 \begin{exercice}
     Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose 
     $$\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u.$$
-    \begin{enumerate}
+    \begin{questions}
     \item Montrer que pour tout $x \in [a, b]$, l'application $t \mapsto \varphi(x, t)$ est continue sur $[c, d]$.
-    \end{enumerate}
+    \end{questions}
 
     On pose alors, pour tout $x  \in [a, b]$,
     $$\psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t.$$
-    \begin{enumerate}[resume]
+    \begin{questions}[resume]
         \item Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$.
         \item En déduire que pour tout $x \in [a, b]$,
         $$\int_{a}^{x} \left( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
-    \end{enumerate}
+    \end{questions}
 \end{exercice}
 \todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
 \todoarmand{Je propose les deux figures ci-contre (qui sont à peaufiner). Est-ce qu'on garde cette version de tranches épaisses à la "Riemann" ou bien on fait plutôt une version comme dans \url{https://math.hawaii.edu/~kcorea/courses/spring_2023/244/static/15.1-scan.pdf} p.7}
 
 \marginnote[2cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{solution}
-\begin{enumerate}
+\begin{reponses}
 \item Les hypothèses de régularité du théorème de continuité des intégrales à paramètre sont immédiates.
     
 Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur $[a, b] \times [c, d]$ qui est une partie fermée bornée de $\R^2$. Ainsi, d'après le théorème des bornes, $f$ est bornée sur $[a, b] \times [c, d]$ par une constante $M \in \Rp$. Les fonctions constantes sont intégrables car l'intégrale s'effectue ici sur un segment.
@@ -68,7 +68,7 @@ Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur 
         \end{align*}
         d'où $\psi(a) = 0$ et le résultat. \\
         En particulier, pour $x = b$ on obtient le résultat final.
-    \end{enumerate}
+    \end{reponses}
 \end{solution}    
 
 \todoinline{C'est une très belle application des théorèmes de régularité sous le signe intégral. On pourrait le garder comme tel. Mais avoir une application serait certainement intéressant. Je n'en ai pas sous le coude...}

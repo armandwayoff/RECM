@@ -83,18 +83,18 @@ Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{
 
 L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une démonstration de ce résultat. 
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
     \item Pour $k$ et $n$ entiers strictement positifs \todoarmand{ou bien Pour tout $k,n \in \Ne$}, on définit les intégrales
     \[
     I_{n,k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
     \]
     Trouver une relation entre $I_{n,k}$ et $I_{n-2, k}$ et en déduire selon la parité de $n$, l'expression de $I_{n,k}$ en fonction de $n$ et de $k$.
-\end{enumerate}
+\end{questions}
     Pour tout entier naturel $n$ strictement positif, on pose:
     \[
     \forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{B_n(t) - B_n(0)}{\sin(\pi t)}.
     \]
-\begin{enumerate}[resume]
+\begin{questions}[resume]
     \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$.
     \item Montrer que pour $N$ entier naturel non nul:
     \[
@@ -104,14 +104,14 @@ L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une
     % \[
     % \lim_{x \to +\infty} \int_0^1 f(t) \sin(x t) \d t = 0.
     % \]
-    \item \begin{enumerate}
+    \item \begin{questions}
         \item En utilisant les questions précédentes, trouver, pour $N$ un entier naturel, une expression de l'intégrale
         \[
         \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big( (2N+1) \pi t \big) \d t
         \]
         en fonction de $m$, $N$ et de $B_{2m}(0)$.
         \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $B_{2m}(0)$.
-        \end{enumerate}
+        \end{questions}
     %     \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
     % \end{enumerate}
     % \item Montrer, pour tout $m$ entier naturel non nul, la majoration:
@@ -119,7 +119,7 @@ L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une
     % \sum_{k=1}^\infty \frac{1}{k^{2m}} \leqslant 2
     % \]
     % et en déduire la majoration $\module{B_{2m}(0)} \leqslant \frac{4}{(4 \pi^2)^m}$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \todoarmand{Faire un encadrement rappel avec à nouveau un lien vers le thème Bernoulli}
@@ -130,7 +130,7 @@ B_n'(x) &= n B_{n-1}(x).
 \end{align*}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item Pour tout entier $p > 0$,
 \[
 I_{2p, k} = \frac{(-1)^{p-1}}{(2 k \pi)^{2p}} \quad \text{et} \quad I_{2p+1,k} = 0.
@@ -166,14 +166,14 @@ De plus, pour tout $t$ non nul, $\displaystyle \varphi'_n(t) = \frac{B'_n(t) \si
 
 Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
 \end{itemize}
-\end{enumerate}
+\end{reponses}
 
 Pour tout $N$ entier naturel non nul et $t \in \interoo{0}{1}$, on pose :
 \[
 D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
 \]
 
-\begin{enumerate}[resume]
+\begin{reponses}[resume]
 \item Cette quantité, appelée \textsl{noyau de \textsc{Dirichlet}}\marginnote{\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \textsc{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}}, s'exprime simplement à l'aide de la fonction sinus :
 \[
 D_n(t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
@@ -190,7 +190,7 @@ En effet, pour tout $t \in \interoo{0}{1}$, $\e^{2 \i k \pi t} \not= 1$. Ainsi, 
     \end{align*}
 
 \item 
-\begin{enumerate}
+\begin{reponses}
     \item Ainsi,
 \[
 \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t
@@ -209,8 +209,8 @@ En effet, d'après la définition de $\varphi_{2m}$,
 \lim_{N\to+\infty} \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t = 0
 \]
 et on obtient bien le résultat annoncé.
-\end{enumerate}
-\end{enumerate}
+\end{reponses}
+\end{reponses}
 \end{elemsolution}
 
 \begin{remarque}

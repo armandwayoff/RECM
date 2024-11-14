@@ -48,8 +48,8 @@ Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, dé
 \end{tasks}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item La fonction $t \mapsto \e^{-pt}$ est intégrable sur $\Rp$ si et seulement si $p > 0$. Ainsi, la transformée 
 \[
 \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}.
@@ -73,8 +73,8 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \[
 \mathscr{L}(f)(p) = \frac{n!}{p^{n+1}}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \todoarmand{Résoudre problème avec adjustbox{valign=c}}
 \todoarmand{Ajouter les derniers graphes}
@@ -155,7 +155,7 @@ On suppose qu'il existe un réel $\ell$ non nul tel que $\lim\limits_{x \to +\in
 
 \begin{exercice}
 On se place sous les hypothèses du théorème.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $\mathscr{L}(f)$ est définie sur $\Rpe$.
 
 \item Montrer que $p \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\big(\frac{u}{p}\big) \d u$.
@@ -163,11 +163,11 @@ On se place sous les hypothèses du théorème.
 \item Montrer que, si $(p_n)$ est une suite de réels strictement positifs qui tend vers $0$, alors $\lim\limits_{n\to+\infty} p_n\, \mathscr{L}(f)(p_n) = \ell$.
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\Rp$.\marginnote[0pt]{\theoremeutilise{Théorème des bornes}}Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
 
 \item On effectue le changement de variable affine $\fonctionligne[\phi]{u}{\frac{u}{p}}$. Alors,
@@ -192,8 +192,8 @@ p\, \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\mathopen{}\left(\frac{u}{p}\r
 \[
 \lim_{p\to 0} p\, \mathscr{L}(f)(p) = \ell \quad \text{soit} \quad \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Théorème de la valeur initiale}
@@ -206,12 +206,12 @@ On suppose que $f$ est continue sur $\Rpe$ et qu'il existe $p_0 > 0$ tel que, po
 \end{theo}
 
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
 \item Comment conclure si la fonction $f$ est bornée ?
-\end{enumerate}
+\end{questions}
 
 On suppose dans la suite que $f$ n'est pas nécessairement bornée. Soit $\varepsilon > 0$.
-\begin{enumerate}[resume]
+\begin{questions}[resume]
 \item Montrer que $\mathscr{L}(f)(p)$ est bien définie pour $p$ assez grand.
 
 \item Montrer qu'il existe un réel $h$ tel que
@@ -226,16 +226,16 @@ p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item  Si la fonction $f$ est bornée, on peut appliquer la même méthode que pour le théorème de la valeur finale.
 
 \item Comme $\lim_{t\to0^+} f(t) = \ell$, il existe $h > 0$ tel que
 \[
-\forall t \in \interof{0}{h}, \abs{f(t) - \ell} \leqslant \varepsilon.
+\forall t \in \interof{0}{h},\quad \abs{f(t) - \ell} \leqslant \varepsilon.
 \]
 Ainsi,
 \begin{align*}
@@ -273,8 +273,8 @@ Ainsi, d'après la définition de la limite,
 \[
 \lim_{p\,\to+\infty} p\, \mathscr{L}(f)(p) = \ell.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \subsection{Transformée de \textsc{Laplace} et produit de convolution} 
 

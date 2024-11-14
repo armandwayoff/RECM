@@ -135,15 +135,15 @@ Une étude plus détaillée de ce résultats et de ses limites est discutée dan
 
 \begin{exercice}[{\cite{RMS 888 2016 - ENSAM}}]
 Soit $\fonctionligne[f]{x}{\frac{1}{x \sqrt{x^2 - 1}}}$ définie sur $\interoo{1}{+\infty}$.
-\begin{enumerate}
+\begin{questions}
 \item Étudier et tracer la fonction $f$.
-\end{enumerate}
+\end{questions}
 Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac{1}{k \sqrt{k^2 - n^2}}$.
-\begin{enumerate}[resume]
+\begin{questions}[resume]
 \item Étudier la convergence et la limite de la suite $(S_n)$.
 
 \item Même question avec la suite $(n S_n)$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \todoinline{Illustrer $n S_n$ et $\int_{1}^{+\infty} f(t) \d t$ sur un même graphique ?}
@@ -155,7 +155,7 @@ Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac
 \end{marginfigure}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item La fonction $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable.
 
 \item D'après la définition de $f$,
@@ -177,5 +177,5 @@ De plus, $f(x) \sim_1 \frac{1}{\sqrt{2 (x - 1)}}$, donc $f$ est intégrable en $
 \item En reprenant l'encadrement précédent, $\left(n^{-1} f((n+1)/n)\right)$ converge toujours vers $0$ et $(n S_n)$ converge vers $\displaystyle\int_1^{+\infty} f(t) \mathrm{d}t$.
 
 \textbf{Remarque.} $\displaystyle\int^x f(t) \mathrm{d}t = - \arctan\frac{1}{\sqrt{x^2 - 1}}$ et $\displaystyle\int_1^{+\infty} f = \frac{\pi}{2}$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}

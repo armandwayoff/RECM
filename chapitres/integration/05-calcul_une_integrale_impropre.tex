@@ -4,16 +4,16 @@
 
 \begin{exercice}
 On pose $I = \int_0^{\pi/4} \ln(1+\tan x) \d x$.
-\begin{enumerate}
+\begin{questions}
 \item Pour tout $x$ réel, exprimer $\cos x + \sin x$ en fonction de $\cos\mathopen{}\left(x - \frac{\pi}{4}\right)$.
 
 \item En déduire la valeur de $I$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{elemsolution}
 L'intégrande est bien une fonction continue sur le segment $\interff{0}{\pi/4}$ donc l'intégrale est bien définie.
-\begin{enumerate}
+\begin{reponses}
 \item En utilisant les formules d'addition,
 \[
 \cos x + \sin x = \sqrt{2} \cos\mathopen{}\left(x-\frac{\pi}{4}\right).
@@ -30,7 +30,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 \int_0^{\pi/4} \ln(1+\tan x) \d x &= \int_0^{\pi/4} \ln (\sqrt{2}) \d x + \int_0^{\pi/4} \ln(\cos x) \d x - \int_0^{\pi/4} \ln(\cos x) \d x\\
 &= \frac{\pi}{8} \ln 2.
 \end{align*}
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 \begin{marginfigure}[0cm]
@@ -41,16 +41,16 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 \begin{exercice}[Intégrale d'\textsc{Euler}, {\cite{Oraux - CCP-PSI-2016}}]
     Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
-    \begin{enumerate}
+    \begin{questions}
         \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
         \item Calculer $I + J$ et en déduire $I$ et $J$.
-    \end{enumerate}
+    \end{questions}
 \end{exercice}
 
 % \todoinline{En mettre un peu plus sur la démo ? J'ai la version suivante à relire et changer les dt (CCP-PSI-2016) :}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item La fonction $x \mapsto \ln(\sin x)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
 \[
 \ln(\sin x) = \ln\mathopen{}\big(x + o(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + o(1)\big) = o(\ln x).
@@ -66,20 +66,20 @@ I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(x) \cos(x) \big) \d x = \int_0^
 &= I - \frac{\pi}{2} \ln(2).
 \end{align*}
 Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 \begin{exercice}
 On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
-\begin{enumerate}
+\begin{questions}
 \item Justifier l'existence de $I$.
 
 \item En découpant l'intervalle $\interoo{0}{+\infty}$ en $\interfo{0}{1} \cup \interfo{1}{+\infty}$ et en effectuant un changement de variable, calculer $I$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item La fonction $f \colon x \mapsto \frac{x \ln(x)}{(1 + x^2)^2}$ est continue sur $\interoo{0}{+\infty}$.
 
 Comme $f$ tend vers $0$ en $0$ par croissances comparées, on peut la prolonger par continuité en $0$ en posant $f(0) = 0$.
@@ -101,5 +101,5 @@ Dans la seconde intégrale, on effectue le changement de variable $\fonction[\ph
 &= \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x - \int_0^1 \frac{u \ln(u)}{(u^2 + 1)^2} \d u\\
 &= 0.
 \end{align*}
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}

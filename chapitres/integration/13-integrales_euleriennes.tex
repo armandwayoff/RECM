@@ -151,16 +151,16 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 
 \begin{exercice}
 \marginnote[0cm]{Source : \cite{fmaalouf}}
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$.
 
 \item Montrer que $\Gamma$ est convexe.
 % et étudier ses variations.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Comme $\Gamma$ est continue en $1$, 
 \[
 \lim_{x\to0} \Gamma(x + 1) = \Gamma(1) = \int_0^{+\infty} \e^{-t} \d t = 1.
@@ -176,8 +176,8 @@ De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
 \Gamma''(x) = \int_0^{+\infty} (\ln t)^2 t^{x-1} \e^{-t} \d t.
 \]
 Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \todoinline{On peut montrer que $\Gamma$ est l'unique fonction telle que $\ln \Gamma$ est convexe, $\Gamma(1) = 1$ et $\Gamma(x + 1) = x \Gamma(x)$. On le met ici ? (Source : Rudin)\\
 On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisable.}
@@ -253,7 +253,7 @@ Sources :
 }
 
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
 \item Déterminer $B(p, 0)$.
 
 \item Pour tout $(p, q) \in \N \times \Ne$, montrer que
@@ -262,11 +262,11 @@ B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item On a immédiatement $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
 \item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
@@ -281,23 +281,23 @@ B(p, q)
 &= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q, 0) \\
 &= \frac{p! q!}{(p + q + 1)!}.
 \end{align*}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \marginnote[0cm]{\todoinline{D'après Oral Centrale 2016}}
 \begin{exercice}%
 Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et, pour tout $i \in \interent{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \Ne$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
 
-\begin{enumerate}
+\begin{questions}
 \item Exprimer $\mathbf{P}(A_n)$ sous forme d'une somme.
 
 \item On note $b_{n,p}$ la probabilité que la prochaine boule tirée soit blanche sachant que $A_n$ est réalisé. Exprimer~$b_{n,p}$.
 \item Calculer $\lim\limits_{p\to+\infty} b_{n,p}$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item En utilisant la formule des probabilités totales,
 \begin{align*}
 \mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}(A_n | U_i) \mathbf{P}(U_i) \\
@@ -317,8 +317,8 @@ Cette limite vaut donc
 \[
 \frac{2n+1}{n+1} \cdot \frac{n! (n+1)!}{(2n+2)!} \cdot \frac{(2n+1)!}{n! n!}  = \frac{2n+1}{2n+2}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Des fonctions Bêta et des sommes}
@@ -331,7 +331,7 @@ Soit $(p, q) \in \N^2$.
 Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$.
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 En utilisant la formule du binôme de \textsc{Newton} puis la linéarité de l'intégrale,
 \begin{align*}
 B(p, q)
@@ -346,7 +346,7 @@ Ainsi,
 = \frac{p! q!}{(p + q + 1)!}
 = \frac{\binom{p+q+1}{p}^{-1}}{p + q + 1}.
 \]
-\end{demo}
+\end{solution}
 
 %---------------
 
@@ -375,17 +375,17 @@ Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le théo
 \marginnote[0cm]{\todoinline{Source : D'après un oral Centrale 2016}}
 \begin{exercice}%
 Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} \binom{n}{p}^{-1}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer l'existence de $S(p)$.
 
 \item Montrer que $S_N(p) = \sum\limits_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum\limits_{n=0}^N (n + p + 1) B(n, p)$.
 
 \item En déduire que $S(p) = \frac{p}{p-1}$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item D'après la définition des coefficients binomiaux,
 \[
 \binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\mathopen{}\left(\frac{1}{n^2}\right).
@@ -428,8 +428,8 @@ S(p)
 % S(p) &= \sum_{n=0}^{+\infty} \binom{n+p}{n}^{-1} = 1 + \sum_{n=1}^{+\infty} \binom{n+p-1}{n-1}^{-1} - \frac{p}{p+1} \sum_{n=1}^{+\infty} \binom{n+p}{p-1}^{-1} \\
 % &= 1 + S(p) - \frac{p}{p+1} S(p+1).
 % \end{align*}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
 
