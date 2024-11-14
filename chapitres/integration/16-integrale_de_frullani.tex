@@ -22,7 +22,7 @@ Alors, $I = \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
 
 \begin{exercice}
 Soit $f$ une fonction satisfaisant les hypothèses du théorème et $0 < \epsilon \leq M$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que
 \[
 \int_\epsilon^M \frac{f(a t) - f(b t)}{t} \d t
@@ -35,11 +35,11 @@ Soit $f$ une fonction satisfaisant les hypothèses du théorème et $0 < \epsilo
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item La fonction $f$ étant continue sur $[\epsilon, M]$, les intégrales sont bien définies et on utilise la relation de Chasles puis les changements de variables $u \mapsto \frac{u}{a}$ et $u \mapsto \frac{u}{b}$ :
 \begin{align*}
 \int_\epsilon^M \frac{f(a t) - f(b t)}{t} \d t
@@ -71,23 +71,23 @@ Ainsi, $\int\limits_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
 \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t
 = \ell \ln\frac{b}{a} - L \ln\frac{b}{a}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \begin{exercice}
 Soit $(a, b) \in \R^2$ avec $0<a<b$. Montrer que les intégrales suivantes sont convergentes et calculer leur valeur.
-\begin{enumerate}
+\begin{questions}
 \item $I = \int_0^{+\infty} \frac{\e^{-ax} - \e^{-bx}}{x} \d x$.
 \item $J = \int_0^{+\infty} \frac{\arctan(bx) - \arctan(ax)}{x} \d x$.
 \item $K = \int_0^{+\infty} \frac{\tanh(3x) - \tanh(x)}{x} \d x$.
 \item $L = \int_0^1 \frac{t - 1}{\ln(t)} \d t$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \todoinline{L'avant dernière est issue des oraux Mines 2016.}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Comme $\lim_{x\to+\infty} \e^{-x} = 0$ et $\lim_{x\to0} \e^{-x} = 1$, alors $I$ converge et
 \[
 \int_0^{+\infty} \frac{\e^{-a x} - \e^{-b x}}{x} = \ln\frac{b}{a}.
@@ -113,8 +113,8 @@ En utilisant un raisonnement analogue à celui effectué pour l'intégrale $I$, 
 \int_0^1 \frac{t - 1}{\ln(t)} \d t
 = \ln(2).
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 % \begin{exercice}
     % % % % Soit $\fonctionens{\interoo{0}{+\infty}}{\R}$ une fonction continue admettant une limite finie $L$ en $+\infty$ et une limite finie $\ell$ en $0$. On considère un couple $(a,b) \in \R^2$ vérifiant $0<a<b$ et les intégrales

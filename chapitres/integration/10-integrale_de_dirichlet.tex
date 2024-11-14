@@ -101,18 +101,18 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 \subsection{Calcul via le lemme de \textsc{Lebesgue}}
 \marginnote[7pt]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \textsc{Lebesgue}}}
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
     \item Calculer $I_n = \displaystyle \int_0^\pi \frac{\sin\mathopen{}\big[(n + 1/2)t\big]}{2 \sin \frac{t}{2}} \d t$. \\
     \emph{Indication :} Calculer $I_{n+1} - I_n$. 
 
     \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
     \item En déduire la valeur de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$.\\
     \emph{Indication :} On utilisera le lemme de \textsc{Lebesgue}
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item En utilisant les formules de trigonométrie,
 \begin{align*}
 I_{n+1} - I_n
@@ -156,8 +156,8 @@ Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de \textsc{Lebesgue},
 \]
 
 Finalement, $I = \frac{\pi}{2}$.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Calcul via une intégrale à paramètre}
@@ -200,16 +200,16 @@ $$F:x \to \int_{0}^{+ \infty} \exp(-xt) \frac{\sin (t)}{t} \d t$$
 
 \begin{exercice}[{RMS - Autres Écoles - 178}{IMT}{16}]
 On note $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$ et $F(x) = \int_0^{+\infty} \frac{\sin t}{t} (1 - \e^{-x t}) \d t$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que l'intégrale $I$ est bien définie.
 \item Montrer que l'intégrale $F$ est définie sur $\interfo{0}{+\infty}$, continue sur $\interfo{0}{+\infty}$ et dérivable sur $\interoo{0}{+\infty}$.
 \item En déduire la valeur de $I$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 \marginnote[0cm]{Reformulation de la démonstration \ref{demo2existenceIntegraleDirichlet}}
-\begin{enumerate}
+\begin{reponses}
 \item Les fonctions $\fonctionligne[u]{t}{1 - \cos(t)}$ et $\fonctionligne[v]{t}{\frac{1}{t}}$ sont de classe $\mathscr{C}^1$ sur $\Rpe$. De plus, le produit $u v$ a des limites nulles en $0$ et $+\infty$. Ainsi, d'après la formule d'intégration par parties, l'intégrale $I$ a même nature que
 \[
 \int_0^{+\infty} \frac{1 - \cos t}{t^2} \d t,
@@ -268,8 +268,8 @@ Ainsi, $\lim_{x\to+\infty} F(x) = I$ et
 \[
 I = \frac{\pi}{2}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 %-----------
 \subsection{Une preuve par équations différentielles}
@@ -277,7 +277,7 @@ I = \frac{\pi}{2}.
 \begin{exercice}
     Exercice 170 p. 184 \\
     Soient $f(x) = \int_0^\infty \frac{\sin(t)}{t+x} \d t$ et $g(x) = \int_0^\infty \frac{\e^{-xt}}{t^2 + 1} \d t$. 
-    \begin{enumerate}
+    \begin{questions}
         \item Montrer que $f, g \in \mathscr{C}^2(\Re)$. \\
         \textit{Pour $f$, on pourra commencer par montrer que $f(x) = \int_0^\infty \frac{1 - \cos(t)}{(t+x)^2} \d t$.}
         \item Montrer que $f$ et $g$ sont solutions de l'équation différentielle $y'' + y = \frac{1}{x}$.
@@ -286,11 +286,11 @@ I = \frac{\pi}{2}.
 
         \item Montrer que $f$ et $g$ tendent vers $0$ en $+\infty$, puis que $f = g$.
         \item En déduire la valeur de $\int_0^\infty \frac{\sin(t)}{t} \d t$.
-    \end{enumerate}
+    \end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item On pose $\fonctionligne[g]{(x, t)}{\frac{\e^{-x y}}{t^2 + 1}}$. Alors, pour tout $(x, t) \in \interfo{a}{+\infty} \times \Rp$,
 \begin{align*}
 \abs{g(x, t)} &\leqslant \frac{1}{1 + t^2},\\
@@ -374,8 +374,8 @@ Finalement, on obtient
 = \int_0^{+\infty} \frac{1}{1 + t^2} \d t
 = \frac{\pi}{2}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 
 %-----------

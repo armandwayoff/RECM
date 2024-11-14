@@ -31,11 +31,11 @@ Ainsi,
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 13. Suites et séries d’intégrales}
 On note $I = \int_0^{+\infty} \e^{-x^2} \d x$ et on pose $\fonctionligne[f]{x}{\e^{-x^2}}$.
 
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $I$ est une intégrale convergente.
-\end{enumerate}
+\end{questions}
 On propose ensuite de déterminer la valeur de $I$.
-\begin{enumerate}[resume]
+\begin{questions}[resume]
 \item \textbf{Première méthode: \say{ à la main }.} \\ 
 Pour $n \in \Ne$, on pose
 $$
@@ -47,7 +47,7 @@ g_n(x) \defeq
 $$
 
 On pose $\fonctionligne[g]{x}{\e^{-x}}$ et $h_n = g - g_n$·
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $h_n$ atteint son maximum sur $\interff{0}{n}$. On notera $x_n$ l'abscisse d'un point en laquelle $h_n$ atteint ce maximum.
 
 \item Montrer que $h_n$ est à valeurs positives.
@@ -62,18 +62,18 @@ On pose $\fonctionligne[g]{x}{\e^{-x}}$ et $h_n = g - g_n$·
 \item On pose $I_n= \int_0^{+\infty} g_n(x^2) \d x$. Montrer que $\module{I_n - I} \leqslant \frac{1}{\e \sqrt{n}} + \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x$.
 
 \item En déduire le résultat attendu.
-\end{enumerate}
+\end{questions}
 
 \item \textbf{Deuxième méthode: avec le théorème de convergence dominée et les intégrales de \textsc{Wallis.}} \\
 On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(x)$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que la suite $(f_n)_{n\in\N}$ converge simplement vers $f$.
 
 \item À l'aide du théorème de convergence dominée, en déduire que 
 \[
 \lim\limits_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
-\end{enumerate}
+\end{questions}
 
 \item On rappelle que, d'après les résultats sur les intégrales de \textsc{Wallis},
 \[
@@ -81,7 +81,7 @@ On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqr
 \]
 
 En déduire la valeur de $I$.
-\end{enumerate}
+\end{questions}
 % Pour $n \in \Ne$, on pose
         % $$
         % f_n(x) \defeq
@@ -96,12 +96,12 @@ En déduire la valeur de $I$.
         % \end{enumerate}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, $\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$. Ainsi, d'après le théorème de comparaison aux intégrales de \textsc{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
 \item
-\begin{enumerate}
+\begin{reponses}
 \item Pour tout $x \geqslant n$, $h_n(x) = \e^{-x} \leqslant \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $\interff{0}{n}$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
 
 \item \marginnote[-7pt]{\theoremeutilise{Inégalité de convexité du logarithme}}En utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{n}$,
@@ -167,10 +167,10 @@ Ainsi, d'après le théorème d'encadrement,
 = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
 \todoarmand{Je trouve que le terme du milieu porte à confusion, la première égalité est une définition tandis que la deuxième est un résultat.}
-\end{enumerate}
+\end{reponses}
 
 \item
-\begin{enumerate}
+\begin{reponses}
 \item Soit $x \in \Rp$ tel que $n \geqslant x^2$. Alors, $x \in \interff{0}{\sqrt{n}}$ et 
 \[
 f_n(x)
@@ -206,7 +206,7 @@ D'après le théorème de convergence dominée,
 \[
 \lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
-\end{enumerate}
+\end{reponses}
 
 \item En effectuant le changement de variable $\fonction[\phi]{\interff{0}{\pi/2}}{\interff{0}{\sqrt{n}}}{t}{\sqrt{n} \sin(t)}$ qui est bien de classe $\mathscr{C}^1$ et strictement croissant,
 \begin{align*}
@@ -214,8 +214,8 @@ D'après le théorème de convergence dominée,
 &= \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \xrightarrow[n \to \infty]{} \frac{\sqrt{\pi}}{2}.
 \end{align*}
 Finalement, $I = \frac{\sqrt{\pi}}{2}$.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 % \todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
 \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
@@ -254,17 +254,17 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2}
 
 \marginnote[0cm]{D'après \url{https://djalil.chafai.net/blog/2024/04/28/two-details-about-gaussians/}}
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
 \item Pour tout $\beta > 0$, déterminer la valeur de $\int_\R \e^{-\beta x^2} \d x$.
 
 \item Calculer la dérivée $n$-ième de la fonction $\fonctionligne[f]{\beta}{\sqrt{\frac{\pi}{\beta}}}$.
 
 \item En déduire le résultat annoncé.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Le changement de variable affine $u = \sqrt{\beta}\, x$ dans l'intégrale permet d'obtenir l'intégrale de \textsc{Gauss}. Ainsi,
 \[
 \int_\R \e^{-\beta x^2} \d x
@@ -280,7 +280,7 @@ f_n'(\beta)
 \end{align*}
 
 \item Posons $\fonctionligne[g]{(\beta, x)}{\e^{-\beta x^2}}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
-\begin{enumerate}
+\begin{itemize}
 \item Pour tout $x \in \R$, la fonction $g(\,\cdot\,, x)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
 
 \item Pour tout $n \in \N$ et $x \in \R$,
@@ -293,7 +293,7 @@ donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \,\cdot\,)$ est continue sur 
 \module{\frac{\partial^n g}{\partial \beta^n}(\beta, x)} \leqslant x^{2n} \e^{-a x^2}
 \]
 qui est une fonction intégrable.
-\end{enumerate}
+\end{itemize}
 
 En utilisant le théorème de dérivation sous le signe intégral, la fonction $I(\,\cdot\,)$ est de classe $\mathscr{C}^\infty$ et pour tout $n$ entier naturel,
 \[
@@ -308,8 +308,8 @@ Finalement, on obtient l'égalité :
 \]
 
 Évaluer en $\beta = 1$ permet d'obtenir le résultat annoncé.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 
 % \begin{prop}{}
@@ -413,7 +413,7 @@ Pour tout $x$ réel,
 
 \begin{exercice}
 On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que la fonction $f$  est définie sur $\R$.
 
 \item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} \i t \e^{-t^2 + \i t x} \d t$.
@@ -422,11 +422,11 @@ On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
 {On pourra utiliser une intégration par parties.}
 
 \item En déduire la valeur de $f$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo} On pose $\fonctionligne[g]{(x, t)}{\e^{-t^2 + \i t x}}$.
-\begin{enumerate}
+\begin{solution} On pose $\fonctionligne[g]{(x, t)}{\e^{-t^2 + \i t x}}$.
+\begin{reponses}
 \item Pour tout $(x, t) \in \R^2$,  $\abs{g(x, t)} \leqslant \e^{-t^2}$. Ainsi, la fonction $g(x, \,\cdot\,)$ est intégrable pour tout $x$ réel.
 
 \item Les hypothèses de régularité sont aisément vérifiables. De plus,
@@ -456,8 +456,8 @@ D'après le calcul de l'intégrale de \textsc{Gauss}, $f(0) = \sqrt{\pi}$. Ainsi
 \[
 f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \begin{figure}
     \centering
@@ -470,7 +470,7 @@ f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \subsection{À trier}
 
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
     \item Calculer $\int_{-\infty}^{+\infty} \e^{-x^2} \d x$. \\
     \emph{Indication :} On pourra d'abord calculer $\int_{R^2} \e^{-(x^2 + y^2)} \d x \d y$ en passant en coordonnées polaires. 
     \item \emph{Calcul de l'aire de la sphère unité de $\R^n$.} Soit $\mathscr{S}_{n-1} = \ens[\big]{(x_1, \dots, x_n) \in \R^n \tq \sum\limits_{i=1}^n x_i{}^2 = 1}$ la sphère unité de $\R^n$. On note $\mathscr{A}_{n-1}$ son aire. Calculer
@@ -486,7 +486,7 @@ f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
     \mathscr{V}_n = \frac{\pi^{n/2}}{\Gamma \left( \frac{n}{2} + 1 \right)}.
     \]
     \item \emph{Application :} Que vaut l'aire de la sphère de rayon $R$ de $\R^2$ ? $\R^3$ ? Que vaut le volume de la boule de rayon $R$ de $\R$ ? $\R^2$ ? $\R^3$?
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \todoinline{On met cet exercice avec les polynômes orthogonaux ?}
@@ -499,15 +499,15 @@ Polynômes d'{Hermite}
 {TPE}
 {16}
 Soit $f : x \mapsto \e^{-x^2}$. On rappelle que $\int_{-\infty}^{+\infty} f(x) \d x = \sqrt{\pi}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer qu'il existe un polynôme $P_n$ tel que $f^{(n)}(x) = f(x) P_n(x)$. Préciser le degré, la parité et le coefficient dominant de $P_n$.
 
 \item Montrer l'existence puis calculer $\int_{-\infty}^{+\infty} f(x) P_n(x) P_m(x) \d x$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item On raisonne par récurrence en remarquant que $P_0 = 1$ et $P_{n+1} = P_n' - 2 X P_n$. Ainsi, le degré de $P_n$ est $n$ et son coefficient dominant $(-2)^n$ et $P_n$ a même parité que $n$, i.e. $P_n(-X) = (-1)^n P_n(X)$.
 
 \item Soient $0 < m \leq n$. Les intégrales sont bien définies car ce sont des $o(1/x^2)$ en $\pm\infty$. Comme les crochets tendent vers $0$, en utilisant les fonctions $t \mapsto f^{(n-1)}(t)$ et $t \mapsto P_m(t)$ qui sont de classe $\mathscr{C}^1$, on remarque que
@@ -524,8 +524,8 @@ Ainsi,
 \item Si $n - m = 0$, i.e. $m = n$, alors $\int_\R f P_n^2 = m! 2^m \sqrt{\pi}$.
 \item Si $n - m \neq 0$, alors $\int_\R f P_n P_m = \left[f^{(n-m-1)}\right]_{-\infty}^{+\infty} = 0$.
 \end{itemize}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -538,7 +538,7 @@ Ainsi,
 {X-ENS}
 {16}%
 Soient $f$ et $g$ les fonctions définies pour tout $x \in \R_+$ par $f(x) = \int_0^1 \frac{e^{-(t^2+1) x^2}}{1 + t^2} \d t$ et $g(x) = \int_0^x e^{-t^2} \d t$.
-\begin{enumerate}
+\begin{questions}
 \item Calculer $f(0)$ puis $\lim_{x\to+\infty} f(x)$.
 
 \item Montrer que $f$ est de classe $\mathscr{C}^1$ sur $\R_+$ et que, pour tout $x \in \R_+$, $-2 g'(x) g(x) = f'(x)$.
@@ -555,11 +555,11 @@ Pour tout réel positif $t$ non nul, on pose $S(t) = \sum_{n=1}^{+\infty} h(n t)
 \item Déterminer un équivalent de $S(t)$ lorsque $t$ tend vers $0^+$.
 
 \item Déterminer un équivalent de $\sum_{n=1}^{+\infty} x^{n^2}$ lors que $x$ tend vers $1^-$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item D'après la définition, $f(0) = \int_0^1 \frac{1}{1 + t^2} \d t = \arctan(1) = \frac{\pi}{4}$.
 
 On remarque que l'intégrande est majorée par $t \mapsto \frac{1}{1+ t^2}$ qui est intégrable donc en appliquant le théorème de convergence dominée,
@@ -616,5 +616,5 @@ Ainsi, d'après la question précédente,
 \[
 \sum_{n=1}^{+\infty} x^{n^2} \sim_1 \frac{\sqrt{\pi}}{2 \sqrt{\abs{\ln(x)}}}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}

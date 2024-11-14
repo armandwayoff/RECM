@@ -20,7 +20,7 @@ Soit $f$ une fonction continue sur $\R_+$ et $\ell \in \overline{\R}$ tels que $
 
 \begin{exercice}
 Soit $f$ une fonction continue sur $\R_+$ telle que $\lim\limits_{x\to+\infty} f(x) = \ell$. On suppose que $\ell \in \R$. Soit $\epsilon > 0$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer qu'il existe $x_0 \in \R_+$ tel que
 \[
 \forall\ x \geq x_0,\, \module{f(x) - \ell} \leq \epsilon.
@@ -34,12 +34,12 @@ Soit $f$ une fonction continue sur $\R_+$ telle que $\lim\limits_{x\to+\infty} f
 \item Conclure.
 
 \item Démontrer le résultat lorsque $\ell = +\infty$.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 La démonstration est directement adaptée de celle de la version discrète. 
-\begin{enumerate}
+\begin{reponses}
 \item Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0,\ |f(x) - \ell| \leqslant \varepsilon$. \\
 
 \item Comme la fonction $f$ est continue sur le segment $[0, x_0]$, elle est bornée sur ce segment par une constante $K$. Ainsi, en utilisant la relation de Chasles,
@@ -83,5 +83,5 @@ Ainsi, pour tout $x \geq \max{x_0, x_1}$,
 \end{align*}
 
 Finalement, $\lim\limits_{x\to+\infty} \frac{1}{x}\int_0^x f(t) \d t = +\infty$.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}

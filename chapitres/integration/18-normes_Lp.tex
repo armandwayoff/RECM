@@ -50,7 +50,7 @@ Voir l'index des notations \ref{indexnotations} pour la définition de la norme 
 
 \begin{exercice}
 Soit $f$ une fonction continue sur le segment $[a, b]$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leq c_p \norm{f}_\infty$.
 
 \item Soit $\epsilon > 0$. Montrer qu'il existe un segment $[c, d] \subset [a, b]$ tel que
@@ -64,13 +64,13 @@ d_p (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 la fonction $f$ est continue sur un segment donc est en particuler, elle y est bornée. Ainsi, $\norm{f}_\infty$ est bien défini.
 
-\begin{enumerate}
+\begin{reponses}
 \item Comme, pour tout $t \in [a, b]$, $\module{f(t)} \leq \norm{f}_\infty$, la croissance de l'intégrale assure que
 \[
 \int_a^b \module{f(t)}^p \d t \leq \int_a^b (\norm{f}_\infty)^p \d t.
@@ -112,8 +112,8 @@ Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p
         % On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
         % \item Finalement, $u_n \displaystyle \longrightarrow M = \max_{[ a, b ]} f = \Ninf{f}$.
     % \end{itemize}
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \todoinline{Je ne parviens pas à compiler la figure suivante}
 
@@ -187,7 +187,7 @@ Soit $f \in \mathscr{C}([0,1],\R^*)$. Alors,
 
 \begin{exercice}%
 Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs positives et on pose $I(y) = \int_0^1 f(x)^y \d x$.
-\begin{enumerate}
+\begin{questions}
 \item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
 
 \item Montrer que $I$ est une fonction dérivable sur $\R_+$.
@@ -196,12 +196,11 @@ Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs posit
 \[
 \lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
 \]
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Comme $g$ est dérivable, d'après le théorème de Taylor-Young, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
 \begin{align*}
 g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
@@ -230,8 +229,8 @@ I'(0) &= \int_0^1 \ln(f(x)) \d x
 \[
 \lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
 \]
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \url{https://math.stackexchange.com/questions/2351581/convergence-question-about-lp-norm-when-p-tends-to-zero}
 
@@ -274,17 +273,17 @@ F = \frac{f}{\norm{f}_{L^p}}
 G = \frac{g}{\norm{g}_{L^q}}.
 \]
 Soit $x \in I$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer qu'il existe deux réels $s$ et $t$ tels que $F(x) = \e^{t/p}$ et $G(x) = \e^{s/q}$.
 
 \item Montrer que $\e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t$.
 
 \item En déduire l'inégalité de Hölder.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Pour tout $x$ réel, $F(x)$ et $G(x)$ sont deux réels strictement positifs, on pose $t = p \ln(F(x))$ et $s = q \ln(G(x))$.
 
 \item Rappelons que $\frac{1}{p} + \frac{1}{q} = 1$. Pour tous $s$ et $t$ réels, comme la fonction exponentielle est convexe, d'après l'inégalité de Jensen,
@@ -301,22 +300,22 @@ Comme $F^p$ et $G^q$ sont intégrables, alors $F G$ est intégrable et
 \int_I F G \leq \frac{1}{p} + \frac{1}{q} = 1.
 \]
 La linéarité de l'intégrale permet alors de conclure.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 \begin{exercice}
 Soit $f$ et $g$ deux fonctions de classe $L^p$ sur $I$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $\module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p$.
 
 \item En déduire que $(f + g) \in L^p(I)$.
 
 \item En décomposant $(f + g)^p = f (f + g)^{p-1} + g (f + g)^{p-1}$, en déduire l'inégalité de Minkowski.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
-\begin{demo}
-\begin{enumerate}
+\begin{solution}
+\begin{reponses}
 \item Pour tout $x \in I$,
 \begin{itemize}
 \item soit $\module{f(x)} \leq \module{g(x)}$ et $\module{f(x) + g(x)}^p \leq 2^p \module{g(x)}^p$,
@@ -348,8 +347,8 @@ Ainsi, en appliquant deux fois l'inégalité d'Hölder,
 \end{align*}
 
 On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
-\end{enumerate}
-\end{demo}
+\end{reponses}
+\end{solution}
 
 Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
 % \begin{exercice}
