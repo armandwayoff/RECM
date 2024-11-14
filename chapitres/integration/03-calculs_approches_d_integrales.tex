@@ -1,14 +1,11 @@
 \section{Calculs approchés d'intégrales}
 
-
-\todoinline{Texte réécrit, à relire avec attention en raison des copier-coller...}
-
-\todoinline{OK, je relirai également. Je viens de penser aussi à  Centrale - PC - 2021 qui fait les méthodes de quadrature.}
-
-\todoarmand{Le II.C fait un lien avec la section 5.5 sur les familles de polynômes orthogonaux. \\
+\todoarmand{Centrale - PC - 2021\\
+Transférer cette ref dans la partie polynômes orthogonaux.\\
+Le II.C fait un lien avec la section 5.5 sur les familles de polynômes orthogonaux. \\
 Le III permet d'avoir une application des polynômes / nombres de Bernoulli}
 
-Nous abordons dans cette section quelques méthodes dont le but est d’estimer la valeur numérique de l’intégrale d'une fonction donnée $f$ définie sur un domaine borné $\interff{a}{b}$:
+Nous abordons dans cette section quelques méthodes dont le but est d’estimer la valeur numérique de l'intégrale d'une fonction donnée $f$ définie sur un domaine borné $\interff{a}{b}$:
 \[
 I = \int_a^b f(t) \d t.
 \]
@@ -17,10 +14,6 @@ Soient $a$ et $b$ deux réels tels que $a < b$. Pour tout entier naturel $p$ non
 \[
 x_i = a + i\, \frac{b-a}{p}.
 \]
-
-\todoinline{Doit-on définir la notion d'"exacte" dans la définition suivante ?}
-
-\todoarmand{C'est peut être mieux, j'ai fait une proposition qui permet de ne pas trop rallonger la définition mais qui demande d'avoir défini $I$ et $\widetilde{I}$ avant.}
 
 \begin{defi}
 Une méthode d'intégration est d'\emph{ordre} au moins $n$ si elle est exacte (\emph{i.e.} $\widetilde{I} = I$) pour les polynômes de degrés inférieurs ou égaux $n$ et non exacte pour au moins un polynôme de degré $n+1$.
@@ -45,25 +38,43 @@ I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
 \end{prop}
 
-\begin{elemsolution}
-On suppose que $f$ désigne une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
-
+\todoinline{Ajout de l'exercice}
+\begin{exercice}
+Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
 \begin{enumerate}
-\item D'après la formule de \textsc{Taylor} avec reste intégal, pour tout $i \in \interent{0}{p-1}$,
+\item Montrer que
 \[
+\forall\, i \in \interent{0}{p-1},\,
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leqslant \frac{M_1}{2} (x_{i+1}-x_i)^2.
 \]
+
+\item En déduire que
+\[
+\module{\int_{\interff{a}{b}} f(t) \d t - I_p^\mathrm{g}(f)}
+\leqslant \frac{M_1 (b-a)^2}{2 p}.
+\]
+
+\item Utiliser la méthode des rectangles à gauche pour calculer une valeur approchée de l'intégrale de la fonction $x \mapsto x - a$.
+
+\item Conclure.
+\end{enumerate}
+\end{exercice}
+
+\begin{elemsolution}
+
+\begin{enumerate}
+\item Il s'agit d'une application de la formule de \textsc{Taylor} avec reste intégal.
 
 \item En utilisant la relation de \textsc{Chasles},
 \begin{align*}
 \module{\int_{\interff{a}{b}} f(t) \d t - I_p^\mathrm{g}(f)}
 &\leqslant \sum_{i=1}^{p-1} \module{\int_{\interff{x_i}{x_{i+1}}} f(x) \d x - (x_{i+1} - x_i) f(x_i)}\\
-&\leqslant \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2\\
+&\leqslant \sum_{i=1}^{p-1} \frac{M_1}{2} (x_{i+1} - x_i)^2
 % &\leq \frac{M_1}{2} (b - a) \sum_{i=1}^{p-1} (x_{i+1} - x_i)\\
-&\leqslant \frac{M_1 (b-a)^2}{2 p}.
+\leqslant \frac{M_1 (b-a)^2}{2 p}.
 \end{align*}
 
-\item De plus, on montre que cette borne est atteinte pour $\fonctionligne[f]{x}{x - a}$.
+\item On remarque que, dans ce cas, $M_1 = b - a$ et la borne est atteinte.
 
 \item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $\fonctionligne[f]{x}{x - a}$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
 \end{enumerate}
@@ -87,6 +98,10 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
     \caption{Illustration de la méthode des rectangles médians}
 \end{marginfigure}
 \marginnote[3cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
+
+\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat - Lire la suite.}
+
+
 
 
 \begin{elemsolution}
