@@ -55,6 +55,53 @@
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
 
+%%%%%% Flowcharts %%%%%%
+\newcounter{boxlblcounter}  
+\newcommand{\makeboxlabel}[1]{\fbox{#1}\hfill}% \hfill fills the label box
+\newenvironment{boxlabel}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+     \let\makelabel=\makeboxlabel
+    }
+  }
+{\end{list}}
+
+%== Blocs
+\tikzstyle{decision} = [
+  rectangle, rounded corners, dashed,
+  inner sep = 10pt,
+  draw=colordef, very thick,
+  minimum height=5ex,
+  align=center,
+  node distance=2.5cm,
+  ]
+  \tikzstyle{block} =
+  [rectangle,
+  draw=colorexample, very thick,
+  node distance=2.5cm,
+  align=center,
+  inner sep = 20pt,
+  rounded corners, 
+  minimum height=4ex]
+  
+\tikzstyle{line} = [draw, very thick, color=black, -latex']
+
+\tikzstyle{cloud} =
+  [ellipse, draw=colortheorem,
+  very thick,
+  align=center, node distance=2.5cm,
+  minimum height=2em, inner sep=1pt]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{comment}
+
 %%% Ajoute par Alain
 \usepackage{color}
 \usepackage{todonotes}

@@ -1,8 +1,5 @@
 \section{Lemme de \textsc{Lebesgue}}\label{sec:lemmeLebesgue}
 
-\todoinline{Parvenir à décommenter le marginnote suivant. D'après mes recherches sur internet, il faudrait "externaliser" la compilation des figures en pdflatex qui demandent trop de ressources.}
-\todoarmand{Je n'ai pas de problème de compilation avec le marginnote.}
-
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 \begin{marginfigure}[-2cm]
     \includegraphics[width=0.9\textwidth]{illustrations/integration-02_lebesgue.png}
@@ -18,9 +15,21 @@
 \end{enumerate}
 \end{lemme}
 On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus les oscillations sont élevées et plus les aires comptées positivement et négativement se compensent.
+
+\todoinline{J'ajoute cet exercice, ce qui pourrait régler le pb du théorème H.P. Ceux qui ne le connaissent pas ne font pas le 2. et on s'abstrait des programmes qui sont par définition changeants...}
+
+\begin{exercice}
+\begin{enumerate}
+\item Pour le premier point du lemme, utiliser une intégration par parties avec les fonctions $f$ et $x \mapsto \frac{\cos(\lg x)}{\lg}$·
+
+\item Pour le second point, utiliser l'approximation des fonctions continues par morceaux par des fonctions en escalier.
+\end{enumerate}
+\end{exercice}
+
+
 \begin{solution}
     \begin{enumerate}
-        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour $\lambda > 0$:
+        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour~\mbox{$\lambda > 0$}:
         \[
         \begin{multlined}[t]
         \left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \left( -\big[ \cos(\lambda t) f(t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \\
@@ -29,17 +38,15 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
         \]
         par inégalité triangulaire et majoration de la fonction cosinus par $1$. \\
         Cette dernière expression tend vers $0$ lorsque $\lambda$ tend vers $+ \infty$, et donc l'intégrale $\int_a^b f(t) \sin(\lambda t) \d t$ tend bien vers $0$ lorsque $\lambda$ tend vers $+\infty$.
-        \item Si la fonction $f$ est simplement supposée continue par morceaux, on ne peut plus effectuer une intégration par parties. \\
+        \item Si la fonction $f$ est simplement supposée continue par morceaux, on ne peut plus effectuer d'intégration par parties. \\
         Le résultat est clair si $f = 1$, car pour $\lambda > 0$, $\left| \int_a^b \sin(\lambda t) \d t \right| = \left| \frac{\cos(\lambda a) - \cos(\lambda b)}{\lambda} \right| \leqslant \frac{2}{\lambda}$. \\
         Le résultat s'étend aux fonctions constantes par linéarité de l'intégrale puis aux fonctions constantes par morceaux par additivité par rapport à l'intervalle d'intégration, c'est-à-dire aux fonctions en escaliers. 
-        \todoarmand{J'ai commenté la définition de la norme $L^\infty$ puisqu'elle est donnée dans l'index des notations.}
-        % Pour toute fonction $g$ continue par morceaux sur $[a, b]$, on note $\|g\|_{\infty} = \sup_{[a, b]} |g|$.\\
+
         Considérons donc $f$ une fonction continue par morceaux sur $\interff{a}{b}$. \\
-        \todoinline{Là on admet un théorème d'approximation non trivial et hors programme en PCSI. Il faut voir ce qu'on indique en introduction du chapitre ?}
-        \todoarmand{On pourrait donner le théorème au début du chapitre, en précisant les filières pour lesquelles il est hors programme.}
         Soit $\varepsilon > 0$, il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leqslant \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
+        \todoinline{j'ai fait passer le $\varphi$ dans l'intégrale à la ligne suivante. Si tu confirmes, tu peux supprimer cette remarque.}
         \[
-        \left| \varphi(t) \int_a^b \sin(\lambda t) \d t\right| \leqslant \varepsilon.
+        \left| \int_a^b \varphi(t)  \sin(\lambda t) \d t\right| \leqslant \varepsilon.
         \]
         Finalement, d'après l'inégalité triangulaire, pour tout $\lambda > \lambda_0$,
         \begin{align*}
@@ -66,16 +73,7 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 Nous allons utiliser le \hyperref[lemmeLebesgue]{lemme de \textsc{Lebesgue}} pour calculer certaines valeurs de la fonction $\zeta$ de \textsc{Riemann}. La fonction zêta de \textsc{Riemann} est également abordée dans la sous-section \ref{subsec:fonctionZeta}. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \textsc{Dirichlet}}.
 
-\todoinline{Partie re-rédigée, à relire !}
-
-\todoinline{Dans la partie sur Bernoulli, il faudra :
-la symétrie, la dérivée et les valeurs de $B_2(0)$ et $B_4(0)$}
-
-\todoarmand{La symétrie et la dérivée sont faites dans l'exercice et j'ai ajouté un tableau avec les premières valeurs de nombres de Bernoulli}
-
 On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de \textsc{Bernoulli}} et, pour tout $x > 1$, on introduit la fonction $\zeta(x) = \sum\limits_{k=1}^{\infty} \frac{1}{k^x}$.
-
-\todoarmand{Il y a bien un lien vers le thème sur les polynômes de Bernoulli}
 
 \begin{theo}
 Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
@@ -83,8 +81,8 @@ Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{
 
 L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une démonstration de ce résultat. 
 \begin{exercice}
-\begin{questions}
-    \item Pour $k$ et $n$ entiers strictement positifs \todoarmand{ou bien Pour tout $k,n \in \Ne$}, on définit les intégrales
+\begin{enumerate}
+    \item Pour tout $k,n \in \Ne$, on définit les intégrales
     \[
     I_{n,k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
     \]
@@ -162,7 +160,9 @@ Ainsi, $\lim\limits_{t \to 0} \varphi_n(t) = \frac{B'_n(0)}{\pi}$ et $\varphi_n$
 % De plus, $\lim\limits_{t \to 0} \frac{\varphi_n(t) - \frac{B'_n(0)}{\pi}}{t} = \frac{B''_n(0)}{2 \pi}$.
 %
 De plus, pour tout $t$ non nul, $\displaystyle \varphi'_n(t) = \frac{B'_n(t) \sin(\pi t) - \big(B_n(t) - B_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}$. Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, on obtient $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} B''_n(0)$.
-\marginnote[-7pt]{\theoremeutilise{\hyperref[thm:prolongementDesDerivees]{Théorème de prolongement des dérivées}} \todoarmand{Mettre en évidence les théorèmes / prop. utilisés ?}}D'après le théorème de prolongement des dérivées, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
+\marginnote[-7pt]{\theoremeutilise{\hyperref[thm:prolongementDesDerivees]{Théorème de prolongement des dérivées}} \todoarmand{Mettre en évidence les théorèmes / prop. utilisés ?}}
+\todoinline{Le mieux serait de générer un index je pense}
+D'après le théorème de prolongement des dérivées, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
 
 Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
 \end{itemize}
