@@ -12,21 +12,22 @@
 
 
 \begin{theo}
-Soit $f$ une fonction continue sur $\R_+$ et $\ell \in \overline{\R}$ tels que $\lim\limits_{+\infty} f = \ell$. Alors 
+Soit $f$ une fonction continue sur $\Rp$ et $\ell \in \overline{\R}$ tels que $\lim\limits_{+\infty} f = \ell$. Alors 
 \[
 \lim_{x \to + \infty} \frac{1}{x} \int_0^x f(t) \d t = \ell.
 \]
 \end{theo}
 
 \begin{exercice}
-Soit $f$ une fonction continue sur $\R_+$ telle que $\lim\limits_{x\to+\infty} f(x) = \ell$. On suppose que $\ell \in \R$. Soit $\epsilon > 0$.
+Soit $f$ une fonction continue sur $\Rp$ telle que $\lim\limits_{x\to+\infty} f(x) = \ell$. On suppose que $\ell \in \R$. Soit $\varepsilon > 0$.
 \begin{questions}
-\item Montrer qu'il existe $x_0 \in \R_+$ tel que
+\item Montrer qu'il existe $x_0 \in \Rp$ tel que
 \[
-\forall\ x \geq x_0,\, \module{f(x) - \ell} \leq \epsilon.
+\forall x \geqslant x_0,\quad \module{f(x) - \ell} \leq \varepsilon.
 \]
+\todoarmand{Est-ce qu'on garde la Q1) ?}
 
-\item En déduire qu'il existe une constante $K$ telle que pour tout $x \geq x_0$,
+\item En déduire qu'il existe une constante $K$ telle que pour tout $x \geqslant x_0$,
 \[
 \module{\frac{1}{x} \int_0^x f(t) \d t - \ell} \leqslant \frac{K}{x} + \varepsilon.
 \]
@@ -40,48 +41,47 @@ Soit $f$ une fonction continue sur $\R_+$ telle que $\lim\limits_{x\to+\infty} f
 \begin{solution}
 La démonstration est directement adaptée de celle de la version discrète. 
 \begin{reponses}
-\item Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0,\ |f(x) - \ell| \leqslant \varepsilon$. \\
+\item Comme la fonction $f$ converge vers $\ell$ en $+ \infty$, il existe $x_0 \in \Rp$ tel que pour tout $x \geqslant x_0$, $|f(x) - \ell| \leqslant \varepsilon$. \\
 
-\item Comme la fonction $f$ est continue sur le segment $[0, x_0]$, elle est bornée sur ce segment par une constante $K$. Ainsi, en utilisant la relation de Chasles,
+\item Comme la fonction $f$ est continue sur le segment $\interff{0}{x_0}$, elle est bornée sur ce segment. Ainsi, en utilisant la relation de \textsc{Chasles},
 \begin{align*}
-\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| &= \left| \frac{1}{x} \int_0^x (f(t) - \ell) \d t \right| \\
+\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| &= \left| \frac{1}{x} \int_0^x \mathopen{}\big(f(t) - \ell\big) \d t \right| \\
 \text{par l'inégalité triangulaire} &\leqslant \frac{1}{x} \int_0^x |f(t) - \ell| \d t \\
 &\leqslant \frac{1}{x} \Bigg( \underbrace{\int_{0}^{x_0} |f(t) - \ell| \d t}_{\defeq K} + \int_{x_0}^{x} \underbrace{|f(t) - \ell|}_{\leqslant \varepsilon} \d t \Bigg) \\
 &\leqslant \frac{K}{x} + \varepsilon
 \end{align*}
 
-\item Comme $\lim\limits_{x \to \infty} \frac{K}{x} = 0$, il existe $x_1 \in \Rp$ tel que pour tout $x \geqslant x_1, \left| \frac{K}{x} \right| \leqslant \varepsilon$.
+\item Comme $\lim\limits_{x \to \infty} \frac{K}{x} = 0$, il existe $x_1 \in \Rp$ tel que pour tout $x \geqslant x_1$, $ \big| \frac{K}{x} \big| \leqslant \varepsilon$.
 
 Ainsi pour tout $x \geqslant \max \{ x_0, x_1 \}$, 
 $$\left| \frac{1}{x} \int_0^x f(t) \d t - \ell \right| \leqslant 2 \varepsilon.$$
 On en déduit le résultat. 
 
-\item On suppose que $\ell = +\infty$. Soit $M \in \Rp$.
-
-Comme $f$ tend vers $+\infty$ en $+\infty$, il existe $x_0 \in \Rp$ tel que
+\item On suppose que $\ell = +\infty$. Soit $M \in \Rp$. Comme $f$ tend vers $+\infty$ en $+\infty$, il existe $x_0 \in \Rp$ tel que
 \[
-\forall x \geq x_0,\, f(x) \geq M.
+\forall x \geqslant x_0,\quad f(x) \geqslant M.
 \]
 
-Comme $f$ est continue sur le segment $[0, x_0]$, elle est bornée par une constante $K$ sur ce segment.
-
-Ainsi, en utilisant la relation de Chasles et l'inégalité triangulaire, pour tout $x \geq x_0$,
+Comme $f$ est continue sur le segment $\interff{0}{x_0}$, elle est bornée par une constante $K$ sur ce segment. \\
+Ainsi, en utilisant la relation de \textsc{Chasles} et l'inégalité triangulaire, pour tout $x \geqslant x_0$,
 \begin{align*}
 \frac{1}{x} \int_0^x f(t) \d t
-&\geq \frac{1}{x} \int_0^{x_0} f(t) \d t + \frac{1}{x} \int_{x_0}^x f(t) \d t\\
-&\geq -\frac{K}{x} + M (x - x_0).
+&= \frac{1}{x} \int_0^{x_0} f(t) \d t + \frac{1}{x} \int_{x_0}^x f(t) \d t\\
+&\geqslant -\frac{K}{x} + M (x - x_0).
 \end{align*}
 
 Comme $\lim\limits_{x\to+\infty} \frac{K}{x} = 0$ et $\lim\limits_{x\to+\infty} M (x - x_0) = +\infty$, il existe un réel $x_1$ tel que
 \[
-\forall\, x \geq x_1,\, \frac{K}{x} \geq -\frac{1}{2} \text{ et } M (x - x_0) \geq M + \frac{1}{2}.
+\forall x \geqslant x_1,\quad \frac{K}{x} \geqslant -\frac{1}{2} \quad \text{et} \quad M (x - x_0) \geqslant M + \frac{1}{2}.
 \]
-Ainsi, pour tout $x \geq \max{x_0, x_1}$,
+Ainsi, pour tout $x \geqslant \max\{x_0, x_1\}$,
 \begin{align*}
 \frac{1}{x} \int_0^x f(t) \d t
-&\geq M.
+&\geqslant M.
 \end{align*}
-
-Finalement, $\lim\limits_{x\to+\infty} \frac{1}{x}\int_0^x f(t) \d t = +\infty$.
+Finalement, 
+\[
+\lim\limits_{x\to+\infty} \frac{1}{x}\int_0^x f(t) \d t = +\infty.
+\]
 \end{reponses}
 \end{solution}

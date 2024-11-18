@@ -1,0 +1,74 @@
+\pgfmathdeclarefunction{poly1}{0}{\pgfmathparse{(x^(1/2) + 2 * x^2 - ln(x + 1) + 2)*sin(deg(x))}}
+\pgfmathdeclarefunction{poly5}{0}{\pgfmathparse{(x^(1/2) + 2 * x^2 - ln(x + 1) + 2)*sin(5*deg(x))}}
+\pgfmathdeclarefunction{poly50}{0}{\pgfmathparse{(x^(1/2) + 2 * x^2 - ln(x + 1) + 2)*sin(25*deg(x))}}
+\pgfmathdeclarefunction{f}{0}{\pgfmathparse{(x^(1/2) + 2 * x^2 - ln(x + 1) + 2)}}
+\pgfmathdeclarefunction{g}{0}{\pgfmathparse{-(x^(1/2) + 2 * x^2 - ln(x + 1) + 2)}}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={
+        group name=my plots,
+        group size=1 by 3,
+        ylabels at=edge left
+    },
+    axis x line=middle,
+    axis y line=middle,
+    axis line style={thick, -latex, line cap=round},
+    xtick       = \empty,
+    ytick       = {0},
+    yticklabels = {$0$},
+    samples     = 160,
+    domain      = 0:7,
+    xmin = -0.2, xmax = 7.5,
+    ymin = -100, ymax = 100,
+    height=4cm,
+    width=8cm,
+    legend style={
+        at={(0.5,-0.5)},
+        anchor=south, 
+        % at={(1.5708,0.5)},
+        % anchor=north,
+        legend cell align=left,
+        draw=none % Unterdrücke Box
+    },
+  ]
+  \nextgroupplot[title={$\lambda=1$}]
+  \addplot[black, thick, mark=none, dashed] {f};
+  \addplot[black, thick, mark=none, dashed] {g}; 
+  \addplot[black, thick, mark=none] {0};  
+  \addplot[name path=poly, black, mark=none, samples=200] {poly1};
+  \addplot[name path=line, black, no markers] {0};
+  \addplot fill between[ 
+    of = poly and line, 
+    split, % calculate segments
+    every even segment/.style = {blue!25!white},
+    every odd segment/.style  = {red!25!white}
+  ];
+  \nextgroupplot[title={$\lambda=5$}]
+  \addplot[black, thick, mark=none, dashed] {f};
+  \addplot[black, thick, mark=none, dashed] {g};  
+  \addplot[black, thick, mark=none] {0};  
+  \addplot[name path=poly, black, mark=none, samples=200] {poly5};
+  \addplot[name path=line, black, no markers] {0};
+  \addplot fill between[ 
+    of = poly and line, 
+    split, % calculate segments
+    every even segment/.style = {blue!25!white},
+    every odd segment/.style  = {red!25!white}
+  ];
+  \nextgroupplot[title={$\lambda=25$}]
+  \addplot[black, thick, mark=none, dashed] {f};
+  \addplot[black, thick, mark=none, dashed] {g}; \label{pmf}
+  % \addlegendentry{$\pm f$}
+  \addplot[black, thick, mark=none] {0};  
+  \addplot[name path=poly, black, mark=none, samples=200] {poly50}; \label{poly}
+  % \addlegendentry{$t \mapsto f(t) \sin(\lambda t)$}
+  \addplot[name path=line, black, no markers] {0};
+  \addplot fill between[ 
+    of = poly and line, 
+    split, % calculate segments
+    every even segment/.style = {blue!25!white},
+    every odd segment/.style  = {red!25!white}
+  ];
+\end{groupplot}
+\end{tikzpicture}

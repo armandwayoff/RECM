@@ -9,38 +9,38 @@
 \end{marginfigure}
 
 \begin{prop}
-Pour tout $x \in ]0, 1[$, on définit $f(x) = \int_x^{x^2} \frac{\d t}{\ln(t)}$.
+Pour tout $x \in \interff{0}{1}$, on définit $f(x) = \int_x^{x^2} \frac{\d t}{\ln(t)}$.
 \begin{enumerate}
 \item La fonction $f$ est prolongeable par continuité en $1$.
 
-\item La fonction $f$ est dérivable sur $[0, 1]$.
+\item La fonction $f$ est dérivable sur $\interff{0}{1}$.
 \end{enumerate}
 \end{prop}
 
 \begin{remarque}
-La fonction $x \mapsto \int_0^x \frac{1}{\ln(t)} \d t$ est la fonction logarithme intégral.
+La fonction $x \mapsto \int_0^x \frac{1}{\ln(t)} \d t$ est la fonction \textsl{logarithme intégral}.
 \end{remarque}
 
 \begin{elemsolution}
 \begin{enumerate}
-\item Soit $t \in ]x^2, 1]$. Comme la fonction logarithme est concave, sa courbe représentative se situe en-dessous de sa tangente en $1$ et
+\item Soit $t \in \interfo{x^2}{1}$. Comme la fonction logarithme est concave, sa courbe représentative se situe en-dessous de sa tangente en $1$ et
 \[
-\ln(t) - \ln(1) \leq t - 1.
+\ln(t) - \ln(1) \leqslant t - 1.
 \]
 
 \medskip
 
-Toujours par concavité de la fonction logarithme, la corde reliant les points de coordonnées $(x^2, \ln(x^2))$ et $(1, 0)$ se situe en-dessous de la courbe représentant le logarithme, soit :
+Toujours par concavité de la fonction logarithme, la corde reliant les points de coordonnées $\big(x^2, \ln(x^2)\big)$ et $(1, 0)$ se situe en-dessous de la courbe représentant le logarithme, soit :
 \[
-\frac{\ln(x^2) - \ln(1)}{x^2 - 1} (t - 1) \leq \ln(t).
+\frac{\ln(x^2) - \ln(1)}{x^2 - 1} (t - 1) \leqslant \ln(t).
 \]
 
-\item En utilisant l'encadrement précédent, pour tout $t \in ]x^2, 1[$,
+\item En utilisant l'encadrement précédent, pour tout $t \in \interoo{x^2}{1}$,
 \begin{align*}
-\frac{1}{t - 1} \leq \frac{1}{\ln(t)} &\leq \frac{x^2 - 1}{2 \ln(x)} \times \frac{1}{t - 1}\\
-\frac{x^2 - 1}{2 \ln(x)} \int_x^{x^2} \frac{\d t}{t - 1} &\leq f(x) \leq \int_x^{x^2} \frac{\d t}{t - 1}\\
-\frac{x^2 - 1}{2 \ln(x)} \ln \abs{\frac{x^2 - 1}{x - 1}} &\leq f(x) \leq \ln\abs{\frac{x^2 - 1}{x - 1}}\\
-\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\abs{x + 1} &\leq f(x) \leq \ln\abs{x + 1}.
+\frac{1}{t - 1} \leqslant \frac{1}{\ln(t)} &\leqslant \frac{x^2 - 1}{2 \ln(x)} \times \frac{1}{t - 1}\\
+\frac{x^2 - 1}{2 \ln(x)} \int_x^{x^2} \frac{\d t}{t - 1} &\leqslant f(x) \leqslant \int_x^{x^2} \frac{\d t}{t - 1}\\
+\frac{x^2 - 1}{2 \ln(x)} \ln \abs{\frac{x^2 - 1}{x - 1}} &\leqslant f(x) \leqslant \ln\abs{\frac{x^2 - 1}{x - 1}}\\
+\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\abs{x + 1} &\leqslant f(x) \leqslant \ln\abs{x + 1}.
 \end{align*}
 
 Ainsi, d'après le théorème d'encadrement, $\lim_{x\to 1} f(x) = \ln(2)$.
