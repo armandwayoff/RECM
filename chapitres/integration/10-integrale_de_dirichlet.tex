@@ -228,43 +228,43 @@ Ainsi, l'intégrale $F$ est bien définie sur $\Rp$.
 
 \item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car le sinus cardinal $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant les fonctions $\fonctionligne[u]{t}{\int_t^{+\infty} \frac{\sin u}{u} \d u}$ et $\fonctionligne[v]{t}{(1 - \e^{-x t})}$. Comme le produit $u\,v$ admet des limites nulles en $0$ et $+\infty$, 
 \begin{align*}
-F(x) &= -x \int_{0}^{+\infty} u(t) \e^{- x t} \d t \\
+F(x) &= -x \int_{0}^{+\infty} u(t)\, \e^{- x t} \d t \\
 &= -\int_0^{+\infty} u\mathopen{}\left(\frac{v}{x}\right) \e^{-v} \d v.
 \end{align*}
 Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ et
 \[
-\abs{u\mathopen{}\left(\frac{u}{x}\right) \e^{-u}} \leqslant M \e^{-u},
+\abs{u\mathopen{}\left(\frac{v}{x}\right) \e^{-v}} \leqslant M \e^{-v},
 \]
 qui est une fonction intégrable. Ainsi, d'après le théorème de convergence dominée,
 \[
-\lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t) \e^{-v} \d v = 0.
+\lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t)\, \e^{-v} \d v = 0.
 \]
 Ainsi, $F$ est continue en $0$.
 
 \item Avec les notations de la question précédente,
 \[
-\forall\, x \in \interfo{a}{+\infty},\quad \abs{\frac{\partial f}{\partial x}(x, t)} \leqslant \e^{-a t}.
+\forall x \in \interfo{a}{+\infty},\quad \abs{\frac{\partial f}{\partial x}(x, t)} \leqslant \e^{-a t}.
 \]
 Ainsi, la fonction $F$ est de classe $\mathscr{C}^1$ sur $\interfo{a}{+\infty}$, donc sur $\Rpe$.
 \end{enumerate}
 
 De plus, pour tout $x > 0$,
 \[
-F'(x) = \int_0^{+\infty} \sin(t) \e^{-x t} \d t = \frac{1}{1 + x^2}.
+F'(x) = \int_0^{+\infty} \sin(t)\, \e^{-x t} \d t = \frac{1}{1 + x^2}.
 \]
 
 \item D'après la question précédente, il existe une constante $C \in \R$ telle que
 \[
-\forall\, x > 0,\quad F(x) = C + \arctan(x).
+\forall x > 0,\quad F(x) = C + \arctan(x).
 \]
 
 Comme $F(0) = 0$, et par continuité de la fonction $F$, alors $C = 0$.
 
-Enfin, $F(x) = I - \int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t$ et
+Enfin, $F(x) = I - \int_0^{+\infty} \frac{\sin t}{t}\, \e^{-x t} \d t$ et
 \[
-\abs{\int_0^{+\infty} \frac{\sin t}{t} \e^{-x t} \d t} \leqslant \int_0^{+\infty} \e^{-x t} \d t = \frac{1}{x}.
+\abs{\int_0^{+\infty} \frac{\sin t}{t}\, \e^{-x t} \d t} \leqslant \int_0^{+\infty} \e^{-x t} \d t = \frac{1}{x}.
 \]
-Ainsi, $\lim_{x\to+\infty} F(x) = I$ et
+Ainsi, $\lim\limits_{x\to+\infty} F(x) = I$ et
 \[
 I = \frac{\pi}{2}.
 \]

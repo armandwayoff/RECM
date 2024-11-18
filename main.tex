@@ -98,9 +98,27 @@
   very thick,
   align=center, node distance=2.5cm,
   minimum height=2em, inner sep=1pt]
+
+\definecolor{colordef}{RGB}{0,153,153}
+% DarkSlateGray
+\definecolor{colortitle}{RGB}{51,102,102}
+% 
+\definecolor{colorproposition}{RGB}{255,51,0}
+\definecolor{colortheorem}{RGB}{255,0,0}
+\definecolor{colorexample}{RGB}{51,153,102}
+\definecolor{colorinterpretation}{RGB}{204,255,51}
+\definecolor{colorstrategie}{RGB}{204,153,0}
+
+% \usepgfplotslibrary{external} 
+% \tikzexternalize
+
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{comment}
+
+% Pour remplacer la version anglaise par défaut
+\addto\captionsfrench{\def\tablename{Tableau}}
 
 %%% Ajoute par Alain
 \usepackage{color}
@@ -158,7 +176,7 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \\}
 % \subtitle{}
 
-\author[Armand Wayoff]{Armand \textsc{Wayoff} \\ \url{https://armandwayoff.github.io/}}
+\author[Alain Camanes, Armand Wayoff]{Alain \textsc{Camanes} \coauteur Armand \textsc{Wayoff}}
 
 \date{}
 
@@ -193,12 +211,12 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \pageblanche
 
 \vspace*{\fill} % plaque le texte en bas de page
-\begin{Large}
+% \begin{Large}
 \textsl{\say{ Celui qui aura goûté, qui aura vu, ne fût-ce que de loin, la splendide harmonie des lois naturelles, sera mieux disposé à faire peu de cas de ses petits intérêts égoïstes ; il aura un idéal qu’il aimera mieux que lui-même, et c’est là le seul terrain sur lequel on puisse bâtir une morale. Pour cet idéal, il travaillera sans marchander sa peine et sans attendre aucune de ces grossières récompenses qui sont tout pour certains hommes ; et quand il aura pris ainsi l’habitude du désintéressement, cette habitude le suivra partout ; sa vie entière en restera comme parfumée. }}
 \begin{flushright}
 --- Henri \textsc{Poincaré}, \emph{Dernières pensées}.
 \end{flushright}
-\end{Large}
+% \end{Large}
 
 \input{preface.tex}
 \index{preface}
@@ -320,7 +338,8 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \input{chapitres/integration/22-sommes_de_riemann}
 % \end{comment}
 
-\input{chapitres/integration/annexes}
+\input{chapitres/integration/annexes-1}
+% \input{chapitres/integration/annexes-2}
 
 % \printbibliography[heading=subbibintoc]
 

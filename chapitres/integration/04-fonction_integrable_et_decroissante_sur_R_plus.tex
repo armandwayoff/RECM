@@ -14,49 +14,49 @@ Si $f$ est une fonction continue, décroissante et intégrable sur $\R_+$, alors
 
 \begin{exercice}
 Soit $\fonctionens[f]{\Rp}{\R}$ une fonction continue, décroissante et intégrable.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que $f$ admet une limite $\ell$ en $+\infty$.
 
 \item En raisonnant par l'absurde, montrer que $f$ est à valeurs positives.
 
 \item En raisonnant par l'absurde, montrer que $\ell = 0$.
 
-\item En utilisant la monotonie de $f$, montrer que pour tout $x \geq 0$,
+\item En utilisant la monotonie de $f$, montrer que pour tout $x \geqslant 0$,
 \[
 \int_x^{2 x} f(t) \d t \leqslant x f(x) \leqslant 2 \int_{x/2}^x f(t) \d t.
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{marginfigure}[-2cm]
     \centering
-    \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus}
+    % \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus}
     \caption{ébauche}
 \end{marginfigure}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item Comme $f$ est décroissante, d'après le théorème de la limite monotone, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
 
 \item Montrons par l'absurde que $f$ est positive. S'il existe $x_0 \geqslant 0$ tel que $f(x_0) < 0$, comme $f$ est décroissante,
 \[
-\forall\ x \geqslant x_0,\quad f(x) \leq f(x_0).
+\forall x \geqslant x_0,\quad f(x) \leqslant f(x_0).
 \]
 Ainsi,
 \[
-\forall\ x \geqslant x_0,\quad \displaystyle\int_{x_0}^x f(t) \d t \leqslant f(x_0) (x - x_0).
+\forall x \geqslant x_0,\quad \displaystyle\int_{x_0}^x f(t) \d t \leqslant f(x_0) (x - x_0).
 \]
 D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \d t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geqslant 0$.
 
 \item Supposons par l'absurde que $\ell > 0$. Alors, il existe un réel $A$ tel que
 \[
-\forall\ x \geqslant A,\quad f(x) \geqslant \frac{\ell}{2}.
+\forall x \geqslant A,\quad f(x) \geqslant \frac{\ell}{2}.
 \]
 Ainsi,
 \[
-\forall\ x \geqslant A,\quad \displaystyle\int_A^x f(t) \d t \geqslant \frac{\ell}{2} (x - A).
+\forall x \geqslant A,\quad \displaystyle\int_A^x f(t) \d t \geqslant \frac{\ell}{2} (x - A).
 \]
 D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_A^x f(t) \mathrm{d}t = +\infty$, ce qui est impossible car $f$ est intégrable.
 
@@ -74,7 +74,7 @@ De même,
 
 \begin{marginfigure}
     \centering
-    \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus_bis}
+    % \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus_bis}
     \caption{ébauche}
 \end{marginfigure}
 
@@ -92,7 +92,7 @@ F(2 x) - F(x) \leqslant x f(x) \leqslant 2 (F(x) - F(x/2)).
 \]
 
 Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 % \todoarmand{Mettre un lien vers \url{http://ddmaths.free.fr/section115.html} ou pas car c'est très classique}
@@ -118,8 +118,8 @@ Le résultat suivant constitue une généralisation du théorème de convergence
 \end{marginfigure}
 
 \begin{exercice}
-Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\left(\frac{k}{n}\right)$.
-\begin{enumerate}
+Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right)$.
+\begin{questions}
 \item Montrer que
 \[
 \displaystyle\int_{1/n}^1 f(t) \d t + \frac{f(1)}{n}
@@ -127,16 +127,16 @@ Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissant
 \leqslant \displaystyle\int_{1/n}^1 f(t) \d t + \frac{1}{n}  f\mathopen{}\left(\frac{1}{n}\right).
 \]
 
-\item Montrer que $\frac{1}{n} f\left(\frac{1}{n}\right) \leq \displaystyle\int_0^{1/n} f(t) \d t$.
+\item Montrer que $\frac{1}{n} f\mathopen{}\left(\frac{1}{n}\right) \leqslant \displaystyle\int_0^{1/n} f(t) \d t$.
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item Soit $n \geqslant 1$. En utilisant la décroissance de la fonction $f$, pour tout $k \leqslant t \leqslant k + 1 \leqslant n-1$,
 \begin{align*}
 \frac{1}{n} f\mathopen{}\left(\frac{k+1}{n}\right) &\leqslant \int_{k/n}^{(k+1)/n} f(t) \d t \leqslant \frac{1}{n} f\mathopen{}\left(\frac{k}{n}\right),\\
@@ -150,7 +150,7 @@ On obtient ainsi l'encadrement annoncé.
 
 \item Simple conséquence de la décroissance de $f$.
 
-\item Comme $f$ est intégrable sur $]0, 1]$,
+\item Comme $f$ est intégrable sur $\interof0, 1]$,
 \[
 \lim\limits_{n\to+\infty} \displaystyle\int_{1/n}^1 f(t) \d t = \displaystyle\int_0^1 f(t) \d t.
 \]
@@ -159,7 +159,7 @@ On obtient ainsi l'encadrement annoncé.
 \[
 \lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \d t.
 \]
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 \begin{remarque}
@@ -191,26 +191,26 @@ Pour tout entier naturel $n$, on pose $S_n = \sum\limits_{k=n+1}^{+\infty} \frac
 
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item La fonction $f$ est décroisante, à valeurs positives, $\lim\limits_{1^+} f = +\infty$ et $\lim\limits_{+\infty} f = 0$. De plus, $f$ est continue et dérivable sur son intervalle de définition.
 \item D'après la définition de $f$,
 \[
 S_n = \frac{1}{n^2} \sum\limits_{k=n+1}^{+\infty} f\mathopen{}\left(\frac{k}{n}\right).
 \]
-Comme $f$ est décroissante, pour tout $t \in [k/n,(k+1)/n]$,
+Comme $f$ est décroissante, pour tout $t \in \interff{k/n}{(k+1)/n}$,
 \begin{align*}
-f\left(\frac{k+1}{n}\right) &\leq f(t) \leq f\left(\frac{k}{n}\right) \\
-n^{-1} \sum\limits_{k=n+2}^{N+1} f\left(\frac{k}{n}\right) &\leq \displaystyle\int_{1+1/n}^{N/n} f(t) \mathrm{d}t \leq n^{-1} \sum\limits_{k=n+1}^{N} f\left(\frac{k}{n}\right).
+f\mathopen{}\left(\frac{k+1}{n}\right) &\leqslant f(t) \leqslant f\mathopen{}\left(\frac{k}{n}\right) \\
+n^{-1} \sum\limits_{k=n+2}^{N+1} f\mathopen{}\left(\frac{k}{n}\right) &\leqslant \displaystyle\int_{1+1/n}^{N/n} f(t) \d t \leqslant n^{-1} \sum\limits_{k=n+1}^{N} f\mathopen{}\left(\frac{k}{n}\right).
 \end{align*}
-Comme $f(x) \sim_{+\infty} \frac{1}{x^2}$ l'intégrale $\displaystyle\int_{1+1/n}^{+\infty} f(t) \d t$ converge. Ainsi, la suite $\left(n^{-1}\sum\limits_{k=n+2}^{N+1} f(k/n)\right)_N$ est croissante et majorée par $\displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t$ donc elle converge. Ainsi, en passant à la limite dans l'inégalité,
+Comme $f(x) \sim_{+\infty} \frac{1}{x^2}$ l'intégrale $\displaystyle\int_{1+1/n}^{+\infty} f(t) \d t$ converge. Ainsi, la suite $\left(n^{-1}\sum\limits_{k=n+2}^{N+1} f\mathopen{}\left(\frac{k}{n}\right)\right)_N$ est croissante et majorée par $\displaystyle\int_{1+1/n}^{+\infty} f(t) \d t$ donc elle converge. Ainsi, en passant à la limite dans l'inégalité,
 \begin{align*}
-n S_n - f\left(\frac{n+1}{n}\right) &\leq \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t \leq n S_n \\
-\frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t &\leq S_n \leq \frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \mathrm{d}t + \frac{1}{n^2} f((n+1)/n).
+n S_n - f\mathopen{}\left(\frac{n+1}{n}\right) &\leqslant \displaystyle\int_{1+1/n}^{+\infty} f(t) \d t \leqslant n S_n \\
+\frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \d t &\leqslant S_n \leqslant \frac{1}{n} \displaystyle\int_{1+1/n}^{+\infty} f(t) \d t + \frac{1}{n^2} f\mathopen{}\left(\frac{n+1}{n}\right).
 \end{align*}
-De plus, $f(x) \sim_1 \frac{1}{\sqrt{2 (x - 1)}}$, donc $f$ est intégrable sur $[1, 2]$ et $(S_n)$ converge vers $0$ car $f((n+1)/n) \sim n^{1/2}$.
+De plus, $f(x) \sim_1 \frac{1}{\sqrt{2 (x - 1)}}$, donc $f$ est intégrable sur $\interff{1}{2}$ et $(S_n)$ converge vers $0$ car $f\mathopen{}\big((n+1)/n\big) \sim n^{1/2}$.
 
-\item En reprenant l'encadrement précédent, $\left(n^{-1} f((n+1)/n)\right)$ converge toujours vers $0$ et $(n S_n)$ converge vers $\displaystyle\int_1^{+\infty} f(t) \mathrm{d}t$.
+\item En reprenant l'encadrement précédent, la suite $\left(n^{-1} f((n+1)/n)\right)$ converge toujours vers $0$ et $(n S_n)$ converge vers $\displaystyle\int_1^{+\infty} f(t) \d t$.
 
-\textbf{Remarque.} Une primitive de $f$ est donnée par $x \mapsto - \arctan\frac{1}{\sqrt{x^2 - 1}}$. Alors, $\displaystyle\int_1^{+\infty} f = \frac{\pi}{2}$.
-\end{enumerate}
+\textbf{Remarque.} Une primitive de $f$ est donnée par la fonction $x \mapsto - \arctan\frac{1}{\sqrt{x^2 - 1}}$. Alors, $\displaystyle\int_1^{+\infty} f = \frac{\pi}{2}$.
+\end{reponses}
 \end{elemsolution}

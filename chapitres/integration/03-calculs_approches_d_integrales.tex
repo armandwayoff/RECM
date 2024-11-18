@@ -38,13 +38,12 @@ I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
 \end{prop}
 
-\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que
 \[
-\forall\, i \in \interent{0}{p-1},\,
+\forall i \in \interent{0}{p-1},\quad 
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(x_i)} \leqslant \frac{M_1}{2} (x_{i+1}-x_i)^2.
 \]
 
@@ -57,12 +56,12 @@ Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$.
 \item Utiliser la méthode des rectangles à gauche pour calculer une valeur approchée de l'intégrale de la fonction $x \mapsto x - a$.
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{elemsolution}
 
-\begin{enumerate}
+\begin{reponses}
 \item Il s'agit d'une application de la formule de \textsc{Taylor} avec reste intégal.
 
 \item En utilisant la relation de \textsc{Chasles},
@@ -77,7 +76,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$.
 \item On remarque que, dans ce cas, $M_1 = b - a$ et la borne est atteinte.
 
 \item La méthode des rectangles à gauche est exacte si $f$ est constante. Cependant, le calcul précédent montre que si $\fonctionligne[f]{x}{x - a}$, alors la méthode ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $0$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 %-----------
@@ -99,20 +98,18 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \end{marginfigure}
 \marginnote[3cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
 
-\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
-
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que
 \[
-\forall\, i \in \interent{0}{p-1},\,
+\forall i \in \interent{0}{p-1},\quad 
 (x_{i+1} - x_i) f(\gamma_i) = \int_{x_i}^{x_{i+1}} \left(f(\gamma_i) + (t - \gamma_i) f'(\gamma_i) \right) \d t.
 \]    
 
 \item Montrer que
 \[
-\forall\, i \in \interent{0}{p-1},\,
+\forall i \in \interent{0}{p-1},\quad 
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)} \leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
 \]
 
@@ -124,12 +121,12 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 \item Appliquer l'inégalité précédente à la fonction $x \mapsto (x - a)^2$.
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item Il s'agit d'un simple calcul ou d'une interprétation de la figure \ref{fig:i_rectangles_medians_construction}.
 
 \item Ainsi, d'après la formule de \textsc{Taylor} avec reste intégral,
@@ -151,7 +148,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 \item On montre que la borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
 \item La méthode des rectangles médians est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre que la méthode des rectangles médians ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $1$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
 %-----------
@@ -173,20 +170,18 @@ I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2
 La méthode des trapèzes est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
 \end{prop}
 
-\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
-
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que
 \[
-\forall\, i \in \interent{0}{p-1},\,
+\forall i \in \interent{0}{p-1},\quad 
 \int_{x_i}^{x_{i+1}} f''(t)\,(t - x_i) (x_{i+1} - t) \d t = - 2 \int_{x_i}^{x_{i+1}} g_i(t) \d t.
 \]
 
 \item Montrer que
 \[
-\forall\, i \in \interent{0}{p-1},\,
+\forall i \in \interent{0}{p-1},\quad 
 \module{\int_{x_i}^{x_{i+1}} f(t) \d t - I_p^\mathrm{t}(f)}
 \leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
 \]
@@ -199,11 +194,11 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 \item Appliquer l'égalité précédente à la fonction $x \mapsto (x - a)^2$.
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item Il suffit d'effectuer deux intégrations par parties successives.
 
 \item D'après la relation précédente, on établit que
@@ -219,13 +214,12 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 \item On montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
 \item La méthode des trapèzes est exacte si $f$ est un polynôme de degré $1$. Cependant, si $f$ est la fonction $x \mapsto (x - a)^2$, le calcul précédent montre qur la méthode des trapèzes ne donne pas la valeur exacte de l'intégrale. La méthode est donc d'ordre $2$.
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
 
-\begin{marginfigure}[0cm]
+\begin{marginfigure}[-1cm]
 \begin{subfigure}{.5\textwidth}
     \centering
-    % \input{illustrations/sponge_9-inc}
 \begin{tikzpicture}[scale=0.6]
 
 \pgfmathdeclarefunction{f}{1}{%
@@ -234,33 +228,27 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 % ,declare function={f(\x)=((\x-3)/1.5)^2+1;}]
 \coordinate (start) at (.8,{f(.8)});
 \coordinate (x0) at (1,{f(1)});
-\coordinate (x1) at (2,{f(2)});
-\coordinate (x2) at (3,{f(3)});
-\coordinate (x3) at (4,{f(4)});
-\coordinate (x4) at (5,{f(5)});
+\coordinate (x1) at (1+4/3,{f(1+4/3)});
+\coordinate (x2) at (1+8/3,{f(1+8/3)});
+\coordinate (x3) at (1+12/3,{f(1+12/3)});
 \coordinate (end) at (5.05,{f(5.05)});
 
-\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(2,{f(2)})--(2,0);
-\draw[fill=teal!20!white] (2,0)--(2,{f(2)})--(3,{f(3)})--(3,0);
-\draw[fill=teal!20!white] (3,0)--(3,{f(3)})--(4,{f(4)})--(4,0);
-\draw[fill=teal!20!white] (4,0)--(4,{f(4)})--(5,{f(5)})--(5,0);
+\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(1+4/3,{f(1+4/3)})--(1+4/3,0);
+\draw[fill=teal!20!white] (1+4/3,0)--(1+4/3,{f(1+4/3)})--(1+8/3,{f(1+8/3)})--(1+8/3,0);
+\draw[fill=teal!20!white] (1+8/3,0)--(1+8/3,{f(1+8/3)})--(5,{f(5)})--(5,0);
 
-
-%\draw (5,0)--(5,{f(5)});
-% \draw [-latex] (-0.5,0) -- (6,0); % node (xaxis) [below] {$x$};
-% \draw [-latex] (0,-0.5) -- (0,4); % node [left] {$f(x)$};
-\foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3, 5/b=x_4}
- % \draw[xshift=\x cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\xtext$};
 \draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)});                 
-\foreach \n in {0,1,2,3,4}
-\draw[blue,fill=blue] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
-% \draw[latex-latex] (2,1)--(3,1) node[midway, anchor=south] {$\frac{b-a}{p}$};      
+
+\draw[blue,fill=blue] (x0) circle (2pt);    
+\draw[blue,fill=blue] (x1) circle (2pt);    
+\draw[blue,fill=blue] (x2) circle (2pt);    
+\draw[blue,fill=blue] (x3) circle (2pt);    
+
 \end{tikzpicture}
     \caption{Cas convexe}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
     \centering
-    % \input{illustrations/sponge_27-inc}
 \begin{tikzpicture}[scale=0.6
 % ,declare function={f(\x)=-((\x-3)/1.5)^2+3.5;}
 ]
@@ -270,39 +258,33 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 }
 \coordinate (start) at (.8,{f(.8)});
 \coordinate (x0) at (1,{f(1)});
-\coordinate (x1) at (2,{f(2)});
-\coordinate (x2) at (3,{f(3)});
-\coordinate (x3) at (4,{f(4)});
-\coordinate (x4) at (5,{f(5)});
+\coordinate (x1) at (1+4/3,{f(1+4/3)});
+\coordinate (x2) at (1+8/3,{f(1+8/3)});
+\coordinate (x3) at (1+12/3,{f(1+12/3)});
 \coordinate (end) at (5.05,{f(5.05)});
 
-\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(2,{f(2)})--(2,0);
-\draw[fill=teal!20!white] (2,0)--(2,{f(2)})--(3,{f(3)})--(3,0);
-\draw[fill=teal!20!white] (3,0)--(3,{f(3)})--(4,{f(4)})--(4,0);
-\draw[fill=teal!20!white] (4,0)--(4,{f(4)})--(5,{f(5)})--(5,0);
+\draw[fill=teal!20!white] (1,0)--(1,{f(1)})--(1+4/3,{f(1+4/3)})--(1+4/3,0);
+\draw[fill=teal!20!white] (1+4/3,0)--(1+4/3,{f(1+4/3)})--(1+8/3,{f(1+8/3)})--(1+8/3,0);
+\draw[fill=teal!20!white] (1+8/3,0)--(1+8/3,{f(1+8/3)})--(5,{f(5)})--(5,0);
 
-
-%\draw (5,0)--(5,{f(5)});
-% \draw [-latex] (-0.5,0) -- (6,0); % node (xaxis) [below] {$x$};
-% \draw [-latex] (0,-0.5) -- (0,4); % node [left] {$f(x)$};
-\foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3, 5/b=x_4}
- % \draw[xshift=\x cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\xtext$};
 \draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)});                 
-\foreach \n in {0,1,2,3,4}
-\draw[blue,fill=blue] (x\n) circle (2pt) node[font=\normalsize] {$ $};    
-% \draw[latex-latex] (2,1)--(3,1) node[midway, anchor=south] {$\frac{b-a}{p}$};      
+
+\draw[blue,fill=blue] (x0) circle (2pt);    
+\draw[blue,fill=blue] (x1) circle (2pt);    
+\draw[blue,fill=blue] (x2) circle (2pt);    
+\draw[blue,fill=blue] (x3) circle (2pt);  
+
 \end{tikzpicture}
     \caption{Cas concave}
 \end{subfigure}
-\caption{\todoarmand{Ne faire que $3$ subdivisions}}
+\caption{Illustration de la remarque \ref{remarquemethodetrapezes}}
 \end{marginfigure}
 
-\begin{remarque}
+\begin{remarque}\label{remarquemethodetrapezes}
 Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe (resp. concave), alors $f'' \geqslant 0$ (resp. $\leqslant 0$) et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leqslant I_p^\mathrm{t}(f)$} (resp. \mbox{$\int_{[a,b]} f \geqslant I_p^\mathrm{t}(f)$}). On obtient ainsi une valeur approchée par excès (resp. par défaut) de l'intégrale.
 \end{remarque}
 
 \subsection{Méthode de \textsc{Simpson}}
-\todoarmand{Faire une figure}
 
 La méthode de \textsc{Simpson} consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
 \[
@@ -313,18 +295,20 @@ I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\fra
 Dans la méthode de \textsc{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
 \end{prop}
 
-\todoinline{Ajout de l'encadré exercice à faire pour guider la démonstration de ce résultat}
 \todoinline{Tu aurais le courage de vérifier le calcul suivant ?}
 
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
 
 Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
-\begin{enumerate}
+\begin{questions}
 \item Montrer que pour tout $i \in \interent{0}{p-1}$,
 \[
 F(x_{i+1}) - F(x_i)
-= 2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+= \begin{multlined}[t] 
+2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) \\
++ \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
+\end{multlined} 
 \]
 
 \item Montrer que pour tout $i \in \interent{0}{p-1}$,
@@ -339,11 +323,11 @@ F(x_{i+1}) - F(x_i)
 \]
 
 \item Conclure.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 \begin{elemsolution}
-\begin{enumerate}
+\begin{reponses}
 \item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$,
 \begin{align*}
 F(\gamma_i + h_i)
@@ -376,8 +360,15 @@ Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, le résultat s'obtie
 % \[
 % \module{I_p^s(f) - \int_a^b f(t) \d t} \leq \frac{M_4 (b-a)^5}{2880 p^4}.
 % \]
-\end{enumerate}
+\end{reponses}
 \end{elemsolution}
+
+\begin{figure}[H]
+    \centering
+    \input{illustrations/i_simpson}
+    \caption{Illustration de la méthode de \textsc{Simpson}}
+\end{figure}
+\todoarmand{Figure à reprendre, pour l'instant reprise de \url{https://tex.stackexchange.com/questions/429634/parabola-through-three-points-with-tikz}}
 
 %-----------
 \subsection{Et ensuite ?}
@@ -395,9 +386,9 @@ Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en un
 
 Cette méthode est appelée \emph{méthode de \textsc{Newton}--\textsc{Cotes}}.
 
-Plus précisément, on considère une subdivision $0 = y_0 \leqslant \ldots \leqslant y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
+Plus précisément, on considère une subdivision $0 = y_0 \leqslant \cdots \leqslant y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
 \[
-\forall\ i \in \interent{0}{p},\quad L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
+\forall i \in \interent{0}{p},\quad L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
 \]
 
 On pose alors $\gamma_j = \int_0^1 L_j(t) \d t$.
@@ -406,7 +397,7 @@ On approche alors l'intégrale de $f$ sur $[x_i, x_{i+1}]$ par la somme
 \[
 I_p^i(f) = (x_{i+1} - x_i) \sum_{j=0}^p \gamma_j g(x_i + (x_{i+1} - x_i) y_j),
 \]
-puis l'intégrale sur le segment $[a, b]$ par
+puis l'intégrale sur le segment $\interff{a}{b}$ par
 \[
 I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \bigg[ \sum_{j=0}^p \gamma_j f(x_i + (x_{i+1} - x_i) y_j) \bigg].
 \] 
@@ -426,16 +417,19 @@ On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut aug
 
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c|c|c}
-    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de convergence} & Newton-Cotes \\
-    \hline
-    À gauche & $1$ & $O(1/p)$ & X\\
-    À droite & $1$ & $O(1/p)$ & X\\
+    \begin{tblr}{
+    hlines,vlines,
+    hline{2} = {2pt},
+    cells={c}
+    }
+    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de conv.} & \textbf{\textsc{Newton}--\textsc{Cotes}} \\
+    À gauche & $0$ & $O(1/p)$ & X\\
+    À droite & $0$ & $O(1/p)$ & X\\
     Médians & $1$ & $O(1/p^2)$ & X\\
     Trapèzes & $1$ & $O(1/p^2)$ & 1\\
-    Simpson & $3$ & $O(1/p^4)$ & 2
-    \end{tabular}
-    \caption{Résumé des propriétés des méthodes}
-\end{table}
+    \textsc{Simpson} & $3$ & $O(1/p^4)$ & 2
+    \end{tblr}
+    \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
+\end{table} % margintable
 
 \todoinline{On pourrait ajouter vers le livre Demailly - Analyse numérique et équations différentielles}

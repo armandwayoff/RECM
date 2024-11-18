@@ -16,19 +16,19 @@
 \end{lemme}
 On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus les oscillations sont élevées et plus les aires comptées positivement et négativement se compensent.
 
-\todoinline{J'ajoute cet exercice, ce qui pourrait régler le pb du théorème H.P. Ceux qui ne le connaissent pas ne font pas le 2. et on s'abstrait des programmes qui sont par définition changeants...}
+% \todoinline{J'ajoute cet exercice, ce qui pourrait régler le pb du théorème H.P. Ceux qui ne le connaissent pas ne font pas le 2. et on s'abstrait des programmes qui sont par définition changeants...}
 
 \begin{exercice}
-\begin{enumerate}
-\item Pour le premier point du lemme, utiliser une intégration par parties avec les fonctions $f$ et $x \mapsto \frac{\cos(\lg x)}{\lg}$·
+\begin{questions}
+\item Pour le premier point du lemme, utiliser une intégration par parties avec les fonctions $f$ et $x \mapsto \frac{\cos(\lambda x)}{\lambda}$·
 
 \item Pour le second point, utiliser l'approximation des fonctions continues par morceaux par des fonctions en escalier.
-\end{enumerate}
+\end{questions}
 \end{exercice}
 
 
 \begin{solution}
-    \begin{enumerate}
+    \begin{reponses}
         \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour~\mbox{$\lambda > 0$}:
         \[
         \begin{multlined}[t]
@@ -44,7 +44,6 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
 
         Considérons donc $f$ une fonction continue par morceaux sur $\interff{a}{b}$. \\
         Soit $\varepsilon > 0$, il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leqslant \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
-        \todoinline{j'ai fait passer le $\varphi$ dans l'intégrale à la ligne suivante. Si tu confirmes, tu peux supprimer cette remarque.}
         \[
         \left| \int_a^b \varphi(t)  \sin(\lambda t) \d t\right| \leqslant \varepsilon.
         \]
@@ -53,10 +52,10 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
         \left|\int_a^b f(t) \sin(\lambda t) \d t\right|
         &\leqslant         \left|\int_a^b \big(f(t) - \varphi(t)\big) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
         &\leqslant \norme{f - \varphi}_\infty (b - a) + \varepsilon\\
-        &\leqslant \varepsilon (1 + b - a).
+        &\leqslant \varepsilon\, (1 + b - a).
         \end{align*}
 Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0$.
-        \end{enumerate}
+    \end{reponses}
 \end{solution}
 
 % \todoinline{
@@ -81,7 +80,7 @@ Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{
 
 L'exercice suivant, issu du concours de l'\textsc{esm} Saint-Cyr 1995, donne une démonstration de ce résultat. 
 \begin{exercice}
-\begin{enumerate}
+\begin{questions}
     \item Pour tout $k,n \in \Ne$, on définit les intégrales
     \[
     I_{n,k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
