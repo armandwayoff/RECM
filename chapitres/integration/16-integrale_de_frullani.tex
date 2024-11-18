@@ -7,31 +7,31 @@
 \todoarmand{
 Exercices 51, 52, 53 de \url{http://vonbuhren.free.fr/Prepa/Colles/integration_intervalle_quelconque.pdf}}
 
-\begin{theo}
-Soit $f : ]0, +\infty[ \to \R$ une fonction continue et $L$ et $\ell$ deux réels tels que
+\begin{theo}\label{theo:frullani}
+Soit $\fonctionligne[f]{\interoo{0}{+\infty}}{\R}$ une fonction continue et $\ell$ et $L$ deux réels tels que
 \[
-\lim_{x\to+\infty} f(x) = L
-\text{ et }
-\lim_{x\to0} f(x) = \ell.
+\lim_{x\to0} f(x) = \ell
+\quad \text{et} \quad 
+\lim_{x\to+\infty} f(x) = L.
 \]
-Alors, $I = \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
+Alors, l'intégrale $I = \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et a pour valeur
 \[
 \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t = (\ell - L) \ln\frac{b}{a}.
 \]
 \end{theo}
 
 \begin{exercice}
-Soit $f$ une fonction satisfaisant les hypothèses du théorème et $0 < \epsilon \leq M$.
+Soient $f$ une fonction satisfaisant les hypothèses du théorème \ref{theo:frullani} et $0 < \varepsilon \leqslant M$.
 \begin{questions}
 \item Montrer que
 \[
-\int_\epsilon^M \frac{f(a t) - f(b t)}{t} \d t
-= \int_{a\epsilon}^{b\epsilon} \frac{f(t)}{t} \d t - \int_{a M}^{b M} \frac{f(t)}{t} \d t.
+\int_\varepsilon^M \frac{f(a t) - f(b t)}{t} \d t
+= \int_{a\varepsilon}^{b\varepsilon} \frac{f(t)}{t} \d t - \int_{a M}^{b M} \frac{f(t)}{t} \d t.
 \]
 
 \item Montrer que
 \[
-\lim_{\epsilon\to0} \int_{a\epsilon}^{b\epsilon} \frac{f(t) - \ell}{t} \d t = 0.
+\lim_{\varepsilon \to 0} \int_{a\varepsilon}^{b\varepsilon} \frac{f(t) - \ell}{t} \d t = 0.
 \]
 
 \item Conclure.
@@ -40,33 +40,34 @@ Soit $f$ une fonction satisfaisant les hypothèses du théorème et $0 < \epsilo
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $f$ étant continue sur $[\epsilon, M]$, les intégrales sont bien définies et on utilise la relation de Chasles puis les changements de variables $u \mapsto \frac{u}{a}$ et $u \mapsto \frac{u}{b}$ :
+\item La fonction $f$ étant continue sur $\interff{\varepsilon}{M}$, les intégrales sont bien définies et on utilise les changements de variables $u \mapsto \frac{u}{a}$ et $u \mapsto \frac{u}{b}$ puis la relation de \textsc{Chasles}:
 \begin{align*}
-\int_\epsilon^M \frac{f(a t) - f(b t)}{t} \d t
-&= \int_\epsilon^M \frac{f(a t)}{t} \d t - \int_\epsilon^M \frac{f(b t)}{t} \d t\\
-&= \int_{a\epsilon}^{a M} \frac{f(u)}{\frac{u}{a}} a \d u - \int_{b\epsilon}^{b M} \frac{f(u)}{\frac{u}{b}} b \d u\\
-&= \int_{a\epsilon}^{a M} \frac{f(u)}{u} \d u - \int_{b\epsilon}^{b M} \frac{f(u)}{u} \d u.
+\int_\varepsilon^M \frac{f(a t) - f(b t)}{t} \d t
+&= \int_\varepsilon^M \frac{f(a t)}{t} \d t - \int_\varepsilon^M \frac{f(b t)}{t} \d t\\
+&= \int_{a\varepsilon}^{a M} \frac{f(u)}{\frac{u}{a}} \frac{1}{a} \d u - \int_{b\varepsilon}^{b M} \frac{f(u)}{\frac{u}{b}} \frac{1}{b} \d u\\
+&= \int_{a\varepsilon}^{a M} \frac{f(u)}{u} \d u - \int_{b\varepsilon}^{b M} \frac{f(u)}{u} \d u \\
+&= \int_{a\varepsilon}^{b\varepsilon} \frac{f(u)}{u} \d u + \cancel{\int_{b\varepsilon}^{aM} \frac{f(u)}{u} \d u} - \cancel{\int_{b\varepsilon}^{aM} \frac{f(u)}{u} \d u} - \int_{aM}^{bM} \frac{f(u)}{u} \d u.
 \end{align*}
 
-\item Soit $\eta > 0$. Comme $\lim_{x \to 0} f(x) = \ell$, il existe $\delta > 0$ tel que pour tout $x \in [0, \delta]$,
+\item Soit $\eta > 0$. Comme $\lim\limits_{x \to 0} f(x) = \ell$, il existe $\delta > 0$ tel que pour tout $x \in \interff{0}{\delta}$,
 \[
 \module{f(x) - \ell} < \eta.
 \]
-Soit $\epsilon < \frac{\eta}{b}$. Alors, $[a\epsilon, b\epsilon] \subset [0, \delta]$ et
+Soit $\varepsilon < \frac{\delta}{b}$. Alors, $\interff{a\varepsilon}{b\varepsilon} \subset \interff{0}{\delta}$ et par l'inégalité triangulaire
 \begin{align*}
-\module{\int_{a\epsilon}^{b\epsilon} \frac{f(t) - \ell}{t} \d t}
-&\leq \int_{a\epsilon}^{b\epsilon} \frac{\module{f(t) - \ell}}{t} \d t\\
-&\leq \eta \int_{a\epsilon}^{b\epsilon} \frac{1}{t} \d t\\
-&\leq \eta \ln\frac{b}{a}.
+\module{\int_{a\varepsilon}^{b\varepsilon} \frac{f(t) - \ell}{t} \d t}
+&\leqslant \int_{a\varepsilon}^{b\varepsilon} \frac{\module{f(t) - \ell}}{t} \d t\\
+&\leqslant \eta \int_{a\varepsilon}^{b\varepsilon} \frac{1}{t} \d t\\
+&\leqslant \eta \ln\frac{b}{a}.
 \end{align*}
 
-Ainsi, $\lim\limits_{\epsilon\to0} \module{\int_{a\epsilon}^{b\epsilon} \frac{f(t) - \ell}{t} \d t} = 0$.
+Ainsi, $\lim\limits_{\varepsilon\to0} \module{\int_{a\varepsilon}^{b\varepsilon} \frac{f(t) - \ell}{t} \d t} = 0$ soit $\lim\limits_{\varepsilon \to 0} \int_{a\varepsilon}^{b\varepsilon} \frac{f(t)}{t} \d t = \ell \ln \frac{b}{a}$.
 
 \item On montre de manière analogue que
 \[
-\lim_{M\to+\infty} \frac{f(t) - L}{t} \d t = 0.
+\lim_{M\to+\infty} \int_{aM}^{bM} \frac{f(t) - L}{t} \d t = 0.
 \]
-Ainsi, $\int\limits_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
+Ainsi, l'intégrale $\int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
 \[
 \int_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t
 = \ell \ln\frac{b}{a} - L \ln\frac{b}{a}.
@@ -75,38 +76,36 @@ Ainsi, $\int\limits_0^{+\infty} \frac{f(a t) - f(b t)}{t} \d t$ converge et
 \end{solution}
 
 \begin{exercice}
-Soit $(a, b) \in \R^2$ avec $0<a<b$. Montrer que les intégrales suivantes sont convergentes et calculer leur valeur.
+Soient $a$ et $b$ deux réels tels que $0<a<b$. Montrer que les intégrales suivantes sont convergentes et calculer leur valeur.
 \begin{questions}
-\item $I = \int_0^{+\infty} \frac{\e^{-ax} - \e^{-bx}}{x} \d x$.
-\item $J = \int_0^{+\infty} \frac{\arctan(bx) - \arctan(ax)}{x} \d x$.
-\item $K = \int_0^{+\infty} \frac{\tanh(3x) - \tanh(x)}{x} \d x$.
-\item $L = \int_0^1 \frac{t - 1}{\ln(t)} \d t$.
+\item $I = \displaystyle \int_0^{+\infty} \frac{\e^{-ax} - \e^{-bx}}{x} \d x$.
+\item $J = \displaystyle \int_0^{+\infty} \frac{\arctan(bx) - \arctan(ax)}{x} \d x$.
+\item $K = \displaystyle \int_0^{+\infty} \frac{\tanh(3x) - \tanh(x)}{x} \d x$.\hspace*{\fill} \textsl{(Hélène de Troie, Oraux Mines 2016)}
+\item $L = \displaystyle \int_0^1 \frac{t - 1}{\ln(t)} \d t$.
 \end{questions}
 \end{exercice}
 
-\todoinline{L'avant dernière est issue des oraux Mines 2016.}
-
 \begin{solution}
 \begin{reponses}
-\item Comme $\lim_{x\to+\infty} \e^{-x} = 0$ et $\lim_{x\to0} \e^{-x} = 1$, alors $I$ converge et
+\item Comme $\lim\limits_{x\to+\infty} \e^{-x} = 0$ et $\lim\limits_{x\to0} \e^{-x} = 1$, alors $I$ converge et
 \[
 \int_0^{+\infty} \frac{\e^{-a x} - \e^{-b x}}{x} = \ln\frac{b}{a}.
 \]
 
-\item Comme $\lim_{x\to+\infty} \arctan(x) = \frac{\pi}{2}$ et $\lim_{x\to0} \arctan(x) = 0$, alors $J$ converge et
+\item Comme $\lim\limits_{x\to+\infty} \arctan(x) = \frac{\pi}{2}$ et $\lim\limits_{x\to0} \arctan(x) = 0$, alors $J$ converge et
 \[
 \int_0^{+\infty} \frac{\arctan(b x) - \arctan(a x)}{x} \d x = -\frac{\pi}{2} \ln\frac{b}{a}
 = \frac{\pi}{2} \ln\frac{a}{b}.
 \]
 
-\item Comme $\lim_{x\to+\infty} \tanh(x) = 1$ et $\lim_{x\to 0} \tanh(x) = 0$, alors $K$ converge et
+\item Comme $\lim\limits_{x\to+\infty} \tanh(x) = 1$ et $\lim\limits_{x\to 0} \tanh(x) = 0$, alors $K$ converge et
 \[
 \int_0^{+\infty} \frac{\tanh(3 x) - \tanh(x)}{x} \d x
 = -\ln\frac{1}{3}
-= -\ln(3).
+= \ln(3).
 \]
 
-\item Le changement de variables $u \mapsto \e^{-u}$ est $\mathscr{C}^1$ et bijectif. Ainsi, l'intégrale $L$ converge si et seulement si $\int_0^{+\infty} \frac{\e^{-u} - 1}{-u} \e^{-u} \d u$ converge. Cette intégrale s'écrit également $\int_0^{+\infty} \frac{\e^{-u} - \e^{-2u}}{u} \d u$.
+\item Le changement de variable $u \mapsto \e^{-u}$ est $\mathscr{C}^1$ et bijectif. Ainsi, l'intégrale $L$ converge si et seulement si $\int_0^{+\infty} \frac{\e^{-u} - 1}{-u} \e^{-u} \d u$ converge. Cette intégrale s'écrit également $\int_0^{+\infty} \frac{\e^{-u} - \e^{-2u}}{u} \d u$.
 
 En utilisant un raisonnement analogue à celui effectué pour l'intégrale $I$, l'intégrale $L$ converge et
 \[

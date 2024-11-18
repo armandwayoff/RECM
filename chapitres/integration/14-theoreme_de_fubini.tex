@@ -3,9 +3,11 @@
 \url{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./f/fubini.html} pour quelques éléments historiques sur les intégrales multiples. 
 
 \marginnote[0pt]{Ce théorème a été démontré par le mathématicien italien Guido \textsc{Fubini} (1879--1943) en 1907.}
-\begin{theo}{\textsc{Fubini}}
-    Soit $f: [a,b] \times [c, d] \to \K$ une application continue. Alors,
-    $$\int_{a}^{b} \left ( \int_{c}^{d} f(x,y) \d y \right) \d x = \int_{c}^{d} \left ( \int_{a}^{b} f(x,y) \d x \right) \d y.$$
+\begin{theo}[\textsc{Fubini}]
+    Soit $\fonctionligne[f]{\interff{a}{b} \times \interff{c}{d}}{\K}$ une application continue. Alors,
+    \[
+    \int_{a}^{b} \mathopen{}\bigg( \int_{c}^{d} f(x,y) \d y \bigg) \d x = \int_{c}^{d} \mathopen{}\bigg( \int_{a}^{b} f(x,y) \d x \bigg) \d y.
+    \]
 \end{theo}
 
 \begin{marginfigure}[0cm]
@@ -24,18 +26,20 @@
 Nous allons voir la démonstration de ce résultat sous forme d'exercice.
 
 \begin{exercice}
-    Pour tout $(x, t) \in [a, b] \times [c, d]$ on pose 
+    Pour tout $(x, t) \in \interff{a}{b} \times \interff{c}{d}$ on pose 
     $$\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u.$$
     \begin{questions}
-    \item Montrer que pour tout $x \in [a, b]$, l'application $t \mapsto \varphi(x, t)$ est continue sur $[c, d]$.
+    \item Montrer que pour tout $x \in \interff{a}{b}$, l'application $t \mapsto \varphi(x, t)$ est continue sur $\interff{c}{d}$.
     \end{questions}
 
-    On pose alors, pour tout $x  \in [a, b]$,
+    On pose alors, pour tout $x  \in \interff{a}{b}$,
     $$\psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t.$$
     \begin{questions}[resume]
-        \item Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $[a, b]$, préciser $\psi'$.
-        \item En déduire que pour tout $x \in [a, b]$,
-        $$\int_{a}^{x} \left( \int_{c}^{d} f(u,t) \d t \right) \d u = \int_{c}^{d} \left( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
+        \item Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ et donner une expression de $\psi'$.
+        \item En déduire que pour tout $x \in \interff{a}{b}$,
+        \[
+        \int_{a}^{x} \mathopen{}\bigg( \int_{c}^{d} f(u,t) \d t \bigg) \d u = \int_{c}^{d} \mathopen{}\bigg( \int_{a}^{x} f(u,t) \d u \bigg) \d t.
+        \]
     \end{questions}
 \end{exercice}
 \todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
@@ -46,25 +50,25 @@ Nous allons voir la démonstration de ce résultat sous forme d'exercice.
 \begin{reponses}
 \item Les hypothèses de régularité du théorème de continuité des intégrales à paramètre sont immédiates.
     
-Pour vérifier l'hypothèse de domination, on constate que $f$ est continue sur $[a, b] \times [c, d]$ qui est une partie fermée bornée de $\R^2$. Ainsi, d'après le théorème des bornes, $f$ est bornée sur $[a, b] \times [c, d]$ par une constante $M \in \Rp$. Les fonctions constantes sont intégrables car l'intégrale s'effectue ici sur un segment.
+Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est continue sur $\interff{a}{b} \times \interff{c}{d}$ qui est une partie fermée bornée de $\R^2$. Ainsi, d'après le théorème des bornes, la fonction $f$ est bornée sur $\interff{a}{b} \times \interff{c}{d}$ par une constante $M \in \Rp$. Les fonctions constantes sont intégrables car l'intégrale s'effectue ici sur un segment.
         
 \item On applique le théorème de dérivation des intégrales à paramètre à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
         \begin{itemize}
-            \item $\forall t \in [c, d],\ x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $[a, b]$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
-            \item $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$
+            \item Pour tout $t \in \interff{c}{d}$, la fonction $x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
+            \item Sa dérivée partielle s'écrit $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$.
             \item La domination se fait par le même constante $M$ que précédemment. 
             \end{itemize}
             Ainsi,
             \[
-            \forall x \in [a, b] \quad \psi'(x) = \int_c^d \frac{\partial \varphi}{\partial x}(x, t) \d t = \int_{c}^{d} f(x, t) \d t.
+            \forall x \in \interff{a}{b} \quad \psi'(x) = \int_c^d \frac{\partial \varphi}{\partial x}(x, t) \d t = \int_{c}^{d} f(x, t) \d t.
             \]
-        \item Soit $x \in [a, b]$. D'une part,
-        $$\psi(x) = \int_{c}^{d} \left ( \int_{a}^{x} f(u,t) \d u \right) \d t.$$
+        \item Soit $x \in \interff{a}{b}$. D'une part,
+        $$\psi(x) = \int_{c}^{d} \mathopen{}\bigg( \int_{a}^{x} f(u,t) \d u \bigg) \d t.$$
         D'autre part, d'après la question précédente et le théorème fondamental de l'analyse, 
         \begin{align*}
-            \int_{a}^{x} \left ( \int_{c}^{d} f(u,t) \d t \right) \d u &= \int_{a}^{x} \psi'(u) \d u  = \psi(x) - \psi(a) \\
-            \text{Or } \psi(a) &= \int_{c}^{d} \varphi(a, t)\ \d t \\
-            \text{et } \forall t \in [c, d] \quad \varphi(a, t) &= \int_{a}^{a} f(u, t) \d u = 0
+            \int_{a}^{x} \mathopen{}\bigg( \int_{c}^{d} f(u,t) \d t \bigg) \d u &= \int_{a}^{x} \psi'(u) \d u  = \psi(x) - \psi(a) \\
+            \text{Or } \psi(a) &= \int_{c}^{d} \varphi(a, t) \d t \\
+            \text{et } \forall t \in \interff{c}{d}, \quad \varphi(a, t) &= \int_{a}^{a} f(u, t) \d u = 0
         \end{align*}
         d'où $\psi(a) = 0$ et le résultat. \\
         En particulier, pour $x = b$ on obtient le résultat final.
