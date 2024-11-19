@@ -27,7 +27,7 @@ L'intégrande est bien une fonction continue sur le segment $\interff{0}{\pi/4}$
 
 On utilise ensuite la question précédente puis le changement de variable affine $u = \frac{\pi}{4} - x$ :
 \begin{align*}
-\int_0^{\pi/4} \ln(1+\tan x) \d x &= \int_0^{\pi/4} \ln (\sqrt{2}) \d x + \int_0^{\pi/4} \ln(\cos x) \d x - \int_0^{\pi/4} \ln(\cos x) \d x\\
+\int_0^{\pi/4} \ln(1+\tan x) \d x &= \int_0^{\pi/4} \ln\mathopen{}\big(\sqrt{2}\big) \d x + \int_0^{\pi/4} \ln(\cos x) \d x - \int_0^{\pi/4} \ln(\cos x) \d x\\
 &= \frac{\pi}{8} \ln 2.
 \end{align*}
 \end{reponses}
@@ -39,7 +39,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 % \todoinline{L'intégrale suivante semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
-\begin{exercice}[Intégrale d'\textsc{Euler}, {\cite{Oraux - CCP-PSI-2016}}]
+\begin{exercice}[Intégrale d'\textsc{Euler}, Oraux - CCP-PSI-2016]\label{exercice:integraleEuler}
     Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
     \begin{questions}
         \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
@@ -68,7 +68,7 @@ I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(x) \cos(x) \big) \d x = \int_0^
 Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
 \end{reponses}
 \end{elemsolution}
-
+Voir le calcul de l'\hyperref[exercice:integralePoisson]{intégrale de \textsc{Poisson}} pour une utilisation de l'intégrale d'\textsc{Euler}.
 \begin{exercice}
 On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
 \begin{questions}
