@@ -1,18 +1,23 @@
 %--------
-\section{Comparaisons Séries / Intégrales}
-% \section{Intégration des relations de comparaisons}
+\section{Intégration des relations de comparaisons}
 
-\todoinline{Le sujet de centrale est très prometteur au début puis utilise des résultats beaucoup plus faibles que ceux démontrés en préliminaires. Je propose de déplacer ce résultat dans la partie Séries numériques}
+\todoinline{À déplacer dans séries numériques ? - Lier avec la formule de Stirling}
 
 % Source : Centrale - PC - Maths 1 - 2003
 \begin{prop}
-Il existe deux constantes $\gamma$ et $\delta$ telles que
+Il existe une constante $\delta$ telle que
 \[
 n! = \delta n^{n + \frac{1}{2}} \e^{-n} \left(1 + \frac{1}{12 n} + o\left(\frac{1}{n}\right)\right).
 \]
+Le résultat sur la formule de Stirling montre que $\delta = \sqrt{2\pi}$.
 \end{prop}
 
-\begin{itemize}
+\begin{exercice}
+
+\end{exercice}
+
+\begin{demo}
+\begin{reponses}
 \item On suppose que $f$ et $g$ sont positives et vérifient $f(x) \sim_b g(x)$. Si $\int_a^b f(t) \d t$ converge, alors $\int_x^b f(t) \d t \sim_b \int_x^b g(t) \d t$.
 
 Soit $\epsilon > 0$. La fonction $g$ étant strictement positive et comme $f \sim g$, il existe $\beta \in [a, b[$ tel que
@@ -25,7 +30,7 @@ Ainsi, comme $g$ est intégrable sur $[\beta, b[$, alors $f - g$ l'est égalemen
 \]
 Ainsi, $\int_x^b f(t) \d t \sim \int_x^b g(t) \d t$.
 
-\item Si $a_n \sim b_n$ sont positifs et les termes généraux de séries convergentes, alors $\sum_{k=n+1}^{+\infty} a_k \sim \sum_{k=n+1}^{+\infty} b_k$.
+\item Si $a_n \sim b_n$ sont positifs et les termes généraux de séries convergentes, alors $\sum\limits_{k=n+1}^{+\infty} a_k \sim \sum\limits_{k=n+1}^{+\infty} b_k$.
 
 Il suffit d'appliquer le résultat précédent aux fonctions en escalier
 \[
@@ -59,10 +64,15 @@ En utilisant la fonction expontentielle,
 \]
 
 On obtient le résultat attendu en utilisant un développement limité de la fonction exponentielle.
-\end{itemize}
+\end{reponses}
+\end{demo}
 
+\todoinline{Je commente le résultat général de comparaison ainsi que les intégrales de Bertrand. Je pense qu'on n'a pas d'illustration pour les intégrer ici.}
 
+\todoinline{Voir le sujet de capes où il y avait des séries de nombres premiers. Ça les utilisait peut être, mais dans une partie séries numériques.
+}
 
+\begin{comment}
 \begin{prop}
     Soit $f: \Rp \rightarrow \C$ une fonction continue par morceaux et $g, h:\Rp \rightarrow \Rp$ deux fonctions continues par morceaux, strictement positives. On suppose que $f = o_{+\infty}(g)$ et $f \sim_{+\infty} h$.\\
     \begin{itemize}
@@ -114,7 +124,11 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
         On en déduit que l'intégrale de la fonction $t \mapsto \frac{1}{t \ln^{\beta} (t)}$ converge sur $[2, + \infty[$ si et seulement si $\beta > 1$.
     \end{enumerate}
 \end{demo}
+\end{comment}
 
+\todoinline{Je commente le sujet suivant qui était prometteur mais avec une finalité assez vide à part pour faire de la technique.}
+
+\begin{comment}
 \todoinline{J'ai mis dans "documents" le sujet Centrale PC 2003 - Il fait à la fois des relations de comparaisons, de l'intégrale de Bertrand à la fin et une intégrale fonction des bornes. C'est peut être une bonne idée !}
 
 \todoarmand{Effectivement, c'est une bonne idée. Ça permettrait de supprimer l'exercice sur l'intégrale de Bertrand et de l'intégrer avec celui-ci}
@@ -171,3 +185,4 @@ Soit $a$ un nombre réel et $f$ une application de classe $\mathscr{C}^1$ sur $\
     \end{questions}
 \end{questions}
 \end{exercice}
+\end{comment}
