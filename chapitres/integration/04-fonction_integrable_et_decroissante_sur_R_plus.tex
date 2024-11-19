@@ -118,12 +118,12 @@ Le résultat suivant constitue une généralisation du théorème de convergence
 \end{marginfigure}
 
 \begin{exercice}
-Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose $R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right)$.
+Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose \mbox{$R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right)$}.
 \begin{questions}
 \item Montrer que
 \[
 \displaystyle\int_{1/n}^1 f(t) \d t + \frac{f(1)}{n}
-\leqslant R_n
+\leqslant R_n(f)
 \leqslant \displaystyle\int_{1/n}^1 f(t) \d t + \frac{1}{n}  f\mathopen{}\left(\frac{1}{n}\right).
 \]
 
@@ -143,7 +143,7 @@ Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissant
 \intertext{en sommant pour $k \in \interent{1}{n-1}$}
 \frac{1}{n} \sum\limits_{k=2}^{n} f\mathopen{}\left(\frac{k}{n}\right) &\leqslant \displaystyle\int_{1/n}^1 f(t) \d t \leqslant \frac{1}{n} \sum\limits_{k=1}^{n-1} f\mathopen{}\left(\frac{k}{n}\right),\\
 \intertext{soit}
-R_n - \frac{1}{n} f\mathopen{}\left(\frac{1}{n}\right) &\leqslant \displaystyle\int_{1/n}^1 f(t) \d t \leqslant R_n - \frac{f(1)}{n}.
+R_n(f) - \frac{1}{n} f\mathopen{}\left(\frac{1}{n}\right) &\leqslant \displaystyle\int_{1/n}^1 f(t) \d t \leqslant R_n(f) - \frac{f(1)}{n}.
 \end{align*}
 
 On obtient ainsi l'encadrement annoncé.
