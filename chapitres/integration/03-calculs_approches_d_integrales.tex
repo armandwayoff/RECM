@@ -1,10 +1,5 @@
 \section{Calculs approchés d'intégrales}
 
-\todoarmand{Centrale - PC - 2021\\
-Transférer cette ref dans la partie polynômes orthogonaux.\\
-Le II.C fait un lien avec la section 5.5 sur les familles de polynômes orthogonaux. \\
-Le III permet d'avoir une application des polynômes / nombres de Bernoulli}
-
 Nous abordons dans cette section quelques méthodes dont le but est d’estimer la valeur numérique de l'intégrale d'une fonction donnée $f$ définie sur un domaine borné $\interff{a}{b}$:
 \[
 I = \int_a^b f(t) \d t.
@@ -370,6 +365,8 @@ Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, le résultat s'obtie
 \end{figure}
 \todoarmand{Figure à reprendre, pour l'instant reprise de \url{https://tex.stackexchange.com/questions/429634/parabola-through-three-points-with-tikz}}
 
+\todoinline{Très bonne idée}
+
 %-----------
 \subsection{Et ensuite ?}
 
@@ -411,10 +408,6 @@ On peut montrer que :
 
 On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \textsc{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
-\todoinline{Mettre ici un lien vers un thème sur les polynômes d'interpolation de Lagrange}
-
-\todoarmand{J'ai complété le tableau}
-
 \begin{table}[]
     \centering
     \begin{tblr}{
@@ -432,4 +425,9 @@ On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut aug
     \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
 \end{table} % margintable
 
-\todoinline{On pourrait ajouter vers le livre Demailly - Analyse numérique et équations différentielles}
+\todoinline{
+Je veux bien que tu t'occupes de ces deux points rapides, je ne maîtrise pas encore les différentes fonctions.
+
+Mettre ici un lien vers un thème sur les polynômes d'interpolation de Lagrange.
+
+On pourrait ajouter vers le livre Demailly - Analyse numérique et équations différentielles}

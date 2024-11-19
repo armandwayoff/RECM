@@ -1,6 +1,12 @@
 \section{Utilisation de symétries}
 
 % \todoinline{Modification du titre et de l'ordre pour avoir segment / impropre et trigo / impropre et pas 1/x}
+\begin{prop}{}{}
+\[
+\int_0^{\pi/4} \ln(1 + \tan x) \d x = \frac{\pi}{8} \ln(2).
+\]
+\end{prop}
+
 
 \begin{exercice}
 On pose $I = \int_0^{\pi/4} \ln(1+\tan x) \d x$.
@@ -39,7 +45,15 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 % \todoinline{L'intégrale suivante semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
-\begin{exercice}[Intégrale d'\textsc{Euler}, {\cite{Oraux - CCP-PSI-2016}}]
+\begin{prop}{Intégrale d'\textsc{Euler}}
+\[
+\int_0^{\pi/2} \ln(\sin x) \d x
+= \int_0^{\pi/2} \ln(\cos x) \d x
+= -\frac{\pi}{2} \ln(2).
+\]
+\end{prop}
+
+\begin{exercice}[\cite{Oraux - CCP-PSI-2016}]
     Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
     \begin{questions}
         \item Montrer que $I$ et $J$ sont convergentes et que $I = J$.
