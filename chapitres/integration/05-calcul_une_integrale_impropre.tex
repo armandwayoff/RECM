@@ -1,6 +1,12 @@
 \section{Utilisation de symétries}
 
 % \todoinline{Modification du titre et de l'ordre pour avoir segment / impropre et trigo / impropre et pas 1/x}
+\begin{prop}{}{}
+\[
+\int_0^{\pi/4} \ln(1 + \tan x) \d x = \frac{\pi}{8} \ln(2).
+\]
+\end{prop}
+
 
 \begin{exercice}
 On pose $I = \int_0^{\pi/4} \ln(1+\tan x) \d x$.
@@ -39,6 +45,14 @@ On utilise ensuite la question précédente puis le changement de variable affin
 
 % \todoinline{L'intégrale suivante semble s'appeler l'intégrale d'Euler - \url{https://fr.wikipedia.org/wiki/Table_d'intégrales}}
 
+\begin{prop}[Intégrale d'\textsc{Euler}]
+\[
+\int_0^{\pi/2} \ln(\sin x) \d x
+= \int_0^{\pi/2} \ln(\cos x) \d x
+= -\frac{\pi}{2} \ln(2).
+\]
+\end{prop}
+
 \begin{exercice}[Intégrale d'\textsc{Euler}, Oraux - CCP-PSI-2016]\label{exercice:integraleEuler}
     Soient $I = \int_0^{\pi/2} \ln(\sin x) \d x$ et $J = \int_0^{\pi/2} \ln(\cos x) \d x$.
     \begin{questions}
@@ -53,14 +67,16 @@ On utilise ensuite la question précédente puis le changement de variable affin
 \begin{reponses}
 \item La fonction $x \mapsto \ln(\sin x)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
 \[
-\ln(\sin x) = \ln\mathopen{}\big(x + o(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + o(1)\big) = o(\ln x).
+\ln(\sin x) = \ln\mathopen{}\big(x + o(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + o(1)\big) \sim_0 \ln x.
 \]
 \todoarmand{Revérifier ce développement}
-Ainsi, la fonction $x \mapsto \ln(\sin x)$ est intégrable en $0$.
+\todoinline{Fait, c'était effectivement un équivalent qu'il fallait et non un $o$. Tu es d'accord ?}
 
-Le changement de variable affine $\fonctionligne[\phi]{u}{\frac{\pi}{2} - u}$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
+Ainsi, d'après le théorème de comparaison des fonctions de signe constant, la fonction $x \mapsto \ln(\sin x)$ est intégrable en $0$.
 
-\item Comme ces intégrales sont bien définies, en utilisant la relation de \textsc{Chasles} et la symétrie dans la dernière égalité,
+Le changement de variable affine $\fonctionligne[\varphi]{u}{\frac{\pi}{2} - u}$ assure la convergence de $J$ ainsi que l'égalité $I = J$.
+
+\item Comme ces intégrales sont bien définies, en utilisant la linéarité de l'intégrale et la symétrie dans la dernière égalité,
 \begin{align*}
 I + J &= \int_0^{\pi/2} \ln\mathopen{}\big( \sin(x) \cos(x) \big) \d x = \int_0^{\pi/2} \ln(\frac{\sin(2x)}{2}) \d x = \frac{1}{2} \int_0^\pi \ln(\sin x) \d x - \frac{\pi}{2} \ln(2) \\
 &= I - \frac{\pi}{2} \ln(2).
@@ -69,12 +85,20 @@ Ainsi, $I = J = -\frac{\pi}{2} \ln(2)$.
 \end{reponses}
 \end{elemsolution}
 Voir le calcul de l'\hyperref[exercice:integralePoisson]{intégrale de \textsc{Poisson}} pour une utilisation de l'intégrale d'\textsc{Euler}.
+
+\begin{prop}
+\[
+\int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
+= 0.
+\]
+\end{prop}
+
 \begin{exercice}
 On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
 \begin{questions}
-\item Justifier l'existence de $I$.
+\item Montrer que l'intégrale $I$ est convergente.
 
-\item En découpant l'intervalle $\interoo{0}{+\infty}$ en $\interfo{0}{1} \cup \interfo{1}{+\infty}$ et en effectuant un changement de variable, calculer $I$.
+\item En découpant l'intervalle $\interoo{0}{+\infty}$ en $\interfo{0}{1} \cup \interfo{1}{+\infty}$ et en effectuant un changement de variable, calculer~$I$.
 \end{questions}
 \end{exercice}
 
@@ -94,12 +118,12 @@ On en déduit que l'intégrale $\int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d
 = \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int_1^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x.
 \]
 
-Dans la seconde intégrale, on effectue le changement de variable $\fonction[\phi]{\interfo{1}{+\infty}}{\interof{0}{1}}{u}{\frac{1}{u}}$ qui est bien $\mathscr{C}^1$ et bijectif :
+Dans la seconde intégrale, on effectue le changement de variable $\fonction[\varphi]{\interfo{1}{+\infty}}{\interof{0}{1}}{u}{\frac{1}{u}}$ qui est bien $\mathscr{C}^1$ et bijectif :
 \begin{align*}
 \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
 &= \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int_0^1 \frac{\frac{1}{u} \ln \frac{1}{u}}{\big(1 + \frac{1}{u^2}\big)^2} \times \frac{1}{u^2} \d u\\
-&= \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x - \int_0^1 \frac{u \ln(u)}{(u^2 + 1)^2} \d u\\
-&= 0.
+&= \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x - \int_0^1 \frac{u \ln(u)}{(u^2 + 1)^2} \d u
+= 0.
 \end{align*}
 \end{reponses}
 \end{elemsolution}
