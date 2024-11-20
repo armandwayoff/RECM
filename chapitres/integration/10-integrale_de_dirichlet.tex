@@ -39,7 +39,7 @@ On pourrait aussi ajouter le 170 qui peut être intéressant avec l'équation di
 \end{marginfigure}
 Nous proposons deux démonstrations de l'existence de l'intégrale de \textsc{Dirichlet}, une première utilisant le théorème des séries alternées et une deuxième utilisant l'intégration par parties. \\
 Nous démontrons en fait l'existence de l'intégrale $\int_1^{+\infty} \frac{\sin x}{x} \d x$, ce qui entraîne immédiatement l'existence de l'intégrale de \textsc{Dirichlet}.
-\begin{demo}
+\begin{demo}[par le théorème des séries alternées]
 \begin{enumerate}
 \item La fonction $t \mapsto \frac{\sin t}{t}$ est continue sur $\interof{0}{1}$. Comme elle est prolongeable par la valeur $1$ en $0$, elle est intégrable sur $\interof{0}{1}$.
 \item Soit $n \geqslant 1$, par un changement de variable affine,
@@ -60,7 +60,7 @@ u_n u_{n+1} \leqslant 0, \quad \abs{u_n} \leqslant \frac{1}{n\pi} \int_0^\pi \si
 \item On pose $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$.
 \end{enumerate}
 \end{demo}
-\begin{demo}\label{demo2existenceIntegraleDirichlet}
+\begin{demo}[par intégration par parties]\label{demo2existenceIntegraleDirichlet}
 Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ sont de même nature. \\
 D'une part, la fonction $t \mapsto \frac{\cos t}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos t}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos t}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
 \end{demo}
