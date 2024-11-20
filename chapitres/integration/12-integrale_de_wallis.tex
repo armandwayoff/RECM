@@ -5,7 +5,7 @@ Les intégrales de \textsc{Wallis} ont été introduites par John \textsc{Wallis
 }
 
 \begin{defi}[Intégrale de \textsc{Wallis}]
-Pour tout entier naturel $n$, on nomme \definir{intégrale de \textsc{Wallis}} l'intégrale définie par
+Pour tout $n$ entier naturel, on nomme \definir{intégrale de \textsc{Wallis}} l'intégrale définie par
 \[
 \Wallis_n \defeq \int_{0}^{\frac{\pi}{2}} \sin(x)^n \d x.
 \]
@@ -26,7 +26,7 @@ Effectuer le changement de variable $t = \frac{\pi}{2} - x$.
 \begin{theo}{} \labprop{prop_wallis} Pour tout $n$ entier naturel, les intégrales de \textsc{Wallis} vérifient les propriétés suivantes
 \begin{enumerate}[label=(\roman*)]
     \item $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$,  
-    \item $\displaystyle \Wallis_{2n} = \frac{\binom{2n}{n}}{2^{2n}}\frac{\pi}{2}$ et $\Wallis_{2n+1} = \frac{2^{2n} (n!)^2}{(2n+1)!}$,
+    \item $\displaystyle \Wallis_{2n} = \frac{\pi}{2^{2n+1}} \binom{2n}{n}$ et $\Wallis_{2n+1} = \frac{2^{2n} (n!)^2}{(2n+1)!}$,
     \item $\displaystyle \Wallis_n \Wallis_{n+1} = \frac{\pi}{2(n+1)}$,
     \item $\Wallis_{n+1} \sim \Wallis_n$ et $\displaystyle \Wallis_n \sim \sqrt{\frac{\pi}{2n}}$.
 \end{enumerate}
@@ -38,7 +38,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 
 \item Pour tout $n$ entier naturel non nul, montrer que $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$.
 
-\item Pour tout $p \in \N$, en déduire que $\Wallis_{2p} = \frac{\binom{2p}{p}}{2^{2p}} \frac{\pi}{2}$.
+\item Pour tout $p \in \N$, en déduire que $\Wallis_{2p} = \frac{1}{2^{2p}} \binom{2p}{p} \frac{\pi}{2}$.
 
 \item Pour tout $p \in \N$, montrer de manière analogue que $\Wallis_{2p+1} = \frac{2^{2p} (p!)^2}{(2p+1)!}$.
 
@@ -52,7 +52,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 
 \begin{solution}
 \begin{reponses}
-\item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le théorème de la limite monotone.
+\item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or, pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le théorème de la limite monotone.
 \item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
     \begin{align*}
         \Wallis_{n+2} &= \underbrace{\left[ -\cos(t) \sin(t)^{n+1} \right]_0^{\pi/2}}_{=0} + (n+1) \int_0^{\pi/2} \cos(t)^2 \sin(t)^n \d t \\
@@ -65,7 +65,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 \[
 \Wallis_0 = \int_0^{\frac{\pi}{2}} 1 \d x = \frac{\pi}{2}.
 \]
-Soit $p \in \N$. Comme la fonction sinus est de signe constant et non identiquement nulle sur $\interff{0}{\frac{\pi}{2}}$, alors $\Wallis_k$ est non nulle pour tout entier naturel $k$. Alors, d'après la relation de la question précédente,
+Soit $p \in \N$. Comme la fonction sinus est de signe constant et non identiquement nulle sur $\interff{0}{\frac{\pi}{2}}$, alors $\Wallis_k$ est non nulle pour tout $k$ entier naturel. Alors, d'après la relation de la question précédente,
 \[
 \frac{\Wallis_{2k}}{\Wallis_{2k-2}} = \frac{2k-1}{2k}
 \]
@@ -75,7 +75,7 @@ et en utilisant un produit télescopique pour $k \in \interent{1}{p}$,
 \] 
 Nous pouvons récrire le produit de la manière suivante
 \begin{align*}
-\Wallis_{2p} &= \frac{\prod_{k=1}^p (2k-1)}{\prod_{k=1}^{p} 2 k} \Wallis_0 = \frac{\left[\prod_{k=1}^p (2k-1)\right] \times \left[\prod_{k=1}^{p} (2k)\right]}{\left[\prod_{k=1}^p (2k)\right]^2} \Wallis_0 = \frac{(2p)!}{2^{2p}(p!)^2} \frac{\pi}{2},
+\Wallis_{2p} &= \frac{\prod\limits_{k=1}^p (2k-1)}{\prod\limits_{k=1}^{p} 2 k} \Wallis_0 = \frac{\left[\prod\limits_{k=1}^p (2k-1)\right] \times \left[\prod\limits_{k=1}^{p} (2k)\right]}{\left[\prod\limits_{k=1}^p (2k)\right]^2} \Wallis_0 = \frac{(2p)!}{2^{2p}(p!)^2} \frac{\pi}{2},
 \end{align*}
 ce qui fournit le résultat demandé. 
 
@@ -94,7 +94,7 @@ Ainsi, pour $p \in \N$,
 et comme précédemment, en utilisant un produit télescopique, 
 \begin{align*}
 \prod_{k=1}^p \frac{\Wallis_{2k+1}}{\Wallis_{2k-1}} &= \prod_{k=1}^p \frac{2k}{2k+1}\\
-\frac{\Wallis_{2p+1}}{\Wallis_1} &= \frac{\left[\prod_{k=1}^p (2k)\right]^2}{\left[\prod_{k=1}^p (2k+1)\right] \times \left[\prod_{k=1}^p (2k)\right]}\\
+\frac{\Wallis_{2p+1}}{\Wallis_1} &= \frac{\left[\prod\limits_{k=1}^p (2k)\right]^2}{\left[\prod\limits_{k=1}^p (2k+1)\right] \times \left[\prod\limits_{k=1}^p (2k)\right]}\\
 \intertext{soit}
 \Wallis_{2p+1} &= \frac{2^{2p} (p!)^2}{(2p+1)!}.
 \end{align*}
@@ -200,7 +200,7 @@ Ainsi,
 \begin{align*}
 \sqrt{\frac{\pi}{4 p}} \sim \frac{\pi}{\ell \sqrt{2p}}
 \quad \text{soit} \quad 
-\ell \sim \sqrt{2 \pi}.
+\ell = \sqrt{2 \pi}.
 \end{align*}
 
 \item D'après les questions précédentes, on obtient l'équivalent annoncé
@@ -241,9 +241,9 @@ On considère la formule dans le cas des termes impairs. Pour tout $p$ entier na
 \sum_{p=0}^{+\infty} \Wallis_{2p+1} x^{2p+1} = \int_0^{\frac{\pi}{2}} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
 \]
 
-\item Utiliser le changement de variable $\fonctionligne[\phi]{u}{\arcsin(u/x)}$ pour conclure.
+\item Utiliser le changement de variable $\fonctionligne[\varphi]{u}{\arcsin(u/x)}$ pour conclure.
 
-\item Reprendre le raisonnement précédent avec le changement de variable $\fonctionligne[\phi]{u}{\tan\frac{u}{2}}$ pour conclure dans le cas pair.
+\item Reprendre le raisonnement précédent avec le changement de variable $\fonctionligne[\varphi]{u}{\tan\frac{u}{2}}$ pour conclure dans le cas pair.
 
 \item Reprendre les raisonnements précédents pour démontrer la dernière formule.
 \end{questions}
@@ -266,11 +266,11 @@ Or, pour tout $x \in \interoo{-1}{1}$, $\sum \module{x}^{2p+1}$ converge. Ainsi,
 &= \int_0^{\pi/2} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
 \end{align*}
 
-\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonctionens[\phi]{\interff{0}{x}}{\interff{0}{\pi/2}},\, u \mapsto \arcsin\frac{u}{x}$ est de classe $\mathscr{C}^1$. De plus,
+\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonctionens[\varphi]{\interff{0}{x}}{\interff{0}{\pi/2}},\, u \mapsto \arcsin\frac{u}{x}$ est de classe $\mathscr{C}^1$. De plus,
 \[
-\cos(\phi(u)) = \sqrt{1 - \frac{u^2}{x^2}}
+\cos(\varphi(u)) = \sqrt{1 - \frac{u^2}{x^2}}
 \quad \text{et} \quad 
-\phi'(u) = \frac{1}{x \sqrt{1 - \frac{u^2}{x^2}}}.
+\varphi'(u) = \frac{1}{x \sqrt{1 - \frac{u^2}{x^2}}}.
 \]
 
 Ainsi,
@@ -302,7 +302,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 \end{tikzpicture}
 }
 
-\item Pour le cas pair, $\big\Vert \cos(t)^{2p} x^{2p} \big\Vert_{\infty} = \abs{x}^{2p}$ et la série est normalement convergente sur $\interoo{-1}{1}$. Ainsi,
+\item Pour le cas pair, $\big\Vert t \mapsto \cos(t)^{2p} x^{2p} \big\Vert_{\infty} = \abs{x}^{2p}$ et la série est normalement convergente sur $\interoo{-1}{1}$. Ainsi,
 \begin{align*}
 \sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \int_0^{\pi/2} \frac{1}{1 - x^2 \cos(t)^2} \d t \\
 &= \int_0^1 \frac{1}{1 - x^2 \left(\frac{1-u^2}{1+u^2}\right)^2} \frac{2}{1 + u^2} \d u \quad \text{en posant } u = \tan \frac{t}{2} \\
@@ -311,10 +311,10 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 &= \frac{1}{2} \int_0^1 \left[ \frac{1}{1 + u^2 - x(1-u^2)} + \frac{1}{1 + u^2 + x(1-u^2)}\right] \d u \\
 &= \frac{1}{2} \int_0^1 \left[\frac{1}{1 - x + (1+x)u^2} + \frac{1}{1 + x + (1-x)u^2} \right] \d u \\
 &= \frac{1}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x+1}{x-1}} + \frac{1}{\sqrt{1-x^2}} \arctan \sqrt{\frac{x-1}{x+1}}\\
-\sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \frac{\pi}{2} \frac{1}{\sqrt{1-x^2}} \quad \text{car $\arctan x + \arctan \frac{1}{x} = \frac{\pi}{2}$ si $x > 0$}
+\sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \frac{\pi}{2} \frac{1}{\sqrt{1-x^2}} \quad \text{car $\arctan u + \arctan \frac{1}{u} = \frac{\pi}{2}$ pour tout $u > 0$}
 \end{align*}
 
-\item Pour la dernière formule, $\norm{\cos(t)^p x^p}_{\infty} = \module{x}^p$ et la série converge normalement sur $\interoo{-1}{1}$. Ainsi,
+\item Pour la dernière formule, $\norm{t \mapsto \cos(t)^p x^p}_{\infty} = \module{x}^p$ et la série converge normalement sur $\interoo{-1}{1}$. Ainsi,
 \begin{align*}
 \sum_{n=0}^{+ \infty} \Wallis_n x^n &= \sum_{n=0}^{+ \infty} \left[ x^n \int_0^{\pi/2} \cos^n t \d t \right] = \int_0^{\pi/2} \left( \sum_{n=0}^{+\infty} x^n \cos^n t \right) \d t \\
 &=\int_0^{\pi/2} \frac{1}{1 - x \cos t} \d t \\
@@ -329,7 +329,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 %---------------
 
 
-\todoinline{Posé à l'ENSAM en 2016}
+\todoinline{Ajouter lien ? Posé à l'ENSAM en 2016}
 
 \begin{exercice}
 Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis_n$.
@@ -347,9 +347,9 @@ Ainsi, d'après le théorème des séries alternées, la série converge.
 
 \item On pose $\fonctionligne[f_n]{t}{\sum\limits_{k=0}^n (-1)^k \cos(t)^k}$. On remarque que
 \begin{itemize}
-\item la fonction $f_n$ est continue sur $\interff{0}{\pi/2}$,
-\item la suite $(f_n)_{n \in \N}$ converge simplement vers la fonction $t \mapsto \frac{1}{1 + \cos(t)}$ qui est une fonction continue sur $\interfo{0}{\pi/2}$,
-\item d'après le théorème des séries alternées, $\abs{f_n} \leqslant \big|\cos(\,\cdot\,)^{n+1}\big| \leqslant 1$, la fonction constante égale à $1$ étant intégrable sur $\interff{0}{\pi/2}$.
+\item la fonction $f_n$ est continue sur~$\interff{0}{\pi/2}$,
+\item la suite $(f_n)_{n \in \N}$ converge simplement vers la fonction $t \mapsto \frac{1}{1 + \cos(t)}$ qui est une fonction continue sur~$\interfo{0}{\pi/2}$,
+\item d'après le théorème des séries alternées, $\abs{f_n(t)} \leqslant \big|\cos(t)^{n+1}\big| \leqslant 1$, la fonction constante égale à $1$ étant intégrable sur $\interff{0}{\pi/2}$.
 \end{itemize}
 Ainsi, d'après le théorème de convergence dominée,
 \[
@@ -358,15 +358,18 @@ Ainsi, d'après le théorème de convergence dominée,
 = \frac{1}{2} \int_0^{\pi/2} \frac{1}{\cos(t/2)^2} \d t
 = 1.
 \]
-
-\medskip
-
-\noindent \textbf{Remarque.} Pour la majoration de la suite $(f_n)_{n \in \N}$, on peut également utiliser que
-\[
-\abs{f_n} = \frac{1 - (-1)^{n+1} \cos^{n+1}(t)}{1 + \cos(t)} \leqslant 2.
-\]
 \end{enumerate}
 \end{solution}
+
+\begin{remarque}
+Pour la majoration de la suite $(f_n)_{n \in \N}$, on peut également utiliser que
+\[
+\abs{f_n}
+= \module{\frac{1 - (-1)^{n+1} \cos^{n+1}(t)}{1 + \cos(t)}}
+\leqslant 2.
+\]
+
+\end{remarque}
 
 % \begin{exercice}{}
 % Calculer $\sum\limits_{n=0}^\infty (-1)^n \Wallis_n$.
@@ -402,6 +405,8 @@ Ainsi, d'après le théorème de convergence dominée,
 \end{comment}
 
 \subsection{Volume d'une boule en dimension \texorpdfstring{$n$}{n}}
+
+\todoinline{Ajouter un mot pour dire que les intégrales multiples ne sont pas vraiment au programme ?}
 
 \begin{defi}{}
 La boule unité de $\R^n$ est définie par
@@ -445,8 +450,8 @@ I_n = \int_0^\pi \sin(t)^n \d t.
 \begin{align*}
 I_n
 % &= \int_0^{\pi} \sin(t)^n \d t\\
-&= \int_0^{\frac{\pi}{2}} \sin(t)^n \d t + \int_{\frac{\pi}{2}}^\pi \sin(t)^n \d t\\
-&= 2 \int_0^{\frac{\pi}{2}} \sin(t)^n \d t
+&= \int_0^{\frac{\pi}{2}} \sin(t)^n \d t + \int_{\frac{\pi}{2}}^\pi \sin(t)^n \d t
+= 2 \int_0^{\frac{\pi}{2}} \sin(t)^n \d t
 = 2 \Wallis_n.
 \end{align*}
 
@@ -465,16 +470,16 @@ I_{2n+1} = \frac{2^{2n} (n!)^2}{(2n+1)!}.
 Comme $\int_{x_2{}^2 + \cdots + x_n{}^2 \leqslant 1 - x_1{}^2} \d x_2 \cdots \d x_n$ est le volume de la boule de rayon $1 - x_1{}^2$, cette quantité est égale à $\big(1 - x_1{}^2\big)^{\frac{n-1}{2}} \mathscr{V}_{n-1}$. Ainsi,
 \begin{align*}
 \mathscr{V}_n
-&= \mathscr{V}_{n-1} \int_{-1}^1 \big(1 - x_1{}^2\big)^{\frac{n-1}{2}} \d x_1\\
-&= \mathscr{V}_{n-1} \times I_n,
+&= \mathscr{V}_{n-1} \int_{-1}^1 \big(1 - x_1{}^2\big)^{\frac{n-1}{2}} \d x_1
+= \mathscr{V}_{n-1} \times I_n,
 \end{align*}
 où on a utilisé le changement de variables $x_1 = \cos(\theta)$.
 
 \item D'après la question précédente,
 \begin{align*}
 \mathscr{V}_n
-&= 2 \Wallis_n \mathscr{V}_{n-1}\\
-&= 2^{n-2} \prod_{k=3}^n \Wallis_k \times \mathscr{V}_2.
+&= 2 \Wallis_n \mathscr{V}_{n-1}
+= 2^{n-2} \prod_{k=3}^n \Wallis_k \times \mathscr{V}_2.
 \end{align*}
 Or, $\mathscr{V}_2$ est l'aire d'un disque de rayon $1$ qui vaut $\pi$. Alors,
 \[
@@ -484,23 +489,25 @@ Or, $\mathscr{V}_2$ est l'aire d'un disque de rayon $1$ qui vaut $\pi$. Alors,
 Rappelons enfin que $\Wallis_k \Wallis_{k+1} = \frac{\pi}{2(k+1)}$. Ainsi, en distinguant selon la parité de $n$,
 \begin{align*}
 \mathscr{V}_{2n}
-&= \pi\, 2^{2n-2} \prod_{k=3}^{2n} \Wallis_k\\
-&= \pi\, 2^{2n-2} \prod_{k=2}^{n} \frac{\pi}{2 \times 2 k}\\
-&= \frac{\pi\, 2^{2n-2} \pi^{n-1}}{2^{2(n-1)} \times n!}
+&= \pi\, 2^{2n-2} \prod_{k=3}^{2n} \Wallis_k
+= \pi\, 2^{2n-2} \prod_{k=2}^{n} \frac{\pi}{2 \times 2 k}
+= \frac{\pi\, 2^{2n-2} \pi^{n-1}}{2^{2(n-1)} \times n!}
 = \frac{\pi^n}{n!}
 \end{align*}
 et
 \begin{align*}
 \mathscr{V}_{2n+1}
-&= 2 \Wallis_{2n+1} \mathscr{V}_{2n}\\
-&= 2 \times \frac{2^{2n} (n!)^2}{(2n+1)!} \times \frac{\pi^n}{n!}\\
-&= \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
+&= 2 \Wallis_{2n+1} \mathscr{V}_{2n}
+= 2 \times \frac{2^{2n} (n!)^2}{(2n+1)!} \times \frac{\pi^n}{n!}
+= \frac{2^{2n+1} \pi^n n!}{(2n+1)!}.
 \end{align*}
 \end{reponses}
 \end{solution}
 
+\todoinline{J'ai changé les ; en . dans la remarque car j'avais des difficultés à la lire. Il faudrait référencer le ch.13.}
+
 \begin{remarque}
-Interprétons physiquement ces considérations : en physique statistique on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule; lorsque celles-ci sont en très grand nombre l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (liées à la vitesse); reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13); on peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons-là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
+Interprétons physiquement ces considérations. En physique statistique, on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule. lorsque celles-ci sont en très grand nombre, l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (quantités liées à la vitesse). Reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13). On peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
 \end{remarque}
 
 
