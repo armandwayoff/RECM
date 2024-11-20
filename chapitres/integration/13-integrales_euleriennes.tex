@@ -1,12 +1,12 @@
 \section{Intégrales eulériennes}\label{secinteuleriennes}
 
 \marginnote[0mm]{Source : \href{https://lescoursdemathsdepjh.monsite-orange.fr/file/7bcfcf82249b1046f185e9a3495845cd.pdf}{Fonction eulériennes -- Pierre-Jean \textsc{Hormière}}}
-De premières tentatives pour définir la factorielle de valeurs non entières remontent à \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
+De premières tentatives pour définir la factorielle de valeurs non entières remontent à James \textsc{Stirling} et Daniel \textsc{Bernoulli}. Dans une lettre à Christian \textsc{Goldbach} du 13 octobre 1729, \textsc{Euler} découvre (ou invente ?) une fonction de la variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
 
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
 
-\todoinline{Dans la phrase suivante, tu te rappelles à quoi tu pensais pour les nombreuses façons ? Il me semble que le prolongement analytique est unique, non ? Mes cours d'analyse complexe sont un peu loin...}
-\todoarmand{Malheureusement, la source dont vient le texte n'est plus accessible, je vais poursuivre mes recherches.}
+\todoinline{Je garde pour plus tard ! On met une citation ? J'ai l'impression que c'est American Monthly ?}
+
 \todoarmand{
 \url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
 
@@ -65,8 +65,7 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 
 % Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
 
-\todoinline{Si on rappelle l'IPP ici, peut être faut-il le faire avec d'autres théorèmes ?}
-\todoarmand{Oui, on pourrait faire une compilation des théorèmes utilisés sur l'ensemble des chapitres sur l'intégration.}
+\todoinline{Supprimer la référence à l'IPP ici pour lier vers une annexe.}
 
 \marginnote[-5cm]{
     \begin{theo}[Théorème (Intégration par parties généralisées)]
@@ -107,7 +106,7 @@ La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
 t^{A-1} \e^{-t} &\text{ si } t \in \interfo{1}{+\infty}
 \end{cases}
 \]
-La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur $\Rpe$.
+La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur~$\Rpe$.
 \end{itemize}
 Finalement, d'après le théorème de continuité sous le signe intégral, $\Gamma$ est continue sur $\interff{a}{A}$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
 
@@ -129,7 +128,7 @@ Finalement, d'après le théorème de continuité sous le signe intégral, $\Gam
 En notant $\phi_j$ cette fonction,
 \begin{itemize}
 \item $\phi_j$ est continue sur $\Rpe$.
-\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0(t^{x/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
+\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0(t^{a/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
 \end{itemize}
 \end{itemize}
 Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
@@ -195,6 +194,8 @@ On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisa
     La constante $\gamma$ est la constante d'\textsc{Euler}. On pourra effectuer le changement de variable $u = 1 - \frac{t}{n}$.
 \end{exercice}
 
+\todoinline{Écrire la preuve}
+
 %-----------
 \subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
 \marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \textsc{Gauss}}}
@@ -209,17 +210,16 @@ $\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}
     % Caculer $\Gamma \left( \frac{1}{2} \right)$, puis $\Gamma \left( n + \frac{1}{2} \right)$ pour tout $n \in \Ne$.
 % \end{exercice}
 
-\todoinline{Le marginnote suivant ne compile pas chez moi}
 % \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
 
-\begin{demo}
+\begin{elemdemo}
 On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$. Alors,
 \begin{align*}
 \Gamma\mathopen{}\left( \frac{1}{2} \right)
-&= \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t\\
-&= 2 \int_0^{+ \infty} \e^{-u^2} \d u \\
-&= \int_{- \infty}^{+ \infty} \e^{-u^2} \d u\\
-&= \sqrt{\pi},
+&= \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t
+= 2 \int_0^{+ \infty} \e^{-u^2} \d u
+= \int_{- \infty}^{+ \infty} \e^{-u^2} \d u
+= \sqrt{\pi},
 \end{align*}
 d'après les résultats sur l'intégrale de \textsc{Gauss}.
 
@@ -227,7 +227,7 @@ Le second point s'obtient en utilisant l'égalité
 \[
 \Gamma\left(n + \frac{1}{2}\right) = \frac{n + 2}{2} \Gamma\left(n - 1 + \frac{1}{2}\right).
 \]
-\end{demo}
+\end{elemdemo}
 
 %-----------
 \subsection{Fonction bêta}
@@ -256,10 +256,7 @@ Sources :
 \begin{questions}
 \item Déterminer $B(p, 0)$.
 
-\item Pour tout $(p, q) \in \N \times \Ne$, montrer que
-\[
-B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
-\]
+\item Pour tout $(p, q) \in \N \times \Ne$, montrer que $B(p, q) = \frac{q}{p + 1} B(p+1, q-1)$.
 
 \item Conclure.
 \end{questions}
@@ -271,15 +268,15 @@ B(p, q) = \frac{q}{p + 1} B(p+1, q-1).
 
 \item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
 \begin{align*}
-B(p,q) &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t \\
-B(p,q) &= \frac{q}{p+1} B(p+1, q-1).
+B(p,q) = \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t
+= \frac{q}{p+1} B(p+1, q-1).
 \end{align*}
 
 On en déduit que 
 \begin{align*}
 B(p, q)
-&= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q, 0) \\
-&= \frac{p! q!}{(p + q + 1)!}.
+&= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q, 0)
+= \frac{p! q!}{(p + q + 1)!}.
 \end{align*}
 \end{reponses}
 \end{solution}
@@ -297,8 +294,9 @@ Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urn
 \end{exercice}
 
 \begin{solution}
+On note $U_i$ l'événement \textit{Choisir l'urne $i$}.
 \begin{reponses}
-\item En utilisant la formule des probabilités totales,
+\item Comme $(U_1,\ldots,U_p)$ est un système complet d'événements, en utilisant la formule des probabilités totales,
 \begin{align*}
 \mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}(A_n | U_i) \mathbf{P}(U_i) \\
 &= \sum_{i=1}^n \binom{2n}{n} \left(\frac{p-i}{p}\right)^n \left(\frac{i}{p}\right)^n.
@@ -323,7 +321,6 @@ Cette limite vaut donc
 %-----------
 \subsection{Des fonctions Bêta et des sommes}
 
-
 \begin{exercice}
     \marginnote[0cm]{Source : Clémentine \textsc{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
 Soit $(p, q) \in \N^2$.
@@ -344,7 +341,7 @@ Ainsi,
 \[
 \sum_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p + k + 1}
 = \frac{p! q!}{(p + q + 1)!}
-= \frac{\binom{p+q+1}{p}^{-1}}{p + q + 1}.
+.
 \]
 \end{solution}
 
@@ -431,7 +428,10 @@ S(p)
 \end{reponses}
 \end{solution}
 
+
 \subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
+
+\todoinline{Il faudrait clarifier le lien entre fonction Gamma d'Euler et fonction Beta, comme fait dans la relation suivante. D'autant que les paramètres ne sont pas entiers contrairement aux parties précédentes.}
 
 Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \textsc{Wallis} $\Wallis_n$, on obtient
 \[
