@@ -5,7 +5,7 @@ De premières tentatives pour définir la factorielle de valeurs non entières r
 
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \textsc{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \textsc{Gauss}, \textsc{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
 
-\todoinline{Je garde pour plus tard ! On met une citation ? J'ai l'impression que c'est American Monthly ?}
+\todoinline{Je garde pour lecture dès que possible ! On met une citation ? J'ai l'impression que c'est American Monthly ?}
 
 \todoarmand{
 \url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
@@ -154,6 +154,9 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 \item Montrer que $\Gamma(x) \isEquivTo{0^+} \frac{1}{x}$.
 
 \item Montrer que $\Gamma$ est convexe.
+
+\item Montrer que $\ln(\Gamma)$ est convexe.\\
+\emph{Indication :} On pourra utiliser l'inégalité de Cauchy-Schwarz.
 % et étudier ses variations.
 \end{questions}
 \end{exercice}
@@ -175,26 +178,215 @@ De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
 \Gamma''(x) = \int_0^{+\infty} (\ln t)^2 t^{x-1} \e^{-t} \d t.
 \]
 Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
+
+\item Comme $\Gamma$ est à valeurs strictement positives, alors la fonction $f = \ln(\Gamma)$ est bien définie. De plus, comme la fonction $\Gamma$ est de classe $\mathscr{C}^2$, alors $f$ est de classe $\mathscr{C}^2$ et
+\begin{align*}
+f' &= \frac{\Gamma'}{\Gamma},\,
+%
+f'' = \frac{\Gamma'' \Gamma - (\Gamma')^2}{\Gamma^2}.
+\end{align*}
+
+De plus, d'après l'inégalité de Cauchy-Scwharz, pour tout $x > 0$,
+\begin{align*}
+\Gamma'(x)^2
+&= \left(\int_0^{+\infty} \ln(t) t^{x-1} \e^{-t} \d t\right)^2 \\
+&= \left(\int_0^{+\infty} \left(t^{(x-1)/2} \e^{-t/2}\right) \times \left(\ln(t) t^{(x-1)/2} \e^{-t/2}\right) \d t\right)^2 \\
+&\leq \left(\int_0^{+\infty} t^{x-1} \e^{-t} \d t\right) \times \left(\int_0^{+\infty} \ln(t)^2 t^{x-1} \e^{-t} \d t\right)^2 \\
+&\leq \Gamma(x) \Gamma''(x).
+\end{align*}
+Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
 \end{reponses}
 \end{solution}
 
-\todoinline{On peut montrer que $\Gamma$ est l'unique fonction telle que $\ln \Gamma$ est convexe, $\Gamma(1) = 1$ et $\Gamma(x + 1) = x \Gamma(x)$. On le met ici ? (Source : Rudin)\\
-On a également $\gamma = -\Gamma'(1)$. On doit pouvoir trouver une preuve faisable.}
+%------------
+\subsection{Caractérisation de $\Gamma$}
+
+\todoinline{Ajout de cette partie - À relire rapidement - Ajouter une référence à Rudin, Analyse réelle et complexe ?}
+
+\begin{theo}{}
+Soit $f$ une fonction définie sur $\Rpe$ telle que
+\begin{enumerate}
+\item pour tout $x > 0$, $f(x + 1) = x f(x)$,
+\item $f(1) = 1$,
+\item $\ln(f)$ est convexe.
+\end{enumerate}
+Alors, $f = \Gamma$ et
+\[
+\forall\, x > 0,\,
+\Gamma(x) = \lim_{n\to+\infty} \frac{n! n^x}{x (x + 1) \cdots (x + n)}.
+\]
+\end{theo}
+
+\begin{exercice}
+On pose $g = \ln(f)$.
+\begin{questions}
+\item Pour tout $n \in \Ne$, déterminer $f(n)$.
+
+\item Montrer que, si $f = \Gamma$ sur $\interof{0}{1}$, alors $f = \Gamma$ sur $\Rpe$.
+\end{questions}
+
+Soit $x \in \Rpe$ et $n \in \Ne$.
+\begin{questions}[resume]
+\item Montrer que
+\[
+g(n + 1) - g(n) \leq \frac{g(n + 1 + x) - g(n + 1)}{x} \leq g(n + 2) - g(n + 1).
+\]
+
+\item En déduire que
+\[
+x \ln(n) \leq g(x) + \ln\left(x (x + 1) \cdots (x + n)\right) - \ln(n!) \leq x \ln(n + 1).
+\]
+
+\item Conclure.
+\end{questions}
+\end{exercice}
+
+\begin{solution}
+\begin{reponses}
+\item Comme $f(1) = 1$ et $f(n + 1) = n f(n)$, on montre par récurrence que, pour tout $n \in \Ne$, $f(n) = n!$.
+
+\item D'après la question précédente, $f$ et $\Gamma$ sont égales sur $\Ne$.
+
+Supposons que $f = \Gamma$ sur $\interof{0}{1}$. On montre alors par récurrence sur $n$ que $f = \Gamma$ sur $]n, n + 1]$ car, si $x \in ]n, n + 1]$, alors
+\begin{align*}
+f(x) = (x - 1) f(x - 1)
+\text{ et }
+\Gamma(x) = (x - 1) \Gamma(x - 1)
+\end{align*}
+et $x - 1 \in ]n-1, n]$.
+
+\item Comme la fonction $g$ est convexe, son taux d'accroissement est croissant. En appliquant ce résultat à $t \mapsto \frac{g(n + 1) - g(t)}{n + 1 - t}$ successivement en $n$, $(n + 1 + x)$ et $(n + 2)$, alors
+\begin{align*}
+\frac{g(n + 1) - g(n)}{(n + 1) - n}
+&\leq \frac{g(n + 1) - g(n + 1 + x)}{(n + 1) - (n + 1 + x)}
+\leq \frac{g(n + 1) - g(n + 1)}{(n + 1) - (n + 2)}\\
+g(n + 1) - g(n) &\leq \frac{g(n + 1 + x) - g(n + 1)}{x} \leq g(n + 2) - g(n + 1).
+\end{align*}
+
+\item Comme $g(n + 1) = \ln(n!)$, d'après l'inégalité précédente,
+\begin{align*}
+\ln(n) &\leq \frac{g(n + 1 + x) - \ln(n!)}{x} \leq ln(n + 1)\\
+x \ln(n) &\leq g(n + 1 + x) - \ln(n!) \leq x \ln(n + 1).
+\end{align*}
+
+Enfin, d'après la propriété de $f$,
+\begin{align*}
+g(n + 1 + x)
+&= \ln\left(f(n + 1 + x)\right)
+= \ln\left((n + x) f(n + x)\right)
+= \cdots
+= \ln\left((n + x) (n + x - 1) \cdots x f(x)\right)\\
+&= g(x) + \ln\left(x (x + 1) \cdots (x + n)\right).
+\end{align*}
+
+On obtient ainsi l'encadrement souhaité :
+\[
+x \ln(n)
+\leq g(x) - \ln\frac{n!}{x (x + 1) \cdots (x + n)} \leq x \ln(n + 1).
+\]
+
+\item D'après la question précédente,
+\[
+0 \leq g(x) - \ln \frac{n! n^x}{x (x + 1) \cdots (x + n)} \leq x \ln\left(1 + \frac{1}{n}\right).
+\]
+
+Ainsi, d'après le théorème d'encadrement,
+\[
+\lim_{n\to+\infty} \frac{n! n^x}{x (x + 1) \cdots (x + n)} = g(x).
+\]
+
+La fonction $g$ est donc unique et égale à $\Gamma$.
+\end{reponses}
+\end{solution}
+
+%-----------
+\subsection{$\Gamma$ et $\gamma$}
+\todoinline{Ajout de cette section - À relire rapidement - Mettre un lien vers $\gamma$ dans le chapitre suites et séries ? - Apparu également dans un sujet d'oral Centrale 2 (2021)}
+
+\begin{defi}{Constante $\gamma$ d'Euler}
+La limite suivante est bien définie et appelée constante $\gamma$ d'Euler :
+\[
+\gamma = \lim_{n\to+\infty} \left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
+\]
+\end{defi}
+
+\begin{theo}
+\[
+\Gamma'(1) = -\gamma.
+\]
+\end{theo}
 
 \marginnote[0cm]{Patrice Lassère, p. 210}
 \begin{exercice}
-    Montrer que 
-    \[
-    \Gamma'(1) = \lim_{x \to \infty} \int_0^n \left(1 - \frac{t}{n} \right)^n \ln(t) \d t
-    \]
-    pour en déduire que 
-    \[
-    \Gamma'(1) = - \gamma \defeq \lim_{n \to \infty} \left(1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln(n) \right).
-    \]
-    La constante $\gamma$ est la constante d'\textsc{Euler}. On pourra effectuer le changement de variable $u = 1 - \frac{t}{n}$.
+Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
+\begin{questions}
+\item Montrer que 
+\[
+\Gamma'(1) = \lim_{x \to \infty} \int_0^n \left(1 - \frac{t}{n} \right)^n \ln(t) \d t
+\]
+
+\item En utilisant un changement de variable affine, montrer que
+\[
+\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
+= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
+\]
+
+
+\item En utilisant une intégration par parties généralisée puis une factorisation de $(1 - u)^{n+1} - 1$, montrer que
+\[
+(n+1) \int_0^1 (1 - u)^n \ln(u) \d u
+= -\sum_{k=0}^n \int_0^1 (1 - u)^k \d t.
+\]
+
+\item En déduire que
+\[
+\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
+= \frac{n}{n + 1} (\ln(n) - H_{n+1}).
+\]
+
+\item Conclure.
+\end{questions}
 \end{exercice}
 
-\todoinline{Écrire la preuve}
+\begin{solution}
+\begin{reponses}
+\item La convexité de la fonction exponentielle assure que pour tout $t \in \interff{0}{n}$,
+\[
+\left(1 - \frac{t}{n}\right)^n \leq \e^{-t}.
+\]
+
+Posons $f : t \mapsto \ln(t) \e^{-t}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = o_{+\infty}(1/t^2)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$.
+
+On obtient la limite annoncée en utilisant le théorème de convergence dominée.
+
+\item En effectuant le changement de variable affine $u \mapsto n u$,
+\begin{align*}
+\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
+&= n \int_0^1 \left(1 - u\right)^n \ln(n u) \d u\\
+&= n \ln(n) \int_0^1 \left(1 - u\right)^n \d u + n \int_0^1 (1 - u)^n \ln(u) \d u\\
+&= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
+\end{align*}
+
+\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'intégration par parties généralisée puis à l'aide de la formule de Bernoulli,
+\begin{align*}
+(n+1) \int_0^1 (1 - u)^n \ln(u) \d u
+&= \int_0^1 \frac{\left(1 - u\right)^{n+1} - 1}{u} \d t
+= \int_0^1 \frac{- u \sum_{k=0}^n (1 - u)^k}{u} \d t
+= -\sum_{k=0}^n \int_0^1 (1 - u)^k \d t.
+\end{align*}
+
+\item Finalement,
+\begin{align*}
+\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
+&= \frac{n}{n+1} \left(\ln(n) - \sum_{k=0}^n \int_0^1 (1 - u)^k \d t\right)
+= \frac{n}{n+1} \left(\ln(n) - \sum_{k=0}^n \frac{1}{k+1}\right)
+= \frac{n}{n+1} \left(\ln(n) - H_{n+1}\right).\\
+\end{align*}
+
+\item La conclusion est alors immédiate.
+\end{reponses}
+\end{solution}
+
 
 %-----------
 \subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
@@ -232,7 +424,7 @@ Le second point s'obtient en utilisant l'égalité
 %-----------
 \subsection{Fonction bêta}
 
-% \todoinline{J'ai changé les $I_{p,q}$ en $B(p, q)$ pour coller à la définition classique de la fonction Bêta}
+\todoinline{J'avais pas vu en détail mais normalement c'est $p-1$ et $q-1$ pour avoir la fonction bêta. On a donc deux solutions : on laisse comme ça en mettant une remarque, on modifie tout (puis on relit !) Tu en penses quoi ?}
 
 \begin{defi}[Fonction bêta]
 Pour tout $(p,q) \in \N^2$, on note
@@ -431,7 +623,36 @@ S(p)
 
 \subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
 
-\todoinline{Il faudrait clarifier le lien entre fonction Gamma d'Euler et fonction Beta, comme fait dans la relation suivante. D'autant que les paramètres ne sont pas entiers contrairement aux parties précédentes.}
+\todoinline{J'ai arnaqué et je n'ai pas vérifié la log-concavité. Par contre, Centrale 1 - MP - 2009 montre ce même résultat (et plus). Ce serait peut être bien de l'implémenter ici ?}
+
+De plus, on peut étendre la fonction bêta à $\Rpe$ en posant
+\[
+B(x, y) = \int_0^1 t^{x-1} (1 - t)^{y - 1} \d t.
+\]
+
+On obtient alors avec une intégration par parties la relation
+\[
+B(x + 1, y) = \frac{y}{x + y} B(x, y).
+\]
+
+Posons ainsi $f : t \mapsto \Gamma(y + t) B(t, y)$. Alors,
+\begin{align*}
+f(1)
+&= \Gamma(y + 1) B(1, y)
+= y \Gamma(y) B(0, y - 1) = \Gamma(y)\\
+f(t + 1)
+&= \Gamma(y + t + 1) B(t + 1, y)
+= y \Gamma(y + t) B(t, y)
+= y f(t).
+\end{align*}
+
+\todoinline{Ajouter un lien vers le théorème de caractérisation.}
+
+De plus, on montre comme pour la fonction $\Gamma$ que $t \mapsto \ln B(t, y)$ est convexe. Ainsi, $\frac{f}{\Gamma(y)}$ satisfait la caractérisation de la fonction $\Gamma$ et
+\[
+\forall,\, (x, y) \in (\Rpe)^2,\,
+B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}.
+\]
 
 Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \textsc{Wallis} $\Wallis_n$, on obtient
 \[
