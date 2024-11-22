@@ -23,8 +23,6 @@
 % \end{figure}
 \end{marginfigure}
 
-Nous allons voir la démonstration de ce résultat sous forme d'exercice.
-
 \begin{exercice}
     Pour tout $(x, t) \in \interff{a}{b} \times \interff{c}{d}$ on pose 
     $$\varphi(x, t) \defeq \int_{a}^{x} f(u, t) \d u.$$
@@ -42,8 +40,11 @@ Nous allons voir la démonstration de ce résultat sous forme d'exercice.
         \]
     \end{questions}
 \end{exercice}
-\todoinline{Changer de dessin. Par contre, il s'agit effectivement d'un calcul de volume, qui se fait en découpant les tranches dans deux sens différents... on doit pouvoir en tirer une illustration.}
+
 \todoarmand{Je propose les deux figures ci-contre (qui sont à peaufiner). Est-ce qu'on garde cette version de tranches épaisses à la "Riemann" ou bien on fait plutôt une version comme dans \url{https://math.hawaii.edu/~kcorea/courses/spring_2023/244/static/15.1-scan.pdf} p.7}
+
+\todoinline{J'aime bien les tranches épaisses. Par contre, je remplacerais dans la légende horizontal/vertical par selon l'axe des abscisses/ordonnées (ou l'inverse!)}
+
 
 \marginnote[2cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{solution}
@@ -56,7 +57,7 @@ Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est c
         \begin{itemize}
             \item Pour tout $t \in \interff{c}{d}$, la fonction $x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
             \item Sa dérivée partielle s'écrit $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$.
-            \item La domination se fait par le même constante $M$ que précédemment. 
+            \item La domination se fait par la même constante $M$ que précédemment. 
             \end{itemize}
             Ainsi,
             \[
@@ -67,7 +68,7 @@ Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est c
         D'autre part, d'après la question précédente et le théorème fondamental de l'analyse, 
         \begin{align*}
             \int_{a}^{x} \mathopen{}\bigg( \int_{c}^{d} f(u,t) \d t \bigg) \d u &= \int_{a}^{x} \psi'(u) \d u  = \psi(x) - \psi(a) \\
-            \text{Or } \psi(a) &= \int_{c}^{d} \varphi(a, t) \d t \\
+            \text{Or, } \psi(a) &= \int_{c}^{d} \varphi(a, t) \d t \\
             \text{et } \forall t \in \interff{c}{d}, \quad \varphi(a, t) &= \int_{a}^{a} f(u, t) \d u = 0
         \end{align*}
         d'où $\psi(a) = 0$ et le résultat. \\

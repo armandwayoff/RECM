@@ -198,8 +198,8 @@ Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
 \end{reponses}
 \end{solution}
 
-%------------
-\subsection{Caractérisation de $\Gamma$}
+%..............
+\subsubsection{Caractérisation de $\Gamma$}
 
 \todoinline{Ajout de cette partie - À relire rapidement - Ajouter une référence à Rudin, Analyse réelle et complexe ?}
 
@@ -299,8 +299,8 @@ La fonction $g$ est donc unique et égale à $\Gamma$.
 \end{reponses}
 \end{solution}
 
-%-----------
-\subsection{$\Gamma$ et $\gamma$}
+%..............
+\subsubsection{$\Gamma$ et $\gamma$}
 \todoinline{Ajout de cette section - À relire rapidement - Mettre un lien vers $\gamma$ dans le chapitre suites et séries ? - Apparu également dans un sujet d'oral Centrale 2 (2021)}
 
 \begin{defi}{Constante $\gamma$ d'Euler}
@@ -388,8 +388,8 @@ On obtient la limite annoncée en utilisant le théorème de convergence dominé
 \end{solution}
 
 
-%-----------
-\subsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
+%..............
+\subsubsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
 \marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \textsc{Gauss}}}
 
 \begin{theo}
@@ -424,16 +424,42 @@ Le second point s'obtient en utilisant l'égalité
 %-----------
 \subsection{Fonction bêta}
 
-\todoinline{J'avais pas vu en détail mais normalement c'est $p-1$ et $q-1$ pour avoir la fonction bêta. On a donc deux solutions : on laisse comme ça en mettant une remarque, on modifie tout (puis on relit !) Tu en penses quoi ?}
+\todoinline{Modification substantielle pour coller à la définition officielle de la fonction.}
 
+\begin{defi}[Fonction bêta]
+Pour tout $(x, y) \in (\Rpe)^2$, on définit
+\[
+B(x, y)
+= \int_0^1 t^{x-1} (1 - t)^{y-1} \d t.
+\]
+\end{defi}
+
+\begin{remarque}
+On pose $f_{x,y} : t \mapsto t^{x-1} (1 - t)^{y-1}$.
+
+La fonction $f_{x,y}$ est continue et à valeurs positives sur $\interoo{0}{1}$.
+
+Comme $f_{x,y}(t) \sim_0 t^{x-1}$, la fonction $f_{x,y}$ est intégrable en $0$ si et seulement $x > 0$.
+
+De même, $f_{x,y}(t) \sim_1 (1 - t)^{y-1}$ et la fonction $f_{x,y}$ est intégrable en $1$ si et seulement si $y > 0$.
+
+La fonction bêta est donc bien définie sur $(\Rpe)^2$.
+\end{remarque}
+
+
+\begin{comment}
 \begin{defi}[Fonction bêta]
 Pour tout $(p,q) \in \N^2$, on note
 $$B(p, q) \defeq \int_{0}^{1} t^p (1-t)^q \d t.$$
 \end{defi}
+\end{comment}
+
+%..............
+\subsubsection{Paramètres entiers}
 
 \begin{theo}[Expression factiorelle de la fonction bêta]
 Pour tout $(p,q) \in \N^2$,
-    $$B(p, q) = \frac{p! q!}{(p + q + 1)!}.$$
+    $$B(p+1, q+1) = \frac{p! q!}{(p + q + 1)!}.$$
 \end{theo}
 
 \marginnote[0cm]{
@@ -446,9 +472,9 @@ Sources :
 
 \begin{exercice}
 \begin{questions}
-\item Déterminer $B(p, 0)$.
+\item Déterminer $B(p+1, 1)$.
 
-\item Pour tout $(p, q) \in \N \times \Ne$, montrer que $B(p, q) = \frac{q}{p + 1} B(p+1, q-1)$.
+\item Pour tout $(p, q) \in \N \times \Ne$, montrer que $B(p+1, q+1) = \frac{q}{p + 1} B(p+2, q)$.
 
 \item Conclure.
 \end{questions}
@@ -456,18 +482,19 @@ Sources :
 
 \begin{solution}
 \begin{reponses}
-\item On a immédiatement $B(p, 0) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
+\item On a immédiatement $B(p+1, 1) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
 \item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
 \begin{align*}
-B(p,q) = \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t
-= \frac{q}{p+1} B(p+1, q-1).
+B(p+1, q+1)
+&= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t
+= \frac{q}{p+1} B(p+2, q).
 \end{align*}
 
 On en déduit que 
 \begin{align*}
-B(p, q)
-&= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q, 0)
+B(p+1, q+1)
+&= \frac{q}{p+1} \times \frac{q-1}{p+2} \times \cdots \times \frac{1}{p+q} B(p+q+1, 1)
 = \frac{p! q!}{(p + q + 1)!}.
 \end{align*}
 \end{reponses}
@@ -490,13 +517,14 @@ On note $U_i$ l'événement \textit{Choisir l'urne $i$}.
 \begin{reponses}
 \item Comme $(U_1,\ldots,U_p)$ est un système complet d'événements, en utilisant la formule des probabilités totales,
 \begin{align*}
-\mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}(A_n | U_i) \mathbf{P}(U_i) \\
+\mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}_{U_i}(A_n) \mathbf{P}(U_i) \\
 &= \sum_{i=1}^n \binom{2n}{n} \left(\frac{p-i}{p}\right)^n \left(\frac{i}{p}\right)^n.
 \end{align*}
 
 \item En utilisant le même raisonnement que précédemment,
 \[
-b_{n,p} = \frac{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n+1} \left(\frac{i}{p}\right)^n}{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n} \left(\frac{i}{p}\right)^n} \cdot \frac{\binom{2n+1}{n+1}}{\binom{2n}{n}}.
+b_{n,p}
+= \frac{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n+1} \left(\frac{i}{p}\right)^n}{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n} \left(\frac{i}{p}\right)^n} \cdot \frac{\binom{2n+1}{n+1}}{\binom{2n}{n}}.
 \]
 
 \item En utilisant les limites des sommes de \textsc{Riemann},
@@ -510,8 +538,8 @@ Cette limite vaut donc
 \end{reponses}
 \end{solution}
 
-%-----------
-\subsection{Des fonctions Bêta et des sommes}
+%..............
+\subsubsection{Des fonctions Bêta et des sommes}
 
 \begin{exercice}
     \marginnote[0cm]{Source : Clémentine \textsc{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
@@ -523,7 +551,7 @@ Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k}
 \begin{solution}
 En utilisant la formule du binôme de \textsc{Newton} puis la linéarité de l'intégrale,
 \begin{align*}
-B(p, q)
+B(p+1, q+1)
 &= \int_0^1 t^p (1 - t)^q \d t\\
 &= \int_0^1 t^p \left(\sum_{k=0}^q \binom{q}{k} (-1)^k t^k\right) \d t\\
 &= \sum_{k=0}^q \binom{q}{k} (-1)^k \left(\int_0^1 t^{p + k} \d t\right)\\
@@ -532,8 +560,7 @@ B(p, q)
 Ainsi,
 \[
 \sum_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p + k + 1}
-= \frac{p! q!}{(p + q + 1)!}
-.
+= \frac{p! q!}{(p + q + 1)!}.
 \]
 \end{solution}
 
@@ -541,15 +568,15 @@ Ainsi,
 
 \marginnote[0cm]{\todoinline{Source : Oral Mines 2018}}
 \begin{exercice}
-Montrer que la série $\sum B(n,n)$ converge et déterminer sa somme.
+Montrer que la série $\sum B(n, n)$ converge et déterminer sa somme.
 \end{exercice}
 
 \begin{solution}
-D'après la définition, $0 \leqslant B(n, n) \leqslant \frac{1}{4^n}$. Ainsi, $\sum B(n, n)$ converge.
+D'après la définition, $0 \leqslant B(n, n) \leqslant \frac{1}{4^{n-1}}$. Ainsi, $\sum B(n, n)$ converge.
 
 Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le théorème d'interversion série / intégrale,
 \begin{align*}
-\sum_{n=0}^{+\infty} B(n, n)
+\sum_{n=0}^{+\infty} B(n+1, n+1)
 &= \int_0^1 \left(\sum_{n=0}^{+\infty} t^n (1 - t)^n\right) \d t \\
 &= \int_0^1 \frac{\d t}{1 - t(1 - t)}\\
 &= \frac{4}{3} \int_0^1 \frac{\d t}{\left[\frac{2}{\sqrt{3}}(t - 1/2)\right]^2 + 1} \\
@@ -567,7 +594,7 @@ Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} 
 \begin{questions}
 \item Montrer l'existence de $S(p)$.
 
-\item Montrer que $S_N(p) = \sum\limits_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum\limits_{n=0}^N (n + p + 1) B(n, p)$.
+\item Montrer que $S_N(p) = \sum\limits_{n=p}^{N+p} \binom{n}{p}^{-1} = \sum\limits_{n=0}^N (n + p + 1) B(n+1, p+1)$.
 
 \item En déduire que $S(p) = \frac{p}{p-1}$.
 \end{questions}
@@ -583,14 +610,14 @@ Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $
 
 \item D'après le théorème précédent,
 \[
-B(p, q) = \frac{p! q!}{(p + q + 1) (p + q)!} = \frac{\binom{p+q}{p}^{-1}}{p + q + 1}.
+B(p+1, q+1) = \frac{p! q!}{(p + q + 1) (p + q)!} = \frac{\binom{p+q}{p}^{-1}}{p + q + 1}.
 \]
 
 Ainsi, si $p \geqslant 1$,
 \begin{align*}
 S_N(p)
 &= \sum_{n=0}^{N} \binom{n+p}{p}^{-1}
-= \sum_{n=0}^{N} (n+p+1) B(n, p) \\
+= \sum_{n=0}^{N} (n+p+1) B(n+1, p+1) \\
 &= \int_0^1 \sum_{n=0}^N (n+1) t^n (1 -t)^p \d t + \int_0^1 \sum_{n=0}^N p\, t^n (1 - t)^p \d t.
 \end{align*}
 
@@ -620,46 +647,106 @@ S(p)
 \end{reponses}
 \end{solution}
 
+%..............
+\subsubsection{Bêta, Gamma et Wallis}
 
-\subsection{Intégrales eulériennes et intégrales de \textsc{Wallis}}
+\begin{theo}
+Soit $(x, y) \in (\Rpe)^2$.
+\begin{enumerate}
+\item $B(x, y) = B(y, x)$.
 
-\todoinline{J'ai arnaqué et je n'ai pas vérifié la log-concavité. Par contre, Centrale 1 - MP - 2009 montre ce même résultat (et plus). Ce serait peut être bien de l'implémenter ici ?}
+\item $B(1, y) = \frac{1}{y}$.
 
-De plus, on peut étendre la fonction bêta à $\Rpe$ en posant
+\item $B(x + 1, y) = \frac{x}{y} B(x, y + 1)$ et $B(x + 1, y) = B(x, y) - B(x, y + 1)$ soit
 \[
-B(x, y) = \int_0^1 t^{x-1} (1 - t)^{y - 1} \d t.
+B(x, y) = \frac{x}{x + y} B(x, y).
 \]
 
-On obtient alors avec une intégration par parties la relation
+\item $B(x, y) = \displaystyle\int_0^{+\infty} \frac{t^{x - 1}}{(1 + t)^{x + y}} \d t$.
+\end{enumerate}
+\end{theo}
+
+\begin{demo}
+\begin{enumerate}
+\item On utilise le changement de variable affine $u \mapsto 1 - u$.
+
+\item Simple calcul de primitive.
+
+\item Pour la première égalité, on effectue une intégration par parties avec les fonctions $t \mapsto t^x$ et $t \mapsto -\frac{(1 - t)^y}{y}$, de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
+
+Pour la deuxième égalité, on décompose $t^x = (1 - t + t) t^{x - 1}$.
+
+Enfin, on résout le système linéaire.
+
+\item On utilise le changement de variable $\mathscr{C}^1$ et bijectif $t \mapsto \frac{t}{1 - t}$.
+\end{enumerate}
+\end{demo}
+
+\begin{theo}
+Pour tout $(x, y) \in (\Rpe)^2$,
 \[
-B(x + 1, y) = \frac{y}{x + y} B(x, y).
-\]
-
-Posons ainsi $f : t \mapsto \Gamma(y + t) B(t, y)$. Alors,
-\begin{align*}
-f(1)
-&= \Gamma(y + 1) B(1, y)
-= y \Gamma(y) B(0, y - 1) = \Gamma(y)\\
-f(t + 1)
-&= \Gamma(y + t + 1) B(t + 1, y)
-= y \Gamma(y + t) B(t, y)
-= y f(t).
-\end{align*}
-
-\todoinline{Ajouter un lien vers le théorème de caractérisation.}
-
-De plus, on montre comme pour la fonction $\Gamma$ que $t \mapsto \ln B(t, y)$ est convexe. Ainsi, $\frac{f}{\Gamma(y)}$ satisfait la caractérisation de la fonction $\Gamma$ et
-\[
-\forall,\, (x, y) \in (\Rpe)^2,\,
 B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}.
 \]
+\end{theo}
 
+\begin{demo}
+On pose $f : x \mapsto \frac{B(x, y) \Gamma(x + y)}{\Gamma(y)}$.
+\begin{itemize}
+\item
+\begin{align*}
+f(1)
+&= \frac{B(1, y) \Gamma(y + 1)}{\Gamma(y)}
+= \frac{\frac{1}{y} y \Gamma(y)}{\Gamma(y)}
+= 1.
+\end{align*}
+
+\item Pour $x > 0$,
+\begin{align*}
+f(x + 1)
+&= \frac{B(x + 1, y) \Gamma(x + 1 + y)}{\Gamma(y)}
+= \frac{\frac{x}{x + y} B(x, y) (x + y) \Gamma(x + y)}{\Gamma(y)}
+= x f(x).
+\end{align*}
+
+\item D'après la définition, pour tout $x > 0$,
+\[
+\ln(f(x)) = \ln(B(x, y)) + \ln(\Gamma(x + y)) - \ln(\Gamma(y)).
+\]
+D'après les parties précédentes, $x \mapsto \ln(\Gamma(x + y))$ est convexe.
+
+On montre de manière analogue, en utilisant l'inégalité de Cauchy-Schwarz, que $x \mapsto \ln(B(x, y))$ est convexe.
+
+Finalement, $\ln(f)$ est convexe.
+\end{itemize}
+Finalement, d'après la caractérisation de la fonction $\Gamma$,
+\[
+\forall\, (x, y) \in (\Re)^2,\,
+\frac{B(x, y) \Gamma(x + y)}{\Gamma(y)} = \Gamma(x).
+\]
+\end{demo}
+
+\todoinline{Indiquer proprement la référence vers le sujet dans la remarque ci-dessous.}
+
+\begin{remarque}
+Pour prouver cette relation entre $B$ et $\Gamma$, une autre méthode utilisant la méthode des rectangles est présentée dans le sujet Centrale 1 - MP - 2009.
+
+Le sujet propose également une démonstration de la relation $B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}$.
+\end{remarque}
+
+\todoinline{Citer proprement (si nécessaire car tout ici est très classique : soit 
+\url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
+}
+
+\begin{theo}{}
+Pour tout $n \in \N$,
+\[
+\Wallis_n = \frac{1}{2} B\mathopen{}\left(\frac{n+1}{2}, \frac{1}{2} \right) = \frac{1}{2} \frac{\Gamma\mathopen{}\left(\frac{n+1}{2}\right) \sqrt{\pi}}{\Gamma\mathopen{}\left(\frac{n}{2}+1\right)}
+\]
+\end{theo}
+
+\begin{elemdemo}
 Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \textsc{Wallis} $\Wallis_n$, on obtient
 \[
 \Wallis_n = \frac{1}{2} \int_0^1 t^{\frac{n-1}{2}} (1-t)^{-\frac{1}{2}} \d t
 \]
-soit 
-\[
-\Wallis_n = \frac{1}{2} B\mathopen{}\left( \frac{n-1}{2}, -\frac{1}{2} \right) = \frac{1}{2} \frac{\Gamma\mathopen{}\left(\frac{n+1}{2}\right) \sqrt{\pi}}{\Gamma\mathopen{}\left(\frac{n}{2}+1\right)}
-\]
-\url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
+\end{elemdemo}
