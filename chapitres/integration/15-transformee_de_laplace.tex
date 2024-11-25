@@ -10,19 +10,22 @@ La transformation de \textsc{Laplace} généralise la transformation de \textsc{
 Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
 
 \begin{defi}[Fonction causale]
+\begin{comment}
 \begin{itemize}
     \item On appelle \definir{fonction causale} une fonction définie sur $\R$ dont le support est borné à gauche en $0$ \emph{i.e.} $f$ est nulle pour tout $x < 0$. 
     \item On appelle fonction causale toute fonction définie sur $\R$, nulle sur $\interoo{-\infty}{0}$ et continue par morceaux sur $\interfo{0}{+\infty}$.
 \end{itemize}
+\end{comment}
+Une fonction $f$ définie sur $\R$ est une \definir{fonction causale} si elle est continue par morceaux et nulle sur $\interfo{0}{+\infty}$.
 \end{defi}
-\todoarmand{Choisir une formulation et la modifier un peu.}
+
 
 \begin{remarque}
-    Étant donnée une fonction $g$ non causale, il suffit de considérer $f(x) = H(x) g(x)$, où $H$ est la fonction \textsc{Heaviside}, pour obtenir la fonction correspondante en version causale.
+La fonction de \textsc{Heaviside} est définie par $H = \indicatrice{\Rp}$. Étant donnée une fonction $g$ non causale, la fonction $f = H \times g$ est une fonction causale.
 \end{remarque}
 
 \begin{defi}[Transformée de \textsc{Laplace}]
-    Soit $f \in \mathscr{C}(\Rp, \R)$ une fonction causale. On note, lorsqu'elle converge, 
+    Soit $f$ une fonction causale. On note, lorsqu'elle converge, 
     $$\mathscr{L}(f)(p) \defeq \int_{0}^{+ \infty} \e^{-pt} f(t) \d t.$$
     La fonction $\mathscr{L}(f)$ est la \emph{transformée de \textsc{Laplace} de f}.
 \end{defi}
@@ -50,8 +53,9 @@ Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, dé
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $t \mapsto \e^{-pt}$ est intégrable sur $\Rp$ si et seulement si $p > 0$. Ainsi, la transformée 
+\item La fonction $t \mapsto \e^{-pt}$ est intégrable sur $\Rp$ si et seulement si $p > 0$. Alors,
 \[
+\forall\, p > 0,\,
 \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-pt} \d t = \frac{1}{p}.
 \]
 
@@ -284,6 +288,55 @@ Ainsi, d'après la définition de la limite,
     \caption{Source : \url{https://commons.wikimedia.org/wiki/File:Time_and_frequency_domains.svg?uselang=fr}}
 \end{marginfigure}
 
+\begin{theo}
+Soient $u$ et $v$ deux fonctions intégrables sur $\R$. Pour tout $x \in \R$, on définit
+\begin{equation}\label{defconvolution}
+(u \ast v)(x) = \int_{\R^d} u(x-y) v(y) \d y.
+\end{equation}
+La fonction $u \ast v$ ainsi définie est le \emph{produit de convolution} de $u$ et $v$.
+\begin{enumerate}
+\item $u \ast v = v \ast u$.
+
+\item $u \ast v$ est une fonction intégrable et
+\[
+\norm{u \ast v}_{1} \leqslant \norm{u}_{1} \norm{v}_{1}.
+    \]
+    \end{enumerate}
+    \end{theo}
+
+\todoinline{À reprendre sans Fubini ? Est-ce possible ?}
+
+\begin{demo}
+    L'existence des intégrales \ref{defconvolution} n'est pas évidente : à $x$ fixé, il s'agit d'intégrer le produit de deux fonctions intégrables. Mais un tel produit n'est pas intégrable en général. Dans ce cas particulier, nous allons le déduire tu théorème de \textsc{Fubini}. On a
+    \[
+    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \int_{\R^d} \module{v(y)} \left( \int_{\R^d} \module{u(x - y)} \d x \right) \d y.
+    \]
+    En effectuant le changement de variable $z = x - y$ (à $y$ fixé), il vient
+    \[
+    \int_{\R^d} \module{u(x-y)} \d x = \int_{\R^d} \module{u(z)} \d z = \norm{u}_{L^1}.
+    \]
+    Ainsi l'égalité précédente s'écrit
+    \[
+    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \norm{u}_{L^1} \int_{\R^d} \module{v(y)} \d y = \norm{u}_{L^1} \norm{v}_{L^1}.
+    \]
+    Il s'ensuit que la fonction $(x,y) \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d \times \R^d)$. Le théorème de \textsc{Fubini} nous permet donc de dire que pour presque tout $x$, la fonction $y \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d)$, ce qui donne un sens à la première intégrale dans \ref{defconvolution}, la seconde s'en déduisant par le changement de variable $z = x - y$ (à $x$ fixé). Il reste à constater que 
+    \[
+    \norm{u \ast v}_{L^1} = \int_{\R^d} \module{\int_{\R^d} u(x-y)v(y) \d y} \d x \leqslant \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y,
+    \]
+    où l'on vient de voir que la dernière intégrale n'est autre que $\norm{u}_{L^1} \norm{v}_{L^1}$.
+\end{demo}
+
+\todoarmand{On pourrait ensuite proposer quelques exercices sur le calcul du produit de convolution de fonctions classiques. C'est aussi l'occasion de faire de jolies illustrations.}
+
+
+\todoinline{Ajouter des hypothèses au théorème suivant ?}
+
+\begin{theo}{}
 \[
 \mathcal{L}(f \ast g) = \mathcal{L}(f) \mathcal{L}(g)
 \]
+\end{theo}
+
+\begin{demo}
+
+\end{demo}
