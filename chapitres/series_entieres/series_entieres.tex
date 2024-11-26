@@ -1,6 +1,30 @@
 \chapter{Séries entières}
 \labch{series_entieres}
 
+
+\subsection{Prolongement par continuité d'une fonction à variable réelle / Régularité du sinus cardinal sur $\R$}
+
+La fonction $\fonction[f]{\Re}{\R}{x}{\frac{\sin(x)}{x}}$ admet un prolongement par continuité en $0$, appelé \emph{sinus cardinal}. En effet, considérons la fonction
+\[
+    g(x) \defeq
+    \begin{cases} 
+        \frac{\sin x}{x} &\text{si } x \not= 0 \\ 
+        1 &\text{sinon} 
+    \end{cases}.
+\]
+Cette fonction est continue en $0$ puisque, pour tout $x \in \Re$,
+\[
+\module{g(x) - g(0)} = \module{\frac{\sin(x) - 0}{x - 0} - 1} \xrightarrow[x \to 0]{} \module{\sin'(0) - 1} = \module{\cos(0) - 1} = 0. 
+\]
+La fonction $g$ constitue donc un prolongement de la fonction $f$ en $0$. \\
+De plus, en utilisant le développement en série entière de la fonction sinus, on peut écrire pour $x$ réel non nul, 
+\[
+g(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!},
+\]
+ce qui reste vrai pour $x = 0$. La fonction $g$ est donc développable en série entière sur $\R$ et en particulier, la fonction $g$ est de classe $\mathscr{C}^\infty$ sur $\R$.
+\marginnote[0cm]{fic00126}
+
+
 \section{Matrice et série entière}
 \input{chapitres/series_entieres/matrice_et_serie_entiere}
 

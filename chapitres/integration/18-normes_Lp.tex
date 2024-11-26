@@ -1,11 +1,8 @@
 \section{Normes $L^p$}
 \ref{normes_lp_et_inegalites}
 
-\todoinline{On peut aussi montrer l'inclusion des $L^p$ lorsqu'on intègre sur un segment, c'est ensuite utile dans la théorie de Lebesgue, dans le cadre des probabilités. Il y a une réciproque pour savoir quand $L^p \subset L^q$. J'ai des notes là-dessus, mais faut voir si c'est faisable niveau prépa.}
-
-
 \begin{defi}
-Soient $p \in \N$ et $I$ une intervalle de $\R$. Une fonction est de classe $L^p$ sur $I$ si $f^p$ est intégrable. On note alors
+Soient $p \in \N$ et $I$ une intervalle de $\R$. La fonction $f$ est de classe $L^p$ sur $I$ si $f^p$ est intégrable sur $I$. On note alors
 \[
 \norm{f}_{L^p} = \left(\int_I \module{f}^p\right)^{1/p}.
 \]
@@ -16,15 +13,8 @@ On note $L^p(I)$ l'ensemble des fonctions de classes $L^p$ sur $I$.
 Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$. La positivité de l'intégrale assure alors que, si $\norm{f}_{L^p} = 0$, alors $f$ est identiquement nulle sur $I$.
 \end{remarque}
 
-\todoinline{mettre une remarque pour indiquer que, dans le cadre plus général de la théorie de l'intégrale de Lebesgue, on ne demande plus le caractère continu ?}
-
 %-----------
 \subsection{Limite $p \to +\infty$}
-
-\todoinline{Je pense qu'il faut mettre une illustration avec des graphes de $f(t)^n$ et de l'aire associée où on verrait bien que le max prend le dessus sur les autres points.}
-
-
-% \subsubsection{Étude de la suite de terme général \texorpdfstring{$\left( \frac{1}{b-a} \int_{a}^{b} f(x)^n \d x \right)^{1/n}$}{égal à une intégrale}}
 
 \begin{marginfigure}[0cm]
     \centering
@@ -53,14 +43,14 @@ Soit $f$ une fonction continue sur le segment $[a, b]$.
 \begin{questions}
 \item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leq c_p \norm{f}_\infty$.
 
-\item Soit $\epsilon > 0$. Montrer qu'il existe un segment $[c, d] \subset [a, b]$ tel que
+\item Soit $\varepsilon > 0$. Montrer qu'il existe un segment $[c, d] \subset [a, b]$ tel que
 \[
-\forall\, x \in [c, d],\, f(x) \geq \norm{f}_{L^\infty} - \epsilon.
+\forall\, x \in [c, d],\, f(x) \geq \norm{f}_{L^\infty} - \varepsilon.
 \]
 
 \item En déduire qu'il existe un réel $d_p$ tel que
 \[
-d_p (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
+d_p (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p}.
 \]
 
 \item Conclure.
@@ -68,7 +58,7 @@ d_p (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
 \end{exercice}
 
 \begin{solution}
-la fonction $f$ est continue sur un segment donc est en particuler, elle y est bornée. Ainsi, $\norm{f}_\infty$ est bien défini.
+la fonction $f$ est continue sur un segment donc elle est bornée. Ainsi, $\norm{f}_\infty$ est bien définie.
 
 \begin{reponses}
 \item Comme, pour tout $t \in [a, b]$, $\module{f(t)} \leq \norm{f}_\infty$, la croissance de l'intégrale assure que
@@ -79,34 +69,34 @@ On obtient ainsi la majoration demandée, avec $c_p = (b - a)^{1/p}$.
 
 \item Comme $f$ est continue, elle atteint ses bornes sur $[a, b]$ et il existe un réel $x_0$ tel que $f(x_0) = \norm{f}_\infty$.
 
-Toujours comme $f$ est continue, il existe un réel $\eta$ tel uqe pour tout $x \in [a, b]$,
+Toujours comme $f$ est continue, il existe un réel $\eta$ tel que pour tout $x \in [a, b]$,
 \[
-\module{x - x_0} \leq \eta \Rightarrow \module{f(x) - f(x_0)} \leq \epsilon.
+\module{x - x_0} \leq \eta \Rightarrow \module{f(x) - f(x_0)} \leq \varepsilon.
 \]
 
 En particulier, pour $x \in [x_0-\eta, x_0+\eta] \cap [a, b]$,
 \[
-f(x) \geq f(x_0) - \epsilon = \norm{f}_\infty - \epsilon.
+f(x) \geq f(x_0) - \varepsilon = \norm{f}_\infty - \varepsilon.
 \]
 On note $[c, d] = [x_0-\eta, x_0+\eta] \cap [a, b]$.
 
 \item En utilisant la croissance de l'intégrale, on obtient ainsi
 \[
-(d - c)^{1/p} (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p}.
+(d - c)^{1/p} (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p}.
 \]
 
-\item D'après les questions précédentes, pour tout $p \in \N$ et pour tout $\epsilon > 0$,
+\item D'après les questions précédentes, pour tout $p \in \N$ et pour tout $\varepsilon > 0$,
 \[
-(d - c)^{1/p} (\norm{f}_\infty - \epsilon) \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
+(d - c)^{1/p} (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
 \]
 
-Comme cette propriété est vraie pour tout $\epsilon > 0$, alors
+Comme cette propriété est vraie pour tout $\varepsilon > 0$, alors
 
 \[
 (d - c)^{1/p} \norm{f}_\infty \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
 \]
 
-Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p} = 1$, le théorème d'encadrement permet de conclure.
+Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty} (b - a)^{1/p} = 1$, le théorème d'encadrement permet de conclure.
 
 % \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
         % On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
@@ -115,10 +105,10 @@ Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p
 \end{reponses}
 \end{solution}
 
-\todoinline{Je ne parviens pas à compiler la figure suivante}
+\todoinline{Illustration à terminer ? ou supprimer ?}
 
 
-\begin{comment}
+% \begin{comment}
 \begin{figure}[H]
     \centering
     
@@ -146,11 +136,8 @@ Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p
     (-0.1*\ymax,0) -- (\xmax,0) node[below] {$x$};
     \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[below left] {$\textcolor{red}{f}(x)$};
   
-  \langle{P}\rangle
-  
   % PLOT
-  \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]
-    plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
+  % \draw[xline,red,samples=\N,smooth,variable=\x,domain=-0.1:0.94*\xmax,thick]   plot(\x,{3/(1+(0.36*\x*\x-1)^2) -\x/4});
     
   \draw[dashed,thin] (X0) --++ (0,\yMAX);
   \draw[dashed,thin] (C) --++ (0,\yeps);
@@ -172,14 +159,14 @@ Enfin, comme $\lim_{p\to+\infty} (d - c)^{1/p} = \lim_{p\to+\infty} (b - a)^{1/p
 
     \caption{Illustration à finir}
 \end{figure}
-\end{comment}
+% \end{comment}
 
 \subsection{Limite $p \to 0$}
 
 \begin{theo}
 Soit $f \in \mathscr{C}([0,1],\R^*)$. Alors,
 \[
-\lim_{p\to0} \norm{f}_{L^p} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\lim_{p\to0} \norm{f}_{L^p} = \exp\left\{\int_0^1 \ln\module{f(x)} \d x\right\}.
 \]
 \end{theo}
 
@@ -188,7 +175,7 @@ Soit $f \in \mathscr{C}([0,1],\R^*)$. Alors,
 \begin{exercice}%
 Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs positives et on pose $I(y) = \int_0^1 f(x)^y \d x$.
 \begin{questions}
-\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim_{y\to0} g(y)^{1/y}$.
+\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim\limits_{y\to0} g(y)^{1/y}$.
 
 \item Montrer que $I$ est une fonction dérivable sur $\R_+$.
 
@@ -203,9 +190,9 @@ Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs posit
 \begin{reponses}
 \item Comme $g$ est dérivable, d'après le théorème de Taylor-Young, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
 \begin{align*}
-g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\} \\
-&= \exp\left\{g'(0) + o(1)\right\} \\
-&\to \e^{g'(0)}.
+g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\}
+= \exp\left\{g'(0) + o(1)\right\}
+\to \e^{g'(0)}.
 \end{align*}
 
 \item En posant $F: (x, y) \mapsto f(x)^y$, alors
@@ -238,11 +225,10 @@ I'(0) &= \int_0^1 \ln(f(x)) \d x
 %-----------
 \subsection{Cas $p \geq 1$}
 
-Lorsque l’exposant $p$ satisfait $0 < p < 1$, on constate qu’une inégalité triangulaire ne peut pas être satisfaite, ce qui justifie, pour bénéficier d’une structure naturelle
-d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
+Lorsque l'exposant $p$ satisfait $0 < p < 1$, on constate que l'inégalité triangulaire ne peut pas être satisfaite par $\norm{\cdot}_{L^p}$, ce qui justifie, pour bénéficier d’une structure naturelle d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
 
 \begin{theo}[Inégalité de \textsc{Minkowski}]
-Soit $p \geq 1$. Alors, si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
+Soit $p \geq 1$. Si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
 \[
 \norm{f + g}_{L^p} \leq \norm{f}_{L^p} + \norm{g}_{L^p}.
 \]
@@ -255,7 +241,7 @@ Les cas $p = 1$ et $p = +\infty$ sont aisément vérifiables. On se limite par l
 
 Cette inégalité repose sur le théorème suivant :
 \begin{theo}[Inégalité de \textsc{Hölder}]
-Soient $1 < p < +\infty$, $q$ tel que $\frac{1}{p} + \frac{1}{q} = 1$ et $f$ et $g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $L^p(I)$ et $g \in L^p(I)$, alors $f g$ appartient à $L^1(I)$ et
+Soient $1 < p,\, q < +\infty$, $q$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ et $f,\, g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $L^p(I)$ et $g \in L^q(I)$, alors $f g$ appartient à $L^1(I)$ et
 \[
 \int_I f g \leq \norm{f}_{L^p} \norm{g}_{L^q}.
 \]
@@ -336,13 +322,13 @@ Ainsi, dans tous les cas,
 \end{align*}
 Ainsi, $\module{f + g}^{p-1} \in L^q(I)$.
 
-Ainsi, en appliquant deux fois l'inégalité d'Hölder,
+En appliquant deux fois l'inégalité de Hölder,
 \begin{align*}
 \norme{f + g}_{L^p}^p
 &= \norme{|f| \cdot |f + g|^{p-1}}_{L^1}
 + \norme{|g| \cdot |f + g|^{p-1}}_{L^1}\\
 &\leq \norm{f}_{L^p}^p \norm{f + g}_{L^p}^{p/q}
-+ \norm{g}_{L^p}^p \norm{f + g}_{L^p}{p/q}\\
++ \norm{g}_{L^p}^p \norm{f + g}_{L^p}^{p/q}\\
 &\leq \norm{f + g}_{L^p}^{p/q} \left(\norm{f}_{L^p} + \norm{f}_{L^q}\right).
 \end{align*}
 
@@ -350,7 +336,8 @@ On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
 \end{reponses}
 \end{solution}
 
-Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}
+\todoinline{Pointer vers
+Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}}
 % \begin{exercice}
     % On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
     % \[
@@ -363,7 +350,7 @@ Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Ensei
 \subsection{Inclusions entre les $L^p$}
 
 \begin{theo}
-Si $I$ est un intervalle borné, non note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leq \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leq \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
     % Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
 \end{theo}
 
@@ -371,8 +358,8 @@ Si $I$ est un intervalle borné, non note $|I|$ sa longueur. Pour tout $p < q$, 
 Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à tous les espaces $L^q$. Ainsi, d'après l'inégalité de Hölder,
 \begin{align*}
 \norm{f}_{L^p}^p
-&\leq \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}\\
-&\leq \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
+&\leq \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}
+\leq \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
 \end{align*}
 \end{demo}
 
@@ -381,4 +368,5 @@ En utilisant des intégrales de Riemann, on montre que ces inclusions sont fauss
 En effet, choisissons $p$ et $q$ tels que $p > q$ et considérons $\alpha > 0$ avec la fonction $f(x) = \frac{1}{1+\module{x}^\alpha}$ pour $x \in \R$. Si on choisit $1/p < \alpha < 1/q$, alors $f \in L^p(\R)$ mais $f \not\in L^q(\R)$, donc $L^p(\R) \not\subset L^q(\R)$. \\
 Considérons maintenant la fonction $g(x) = \frac{1}{\module{x}^\alpha (1+x^2)}$ pour $x \in \R$. Si on choisit encore $\alpha$ tel que $1/p <  \alpha < 1/q$, alors $g \in L^q(\R)$ mais $g \not\in L^p(\R)$, donc $L^q(\R) \not\subset L^p(\R)$.
 \end{remarque}
-\todoinline{Expliciter la remarque précédente ?}
+
+\todoinline{Pointer vers Rudin pour une caractérisation des inclusions}

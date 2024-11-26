@@ -1,27 +1,11 @@
-\section{Prolongement de fonctions (par des intégrales)}
+\section{Prolongement de la zêta de \textsc{Riemann}par une intégrale}
 
-\subsection{Prolongement par continuité d'une fonction à variable réelle / Régularité du sinus cardinal sur $\R$}
+\todoinline{Fonction $\sinc$ et séries entières déplacée dans séries entières car pas d'intégrales.\\
+Section suivante sur Euler commentée car déjà présente ailleurs.}
 
-La fonction $\fonction[f]{\Re}{\R}{x}{\frac{\sin(x)}{x}}$ admet un prolongement par continuité en $0$, appelé \emph{sinus cardinal}. En effet, considérons la fonction
-\[
-    g(x) \defeq
-    \begin{cases} 
-        \frac{\sin x}{x} &\text{si } x \not= 0 \\ 
-        1 &\text{sinon} 
-    \end{cases}.
-\]
-Cette fonction est continue en $0$ puisque, pour tout $x \in \Re$,
-\[
-\module{g(x) - g(0)} = \module{\frac{\sin(x) - 0}{x - 0} - 1} \xrightarrow[x \to 0]{} \module{\sin'(0) - 1} = \module{\cos(0) - 1} = 0. 
-\]
-La fonction $g$ constitue donc un prolongement de la fonction $f$ en $0$. \\
-De plus, en utilisant le développement en série entière de la fonction sinus, on peut écrire pour $x$ réel non nul, 
-\[
-g(x) = \sum\limits_{n=0}^{+ \infty} (-1)^n \frac{x^{2n}}{(2n+1)!},
-\]
-ce qui reste vrai pour $x = 0$. La fonction $g$ est donc développable en série entière sur $\R$ et en particulier, la fonction $g$ est de classe $\mathscr{C}^\infty$ sur $\R$.
-\marginnote[0cm]{fic00126}
+\todoinline{Titre modifié - On pourrait également déplacer cette partie dans les séries de fonctions}
 
+\begin{comment}
 \subsection{Fonction Gamma d'\textsc{Euler}}\label{prolongementFonctionGamma}
 
 On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secinteuleriennes}).
@@ -59,52 +43,46 @@ On rappelle la définition de la fonction Gamma d'\textsc{Euler} (cf. \ref{secin
         $$\forall n \in \Ne, \Gamma(n+1) = n!$$
     \end{itemize}
 \end{demo}
+\end{comment}
 
+% \subsection{Fonction zêta de \textsc{Riemann}}
 
-\subsection{Fonction zêta de \textsc{Riemann}}\label{subsec:fonctionZeta}
+\label{subsec:fonctionZeta}
 
-\todoinline{Pourrait être mis dans une section : prolongement de fonctions par des intégrales ; au même titre que $\Gamma$ prolonge la factorielle. Il faudrait peut être mettre un mot sur l'unicité du prolongement analytique.}
-
-\begin{prop}
-Pour tout $s > 1$, on rappelle que $\zeta(s) = \sum_{n=1}^{+\infty} \frac{1}{n^s}$. Pour tout $s > 0$, posons $I(s) = \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x$. Alors,
+\begin{theo}
+Pour tout $s > 1$,
 \[
-\forall\, s > 1,\, \zeta(s) = I(s).
+\zeta(s)
+= \sum_{n=1}^{+\infty} \frac{1}{n^s}
+= \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x,
 \]
+où $I(s) = \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x$ est définie pour tout $s > 0$.
+
 La fonction $I$ prolonge ainsi $\zeta$ sur le segment $]0, 1]$.
-\end{prop}
+\end{theo}
+
+\todoinline{Pointer vers Rudin Ex.16 p.131}
 
 %---------------
-\begin{exercice}[Fonction zêta de Riemann]
+\begin{exercice}
+\begin{questions}
+\item Montrer que pour tout $N \in \Ne$,
+\[
+s \int_1^N \frac{\lfloor x\rfloor}{x^{s+1}} \d x
+= 1 - \frac{1}{N^{s-1}} + \sum_{n=2}^N \frac{1}{n^s}.
+\]
 
-Source : Rudin Ex.16 p.131
-
-Pour tout réel $s > 1$, on pose $\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}$.
-\begin{itemize}
-\item Montrer que $\zeta(s) = s \int_1^\infty \frac{\lfloor x\rfloor}{x^{s + 1}} \d x$.
+\item En déduire que que, pour tout $s > 1$, $\zeta(s) = s \int_1^\infty \frac{\lfloor x\rfloor}{x^{s + 1}} \d x$.
 % \indic{Indication : Comparer l'intégrale sur le segment $[1,N]$ et la somme partielle.}
 
-\item Montrer que $\zeta(s) = \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x$.
+\item Montrer que, pour tout $s > 1$, $\zeta(s) = \frac{s}{s - 1} - s \int_1^\infty \frac{x - \lfloor x\rfloor}{x^{s+1}} \d x$.
 
 \item Montrer que cette dernière intégrale converge pour tout $s > 0$.
-\end{itemize}
+\end{questions}
 \end{exercice}
 
 \begin{solution}
-\begin{itemize}
-\item Si $M$ est un réel, alors
-\begin{align*}
-s \int_1^M \frac{\lfloor x\rfloor}{x^{s + 1}} \d x
-&= s \int_1^{\lfloor M\rfloor} \frac{\lfloor x\rfloor}{x^{s + 1}} \d x + s \int_{\lfloor M\rfloor}^M \frac{\lfloor x\rfloor}{x^{s + 1}} \d x.
-\end{align*}
-
-Or, le second membre vaut
-\[
-s \lfloor M \rfloor \int_{\lfloor M\rfloor}^M \frac{1}{x^{s + 1}} \d x
-= \frac{1}{M^s} - \frac{1}{\lfloor M \rfloor^s}.
-\]
-
-Il tend donc vers $0$ lorsque $M \to +\infty$. Pour étudier la convergence de l'intégrale on peut donc se limiter à l'étudier pour une suite d'entiers.
-
+\begin{reponses}
 \item On utilise la relation de Chasles pour découper l'intervalle en morceaux sur lesquels la fonction partie entière est constante :
 \begin{align*}
 s \int_1^N \frac{\lfloor x\rfloor}{x^{s+1}} \d x &= \sum_{n=1}^{N-1} s \int_n^{n+1} \frac{\lfloor x\rfloor}{x^{s+1}} \d x\\
@@ -113,7 +91,17 @@ s \int_1^N \frac{\lfloor x\rfloor}{x^{s+1}} \d x &= \sum_{n=1}^{N-1} s \int_n^{n
 &= \sum_{n=1}^{N-1} \frac{1}{n^{s-1}} - \sum_{n=1}^{N-1} \frac{1}{(n+1)^{s-1}} + \sum_{n=1}^{N-1} \frac{1}{(n+1)^s} \\
 &= 1 - \frac{1}{N^{s-1}} + \sum_{n=2}^N \frac{1}{n^s}.
 \end{align*}
-Comme le membre de droite converge vers $\zeta(s)$ lorsque $N \to +\infty$, alors l'intégrale est convergente et on obtient la relation indiquée.
+
+\item Dans la question précédente, le membre de droite converge vers $\zeta(s)$ lorsque $N \to +\infty$. Ainsi,
+\[
+\lim_{N\to+\infty} s \int_1^N \frac{\lfloor x\rfloor}{x^{s + 1}} \d x = \zeta(s).
+\]
+
+Comme $x \mapsto \frac{\lfloor x\rfloor}{x^{s + 1}}$ est à valeurs positives, alors $y \mapsto \displaystyle\int_1^y \frac{\lfloor x\rfloor}{x^{s + 1}} \d x$ est croissante. D'après le point précédent, on en déduit la convergence de l'intégrale et
+\[
+\int_1^{+\infty} \frac{\lfloor x\rfloor}{x^{s + 1}} \d x
+= \lim_{N\to+\infty} \int_1^N \frac{\lfloor x\rfloor}{x^{s + 1}} \d x.
+\]
 
 \item En utilisant la relation précédente,
 \begin{align*}
@@ -127,5 +115,5 @@ Comme le membre de droite converge vers $\frac{s}{s-1} - \zeta(s)$, alors l'int�
 \abs{\frac{x-\lfloor x\rfloor}{x^{s+1}}} \leq \frac{1}{x^{s+1}}
 \]
 Ainsi, cette intégrale est convergente dès que $s > 0$.
-\end{itemize}
+\end{reponses}
 \end{solution}

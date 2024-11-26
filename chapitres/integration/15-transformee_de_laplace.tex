@@ -39,6 +39,8 @@ La fonction de \textsc{Heaviside} est définie par $H = \indicatrice{\Rp}$. Éta
     % \item Théorème de convergence dominée
 % \end{itemize}
 
+\todoinline{Pointer vers CCP - MP - 2011}
+
 %-----------
 \subsection{Exemples de transformées de \textsc{Laplace}}
 
@@ -280,63 +282,5 @@ Ainsi, d'après la définition de la limite,
 \end{reponses}
 \end{solution}
 
-\subsection{Transformée de \textsc{Laplace} et produit de convolution} 
 
-\begin{marginfigure}[0cm]
-    \centering
-    \input{illustrations/i_transformee_laplace_convolution}
-    \caption{Source : \url{https://commons.wikimedia.org/wiki/File:Time_and_frequency_domains.svg?uselang=fr}}
-\end{marginfigure}
-
-\begin{theo}
-Soient $u$ et $v$ deux fonctions intégrables sur $\R$. Pour tout $x \in \R$, on définit
-\begin{equation}\label{defconvolution}
-(u \ast v)(x) = \int_{\R^d} u(x-y) v(y) \d y.
-\end{equation}
-La fonction $u \ast v$ ainsi définie est le \emph{produit de convolution} de $u$ et $v$.
-\begin{enumerate}
-\item $u \ast v = v \ast u$.
-
-\item $u \ast v$ est une fonction intégrable et
-\[
-\norm{u \ast v}_{1} \leqslant \norm{u}_{1} \norm{v}_{1}.
-    \]
-    \end{enumerate}
-    \end{theo}
-
-\todoinline{À reprendre sans Fubini ? Est-ce possible ?}
-
-\begin{demo}
-    L'existence des intégrales \ref{defconvolution} n'est pas évidente : à $x$ fixé, il s'agit d'intégrer le produit de deux fonctions intégrables. Mais un tel produit n'est pas intégrable en général. Dans ce cas particulier, nous allons le déduire tu théorème de \textsc{Fubini}. On a
-    \[
-    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \int_{\R^d} \module{v(y)} \left( \int_{\R^d} \module{u(x - y)} \d x \right) \d y.
-    \]
-    En effectuant le changement de variable $z = x - y$ (à $y$ fixé), il vient
-    \[
-    \int_{\R^d} \module{u(x-y)} \d x = \int_{\R^d} \module{u(z)} \d z = \norm{u}_{L^1}.
-    \]
-    Ainsi l'égalité précédente s'écrit
-    \[
-    \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y = \norm{u}_{L^1} \int_{\R^d} \module{v(y)} \d y = \norm{u}_{L^1} \norm{v}_{L^1}.
-    \]
-    Il s'ensuit que la fonction $(x,y) \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d \times \R^d)$. Le théorème de \textsc{Fubini} nous permet donc de dire que pour presque tout $x$, la fonction $y \mapsto u(x-y) v(y)$ appartient à $L^1(\R^d)$, ce qui donne un sens à la première intégrale dans \ref{defconvolution}, la seconde s'en déduisant par le changement de variable $z = x - y$ (à $x$ fixé). Il reste à constater que 
-    \[
-    \norm{u \ast v}_{L^1} = \int_{\R^d} \module{\int_{\R^d} u(x-y)v(y) \d y} \d x \leqslant \int_{\R^d \times \R^d} \module{u(x-y) v(y)} \d x \d y,
-    \]
-    où l'on vient de voir que la dernière intégrale n'est autre que $\norm{u}_{L^1} \norm{v}_{L^1}$.
-\end{demo}
-
-\todoarmand{On pourrait ensuite proposer quelques exercices sur le calcul du produit de convolution de fonctions classiques. C'est aussi l'occasion de faire de jolies illustrations.}
-
-
-\todoinline{Ajouter des hypothèses au théorème suivant ?}
-
-\begin{theo}{}
-\[
-\mathcal{L}(f \ast g) = \mathcal{L}(f) \mathcal{L}(g)
-\]
-\end{theo}
-
-\begin{demo}
-
-\end{demo}
+    \todoinline{Ajouter méthode de Laplace ? cf . Mines 2 - PC - 2017}
