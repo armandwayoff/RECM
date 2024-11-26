@@ -1,7 +1,19 @@
 \begin{subappendices}
 \section{Théorèmes utilisés}
 
-\begin{theo}{Prolongement des dérivées}\label{thm:prolongementDesDerivees}
+\begin{theo}[Intégration par parties généralisée, Source : \cite{acamanes}]\label{theo:ippgeneralisees}
+    Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
+    \[
+    \int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t
+    \]
+    sont de même nature. Si ces quantités sont convergentes, en notant
+    \[
+        [f(t)g(t)]_a^b = \lim_{x \to b^-} \big(f(x)g(x)\big) - \lim_{x \to a^+} \big(f(x)g(x)\big),
+    \]
+    on obtient la relation
+    \[
+    \int_a^b f'(t) g(t) \d t \left[f(t)g(t)\right]_a^b - \int_a^b f(t) g'(t) \d t.
+    \]
 \end{theo}
 
 

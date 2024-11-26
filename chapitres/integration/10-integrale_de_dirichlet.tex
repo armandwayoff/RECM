@@ -43,7 +43,7 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \displaystyle\int_{n\pi}^{(
 \end{questions}
 \end{exercice}
 
-\begin{demo}
+\begin{solution}
 \begin{reponses}
 \item La fonction $\mathrm{sinc}$ est continue sur $\interof{0}{1}$. Comme elle est prolongeable par continuité par la valeur $1$ en $0$, elle est intégrable sur $\interof{0}{1}$.
 
@@ -73,7 +73,7 @@ On pose ainsi $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = 
 \item Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ sont de même nature. \\
 D'une part, la fonction $t \mapsto \frac{\cos t}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos t}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos t}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
 \end{reponses}
-\end{demo}
+\end{solution}
 
 \begin{remarque}
 L'intégration par parties préserve la régularité de l'intégrale mais ne préserve pas l'intégrabilité. La section suivante permet d'illustrer cette propriété.
@@ -425,6 +425,6 @@ Plus généralement, les intégrales de \cite{Browein} généralisent en un cert
 \int_0^{\pi/2} \sinc(t) \sinc(t/3) \sinc(t/5) \sinc(t/7) \d t &= \pi\\
 \int_0^{\pi/2} \sinc(t) \sinc(t/3) \sinc(t/5) \sinc(t/7) \sinc(t/9) \d t &= \pi\\
 \int_0^{\pi/2} \sinc(t) \sinc(t/3) \sinc(t/5) \sinc(t/7) \sinc(t/9) \sinc(t/11) \d t &= \pi\\
-\int_0^{\pi/2} \sinc(t) \sinc(t/3) \sinc(t/5) \sinc(t/7) \sinc(t/9) \sinc(t/13) \d t &= \pi,
+\int_0^{\pi/2} \sinc(t) \sinc(t/3) \sinc(t/5) \sinc(t/7) \sinc(t/9) \sinc(t/11) \sinc(t/13) \d t &= \pi,
 \end{align*}
 cette série s'arrêtant ici ! 

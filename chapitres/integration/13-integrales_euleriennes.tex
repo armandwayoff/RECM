@@ -51,7 +51,7 @@ Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\inter
 
 Finalement, $\Gamma$ est définie sur $\R_+^\star$.
 
-\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\mathscr{C}^1$ sur $\R_+^\star$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. D'après la formule d'intégration par parties généralisée,
+\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\mathscr{C}^1$ sur $\R_+^\star$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. \item \marginnote[-7pt]{\hyperref[theo:ippgeneralisees]{\theoremeutilise{Intégration par parties généralisée}}}D'après la formule d'intégration par parties généralisée,
 \[
 \int_0^{+\infty} t^x \e^{-t} \d t = x \int_0^{+\infty} t^{x-1} \e^{-t} \d t
 \]
@@ -64,24 +64,6 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 % La démonstration est donnée dans \ref{prolongementFonctionGamma}.
 
 % Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
-
-\todoinline{Supprimer la référence à l'IPP ici pour lier vers une annexe.}
-
-\marginnote[-5cm]{
-    \begin{theo}[Théorème (Intégration par parties généralisées)]
-        Source : \cite{acamanes}\\
-        Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
-        $$\int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t$$
-        sont de même nature. Si ces quantités sont convergentes, en notant
-        \begin{align*}
-            [f(t)g(t)]_a^b \\
-            = \lim_{x \to b^-} \big(f(x)g(x)\big) - \lim_{x \to a^+} \big(f(x)g(x)\big),
-        \end{align*}
-        on obtient la relation
-        $$\int_a^b f'(t) g(t) \d t$$
-        $$ = \left[f(t)g(t)\right]_a^b - \int_a^b f(t) g'(t) \d t.$$
-    \end{theo}
-}
 
 \begin{theo}[Régularité]
 La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
@@ -424,8 +406,6 @@ Le second point s'obtient en utilisant l'égalité
 %-----------
 \subsection{Fonction bêta}
 
-\todoinline{Modification substantielle pour coller à la définition officielle de la fonction.}
-
 \begin{defi}[Fonction bêta]
 Pour tout $(x, y) \in (\Rpe)^2$, on définit
 \[
@@ -500,8 +480,7 @@ B(p+1, q+1)
 \end{reponses}
 \end{solution}
 
-\marginnote[0cm]{\todoinline{D'après Oral Centrale 2016}}
-\begin{exercice}%
+\begin{exercice}[Oral CentraleSupélec 2016]
 Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urne contient $p$ boules et, pour tout $i \in \interent{1}{p}$, l'urne numéro $i$ contient $i$ boules noires et $p - i$ boules blanches. On effectue l'expérience suivante : choisir au hasard une urne puis effectuer des tirages avec remise dans l'urne choisie. On note, pour $n \in \Ne$, $A_n$ l'événement \textit{on a effectué $2 n$ tirages et obtenu le même nombre de boules blanches que de noires}.
 
 \begin{questions}
@@ -566,8 +545,7 @@ Ainsi,
 
 %---------------
 
-\marginnote[0cm]{\todoinline{Source : Oral Mines 2018}}
-\begin{exercice}
+\begin{exercice}[Oral Mines 2018]
 Montrer que la série $\sum B(n, n)$ converge et déterminer sa somme.
 \end{exercice}
 
@@ -588,8 +566,7 @@ Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le théo
 
 % --------------
 
-\marginnote[0cm]{\todoinline{Source : D'après un oral Centrale 2016}}
-\begin{exercice}%
+\begin{exercice}[Oral CentraleSupélec 2016]
 Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} \binom{n}{p}^{-1}$.
 \begin{questions}
 \item Montrer l'existence de $S(p)$.
@@ -725,12 +702,12 @@ Finalement, d'après la caractérisation de la fonction $\Gamma$,
 \]
 \end{demo}
 
-\todoinline{Indiquer proprement la référence vers le sujet dans la remarque ci-dessous.}
-
 \begin{remarque}
-Pour prouver cette relation entre $B$ et $\Gamma$, une autre méthode utilisant la méthode des rectangles est présentée dans le sujet Centrale 1 - MP - 2009.
-
-Le sujet propose également une démonstration de la relation $B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}$.
+Pour prouver cette relation entre $B$ et $\Gamma$, une autre méthode utilisant la méthode des rectangles est présentée dans le sujet \textsl{Mathématiques 1, session 2009, filière \textsc{mp}} (\url{https://www.concours-centrale-supelec.fr/CentraleSupelec/2009/MP/sujets/math1.pdf}) du concours Centrale. \\
+Le sujet propose également une démonstration de la relation 
+\[
+B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}.
+\]
 \end{remarque}
 
 \todoinline{Citer proprement (si nécessaire car tout ici est très classique : soit 

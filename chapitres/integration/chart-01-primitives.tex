@@ -1,31 +1,36 @@
-\begin{center}
+% \begin{center}
 \begin{tikzpicture}[scale=0.75, every node/.style={transform shape}]
   % Place nodes
-  \node [block] (init) {$\int_a^b f(t) \d t =~?$};
+  \node [block] (init) {$\displaystyle \int_a^b f(t) \d t =~?$};
   %% Dérivées usuelles
   \node [decision, below=of init] (usuelle) {$f$ fonction usuelle};
-  \node [cloud, right=of usuelle, yshift=1cm] (usuelle_oui) {$f(x) = c \rightsquigarrow \int_a^b f(t) \d t = \left[c t\right]_{a}^{b}$\\
-  $f(x) = x^\alpha \rightsquigarrow \int_a^b f(t) \d t = \left[\frac{t^{\alpha+1}}{\alpha+1}\right]_{a}^{b},\, \alpha \neq -1$\\
-  $f(x) = \frac{1}{x} \rightsquigarrow \int_a^b f(t) \d t = \left[\ln(t)\right]_{a}^{b}$\\
-  $f(x) = \e^{\alpha x} \rightsquigarrow \int_a^b f(t) \d t = \left[\frac{\e^{\alpha x}}{\alpha}\right]_{a}^{b},\, \alpha \neq 0$\\
+  \node [cloud, right=of usuelle
+  , yshift=0.5cm
+  ] (usuelle_oui) {
+  $\begin{aligned}
+    f(x) = c &\rightsquigarrow \int_a^b f(t) \d t = \left[c\, t\right]_{a}^{b} \\
+    f(x) = x^\alpha &\rightsquigarrow \int_a^b f(t) \d t = \left[\frac{t^{\alpha+1}}{\alpha+1}\right]_{a}^{b},\, \alpha \neq -1 \\
+    f(x) = \frac{1}{x} &\rightsquigarrow \int_a^b f(t) \d t = \left[\ln(t)\right]_{a}^{b} \\
+    f(x) = \e^{\alpha x} &\rightsquigarrow \int_a^b f(t) \d t = \left[\frac{\e^{\alpha x}}{\alpha}\right]_{a}^{b},\, \alpha \neq 0
+  \end{aligned}$ \\
   };
   %% linearite
   \node [decision, text width=10em, below=of usuelle] (linearite) {$f(x) = a u'(x) + b v'(x)$};
-  \node [cloud, right=of linearite] (linearite_oui) {$\int_a^b f(t) \d t = \left[a u(t) + b v(t)\right]_{a}^{b}$};
+  \node [cloud, right=of linearite] (linearite_oui) {$\displaystyle \int_a^b f(t) \d t = \left[a u(t) + b v(t)\right]_{a}^{b}$};
   %% puissance
   \node [decision, text width=10em, below=of linearite] (puissance) {$f(x) = u'(x) u(x)^\alpha$};
-  \node [cloud, right=of puissance] (puissance_oui) {$\int_a^b f(t) \d t = \left[\frac{u(t)^{\alpha+1}}{\alpha+1}\right]_{a}^{b},\, \alpha \neq -1$};
+  \node [cloud, right=of puissance] (puissance_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\frac{u(t)^{\alpha+1}}{\alpha+1}\right]_{a}^{b},\, \alpha \neq -1$};
   %% logarithme
-  \node [decision, text width=10em, below=of puissance] (logarithme) {$f(x) = \frac{u'(x)}{u(x)}$};
-  \node [cloud, right=of logarithme] (logarithme_oui) {$\int_a^b f(t) \d t = \left[\ln\abs{u(t)}\right]_{a}^{b}$};
+  \node [decision, text width=10em, below=of puissance] (logarithme) {$f(x) = \displaystyle \frac{u'(x)}{u(x)}$};
+  \node [cloud, right=of logarithme] (logarithme_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\ln\abs{u(t)}\right]_{a}^{b}$};
   %% exponentielle
-  \node [decision, text width=10em, below=of logarithme] (exponentielle) {$f(x) = u'(x) \e^{u(x)}$};
-  \node [cloud, right=of exponentielle] (exponentielle_oui) {$\int_a^b f(t) \d t = \left[\e^{u(t)}\right]_{a}^{b}$};
+  \node [decision, text width=10em, below=of logarithme] (exponentielle) {$f(x) = u'(x)\, \e^{u(x)}$};
+  \node [cloud, right=of exponentielle] (exponentielle_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\e^{u(t)}\right]_{a}^{b}$};
   %% produit
   \node [decision, text width=10em, below=of exponentielle] (produit) {$f(x) = u'(x) \times v(x)$};
   \node [cloud, right=of produit] (produit_oui) {Intégration par parties\\
-  $u$ et $v$ dérivables et de dérivées continues sur $[a, b]$\\
-  $\int_a^b f(t) \d t = \left[u(t) v(t)\right]_{a}^{b} - \int_a^b u(t) v'(t) \d t$\\
+  $u$ et $v$ dérivables et de dérivées continues sur $\interff{a}{b}$\\
+  $\displaystyle \int_a^b f(t) \d t = \left[u(t) v(t)\right]_{a}^{b} - \int_a^b u(t) v'(t) \d t$\\
   };
 
   
@@ -101,11 +106,11 @@
   \path [line] (produit) --
       node [color=black, sloped, above] {oui}
       (produit_oui);
-  \path [line] (produit_oui.east) --
-      ($(produit_oui.east) + (3,0)$)
-      to[bend right=50]
-      ($(init.east) + (12,0)$) --
+  \path [line] (produit_oui.north east) 
+      % -- ($(produit_oui.east) + (3,0)$)
+      to[bend right=20]
+      ($(init.east) + (12.5,0)$) --
       node [color=black, sloped, above] {Calcul de la nouvelle intégrale} 
       (init.east);
       \end{tikzpicture}
-      \end{center}
+% \end{center}
