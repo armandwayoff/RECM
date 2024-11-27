@@ -127,8 +127,8 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 \item Ainsi, d'après la formule de \textsc{Taylor} avec reste intégral,
 \begin{align*}
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
-&= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t}
-\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
+&= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t} \\
+&\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
 \end{align*}
 
 \begin{marginfigure}[0cm]
@@ -293,7 +293,7 @@ Dans la méthode de \textsc{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'er
 \todoinline{Tu aurais le courage de vérifier le calcul suivant ?}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^4$ sur le segment $[a, b]$. On pose $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
+Soit $f$ une fonction de classe $\mathscr{C}^4$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
 
 Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
 \begin{questions}
@@ -302,7 +302,7 @@ Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$
 F(x_{i+1}) - F(x_i)
 = \begin{multlined}[t] 
 2 h_i f(\gamma_i) + \frac{h_i{}^3}{3} f''(\gamma_i) \\
-+ \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
++ \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 \mathopen{}\left[f^{(4)}(\gamma_i + t h_i) + f^{(4)}(\gamma_i - t h_i)\right] \d t.
 \end{multlined} 
 \]
 
@@ -323,18 +323,17 @@ F(x_{i+1}) - F(x_i)
 
 \begin{elemsolution}
 \begin{reponses}
-\item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$,
+\item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$ et en remarquant que $x_{i+1} = \gamma_i + h_i$ et $x_i = \gamma_i - h_i$,
 \begin{align*}
-F(\gamma_i + h_i)
+F(x_{i+1}) = F(\gamma_i + h_i)
 &= \begin{aligned}[t]F(\gamma_i) + h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) + \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i + t h_i) \d t,\\
 \end{aligned} \\
 \intertext{et}
-F(\gamma_i - h_i)
+F(x_i) = F(\gamma_i - h_i)
 &= \begin{aligned}[t]F(\gamma_i) - h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) - \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ - \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i - t h_i) \d t.
 \end{aligned}
 \end{align*}
-
-Comme $\gamma_i - h_i = x_i$ et $\gamma_i + h_i = x_{i+1}$, le résultat s'obtient en soustrayant les deux relations précédentes.
+Le résultat s'obtient en soustrayant les deux relations précédentes.
 
 
 \item On applique la formule de \textsc{Taylor} avec reste intégral à la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$.
