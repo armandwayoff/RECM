@@ -1,4 +1,8 @@
+%========
 \section{Inégalités intégrales}
+
+%-----------
+\subsection{En utilisant l'inégalité de Cauchy-Schwarz}
 
 %---------------
 
@@ -9,7 +13,7 @@
 \begin{prop}%
 Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $\R_+$ et à valeurs réelles telle que $f(0) = 0$. On suppose que $f$ et $f''$ sont de carrés intégrables. Montrer que $f'$ est de carré intégrable et que
 \[
-\left(\int_0^{+\infty} (f'(t))^2\right)^2 \d t
+\left(\int_0^{+\infty} (f'(t))^2\d t \right)^2
 \leq
 \left(\int_0^{+\infty} f^2(t) \d t\right)
 \left(\int_0^{+\infty} (f''(t))^2 \d t\right).
@@ -25,7 +29,7 @@ Soit $M \geq 0$.
 
 \item Montrer que $\lim\limits_{M\to+\infty} f(M) f'(M) = 0$.
 
-\item Montrer que $\left(\int_0^M f(t) f''(t)\right)^2 \d t \leq \int_0^M f(t)^2 \int_0^M f''(t)^2$.
+\item Montrer que $\left(\int_0^M f(t) f''(t) \d t\right)^2 \leq \int_0^M f(t)^2 \d t \int_0^M f''(t)^2 \d $.
 
 \item En déduire l'inégalité demandée.
 \end{questions}
@@ -33,16 +37,16 @@ Soit $M \geq 0$.
 
 \begin{solution}
 \begin{reponses}
-\item Soit $M \geq 0$. Comme la fonction $f'$ est de classe $\mathscr{C}^1$ sur $[0, M]$, d'après la formule d'intégration par parties,
+\item Comme la fonction $f'$ est de classe $\mathscr{C}^1$ sur $[0, M]$, d'après la formule d'intégration par parties,
 \[
 \int_0^M f(t) f''(t) \d t = (f(M) f'(M) - f(0) f'(0)) - \int_0^M (f'(t))^2 \d t.
 \]
 
 \item Supposons par l'absurde que $f'$ ne soit pas de carré intégrable. Comme $M \mapsto \int_0^M (f'(t))^2 \d t$ est croissante, alors $\lim\limits_{M\to+\infty} \int_0^M (f'(t))^2 \d t = +\infty$. D'après la formule d'intégration par parties, comme $f$ est de carré intégrable, $\lim\limits_{M\to+\infty} f(M) f'(M) = +\infty$.
 
-Alors, il existe un réel $M_0$ à partir duquel la fonctoin $f(M) f(M')$ est plus grande que $2$. Ainsi, en utilisant une nouvelle intégration par parties, pour $M \geq M_0$,
+Alors, il existe un réel $M_0$ à partir duquel la fonctoin $f(M) f(M')$ est plus grande que $2$. Ainsi, pour $M \geq M_0$,
 \[
-f(M)^2 - f(M_0)^2 = \int_{M_0}^M f(t) f'(t) \d t \geq 2 (M - M_0),
+f(M)^2 - f(M_0)^2 = 2 \int_{M_0}^M f(t) f'(t) \d t \geq 2 (M - M_0),
 \]
 et $f$ n'est pas de carré intégrable.
 
@@ -54,7 +58,7 @@ De plus, l'argument précédent assure que cette limite doit être nulle.
 
 \item En utilisant l'inégalité de Cauchy-Schwarz sur $[0, M]$,
 \[
-\left(\int_0^M f(t) f''(t)\right)^2 \d t \leq \int_0^M f(t)^2 \d t \int_0^M (f''(t))^2 \d t.
+\left(\int_0^M f(t) f''(t) \d t\right)^2 \leq \int_0^M f(t)^2 \d t \int_0^M (f''(t))^2 \d t.
 \]
 
 \item Comme $f(0) = 0$, alors
@@ -70,13 +74,13 @@ Le cas d'égalité correspond au cas d'égalité dans l'inégalité de Cauchy-Sc
 \begin{itemize}
 \item soit $f'' = 0$ et il existe $(a, b) \in \R^2$ tel que $f : t \mapsto a t + b$. Comme $f$ est de carré intégrable, alors $f \equiv 0$.
 
-\item soit il existe $\lg \in \R$ tel que $f = \lg f''$. Alors,
+\item soit il existe $\lambda \in \R$ tel que $f = \lambda f''$. Alors,
 \[
-f \in \left\{t \mapsto A \cos(\omega t + \phi),\, t \mapsto A \cosh(\omega t + \phi)\right\}.
+f \in \left\{t \mapsto A \cos(\omega t + \phi),\, t \mapsto A \cosh(\omega t + \phi),\, (\omega,\, \phi) \in \R^2\right\}.
 \]
 La seule fonction de carré intégrable de cet ensemble est la fonction nulle.
 \end{itemize}
-Ainsi, l'inégalité est atteinte uniquement par la fonction nulle.
+Ainsi, l'égalité est atteinte uniquement par la fonction nulle.
 \end{remarque}
 
 %---------------
@@ -84,9 +88,9 @@ Ainsi, l'inégalité est atteinte uniquement par la fonction nulle.
 \todoinline{Source : Mines 2017}
 
 \begin{prop}
-Soit $f \in \mathscr{C}^1(\R_+,\R)$ telle que $f$ et $f'$ sont de carré intégrable sur $\R_+$. Alors,
+Soit $f \in \mathscr{C}^1(\R_+,\R)$ telle que $f$ et $f'$ soient de carré intégrable sur $\R_+$. Alors,
 \[
-\abs{f(0)}^4 \leq 2 \int_0^{+\infty} f^2 \cdot \int_0^{+\infty} f'^2.
+\abs{f(0)}^4 \leq 2 \int_0^{+\infty} f^2(t) \d t \cdot \int_0^{+\infty} f'^2(t) \d t.
 \]
 \end{prop}
 
@@ -103,13 +107,12 @@ Soit $M \geq 0$.
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $x \mapsto \frac{f(x)^2}{2}$ est une primitive de la fonction $f f'$.
+\item La fonction $\frac{1}{2} f^2$ est une primitive de la fonction $f f'$.
 
 \item Comme $f$ et $f'$ sont de carré intégrable, alors $M \mapsto \int_0^M f(t) f'(t) \d t$ converge. Ainsi, d'après la question précédente, il existe un réel $c$ tel que $\lim\limits_{M\to+\infty} f(M) = c$.
 
 Comme $f$ est de carré intégrable, on montre que $c = 0$.
 \todoinline{Mettre une référence vers cet argument déjà développé dans un des premiers chapitres.}
-
 
 \item En passant à la limite dans l'égalité précédente,
 \[
@@ -123,10 +126,11 @@ De plus, en utilisant l'inégalité de Cauchy-Schwarz, comme $f$ et $f'$ sont de
 \end{reponses}
 \end{solution}
 
-\todoinline{L'inégalité de Wirtinger permet d'avoir une constante $1/(2\pi)$ mais utilise des séries de Fourier. Peut-on avoir cette constante ici ? Ou mettre une remarque.}
+%--------------
+\subsubsection{Inégalité de \textsc{Poincaré}}
 
 \begin{prop}[Inégalité de \textsc{Poincaré}]
-Soit $f : [0, 1] \to \R$ une fonction de classe $\mathscr{C}^1$ telle que $f(0) = f(1) = 0$. Alors,
+Soit $f : [0, 1] \to \R$ une fonction de classe $\mathscr{C}^1$ telle que \mbox{$f(0) = f(1) = 0$}. Alors,
 \[
 \int_0^1 f(x)^2 \d x \leq \frac{1}{\pi^2} \int_0^1 f'(x)^2 \d x.
 \]
@@ -171,37 +175,34 @@ J = \int_0^1 \left(f'(x) - \pi f(x) \cotan(\pi x)\right)^2 \d x.
 
 \begin{solution}
 \begin{reponses}
-\item En utilisant les équivalents classiques en $0$,
-\[
-\cotan(\pi x) = \frac{\cos(\pi x)}{\sin(\pi x)} \sim_0 \frac{1}{\pi x}.
-\]
+\item En utilisant les équivalents classiques en $0$, $\cotan(\pi x) = \frac{\cos(\pi x)}{\sin(\pi x)} \sim_0 \frac{1}{\pi x}$.
+
 
 En effectuant le changement de variable $u = 1 - x$,
 \begin{align*}
-\cotan(\pi x) &= \cotan(\pi - \pi u)
-= \frac{\cos(\pi - \pi u)}{\sin(\pi - \pi u)}\\
-&= \frac{-\cos(-\pi u)}{\sin(\pi u)}\\
-&= -\frac{\cos(\pi u)}{\sin(\pi u)}\\
-&= - \cotan(\pi u)\\
-&\underset{u\to0}{\sim} - \frac{1}{\pi u}\\
-&\underset{x\to1}{\sim} -\frac{1}{\pi (1 - x)}.
+\cotan(\pi x)
+&= \cotan(\pi - \pi u)
+% = \frac{\cos(\pi - \pi u)}{\sin(\pi - \pi u)}\\
+% &= \frac{-\cos(-\pi u)}{\sin(\pi u)}\\
+% &= -\frac{\cos(\pi u)}{\sin(\pi u)}\\
+= - \cotan(\pi u)
+\underset{u\to0}{\sim} - \frac{1}{\pi u}
+\underset{x\to1}{\sim} -\frac{1}{\pi (1 - x)}.
 \end{align*}
 
 \item Posons $u : x \mapsto f(x) f'(x) \cotan(\pi x)$.
 \begin{itemize}
 \item La fonction $u$ est continue sur $]0, 1[$.
 
-\item Lorsque $x \to 0$,
-\[
-f(x) f'(x) \cotan(\pi x) \sim \frac{f(x) f'(x)}{\pi x}.
-\]
-Comme $f$ est dérivable en $0$, alors $\lim_{x\to 0} u(x) = \frac{f'(0)^2}{\pi}$ et $u$ est prolongeable par continuité en $0$.
+\item D'après la question précédente,
+$f(x) f'(x) \cotan(\pi x) \sim_0 \frac{f(x) f'(x)}{\pi x}$.
 
-\item Lorsque $x \to 1$,
-\[
-f(x) f'(x) \cotan(\pi x) \sim \frac{f(x) f'(x)}{\pi (x - 1)}.
-\]
-Comme $f$ est dérivable en $1$, alors $\lim_{x\to 1} u(x) = \frac{f'(1)^2}{\pi}$ et $u$ est prolongeable par continuité en $1$.
+Comme $f$ est dérivable en $0$ et $f(0) = 0$, alors $\lim\limits_{x\to 0} u(x) = \frac{f'(0)^2}{\pi}$ et $u$ est prolongeable par continuité en $0$.
+
+\item D'après la question précédente,
+$f(x) f'(x) \cotan(\pi x) \sim_1 \frac{f(x) f'(x)}{\pi (x - 1)}$.
+
+Comme $f$ est dérivable en $1$ et $f(1) = 0$, alors $\lim\limits_{x\to 1} u(x) = \frac{f'(1)^2}{\pi}$ et $u$ est prolongeable par continuité en $1$.
 \end{itemize}
 
 Finalement, la fonction $u$ est prolongeable par continuité sur $[0, 1]$ et l'intégrale $\int_0^1 u(x) \d x$ est donc convergente.
@@ -216,24 +217,22 @@ Finalement, la fonction $u$ est prolongeable par continuité sur $[0, 1]$ et l'i
 \end{align*}
 
 \item D'une part,
-\begin{align*}
+$
 f(a)^2 \cotan(\pi a)
-&\sim_0 \frac{f(a)^2}{\pi a}
+\sim_0 \frac{f(a)^2}{\pi a}
 \to \frac{f'(0) f(0)}{\pi}
-= 0.
-\end{align*}
+= 0$.
 
-D'autre part, comme l'intégrale $I$ converge, lorsque $a \to 0$,
-\[
+
+D'autre part, comme l'intégrale $I$ converge,
+$\lim\limits_{a\to 0}
 \int_a^b f(x) f'(x) \cotan(\pi x) \d x
-\to \int_0^b f(x) f'(x) \cotan(\pi x) \d x.
-\]
+\to \int_0^b f(x) f'(x) \cotan(\pi x) \d x$.
 
 Ainsi, d'après les théorèmes d'addition des limites, la fonction \mbox{$a \mapsto \int_a^b f(x)^2 (1 + \cotan(\pi x)^2) \d x$} admet une limite en $0$ et
 \begin{align*}
 \int_0^b f(x) f'(x) \cotan(\pi x) \d x
-&= - \frac{f(b)^2}{2} \cotan(\pi b) + \cdots\\
-&\qquad \cdots + \frac{\pi}{2} \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
+&= - \frac{f(b)^2}{2} \cotan(\pi b) + \frac{\pi}{2} \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
 \end{align*}
 
 \medskip
@@ -248,7 +247,7 @@ Finalement, on obtient bien
 2 \pi I = \pi^2 \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
 \]
 
-\item Nous avons déjà montré que $\pi f(x) \cotan(\pi x) \to f'(0)$ lorsque $x \to 0$ et $\pi f(x) \cotan(\pi x) \to f'(1)$ lorsque $x \to 1$.
+\item Nous avons déjà montré que $\lim\limits_{x\to0} \pi f(x) \cotan(\pi x) = f'(0)$ et $\lim\limits_{x\to1} \pi f(x) \cotan(\pi x) = f'(1)$.
 
 Ainsi, $x \mapsto f'(x) - \pi f(x) \cotan(\pi x)$ est prolongeable par continuité par $0$ en $0$ et en $1$.
 
