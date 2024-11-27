@@ -312,7 +312,7 @@ Par rapport au théorème de la valeur initiale, la fonction $\e^{-t x}$ a été
 
 \item Montrer que
 \[
-\lim_{t\to+\infty} \sqrt{t} \int_1^{+\infty} \e^{-t x^2} f(t) \dt = 0.
+\lim_{t\to+\infty} \sqrt{t} \int_1^{+\infty} \e^{-t x^2} f(x) \d x = 0.
 \]
 
 \item Conclure.
@@ -321,7 +321,7 @@ Par rapport au théorème de la valeur initiale, la fonction $\e^{-t x}$ a été
 
 \begin{demo}
 \begin{reponses}
-\item Comme $\module{\e^{-t x^2} f(t)}} \leq \module{f(t)}$, la fonction $F$ est bien définie.
+\item Comme $\module{\e^{-t x^2} f(t)} \leq \module{f(t)}$, la fonction $F$ est bien définie.
 
 \item Comme la fonction $f$ est continue sur $\interff{0}{1}$, elle est bornée par une constante $M$ sur ce segment. Alors, en utilisant le changement de variable affine $u \mapsto u/\sqrt{t}$,
 \begin{align*}
@@ -336,17 +336,17 @@ En utilisant une majoration par $u \mapsto M \e^{-u^2}$, le théorème de conver
 
 \item De plus,
 \begin{align*}
-\module{\int_1^{+\infty} \e^{-t x^2} f(t) \dt}
-&\leq \e^{-t} \int_1^{+\infty} \module{f(t)} \dt.
+\module{\int_1^{+\infty} \e^{-t x^2} f(x) \d x}
+&\leq \e^{-t} \int_1^{+\infty} \module{f(x)} \d x.
 \end{align*}
 Ainsi, comme $f$ est intégrable,
 \[
-\lim_{t\to+\infty} \sqrt{t} \int_1^{+\infty} \e^{-t x^2} f(t) \dt = 0.
+\lim_{t\to+\infty} \sqrt{t} \int_1^{+\infty} \e^{-t x^2} f(x) \d x = 0.
 \]
 
 \item Finalement, en utilisant la relation de Chasles,
 \[
-\lim_{t\to+\infty} \sqrt{t} \int_0^{+\infty} \e^{-t x^2} f(t) \dt = f(0) \int_0^{+\infty} \e^{-u^2} \du.
+\lim_{t\to+\infty} \sqrt{t} \int_0^{+\infty} \e^{-t x^2} f(x) \d x = f(0) \int_0^{+\infty} \e^{-u^2} \d u.
 \]
 On conclut en utilisant l'intégrale de Gauss.
 \end{reponses}
