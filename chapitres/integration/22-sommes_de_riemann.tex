@@ -53,11 +53,10 @@ Ainsi, $I(x)$ est bien définie pour $x \neq 1$.
 &= \frac{x^{2n} - 1}{x + 1} (x - 1)
 \end{align*}
 
-\todoinline{Il faudrait mettre un "égal définition" dans la première égalité}
 \item D'après le calculs précédents,
 \begin{align*}
 S_n(f)
-&= \frac{\pi}{n}\sum\limits_{k=0}^{n-1} \ln\mathopen{}\big(1 - 2 x \cos\mathopen{}\big(\frac{k\pi}{n}\big) + x^2\big)
+&\defeq \frac{\pi}{n}\sum\limits_{k=0}^{n-1} \ln\mathopen{}\big(1 - 2 x \cos\mathopen{}\big(\frac{k\pi}{n}\big) + x^2\big)
 &= \frac{\pi}{n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}} \\
 &= 2 \pi \ln\abs{x} + \frac{\pi}{n} \ln \abs{1 - x^{-2n}} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}}.
 \end{align*}

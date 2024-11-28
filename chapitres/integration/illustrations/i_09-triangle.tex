@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  scale=1.5,
+  my angle/.style={
+    every pic quotes/.append style={text=cyan},
+    draw=cyan,
+    angle radius=1.5cm,
+  }]
+  \coordinate (C) at (-1.5,-1);
+  \coordinate (A) at (1.5,-1);
+  \coordinate (B) at (1.5,1);
+  \pic [my angle, "$\alpha$"] {angle=A--C--B};
+  \draw (C) -- node[above] {$1$} (B) -- node[right] {$x$} (A) -- node[below] {$\sqrt{1-x^2}$} (C);
+  \draw (A) +(-.25,0) |- +(0,.25);
+  % \pic [my angle, "$\beta$"] {angle=C--B--A};
+\end{tikzpicture}
