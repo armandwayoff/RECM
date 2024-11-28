@@ -60,6 +60,10 @@
 % Load the package for hyperreferences
 \usepackage{kaorefs}
 
+\usepackage[splitindex]{imakeidx}
+\makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
+\newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
+
 % \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
 % \makeglossaries % Make LaTeX produce the files required to compile the glossary
@@ -242,5 +246,6 @@ Recueil d'Exercices et Résultats Classiques de Mathématiques
 % \printbibliography[heading=bibintoc, title=Références]
 
 % % \printindex % Output the index
+\printindex[mathematiciens]
 
 \end{document}

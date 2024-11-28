@@ -46,6 +46,11 @@
 % Load the package for hyperreferences
 \usepackage{kaorefs}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[splitindex]{imakeidx}
+\makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
+\newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
+
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
 \makeglossaries % Make LaTeX produce the files required to compile the glossary
@@ -152,7 +157,6 @@
 %\def\axisdefaultheight{6cm}
 
 % number of sample points
-
 
 %----------------------------------------------------------------------------------------
 \begin{document}
@@ -393,6 +397,8 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
     \item $u$ est trigonalisable et sa seule valeur propre est $0$;
     \item $0$ est la seule valeur propre de $u$.
 \end{enumerate}
+
+\printindex[mathematiciens]
 
 \backmatter % Indique la fin du contenu principal du document principal
 \setchapterstyle{plain} % Output plain chapters from this point onwards
