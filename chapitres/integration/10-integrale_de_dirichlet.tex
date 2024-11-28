@@ -62,7 +62,7 @@ En notant $u_n$ cette quantité, comme la fonction sinus est positive sur $\inte
 \[
 u_n u_{n+1} \leqslant 0, \quad \abs{u_n} \leqslant \frac{1}{n\pi} \int_0^\pi \sin(u) \d u \text{ soit } u_n \to 0, \quad \text{et} \quad \abs{u_{n+1}} \leqslant \abs{u_n}.
 \]
-\marginnote[-7pt]{\theoremeutilise{\hyperref[thm:seriesAlternees]{Théorème des séries alternées}}}Ainsi, d'après le théorème des séries alternées, $\sum u_n$ converge.
+Ainsi, d'après le \theoremeutilise{théorème des séries alternées}{thm:seriesAlternees}, $\sum u_n$ converge.
 
 \medskip
 
@@ -159,8 +159,7 @@ La fonction $f$ est dérivable sur $\interof{0}{\pi}$ et pour tout $x \in \inter
 \begin{align*}
 f'(x) = -\frac{1}{x^2} + \frac{\cos(x/2)}{4 \sin(x/2)^2} = \frac{\cos(x/2) - 4 \sin(x/2)^2}{4 x^2 \sin(x/2)^2} \sim -\frac{1}{24}.
 \end{align*}
-
-\marginnote[-7pt]{\theoremeutilise{Théorème de prolongement dérivable}}Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le théorème de prolongement dérivable, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
+Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le \theoremeutilise{théorème de prolongement dérivable}{thm:prolongementderivable}, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
 
 \item En utilisant la fonctin $f$ introduite précédemment,
 \begin{align*}
@@ -323,7 +322,7 @@ Ainsi, $\lim\limits_{x\to+\infty} F(x) = I$ et $I = \frac{\pi}{2}$.
 \abs{\frac{\partial g}{\partial x}(x, t)} &\leqslant \frac{t \e^{-a t}}{1 + t^2},\\
 \abs{\frac{\partial^2 g}{\partial x^2}(x, t)} &\leqslant \frac{t^2 \e^{-a t}}{1 + t^2}.
 \end{align*}
-\marginnote[-7pt]{\theoremeutilise{Théorème de dérivation sous le signe intégral}}Ainsi, d'après le théorème de dérivation sous le signe intégral, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\Rpe$ et
+Ainsi, d'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{thm:derivsousintegrale}, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\Rpe$ et
 \begin{align*}
 g''(x)
 &= \int_0^{+\infty} \frac{t^2 \e^{-x t}}{1 + t^2} \d t\\
@@ -377,7 +376,7 @@ Ainsi,
 \forall\, x > 0,\quad \int_0^{+\infty} \frac{\sin t}{t + x} \d t = \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t.
 \]
 
-\item \marginnote[-7pt]{\theoremeutilise{Théorème de convergence dominée}}Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leqslant \frac{1}{1 + t^2}$, d'après le théorème de convergence dominée,
+\item Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leqslant \frac{1}{1 + t^2}$, d'après le \theoremeutilise{théorème de convergence dominée}{thm:convdominee},
 \[
 \lim_{x\to 0} \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t
 = \int_0^{+\infty} \frac{\d t}{1 + t^2}

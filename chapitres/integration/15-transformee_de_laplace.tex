@@ -103,7 +103,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 
 \begin{demo}
 \begin{enumerate}
-\item \marginnote[-7pt]{\theoremeutilise{Théorème de dérivation sous le signe intégral}}La fonction $f$ est bornée par une constante $M$. On utilise le théorème de dérivation sous le signe intégral. Notons $\fonctionligne[g]{(p, t)}{f(t) \e^{-pt}}$.
+\item La fonction $f$ est bornée par une constante $M$. On utilise le \theoremeutilise{théorème de dérivation sous le signe intégral}{thm:derivsousintegrale}. Notons $\fonctionligne[g]{(p, t)}{f(t) \e^{-pt}}$.
 \begin{itemize}
 \item Pour tout $t \in \Rpe$, la fonction $\fonctionligne[g(\,\cdot\,, t)]{p}{\e^{-p t} f(t)}$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$ et
 \[
@@ -144,7 +144,7 @@ Ainsi, la fonction $t \mapsto \e^{-p t} F(t)$ est intégrable, donc $\int_0^{+\i
 \]
 De plus, la fonction $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\Rpe$ par hypothèse.
 \end{itemize}
-\marginnote[-7pt]{\theoremeutilise{Théorème de continuité sous le signe intégral}}D'après le théorème de continuité sous le signe intégral, la transformée $\mathscr{L}(f)$ est continue sur $\interoo{p_0}{+\infty}$.
+D'après le \theoremeutilise{théorème de continuité sous le signe intégral}{thm:contsousintegrale}, la transformée $\mathscr{L}(f)$ est continue sur $\interoo{p_0}{+\infty}$.
 \end{enumerate}
 \end{demo}
 
@@ -174,7 +174,7 @@ On se place sous les hypothèses du théorème.
 
 \begin{solution}
 \begin{reponses}
-\item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du théorème des bornes assure que $f$ est bornée sur $\Rp$.\marginnote[0pt]{\theoremeutilise{Théorème des bornes}}Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
+\item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du \theoremeutilise{théorème des bornes}{thm:bornes} assure que $f$ est bornée sur $\Rp$. Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
 
 \item On effectue le changement de variable affine $\fonctionligne[\phi]{u}{\frac{u}{p}}$. Alors,
 \[
@@ -189,12 +189,12 @@ p\, \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\mathopen{}\left(\frac{u}{p}\r
 
 \item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leqslant M \e^{-u}$ et la fonction $u \mapsto \e^{-u}$ est intégrable sur $\Rpe$.
 \end{itemize}
-\marginnote[-7pt]{\theoremeutilise{Théorème de convergence dominée}}Ainsi, d'après le théorème de convergence dominée,
+Ainsi, d'après le \theoremeutilise{théorème de convergence dominée}{thm:convdominee},
 \[
 \lim_{n\to+\infty} p_n\, \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u = \ell.
 \]
 
-\item \marginnote[-7pt]{\theoremeutilise{Caractérisation séquentielle de la limite}}En utilisant la caractérisation séquentielle de la limite,
+\item En utilisant la \theoremeutilise{caractérisation séquentielle de la limite}{caracsequlimite},
 \[
 \lim_{p\to 0} p\, \mathscr{L}(f)(p) = \ell \quad \text{soit} \quad \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]

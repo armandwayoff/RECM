@@ -49,7 +49,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[splitindex]{imakeidx}
 \makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
+\makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2]
+
 \newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
+
+%%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
+\newcommand{\etoile}[1]{
+  \ifthenelse{\isodd{\thepage}}
+    {#1 $\bigstar$}
+    {$\bigstar$ #1}
+}
+\newcommand{\theoremeutilise}[3][0pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{\expandafter\MakeUppercase#2}}}
+% \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
 
@@ -347,6 +359,8 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 % \end{comment}
 
 \input{chapitres/integration/annexes}
+
+\printindex[theoremesutilises]
 % \input{chapitres/integration/annexes-2}
 
 % \printbibliography[heading=subbibintoc]

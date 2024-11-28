@@ -15,16 +15,9 @@
 \usepackage{adjustbox}
 \usepackage{tabularray}
 
-%%%%%%%%%%%%%%%%%%%%%%%
 % Commande pour citer un théorème
 \usepackage{ifthen}
-\newcommand{\theoremeutilise}[1]{%
-  \ifthenelse{\isodd{\thepage}}%
-    {#1 $\bigstar$}% If the page number is even
-    {$\bigstar$ #1}% If the page number is odd
-}
 
-%%%%%%%%%%%%%%%%%%
 % Pour créer des annexes par chapitre
 % https://tex.stackexchange.com/questions/120716/appendix-after-each-chapter
 \usepackage{appendix}
