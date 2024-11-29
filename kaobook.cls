@@ -235,17 +235,18 @@
 %----------------------------------------------------------------------------------------
 
 % Set KOMA fonts for book-specific elements
-\addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\scshape\bfseries}
-\addtokomafont{partentry}{\normalfont\scshape\bfseries} 
-\addtokomafont{chapter}{\normalfont\scshape\bfseries\fontsize{26pt}{28pt}\selectfont\color{BlueViolet}}
-\addtokomafont{chapterentry}{\normalfont\bfseries}
+% \addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\scshape\bfseries}
+% \addtokomafont{partentry}{\normalfont\scshape\bfseries} 
+% \addtokomafont{chapter}{\normalfont\scshape\bfseries\fontsize{26pt}{28pt}\selectfont\color{BlueViolet}}
+% \addtokomafont{chapterentry}{\normalfont\bfseries}
 
 % Set KOMA fonts for elements common to all classes
-\addtokomafont{section}{\normalfont\bfseries\color{BlueViolet}}
-\addtokomafont{subsection}{\normalfont\bfseries}
-\addtokomafont{subsubsection}{\normalfont\bfseries}
-\addtokomafont{paragraph}{\normalfont\bfseries}
-\setkomafont{descriptionlabel}{\normalfont\bfseries}
+% Déplacé dans le fichier style.tex
+% \addtokomafont{section}{\normalfont\bfseries\color{BlueViolet}}
+% \addtokomafont{subsection}{\normalfont\bfseries}
+% \addtokomafont{subsubsection}{\normalfont\bfseries}
+% \addtokomafont{paragraph}{\normalfont\bfseries}
+% \setkomafont{descriptionlabel}{\normalfont\bfseries}
 
 %----------------------------------------------------------------------------------------
 %	TOC, LOF & LOT

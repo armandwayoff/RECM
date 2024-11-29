@@ -1,4 +1,4 @@
-\section{Lemme de \textsc{Lebesgue}}\label{sec:lemmeLebesgue}
+\section{Lemme de \nom{Lebesgue}}\label{sec:lemmeLebesgue}
 
 \marginnote[0cm]{Source : \cite{maths-france} Planche no 37. Intégration sur un segment}
 
@@ -18,7 +18,7 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
 \begin{marginfigure}[-3cm]
     % \includegraphics[width=0.9\textwidth]{illustrations/integration-02_lebesgue.png}
     \input{chapitres/integration/illustrations/i_02-lemme-de-lebesgue}
-    \caption{Illustration des aires compensées dans le cadre du lemme de \textsc{Lebesgue}\\
+    \caption{Illustration des aires compensées dans le cadre du lemme de \nom{Lebesgue}\\
     \ref{poly} $t \mapsto f(t) \sin(\lambda t)$, \ref{pmf} $\pm f$ \todoarmand{titre à modifier}}
 \end{marginfigure}
 
@@ -74,9 +74,9 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 \bigskip
 
-Nous allons utiliser le \hyperref[lemmeLebesgue]{lemme de \textsc{Lebesgue}} pour calculer certaines valeurs de la fonction $\zeta$ de \textsc{Riemann}. La fonction zêta de \textsc{Riemann} est également abordée dans la sous-section \ref{subsec:fonctionZeta}. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \textsc{Dirichlet}}.
+Nous allons utiliser le \hyperref[lemmeLebesgue]{lemme de \nom{Lebesgue}} pour calculer certaines valeurs de la fonction $\zeta$ de \nom{Riemann}. La fonction zêta de \nom{Riemann} est également abordée dans la sous-section \ref{subsec:fonctionZeta}. Nous verrons ultérieurement une autre utilisation au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \nom{Dirichlet}}.
 
-On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de \textsc{Bernoulli}} et, pour tout $x > 1$, on introduit la fonction $\zeta(x) = \sum\limits_{k=1}^{\infty} \frac{1}{k^x}$.
+On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de \nom{Bernoulli}} et, pour tout $x > 1$, on introduit la fonction $\zeta(x) = \sum\limits_{k=1}^{\infty} \frac{1}{k^x}$.
 
 \begin{theo}
 Pour tout entier $m \geqslant 1$, $\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}$.
@@ -151,7 +151,7 @@ On obtient ainsi le résultat annoncé.
 \begin{itemize}
 \item D'après les quotients de fonctions de classe $\mathscr{C}^1$ dont le dénominateur ne s'annule pas, la fonction $\varphi_n$ est de classe $\mathscr{C}^1$ sur $\interoo{0}{1}$.
 
-\item La fonction $B_n$ étant polynomiale, elle est de classe $\mathscr{C}^1$ en $0$ et, en utilisant la formule de \textsc{Taylor}--\textsc{Young},
+\item La fonction $B_n$ étant polynomiale, elle est de classe $\mathscr{C}^1$ en $0$ et, en utilisant la formule de \nom{Taylor}--\nom{Young},
 \begin{align*}
 \varphi_n(t) &= \frac{B'_n(0)t + \frac{B''_n(0)}{2}t^2 + o(t^2)}{\pi t \big(1 + o(t) \big)} \\
 &= \frac{B'_n(0)}{\pi} + \frac{B''_n(0)}{2 \pi} \, t + o(t).
@@ -175,7 +175,7 @@ D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \p
 \]
 
 \begin{reponses}[resume]
-\item Cette quantité, appelée \textsl{noyau de \textsc{Dirichlet}}\marginnote{\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \textsc{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}}, s'exprime simplement à l'aide de la fonction sinus :
+\item Cette quantité, appelée \textsl{noyau de \textsc{Dirichlet}}\marginnote{\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \nom{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}}, s'exprime simplement à l'aide de la fonction sinus :
 \[
 D_n(t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
 \]
@@ -205,7 +205,7 @@ En effet, d'après la définition de $\varphi_{2m}$,
 &\quad \cdots + 2 \sum_{k=1}^N \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \cos(2 k \pi t) \d t \\
 &= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
 \end{align*}
-\item D'après le lemme de \textsc{Lebesgue},
+\item D'après le lemme de \nom{Lebesgue},
 \[
 \lim_{N\to+\infty} \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t = 0
 \]
@@ -215,7 +215,7 @@ et on obtient bien le résultat annoncé.
 \end{elemsolution}
 
 \begin{remarque}
-En utilisant les valeurs remarquables des premiers polynômes de \textsc{Bernoulli}, on obtient
+En utilisant les valeurs remarquables des premiers polynômes de \nom{Bernoulli}, on obtient
 \begin{align*}
 \sum_{k=1}^{+\infty} \frac{1}{k^2} &= 2 \pi^2 B_2(0) = \frac{\pi^2}{6} \\
 \sum_{k=1}^{+\infty} \frac{1}{k^4} &= -2^3 \pi^4 B_4(0) = \frac{\pi^4}{90}.

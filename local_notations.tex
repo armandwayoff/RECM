@@ -1,0 +1,107 @@
+% Pour les matrices par blocs
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
+
+\DeclareMathOperator{\sinc}{\mathrm{sinc}}
+
+\newcommand{\todoinline}[1]{\todo[color=green!40, bordercolor=red, inline]{#1}}
+\newcommand{\entiers}[2]{\llbracket#1,#2\rrbracket}
+
+\newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
+
+\newcommand\coauteur{%
+    \raisebox{-0.25ex}{$\quad \scalebox{1.2}{$\cdot$} \quad$~}%
+}
+
+% Pour automatiser l'espace après les quantificateurs
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \, }
+
+\let\oldexist\exists
+\renewcommand{\exists}{\oldexist \: }
+
+\newcommand\pageblanche{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+
+% Pour pouvoir enlever l'indentation dans un itemize
+% https://tex.stackexchange.com/questions/131637/no-indentation-for-non-item-within-itemize
+\newcommand\NoIndent[1]{%
+  \par\vbox{\parbox[t]{\linewidth}{#1}}%
+}
+
+
+% \newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
+\newcommand{\nom}[1]{\gls{#1}}
+
+%%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
+\newcommand{\etoile}[1]{
+  \ifthenelse{\isodd{\thepage}}
+    {#1 $\bigstar$}
+    {$\bigstar$ #1}
+}
+\newcommand{\theoremeutilise}[3][-7pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{\expandafter\MakeUppercase#2}}}
+% \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%% Flowcharts %%%%%%
+\newcounter{boxlblcounter}  
+\newcommand{\makeboxlabel}[1]{\fbox{#1}\hfill}% \hfill fills the label box
+\newenvironment{boxlabel}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+     \let\makelabel=\makeboxlabel
+    }
+  }
+{\end{list}}
+
+%== Blocs
+\tikzstyle{decision} = [
+  rectangle, rounded corners, dashed,
+  inner sep = 10pt,
+  draw=colordef, very thick,
+  minimum height=5ex,
+  align=center,
+  node distance=2.5cm,
+  ]
+  \tikzstyle{block} =
+  [rectangle,
+  draw=colorexample, very thick,
+  node distance=2.5cm,
+  align=center,
+  inner sep = 20pt,
+  rounded corners, 
+  minimum height=4ex]
+  
+\tikzstyle{line} = [draw, very thick, color=black, -latex']
+
+\tikzstyle{cloud} =
+  [ellipse, draw=colortheorem,
+  very thick,
+  align=center, node distance=2.5cm,
+  minimum height=2em, inner sep=1pt]
+
+\definecolor{colordef}{RGB}{0,153,153}
+% DarkSlateGray
+\definecolor{colortitle}{RGB}{51,102,102}
+% 
+\definecolor{colorproposition}{RGB}{255,51,0}
+\definecolor{colortheorem}{RGB}{255,0,0}
+\definecolor{colorexample}{RGB}{51,153,102}
+\definecolor{colorinterpretation}{RGB}{204,255,51}
+\definecolor{colorstrategie}{RGB}{204,153,0}
+
+% \usepgfplotslibrary{external} 
+% \tikzexternalize
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

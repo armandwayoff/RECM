@@ -175,14 +175,3 @@
 \newcommand{\scnums}[1]{\ifmmode\mathsmaller{\newstylenums{#1}}\else\textsmaller{\newstylenums{#1}}\fi} % https://comp.text.tex.narkive.com/idxlcygk/numerals-in-small-caps-font
 
 \newcommand{\definir}[1]{\emph{#1}}
-
-\newcommand\coauteur{%
-    \raisebox{-0.25ex}{$\quad \scalebox{1.2}{$\cdot$} \quad$~}%
-}
-
-% Pour automatiser l'espace après les quantificateurs
-\let\oldforall\forall
-\renewcommand{\forall}{\oldforall \, }
-
-\let\oldexist\exists
-\renewcommand{\exists}{\oldexist \: }

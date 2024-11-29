@@ -22,7 +22,7 @@ I(x) &= 2 \pi \ln(x).
 
 \item Soit $n \in \Ne$ et $x \neq 1$. Montrer que
 \[
-\prod_{k=0}^{n-1} \left(1 - 2 \cos\left(\frac{k\pi}{n}\right) x + x^2\right)
+\prod_{k=0}^{n-1} \mathopen{}\left(1 - 2 \cos\mathopen{}\left(\frac{k\pi}{n}\right) x + x^2\right)
 = \frac{x^{2n} - 1}{x + 1} (x - 1).
 \]
 % Déterminer une expression simple de $\sum\limits_{k=0}^{n-1} \ln\mathopen{}\big(1 - 2 x \cos\mathopen{}\big(\frac{k\pi}{n}\big) + x^2\big)$.
@@ -38,7 +38,7 @@ I(x) &= 2 \pi \ln(x).
 
 \begin{solution}
 \begin{reponses}
-\item En utilisant le discriminant réduit, $\cos^2(t) - 1 < 0$ sur $\interoo{0}{\pi}$ donc le trinôme n'admet pas de racine et le logarithme est bien défini.
+\item En utilisant le discriminant réduit, $\cos(t)^2 - 1 < 0$ sur $\interoo{0}{\pi}$ donc le trinôme n'admet pas de racine et le logarithme est bien défini.
 
 De plus, en $t = 0$, $1 - 2 x + x^2 = (1 - x)^2 > 0$ car $x \neq 1$.
 En $t = \pi$, $1 + 2 x + x^2 = (1 + x)^2 > 0$ car $x \neq 1$.
@@ -56,42 +56,44 @@ Ainsi, $I(x)$ est bien définie pour $x \neq 1$.
 \item D'après le calculs précédents,
 \begin{align*}
 S_n(f)
-&\defeq \frac{\pi}{n}\sum\limits_{k=0}^{n-1} \ln\mathopen{}\big(1 - 2 x \cos\mathopen{}\big(\frac{k\pi}{n}\big) + x^2\big)
-&= \frac{\pi}{n} \ln\abs{x^{2n}-1} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}} \\
-&= 2 \pi \ln\abs{x} + \frac{\pi}{n} \ln \abs{1 - x^{-2n}} - \frac{\pi}{n} \ln \abs{\frac{x+1}{x-1}}.
+&\defeq \frac{\pi}{n}\sum\limits_{k=0}^{n-1} \ln\mathopen{}\left(1 - 2 x \cos\mathopen{}\left(\frac{k\pi}{n}\right) + x^2\right)
+&= \frac{\pi}{n} \ln\mathopen{}\abs{x^{2n}-1} - \frac{\pi}{n} \ln \mathopen{}\abs{\frac{x+1}{x-1}} \\
+&= 2 \pi \ln\mathopen{}\abs{x} + \frac{\pi}{n} \ln \mathopen{}\abs{1 - x^{-2n}} - \frac{\pi}{n} \ln \mathopen{}\abs{\frac{x+1}{x-1}}.
 \end{align*}
 
-Ainsi, en utilisant une somme de \textsc{Riemann} de pas $\frac{\pi}{n}$, $\lim\limits_{n\to +\infty} S_n(f) = 2 \pi \ln\abs{x}$.
+Ainsi, en utilisant une somme de \textsc{Riemann} de pas $\frac{\pi}{n}$, $\lim\limits_{n\to +\infty} S_n(f) = 2 \pi \ln\mathopen{}\abs{x}$.
 
-Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\abs{x}$.
-\item \marginnote[-7pt]{\hyperref[exercice:integraleEuler]{Intégrale d'\textsc{Euler}}}D'après les propriétés des fonctions trigonométriques,
+Finalement, pour tout $x \neq 1$, $I(x) = 2 \pi \ln\mathopen{}\abs{x}$.
+\item \marginnote[-7pt]{\hyperref[exercice:integraleEuler]{Intégrale d'\nom{Euler}}}D'après les propriétés des fonctions trigonométriques,
 \begin{align*}
-\ln(2 - 2 \cos(t))
-&= \ln(2(1 - \cos(t)))
-= \ln(4 \sin^2(t/2))
-= \ln(4) + 2 \ln(\sin(t/2))
+\ln(2 - 2 \cos t)
+= \ln\mathopen{}\big(2(1 - \cos t)\big)
+= \ln\mathopen{}\big(4 \sin(t/2)^2\big)
+= \ln(4) + 2 \ln\mathopen{}\big(\sin(t/2)\big)
 \end{align*}
 
-\item En effectuant le changement de variable affine $\varphi : u \mapsto 2 u$,
+\item En effectuant le changement de variable affine $\fonctionligne[\varphi]{u}{2 u}$,
 \begin{align*}
-\int_0^\pi \ln(2 - 2 \cos(t)) \d t
-&= 2 \pi \ln(2) + 2 \int_0^\pi \ln(\sin(t/2)) \d t
-= 2 \pi \ln(2) + 4 \int_0^{\pi/2} \ln(\sin(u)) \d u
+\int_0^\pi \ln(2 - 2 \cos t) \d t
+= 2 \pi \ln(2) + 2 \int_0^\pi \ln\mathopen{}\big(\sin(t/2)\big) \d t
+= 2 \pi \ln(2) + 4 \int_0^{\pi/2} \ln(\sin u) \d u
 \end{align*}
-Or, $\int_0^{\pi/2} \ln(\sin(u)) \d u = \int_0^{\pi/2} \ln(\cos(u)) \d u$. Ainsi,
+Or, $\int_0^{\pi/2} \ln(\sin u) \d u = \int_0^{\pi/2} \ln(\cos u) \d u$. Ainsi,
 % \begin{comment}
 
 \begin{align*}
-\int_0^{\pi/2} \ln(\sin(u)) \d u + \int_0^{\pi/2} \ln(\cos(u)) \d u
-&= \int_0^{\pi/2} \ln(\sin(2 t)) \d t - \frac{\pi}{2} \ln(2) \\
-&= \frac{1}{2} \int_0^\pi \ln(\sin t)) \d t - \frac{\pi}{2} \ln(2) \\
-&= \frac{1}{2} \int_0^{\pi/2} \ln(\sin t)) \d t + \frac{1}{2} \int_{\pi/2}^{\pi} \ln(\sin t)) \d t - \frac{\pi}{2} \ln(2) \\
+\int_0^{\pi/2} \ln(\sin u) \d u + \int_0^{\pi/2} \ln(\cos u) \d u
+&= \int_0^{\pi/2} \ln\mathopen{}\big(\sin(2 t)\big) \d t - \frac{\pi}{2} \ln(2) \\
+&= \frac{1}{2} \int_0^\pi \ln(\sin t) \d t - \frac{\pi}{2} \ln(2) \\
+&= \begin{multlined}[t]\frac{1}{2} \int_0^{\pi/2} \ln(\sin t) \d t + \frac{1}{2} \int_{\pi/2}^{\pi} \ln(\sin t) \d t \\
+- \frac{\pi}{2} \ln(2)
+\end{multlined}\\
 &= \int_0^{\pi/2} \ln(\sin t) \d t - \frac{\pi}{2} \ln(2)
 \end{align*}
 
 Ainsi,
 \[
-\int_0^{\pi/2} \ln(\sin(t)) \d t = -\frac{\pi}{2} \ln(2)
+\int_0^{\pi/2} \ln(\sin t) \d t = -\frac{\pi}{2} \ln(2)
 \]
 
 D'où $I(1) = 0$.

@@ -6,150 +6,32 @@
 	numbers=noenddot,
 ]{kaobook}
 
-\usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
-
-\usepackage{anyfontsize} % Pour le titre de la page de couverture
-
-% Pour faire des pages blanches
-\usepackage{afterpage}
-\newcommand\pageblanche{
-    \null
-    \thispagestyle{empty}
-    \addtocounter{page}{-1}
-    \newpage
-}
-
-% Load the bibliography package
-% \usepackage[natbib,refsection=chapter]{biblatex}
-\usepackage{kaobiblio}
-\addbibresource{main.bib} % Bibliography file
-
-% Load mathematical packages for theorems and related environments
-\usepackage[framed=true]{kaotheorems}
-
-%%%% Ajoute par Alain pour pouvoir compiler le kaorefs %%%%
-\usepackage[french]{babel}
-
-\usepackage{color}
-\usepackage{todonotes}
-\newcommand{\todoinline}[1]{\todo[color=green!40, bordercolor=red, inline]{#1}}
-\newcommand{\entiers}[2]{\llbracket#1,#2\rrbracket}
-
-\newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
-
-\usepackage{comment}
-\usepackage{amsmath} % for \dfrac
-\usepackage{tikz}
-\tikzset{>=latex} % for LaTeX arrow head
-\usepackage{pgfplots} % for the axis environment
-\usepackage{xcolor}
-\usepackage[outline]{contour} % halo around text
-\contourlength{2pt}
-\usetikzlibrary{positioning,calc}
-\usetikzlibrary{backgrounds}% required for 'inner frame sep'
-%\usepackage{adjustbox} % add whitespace (trim)
-\usepackage{mathrsfs}
-\input{math_packages}
+\input{local_packages}
 \input{root_packages}
 \input{root_notations}
-\input{style}
+\input{local_notations}
 \input{env}
-
-\DeclareMathOperator{\sinc}{\mathrm{sinc}}
-
-% Load the package for hyperreferences
-\usepackage{kaorefs}
+\input{style}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[splitindex]{imakeidx}
+
+\addbibresource{main.bib} % Bibliography file
+
+\makeglossaries
+\input{glossaire_mathematiciens}
+
 \makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
 \makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2]
-
-\newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
-
-%%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
-\newcommand{\etoile}[1]{
-  \ifthenelse{\isodd{\thepage}}
-    {#1 $\bigstar$}
-    {$\bigstar$ #1}
-}
-\newcommand{\theoremeutilise}[3][0pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{\expandafter\MakeUppercase#2}}}
-% \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
-
-% \makeglossaries % Make LaTeX produce the files required to compile the glossary
-% \input{glossary.tex} % Include the glossary definitions
+\makeindex[name=notations,title=Notations,columns=2]
 
 % \makenomenclature % Make LaTeX produce the files required to compile the nomenclature
 
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
 
-%%%%%% Flowcharts %%%%%%
-\newcounter{boxlblcounter}  
-\newcommand{\makeboxlabel}[1]{\fbox{#1}\hfill}% \hfill fills the label box
-\newenvironment{boxlabel}
-  {\begin{list}
-    {\arabic{boxlblcounter}}
-    {\usecounter{boxlblcounter}
-     \setlength{\labelwidth}{3em}
-     \setlength{\labelsep}{0em}
-     \setlength{\itemsep}{2pt}
-     \setlength{\leftmargin}{1.5cm}
-     \setlength{\rightmargin}{2cm}
-     \setlength{\itemindent}{0em} 
-     \let\makelabel=\makeboxlabel
-    }
-  }
-{\end{list}}
+% Pour remplacer la version anglaise par défaut
+\addto\captionsfrench{\def\tablename{Tableau}}
 
-%== Blocs
-\tikzstyle{decision} = [
-  rectangle, rounded corners, dashed,
-  inner sep = 10pt,
-  draw=colordef, very thick,
-  minimum height=5ex,
-  align=center,
-  node distance=2.5cm,
-  ]
-  \tikzstyle{block} =
-  [rectangle,
-  draw=colorexample, very thick,
-  node distance=2.5cm,
-  align=center,
-  inner sep = 20pt,
-  rounded corners, 
-  minimum height=4ex]
-  
-\tikzstyle{line} = [draw, very thick, color=black, -latex']
-
-\tikzstyle{cloud} =
-  [ellipse, draw=colortheorem,
-  very thick,
-  align=center, node distance=2.5cm,
-  minimum height=2em, inner sep=1pt]
-
-\definecolor{colordef}{RGB}{0,153,153}
-% DarkSlateGray
-\definecolor{colortitle}{RGB}{51,102,102}
-% 
-\definecolor{colorproposition}{RGB}{255,51,0}
-\definecolor{colortheorem}{RGB}{255,0,0}
-\definecolor{colorexample}{RGB}{51,153,102}
-\definecolor{colorinterpretation}{RGB}{204,255,51}
-\definecolor{colorstrategie}{RGB}{204,153,0}
-
-% \usepgfplotslibrary{external} 
-% \tikzexternalize
-
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{comment}
-
-%----------------------------------------------------------------------------------------
 \begin{document}
 
 %----------------------------------------------------------------------------------------
@@ -261,6 +143,6 @@ Recueil d'Exercices et Résultats Classiques de Mathématiques
 % \printbibliography[heading=bibintoc, title=Références]
 
 % % \printindex % Output the index
-\printindex[mathematiciens]
+\printglossary[title=Mathématiciens]
 
 \end{document}

@@ -1,6 +1,50 @@
-% \sectionfont{\color{BlueViolet}\sffamily}
-% \subsectionfont{\color{BrickRed}\sffamily}
-% \subsubsectionfont{\sffamily}
+\colorlet{myred}{red!85!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{mydarkred}{myred!80!black}
+\colorlet{mydarkblue}{myblue!60!black}
+% \colorlet{mydarkblue}{myblue!80!black}
+\colorlet{mylightblue}{myblue!10}
+\colorlet{mylightred}{myred!50}
+\colorlet{mycyan}{cyan!80!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{myorange}{orange!90!black!80}
+\colorlet{mypurple}{red!50!blue!90!black!80}
+
+% Set KOMA fonts for book-specific elements
+\addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\scshape\bfseries}
+\addtokomafont{partentry}{\normalfont\scshape\bfseries} 
+\addtokomafont{chapter}{\normalfont\scshape\bfseries\fontsize{26pt}{28pt}\selectfont\color{BlueViolet}}
+\addtokomafont{chapterentry}{\normalfont\bfseries}
+
+% Set KOMA fonts for elements common to all classes
+\addtokomafont{section}{\normalfont\bfseries\color{BlueViolet}}
+\addtokomafont{subsection}{\normalfont\bfseries}
+\addtokomafont{subsubsection}{\normalfont\bfseries}
+\addtokomafont{paragraph}{\normalfont\bfseries}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+
+\hypersetup{ % Set up hyperref options
+	unicode, % Use unicode for links
+	pdfborder={0 0 0}, % Suppress border around pdf
+	%xetex,
+	%pagebackref=true,
+	%hyperfootnotes=false, % We already use footmisc
+	bookmarksdepth=section,
+	bookmarksopen=true, % Expand the bookmarks as soon as the pdf file is opened
+	%bookmarksopenlevel=4,
+	linktoc=all, % Toc entries and numbers links to pages
+	breaklinks=true,
+	colorlinks=true,
+	%allcolors=DarkGreen,
+    linkcolor = BlueViolet,
+    pagecolor = BlueViolet,
+	anchorcolor=BlueViolet, 
+	citecolor=myred,
+	filecolor=myred,
+	menucolor=myred,
+	runcolor=gray,
+	urlcolor=myred,
+}
 
 \renewcommand{\bfdefault}{b} % https://tex.stackexchange.com/questions/27843/level-of-boldness-changeable
 

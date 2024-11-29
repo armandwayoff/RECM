@@ -1,0 +1,190 @@
+\usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
+
+\usepackage{anyfontsize} % Pour le titre de la page de couverture
+
+% Pour faire des pages blanches
+\usepackage{afterpage}
+
+\usepackage{comment}
+
+% Load the bibliography package
+% \usepackage[natbib,refsection=chapter]{biblatex}
+\usepackage{kaobiblio}
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+%%%% Ajoute par Alain pour pouvoir compiler le kaorefs %%%%
+\usepackage[french]{babel}
+
+% \usepackage[bitstream-charter]{mathdesign}
+% \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+\usepackage[splitindex]{imakeidx}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+
+\usepackage{subcaption}
+
+\usepackage{pdfpages}
+
+\usepackage{fontawesome} % pour les icônes
+
+% Pour l'index des notations
+\usepackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Pour le tableau des transformées de Laplace
+\usepackage{adjustbox}
+\usepackage{tabularray}
+
+% Commande pour citer un théorème
+\usepackage{ifthen}
+
+% Pour créer des annexes par chapitre
+% https://tex.stackexchange.com/questions/120716/appendix-after-each-chapter
+\usepackage{appendix}
+\usepackage{chngcntr}
+
+% Start of subappendices environment
+\AtBeginEnvironment{subappendices}{%
+\newpage
+% \addcontentsline{toc}{section}{Annexes}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+}
+
+% End of subappendices environment
+\AtEndEnvironment{subappendices}{%
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+}
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{pgfplots} % for the axis environment
+\usepackage[outline]{contour} % halo around text
+\contourlength{2pt}
+
+\usetikzlibrary{positioning,
+                calc, 
+                backgrounds, % required for 'inner frame sep'
+                automata, 
+                decorations.pathreplacing, % pour les curly braces de la fig du déterminant
+                decorations.markings,
+                calligraphy, % pour les curly braces de la fig du déterminant
+                arrows, % customizing arrows
+                bending, % figure racines troisième de l'unité
+                matrix, % critère de nilpotence par la trace
+                patterns
+                }
+
+% to fill an area under function
+\usepgfplotslibrary{fillbetween,
+                    groupplots
+                    }
+\pgfplotsset{compat=newest} % TikZ coordinates <-> axes coordinates
+% https://tex.stackexchange.com/questions/240642/add-vertical-line-of-equation-x-2-and-shade-a-region-in-graph-by-pgfplots
+
+% plot aspect ratio
+%\def\axisdefaultwidth{8cm}
+%\def\axisdefaultheight{6cm}
+
+
+%%% Ajoute par Alain
+\usepackage{color}
+\usepackage{todonotes}
+
+% Pour la figure homothétie
+\usepackage{tkz-euclide}
+
+\usepackage{hyperref}
+\usepackage{multicol}
+
+% Pour le schéma de la preuve de la densité des matrices diagonalisables
+\tikzset{
+    arrowMe/.style={
+        postaction=decorate,
+        decoration={
+            markings,
+            mark=at position .45 with {\arrow[thick]{#1}}
+        }
+    }
+}
+                
+% Pour la figure de projection orthogonale
+%\usepackage[active,tightpage]{preview}
+
+% Pour les longues équations (théorème d'intégration par parties généralisées) https://tex.stackexchange.com/questions/3782/how-can-i-split-an-equation-over-two-or-more-lines
+%\usepackage{breqn}
+
+% Pour l'arbre de Calkin-Wilf
+\usepackage{forest}
+
+\tikzset{node distance=3.5cm, % Minimum distance between two nodes. Change if necessary.
+    every state/.style={ % Sets the properties for each state
+    semithick,
+    fill=red!20},
+    initial text={},     % No label on start arrow
+    double distance=1pt, % Adjust appearance of accept states
+    every edge/.style={  % Sets the properties for each transition
+    draw,
+    ->,>=stealth',     % Makes edges directed with bold arrowheads
+    auto,
+    semithick}}
+          
+\tikzset{
+    block/.style={
+    draw, 
+    rectangle, 
+    minimum height=1.5cm, 
+    minimum width=3cm, align=center
+    }, 
+    line/.style={->,>=latex'}
+}
+           
+\usepackage{tikz-3dplot}
+
+% Pour le diagramme quiver
+\usepackage{tikz-cd}
+\usepackage{quiver}
+
+% Scale pour le diagramme sur le red des endos
+% https://tex.stackexchange.com/questions/325297/how-to-scale-a-tikzcd-diagram
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+
+%%%% Commente par Alain car conflit, deja charge par koa ? %%%%
+% \usepackage{fancyhdr}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% \usepackage{mathtools}
+\usepackage{bm}
+\usepackage{stmaryrd}
+%\usepackage{mathrsfs}
+\usepackage{euscript}
+\usepackage{enumitem}
+\usepackage{tasks}
+\usepackage{xurl}
+\usepackage{dsfont}  % Pour la fonction indicatrice \mathds{1}
+
+\usepackage{cfr-lm} % https://tex.stackexchange.com/questions/301699/oldstyle-numbers-in-body-text-computer-modern
+
+% Figures
+\usepackage{physics}
+\usepackage{mathdots}
+\usepackage{cancel}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{extarrows}

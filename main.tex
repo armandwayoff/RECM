@@ -7,183 +7,43 @@
 	numbers=noenddot, % Commenter pour afficher des points après les numéros de chapitre ; les arguments les plus courantes pour cette option sont : enddot, noenddot et auto (voir la documentation KOMAScript pour une explication approfondie).
 ]{kaobook}
 
-\usepackage[T1]{fontenc} % Encodage de la police pour les caractères internationaux
-
-\usepackage{anyfontsize} % Pour le titre de la page de couverture
-
-
-
-% Pour faire des pages blanches
-\usepackage{afterpage}
-\newcommand\pageblanche{
-    \null
-    \thispagestyle{empty}
-    \addtocounter{page}{-1}
-    \newpage
-}
-
-% Load the bibliography package
-% \usepackage[natbib,refsection=chapter]{biblatex}
-\usepackage{kaobiblio}
-\addbibresource{main.bib} % Bibliography file
-
-% Load mathematical packages for theorems and related environments
-\usepackage[framed=true]{kaotheorems}
-
-%%%% Ajoute par Alain pour pouvoir compiler le kaorefs %%%%
-\usepackage[french]{babel}
-
-\input{math_packages}
+\input{local_packages}
 \input{root_packages}
 \input{root_notations}
-\input{style}
+\input{local_notations}
 \input{env}
-\DeclareMathOperator{\sinc}{\mathrm{sinc}}
-
-% \usepackage[bitstream-charter]{mathdesign}
-% \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
-
-% Load the package for hyperreferences
-\usepackage{kaorefs}
+\input{style}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[splitindex]{imakeidx}
+
+\addbibresource{main.bib} % Bibliography file
+
+\makeglossaries
+\input{glossaire_mathematiciens}
+
 \makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
 \makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2]
+\makeindex[name=notations,title=Notations,columns=2]
 
-\newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
-
-%%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
-\newcommand{\etoile}[1]{
-  \ifthenelse{\isodd{\thepage}}
-    {#1 $\bigstar$}
-    {$\bigstar$ #1}
-}
-\newcommand{\theoremeutilise}[3][0pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{\expandafter\MakeUppercase#2}}}
-% \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
-
-\makeglossaries % Make LaTeX produce the files required to compile the glossary
-\input{glossary.tex} % Include the glossary definitions
-
-\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+% \makenomenclature % Make LaTeX produce the files required to compile the nomenclature
 
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
 
-%%%%%% Flowcharts %%%%%%
-\newcounter{boxlblcounter}  
-\newcommand{\makeboxlabel}[1]{\fbox{#1}\hfill}% \hfill fills the label box
-\newenvironment{boxlabel}
-  {\begin{list}
-    {\arabic{boxlblcounter}}
-    {\usecounter{boxlblcounter}
-     \setlength{\labelwidth}{3em}
-     \setlength{\labelsep}{0em}
-     \setlength{\itemsep}{2pt}
-     \setlength{\leftmargin}{1.5cm}
-     \setlength{\rightmargin}{2cm}
-     \setlength{\itemindent}{0em} 
-     \let\makelabel=\makeboxlabel
-    }
-  }
-{\end{list}}
-
-%== Blocs
-\tikzstyle{decision} = [
-  rectangle, rounded corners, dashed,
-  inner sep = 10pt,
-  draw=colordef, very thick,
-  minimum height=5ex,
-  align=center,
-  node distance=2.5cm,
-  ]
-  \tikzstyle{block} =
-  [rectangle,
-  draw=colorexample, very thick,
-  node distance=2.5cm,
-  align=center,
-  inner sep = 20pt,
-  rounded corners, 
-  minimum height=4ex]
-  
-\tikzstyle{line} = [draw, very thick, color=black, -latex']
-
-\tikzstyle{cloud} =
-  [ellipse, draw=colortheorem,
-  very thick,
-  align=center, node distance=2.5cm,
-  minimum height=2em, inner sep=1pt]
-
-\definecolor{colordef}{RGB}{0,153,153}
-% DarkSlateGray
-\definecolor{colortitle}{RGB}{51,102,102}
-% 
-\definecolor{colorproposition}{RGB}{255,51,0}
-\definecolor{colortheorem}{RGB}{255,0,0}
-\definecolor{colorexample}{RGB}{51,153,102}
-\definecolor{colorinterpretation}{RGB}{204,255,51}
-\definecolor{colorstrategie}{RGB}{204,153,0}
-
-% \usepgfplotslibrary{external} 
-% \tikzexternalize
-
-  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{comment}
-
 % Pour remplacer la version anglaise par défaut
 \addto\captionsfrench{\def\tablename{Tableau}}
 
-%%% Ajoute par Alain
-\usepackage{color}
-\usepackage{todonotes}
-\newcommand{\todoinline}[1]{\todo[color=green!40, bordercolor=red, inline]{#1}}
-\newcommand{\entiers}[2]{\llbracket#1,#2\rrbracket}
-
-\newcommand{\todoarmand}[1]{\todo[color=blue!20, bordercolor=red, inline]{#1}}
-
-\usepackage{comment}
-\usepackage{amsmath} % for \dfrac
-\usepackage{tikz}
-\tikzset{>=latex} % for LaTeX arrow head
-\usepackage{pgfplots} % for the axis environment
-\usepackage{xcolor}
-\usepackage[outline]{contour} % halo around text
-\contourlength{2pt}
-\usetikzlibrary{positioning,calc}
-\usetikzlibrary{backgrounds}% required for 'inner frame sep'
-%\usepackage{adjustbox} % add whitespace (trim)
-
-% to fill an area under function
-\usepgfplotslibrary{fillbetween}
-\usetikzlibrary{patterns}
-\pgfplotsset{compat=newest} % TikZ coordinates <-> axes coordinates
-% https://tex.stackexchange.com/questions/240642/add-vertical-line-of-equation-x-2-and-shade-a-region-in-graph-by-pgfplots
-
-% plot aspect ratio
-%\def\axisdefaultwidth{8cm}
-%\def\axisdefaultheight{6cm}
-
-% number of sample points
-
-%----------------------------------------------------------------------------------------
 \begin{document}
 
 %----------------------------------------------------------------------------------------
 %	BOOK INFORMATION
 %----------------------------------------------------------------------------------------
 
-% \titlehead{The \texttt{kaobook} class}
-% \subject{Use this document as a template}
 
 \title[Recueil des Exercices et Résultats Classiques de Mathématiques]{
 \fontsize{26pt}{28pt}\selectfont
 \textcolor{BlueViolet}{\textrm{\textsc{
-Recueil d'Exercices et Résultats Classiques de Mathématiques
+recueil d'exercices et résultats classiques de mathématiques
 }}}
 \\ \vspace{0.6cm}
 \fontsize{16pt}{18pt}\selectfont
@@ -231,12 +91,11 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 % \begin{Large}
 \textsl{\say{ Celui qui aura goûté, qui aura vu, ne fût-ce que de loin, la splendide harmonie des lois naturelles, sera mieux disposé à faire peu de cas de ses petits intérêts égoïstes ; il aura un idéal qu’il aimera mieux que lui-même, et c’est là le seul terrain sur lequel on puisse bâtir une morale. Pour cet idéal, il travaillera sans marchander sa peine et sans attendre aucune de ces grossières récompenses qui sont tout pour certains hommes ; et quand il aura pris ainsi l’habitude du désintéressement, cette habitude le suivra partout ; sa vie entière en restera comme parfumée. }}
 \begin{flushright}
---- Henri \textsc{Poincaré}, \emph{Dernières pensées}.
+--- Henri \nom{Poincaré}, \emph{Dernières pensées}.
 \end{flushright}
 % \end{Large}
 
 \input{preface.tex}
-\index{preface}
 
 %----------------------------------------------------------------------------------------
 %	TABLE DES MATIERES
@@ -412,36 +271,13 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
     \item $0$ est la seule valeur propre de $u$.
 \end{enumerate}
 
-\printindex[mathematiciens]
+% \printindex[mathematiciens]
+\printglossary[title=Mathématiciens]
 
-\backmatter % Indique la fin du contenu principal du document principal
-\setchapterstyle{plain} % Output plain chapters from this point onwards
-
-\thispagestyle{empty}
-\newgeometry{left=0.5cm,right=0.5cm, top=2cm}
-\chapter{Mathématiciens}
-\begin{multicols}{2}
-\small
-\begin{itemize}[label=]
-    \input{mathematiciens.tex}
-\end{itemize}
-\end{multicols}
+% \backmatter % Indique la fin du contenu principal du document principal
+% \setchapterstyle{plain} % Output plain chapters from this point onwards
 
 % \defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
 \printbibliography[heading=bibintoc, title=Références] % Ajouter l'en-tête de la bibliographie à la table des matières, définir le titre de la bibliographie et éditer la note bibliographique.
-
-\chapter{Index des notations}\label{indexnotations}
-
-\todoarmand{À remettre en forme}
-
-\begin{table}[H]
-\centering
-\begin{longtable}{cl}
-\multicolumn{1}{c}{\textbf{Notation}} & \multicolumn{1}{c}{\textbf{Définition}} \\
-$\norm{\,\cdot\,}_\infty$ & $\norm{f}_\infty = \sup_{x \in I} \module{f(x)}$         
-\end{longtable}
-\end{table}
-
-\printindex % Output the index
 
 \end{document}
