@@ -1,9 +1,9 @@
-\section{Intégrale de \textsc{Gauss}}\label{sec:intGauss}
+\section{Intégrale de \nom{Gauss}}\label{sec:intGauss}
 
 \begin{marginfigure}[0cm]
     \centering
     \input{chapitres/integration/illustrations/i_10-integrale_de_gauss}
-    \caption{Intégrale de \textsc{Gauss}}
+    \caption{Intégrale de \nom{Gauss}}
 \end{marginfigure}
 
 \begin{theo}
@@ -64,7 +64,7 @@ puis $\fonctionligne[g]{x}{\e^{-x}}$ et $h_n = g - g_n$.
 \item En déduire le résultat attendu.
 \end{questions}
 
-\item \textbf{Deuxième méthode: avec le théorème de convergence dominée et les intégrales de \textsc{Wallis.}} \\
+\item \textbf{Deuxième méthode: avec le théorème de convergence dominée et les intégrales de \nom{Wallis}.} \\
 On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(x)$.
 \begin{questions}
 \item Montrer que la suite $(f_n)_{n\in\N}$ converge simplement vers $f$.
@@ -75,7 +75,7 @@ On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqr
 \]
 \end{questions}
 
-\item On rappelle que, d'après les résultats sur les intégrales de \textsc{Wallis},
+\item On rappelle que, d'après les résultats sur les intégrales de \nom{Wallis},
 \[
 \lim_{n\to+\infty} \sqrt{n} \int_0^{\frac{\pi}{2}} \cos(t)^{2n+1} \d t = \frac{\sqrt{\pi}}{2}.
 \]
@@ -98,7 +98,7 @@ En déduire la valeur de $I$.
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, \mbox{$\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le théorème de comparaison aux intégrales de \textsc{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
+\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, \mbox{$\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le théorème de comparaison aux intégrales de \nom{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
 \item
 \begin{reponses}
@@ -216,7 +216,7 @@ Finalement, $I = \frac{\sqrt{\pi}}{2}$.
 \end{solution}
 
 % \todoinline{J'ajouterais ici cette remarque et je supprimerais la partie sur les intégrales de Wallis}
-\marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \textsc{Wallis} -- \textsf{wikipedia.org}}}
+\marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Intégrale de \nom{Wallis} -- \textsf{wikipedia.org}}}
 \begin{remarque}
 La convexité de la fonction exponentielle permet même de montrer que, pour tout entier $n \in \Ne$ et tout réel $u \in \interoo{-n}{n}$, 
 \[
@@ -226,7 +226,7 @@ puis que
 \[
 \int_0^{\sqrt{n}} \left( 1 - \frac{x^2}{n} \right)^n \d x \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \int_0^{\sqrt{n}} \left( 1 + \frac{x^2}{n} \right)^{-n} \d x.
 \]
-En utilisant un changement de variable puis les intégrales de \textsc{Wallis}, on obtient alors l'encadement 
+En utilisant un changement de variable puis les intégrales de \nom{Wallis}, on obtient alors l'encadement 
 \[
 \sqrt{n}\, \Wallis_{2n+1} \leqslant \int_0^{\sqrt{n}} \e^{-x^2} \d x \leqslant \sqrt{n}\, \Wallis_{2n-2}.
 \]
@@ -263,7 +263,7 @@ En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2}
 
 \begin{solution}
 \begin{reponses}
-\item Le changement de variable affine $u = \sqrt{\beta}\, x$ dans l'intégrale permet d'obtenir l'intégrale de \textsc{Gauss}. Ainsi,
+\item Le changement de variable affine $u = \sqrt{\beta}\, x$ dans l'intégrale permet d'obtenir l'intégrale de \nom{Gauss}. Ainsi,
 \[
 \int_\R \e^{-\beta x^2} \d x
 = \int_\R \e^{-u^2} \times \frac{1}{\sqrt{\beta}} \d u
@@ -397,7 +397,7 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 \end{comment}
 
 %-----------
-\subsection{La transformée de \textsc{Fourier} d'une gaussienne est une gaussienne}
+\subsection{La transformée de \nom{Fourier} d'une gaussienne est une gaussienne}
 
 \begin{theo}
 Pour tout $x$ réel,
@@ -455,7 +455,7 @@ f'(x) &= -\frac{x}{2} f(x).
 \left\{x \mapsto \lambda \e^{-\frac{x^2}{4}},\, \lambda \in \R\right\}.
 \]
 
-D'après le calcul de l'intégrale de \textsc{Gauss}, $f(0) = \sqrt{\pi}$. Ainsi,
+D'après le calcul de l'intégrale de \nom{Gauss}, $f(0) = \sqrt{\pi}$. Ainsi,
 \[
 f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
@@ -465,7 +465,7 @@ f(x) = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \begin{figure}
     \centering
     \input{chapitres/integration/illustrations/i_10-tf_gaussienne}
-    \caption{Transformées de \textsc{Fourier} de distributions gaussiennes \todoarmand{Changer les notations pour coller avec l'exercice}}
+    \caption{Transformées de \nom{Fourier} de distributions gaussiennes \todoarmand{Changer les notations pour coller avec l'exercice}}
 \end{figure}
 
 \todoarmand{Ajouter une note sur le principe d'incertitude.}

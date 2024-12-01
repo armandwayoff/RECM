@@ -57,9 +57,9 @@ Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$.
 \begin{elemsolution}
 
 \begin{reponses}
-\item Il s'agit d'une application de la formule de \textsc{Taylor} avec reste intégal.
+\item Il s'agit d'une application de la formule de \nom{Taylor} avec reste intégal.
 
-\item En utilisant la relation de \textsc{Chasles},
+\item En utilisant la relation de \nom{Chasles},
 \begin{align*}
 \module{\int_{\interff{a}{b}} f(t) \d t - I_p^\mathrm{g}(f)}
 &\leqslant \sum_{i=1}^{p-1} \module{\int_{\interff{x_i}{x_{i+1}}} f(x) \d x - (x_{i+1} - x_i) f(x_i)}\\
@@ -124,7 +124,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 \begin{reponses}
 \item Il s'agit d'un simple calcul ou d'une interprétation de la figure \ref{fig:i_rectangles_medians_construction}.
 
-\item Ainsi, d'après la formule de \textsc{Taylor} avec reste intégral,
+\item Ainsi, d'après la formule de \nom{Taylor} avec reste intégral,
 \begin{align*}
 \module{F(x_{i+1}) - F(x_i) - (x_{i+1} - x_i) F'(\gamma_i)}
 &= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t} \\
@@ -138,7 +138,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
     \label{fig:i_rectangles_medians_construction}
 \end{marginfigure}
 
-\item Comme pour la méthode des rectangles à gauche, il s'agit d'une application de la formule de \textsc{Chasles}.
+\item Comme pour la méthode des rectangles à gauche, il s'agit d'une application de la formule de \nom{Chasles}.
 
 \item On montre que la borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
@@ -204,7 +204,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 \leqslant \frac{M_2}{2} \cdot \frac{(b - a)^3}{6}.
 \end{align*}
 
-\item Comme pour les méthodes précédentes, on utilise la relation de \textsc{Chasles}.
+\item Comme pour les méthodes précédentes, on utilise la relation de \nom{Chasles}.
 
 \item On montre que cette borne est atteinte pour $f : x \mapsto (x - a)^2$.
 
@@ -230,15 +230,15 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe (resp. concave), alors $f'' \geqslant 0$ (resp. $\leqslant 0$) et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leqslant I_p^\mathrm{t}(f)$} (resp. \mbox{$\int_{[a,b]} f \geqslant I_p^\mathrm{t}(f)$}). On obtient ainsi une valeur approchée par excès (resp. par défaut) de l'intégrale.
 \end{remarque}
 
-\subsection{Méthode de \textsc{Simpson}}
+\subsection{Méthode de \nom{Simpson}}
 
-La méthode de \textsc{Simpson} consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
+La méthode de \nom{Simpson} consiste, pour chacun des intervalles de la subdivision, à approcher la fonction $f$ par un polynôme de degré inférieur ou égal à $2$. Plus précisément, on considère la quantité :
 \[
 I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\frac{x_i + x_{i+1}}{2}\right) + f(x_{i+1})\right].
 \]
 
 \begin{prop}
-Dans la méthode de \textsc{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
+Dans la méthode de \nom{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
 \end{prop}
 
 \todoinline{Tu aurais le courage de vérifier le calcul suivant ?}
@@ -275,7 +275,7 @@ F(x_{i+1}) - F(x_i)
 
 \begin{elemsolution}
 \begin{reponses}
-\item D'après la formule de \textsc{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$ et en remarquant que $x_{i+1} = \gamma_i + h_i$ et $x_i = \gamma_i - h_i$,
+\item D'après la formule de \nom{Taylor} avec reste intégral appliquée à une primitive $F$ de $f$ et en remarquant que $x_{i+1} = \gamma_i + h_i$ et $x_i = \gamma_i - h_i$,
 \begin{align*}
 F(x_{i+1}) = F(\gamma_i + h_i)
 &= \begin{aligned}[t]F(\gamma_i) + h_i f(\gamma_i) + \frac{h_i{}^2}{2} f'(\gamma_i) + \frac{h_i{}^3}{6} f''(\gamma_i) + \frac{h_i{}^4}{24} f'''(\gamma_i) \\ + \frac{h_i{}^5}{24} \int_0^1 (1 - t)^4 f^{(4)}(\gamma_i + t h_i) \d t,\\
@@ -288,7 +288,7 @@ F(x_i) = F(\gamma_i - h_i)
 Le résultat s'obtient en soustrayant les deux relations précédentes.
 
 
-\item On applique la formule de \textsc{Taylor} avec reste intégral à la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$.
+\item On applique la formule de \nom{Taylor} avec reste intégral à la fonction $f$ sur $[\gamma_i - h_i, \gamma_i]$ et $[\gamma_i, \gamma_i + h_i]$.
 
 \item Finalement,
 \begin{align*}
@@ -299,7 +299,7 @@ Le résultat s'obtient en soustrayant les deux relations précédentes.
 \leqslant \frac{(x_{i+1} - x_i)^5}{720}.
 \end{align*}
 
-\item On conclut à l'aide de la relation de \textsc{Chasles} :
+\item On conclut à l'aide de la relation de \nom{Chasles} :
 \[
 \module{\int_a^b f(t) \d t - I_p^\mathrm{s}(f)} \leq \frac{M_4 (b-a)^5}{720 p^4}.
 \]
@@ -312,7 +312,7 @@ Le résultat s'obtient en soustrayant les deux relations précédentes.
 \begin{figure}[H]
     \centering
     \input{chapitres/integration/illustrations/i_03-simpson}
-    \caption{Illustration de la méthode de \textsc{Simpson}}
+    \caption{Illustration de la méthode de \nom{Simpson}}
 \end{figure}
 \todoarmand{Figure à reprendre, pour l'instant reprise de \url{https://tex.stackexchange.com/questions/429634/parabola-through-three-points-with-tikz}}
 
@@ -330,11 +330,11 @@ Nous constatons que pour chacune des méthodes précédentes la stratégie est i
 Sur l'intervalle $[x_i, x_{i+1}]$ : pour la méthode des rectangles, on approche la fonction par une droite horizontale, pour celle des trapèzes, par une droite affine passant par les points $(x_i, f(x_i))$ et $(x_{i+1}, f(x_{i+1}))$.
 \end{itemize}
 
-Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en une subdivision régulière $x_i = y_{i,0} \leqslant \ldots \leqslant y_{i,p} \leqslant x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de \textsc{Lagrange} qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0})), \ldots, (y_{i,p}, f(y_{i,p}))$.
+Plus généralement, on peut découper le segment $\interff{x_i}{x_{i+1}}$ en une subdivision régulière $x_i = y_{i,0} \leqslant \ldots \leqslant y_{i,p} \leqslant x_{i+1}$. On peut ensuite approcher la fonction par le polynôme d'interpolation de \nom{Lagrange} qui passe par les points de coordonnées $(y_{i,0}, f(y_{i,0})), \ldots, (y_{i,p}, f(y_{i,p}))$.
 
-Cette méthode est appelée \emph{méthode de \textsc{Newton}--\textsc{Cotes}}.
+Cette méthode est appelée \emph{méthode de \nom{Newton}--\nom{Cotes}}.
 
-Plus précisément, on considère une subdivision $0 = y_0 \leqslant \cdots \leqslant y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \textsc{Lagrange}} associée à cette subdivision, i.e.
+Plus précisément, on considère une subdivision $0 = y_0 \leqslant \cdots \leqslant y_p = 1$ de l'intervalle $\interff{0}{1}$ et on note $(L_0,\ldots,L_p)$ la famille des \hyperref[sec:polynomes_de_lagrange]{polynômes d'interpolation de \nom{Lagrange}} associée à cette subdivision, i.e.
 \[
 \forall i \in \interent{0}{p},\quad L_i(X) = \prod_{j \neq i} \frac{X - y_j}{y_i - y_j}.
 \]
@@ -354,10 +354,10 @@ On peut montrer que :
 \begin{itemize}
 \item lorsque $n = 1$, on retrouve la formule des trapèzes.
 
-\item lorque $n = 2$, on retrouve la méthode de \textsc{Simpson}.
+\item lorque $n = 2$, on retrouve la méthode de \nom{Simpson}.
 \end{itemize}
 
-On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \textsc{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
+On peut montrer que la méthode de \nom{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \nom{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
 \begin{table}[]
     \centering
@@ -366,12 +366,12 @@ On peut montrer que la méthode de \textsc{Simpson} est d'ordre $3$. On peut aug
     hline{2} = {2pt},
     cells={c}
     }
-    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de conv.} & \textbf{\textsc{Newton}--\textsc{Cotes}} \\
+    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de conv.} & \textbf{\nom{Newton}--\nom{Cotes}} \\
     À gauche & $0$ & $O(1/p)$ & X\\
     À droite & $0$ & $O(1/p)$ & X\\
     Médians & $1$ & $O(1/p^2)$ & X\\
     Trapèzes & $1$ & $O(1/p^2)$ & 1\\
-    \textsc{Simpson} & $3$ & $O(1/p^4)$ & 2
+    \nom{Simpson} & $3$ & $O(1/p^4)$ & 2
     \end{tblr}
     \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
 \end{table} % margintable

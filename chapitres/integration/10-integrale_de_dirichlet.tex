@@ -1,8 +1,8 @@
-\section{Intégrale de \textsc{Dirichlet}}\label{sec:intDirichlet}
+\section{Intégrale de \nom{Dirichlet}}\label{sec:intDirichlet}
 
 \todoarmand{Éléments historiques : \url{https://hsm.stackexchange.com/a/6827}}
 
-\marginnote[0cm]{Dans le cadre de la diffraction de \textsc{Fraunhofer}, si l'on appelle $D$ la distance entre l'écran et la fente, alors l'intensité $I$ en un point $x$ de l'écran s'écrit
+\marginnote[0cm]{Dans le cadre de la diffraction de \nom{Fraunhofer}, si l'on appelle $D$ la distance entre l'écran et la fente, alors l'intensité $I$ en un point $x$ de l'écran s'écrit
 \[
 I(x) = I_0\, \mathrm{sinc}\mathopen{}\left(\frac{\pi a}{\lambda D}\, x\right)^2
 \]
@@ -17,7 +17,7 @@ où $\mathrm{sinc}$ est la fonction \textsl{sinus cardinal}, $a$ est la largeur 
     \]
 \end{defi}
 
-\begin{theo}[Intégrale de \textsc{Dirichlet} (1829)]
+\begin{theo}[Intégrale de \nom{Dirichlet} (1829)]
 L'intégrale $\displaystyle\int_{0}^{+\infty} \frac{\sin x}{x} \d x$ est convergente et
     \[
     \int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\pi}{2}.
@@ -28,7 +28,7 @@ L'intégrale $\displaystyle\int_{0}^{+\infty} \frac{\sin x}{x} \d x$ est converg
     \input{chapitres/integration/illustrations/i_08-sinus_cardinal}
 \end{marginfigure}
 
-Nous proposons deux démonstrations de l'existence de l'intégrale de \textsc{Dirichlet}, une première utilisant le théorème des séries alternées et une deuxième utilisant l'intégration par parties.
+Nous proposons deux démonstrations de l'existence de l'intégrale de \nom{Dirichlet}, une première utilisant le théorème des séries alternées et une deuxième utilisant l'intégration par parties.
 
 \todoinline{Ajout ici d'un format exercice / solution}
 
@@ -37,9 +37,9 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \displaystyle\int_{n\pi}^{(
 \begin{questions}
 \item Montrer que $\mathrm{sinc}$ est intégrable sur $\interof{0}{1}$.
 
-\item Montrer que $\sum u_n$ est une série alternée et en déduire la convergence de l'intégrale de Dirichlet.
+\item Montrer que $\sum u_n$ est une série alternée et en déduire la convergence de l'intégrale de \nom{Dirichlet}.
 
-\item En utilisant une intégration par parties, proposer une autre démonstration de la convergence de l'intégrale de Dirichlet.
+\item En utilisant une intégration par parties, proposer une autre démonstration de la convergence de l'intégrale de \nom{Dirichlet}.
 \end{questions}
 \end{exercice}
 
@@ -68,7 +68,7 @@ Ainsi, d'après le \theoremeutilise{théorème des séries alternées}{thm:serie
 
 Cependant, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas monotone et on ne peut donc pas encore conclure directement à la convergence de l'intégrale.
 
-On pose ainsi $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$. Ainsi, l'intégrale de Dirichlet converge.
+On pose ainsi $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$. Ainsi, l'intégrale de \nom{Dirichlet} converge.
 
 \item Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ sont de même nature. \\
 D'une part, la fonction $t \mapsto \frac{\cos t}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos t}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos t}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
@@ -100,7 +100,7 @@ Soit $N \in \Ne$.
 \begin{demo}
 \marginnote[0cm]{Source : \href{https://www.agreg-maths.fr/uploads/versions/1175/dirichlet.pdf}{Intégrale de \textsc{Dirichlet} -- Florian \textsc{Dussap}}}
 \begin{reponses}
-\item En utilisant la relation de Chasles,
+\item En utilisant la relation de \nom{Chasles},
     \begin{align*}
         \int_0^{N \pi} \frac{|\sin x|}{x} \d x &= \sum_{k=0}^{N-1} \int_{k \pi}^{(k+1) \pi} \frac{|\sin x|}{x} \d x \\
 &= \sum_{k=0}^{N-1} \int_0^\pi \frac{|\sin x|}{x + k \pi} \d x        \text{, par un changement de variable }  \\
@@ -115,9 +115,9 @@ La fonction $x \mapsto \displaystyle\int_0^x \module{\mathrm{sinc}(t)} \d t$ ét
 \end{demo}
 
 %-----------        
-\subsection{Calcul via le lemme de \textsc{Lebesgue}}
+\subsection{Calcul via le lemme de \nom{Lebesgue}}
 
-\marginnote[7pt]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \textsc{Lebesgue}}}
+\marginnote[7pt]{\hyperref[sec:lemmeLebesgue]{\faLink~Lemme de \nom{Lebesgue}}}
 \begin{exercice}
 Soit $n \in \N$.
 \begin{questions}
@@ -126,7 +126,7 @@ Soit $n \in \N$.
 
     \item Montrer que la fonction définie sur $\interof{0}{\pi}$ par $f(x) = \frac{1}{x} - \frac{1}{2 \sin \frac{x}{2}}$ peut être prolongée à $\interff{0}{\pi}$ en une fonction de classe $\mathscr{C}^1$. 
     \item En déduire la valeur de l'intégrale $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$.\\
-    \emph{Indication :} On utilisera le lemme de \textsc{Lebesgue}
+    \emph{Indication :} On utilisera le lemme de \nom{Lebesgue}
 \end{questions}
 \end{exercice}
 
@@ -168,7 +168,7 @@ Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le \theoremeutilise{théor
 &= \int_0^\pi \left[ \frac{\sin\mathopen{}\big[(n + 1/2) t\big]}{t} - \frac{\sin\mathopen{}\big[(n + 1/2) t\big]}{2 \sin (t/2)} + \frac{\sin\mathopen{}\big[(n + 1/2) t\big]}{2 \sin(t/2)} \right] \d t\\
 &= \int_0^\pi f(t) \sin\mathopen{}\big[(n + 1/2) t\big] \d t + I_n.
 \end{align*}
-Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de \textsc{Lebesgue},
+Comme $f$ est de classe $\mathscr{C}^1$, d'après le lemme de \nom{Lebesgue},
 \[
 \lim_{n\to+\infty} \int_0^\pi f(t) \sin\mathopen{}\big[(n + 1/2) t\big] \d t = 0.
 \]
@@ -415,7 +415,7 @@ Finalement, on obtient
 = \frac{\pi}{2}.
 \]
 
-Plus généralement, les intégrales de \cite{Browein} généralisent en un certain sens l'intégrale de Dirichlet. En utilisant des calculs utilisant la tranformation de Fourier, on peut montrer que
+Plus généralement, les intégrales de \nom{Borwein} généralisent en un certain sens l'intégrale de \nom{Dirichlet}. En utilisant des calculs utilisant la tranformation de \nom{Fourier}, on peut montrer que
 \todoinline{Mettre une citation pour \url{https://perso.telecom-paristech.fr/rioul/publis/202301rioul.pdf}}
 \begin{align*}
 \int_0^{\pi/2} \sinc(t) \d t &= \pi\\

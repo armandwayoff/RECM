@@ -1,17 +1,17 @@
-\section{Intégrale de \textsc{Wallis}} \label{integrale_wallis}
+\section{Intégrale de \nom{Wallis}} \label{integrale_wallis}
 
 \marginnote[0cm]{
-Les intégrales de \textsc{Wallis} ont été introduites par John \textsc{Wallis} (1616--1703), notamment pour développer le nombre $\pi$ en un produit infini de rationnels; le \textsl{produit de \textsc{Wallis}}, énoncé en 1656 dans son ouvrage \emph{Arithmetica infinitorum}. \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Source}.
+Les intégrales de \nom{Wallis} ont été introduites par John \nom{Wallis} (1616--1703), notamment pour développer le nombre $\pi$ en un produit infini de rationnels; le \textsl{produit de \nom{Wallis}}, énoncé en 1656 dans son ouvrage \emph{Arithmetica infinitorum}. \href{https://fr.wikipedia.org/wiki/Intégrale_de_Wallis}{Source}.
 }
 
-\begin{defi}[Intégrale de \textsc{Wallis}]
-Pour tout $n$ entier naturel, on nomme \definir{intégrale de \textsc{Wallis}} l'intégrale définie par
+\begin{defi}[Intégrale de \nom{Wallis}]
+Pour tout $n$ entier naturel, on nomme \definir{intégrale de \nom{Wallis}} l'intégrale définie par
 \[
 \Wallis_n \defeq \int_{0}^{\frac{\pi}{2}} \sin(x)^n \d x.
 \]
 \end{defi}
 \begin{prop}
-De façon équivalente, on peut définir l'intégrale de \textsc{Wallis} par 
+De façon équivalente, on peut définir l'intégrale de \nom{Wallis} par 
 \[
 \Wallis_n = \int_{0}^{\frac{\pi}{2}} \cos(x)^n \d x.
 \]
@@ -23,7 +23,7 @@ Effectuer le changement de variable $t = \frac{\pi}{2} - x$.
 %-----------
 \subsection{Calcul de l'intégrale et démonstration de ses propriétés}
 
-\begin{theo}{} \labprop{prop_wallis} Pour tout $n$ entier naturel, les intégrales de \textsc{Wallis} vérifient les propriétés suivantes
+\begin{theo}{} \labprop{prop_wallis} Pour tout $n$ entier naturel, les intégrales de \nom{Wallis} vérifient les propriétés suivantes
 \begin{enumerate}[label=(\roman*)]
     \item $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$,  
     \item $\displaystyle \Wallis_{2n} = \frac{\pi}{2^{2n+1}} \binom{2n}{n}$ et $\Wallis_{2n+1} = \frac{2^{2n} (n!)^2}{(2n+1)!}$,
@@ -125,11 +125,11 @@ Ainsi, pour tout $n$ entier naturel,
 \end{solution}
 
 %-----------
-\subsection{Formule de \textsc{Stirling}} \label{preuve_stirling}
+\subsection{Formule de \nom{Stirling}} \label{preuve_stirling}
 
 \todoinline{Ajouter un texte d'introduction}
 
-\begin{theo}[Formule de \textsc{Stirling}]
+\begin{theo}[Formule de \nom{Stirling}]
 \[
 n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n
 \]
@@ -144,9 +144,9 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac
 
 \item Montrer que la suite $(u_n)_{n\in\Ne}$ converge vers un réel $\ell$ strictement positif.
 
-\item À l'aide des intégrales de \textsc{Wallis}, déterminer la valeur~de~$\ell$.
+\item À l'aide des intégrales de \nom{Wallis}, déterminer la valeur~de~$\ell$.
 
-\item En déduire la formule de \textsc{Stirling}.
+\item En déduire la formule de \nom{Stirling}.
 \end{questions}
 \end{exercice}
 
@@ -168,7 +168,7 @@ On obtient ainsi l'équivalent annoncé.
 = \frac{(n + 1)!\, \e^{n+1}}{(n+1)^{n+\frac{3}{2}}} \times \frac{n^{n+\frac{1}{2}}}{n!\, \e^n}
 = \e \left(1 + \frac{1}{n}\right)^{-\mathopen{}\left(n + \frac{1}{2}\right)}.
 \]
-Ainsi, d'après la question précédente et le théorème de comparaison aux séries de \textsc{Riemann}, la série de terme général $\ln\frac{u_{n+1}}{u_n}$ converge.
+Ainsi, d'après la question précédente et le théorème de comparaison aux séries de \nom{Riemann}, la série de terme général $\ln\frac{u_{n+1}}{u_n}$ converge.
 
 \item Pour tout $N \geqslant 2$, en reconnaissant une somme télescopique,
 \[
@@ -181,7 +181,7 @@ D'après la continuité de la fonction exponentielle, la suite $(u_n)_{n\in\Ne}$
 
 Ainsi, $n! \sim \ell \left(\frac{n}{\e}\right)^n \sqrt{n}$.
 
-\item D'après les résultats sur les intégrales de \textsc{Wallis},
+\item D'après les résultats sur les intégrales de \nom{Wallis},
 \[
 \Wallis_{2p}
 \sim \sqrt{\frac{\pi}{2\times 2p}}
@@ -323,7 +323,7 @@ Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis
 
 \begin{solution}
 \begin{enumerate}
-\item Posons $u_n = (-1)^n \Wallis_n$. D'après les propriétés des intégrales de \textsc{Wallis} démontrées dans l'exercice \ref{exo:propWallis},
+\item Posons $u_n = (-1)^n \Wallis_n$. D'après les propriétés des intégrales de \nom{Wallis} démontrées dans l'exercice \ref{exo:propWallis},
 \begin{itemize}
 \item pour tout $n \in \N$, $u_n u_{n+1} < 0$,
 \item la suite de terme général $\abs{u_n} = \Wallis_n$ est décroissante,
@@ -420,7 +420,7 @@ Pour tout $n$ entier naturel non nul, on note
 I_n = \int_0^\pi \sin(t)^n \d t.
 \]
 \begin{questions}
-\item Exprimer $I_n$ en fonction de l'intégrale de \textsc{Wallis} $\Wallis_n$.
+\item Exprimer $I_n$ en fonction de l'intégrale de \nom{Wallis} $\Wallis_n$.
 
 \item En déduire l'expression de $I_n$ en fonction de $n$.
 
@@ -493,16 +493,16 @@ et
 \todoinline{J'ai changé les ; en . dans la remarque car j'avais des difficultés à la lire. Il faudrait référencer le ch.13.}
 
 \begin{remarque}
-Interprétons physiquement ces considérations. En physique statistique, on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule. lorsque celles-ci sont en très grand nombre, l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (quantités liées à la vitesse). Reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13). On peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons là l'hypothèse ergodique de \textsc{Boltzmann} et \textsc{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
+Interprétons physiquement ces considérations. En physique statistique, on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule. lorsque celles-ci sont en très grand nombre, l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (quantités liées à la vitesse). Reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13). On peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons là l'hypothèse ergodique de \nompropre{Boltzmann} et \nompropre{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}
 \end{remarque}
 
 
 
 
-\subsection{\textsc{Grain de raisin}: Produit de \textsc{Wallis}}
+\subsection{\textsc{Grain de raisin}: Produit de \nom{Wallis}}
 
 \marginnote[0cm]{
-    L'expression \chevron{Grain de raisin} est une référence à l'extrait suivant \url{https://youtube.com/clip/UgkxzacmUJF7Qr3526JmMgMOwLirh_c-gddc?si=AUUGMWZPFH8aNZl7} d'une discussion entre Jean-Pierre \textsc{Serre} et Christophe \textsc{Ritzenthaler}.
+    L'expression \chevron{Grain de raisin} est une référence à l'extrait suivant \url{https://youtube.com/clip/UgkxzacmUJF7Qr3526JmMgMOwLirh_c-gddc?si=AUUGMWZPFH8aNZl7} d'une discussion entre Jean-Pierre \nom{Serre} et Christophe \nom{Ritzenthaler}.
     % \begin{figure}
     % \centering
     \begin{center}
@@ -511,15 +511,15 @@ Interprétons physiquement ces considérations. En physique statistique, on util
     % \end{figure}
 }
 
-\begin{prop}{Produit de \textsc{Wallis}}
-    Formule énoncée en 1656 par John \textsc{Wallis}, dans son ouvrage \emph{Arithmetica infinitorum}
+\begin{prop}{Produit de \nom{Wallis}}
+    Formule énoncée en 1656 par John \nom{Wallis}, dans son ouvrage \emph{Arithmetica infinitorum}
     $$\prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{\pi}{2}.$$
 \end{prop}
 
 \begin{demo}
     Puisque $\Wallis_{2n} \sim \Wallis_{2n+1}$, 
     $$\lim_{n \to +\infty} \frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\pi}{2}.$$
-    Or d'après le calcul des intégrales de \textsc{Wallis}:
+    Or d'après le calcul des intégrales de \nom{Wallis}:
     $$\frac{\Wallis_{2n+1}}{\Wallis_{2n} / \frac{\pi}{2}} = \frac{\frac{2^{2p}(p!)^2}{(2p+1)!}}{\frac{(2p)!}{2^{2p}(p!)^2}} = \prod_{k=1}^n \frac{4k^2}{4k^2-1}.$$
 \end{demo}
 

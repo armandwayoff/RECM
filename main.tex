@@ -16,12 +16,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\addbibresource{main.bib} % Bibliography file
+\addbibresource{main.bib} 
 
 \makeglossaries
 \input{glossaire_mathematiciens}
 
-\makeindex[name=mathematiciens,title=Mathématiciens,columns=2]
 \makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2]
 \makeindex[name=notations,title=Notations,columns=2]
 
@@ -29,9 +28,6 @@
 
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
-
-% Pour remplacer la version anglaise par défaut
-\addto\captionsfrench{\def\tablename{Tableau}}
 
 \begin{document}
 
@@ -242,6 +238,7 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \input{chapitres/variables_aleatoires/variables_aleatoires}
 \end{comment}
 
+\begin{comment}
 \chapter{Exercices par thème}
 \section{Endomorphismes nilpotents}
 \begin{enumerate}
@@ -270,6 +267,7 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
     \item $u$ est trigonalisable et sa seule valeur propre est $0$;
     \item $0$ est la seule valeur propre de $u$.
 \end{enumerate}
+\end{comment}
 
 % \printindex[mathematiciens]
 \printglossary[title=Mathématiciens]
