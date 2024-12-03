@@ -1,13 +1,12 @@
-\section{Transformée de \textsc{Laplace}} 
+\section{Transformée de \nom{Laplace}} 
 \label{transformee_laplace}
 
-\todoinline{On pourrait tenter une illustration ? La transformée de Laplace d'une fonction échelon ?}
 \todoarmand{Un thème assez développé sur la transformée de Laplace : \url{https://cahier-de-prepa.fr/ecg2-saintlouis/download?id=289}
 }
 
-La transformation de \textsc{Laplace} généralise la transformation de \textsc{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
+La transformation de \nom{Laplace} généralise la transformation de \nom{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
 
-Dans ce type d'analyse, la transformation de \textsc{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
+Dans ce type d'analyse, la transformation de \nom{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
 
 \begin{defi}[Fonction causale]
 \begin{comment}
@@ -21,13 +20,13 @@ Une fonction $f$ définie sur $\R$ est une \definir{fonction causale} si elle es
 
 
 \begin{remarque}
-La fonction de \textsc{Heaviside} est définie par $H = \indicatrice{\Rp}$. Étant donnée une fonction $g$ non causale, la fonction $f = H \times g$ est une fonction causale.
+La fonction de \nom{Heaviside} est définie par $H = \indicatrice{\Rp}$. Étant donnée une fonction $g$ non causale, la fonction $f = H \times g$ est une fonction causale.
 \end{remarque}
 
-\begin{defi}[Transformée de \textsc{Laplace}]
+\begin{defi}[Transformée de \nom{Laplace}]
     Soit $f$ une fonction causale. On note, lorsqu'elle converge, 
     $$\mathscr{L}(f)(p) \defeq \int_{0}^{+ \infty} \e^{-pt} f(t) \d t.$$
-    La fonction $\mathscr{L}(f)$ est la \emph{transformée de \textsc{Laplace} de f}.
+    La fonction $\mathscr{L}(f)$ est la \definir{transformée de \nom{Laplace} de $f$}.
 \end{defi}
 
 \marginnote[0cm]{Sources : \cite{exos_oraux} + \cite{acamanes} (Exercice cerise Ch. 12)}
@@ -42,10 +41,10 @@ La fonction de \textsc{Heaviside} est définie par $H = \indicatrice{\Rp}$. Éta
 \todoinline{Pointer vers CCP - MP - 2011}
 
 %-----------
-\subsection{Exemples de transformées de \textsc{Laplace}}
+\subsection{Exemples de transformées de \nom{Laplace}}
 
 \begin{exercice}
-Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~\textsc{Laplace} en précisant le domaine de définition :
+Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, déterminer leur transformée de~\nom{Laplace} en précisant le domaine de définition :
 \begin{tasks}(3)
     \task $t \mapsto 1$.
     \task $t \mapsto \e^{\lambda t}$.
@@ -87,7 +86,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \input{chapitres/integration/15-transformee_de_laplace-tableau}
 
 \begin{remarque}
-À un changement de variable près, on reconnaît, pour la dernière transformée de Laplace, la fonction Gamma d'\textsc{Euler}.\marginnote[0pt]{\href{subsec:FonctionGammaEuler}{\faLink~Fonction Gamma d'\textsc{Euler}}}
+À un changement de variable près, on reconnaît, pour la dernière transformée de \nom{Laplace}, la fonction Gamma d'\nom{Euler}.\marginnote[0pt]{\href{subsec:FonctionGammaEuler}{\faLink~Fonction Gamma d'\nom{Euler}}}
 \end{remarque}
 
 
@@ -118,7 +117,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \]
 De plus, la fonction $\fonctionligne[\phi_j]{t}{M t^j \e^{-\tilde{p} t}}$ est continue sur $\Rp$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
 \end{itemize}
-Ainsi, la transformée de \textsc{Laplace} $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
+Ainsi, la transformée de \nom{Laplace} $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
 
 \item Lorsque $p = 0$, l'intégrale $\int_0^{+\infty} \e^{-0\cdot t} f(t) \d t$ converge par hypothèse et $\mathscr{L}(f)(0)$ est donc bien définie.
 
@@ -259,7 +258,7 @@ p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 &\leqslant c p\, \e^{-(p-\tilde{p}) h}.
 \end{align*}
 
-\item Finalement, en utilisant l'inégalité triangulaire et la relation de \textsc{Chasles}, pour $p \geqslant \tilde{p}$,
+\item Finalement, en utilisant l'inégalité triangulaire et la relation de \nom{Chasles}, pour $p \geqslant \tilde{p}$,
 \begin{align*}
 \abs{p\, \mathscr{L}(f)(p) - \ell}
 &\leqslant \int_0^{+\infty} p \abs{f(t) - \ell} \e^{-p t} \d t \\
@@ -284,7 +283,7 @@ Ainsi, d'après la définition de la limite,
 
 
 %--------------
-\subsubsection{Méthode de Laplace}
+\subsubsection{Méthode de \nom{Laplace}}
 \todoinline{Ajouter méthode de Laplace ? cf . Mines 2 - PC - 2017 - Un cas discret est traité, ici on traite un cas continu}
 
 \todoinline{Phrase introductive - Voir Rouvière - Petit guide de calcul différentiel pour un théorème plus complet}
@@ -298,7 +297,7 @@ F(t) = \int_0^{+\infty} \e^{-t x^2} f(t) \d x
 \end{theo}
 
 \begin{remarque}
-Par rapport au théorème de la valeur initiale, la fonction $\e^{-t x}$ a été remplacée par $\e^{-t x^2}$. L'heuristique de la démonstration est identique, à savoir que dès que $t$ devient grand, seules les valeurs de $f$ proches de $0$ comptent. Une généralisation de ce résultat permet de retrouver la formule de \textsc{Stirling}. 
+Par rapport au théorème de la valeur initiale, la fonction $\e^{-t x}$ a été remplacée par $\e^{-t x^2}$. L'heuristique de la démonstration est identique, à savoir que dès que $t$ devient grand, seules les valeurs de $f$ proches de $0$ comptent. Une généralisation de ce résultat permet de retrouver la formule de \nom{Stirling}. 
 \end{remarque}
 
 \begin{exercice}
@@ -344,11 +343,11 @@ Ainsi, comme $f$ est intégrable,
 \lim_{t\to+\infty} \sqrt{t} \int_1^{+\infty} \e^{-t x^2} f(x) \d x = 0.
 \]
 
-\item Finalement, en utilisant la relation de Chasles,
+\item Finalement, en utilisant la relation de \nom{Chasles},
 \[
 \lim_{t\to+\infty} \sqrt{t} \int_0^{+\infty} \e^{-t x^2} f(x) \d x = f(0) \int_0^{+\infty} \e^{-u^2} \d u.
 \]
-On conclut en utilisant l'intégrale de Gauss.
+On conclut en utilisant l'intégrale de \nom{Gauss}.
 \end{reponses}
 \end{demo}
 
