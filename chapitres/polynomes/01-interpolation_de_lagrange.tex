@@ -1,0 +1,277 @@
+%========
+\section{Polynômes d'interpolation de \nom{Lagrange}}
+
+Pour tous $i,\, j \in \N$, on définit le symbole de \nom{Kronecker} par $\delta_{i,j} = 1$ si $i = j$ et $\delta_{i,j} = 0$ sinon.
+
+Dans la suite, $n$ désigne un entier naturel non nul et $(a_0, \ldots, a_n)$ une famille de nombres réels deux à deux distincts.
+
+\begin{defi}[Polynôme d'interpolation de \nom{Lagrange}]
+Pour tout $(b_0,\ldots,b_n) \in \K^{n+1}$, il existe un unique polynôme $P \in \mathbb{K}_n[X]$ tel que, pour tout $i \in \interent{0}{n}$, $P(a_i) = b_i$.
+\end{defi}
+
+\todoinline{Dessin de l'interpolation}
+
+\begin{exercice}
+On considère l'application
+\[
+\begin{array}{lccc}
+\phi : & \K[X] &\to& \K^{n+1}\\
+&P&\mapsto&(P(a_0),\ldots,P(a_n))
+\end{array}
+\]
+et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$.
+\begin{questions}
+\item Avec le théorème du rang.
+\begin{questions}
+\item Déterminer $\Ker \phi$ puis montrer que $\K_n[X]$ est un supplémentaire de $\Ker \phi$.
+
+\item En déduire que $\phi_n$ réalise une bijection de $\K_n[X]$ sur $\K^{n+1}$.
+
+\item Conclure.
+\end{questions}
+
+\item Avec le déterminant de \nom{Vandermonde}.
+\begin{questions}
+\item Déterminer la matrice de $\phi_n$ dans la base canonique.
+
+\item Conclure.
+\end{questions}
+\end{questions}
+\end{exercice}
+
+
+\begin{defi}[Base d'interpolation de \nom{Lagrange}]
+Pour tout $i \in \interent{0}{n}$, notons $L_i$ le polynôme tel que
+\[
+\forall\, j \in \interent{0}{n},\, L_i(a_j) = \delta_{i,j}.
+\]
+Alors, $(L_0,\ldots,L_n)$ est une base de $\mathbb{K}_n[X]$.
+\end{defi}
+
+\begin{exercice}
+\begin{questions}
+\item En utilisant l'exercice précédent.
+\begin{questions}
+\item 
+\end{questions}
+
+\item Avec une expression explicite. Pour tout $i \in \interent{0}{n}$, on pose $L_i = \prod\limits_{j \neq i} \frac{X - a_j}{a_i - a_j}$.
+\begin{questions}
+
+\item
+
+\end{questions}
+
+\item Déterminer $\sum\limits_{i=0}^n L_i$.
+
+\item Déterminer les applications linéaires coordonnées associées à la base $\mathscr{L}_n$ de $\mathbb{K}_n[X]$.
+
+\item On considère l'application
+\[
+\begin{array}{lccc}
+\pi : &\K[X]&\to\K[X]\\
+&P&\mapsto&\sum_{i=0}^n P(a_i) L_i.
+\end{array}
+\]
+\begin{questions}
+\item Montrer que $\pi$ est un projecteur.
+
+\item Déterminer le noyau et l'image de $\pi$.
+\end{questions}
+\end{questions}
+\end{exercice}
+
+
+\begin{exercice}
+\begin{itemize}
+\item Soit $P \in \mathbb{K}[X]$ de degré $n+1$. On note $P \mathbb{K}[X] = \left\{P Q,\, Q \in \mathbb{K}[X]\right\}$. Montrer que $\mathbb{K}_n[X]$ et $P \mathbb{K}[X]$ sont supplémentaires dans $\mathbb{K}[X]$, puis déterminer une base adaptée à la décomposition $\mathbb{K}[X] = \mathbb{K}_n[X] \oplus P \mathbb{K}[X]$.
+
+\medskip
+
+Soit $\phi$ l'application de $\mathbb{K}[X]$ dans $\mathbb{K}^{n+1}$ définie, pour tout $P \in \mathbb{K}[X]$, par
+\[
+\phi(P) = (P(a_0),\ldots,P(a_n)).
+\]
+
+\item Déterminer $\Ker \phi$, puis montrer que $\mathbb{K}_n[X]$ est un supplémentaire de $\Ker \phi$.
+
+\item En déduire que $\phi$ réalise un isomorphisme, noté $\phi_n$, de $\mathbb{K}_n[X]$ dans $\mathbb{K}^{n+1}$.
+
+\item En notant $(e_i)_{i\in\interent{0}{n}}$ la base canonique de $\mathbb{K}^{n+1}$, déterminer, pour tout entier $i \in \interent{0}{n}$, $L_i = \phi_n^{-1}(e_i)$.
+
+\item Montrer que la famille $\mathscr{L}_n = (L_0,\ldots,L_n)$ est une base de $\mathbb{K}_n[X]$.
+
+La famille $\mathscr{L}_n$ est la base des polynômes d'interpolation de \cite{Lagrange} associée à $(a_0,\ldots,a_n)$.
+\item Montrer que $\sum_{i=0}^n L_i = 1$.
+
+\smallskip
+
+\item Déterminer la matrice de $\phi_n$ de la base $(1,X,\ldots,X^n)$ dans la base $(e_0,\ldots,e_n)$ et retrouver la bijectivité de $\phi_n$.
+
+\smallskip
+
+
+\smallskip
+
+Soit $\pi$ l'application définie pour tout $P \in \mathbb{K}[X]$ par $\pi(P) = \sum_{i=0}^n P(a_i) L_i$.
+
+\item Montrer que $\pi$ est un projecteur de $\mathbb{K}[X]$.
+
+\item Déterminer le noyau et l'image de $\pi$.
+\end{itemize}
+\end{exercice}
+
+\begin{solution}
+\begin{itemize}
+\item
+
+\item
+
+\item
+
+\item
+
+\item
+
+\item On pose $R = 1 - \sum_{i=0}^n L_i$. Alors, $\deg(R) \leq n$ et pour tout $i \in \interent{0}{n}$, $R(a_i) = 0$. Ainsi, $R$ est de degré au plus $n$ et possède $n+1$ racines distinctes donc $R = 0$.
+
+
+{2ème méthode.} $\sum L_i = \phi_n^{-1}(\sum e_i) = \phi_n^{-1}(1,\ldots,1) = 1$.
+
+\item
+
+\item D'après la définition, $\phi_n(P) = \sum_{i=0}^n P(a_i) e_i$. Ainsi, comme $\phi_n^{-1}$ est linéaire, $P = \sum_{i=0}^n P(a_i) \phi_n^{-1}(e_i) = \sum_{i=0}^n P(a_i) L_i$. Ainsi, la famille des formes linéaires coordonnées est $(f_0,\ldots,f_n)$ où $f_i : P \mapsto P(a_i)$.
+\end{itemize}
+\end{solution}
+
+
+
+%-----------
+\subsection{Erreur d'interpolation}
+
+On suppose ici que $(a_0,\ldots,a_n) \in \interff{-1}{1}^{n+1}$ et que $a_0 < \cdots < a_n$.
+
+\begin{theo}[\nom{Lagrange}, \nom{Gibbs} \& \nom{Tchebychev}]
+Soit $f$ une fonction de classe $\mathscr{C}^{n+1}(\interff{-1}{1},\R)$. Notons $P_{\mathbf{a}}(f)$ le polynôme d'interpolation de \nom{Lagrange} associé à $f$. Alors, $\norm{f - P_{\mathbf{a}}(f)}_\infty$ est minimale lorsque $a_0,\ldots,a_n$ sont les racines du $n$\ieme{} polynôme de Tchebychev.
+\end{theo}
+
+
+\begin{itemize}
+\item Soient $f \in \mathscr{C}^{n+1}(\interff{-1}{1},\R)$ et $P_f$ le polynôme d'interpolation de Lagrange associé à $f$. Montrer que
+\[
+\forall\, x\in \interff{-1}{1},\, \exists\, \xi \in \interoo{-1}{1} ~;~
+f(x) - P_f(x) =  f^{(n+1)}(\xi) \cdot \frac{\prod_{i=0}^n (x-a_i)}{(n+1)!}.
+\]
+{\footnotesize On pourra considérer la fonction $\phi~:~\interff{-1}{1} \to \R,\, t \mapsto  f(t) - P_f(t) - K \prod_{i=0}^n (t-a_i)$.
+}
+
+\medskip
+
+Pour tout entier naturel $n$, on note $t_{n+1} = 2^{-n} T_{n+1}$.
+\item Montrer que $t_{n+1}$ est un polynôme unitaire.
+
+\item Montrer que, pour tout polynôme $Q$ unitaire de degré $n+1$, $\|Q\|_\infty \geq 2^{-n}$ avec égalité si et seulement si $Q = t_{n+1}$.
+
+\item Quel est l'intérêt des racines des polynômes de Tchebychev dans l'interpolation de Lagrange~?
+\end{itemize}
+
+
+\begin{solution}
+\begin{questions}
+\item Soit $i \in \interent{0}{n}$. Posons 
+\[
+L_i(X) = \prod_{j=0,\, j \neq i}^n \frac{(X - a_j)}{(a_i - a_j)}.
+\]
+Pour tout $j \in \interent{0}{n}$, on a bien $L_i(a_j) = \delta_{ij}$ et $L_i$ est de degré $n-1$. \\
+Montrons que ce polynôme est unique. Soit $R_i \in \R_n[X]$ tel que pour tout $j \in \interent{0}{n}$, $R_i(a_j) = \delta_{ij}$. On a alors, pour tout $j \in \interent{0}{n}$, $(R_i - L_i)(a_j) = 0$. Ainsi, $R_i - L_i$ est un polynôme de degré au plus $n$ qui a $n+1$ racines distinctes, soit $R_i = L_i$. \\
+Finalement,
+{
+\[L_i(X) = \prod_{j=0,\, j \neq i}^n \frac{(X - a_j)}{(a_i - a_j)}.\]
+}
+
+\item Soit $(\lg_i)_{i\in\interent{0}{n}} \in \R^{n+1}$ tel que $\sum_{i=0}^n \lg_i L_i = 0$. Alors, en identifiant polynômes et fonctions polynomiales, pour tout $j \in \interent{0}{n}$, $\sum_{i=0}^n \lg_i L_i(a_j) = 0$, soit $\lg_j = 0$. Ainsi, la famille $(L_i)_{i\in\interent{0}{n}}$ est libre et a $n+1$ éléments. Finalement,
+{\[
+(L_i)_{i\in\interent{0}{n}} \text{ est une base de } \R_n[X].
+\]
+}
+
+
+\item Soit $P \in \R[X]$. On remarque que $\pi$ est un endomorphisme de $\R[X]$. Montrons que $\pi \circ \pi(P) = P$. Comme $\pi(P) = \sum_{i=0}^n P(a_i) L_i$, pour tout $j \in \interent{0}{n}$, $\pi(P)(a_j) = P(a_j)$. De plus, $\pi(P)$ est un polynôme de degré au plus $n$, d'où $\pi(\pi(P)) = \pi(P)$. Ainsi,
+{
+$\pi$ \text{ est un projecteur}.
+}
+
+\item On montre que (le faire~!) $\Ker \pi = \left\{ \prod_{i=0}^n (X - a_i) Q ; Q \in \R[X] \right\}$.\\
+Comme pour tout $i \in \interent{0}{n}$, $\pi(L_i) = L_i$ et $(L_i)$ est une base de $\R_n[X]$, alors
+\begin{align*}
+\mathrm{Im} \pi &= \mathrm{Vect}\{\pi(L_i),\, i \in \interent{0}{n}\} \\
+&= \mathrm{Vect}\{L_i,\, i \in \interent{0}{n}\} \\
+&= R_n[X].
+\end{align*}
+Ainsi,
+{
+$\mathrm{Im} \pi = \R_n[X]$.
+}
+
+\item On montre sans difficulté que $\eg$ est un morphisme. \\
+De plus, en notant $(\eg_0,\ldots,\eg_n)$ la base canonique de $\R^{n+1}$, alors pour tout entier naturel $i \in \interent{0}{n}$, $\eg(L_i) = \eg_i$. Ainsi, l'image par $\eg$ d'une base est une base et
+{
+$\delta$ \text{ est un isomorphisme}.
+}
+
+\item Soit $f$ une fonction à valeurs réelles. Comme $(f(a_i))_{i\in\interent{0}{n}} \in \R^{n+1}$ et que $\eg$ est surjective, d'après la question précédente, il existe un polynôme $P \in \R_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
+
+\item Soit $x \in [a,b]$. Si $x \in \{a_0,\ldots,a_n\}$, tout réel $\xi \in [-1, 1]$ convient. Sinon, soit $K \in \R$ tel que $\phi~:~[a,b] \to \R,\, x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i) = 0$.\\
+La fonction $\phi$ possède $n+2$ zéros, donc, comme $f$ est de classe $\mathscr{C}^{n+1}$, en appliquant plusieurs fois Rolles (à rédiger~!), il existe $\xi \in ]a,b[$ tel que $\phi^{(n+1)}(\xi) = 0$. Ainsi, $0 = f^{(n+1)}(\xi) - (n+1)! \cdot K$.\\
+Comme $f^{(n+1)}$ est continue sur le segment $[a,b]$, elle admet une borne supérieure. D'où,
+\[
+|f(x) - P(x)| \leq \sup_{[a,b]} |f^{(n+1)}| \frac{\prod_{i=0}^n |x-a_i|}{(n+1)!}.
+\]
+{
+On peut ainsi, pour des fonctions régulières, contrôler l'erreur d'approximation de la fonction par un polynôme. Cependant, tout ne se passe pas bien et il arrive que le polynôme d'interpolation de Lagrange { ne converge pas} (en un sens à préciser) vers la fonction $f$. On pourra consulter le sujet de Saint-Cyr 1993.
+}
+
+\item Le polynôme de Tchebychev $T_{n+1}$ est de degré $(n+1)$. De plus, pour tout $k \in \interent{0}{n}$, le réel $x_k = \cos \frac{(2k+1)\pi}{2(n+1)}$ est une racine de $T_{n+1}$. De plus, la fonction cosinus étant strictement monotone sur $[0,\pi]$, ces racines sont distinctes. Comme $T_{n+1}$ est de degré $n+1$, il possède au plus $n+1$ racines distinctes, donc ses racines sont exactement les $(x_k)_{k\in\interent{0}{n}}$ et $T_{n+1}$ est scindé.
+
+\item On montre en utilisant les formules d'Euler et de Newton que le coefficient de plus haut degré de $T_{n+1}$ est $2^n$. Ainsi, $t_{n+1}$ est bien un polynôme unitaire.
+
+\item Soit $Q$ un polynôme unitaire de degré $n+1$. Supposons par l'absurde que $\|Q\|_\infty < 2^{-n}$ et posons $R = Q - t_{n+1}$. Alors, pour tout $k \in \interent{0}{n+1}$, $t_{n+1}(\cos \frac{k\pi}{n+1}) = (-1)^k 2^{-n}$. Ainsi, le polynôme $R$ change $n+2$ fois de signe donc, d'après le théorème de Rolles, admet au moins $n+1$ racines distinctes. De plus, comme $Q$ et $t_{n+1}$ sont de degré $n+1$, alors $R$ est de degré au plus $n$. Ainsi, $R = 0$, soit $Q = t_{n+1}$ et on obtient une contradiction car $\|t_{n+1}\|_\infty = 2^{-n}$. D'où,
+{
+\[\|Q\|_\infty \geq 2^{-n}.\]
+}
+
+Soit $Q$ tel que $\|Q\|_\infty = 2^{-n}$. Posons $R = Q - t_{n+1}$. Notons, pour tout $k \in \interent{0}{n+1}$, $y_k = \cos \frac{k\pi}{n+1}$ et $L_R$ le polynôme d'interpolation de Lagrange de $R$ en les points $(y_k)_{k\in\interent{0}{n}}$. \\
+D'une part, $R$ est de degré au plus $n$ car $Q$ et $t_{n+1}$ sont unitaires. Ainsi, $R = L_R$. Donc, le coefficient de degré $n+1$ de $L_R$ est nul, soit $\sum_{k=0}^n \frac{R(y_k)}{\prod_{i\neq k} (y_k-y_i)} = 0$.
+
+Soit $k \in \interent{0}{n+1}$,
+\begin{align*}
+R(y_k) &= Q(y_k) - (-1)^k 2^{-n} \\
+&= 2^{-n} \left[\frac{Q(y_k)}{2^{-n}} - (-1)^k\right],
+\end{align*}
+soit
+\[
+-2^{-n} (1 + (-1)^k) \leq R(y_k) \leq 2^{-n} (1 - (-1)^k)
+\]
+et $(-1)^k R(y_k) \geq 0$.
+
+Or, $\prod_{i\neq k} (y_k-y_i)$ est du même signe que $(-1)^k$. Ainsi, d'après les deux points précédents,
+\[
+\forall\, k \in \interent{0}{n},\, R(y_k) = 0.
+\]
+
+Finalement, $R$ est le polynôme nul, soit
+{
+$Q = t_{n+1}$.
+}
+
+\item En notant $Q = \prod_{i=0}^n (X-a_i)$, $Q$ est un polynôme unitaire de degré $n+1$. Comme
+\[
+|f(x) - P_f(x)| \leq \|f^{(n+1)}\|_\infty \frac{\|Q\|_\infty}{(n+1)!},
+\]
+cette majoration est minimale lorsque $Q = t_{n+1}$. Ainsi, les racines des polynômes de Tchebychev permettent de minimiser l'erreur dans l'intrepolation de Lagrange.
+% \indic{
+
+Attention, cela ne signifie pas pour autant que le polynôme d'interpolation converge vers $f$ lorsque $n$ tend vers l'infini. On pourra étudier en particulier le phénomène de Runge.
+% }
+\end{questions}
+\end{solution}
