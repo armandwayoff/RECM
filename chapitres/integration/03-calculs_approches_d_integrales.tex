@@ -5,6 +5,8 @@ Nous abordons dans cette section quelques méthodes dont le but est d’estimer 
 I = \int_a^b f(t) \d t.
 \]
 Ces méthodes nous fourniront une valeur approchée $\widetilde{I}$ de l'intégrale $I$ de sorte que \chevron{$\widetilde{I} \approx I$}. \\
+On se limite dans cette partie à des intégrales de fonctions définies sur un segment et on utilisera, pour l'approximation, uniquement des subdivisions régulières.
+
 Soient $a$ et $b$ deux réels tels que $a < b$. Pour tout entier naturel $p$ non nul, on note $(x_i)_{i\in\llbracket 0, p \rrbracket}$ la subdivision régulière de $[a, b]$ de pas $\frac{b-a}{p}$. Ainsi, pour tout $i \in \llbracket 0, p \rrbracket$,
 \[
 x_i = a + i\, \frac{b-a}{p}.
@@ -350,7 +352,7 @@ puis l'intégrale sur le segment $\interff{a}{b}$ par
 I_p(f) = \sum_{i=0}^{n-1} (x_{i+1} - x_i) \bigg[ \sum_{j=0}^p \gamma_j f(x_i + (x_{i+1} - x_i) y_j) \bigg].
 \] 
 
-On peut montrer que :
+On peut montrer que~\cite{demailly16} :
 \begin{itemize}
 \item lorsque $n = 1$, on retrouve la formule des trapèzes.
 
@@ -375,10 +377,3 @@ On peut montrer que la méthode de \nom{Simpson} est d'ordre $3$. On peut augmen
     \end{tblr}
     \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
 \end{table} % margintable
-
-\todoinline{
-Je veux bien que tu t'occupes de ces deux points rapides, je ne maîtrise pas encore les différentes fonctions.
-
-Mettre ici un lien vers un thème sur les polynômes d'interpolation de Lagrange.
-
-On pourrait ajouter vers le livre Demailly - Analyse numérique et équations différentielles}
