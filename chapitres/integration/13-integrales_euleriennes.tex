@@ -5,6 +5,7 @@
 De premières tentatives pour définir la factorielle de valeurs non entières remontent à James \nom{Stirling} et Daniel \nom{Bernoulli}. Dans une lettre à Christian \nom{Goldbach} du 13 octobre 1729, \nom{Euler} découvre (ou invente ?) une fonction de la variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
 
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \nom{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \nom{Gauss}, \nom{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
+\todoarmand{Utiliser la commande nom}
 
 \todoinline{Je garde pour lecture dès que possible ! On met une citation ? J'ai l'impression que c'est American Monthly ?}
 
@@ -14,15 +15,15 @@ Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales 
 Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $\interoo{-1}{+\infty}$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
 \todoarmand{Introduction à réécrire à partir de la ressource ci-dessus.}
 
-\subsection{Fonction Gamma d'\textsc{Euler}}\label{subsec:FonctionGammaEuler}
+\subsection{Fonction Gamma d'\nom{Euler}}\label{subsec:FonctionGammaEuler}
 
 %\begin{marginfigure}[3cm]
 %    \input{illustrations/i_fonction_gamma}
 %    \caption*{\centering Graphe de la fonction Gamma}
 %\end{marginfigure}
 
-\begin{defi}[Fonction Gamma d'\textsc{Euler}]
-    La \emph{fonction Gamma d'\textsc{Euler}} est définie par: 
+\begin{defi}[Fonction Gamma d'\nom{Euler}]
+    La \emph{fonction Gamma d'\nom{Euler}} est définie par: 
     $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
 \end{defi}
 
@@ -46,7 +47,7 @@ En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$.
 
 La fonction $f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
 
-Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de \textsc{Riemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
+Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de \nom{Riemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
 
 Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$.
 
@@ -140,7 +141,7 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 \item Montrer que $\Gamma$ est convexe.
 
 \item Montrer que $\ln(\Gamma)$ est convexe.\\
-\emph{Indication :} On pourra utiliser l'inégalité de Cauchy-Schwarz.
+\emph{Indication :} On pourra utiliser l'inégalité de \nom{Cauchy}--\nom{Schwarz}.
 % et étudier ses variations.
 \end{questions}
 \end{exercice}
@@ -170,7 +171,7 @@ f' &= \frac{\Gamma'}{\Gamma},\,
 f'' = \frac{\Gamma'' \Gamma - (\Gamma')^2}{\Gamma^2}.
 \end{align*}
 
-De plus, d'après l'inégalité de Cauchy-Scwharz, pour tout $x > 0$,
+De plus, d'après l'inégalité de \nom{Cauchy}--\nom{Schwarz}, pour tout $x > 0$,
 \begin{align*}
 \Gamma'(x)^2
 &= \left(\int_0^{+\infty} \ln(t) t^{x-1} \e^{-t} \d t\right)^2 \\
@@ -287,8 +288,8 @@ La fonction $g$ est donc unique et égale à $\Gamma$.
 \subsubsection{$\Gamma$ et $\gamma$}
 \todoinline{Ajout de cette section - À relire rapidement - Mettre un lien vers $\gamma$ dans le chapitre suites et séries ? - Apparu également dans un sujet d'oral Centrale 2 (2021)}
 
-\begin{defi}{Constante $\gamma$ d'Euler}
-La limite suivante est bien définie et appelée constante $\gamma$ d'Euler :
+\begin{defi}{Constante $\gamma$ d'\nom{Euler}}
+La limite suivante est bien définie et appelée constante $\gamma$ d'\nom{Euler} :
 \[
 \gamma = \lim_{n\to+\infty} \left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
 \]
@@ -300,7 +301,7 @@ La limite suivante est bien définie et appelée constante $\gamma$ d'Euler :
 \]
 \end{theo}
 
-\marginnote[0cm]{Patrice Lassère, p. 210}
+\marginnote[0cm]{Patrice \nompropre{Lassère}, p. 210}
 \begin{exercice}
 Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
 \begin{questions}
@@ -351,7 +352,7 @@ On obtient la limite annoncée en utilisant le théorème de convergence dominé
 &= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
 \end{align*}
 
-\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'intégration par parties généralisée puis à l'aide de la formule de Bernoulli,
+\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'intégration par parties généralisée puis à l'aide de la formule de \nom{Bernoulli},
 \begin{align*}
 (n+1) \int_0^1 (1 - u)^n \ln(u) \d u
 &= \int_0^1 \frac{\left(1 - u\right)^{n+1} - 1}{u} \d t
@@ -373,8 +374,8 @@ On obtient la limite annoncée en utilisant le théorème de convergence dominé
 
 
 %..............
-\subsubsection{Fonction $\Gamma$ et intégrale de \textsc{Gauss}}
-\marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \textsc{Gauss}}}
+\subsubsection{Fonction $\Gamma$ et intégrale de \nom{Gauss}}
+\marginnote[0cm]{\href{sec:intGauss}{\faLink~Intégrale de \nom{Gauss}}}
 
 \begin{theo}
 $\Gamma\mathopen{}\left(\frac{1}{2}\right) = \sqrt{\pi}$
@@ -397,7 +398,7 @@ On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$
 = \int_{- \infty}^{+ \infty} \e^{-u^2} \d u
 = \sqrt{\pi},
 \end{align*}
-d'après les résultats sur l'intégrale de \textsc{Gauss}.
+d'après les résultats sur l'intégrale de \nom{Gauss}.
 
 Le second point s'obtient en utilisant l'égalité
 \[
@@ -447,7 +448,7 @@ Pour tout $(p,q) \in \N^2$,
 \marginnote[0cm]{
 Sources : 
 \begin{itemize}
-    \item \href{https://fr.wikipedia.org/wiki/Intégrale_d'Euler}{Intégrale d'\textsc{Euler} -- \textsf{wikipedia.org}}
+    \item \href{https://fr.wikipedia.org/wiki/Intégrale_d'Euler}{Intégrale d'\nom{Euler} -- \textsf{wikipedia.org}}
     \item \cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.
 \end{itemize}
 }
@@ -508,7 +509,7 @@ b_{n,p}
 = \frac{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n+1} \left(\frac{i}{p}\right)^n}{\frac{1}{p} \sum\limits_{i=1}^p \left(1 - \frac{i}{p}\right)^{n} \left(\frac{i}{p}\right)^n} \cdot \frac{\binom{2n+1}{n+1}}{\binom{2n}{n}}.
 \]
 
-\item En utilisant les limites des sommes de \textsc{Riemann},
+\item En utilisant les limites des sommes de \nom{Riemann},
 \[
 \lim\limits_{p\to+\infty} b_{n,p} = \frac{2n+1}{n+1} \cdot \frac{\int_0^1 (1 - x)^{n+1} x^n \d x}{\int_0^1 (1 - x)^n x^n \d x}.
 \]
@@ -523,14 +524,14 @@ Cette limite vaut donc
 \subsubsection{Des fonctions Bêta et des sommes}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : Clémentine \textsc{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
+    \marginnote[0cm]{Source : Clémentine \nompropre{Portal} (PCSI1, Collège Stanislas) feuille d'exo n°7, exo 11}
 Soit $(p, q) \in \N^2$.
 
 Déterminer une expression sans signe somme de $\sum\limits_{k=0}^q \binom{q}{k} \frac{(-1)^k}{p+k+1}$.
 \end{exercice}
 
 \begin{solution}
-En utilisant la formule du binôme de \textsc{Newton} puis la linéarité de l'intégrale,
+En utilisant la formule du binôme de \nom{Newton} puis la linéarité de l'intégrale,
 \begin{align*}
 B(p+1, q+1)
 &= \int_0^1 t^p (1 - t)^q \d t\\
@@ -627,7 +628,7 @@ S(p)
 \end{solution}
 
 %..............
-\subsubsection{Bêta, Gamma et Wallis}
+\subsubsection{Bêta, Gamma et \nom{Wallis}}
 
 \begin{theo}
 Soit $(x, y) \in (\Rpe)^2$.
@@ -693,7 +694,7 @@ f(x + 1)
 \]
 D'après les parties précédentes, $x \mapsto \ln(\Gamma(x + y))$ est convexe.
 
-On montre de manière analogue, en utilisant l'inégalité de Cauchy-Schwarz, que $x \mapsto \ln(B(x, y))$ est convexe.
+On montre de manière analogue, en utilisant l'inégalité de \nom{Cauchy}--\nom{Schwarz}, que $x \mapsto \ln(B(x, y))$ est convexe.
 
 Finalement, $\ln(f)$ est convexe.
 \end{itemize}
@@ -724,7 +725,7 @@ Pour tout $n \in \N$,
 \end{theo}
 
 \begin{elemdemo}
-Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \textsc{Wallis} $\Wallis_n$, on obtient
+Après le changement de variable $\sin x = \sqrt{t}$ dans l'intégrale de \nom{Wallis} $\Wallis_n$, on obtient
 \[
 \Wallis_n = \frac{1}{2} \int_0^1 t^{\frac{n-1}{2}} (1-t)^{-\frac{1}{2}} \d t
 \]
