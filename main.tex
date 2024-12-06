@@ -213,9 +213,29 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 \input{chapitres/integration/22-sommes_de_riemann}
 % \end{comment}
 
-\printbibliography[heading=subbibintoc]
-
 \input{chapitres/integration/annexes}
+
+% \printbibliography[heading=subbibintoc, filter=false
+% ,notkeyword={livre},notkeyword={sujetconcours},notkeyword={siteweb}
+% ]
+
+\section*{Références}
+\addcontentsline{toc}{section}{\protect\numberline{}Références}%
+\addcontentsline{margintoc}{section}{\protect\numberline{}Références}%
+
+\todoarmand{Faire apparaître cette section dans la margintoc}
+
+\subsubsection*{Livres}
+\printbibliography[keyword={livre},heading=none
+% title={Livres}, heading=subbibintoc
+]
+\subsubsection*{Sujets de concours}
+\printbibliography[keyword={sujetconcours},heading=none
+% title={Sujets de concours}, heading=subbibintoc
+]
+\subsubsection*{Sites web}
+\printbibliography[keyword={siteweb},heading=none]
+
 
 \printindex[theoremesutilises]
 % \input{chapitres/integration/annexes-2}
