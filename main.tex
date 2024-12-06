@@ -21,8 +21,10 @@
 \makeglossaries
 \input{glossaire_mathematiciens}
 
-\makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2]
+\makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2, options= -s indexstyle.ist]
 \makeindex[name=notations,title=Notations,columns=2]
+
+\indexsetup{level=\section} % pour afficher les index dans une section et non un chapitre
 
 % \makenomenclature % Make LaTeX produce the files required to compile the nomenclature
 
@@ -235,12 +237,6 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 ]
 \subsubsection*{Sites web}
 \printbibliography[keyword={siteweb},heading=none]
-
-
-\printindex[theoremesutilises]
-% \input{chapitres/integration/annexes-2}
-
-% \printbibliography[heading=subbibintoc]
 
 \begin{comment}
 %%%%% Courbes et Surfaces %%%%%
