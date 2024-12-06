@@ -47,6 +47,18 @@
 % \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+% Groupes pour l'index des notations
+% https://cs.overleaf.com/learn/latex/Nomenclatures
+% -----------------------------------------
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{Analyse}{%
+  \ifstrequal{#1}{B}{Algèbre}{%
+  \ifstrequal{#1}{C}{Probabilités}{}}}%
+]}
+% -----------------------------------------
+
 %%%%%% Flowcharts %%%%%%
 \newcounter{boxlblcounter}  
 \newcommand{\makeboxlabel}[1]{\fbox{#1}\hfill}% \hfill fills the label box

@@ -22,11 +22,11 @@
 \input{glossaire_mathematiciens}
 
 \makeindex[name=theoremesutilises,title=Théorèmes utilisés,columns=2, options= -s indexstyle.ist]
-\makeindex[name=notations,title=Notations,columns=2]
-
 \indexsetup{level=\section} % pour afficher les index dans une section et non un chapitre
 
-% \makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+\makenomenclature 
+\renewcommand{\nomname}{Index des notations}
+ %\renewcommand{\nompreamble}{}
 
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
@@ -216,27 +216,7 @@ de niveau classes préparatoires (\textsc{psi}-\textsc{pc}), agrémenté d’ill
 % \end{comment}
 
 \input{chapitres/integration/annexes}
-
-% \printbibliography[heading=subbibintoc, filter=false
-% ,notkeyword={livre},notkeyword={sujetconcours},notkeyword={siteweb}
-% ]
-
-\section*{Références}
-\addcontentsline{toc}{section}{\protect\numberline{}Références}%
-\addcontentsline{margintoc}{section}{\protect\numberline{}Références}%
-
-\todoarmand{Faire apparaître cette section dans la margintoc}
-
-\subsubsection*{Livres}
-\printbibliography[keyword={livre},heading=none
-% title={Livres}, heading=subbibintoc
-]
-\subsubsection*{Sujets de concours}
-\printbibliography[keyword={sujetconcours},heading=none
-% title={Sujets de concours}, heading=subbibintoc
-]
-\subsubsection*{Sites web}
-\printbibliography[keyword={siteweb},heading=none]
+% \input{chapitres/integration/biblio}
 
 \begin{comment}
 %%%%% Courbes et Surfaces %%%%%
@@ -286,6 +266,9 @@ Soient $E$ un $\K$-espace vectoriel de dimension finie $n$ et $u \in \Endo{E}$. 
     \item $0$ est la seule valeur propre de $u$.
 \end{enumerate}
 \end{comment}
+
+\input{indexnotations}
+\printnomenclature
 
 % \printindex[mathematiciens]
 \printglossary[title=Mathématiciens]
