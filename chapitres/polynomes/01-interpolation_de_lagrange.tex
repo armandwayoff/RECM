@@ -11,6 +11,11 @@ Pour tout $(b_0,\ldots,b_n) \in \K^{n+1}$, il existe un unique polynôme $P \in 
 
 \todoinline{Dessin de l'interpolation}
 
+\input{./chapitres/polynomes/illustrations/i_polynomes_de_lagrange}
+
+%-----------
+\subsection{Base de polynômes}
+
 On propose ici plusieurs démonstrations de ce résultat.
 
 \begin{exercice}
@@ -21,11 +26,13 @@ On considère l'application
 &P&\mapsto&(P(a_0),\ldots,P(a_n))
 \end{array}
 \]
-et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$.
+et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$. On pose $P_a = \prod\limits_{i=0}^n (X - a_i)$.
 \begin{questions}
 \item Avec le théorème du rang.
 \begin{questions}
-\item Déterminer $\Ker \phi$ puis montrer que $\K_n[X]$ est un supplémentaire de $\Ker \phi$.
+\item Déterminer $\Ker \phi$.
+
+\item Montrer que $\K_n[X]$ est un supplémentaire de $\Ker \phi$.
 
 \item En déduire que $\phi_n$ réalise une bijection de $\K_n[X]$ sur $\K^{n+1}$.
 
@@ -38,192 +45,202 @@ et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$.
 
 \item Conclure.
 \end{questions}
+
+\item Avec une base bien choisie de $\K_n[X]$. Pour tout $i \in \interent{0}{n}$, on pose $L_i = \prod\limits_{j \neq i} \frac{X - a_j}{a_i - a_j}$.
+\begin{questions}
+\item Pour tout $(i, j) \in \interent{0}{n}^2$, déterminer $L_i(a_j)$.
+
+\item Montrer que $(L_0,\ldots,L_n)$ est une famille libre.
+
+\item En déduire que $(L_0,\ldots,L_n)$ est une base de $\K_n[X]$.
+
+\item Conclure.
+\end{questions}
 \end{questions}
 \end{exercice}
 
+\begin{elemsolution}
+\begin{reponses}
+\item
+\begin{reponses}
+\item Soit $P \in \Ker \phi$. Alors, $P(a_0) = \cdots = P(a_n) = 0$. Comme les réels $a_0,\ldots,a_n$ sont deux à deux distincts, alors $\prod\limits_{i=0}^n (X - a_i)$ divise $P$. Ainsi, il existe un polynôme $Q$ tel que $P = Q P_a$.
 
-\begin{defi}[Base d'interpolation de \nom{Lagrange}]
-Pour tout $i \in \interent{0}{n}$, notons $L_i$ le polynôme tel que
+La réciproque étant triviale,
 \[
-\forall\, j \in \interent{0}{n},\, L_i(a_j) = \delta_{i,j}.
+\Ker \phi = \left\{Q P_a,\, Q \in \K[X]\right\}.
 \]
-Alors, $(L_0,\ldots,L_n)$ est une base de $\mathbb{K}_n[X]$.
-\end{defi}
 
-\begin{exercice}
-\begin{questions}
-\item En utilisant l'exercice précédent.
-\begin{questions}
-\item 
-\end{questions}
+\item Soit $S \in \K[X]$. D'après le théorème de la division eucilidienne, il existe un unique couple $(Q, R) \in \K[X]^2$ tel que
+\[
+S = Q P_a + R
+\text{ et }
+\deg(R) < \deg(P_a).
+\]
 
-\item Avec une expression explicite. Pour tout $i \in \interent{0}{n}$, on pose $L_i = \prod\limits_{j \neq i} \frac{X - a_j}{a_i - a_j}$.
-\begin{questions}
+Comme $\deg(P_a) = n + 1$, alors $R \in \K_n[X]$ et tout polynôme de $\K[X]$ se décompose de manière unique comme somme d'un élément de $\Ker \phi$ et d'un élément de $\K_n[X]$. Ainsi,
+\[
+\K[X] = \Ker \phi \oplus \K_n[X].
+\]
+
+\item D'après le théorème du rang, $\phi_n$ réalise une bijection de tout supplémentaire de $\Ker \phi$ dans $\Im \phi$. Ainsi, $\phi$ réalise une bijection de $\K_n[X]$ dans $\Im \phi$.
+
+Or, $\dim(\K_n[X]) = n + 1$. Ainsi, $\dim(\Im \phi) = n + 1$. Comme $\Im \phi$ est un sous-espace vectoriel de $\K^{n+1}$ (espace vectoriel de dimension $n + 1$), alors $\Im \phi = K^{n+1}$.
+
+Ainsi, $\phi_n : \K_n[X] \to \K^{n+1}$, restriction de $\phi$ à $\K_n[X]$ est une bijection.
+
+\item Comme $\phi_n$ est une bijection, le vecteur $(b_0,\ldots,b_n)$ possède un unique antécédent par $\phi_n$. Cet antécédent est le polynôme recherché.
+\end{reponses}
 
 \item
+\begin{reponses}
+\item En notant $V = (v_{i,j})_{0 \leq i, j \leq n}$ la matrice de $\phi_n$ dans la base canonique, alors $v_{i,j}$ est la $i$\ieme{} composante de $\phi_n(X^j)$. Ainsi, $v_{i,j} = (a_j)^i$.
 
-\end{questions}
+La matrice $V$ est donc la matrice de \nom{Vandermonde} de la famille $(a_0,\ldots,a_n)$.
 
-\item Déterminer $\sum\limits_{i=0}^n L_i$.
+\todoinline{Ajouter un lien vers les déterminants de Vandermonde}
 
-\item Déterminer les applications linéaires coordonnées associées à la base $\mathscr{L}_n$ de $\mathbb{K}_n[X]$.
+\item Comme les réels $a_0,\ldots,a_n$ sont deux à deux distincts, la matrice $V$ est inversible. Ainsi, l'application $\phi_n$ est inversible et le vecteur $(b_0,\ldots,b_n)$ possède un unique antécédent par $\phi_n$. Cet antécédent est le polynôme recherché.
+\end{reponses}
 
-\item On considère l'application
+\item
+\begin{reponses}
+\item On remarque que, pour tout $j \in \interent{0}{n}$, $L_i(a_j) = \delta_{i,j}$.
+
+\item Soient $\lambda_0,\ldots,\lambda_n$ des réels tels que
+\[
+\sum_{i=0}^n \lambda_i L_i = 0.
+\]
+Alors, pour tout $j \in \interent{0}{n}$,
+\begin{align*}
+\sum_{i=0}^n \lambda_i L_i(a_j) &= 0\\
+\sum_{i=0}^n \lambda_i \delta_{i,j} &= 0\\
+\lambda_j = 0.
+\end{align*}
+
+\item La famille $(L_0,\ldots,L_n)$ est une famille libre de $(n + 1)$ vecteurs de $\K_n[X]$. Comme la dimension de $\K_n[X]$ est égale à $n + 1$, alors $(L_0,\ldots,L_n)$ est une base de $\K_n[X]$.
+
+\item Soit $P \in \K_n[X]$. Comme $(L_0,\ldots,L_n)$ est une base de $\K_n[X]$, la décomposition
+\[
+P = \sum_{i=0}^n \lambda_i L_i
+\]
+est unique. De plus, pour tout $j \in \entiers{0}{n}$,
+\[
+\sum_{i=0}^n b_i L_i(a_j) = b_j.
+\]
+Ainsi, $P = \sum_{i=0}^n b_i L_i$ est l'unique polynôme qui satisfait les conditions de l'énoncé.
+\end{reponses}
+\end{reponses}
+\end{elemsolution}
+
+\begin{defi}[Base d'interpolation de \nom{Lagrange}]
+Il existe une base $(L_0,\ldots,L_n)$ de $\mathbb{K}_n[X]$ telle que, pour tout $(i, j) \in \interent{0}{n}^2$, $L_i(a_j) = \delta_{i,j}$.
+\end{defi}
+
+\begin{demo}
+Notons $\mathscr{C} = (e_1,\ldots,e_n)$ la base canonique de $\K^{n+1}$. Étant donné l'exercice précédent, l'existence de cette base peut être assurée par différents arguments :
+\begin{itemize}
+\item on peut poser $L_i = \phi_n^{-1}(e_i)$.
+
+\item on peut poser $\mathrm{Mat}_{\mathscr{C}}(L_i) = V^{-1}n \textrm{Mat}_{\mathscr{C}}(e_i)$.
+
+\item par l'expression explicite des polynômes donnée précédemment.
+\end{itemize}
+\end{demo}
+
+\begin{prop}{}{}
+Pour tout $i \in \interent{0}{n}$, notons $\phi_i$ l'application qui, à tout polynôme $P$ associe le scalaire $P(a_i)$ ($\phi_i$ est l'évaluation en $a_i$).
+\begin{enumerate}
+\item $\sum\limits_{i=0}^n L_i = 1$.
+
+\item $(\phi_0,\ldots,\phi_n)$ est la famille des applications linéaires coordonnées associée à la base $(L_0,\ldots,L_n)$. En particulier, $(\phi_0,\ldots,\phi_n)$ est une base de $\K_n[X]^*$.
+\end{enumerate}
+\end{prop}
+
+\begin{demo}
+\begin{enumerate}
+\item Pour tout $j \in \interent{0}{n}$,
+\[
+\sum_{i=0}^n L_i(a_j) = \sum_{i=0}^n \delta_{i,j} = 1.
+\]
+Ainsi, $1 - \sum_{i=0}^n L_i$ est un polynôme de $\K_n[X]$ possédant $(n + 1)$ racines distinctes. Il s'agit donc du polynôme nul.
+
+\item D'après les démonstrations précédentes, pour tout polynôme $P$ de degré au plus $n$,
+\begin{align*}
+P
+= \sum_{i=0}^n P(a_i) L_i
+= \sum_{i=0}^n \phi_i(P) L_i.
+\end{align*}
+\end{enumerate}
+\end{demo}
+
+\begin{theo}
+L'application linéaire $\pi$ suivante définit une projecteur :
 \[
 \begin{array}{lccc}
 \pi : &\K[X]&\to\K[X]\\
 &P&\mapsto&\sum_{i=0}^n P(a_i) L_i.
 \end{array}
 \]
-\begin{questions}
-\item Montrer que $\pi$ est un projecteur.
-
-\item Déterminer le noyau et l'image de $\pi$.
-\end{questions}
-\end{questions}
-\end{exercice}
-
-
-\begin{exercice}
-\begin{itemize}
-\item Soit $P \in \mathbb{K}[X]$ de degré $n+1$. On note $P \mathbb{K}[X] = \left\{P Q,\, Q \in \mathbb{K}[X]\right\}$. Montrer que $\mathbb{K}_n[X]$ et $P \mathbb{K}[X]$ sont supplémentaires dans $\mathbb{K}[X]$, puis déterminer une base adaptée à la décomposition $\mathbb{K}[X] = \mathbb{K}_n[X] \oplus P \mathbb{K}[X]$.
-
-\medskip
-
-Soit $\phi$ l'application de $\mathbb{K}[X]$ dans $\mathbb{K}^{n+1}$ définie, pour tout $P \in \mathbb{K}[X]$, par
-\[
-\phi(P) = (P(a_0),\ldots,P(a_n)).
-\]
-
-\item Déterminer $\Ker \phi$, puis montrer que $\mathbb{K}_n[X]$ est un supplémentaire de $\Ker \phi$.
-
-\item En déduire que $\phi$ réalise un isomorphisme, noté $\phi_n$, de $\mathbb{K}_n[X]$ dans $\mathbb{K}^{n+1}$.
-
-\item En notant $(e_i)_{i\in\interent{0}{n}}$ la base canonique de $\mathbb{K}^{n+1}$, déterminer, pour tout entier $i \in \interent{0}{n}$, $L_i = \phi_n^{-1}(e_i)$.
-
-\item Montrer que la famille $\mathscr{L}_n = (L_0,\ldots,L_n)$ est une base de $\mathbb{K}_n[X]$.
-
-La famille $\mathscr{L}_n$ est la base des polynômes d'interpolation de \cite{Lagrange} associée à $(a_0,\ldots,a_n)$.
-\item Montrer que $\sum_{i=0}^n L_i = 1$.
-
-\smallskip
-
-\item Déterminer la matrice de $\phi_n$ de la base $(1,X,\ldots,X^n)$ dans la base $(e_0,\ldots,e_n)$ et retrouver la bijectivité de $\phi_n$.
-
-\smallskip
-
-
-\smallskip
-
-Soit $\pi$ l'application définie pour tout $P \in \mathbb{K}[X]$ par $\pi(P) = \sum_{i=0}^n P(a_i) L_i$.
-
-\item Montrer que $\pi$ est un projecteur de $\mathbb{K}[X]$.
-
-\item Déterminer le noyau et l'image de $\pi$.
-\end{itemize}
-\end{exercice}
-
-\begin{solution}
-\begin{itemize}
-\item
-
-\item
-
-\item
-
-\item
-
-\item
-
-\item On pose $R = 1 - \sum_{i=0}^n L_i$. Alors, $\deg(R) \leq n$ et pour tout $i \in \interent{0}{n}$, $R(a_i) = 0$. Ainsi, $R$ est de degré au plus $n$ et possède $n+1$ racines distinctes donc $R = 0$.
-
-
-{2ème méthode.} $\sum L_i = \phi_n^{-1}(\sum e_i) = \phi_n^{-1}(1,\ldots,1) = 1$.
-
-\item
-
-\item D'après la définition, $\phi_n(P) = \sum_{i=0}^n P(a_i) e_i$. Ainsi, comme $\phi_n^{-1}$ est linéaire, $P = \sum_{i=0}^n P(a_i) \phi_n^{-1}(e_i) = \sum_{i=0}^n P(a_i) L_i$. Ainsi, la famille des formes linéaires coordonnées est $(f_0,\ldots,f_n)$ où $f_i : P \mapsto P(a_i)$.
-\end{itemize}
-\end{solution}
-
-
-
-%-----------
-\subsection{Erreur d'interpolation}
-
-On suppose ici que $(a_0,\ldots,a_n) \in \interff{-1}{1}^{n+1}$ et que $a_0 < \cdots < a_n$.
-
-\begin{theo}[\nom{Lagrange}, \nom{Gibbs} \& \nom{Tchebychev}]
-Soit $f$ une fonction de classe $\mathscr{C}^{n+1}(\interff{-1}{1},\R)$. Notons $P_{\mathbf{a}}(f)$ le polynôme d'interpolation de \nom{Lagrange} associé à $f$. Alors, $\norm{f - P_{\mathbf{a}}(f)}_\infty$ est minimale lorsque $a_0,\ldots,a_n$ sont les racines du $n$\ieme{} polynôme de Tchebychev.
 \end{theo}
 
+\begin{demo}
+On remarque que $\pi$ est un endomorphisme de $\K[X]$. Ainsi, pour montrer que $\pi$ est un projecteur, il suffit de montrer que $\pi \circ \pi = \pi$.
 
-\begin{itemize}
-\item Soient $f \in \mathscr{C}^{n+1}(\interff{-1}{1},\R)$ et $P_f$ le polynôme d'interpolation de Lagrange associé à $f$. Montrer que
+D'après les propriétés des polynômes $L_0,\ldots,L_n$,
 \[
-\forall\, x\in \interff{-1}{1},\, \exists\, \xi \in \interoo{-1}{1} ~;~
-f(x) - P_f(x) =  f^{(n+1)}(\xi) \cdot \frac{\prod_{i=0}^n (x-a_i)}{(n+1)!}.
+\pi(L_i)
+= \sum_{j=0}^n L_i(a_j) L_j
+= \sum_{j=0}^n \delta_{i,j} L_j
+= L_i.
 \]
-{\footnotesize On pourra considérer la fonction $\phi~:~\interff{-1}{1} \to \R,\, t \mapsto  f(t) - P_f(t) - K \prod_{i=0}^n (t-a_i)$.
-}
 
-\medskip
-
-Pour tout entier naturel $n$, on note $t_{n+1} = 2^{-n} T_{n+1}$.
-\item Montrer que $t_{n+1}$ est un polynôme unitaire.
-
-\item Montrer que, pour tout polynôme $Q$ unitaire de degré $n+1$, $\|Q\|_\infty \geq 2^{-n}$ avec égalité si et seulement si $Q = t_{n+1}$.
-
-\item Quel est l'intérêt des racines des polynômes de Tchebychev dans l'interpolation de Lagrange~?
-\end{itemize}
-
-
-\begin{solution}
-\begin{questions}
-\item Soit $i \in \interent{0}{n}$. Posons 
+Soit $P \in \K[X]$. Alors,
 \[
-L_i(X) = \prod_{j=0,\, j \neq i}^n \frac{(X - a_j)}{(a_i - a_j)}.
+\pi(\pi(P))
+= \sum_{i=0}^n P(a_i) \pi(L_i)
+= \sum_{i=0}^n P(a_i) L_i
+= \pi(P),
 \]
-Pour tout $j \in \interent{0}{n}$, on a bien $L_i(a_j) = \delta_{ij}$ et $L_i$ est de degré $n-1$. \\
-Montrons que ce polynôme est unique. Soit $R_i \in \R_n[X]$ tel que pour tout $j \in \interent{0}{n}$, $R_i(a_j) = \delta_{ij}$. On a alors, pour tout $j \in \interent{0}{n}$, $(R_i - L_i)(a_j) = 0$. Ainsi, $R_i - L_i$ est un polynôme de degré au plus $n$ qui a $n+1$ racines distinctes, soit $R_i = L_i$. \\
-Finalement,
-{
-\[L_i(X) = \prod_{j=0,\, j \neq i}^n \frac{(X - a_j)}{(a_i - a_j)}.\]
-}
+et obtient le résultat annoncé
+\end{demo}
 
-\item Soit $(\lg_i)_{i\in\interent{0}{n}} \in \R^{n+1}$ tel que $\sum_{i=0}^n \lg_i L_i = 0$. Alors, en identifiant polynômes et fonctions polynomiales, pour tout $j \in \interent{0}{n}$, $\sum_{i=0}^n \lg_i L_i(a_j) = 0$, soit $\lg_j = 0$. Ainsi, la famille $(L_i)_{i\in\interent{0}{n}}$ est libre et a $n+1$ éléments. Finalement,
-{\[
-(L_i)_{i\in\interent{0}{n}} \text{ est une base de } \R_n[X].
+\begin{remarque}
+On montre sans difficulté que :
+\[
+\Ker \pi = \left\{ \prod_{i=0}^n (X - a_i) Q ; Q \in \K[X] \right\}.
 \]
-}
 
-
-\item Soit $P \in \R[X]$. On remarque que $\pi$ est un endomorphisme de $\R[X]$. Montrons que $\pi \circ \pi(P) = P$. Comme $\pi(P) = \sum_{i=0}^n P(a_i) L_i$, pour tout $j \in \interent{0}{n}$, $\pi(P)(a_j) = P(a_j)$. De plus, $\pi(P)$ est un polynôme de degré au plus $n$, d'où $\pi(\pi(P)) = \pi(P)$. Ainsi,
-{
-$\pi$ \text{ est un projecteur}.
-}
-
-\item On montre que (le faire~!) $\Ker \pi = \left\{ \prod_{i=0}^n (X - a_i) Q ; Q \in \R[X] \right\}$.\\
-Comme pour tout $i \in \interent{0}{n}$, $\pi(L_i) = L_i$ et $(L_i)$ est une base de $\R_n[X]$, alors
+De plus, comme $(L_0,\ldots,L_n)$ est une base de $\K_n[X]$, alors
 \begin{align*}
 \mathrm{Im} \pi &= \mathrm{Vect}\{\pi(L_i),\, i \in \interent{0}{n}\} \\
 &= \mathrm{Vect}\{L_i,\, i \in \interent{0}{n}\} \\
 &= R_n[X].
 \end{align*}
 Ainsi,
-{
-$\mathrm{Im} \pi = \R_n[X]$.
-}
+\[
+\mathrm{Im} \pi = \K_n[X].
+\]
 
+On retrouve ainsi la propriété de l'exercice précédent qui assure que :
+\[
+\K_n[X] \oplus \left\{ \prod_{i=0}^n (X - a_i) Q ; Q \in \K[X] \right\} = \K[X].
+\]
+\end{remarque}
+
+%-----------
+\subsection{Erreur d'approximation}
+
+\begin{solution}
+\begin{questions}
 \item On montre sans difficulté que $\eg$ est un morphisme. \\
-De plus, en notant $(\eg_0,\ldots,\eg_n)$ la base canonique de $\R^{n+1}$, alors pour tout entier naturel $i \in \interent{0}{n}$, $\eg(L_i) = \eg_i$. Ainsi, l'image par $\eg$ d'une base est une base et
+De plus, en notant $(\eg_0,\ldots,\eg_n)$ la base canonique de $\K^{n+1}$, alors pour tout entier naturel $i \in \interent{0}{n}$, $\eg(L_i) = \eg_i$. Ainsi, l'image par $\eg$ d'une base est une base et
 {
 $\delta$ \text{ est un isomorphisme}.
 }
 
-\item Soit $f$ une fonction à valeurs réelles. Comme $(f(a_i))_{i\in\interent{0}{n}} \in \R^{n+1}$ et que $\eg$ est surjective, d'après la question précédente, il existe un polynôme $P \in \R_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
+\item Soit $f$ une fonction à valeurs réelles. Comme $(f(a_i))_{i\in\interent{0}{n}} \in \K^{n+1}$ et que $\eg$ est surjective, d'après la question précédente, il existe un polynôme $P \in \K_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
 
-\item Soit $x \in [a,b]$. Si $x \in \{a_0,\ldots,a_n\}$, tout réel $\xi \in [-1, 1]$ convient. Sinon, soit $K \in \R$ tel que $\phi~:~[a,b] \to \R,\, x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i) = 0$.\\
+\item Soit $x \in [a,b]$. Si $x \in \{a_0,\ldots,a_n\}$, tout réel $\xi \in [-1, 1]$ convient. Sinon, soit $K \in \K$ tel que $\phi~:~[a,b] \to \K,\, x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i) = 0$.\\
 La fonction $\phi$ possède $n+2$ zéros, donc, comme $f$ est de classe $\mathscr{C}^{n+1}$, en appliquant plusieurs fois Rolles (à rédiger~!), il existe $\xi \in ]a,b[$ tel que $\phi^{(n+1)}(\xi) = 0$. Ainsi, $0 = f^{(n+1)}(\xi) - (n+1)! \cdot K$.\\
 Comme $f^{(n+1)}$ est continue sur le segment $[a,b]$, elle admet une borne supérieure. D'où,
 \[
