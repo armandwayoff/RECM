@@ -127,8 +127,6 @@ Ainsi, pour tout $n$ entier naturel,
 %-----------
 \subsection{Formule de \nom{Stirling}} \label{preuve_stirling}
 
-\todoinline{Ajouter un texte d'introduction}
-
 \begin{theo}[Formule de \nom{Stirling}]
 \[
 n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n
@@ -314,10 +312,8 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 
 %---------------
 
-
-\todoinline{Ajouter lien ? Posé à l'ENSAM en 2016}
-
 \begin{exercice}
+\marginpar[0cm]{Oral : ENSAM - 2016}
 Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis_n$.
 \end{exercice}
 
@@ -378,9 +374,10 @@ Pour la majoration de la suite $(f_n)_{n \in \N}$, on peut également utiliser q
 \begin{comment}
 \todoinline{Je trouve que ça fait un peu beaucoup ou alors on ne donne pas de preuve pour l'exercice suivant.}
 
-\todoarmand{Nouvel exercice de \cite{exos_oraux}}
+\todoarmand{Nouvel exercice de }
 
 \begin{exercice}
+\marginpar[0cm]{Source : \cite{exos_oraux}}
     \textbf{Fonction de \textsc{Bessel} et intégrales de \textsc{Wallis}} \\
     Pour tout $x \in \R$, on note $J(x) = \displaystyle \int_0^{\pi/2} \cos\big(x \sin(t) \big) \d t$.
     \begin{enumerate}
@@ -392,7 +389,7 @@ Pour la majoration de la suite $(f_n)_{n \in \N}$, on peut également utiliser q
 
 \subsection{Volume d'une boule en dimension \texorpdfstring{$n$}{n}}
 
-\todoinline{Ajouter un mot pour dire que les intégrales multiples ne sont pas vraiment au programme ?}
+La partie suivante constitue une ouverture mais utilise des notions d'intégrales multiples qui dépassent le cadre du programme des classes préparatoires.
 
 \begin{defi}{}
 La boule unité de $\R^n$ est définie par
@@ -489,8 +486,6 @@ et
 \end{align*}
 \end{reponses}
 \end{solution}
-
-\todoinline{J'ai changé les ; en . dans la remarque car j'avais des difficultés à la lire. Il faudrait référencer le ch.13.}
 
 \begin{remarque}
 Interprétons physiquement ces considérations. En physique statistique, on utilise fréquemment l'espace des phases comprenant comme dimensions les six coordonnées de position et de vitesse de chaque particule. lorsque celles-ci sont en très grand nombre, l'espace des phases a énormément de dimensions. Supposons que nous mesurions la vitesse de chacune des $n$ particules : la moyenne $V$ de ces vitesses donnera une mesure macroscopique comme la témpérature ou la pression (quantités liées à la vitesse). Reportons cette mesure sur chacun des axes d'un espace à $n$ dimensions : les points considérés seront approximativement sur une coquille de rayon $V$ et d'épaisseur $\frac{V}{\sqrt{n}}$ (voir ch. 13). On peut également considérer que les vitesses vont se répartir dans une sphère de rayon inférieur ou égal à la plus grande mesure obtenue $V_\mathrm{max}$, mais comme les points se retrouveront quasiment à la surface, la plupart des vitesses seront environ $V_\mathrm{max}$ qui sera en fait la vitesse moyenne : nous retrouvons là l'hypothèse ergodique de \nompropre{Boltzmann} et \nompropre{Maxwell}. \url{http://promenadesmaths.free.fr/fichiers_pdf/volume%20en%20dim%20n.pdf} \url{https://www.phy.ulaval.ca/fileadmin/phy/documents/Bacc_PHY/Nathalie/Espace-phase-pdf.pdf}

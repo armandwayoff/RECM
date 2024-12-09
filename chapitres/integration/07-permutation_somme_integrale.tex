@@ -3,8 +3,6 @@
 %-----------
 \subsection{Du continu au discret}
 
-\todoinline{Lier avec la formule de Stirling}
-
 \begin{prop}{Développement asymptotique de la factorielle}
 Il existe une constante $\delta$ telle que
 \[
@@ -13,7 +11,9 @@ n! = \delta n^{n + \frac{1}{2}} \e^{-n} \left(1 + \frac{1}{12 n} + o\left(\frac{
 Le résultat sur la formule de \nom{Stirling} montre que $\delta = \sqrt{2\pi}$.
 \end{prop}
 
-\todoinline{Ajout de l'exercice suivant (questions à partir de la preuve déjà rédigée. Reprise de certains points pour essayer de les rendre plus clairs}
+\begin{remarque}
+Une méthode pour déterminer la valeur de la constante $\delta$ est développée dans la partie~\ref{preuve_stirling}.
+\end{remarque}
 
 \begin{exercice}
 Soient $f$, $g$ deux fonctions continues sur $\Rp$ à valeurs positives. On suppose que $\int_0^{+\infty} f(t) \d t$ converge. On définit la suite $(b_n)_{n\in\N}$ par
@@ -99,11 +99,6 @@ On obtient le résultat attendu en utilisant le développement limité à l'ordr
 \end{reponses}
 \end{elemdemo}
 
-\todoinline{Je commente le résultat général de comparaison ainsi que les intégrales de Bertrand. Je pense qu'on n'a pas d'illustration pour les intégrer ici.}
-
-\todoinline{Voir le sujet de capes où il y avait des séries de nombres premiers. Ça les utilisait peut être, mais dans une partie séries numériques.
-}
-
 \begin{comment}
 \begin{prop}
     Soit $f: \Rp \rightarrow \C$ une fonction continue par morceaux et $g, h:\Rp \rightarrow \Rp$ deux fonctions continues par morceaux, strictement positives. On suppose que $f = o_{+\infty}(g)$ et $f \sim_{+\infty} h$.\\
@@ -157,8 +152,6 @@ La démonstration est analogue à celle de la \nameref{sommation_relations_compa
     \end{enumerate}
 \end{demo}
 \end{comment}
-
-\todoinline{Je commente le sujet suivant qui était prometteur mais avec une finalité assez vide à part pour faire de la technique.}
 
 \begin{comment}
 \todoinline{J'ai mis dans "documents" le sujet Centrale PC 2003 - Il fait à la fois des relations de comparaisons, de l'intégrale de Bertrand à la fin et une intégrale fonction des bornes. C'est peut être une bonne idée !}

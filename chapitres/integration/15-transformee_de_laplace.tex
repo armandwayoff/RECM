@@ -38,7 +38,7 @@ La fonction de \nom{Heaviside} est définie par $H = \indicatrice{\Rp}$. Étant 
     % \item Théorème de convergence dominée
 % \end{itemize}
 
-\todoinline{Pointer vers CCP - MP - 2011}
+La plupart de ces résultats peuvent être retrouvés dans le sujet~\cite{ccp_1_mp_2011}.
 
 %-----------
 \subsection{Exemples de transformées de \nom{Laplace}}
@@ -83,7 +83,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 
 \todoarmand{Résoudre problème avec adjustbox{valign=c}}
 \todoarmand{Ajouter les derniers graphes}
-\input{chapitres/integration/15-transformee_de_laplace-tableau}
+\input{chapitres/integration/illustrations/15-transformee_de_laplace-tableau}
 
 \begin{remarque}
 À un changement de variable près, on reconnaît, pour la dernière transformée de \nom{Laplace}, la fonction Gamma d'\nom{Euler}.\marginnote[0pt]{\href{subsec:FonctionGammaEuler}{\faLink~Fonction Gamma d'\nom{Euler}}}
@@ -284,11 +284,9 @@ Ainsi, d'après la définition de la limite,
 
 %--------------
 \subsubsection{Méthode de \nom{Laplace}}
-\todoinline{Ajouter méthode de Laplace ? cf . Mines 2 - PC - 2017 - Un cas discret est traité, ici on traite un cas continu}
-
-\todoinline{Phrase introductive - Voir Rouvière - Petit guide de calcul différentiel pour un théorème plus complet}
 
 \begin{theo}{Méthode de Laplace}
+\marginpar[0cm]{Source : \cite{rouviere2009}}
 Soient $f$ une fonction de classe $\mathscr{C}^2$ et intégrable sur $\Rp$. Alors,
 \[
 F(t) = \int_0^{+\infty} \e^{-t x^2} f(t) \d x
@@ -298,6 +296,8 @@ F(t) = \int_0^{+\infty} \e^{-t x^2} f(t) \d x
 
 \begin{remarque}
 Par rapport au théorème de la valeur initiale, la fonction $\e^{-t x}$ a été remplacée par $\e^{-t x^2}$. L'heuristique de la démonstration est identique, à savoir que dès que $t$ devient grand, seules les valeurs de $f$ proches de $0$ comptent. Une généralisation de ce résultat permet de retrouver la formule de \nom{Stirling}. 
+
+Pour une autre formulation de ce théorème dans un cadre légèrement différent, on pourra traiter le sujet~\cite{mines_2_pc_2017}.
 \end{remarque}
 
 \begin{exercice}

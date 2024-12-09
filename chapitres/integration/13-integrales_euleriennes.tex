@@ -7,7 +7,7 @@ De premières tentatives pour définir la factorielle de valeurs non entières r
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \nom{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \nom{Gauss}, \nom{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
 \todoarmand{Utiliser la commande nom}
 
-\todoinline{Je garde pour lecture dès que possible ! On met une citation ? J'ai l'impression que c'est American Monthly ?}
+On trouvera une présentation du contexte historique de l'extension de la fonction factorielle dans l'article~\cite{davis1959}.
 
 \todoarmand{
 \url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
@@ -186,9 +186,8 @@ Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
 %..............
 \subsubsection{Caractérisation de $\Gamma$}
 
-\todoinline{Ajout de cette partie - À relire rapidement - Ajouter une référence à Rudin, Analyse réelle et complexe ?}
-
 \begin{theo}{}
+\marginpar[0cm]{Source : \cite{rudin2009}}
 Soit $f$ une fonction définie sur $\Rpe$ telle que
 \begin{enumerate}
 \item pour tout $x > 0$, $f(x + 1) = x f(x)$,
@@ -286,9 +285,9 @@ La fonction $g$ est donc unique et égale à $\Gamma$.
 
 %..............
 \subsubsection{$\Gamma$ et $\gamma$}
-\todoinline{Ajout de cette section - À relire rapidement - Mettre un lien vers $\gamma$ dans le chapitre suites et séries ? - Apparu également dans un sujet d'oral Centrale 2 (2021)}
 
 \begin{defi}{Constante $\gamma$ d'\nom{Euler}}
+\marginpar[0cm]{Oral : Centrale 2 - 2021}
 La limite suivante est bien définie et appelée constante $\gamma$ d'\nom{Euler} :
 \[
 \gamma = \lim_{n\to+\infty} \left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
@@ -449,7 +448,7 @@ Pour tout $(p,q) \in \N^2$,
 Sources : 
 \begin{itemize}
     \item \href{https://fr.wikipedia.org/wiki/Intégrale_d'Euler}{Intégrale d'\nom{Euler} -- \textsf{wikipedia.org}}
-    \item \cite{calcul_infinitesimal} Chapitre IV, 3 Intégrales eulériennes, page 125.
+    \item \cite{dieudonne1968} Chapitre IV, 3 Intégrales eulériennes, page 125.
 \end{itemize}
 }
 
@@ -713,9 +712,9 @@ B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}.
 \]
 \end{remarque}
 
-\todoinline{Citer proprement (si nécessaire car tout ici est très classique : soit 
-\url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
-}
+% \todoinline{Citer proprement (si nécessaire car tout ici est très classique : soit 
+% \url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
+% }
 
 \begin{theo}{}
 Pour tout $n \in \N$,
