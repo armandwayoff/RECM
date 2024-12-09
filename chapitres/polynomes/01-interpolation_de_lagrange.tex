@@ -3,7 +3,7 @@
 
 Pour tous $i,\, j \in \N$, on définit le symbole de \nom{Kronecker} par $\delta_{i,j} = 1$ si $i = j$ et $\delta_{i,j} = 0$ sinon.
 
-Dans la suite, $n$ désigne un entier naturel non nul et $(a_0, \ldots, a_n)$ une famille de nombres réels deux à deux distincts.
+Dans la suite, $n$ désigne un entier naturel non nul et $(a_0, \ldots, a_n)$ une famille de nombres réels deux à deux distincts. On note $P_a = \prod\limits_{i=0}^n (X - a_i)$.
 
 \begin{defi}[Polynôme d'interpolation de \nom{Lagrange}]
 Pour tout $(b_0,\ldots,b_n) \in \K^{n+1}$, il existe un unique polynôme $P \in \mathbb{K}_n[X]$ tel que, pour tout $i \in \interent{0}{n}$, $P(a_i) = b_i$.
@@ -26,7 +26,7 @@ On considère l'application
 &P&\mapsto&(P(a_0),\ldots,P(a_n))
 \end{array}
 \]
-et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$. On pose $P_a = \prod\limits_{i=0}^n (X - a_i)$.
+et on note $\phi_n$ la restriction de $\phi$ à $\K_n[X]$.
 \begin{questions}
 \item Avec le théorème du rang.
 \begin{questions}
@@ -230,13 +230,51 @@ On retrouve ainsi la propriété de l'exercice précédent qui assure que :
 %-----------
 \subsection{Erreur d'approximation}
 
-\begin{solution}
+Dans cette partie, on suppose que $-1 \leq a_0 < a_1 < \cdots < a_n \leq n$.
+
+\begin{theo}
+Soit $f$ une fonction de classe $\mathscr{C}^{n+1}$ sur $\R$. Il existe un unique polynôme $P$ de degré inférieur ou égal à $n$ tel que
+\[
+\forall\, i \in \interent{0}{n},\, P(a_i) = f(a_i).
+\]
+De plus,
+\[
+\norm{f - P}_{\infty} \leq \frac{\norm{f^{(n+1)}}_{\infty}}{(n+1)!} \norm{P_a}_\infty.
+\]
+Enfin, la quantité $\norm{P_a}_\infty$ est minimale lorsque $a_0,\ldots,a_n$ sont les racines du polynôme de Tchebychev d'ordre~$n$.
+\end{theo}
+
+\todoinline{Préciser le phénomène de Runge}
+
+\todoinline{Utiliser St Cyr 1993}
+
+\todoinline{Ajouter commentaire sur extension à $\interff{a}{b}$.}
+
+\begin{exercice}
 \begin{questions}
-\item On montre sans difficulté que $\eg$ est un morphisme. \\
-De plus, en notant $(\eg_0,\ldots,\eg_n)$ la base canonique de $\K^{n+1}$, alors pour tout entier naturel $i \in \interent{0}{n}$, $\eg(L_i) = \eg_i$. Ainsi, l'image par $\eg$ d'une base est une base et
-{
-$\delta$ \text{ est un isomorphisme}.
-}
+\item Montrer l'existence du polynôme $P$.
+\end{questions}
+
+On pose $\phi : x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i)$.
+\todoinline{Préciser le choix de $K$}
+\begin{questions}[resume]
+\item Montrer que $\phi$ possède $n + 2$ zéros sur l'intervalle $\interff{-1}{1}$.
+
+\item En déduire qu'il existe un réel $\xi \in \interoo{-1}{1}$ tel que $\phi^{n+1}(\xi) = 0$.
+
+\item En déduire que, pour tout $x \in \interff{-1}{1}$,
+\[
+\module{f(x) - P(x)} \leq \frac{\norme{f^{(n+1)}}_{infty}}}{(n+1)!} P_a(x).
+\]
+\end{questions}
+
+Soit $Q$ un polynôme unitaire de degré $n$. On note $T_{n+1}$ le polynôme de Tchebychev d'ordre $n + 1$ et on admet que $t_{n+1} = 2^{-n} t_{n+1}$ est un polynôme unitaire. 
+\begin{questions}[resume]
+\item Montrer, en utilisant un raisonnement par l'absurde, que $\norme{Q}_\infty \geq \frac{1}{2^n}$.
+
+\item Montrer que, si $\norme{Q}_\infty = \frac{1}{2^n}$, alors $Q = t_n$.
+\end{exercice}
+\begin{solution}
 
 \item Soit $f$ une fonction à valeurs réelles. Comme $(f(a_i))_{i\in\interent{0}{n}} \in \K^{n+1}$ et que $\eg$ est surjective, d'après la question précédente, il existe un polynôme $P \in \K_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
 
