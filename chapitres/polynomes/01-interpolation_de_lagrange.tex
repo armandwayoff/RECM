@@ -233,102 +233,130 @@ On retrouve ainsi la propriété de l'exercice précédent qui assure que :
 Dans cette partie, on suppose que $-1 \leq a_0 < a_1 < \cdots < a_n \leq n$.
 
 \begin{theo}
-Soit $f$ une fonction de classe $\mathscr{C}^{n+1}$ sur $\R$. Il existe un unique polynôme $P$ de degré inférieur ou égal à $n$ tel que
+Soit $f$ une fonction de classe $\mathscr{C}^{n+1}$ sur $\interff{-1}{1}$. Il existe un unique polynôme $P$ de degré inférieur ou égal à $n$ tel que
 \[
 \forall\, i \in \interent{0}{n},\, P(a_i) = f(a_i).
 \]
-De plus,
+De plus, il existe $\xi \in \interoo{-1}{1}$ tel que pour tout $x \in \interff{-1}{1}$,
 \[
-\norm{f - P}_{\infty} \leq \frac{\norm{f^{(n+1)}}_{\infty}}{(n+1)!} \norm{P_a}_\infty.
+\module{f(x) - P(x)} = \frac{\module{f^{(n+1)}(x)}}{(n+1)!} \module{P_a(x)}.
 \]
 Enfin, la quantité $\norm{P_a}_\infty$ est minimale lorsque $a_0,\ldots,a_n$ sont les racines du polynôme de Tchebychev d'ordre~$n$.
 \end{theo}
 
-\todoinline{Préciser le phénomène de Runge}
+\begin{remarque}
+On limite ici l'étude à l'intervalle $\interff{-1}{1}$. Cependant, une transformation affine permettrait ce généraliser ces résultats à un segment quelconque de $\R$.
+\end{remarque}
 
-\todoinline{Utiliser St Cyr 1993}
-
-\todoinline{Ajouter commentaire sur extension à $\interff{a}{b}$.}
+\todoinline{Ajouter graphe avec une fonction approchée par des $(a_i)$ équidistants et des $(a_i)$ racines des polynômes de Tchebychev.}
 
 \begin{exercice}
 \begin{questions}
 \item Montrer l'existence du polynôme $P$.
 \end{questions}
 
-On pose $\phi : x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i)$.
-\todoinline{Préciser le choix de $K$}
+Soit $x \in \interff{-1}{1}$. On pose $\phi : t \mapsto f(t) - P(t) - K \prod_{i=0}^n (t - a_i)$ où $K$ est un réel tel que $\phi(x) = 0$.
+
 \begin{questions}[resume]
+\item Montrer l'existence de $\xi$ lorsque $x \in \left\{a_0,\ldots,a_n\right\}$. On suppose dans la suite que $x$ n'appartient pas à cet ensemble.
+
 \item Montrer que $\phi$ possède $n + 2$ zéros sur l'intervalle $\interff{-1}{1}$.
 
 \item En déduire qu'il existe un réel $\xi \in \interoo{-1}{1}$ tel que $\phi^{n+1}(\xi) = 0$.
 
 \item En déduire que, pour tout $x \in \interff{-1}{1}$,
 \[
-\module{f(x) - P(x)} \leq \frac{\norme{f^{(n+1)}}_{infty}}}{(n+1)!} P_a(x).
+\module{f(x) - P(x)} = \frac{\module{f^{(n+1)}(\xi)}}{(n+1)!} P_a(x).
 \]
 \end{questions}
 
-Soit $Q$ un polynôme unitaire de degré $n$. On note $T_{n+1}$ le polynôme de Tchebychev d'ordre $n + 1$ et on admet que $t_{n+1} = 2^{-n} t_{n+1}$ est un polynôme unitaire. 
+Soit $Q$ un polynôme unitaire de degré $n+1$. On note $T_{n+1}$ le polynôme de Tchebychev d'ordre $n + 1$ et, pour tout $k \in \interent{0}{n}$, $y_k = \cos \frac{k\pi}{n+1}$. On rappelle que le coefficient dominant de $T_{n+1}$ est $2^n$ et que, pour tout $k \in \interent{0}{n}$, $T_{n+1}(y_k) = (-1)^k$. On pose $t_{n+1} = 2^{-n} T_{n+1}$ et $R = Q - t_{n+1}$.
 \begin{questions}[resume]
-\item Montrer, en utilisant un raisonnement par l'absurde, que $\norme{Q}_\infty \geq \frac{1}{2^n}$.
+\item Montrer que $R$ est un polynôme de degré au plus $n$.
 
-\item Montrer que, si $\norme{Q}_\infty = \frac{1}{2^n}$, alors $Q = t_n$.
+\item On suppose que $\norme{Q}_\infty \geq \frac{1}{2^n}$. Montrer que, pour tout $k \in \interent{0}{n}$, $(-1)^k R(y_k) \geq 0$. En déduire que $R = 0$.
+
+\item En déduire que $\norme{Q}_\infty \leq 2^{-n}$ avec égalité si et seulement si $Q = t_{n+1}$.
+
+\item Conclure.
+\end{questions}
 \end{exercice}
+
+
+\begin{solution}
+\begin{reponses}
+\item Comme $(f(a_0),\ldots,f(a_n)) \in \R^{n+1}$, d'après la partie précédente, il existe un unique polynôme $P \in \R_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
+
+\item Si $x \in \{a_0,\ldots,a_n\}$, alors $f(x) - P(x) = 0$ et $P_a(x) = 0$. Ainsi, l'égalité attendue est satisfaite pour tout $x \in \interoo{-1}{1}$.
+
+\item D'après la définition de $P$ et de $P_a$, pour tout $i \in \interent{0}{n}$, $\phi(a_i) = 0$. De plus, $K$ a été choisi tel que $\phi(x) = 0$. Comme $x, a_0,\ldots,a_n$ sont tous distincts, alors $\phi$ possède $(n + 2)$ zéros sur $\interff{-1}{1}$.
+
+\item Comme $f$ est de classe $\mathscr{C}^{n+1}$ et que les polynômes $P$ et $P_a$ sont de classe $\mathscr{C}^\infty$, alors la fonction $\phi$ est de classe $\mathscr{C}^{n+1}$.
+
+On applique successivement le théorème de \nom{Rolles} aux fonctions $\phi, \phi',\ldots, \phi^{(n)}$, entre chacun des $(n+2)$ zéros de $\phi$, puis entre les $(n+1)$ zéros de $\phi'$ et enfin entre les deux zéros de $\phi^{(n)}$. Ainsi, il existe $\xi \in \interoo{-1}{1}$ tel que $\phi^{(n+1)}(\xi) = 0$.
+
+Comme $P$ est de degré $n$ et $P_a$ est unitaire de degré $n+1$, alors $\phi^{(n+1)} = f^{(n+1)} - K (n+1)!$.
+
+Alors, $\phi(\xi) = f^{(n+1)}(\xi) - (n+1)! \cdot K = 0$ et
+\[
+f(x) - P(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} \times \prod_{i=0}^n (x-a_i).
+\]
+
+\item Comme $Q$ et $t_{n+1}$ sont de degrés $n+1$, alors $R$ est de degré au plus $n+1$. De plus, $Q$ et $t_{n+1}$ sont unitaires, donc $R$ est de degré au plus $n$.
+
+\item Comme $T_{n+1} (y_k) = (-1)^k$, alors
+\begin{align*}
+(-1)^k 2^n R(y_k)
+&= (-1)^k 2^n Q(y_k) + 1.
+\end{align*}
+
+Or, $\module{(-1)^k 2^n Q(y_k)} \leq 2^n \norme{Q}_\infty \geq 1$. Ainsi, $(-1)^k 2^n R(y_k) \geq 0$.
+
+Ainsi, $R$ est un polynôme de degré $n$ qui change $n+1$ fois de signe, donc $R$ est identiquement nul.
+
+\item D'après la question précédente,
+\begin{itemize}
+\item soit $\norme{Q}_\infty \geq 2^{-n}$ et alors $Q = t_{n+1}$, soit $\norme{Q}_\infty = 2^{-n}$ ;
+\item soit $\norme{Q}_\infty < 2^{-n}$.
+\end{itemize}
+On obtient bien le résultat annoncé.
+
+\item Le polynôme $P_a$ est un polynôme unitaire de degré $n+1$. Comme
+\[
+|f(x) - P(x)| \leq \|f^{(n+1)}\|_\infty \frac{\|P_a\|_\infty}{(n+1)!},
+\]
+cette majoration est minimale lorsque $P_a = t_{n+1}$. Ainsi, les racines des polynômes de Tchebychev permettent de minimiser l'erreur dans l'intrepolation de Lagrange.
+\end{reponses}
+\end{solution}
+
+\begin{remarque}
+La question précédente assure que, pour toute fonction $f$ de classe $\mathscr{C}^{n+1}$ sur $\interff{-1}{1}$, si $P$ est le polynôme d'interpolation de $f$ associé aux $a_0,\ldots,a_n$, alors
+\[
+\norme{f - P}_{\infty} \leq \frac{\norme{f}_\infty}{(n+1)!} \norme{P_a}_{\infty},
+\]
+et que le membre de droite est minimal lorsque $a_0,\ldots,a_n$ sont les racines du polynôme de Tchebychev d'ordre $n + 1$.
+
+Cependant, ceci n'assure pas que le polynôme d'approximation converge vers la fonction $f$ lorsque le nombre $n$ de points d'approximations tend vers l'infini.
+\end{remarque}
+
+%-----------
+\subsection{Phénomène de \nom{Runge}}
+
+\todoinline{À étudier, il y  a deux sources :\\
+St Cyr 1993\\
+X ENS - PSI - 1998\\
+Lien avec constante de Lebesgue}
+
+
+\begin{theo}
+Soit $a \in \R$. Pour tout $x \in \interff{-1}{1}$, on pose $f(x) = \frac{1}{x^2 + a^2}$. Pour tout entier naturel $n$ non nul, on note $P_n$ le polynôme d'approximation de Lagrange de $f$ aux points $a_0,\ldots,a_n$.
+\begin{itemize}
+\item Si $a > \frac{2}{\e}$, alors $(P_n)$ converge uniformément vers $f$.
+
+\item
+\end{itemize}
+\end{theo}
+
 \begin{solution}
 
-\item Soit $f$ une fonction à valeurs réelles. Comme $(f(a_i))_{i\in\interent{0}{n}} \in \K^{n+1}$ et que $\eg$ est surjective, d'après la question précédente, il existe un polynôme $P \in \K_n[X]$ tel que pour tout $i \in \interent{0}{n}$, $P(a_i) = f(a_i)$.
-
-\item Soit $x \in [a,b]$. Si $x \in \{a_0,\ldots,a_n\}$, tout réel $\xi \in [-1, 1]$ convient. Sinon, soit $K \in \K$ tel que $\phi~:~[a,b] \to \K,\, x \mapsto f(x) - P(x) - K \prod_{i=0}^n (x - a_i) = 0$.\\
-La fonction $\phi$ possède $n+2$ zéros, donc, comme $f$ est de classe $\mathscr{C}^{n+1}$, en appliquant plusieurs fois Rolles (à rédiger~!), il existe $\xi \in ]a,b[$ tel que $\phi^{(n+1)}(\xi) = 0$. Ainsi, $0 = f^{(n+1)}(\xi) - (n+1)! \cdot K$.\\
-Comme $f^{(n+1)}$ est continue sur le segment $[a,b]$, elle admet une borne supérieure. D'où,
-\[
-|f(x) - P(x)| \leq \sup_{[a,b]} |f^{(n+1)}| \frac{\prod_{i=0}^n |x-a_i|}{(n+1)!}.
-\]
-{
-On peut ainsi, pour des fonctions régulières, contrôler l'erreur d'approximation de la fonction par un polynôme. Cependant, tout ne se passe pas bien et il arrive que le polynôme d'interpolation de Lagrange { ne converge pas} (en un sens à préciser) vers la fonction $f$. On pourra consulter le sujet de Saint-Cyr 1993.
-}
-
-\item Le polynôme de Tchebychev $T_{n+1}$ est de degré $(n+1)$. De plus, pour tout $k \in \interent{0}{n}$, le réel $x_k = \cos \frac{(2k+1)\pi}{2(n+1)}$ est une racine de $T_{n+1}$. De plus, la fonction cosinus étant strictement monotone sur $[0,\pi]$, ces racines sont distinctes. Comme $T_{n+1}$ est de degré $n+1$, il possède au plus $n+1$ racines distinctes, donc ses racines sont exactement les $(x_k)_{k\in\interent{0}{n}}$ et $T_{n+1}$ est scindé.
-
-\item On montre en utilisant les formules d'Euler et de Newton que le coefficient de plus haut degré de $T_{n+1}$ est $2^n$. Ainsi, $t_{n+1}$ est bien un polynôme unitaire.
-
-\item Soit $Q$ un polynôme unitaire de degré $n+1$. Supposons par l'absurde que $\|Q\|_\infty < 2^{-n}$ et posons $R = Q - t_{n+1}$. Alors, pour tout $k \in \interent{0}{n+1}$, $t_{n+1}(\cos \frac{k\pi}{n+1}) = (-1)^k 2^{-n}$. Ainsi, le polynôme $R$ change $n+2$ fois de signe donc, d'après le théorème de Rolles, admet au moins $n+1$ racines distinctes. De plus, comme $Q$ et $t_{n+1}$ sont de degré $n+1$, alors $R$ est de degré au plus $n$. Ainsi, $R = 0$, soit $Q = t_{n+1}$ et on obtient une contradiction car $\|t_{n+1}\|_\infty = 2^{-n}$. D'où,
-{
-\[\|Q\|_\infty \geq 2^{-n}.\]
-}
-
-Soit $Q$ tel que $\|Q\|_\infty = 2^{-n}$. Posons $R = Q - t_{n+1}$. Notons, pour tout $k \in \interent{0}{n+1}$, $y_k = \cos \frac{k\pi}{n+1}$ et $L_R$ le polynôme d'interpolation de Lagrange de $R$ en les points $(y_k)_{k\in\interent{0}{n}}$. \\
-D'une part, $R$ est de degré au plus $n$ car $Q$ et $t_{n+1}$ sont unitaires. Ainsi, $R = L_R$. Donc, le coefficient de degré $n+1$ de $L_R$ est nul, soit $\sum_{k=0}^n \frac{R(y_k)}{\prod_{i\neq k} (y_k-y_i)} = 0$.
-
-Soit $k \in \interent{0}{n+1}$,
-\begin{align*}
-R(y_k) &= Q(y_k) - (-1)^k 2^{-n} \\
-&= 2^{-n} \left[\frac{Q(y_k)}{2^{-n}} - (-1)^k\right],
-\end{align*}
-soit
-\[
--2^{-n} (1 + (-1)^k) \leq R(y_k) \leq 2^{-n} (1 - (-1)^k)
-\]
-et $(-1)^k R(y_k) \geq 0$.
-
-Or, $\prod_{i\neq k} (y_k-y_i)$ est du même signe que $(-1)^k$. Ainsi, d'après les deux points précédents,
-\[
-\forall\, k \in \interent{0}{n},\, R(y_k) = 0.
-\]
-
-Finalement, $R$ est le polynôme nul, soit
-{
-$Q = t_{n+1}$.
-}
-
-\item En notant $Q = \prod_{i=0}^n (X-a_i)$, $Q$ est un polynôme unitaire de degré $n+1$. Comme
-\[
-|f(x) - P_f(x)| \leq \|f^{(n+1)}\|_\infty \frac{\|Q\|_\infty}{(n+1)!},
-\]
-cette majoration est minimale lorsque $Q = t_{n+1}$. Ainsi, les racines des polynômes de Tchebychev permettent de minimiser l'erreur dans l'intrepolation de Lagrange.
-% \indic{
-
-Attention, cela ne signifie pas pour autant que le polynôme d'interpolation converge vers $f$ lorsque $n$ tend vers l'infini. On pourra étudier en particulier le phénomène de Runge.
-% }
-\end{questions}
 \end{solution}
