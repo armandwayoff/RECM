@@ -1,0 +1,437 @@
+\section{Décompositions matricielles}
+%%%%%%%
+
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\OO}{\mathscr{O}}
+\newcommand{\BB}{\mathscr{B}}
+\newcommand{\CC}{\mathscr{C}}
+
+On note :\\
+$\CC_n$ la base canonique de $\R^n$.\\
+$\Gl_n(\R)$ l'ensemble des matrices inversibles de taille $n$.\\
+%
+$\mathscr{O}_n(\R)$ l'ensemble des matrices orthogonales de taille $n$.\\
+%
+$\SS_n(\R)$ l'ensemble des matrices symétriques de taille $n$.\\
+%
+$\SS_n^{++}(\R)$ l'ensemble des matrices symétriques définies positives, i.e. les matrices symétriques réelles dont les valeurs propres sont strictement positives.
+
+%===========
+\subsection{Matrices de rang $r$}
+
+\begin{theo}{Matrices équivalentes à $J_r$}
+Soit $A \in \MM_{n,p}(\K)$ une matrice de rang $r$. Alors, il existe deux matrices inversibles $P \in \Gl_n(\K)$ et $Q \in \Gl_n(\K)$ telles que
+\[
+A = P J_r Q,
+\]
+où $J_r = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} \in \MM_{n,p}(\K)$.
+\end{theo}
+
+\begin{exercice}
+Soit $A \in \MM_{n,p}(\K)$ une matrice de rang $r$ et $f \in \mathscr{L}(\R^p, \R^n)$ l'application linéaire canoniquement associée. On note $F$ un supplémentaire de $\Ker(f)$ et $(e_1,\ldots,e_r)$ une base de $F$. Pour tout $i \in \interent{1}{r}$, on note $f_i = f(e_i)$.
+\begin{questions}
+\item Montrer que $(f_1,\ldots,f_r)$ est une base de $\Im(f)$.
+
+\item Compléter les familles libres $(e_1,\ldots,e_r)$ et $(f_1,\ldots,f_r)$ pour conclure.
+\end{questions}
+\end{exercice}
+
+\begin{solution}
+\begin{reponses}
+\item D'après le théorème du rang, $f$ réalise une bijection de $F$ dans $\Im(f)$. Comme l'image d'une base par un isomorphisme est une base, alors $(f(e_1),\ldots,f(e_r))$ est une base de $\Im(f)$.
+
+\item On considère une base $(e_{r+1},\ldots,e_p)$ de $\Ker(f)$. Comme $F \oplus \Ker(f) = \R^p$, alors $\mathscr{B}_1 = (e_1,\ldots,e_p)$ est une base de $\R^p$.
+
+On complète ensuite $(f_1,\ldots,f_r)$ en une base $\mathscr{B}_2 = (f_1,\ldots,f_n)$ de $\R^n$.
+
+Alors, $\Mat_{\BB_1,\BB_2}(f) = J_r$.
+
+Ainsi, en utilisant les formules de changements de bases,
+\[
+\Mat_{\CC_p, \CC_n}(f) = P_{\CC_n}^{\BB_2} \Mat_{\BB_1, \BB_2}(f) P_{\BB_1}^{\CC_n},
+\]
+soit en posant $P = P_{\CC_n}^{\BB_2}$ et $Q = P_{\BB_1}^{\CC_n}$, $A = P J_r Q$.
+\end{reponses}
+\end{solution}
+
+\begin{remarque}
+On montre ainsi que toute matrice de rang $r$ est \textit{équivalente} à $J_r$.
+\end{remarque}
+
+%-----------
+\subsection{Factorisation par le rang}
+
+\begin{theo}{}
+Soit $A \in \MM_{n,p}(\K)$ une matrice de rang $r$. Il existe deux matrices $P \in \MM_{n,r}(\K)$ et $Q \in \MM_{r,n}(\K)$ de rangs $r$ telles que
+\[
+A = P Q.
+\]
+\end{theo}
+
+\begin{remarque}
+Ce résultat peut être utilisé pour déterminer la pseudo-inverse d'une matrice via le théorème de Mac-Duffee.
+\end{remarque}
+
+\todoinline{Ajouter thème pseudo-matrice et référence pour ce théorème.}
+
+
+\begin{exercice}
+Soit $A \in \MM_{n,p}(\K)$ une matrice de rang $r$. On note $f \in \mathscr{L}(\R^p, \R^n)$ l'endomorphisme canoniquement associé à $A$.
+\begin{questions}
+\item \textbf{Version abstraite.} Soit $F$ un supplémentaire de $\Ker(f)$ dans $\R^n$.
+\begin{questions}
+\item Montrer que l'application $\phi : \Ker(f) \oplus F \to F,\, h + x \mapsto x$ est surjective et de rang $r$.
+
+\item Montrer que l'application $\psi : F \to \R^n,\, x \mapsto f(x)$ est injective et de rang $r$.
+
+\item Conclure.
+\end{questions}
+\item \textbf{Version matricielle.} On note $C_1,\ldots,C_n$ les colonnes de $A$ et $(C_{i_1},\ldots,C_{i_\ell})$ une base de $\Vect\left\{C_1,\ldots,C_n\right\}$. On note $B$ la matrice dont les colonnes sont $C_{i_1},\ldots,C_{i_\ell}$.
+\begin{questions}
+\item Montrer que $\ell = r$.
+
+\item Montrer que, pour tout $i \in \interent{1}{n}$, il existe un vecteur colonne $Y_i$ tel que $C_i = B Y_i$.
+
+\item Montrer que la matrice $C$ dont les colonnes sont $Y_1,\ldots,Y_n$ est de rang $r$.
+
+\item Conclure.
+\end{questions}
+\end{questions}
+\end{exercice}
+
+\begin{solution}
+\begin{reponses}
+\item
+\begin{reponses}
+\item Pour tout $x \in F$, $\phi(x) = x$. Ainsi, $\phi$ est surjective. D'après la définition du rang, $\Rg(\phi) = \dim(F)$. Or, d'après le théorème du rang, tout supplémentaire de $\Ker(f)$ est en bijection avec $\Im(f)$. Ainsi, $\dim(F) = \dim \Im(f) = \Rg(f)$. Alors, $\Rg(\phi) = r$.
+
+\item Comme $f$ est linéaire, alors $\psi$ est linéaire. Soit $x \in \Ker\psi$. Alors, $\psi(x) = 0$. Ainsi, $f(x) = 0$. Donc $x \in \Ker(f)$. De plus, $x \in F$. Comme $F$ et $\Ker(f)$ sont en somme directe, alors $F \cap \Ker(f) = \{0\}$, soit $x = 0$.
+
+Ainsi, $\psi$ est injective.
+
+D'après le théorème du rang,
+\[
+\Rg(\psi)
+= \dim(F) - \dim(\Ker(\psi))
+= r - 0
+= r.
+\]
+
+\item D'après les définitions, $f = \psi \circ \phi$. De plus, $\psi$ et $\phi$ sont de rang $r$. On obtient donc le résultat annoncé en utilisant les matrices de $f,\, \psi$ et $\phi$ dans les bases canoniques.
+\end{reponses}
+
+\item
+\begin{reponses}
+\item Comme $\Rg(A) = r$, la dimension de l'espace vectoriel engendré par les colonnes de $A$ est égale à $r$. Ainsi, toute base de $\Vect\{C_1,\ldots,C_n\}$ contient $r$ éléments, soit $\ell = r$.
+
+\item Soit $i \in \interent{1}{n}$. Comme $(C_{i_1},\ldots,C_{i_r})$ est une base de $\Vect\{C_1,\ldots,C_n\}$, il existe $y_{1,i},\ldots,y_{n,i}$ scalaires tels que
+\[
+C_1 = \sum_{j=1}^r y_{j,i} C_{i_j}.
+\]
+Ainsi, en posant $Y_i = \begin{pmatrix} y_{1,i} \\ \vdots \\ y_{r,i}\end{pmatrix}$, alors $C_i = B Y_i$.
+
+\item Comme toute colonne de $A$ est combinaison linéaire des colonnes de $C$, alors $r = \Rg(A) \leq \Rg(C)$.
+
+De plus, $C$ possède $r$ lignes, donc $\Rg(C) \leq r$.
+
+Finalement, $\Rg(C) = r$.
+
+\item D'après la question précédente,
+\begin{align*}
+A
+&= \begin{bmatrix} C_1 \cdots C_n\end{bmatrix}
+= \begin{bmatrix} B Y_1 \cdots B Y_n\end{bmatrix}\\
+&= B \begin{bmatrix} Y_1 \cdots Y_n\end{bmatrix}\\
+&= B C.
+\end{align*}
+\end{reponses}
+\end{reponses}
+\end{solution}
+
+\begin{remarque}
+En appliquant l'algorithme du pivot de Gauss uniquement sur les lignes de $A$, on obtient une matrice $\tilde{A}$ dont les coefficients diagonaux sont des $0$ ou des $1$.
+
+On note $B$ la matrice obtenue à partir de $\tilde{A}$ en supprimant les lignes nulles.
+
+Pour construire $C$, on sélectionne uniquement certaines colonnes de $A$. Le numéro des colonnes sélectionnées correspond aux colonnes de $B$ dont le coefficient diagonal est nul.
+
+En pratique, si $A = \begin{pmatrix} 1 & 3 & 1 & 4 \\ 2 & 7 & 3 & 9 \\ 1 & 5 & 3 & 1 \\ 1 & 2 & 0 & 8 \end{pmatrix}$, la matrice échelonnée correspondante est $\tilde{A} = \begin{pmatrix} 1 & 0 & -2 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0\end{pmatrix}$.
+
+On pose ainsi $B = \begin{pmatrix} 1 & 0 & -2 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}$ et $C = \begin{pmatrix} 1 & 3 & 4 \\ 2 & 7 & 9 \\ 1 & 5 & 1 \\ 1 & 2 & 8\end{pmatrix}$.
+
+Alors, $A = C B$.
+\end{remarque}
+
+\todoinline{Trouver une référence pour la remarque ? Autre que wikipedia anglais}
+
+\todoinline{Relire la suite}
+
+%=======
+\subsection{Décomposition LU}
+
+% L = Lower = Matrice triangulaire inférieure - U = Upper = Matrice triangulaire supérieure
+
+Soit $A \in \mathscr{M}_n(\R)$. Pour tout $j \in \entiers{1}{n}$, la matrice obtenue à partir de $A$ en ne gardant que les $j$ premières lignes et les $j$ premières colonnes. La famille $(\det A_j)_{1 \leq j \leq n}$ est la famille des déterminants principaux de $A$.
+
+\begin{theo}[Décomposition LU (ou LR)]
+Toute matrice $A \in \Gl_n(\R)$ peut s'écrire sous la forme $A = L U$ où $L$ est une matrice triangulaire inférieure (\textit{Lower}) ayant uniquement des $1$ sur la diagonale et $U$ est une matrice triangulaire supérieure (\textit{Upper}) si et seulement si tous les déterminants principaux de $A$ sont non nuls. Si elle existe, une telle décomposition est unique.
+\end{theo}
+
+Soit $A \in \Gl_n(\R)$ qui possède deux décomposition LU notée $A = L_1 U_1 = L_2 U_2$.
+Montrer que $L_2^{-1} L_1$ est bien définie et est diagonale.
+
+En déduire que $L_1 = L_2$ puis que $U_1 = U_2$.
+
+\medskip
+
+Pour montrer que toute matrice à déterminants principaux non nuls admet une décomposition LU, on raisonne ensuite par récurrence. On considère $n \geq 2$ et on suppose la propriété vraie pour toutes les matrices de taille $n-1$.
+
+Soit $A \in \Gl_n(\R)$. On note $A = \begin{pmatrix} A_1 & B_1 \\ C_1 & a_{n,n} \end{pmatrix}$ où $A_1 \in \mathscr{M}_{n-1}(\R)$, $B_1 \in \mathscr{M}_{n-1,1}(\R)$, $C_1 \in \mathscr{M}_{1,n-1}(\R)$ et $a_{n,n} \in \R$.
+
+Montrer qu'il existe $L_1$ triangulaire inférieure à diagonale unité, $U_1$ triangulaire supérieure inversible telles que $A_1 = L_1 U_1$.
+
+On suppose que $A = L U$ où $L = \begin{pmatrix} L_1 & 0 \\ D_1 & 1 \end{pmatrix}$ et $U = \begin{pmatrix} U_1 & E_1 \\ 0 & \alpha \end{pmatrix}$. Déterminer des équations satisfaites par $D_1,\, E_1$ et $\alpha$. 
+
+Montrer que le système d'équations précédents possède une unique solution.
+
+En déduire l'existence de la décomposition $L U$.
+
+On suppose que $A = L U$ admet une décomposition LU.
+Montrer que $A$ est inversible.
+
+En utilisant les notations de la récurrence précédente, montrer que $A_1 = L_1 R_1$ est également inversible.
+
+En déduire que les déterminants principaux de $A$ sont non nuls.
+
+\medskip
+
+{Remarque.} Si $A$ est inversible mais possède des déterminants principaux nuls, la méthode précédente ne fonctionne plus. On peut montrer, en utilisant la méthode du pivot de \cite{Gauss} qu'il existe une matrice de permutation $P$, une matrice triangulaire inférieure $L$ à coefficients diagonaux égaux à $1$ et une matrice triangulaire inférieure $U$ telle que $A = P L U$.
+
+%=======
+\subsection{Factorisation de \cite{Cholesky}}
+
+\begin{theo}[Factorisation de \cite{Cholesky}]
+Une matrice réelle $A$ est symétrique définie positive si et seulement s'il existe une matrice inversible $B$ triangulaire inférieure telle que $A = B \trans{B}$. De plus, une telle décomposition est unique si on impose la positivité des coefficients diagonaux de $B$.
+\end{theo}
+
+Montrer que s'il existe une matrice inversible $B$ triangulaire inférieure telle que $A = \trans{B} B$, alors $A$ est symétrique définie positive.
+
+Soit $A$ une matrice symétrique définie positive.
+Montrer que $\phi : (X, Y) \mapsto \trans{X} A Y$ définit un produit scalaire.
+
+Soit $\mathscr{B} = (X_1,\ldots,X_n)$ une base orthonormée pour le produit scalaire $\phi$ et $P$ la matrice de passage de la base canonique à la base $\mathscr{B}$.
+
+Montrer que $\trans{P} A P = I_n$ puis conclure.
+
+
+%=======
+\subsection{Décomposition QR}
+
+\begin{theo}[Décomposition QR]
+Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = Q R$, où $Q$ est une matrice orthogonale et $R$ est une matrice triangulaire supérieure à coefficients diagonaux strictement positifs.
+\end{theo}
+
+
+\begin{proposition}[Décomposition d'\cite{Iwasawa}]
+Toute matrice $A \in \Gl_n(\R)$ s'écrit de manière unique $A = Q D R$ où $Q$ est une matrice orthogonale, $D$ est une matrice diagonale à coefficients diagonaux strictement positifs et $R$ est une matrice triangulaire supérieure à coefficients diagonaux égaux à $1$.
+\end{proposition}
+
+{TPE - 17}%
+
+% Q = Matrice orthogonale - R = Matrice triangulaire supérieure
+
+% Décomposition d'Iwasawa = Si les coefficients diagonaux de R sont $1$.
+
+{Version \cite{Gram}-\cite{Schmidt}.} Soit $A = [A_1,\ldots,A_n]$ une matrice inversible.
+Montrer que la famille $(A_1,\ldots,A_n)$ est libre.
+
+En utilisant l'algorithme de Gram-Schmidt, montrer que $A$ admet une décomposition QR.
+% Montrer qu'il existe une matrice triangulaire supérieure $T$ et une matrice orthogonale $O$ telles que $A = O T$.
+
+{Application : Inégalité d'\cite{Hadamard}.} Montrer que pour tout $A = [A_1 \cdots A_n] \in \mathscr{M}_n(\R)$, $\det A \leq \prod\limits_{i=1}^n \norme{A_{i}}$. On pourra distinguer les cas en fonction de la liberté de la famille $(A_1,\ldots,A_n)$.
+
+% Montrer l'inégalité si la famille $(A_1,\ldots,A_n)$ des colonnes de $A$ est liée ?
+
+\medskip
+
+On propose une nouvelle démonstration de ce résultat via les matrices de \cite{Householder}.
+
+É.N.S. - 19
+Soit $V \in \R^n \backslash \ens{0}$ et $H(V) \in \mathscr{M}_n(\R)$ définie par $H(V) = I_n - \frac{2}{\norme{V}^2} V \trans{V}$.
+
+{Version \cite{Householder}.}
+On note $H_R = \ens{I_n} \cup \ens{H(V),\, V \in \R^n \backslash\ens{0}}$ et $\SS_n(\R)$ l'ensemble des matrices symétriques de $\mathscr{M}_n(\R)$.
+
+Pour $V \in \R^n \backslash \ens{0}$, montrer que $H(V) \in \mathscr{O}_n(\R) \cap \SS_n(\R)$.
+
+Soit $(X, Y) \in (\R^n)^2$ tel que $\norme{X} = \norme{Y}$. Montrer qu'il existe $H \in H_R$ telle que $H X = Y$.
+
+Soit $A \in \Gl_n(\R)$. Montrer qu'il existe $P \in \mathscr{O}_n(\R)$ produit d'au plus $n-1$ matrices de $H_R$ et $R$ une matrice triangulaire supérieure avec des coefficients diagonaux strictement positifs telles que $P A = R$. Décrire le principe de construction de $P$ et de $R$.
+
+Écrire une fonction basée sur les matrices de \cite{Householder} qui donne la factorisation $Q R$ d'une matrice inversible de $\mathscr{M}_n(\R)$. La complexité attendue doit être équivalente à $\frac{4 n^3}{3}$.
+
+Soient $A \in \Gl_n(\R)$ et $A = Q_1 R_1 = Q_2 R_2$ deux décompositions QR. On pose $\Delta = R_1 R_2^{-1}$.
+Montrer que $\Delta$ est triangulaire supérieure et orthogonale.
+
+En déduire que $\Delta$ est diagonale puis que ses coefficients sont dans $\ens{-1, 1}$.
+
+Conclure quant à l'unicité de la décomposition.
+
+Démontrer l'existence de la décomposition d'\cite{Iwasawa}.
+
+%=======
+\subsection{Décomposition polaire}
+%=======
+
+\begin{theo}[Décomposition polaire]
+Toute matrice $A \in \Gl_n(\R)$ peut s'écrire de manière unique sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthgonale et $S$ est une matrice symétrique définie positive.
+\end{theo}
+
+\begin{proposition}
+Toute matrice $A \in \mathscr{M}_n(\R)$ peut s'écrire sous la forme $A = \Omega S$ où $\Omega$ est une matrice orthgonale et $S$ est une matrice symétrique positive (i.e. dont toutes les valeurs propres sont positives.
+\end{proposition}
+
+
+{Grenoble - 120}%
+
+% Matrices inversibles (unicité).
+
+% O = Matrice orthogonale - S = Matrice symétrique définie positive
+
+Mines - 19%
+Soit $M \in \Gl_n(\R)$. On suppose qu'il existe $(\Omega_1, S_1)$ et $(\Omega_2, S_2)$ dans $\mathscr{O}_n(\R) \times \SS_n^{++}(\R)$ telles que $M = \Omega_1 S_1 = \Omega_2 S_2$.
+Montrer que $S_1^2 = S_2^2$.
+
+Montrer qu'il existe $(P, Q) \in \mathscr{O}_n(\R)^2$ tel que $D = \trans{P} S_1 P$ et $\Delta = \trans{Q} S_2 Q$ soient diagonales.
+
+En notant $R = Q \trans{P}$, montrer, en utilisant les questions précédentes, que $R D = \Delta R$.
+
+En déduire que $S_1 = S_2$ puis que $\Omega_1 = \Omega_2$.
+
+Soit $M \in \Gl_n(\R)$.
+Montrer qu'il existe $O \in \mathscr{O}_n(\R)$ et $\Delta$ diagonale réelle telles que $\trans{M} M = O \Delta^2 O$.
+
+En posant $S = \trans{O} \Delta O$, montrer que $S$ est symétrique puis que $M S^{-1}$ est orthogonale.
+
+En déduire le théorème de la décomposition polaire.
+
+ % Montrer qu'il existe un unique couple $(S, \Omega)$ tel que $S \in \SS_n^{++}(\R)$ (i.e $S$ est symétrique réelle à valeurs propres strictement positives) et $\Omega \in \mathscr{O}_n$ tel que $M = \Omega S$.
+
+% Matrices (non unicité).
+
+% O = Matrice orthogonale - S = Matrice symétrique positive
+
+\medskip
+
+On admettra que, si $K$ est une partie fermée, bornée et non vide d'un espace vectoriel de dimension finie et $(x_k)_{k\in\N}$ est une suite d'éléments de $K$, alors il existe une suite extraite $(x_{\phi(k)})_{k\in\N}$ qui converge.
+
+Montrer que $\mathscr{O}_n(\R)$ est une partie fermée, bornée et non vide de $\mathscr{M}_n(\R)$.
+
+Soit $M \in \mathscr{M}_n(\R)$.
+Montrer qu'il existe une suite $(M_k)_{k\in\N}$ de matrices inversibles qui converge vers $M$.
+
+En déduire qu'il existe une suite de matrices symétriques $(S_k)_{k\in\N}$ et une suite de matrices orthgonales $(Q_k)_{k\in\N}$ telles que $\lim\limits_{k\in\N} O_k S_k = M$.
+
+Montrer qu'il existe $\Omega$ matrice orthogonale et $S$ symétrique réelle telles que $M = \Omega S$.
+
+La matrice $S$ est-elle à valeurs propres strictement positives ?
+
+Soit $\tilde{\Omega}$ une matrice orthogonale dont la restriction à $\Ker S^\perp$ est l'identité. Montrer que $M = \tilde{\Omega} \Omega S$ et en déduire que la décomposition n'est plus unique.
+
+\todoinline{Ajouter les questions de complexité dans LU \& Cholesky.}
+
+\todoinline{Ajouter application au calcul des valeurs propres.}
+%=======
+\subsection{Décomposition de Cholesky}
+
+\todoinline{Attention, noter que $P$ n'est pas orthogonale}
+
+%=======
+\subsection{Décomposition QR}
+
+Si $(A_1,\ldots,A_n)$ est liée, alors $\det(A) = 0$. Ainsi, l'inégalité est triviale.
+
+Si la famille $(A_1,\ldots,A_n)$ est libre, d'après le procédé d'orthonormalisation de Gram-Schmidt, il existe une matrice $T$ d'opération élémentaire sur les colonnes telle que $A = O T$. La matrice $T$ est triangulaire, car, la famille orthonormée $(U_1,\ldots,U_k)$ est construite par récurrence en utilisant uniquement la famille $(A_1,\ldots,A_k)$. De plus, le coefficient diagonal permet de normaliser la famille et $\abs{p_{i,i}} = \langle A_i, U_i\rangle \leq \norme{A_i}$.
+
+Alors, $\abs{\det(A)} = \abs{\det(T)} \leq \prod\limits_{i=1}^n \norme{A_i}$.
+
+On remarque que $\trans{H(V)} = H(V)$ puis que
+\[
+\trans{H(V)} H(V) = I_n - \frac{4}{\norme{V}^2} V \trans{V} + \frac{4}{\norme{V}^4} V \underbrace{\trans{V} V}_{\norme{V}^2} \trans{V}
+\]
+Ainsi, $H(V) \in \SS_n(\R) \cap \mathscr{O}_n(\R)$.
+
+Si $X = Y$, on choisit l'identité.
+
+Raisonnons par Anaylse / Synthèse.
+\begin{itemize}
+\item Si $H(Y) = X$, alors $X - Y = \frac{2}{\norme{V}^2} V \trans{V} X$. Ainsi, en multipliant à gauche par $\trans{V}$, on obtient
+\begin{align*}
+\trans{V} (X - Y) &= 2 \trans{V} X \\
+\trans{V} (X + Y) &= 0
+\end{align*}
+Ainsi, on souhaite que $V$ soit $X + Y$ à $X - Y$. Comme $X$ et $Y$ sont de même norme, on choisit $V = X + Y$.
+
+\item On remarque que
+\begin{align*}
+H(X - Y) X &= X - \frac{2}{\norme{X - Y}^2} (X - Y) (\trans{X} - \trans{Y}) X \\
+&= X - \frac{1}{\norme{X}^2 - \trans{X}Y} \left[(X - Y) (\norme{X}^2 - \trans{Y} X)\right]\\
+&= X - (X - Y) = Y
+\end{align*}
+\end{itemize}
+
+En notant $A = [C_1,\ldots,C_n]$, on choisit $V_1$ telle que $H(V_1) C_1 = \norme{C_1} E_1$. Alors,
+\[
+P_1 A = H(V_1) A = \begin{pmatrix} \norme{C_1} & \ast \\ 0 & A_2 \end{pmatrix}
+\]
+
+On applique ensuite la même méthode à $A_2$. On construit ensuite $P_2 = \begin{pmatrix} 1 & 0 \\ 0 & H(V_2) \end{pmatrix}$.
+
+Ensuite, pour inverser les matrices $P_i$, on remarque qu'elles sont orthogonales.
+
+À l'étape $k$.
+\begin{itemize}
+\item La construction du vecteur $V_k$ est linéaire.
+\item Le calcul du produit $\trans{V_k} V_k$ coûte $(n-k)^2$.
+\item Le calcul du produit $\trans{V_k} A_k$ coûte $(n-k)^2$.
+\item Le calcul du produit $V_k (\trans{V_k} A_k$ coûte $(n-k)^2$.
+\item Le calcul de la différence $A_k - \frac{2}{\norme{V_k}^2} V_k \trans{V_k} A_k$ coûte $(n-k)^2$.
+\end{itemize}
+Le calcul total est donc équivalent à $4 \sum\limits_{k=1}^n (n-k)^2 \sim \frac{4}{3} n^3$.
+
+%=======
+\subsection{Décomposition polaire}
+
+On raisonne par existence et unicité.
+\begin{itemize}
+\item[$(!)$] Supposons que $M = \Omega_1 S_1 = \Omega_2 S_2$. Alors,
+\begin{align*}
+\trans{M} M &= \trans{S_1} \trans{\Omega_1} \Omega_1 S_1 = S_1^2 \\
+&= S_2^2
+\end{align*}
+Comme $S_1$ et $S_2$ sont symétriques réelles, il existe deux matrices orthogonales $P$ et $Q$ telles que
+\[
+S_1 = \trans{P} D P \text{ et } S_2 = \trans{Q} \Delta Q
+\]
+
+De plus, en notant $R = Q \trans{P} \in \Gl_n$, alors pour tout $(i, j) \in \entiers{1}{n}^2$,
+\begin{align*}
+S_1^2 &= S_2^2 \\
+R D^2 &= \Delta^2 R \\
+r_{i,j} d_j^2 &= \delta_i^2 r_{i,j} \\
+r_{i,j} \underbrace{(d_j + \delta_i)}_{>0} (d_j - \delta_i) &= 0 \\
+r_{i,j} d_j &= \delta_i r_{i,j} \\
+R D &= \Delta R \\
+S_1 &= S_2
+\end{align*}
+On obtient alors $\Omega_1 = \Omega_2$.
+
+\item[$(\exists)$] D'une part, $\trans{M} M$ est symétrique. D'autre part, si $\lambda$ est une valeur propre de $\trans{M} M$, alors $\trans{M} M X = \lambda X$ soit $\lambda = \frac{\norme{M X}^2}{\norme{X}^2} > 0$ car $M$ est inversible. Ainsi, $\trans{M} M = \trans{O} D O$, où $O$ est une matrice orthogonale. Comme les coefficients de $D$ sont positifs, on note $D = \Delta^2$. Alors,
+\[
+\trans{M} M = \underbrace{\trans{O} \Delta O}_{S} \trans{O} \Delta O
+\]
+En posant $\Omega = M S^{-1}$, alors
+\[
+\trans{\Omega} \Omega = \trans{S}^{-1} \trans{M} M S^{-1} = S^{-1} S^2 S^{-1} = I_n
+\]
+\end{itemize}
