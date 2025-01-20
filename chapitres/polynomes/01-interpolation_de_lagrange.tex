@@ -1,6 +1,8 @@
 %========
 \section{Polynômes d'interpolation de \nom{Lagrange}}
 
+\todoinline{Parler de la constante de Lebesgue}
+
 Pour tous $i,\, j \in \N$, on définit le symbole de \nom{Kronecker} par $\delta_{i,j} = 1$ si $i = j$ et $\delta_{i,j} = 0$ sinon.
 
 Dans la suite, $n$ désigne un entier naturel non nul et $(a_0, \ldots, a_n)$ une famille de nombres réels deux à deux distincts. On note $P_a = \prod\limits_{i=0}^n (X - a_i)$.
@@ -228,7 +230,40 @@ On retrouve ainsi la propriété de l'exercice précédent qui assure que :
 \end{remarque}
 
 %-----------
-\subsection{Erreur d'approximation}
+\subsection{Constante de \nom{Lebesgue}}
+
+\begin{theo}
+Soit $f$ une fonction continue sur $I$ et $P_n$ le polynôme d'interpolation de \nom{Lagrange} de $f$ aux poins $x_0,\ldots,x_n$. Pour tout polynôme $P \in \R_n[X]$,
+\[
+\forall\, x \in I,\, \module{f(x) - P_n(x)} \leq \left(1 + \sum_{k=0}^n \module{L_k(x)}\right) \norme{f - P}.
+\]
+\end{theo}
+
+\begin{remarque}
+La constante de \nom{Lebesgue} est le réel
+\[
+\lambda_n = \norme{\sum_{k=0}^n L_k(x)}_\infty.
+\]
+En général, il est difficile d'évaluer cette constante. Dans le cas de points d'interpolation équirépartis, on peut montrer $\lambda_n \sim_{n\to+\infty} \frac{2^{n+1}}{n \ln n}$. Dans le cas où les points d'interpolation sont les zéros des polynômes de \nom{Tchebychev}, une estimation de cette constante est également possible. Nous n'aborderons pas ces estimations ici.
+\end{remarque}
+
+\begin{elemsolution}
+\cite{mines_2-mp-2001}
+La continuité de $f$ assure que la fonction $f$ admet une borne supérieure.
+
+En utilisant la propriété des polynômes d'interpolation de \nom{Lagrange},
+\begin{align*}
+\module{f(x) - P_n(x)}
+&\leq \module{f(x)} + \module{P_n(x)}\\
+&\leq \module{f(x)} + \sum_{k=0}^n \module{f(x_k)} \module{L_k(x)}\\
+&\leq \left(1 + \sum_{k=0}^n \module{L_k(x)}\right) \norme{f}_\infty.
+\end{align*}
+
+Si $P$ est un polynôme de degré au plus $n$, alors il est égal à son polynôme d'interpolation de \nom{Lagrange}. On obtient donc le résultat annoncé en remplaçant $f$ par $f - P$ dans le calcul précédent.
+\end{elemsolution}
+
+%-----------
+\subsection{Avec plus de régularité}
 
 Dans cette partie, on suppose que $-1 \leq a_0 < a_1 < \cdots < a_n \leq n$.
 
@@ -281,7 +316,6 @@ Soit $Q$ un polynôme unitaire de degré $n+1$. On note $T_{n+1}$ le polynôme d
 \item Conclure.
 \end{questions}
 \end{exercice}
-
 
 \begin{solution}
 \begin{reponses}
@@ -342,21 +376,147 @@ Cependant, ceci n'assure pas que le polynôme d'approximation converge vers la f
 %-----------
 \subsection{Phénomène de \nom{Runge}}
 
-\todoinline{À étudier, il y  a deux sources :\\
-St Cyr 1993\\
-X ENS - PSI - 1998\\
-Lien avec constante de Lebesgue}
+\todoinline{Intro qui explique ce qu'est le phénomène}
 
+\begin{prop}{}{}
+Soit $\alpha  0$. On considère, sur le segment $I = \interff{-1}{1}$, la fonction $f : x \mapsto \frac{1}{x^2 + \alpha^2}$. Pour tout $m$ entier naturel non nul et $k \in \entiers{0}{m-1}$, on pose $x_k = \frac{2 k + 1}{2 m}$ et $x_k' = - x_k$. On note $P_{2m}$ le polynôme d'interpolation de \nom{Lagrange} de $f$ aux points $(x_m',\ldots,x_1',x_1,\ldots,x_m)$. Alors, pour tout $\alpha$ suffisamment petit,
+\[
+\dim_{m\to+\infty} \norm{f - P_{2m}}_\infty = +\infty.
+\]
+\end{prop}
 
-\begin{theo}
-Soit $a \in \R$. Pour tout $x \in \interff{-1}{1}$, on pose $f(x) = \frac{1}{x^2 + a^2}$. Pour tout entier naturel $n$ non nul, on note $P_n$ le polynôme d'approximation de Lagrange de $f$ aux points $a_0,\ldots,a_n$.
-\begin{itemize}
-\item Si $a > \frac{2}{\e}$, alors $(P_n)$ converge uniformément vers $f$.
+\begin{exercice}
+On utilise les notations de la proposition précédente. De plus, on note $\omega_{2m} : x \mapsto \prod\limits_{k=0}^{m-1} (x^2 - x_k^2)$.
+\begin{questions}
+\item En étudiant les racines de $P_{2m}(X) - P_{2m}(-X)$, montrer que $P_{2m}$ est un polynôme pair.
 
-\item
-\end{itemize}
-\end{theo}
+\item En déduire que, pour tout $x \in I$, $f(x) - P_{2m}(x) = \frac{1}{x^2 + \alpha^2} \times \frac{\omega_{2m}(x)}{\omega_{2m}(\alpha \i)}$.
+
+\item Montrer que $\omega_{2m}(1) \sim_{+\infty} \sqrt{2} \left(\frac{2}{\e}\right)^{2m}$.
+
+\item On pose $f : t \mapsto \ln(\alpha^2 + t^2)$. Montrer que
+\[
+\module{\int_{\frac{k}{m}}^{\frac{k+1}{m}} f(t) \d t - \frac{1}{m} f\left(\frac{2 k + 1}{m}\right)} = O\left(\frac{1}{m^2}\right).
+\]
+
+\item En déduire qu'il existe deux constantes $C > 0$ et  $\beta_\alpha > 0$ telles que $\module{\omega_{2m}(\alpha \i)} \sim C \beta_\alpha^{2m}$.
+
+\item Calculer $\lim\limits_{\alpha\to0} \beta_\alpha$.
+
+\item Conclure.
+\end{questions}
+\end{exercice}
 
 \begin{solution}
+\begin{reponses}
+\item Notons $\tilde{P}_{2m}(X) = P_{2m}(-X)$. On remarque que, pour tout $k \in \entiers{0}{m-1}$, $P_{2m}(x_k) = f(x_k) = f(-x_k) = \tilde{P}_{2m}(x_k)$ et $P_{2m}(x_k') = P_{2m}(x_k')$. Ainsi, le polynôme $P_{2m} - \tilde{P}_{2m}$ possède $2m$ racines distinctes. Comme il est de degré au plus $2 m- 1$, alors il s'agit du polynôme nul.
 
+Ainsi, le polynôme $P_{2m}$ est un polynôme pair.
+
+\item En mettant les fractions sous le même dénominarteur, il existe un polynôme $Q$ tel que
+\[
+f(x) - P_m(x) = \frac{Q(x)}{x^2 + \alpha^2}.
+\]
+
+Or, pour tout $k \in \entiers{0}{m-1}$, $f(x_k) = P_m(x_k)$ et $f(x_k') = P_m(x_k')$. Ainsi, les réels $x_m',\ldots,x_1',x_1,\ldots,x_m$ sont des racines de $Q$.
+
+De plus, $P_{2m}$ est un polynôme de degré au plus $2 m - 1$ donc $\deg(P_{2m}) \leq 2 m - 2$.
+
+Comme $Q = 1 - (X^2 + \alpha^2) P_{2m}$, alors $Q$ est un polynôme de degré au plus $2m$. Or, on a identifié $2m$ racines distinctes de $Q$. Ainsi, en notant $\lambda$ le coefficient dominant de $Q$,
+\begin{align*}
+Q(X)
+&= \lambda \prod_{k=0}^{m-1} (X - x_k') \times \prod_{k=0}^{m-1} (X - x_k)\\
+&= \lambda \prod_{k=0}^{m-1} (X + x_k) \times \prod_{k=0}^{m-1} (X - x_k)\\
+&= \lambda \prod_{k=0}^{m-1} (X^2 - x_k^2)\\
+&= \lambda \omega_{2m}(X).
+\end{align*}
+
+Alors, pour tout $x \in \interff{-1}{1}$,
+\begin{align*}
+f(x) - P_{2m}(x) &= \lambda \frac{\omega_{2m}(x)}{x^2 + \alpha^2}\\
+\lambda \omega_{2m}(x) &= (x^2 + \alpha^2) (f(x) - P_{2m}(x))\\
+&= 1 - (x^2 + \alpha^2) P_{2m}(x).
+\end{align*}
+Comme ces deux polynômes sont égaux en une infinité de points, alors ils sont égaux et, en particulier,
+\[
+\lambda \omega_{2m}(\alpha \i) = 1.
+\]
+On obtient ainsi le résultat annoncé.
+
+\item D'après les définitions,
+\begin{align*}
+\omega_{2m}(1)
+&= \prod_{k=0}^{m-1} \left(1 - \frac{2 k + 1}{2m}\right) \prod_{k=0}^{m-1} \left(1 + \frac{2 k + 1}{2 m}\right)\\
+&= \prod_{k=0}^{m-1} \frac{2 (m - k) - 1)}{2 m} \prod_{k=0}^{m-1} \frac{2 (m + k) + 1)}{2 m}\\
+&= \frac{\prod_{\ell=0}^{m-1} (2 \ell + 1) \prod_{\ell=m}^{2m-1} (2 \ell + 1)}{(2 m)^{2m}}\\
+&= \frac{1 \times 3 \times 5 \times \cdots \times (4 m - 1)}{(2 m)^{2m}}\\
+&= \frac{(4 m)!}{(2 m)! 2^{2m} (2 m)^{2 m}}.
+\end{align*}
+Il suffit d'appliquer la formule de Stirling pour obtenir l'équivalent annoncé.
+
+\item En utilisant la formule de Taylor avec reste intégral, pour tout $t \in \interff{\frac{k}{m}}{\frac{k+1}{m}}$ en le point milieu $\frac{1}{1}\left(\frac{k}{m} + \frac{k+1}{m}\right) = \frac{2 k + 1}{2m}$,
+\begin{align*}
+f(t) - f\left(\frac{2k+1}{2m}\right)
+&= \left(t - \frac{2 k + 1}{2 m}\right) f'\left(\frac{2k+1}{2m}\right) + \int_{\frac{2k+1}{2m}}^{t} \left(t - u\right) f''(u) \d u\\
+\module{f(t) - f\left(\frac{2k+1}{2m}\right) - \left(t - \frac{2 k + 1}{2 m}\right) f'\left(\frac{2k+1}{2m}\right)} &\leq \frac{1}{2} \left(t - \frac{2 k + 1}{2m}\right)^2  \norme{f''}_{\infty,\interff{0}{1}} \\
+\end{align*}
+Ainsi, en utilisant l'inégalité triangulaire,
+\begin{align*}
+\module{\int_{\frac{k}{m}}^{\frac{k+1}{m}} f(t) \d t - \frac{1}{m} f\left(\frac{2 k +1}{2m}\right)} \leq \frac{1}{6} \frac{2}{(2m)^3} \norme{f''}_{\infty, \interff{0}{1}}.
+\end{align*}
+On obtient ainsi la domination annoncée.
+
+\item En utilisant la définition,
+\begin{align*}
+\module{\omega_{2m}(\alpha \i)}
+&= \prod_{k=0}^{m-1} (\alpha^2 + x_k^2).
+\end{align*}
+
+Ainsi,
+\begin{align*}
+\ln(\module{\omega_{2m}(\alpha \i)})
+&= \sum_{k=0}^{m-1} \ln\left(\alpha^2 + \left(\frac{2 k + 1}{2m}\right)^2\right).
+\end{align*}
+
+Ainsi, en utilisant la question précédente et la relation de Chasles,
+\[
+\int_0^1 \ln(\alpha^2 + t^2) \d t - \frac{1}{m} \sum_{k=0}^{m-1} \ln\left(\alpha^2 + \left(\frac{2 k + 1}{2 m}\right)^2\right) = O\left(\frac{1}{m^2}\right).
+\]
+
+Ainsi, en notant $\beta_\alpha = \frac{1}{2} \int_0^1 \ln(\alpha^2 + t^2) \d t$,
+\begin{align*}
+\module{\omega_{2m}(\alpha \i)}
+&= \beta_\alpha^{2m} \exp\left(2m \left(\frac{1}{2m} \ln\omega_{2m}(\alpha \i) - \beta_\alpha\right)\right).
+\end{align*}
+
+On obtient bien l'équivalent annoncé.
+
+\todoinline{J'ai l'impression que $C = 1$. Il faudrait le vérifier\ldots}
+
+\item D'après la question précédente,
+\[
+\ln(\beta_\alpha)
+= \frac{1}{2} \int_0^1 \ln(\alpha^2 + t^2) \d t
+= \frac{1}{2} \ln(1 + \alpha^2) - 1 + \alpha \arctan \frac{1}{\alpha}.
+\]
+
+Ainsi, $\lim\limits_{\alpha \to 0} \ln \beta_\alpha = -1$.
+
+\item Ainsi, il existe un réel $\alpha_0$ tel que pour tout $0 < \alpha \leq \alpha_0$,
+\[
+\beta_\alpha < \frac{2}{\e}.
+\]
+
+Alors,
+\[
+\norme{f - P_{2m}}_\infty
+\geq
+\module{f(1) - P_{2m}(1)}
+\sim \tilde{C} \left(\frac{2}{\e \beta_\alpha}\right)^{2m} \to +\infty.
+\]
+\end{reponses}
 \end{solution}
+
+\begin{remarque}
+On pourra obtenir des résultats plus précis en étudiant les sujets \cite{st_cyr-1-commune-1993} ou \cite{x_ens-psi-1998}.
+\end{remarque}
