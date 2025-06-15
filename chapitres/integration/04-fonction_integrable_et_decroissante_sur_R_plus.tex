@@ -39,7 +39,7 @@ Soit $\fonctionens[f]{\Rp}{\R}$ une fonction continue, décroissante et intégra
 
 \begin{elemsolution}
 \begin{reponses}
-\item Comme $f$ est décroissante, d'après le théorème de la limite monotone, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
+\item Comme $f$ est décroissante, d'après le \theoremeutilise{théorème de la limite monotone}{theo:limitemonotone}, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
 
 \item Montrons par l'absurde que $f$ est positive. S'il existe $x_0 \geqslant 0$ tel que $f(x_0) < 0$, comme $f$ est décroissante,
 \[
@@ -49,7 +49,7 @@ Ainsi,
 \[
 \forall x \geqslant x_0,\quad \displaystyle\int_{x_0}^x f(t) \d t \leqslant f(x_0) (x - x_0).
 \]
-D'après le théorème d'encadrement, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \d t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geqslant 0$.
+D'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \d t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geqslant 0$.
 
 \item Supposons par l'absurde que $\ell > 0$. Alors, il existe un réel $A$ tel que
 \[
@@ -102,10 +102,10 @@ Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 0} x f(x) = 0$.
 %-----------
 \subsection{Décroissance, intégrabilité, sommes de Riemann}
 
-Le résultat suivant constitue une généralisation du théorème de convergence des sommes de \nom{Riemann} pour des fonctions intégrables sur un intervalle ouvert.
+Le résultat suivant constitue une généralisation du \theoremeutilise{théorème de convergence des sommes de \nom{Riemann} pour des fonctions intégrables sur un intervalle ouvert}{theo:convergencesommeriemann}.
 
 \begin{prop}
-    Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. Alors,
+    Soit $\fonctionens[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. Alors,
     \[
     \lim\limits_{n \to +\infty} \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right) =\int_0^1 f(t) \d t.
     \]
@@ -118,7 +118,7 @@ Le résultat suivant constitue une généralisation du théorème de convergence
 \end{marginfigure}
 
 \begin{exercice}
-Soit $\fonctionligne[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose \mbox{$R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right)$}.
+Soit $\fonctionens[f]{\interof{0}{1}}{\R}$ une fonction continue, décroissante et intégrable. On pose \mbox{$R_n(f) = \frac{1}{n} \sum\limits_{k=1}^n f\mathopen{}\left(\frac{k}{n}\right)$}.
 \begin{questions}
 \item Montrer que
 \[
@@ -155,7 +155,7 @@ On obtient ainsi l'encadrement annoncé.
 \lim\limits_{n\to+\infty} \displaystyle\int_{1/n}^1 f(t) \d t = \displaystyle\int_0^1 f(t) \d t.
 \]
 
-\item Ainsi, d'après le théorème d'encadrement,
+\item Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \[
 \lim\limits_{n\to+\infty} R_n(f) = \displaystyle\int_0^1 f(t) \d t.
 \]

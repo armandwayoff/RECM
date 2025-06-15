@@ -53,7 +53,7 @@ Ainsi, $\int_x^{+\infty} f(t) \d t \sim_{+\infty} \int_x^{+\infty} g(t) \d t$.
 \[
 \sum \int_0^{+\infty} f_k(t) \d t = \sum a_k
 \]
-converge. Ainsi, d'après le théorème d'intégration terme à terme,
+converge. Ainsi, d'après le \theoremeutilise{théorème d'intégration terme à terme}{theo:integrationtermeaterme},
 \[
 \int_0^{+\infty} f(t)
 = \sum_{n=0}^{+\infty} \int_0^{+\infty} f_n(t) \d t
@@ -75,7 +75,7 @@ Il suffit alors d'appliquer la question précédente aux fonctions $f$ et $g$.
 \int_{n+1}^{+\infty} \frac{\d t}{t^2} &\leq \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leq \int_{n+1}^{+\infty} \frac{\d t}{(t - 1)^2}\\
 \frac{1}{n + 1} &\leq \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leq \frac{1}{n}.
 \end{align*}
-Ainsi, d'après le théorème d'encadrement,
+Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \[
 \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \sim \int_n^{+\infty} \frac{\d t}{t^2} = \frac{1}{n}.
 \]
@@ -234,7 +234,7 @@ On pose $f : t \mapsto \frac{\cos(x t)}{\e^t + \e^{-t}}$ et $f_n : t \mapsto (-1
 
 \item Déterminer $\displaystyle\int_0^{+\infty} f_n(t) \d t$.
 
-\item Conclure en utilisant le théorème des séries alternées.
+\item Conclure en utilisant le \theoremeutilise{théorème des séries alternées}{theo:seriesalternees}.
 \end{questions}
 \end{exercice}
 
@@ -272,7 +272,7 @@ Alors,
 &\leq |f(t)| + \e^{-(2N+1) t} \leq \module{f(t)} + \e^{-t}.
 \end{align*}
 
-Ainsi, $\left(\sum\limits_{n=0}^N f_n\right)_{n\in\N}$ converge simplement vers $f$ et ses sommes partielles sont dominées par une fonction intégrable. Donc, d'après le théorème de convergence dominée,
+Ainsi, $\left(\sum\limits_{n=0}^N f_n\right)_{n\in\N}$ converge simplement vers $f$ et ses sommes partielles sont dominées par une fonction intégrable. Donc, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \begin{align*}
 \int_0^{+\infty} f(t) \d t
 &= \lim_{N\to+\infty} \sum_{n=0}^N \int_0^{+\infty} f_n(t) \d t\\

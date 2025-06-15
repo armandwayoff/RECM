@@ -1,39 +1,6 @@
 \begin{subappendices}
-% \section{Théorèmes utilisés}
 
-\printindex[theoremesutilises]
-
-\begin{theo}[Approximation par des fonctions en escalier]
-\label{theo:approximationescalier}
-\end{theo}
-
-\begin{theo}[Bijection monotone]
-\label{theo:bijectionmonotone}
-\end{theo}
-
-\begin{theo}[Prolongement des dérivées]\label{theo:prolongementDesDerivees}
-\end{theo}
-
-\begin{theo}[Formule de \nom{Taylor} avec reste intégal]\label{theo:taylorresteintegral}
-\end{theo}
-
-\begin{theo}[Prolongement dérivable]\label{theo:prolongementderivable}
-\end{theo}
-
-\begin{theo}[Intégration par parties généralisée, Source : \cite{acamanes}]\label{theo:ippgeneralisees}
-    Soient $f$ et $g$ deux fonctions de classe $\mathscr{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales
-    \[
-    \int_a^b f'(t)g(t) \d t \text{ et } \int_a^b f(t) g'(t) \d t
-    \]
-    sont de même nature. Si ces quantités sont convergentes, en notant
-    \[
-        [f(t)g(t)]_a^b = \lim_{x \to b^-} \big(f(x)g(x)\big) - \lim_{x \to a^+} \big(f(x)g(x)\big),
-    \]
-    on obtient la relation
-    \[
-    \int_a^b f'(t) g(t) \d t = \left[f(t)g(t)\right]_a^b - \int_a^b f(t) g'(t) \d t.
-    \]
-\end{theo}
+\input{chapitres/integration/theoremesutilises}
 
 % \setchapterstyle{plain} % Output plain chapters from this point onwards
 
@@ -47,27 +14,7 @@
 \todoarmand{Reprendre l'espacement entre les blocs}
 \input{chapitres/integration/chart-02-integrales_generalisees}
 
-
-% \printbibliography[heading=subbibintoc, filter=false
-% ,notkeyword={livre},notkeyword={sujetconcours},notkeyword={siteweb}
-% ]
-
-\section{Références}
-% \addcontentsline{toc}{section}{\protect\numberline{}Références}%
-% \addcontentsline{margintoc}{section}{\protect\numberline{}Références}%
-
-\todoarmand{Modifier les formats de citation}
-
-\subsubsection*{Livres}
-\printbibliography[keyword={livre},heading=none
-% title={Livres}, heading=subbibintoc
-]
-\subsubsection*{Sujets de concours}
-\printbibliography[keyword={sujetconcours},heading=none
-% title={Sujets de concours}, heading=subbibintoc
-]
-\subsubsection*{Sites web}
-\printbibliography[keyword={siteweb},heading=none]
+\input{chapitres/integration/biblio}
 
 \end{subappendices}
 
