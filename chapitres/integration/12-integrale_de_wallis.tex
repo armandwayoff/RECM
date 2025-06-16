@@ -52,7 +52,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 
 \begin{solution}
 \begin{reponses}
-\item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or, pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le théorème de la limite monotone.
+\item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or, pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le \theoremeutilise{théorème de la limite monotone}{theo:limitemonotone}.
 \item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
     \begin{align*}
         \Wallis_{n+2} &= \underbrace{\left[ -\cos(t) \sin(t)^{n+1} \right]_0^{\pi/2}}_{=0} + (n+1) \int_0^{\pi/2} \cos(t)^2 \sin(t)^n \d t \\
@@ -104,7 +104,7 @@ et comme précédemment, en utilisant un produit télescopique,
 \Wallis_{n-1} &\leqslant \Wallis_n \leqslant \Wallis_{n+1}\\
 \frac{\Wallis_{n-1}}{\Wallis_{n+1}} &\leqslant \frac{\Wallis_n}{\Wallis_{n+1}} \leqslant 1.
 \end{align*}
-Or, d'après la question précédente, $\frac{\Wallis_{n-1}}{\Wallis_{n+1}} = \frac{n+1}{n}$. Ainsi, d'après le théorème d'encadrement, $\Wallis_n \sim \Wallis_{n+1}$.
+Or, d'après la question précédente, $\frac{\Wallis_{n-1}}{\Wallis_{n+1}} = \frac{n+1}{n}$. Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\Wallis_n \sim \Wallis_{n+1}$.
 
 \item D'après la question précédente,
 \[
@@ -166,7 +166,7 @@ On obtient ainsi l'équivalent annoncé.
 = \frac{(n + 1)!\, \e^{n+1}}{(n+1)^{n+\frac{3}{2}}} \times \frac{n^{n+\frac{1}{2}}}{n!\, \e^n}
 = \e \left(1 + \frac{1}{n}\right)^{-\mathopen{}\left(n + \frac{1}{2}\right)}.
 \]
-Ainsi, d'après la question précédente et le théorème de comparaison aux séries de \nom{Riemann}, la série de terme général $\ln\frac{u_{n+1}}{u_n}$ converge.
+Ainsi, d'après la question précédente et le \theoremeutilise{théorème de comparaison aux séries de \nom{Riemann}}{theo:comparaisonseriesriemann}, la série de terme général $\ln\frac{u_{n+1}}{u_n}$ converge.
 
 \item Pour tout $N \geqslant 2$, en reconnaissant une somme télescopique,
 \[
@@ -256,7 +256,7 @@ On considère la formule dans le cas des termes impairs. Pour tout $p$ entier na
 
 Or, pour tout $x \in \interoo{-1}{1}$, $\sum \module{x}^{2p+1}$ converge. Ainsi, $\sum \norm{f_p}_{\infty}$ converge.
 
-\item Soit $x \in \interoo{-1}{1}$. D'après le théorème d'interversion série intégrale,
+\item Soit $x \in \interoo{-1}{1}$. D'après le \theoremeutilise{théorème d'interversion série intégrale}{theo:interversionserieintegrale},
 \begin{align*}
 \sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1}
 &= \sum_{p=0}^\infty x^{2p+1} \int_0^{\pi/2} \cos(t)^{2p+1} \d t\\
@@ -325,15 +325,15 @@ Montrer la convergence et déterminer la somme de la série $\sum (-1)^n \Wallis
 \item la suite de terme général $\abs{u_n} = \Wallis_n$ est décroissante,
 \item la suite $(\Wallis_n)_{n \in \N}$ converge vers $0$.
 \end{itemize}
-Ainsi, d'après le théorème des séries alternées, la série converge.
+Ainsi, d'après le \theoremeutilise{théorème des séries alternées}{theo:seriesalternees}, la série converge.
 
 \item On pose $\fonctionligne[f_n]{t}{\sum\limits_{k=0}^n (-1)^k \cos(t)^k}$. On remarque que
 \begin{itemize}
 \item la fonction $f_n$ est continue sur~$\interff{0}{\pi/2}$,
 \item la suite $(f_n)_{n \in \N}$ converge simplement vers la fonction $t \mapsto \frac{1}{1 + \cos(t)}$ qui est une fonction continue sur~$\interfo{0}{\pi/2}$,
-\item d'après le théorème des séries alternées, $\abs{f_n(t)} \leqslant \big|\cos(t)^{n+1}\big| \leqslant 1$, la fonction constante égale à $1$ étant intégrable sur $\interff{0}{\pi/2}$.
+\item d'après le \theoremeutilise{théorème des séries alternées}{theo:seriesalternees}, $\abs{f_n(t)} \leqslant \big|\cos(t)^{n+1}\big| \leqslant 1$, la fonction constante égale à $1$ étant intégrable sur $\interff{0}{\pi/2}$.
 \end{itemize}
-Ainsi, d'après le théorème de convergence dominée,
+Ainsi, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \[
 \sum_{n=0}^{+\infty} (-1)^n \int_0^{\pi/2} \cos(t)^n \d t
 = \int_0^{\pi/2} \frac{\d t}{1 + \cos(t)}

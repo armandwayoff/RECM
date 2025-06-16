@@ -35,7 +35,7 @@ Nous proposons deux démonstrations de l'existence de l'intégrale de \nom{Diric
 \begin{exercice}
 Pour tout $n$ entier naturel non nul, on pose $u_n = \displaystyle\int_{n\pi}^{(n+1)\pi} \mathrm{sinc}(t) \d t$.
 \begin{questions}
-\item Montrer que $\mathrm{sinc}$ est intégrable sur $\interof{0}{1}$.
+\item Montrer que la fonction $\mathrm{sinc}$ est intégrable sur $\interof{0}{1}$.
 
 \item Montrer que $\sum u_n$ est une série alternée et en déduire la convergence de l'intégrale de \nom{Dirichlet}.
 
@@ -62,7 +62,7 @@ En notant $u_n$ cette quantité, comme la fonction sinus est positive sur $\inte
 \[
 u_n u_{n+1} \leqslant 0, \quad \abs{u_n} \leqslant \frac{1}{n\pi} \int_0^\pi \sin(u) \d u \text{ soit } u_n \to 0, \quad \text{et} \quad \abs{u_{n+1}} \leqslant \abs{u_n}.
 \]
-Ainsi, d'après le \theoremeutilise{théorème des séries alternées}{thm:seriesAlternees}, $\sum u_n$ converge.
+Ainsi, d'après le \theoremeutilise{théorème des séries alternées}{theo:seriesalternees}, $\sum u_n$ converge.
 
 \medskip
 
@@ -71,7 +71,7 @@ Cependant, la fonction $x \mapsto \int_0^x \frac{\sin t}{t} \d t$ n'est pas mono
 On pose ainsi $n_x = \left\lfloor\frac{x}{\pi}\right\rfloor$. En posant $F(x) = \int_1^{n_x\pi} \frac{\sin t}{t} \d t + \int_{n_x}^x \frac{\sin t}{t} \d t$, le premier terme converge d'après la question précédente. Le second est majoré par une quantité qui tend vers $0$. Ainsi, l'intégrale de \nom{Dirichlet} converge.
 
 \item Les fonctions $\fonctionligne[u]{t}{-\cos(t)}$ et $\fonctionligne[v]{t}{1/t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{1}{+\infty}$ et $\lim_{+\infty} u v = 0$. Ainsi, par intégration par parties, les intégrales $\int_1^{+\infty} \frac{\sin t}{t} \d t$ et $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ sont de même nature. \\
-D'une part, la fonction $t \mapsto \frac{\cos t}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos t}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les théorèmes de comparaison, la fonction $t \mapsto \frac{\abs{\cos t}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
+D'une part, la fonction $t \mapsto \frac{\cos t}{t^2}$ est continue sur $\interfo{1}{+\infty}$ et d'autre part on a la majoration $\frac{\abs{\cos t}}{t^2} \leqslant \frac{1}{t^2}$ par une fonction intégrable sur $\interfo{1}{+\infty}$. Ainsi, d'après les \theoremeutilise{théorèmes de comparaison}{theo:comparaison}, la fonction $t \mapsto \frac{\abs{\cos t}}{t^2}$ est intégrable et l'intégrale $\int_1^{+\infty} \frac{\cos t}{t^2} \d t$ converge. Finalement, nous avons démontré la convergence de l'intégrale $\int_1^{+\infty} \frac{\sin t}{t} \d t$.
 \end{reponses}
 \end{solution}
 
@@ -91,7 +91,7 @@ L'intégration par parties préserve la régularité de l'intégrale mais ne pr�
 \begin{exercice}
 Soit $N \in \Ne$.
 \begin{questions}
-\item Montrer que $\displaystyle\int_0^{N\pi} \module{\mathrm{sinc}(x)} \d x \geq \frac{2}{\pi} \sum_{k=1}^N \frac{1}{k}$.
+\item Montrer que $\displaystyle\int_0^{N\pi} \module{\mathrm{sinc}(x)} \d x \geqslant \frac{2}{\pi} \sum_{k=1}^N \frac{1}{k}$.
 
 \item Conclure.
 \end{questions}
@@ -159,7 +159,7 @@ La fonction $f$ est dérivable sur $\interof{0}{\pi}$ et pour tout $x \in \inter
 \begin{align*}
 f'(x) = -\frac{1}{x^2} + \frac{\cos(x/2)}{4 \sin(x/2)^2} = \frac{\cos(x/2) - 4 \sin(x/2)^2}{4 x^2 \sin(x/2)^2} \sim -\frac{1}{24}.
 \end{align*}
-Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le \theoremeutilise{théorème de prolongement dérivable}{thm:prolongementderivable}, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
+Ainsi, $\lim_{x\to0} f'(x) = -\frac{1}{24}$. D'après le \theoremeutilise{théorème de prolongement dérivable}{theo:prolongementderivable}, la fonction $f$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{\pi}$.
 
 \item En utilisant la fonctin $f$ introduite précédemment,
 \begin{align*}
@@ -254,7 +254,7 @@ On note $I = \int_0^{+\infty} \frac{\sin t}{t} \d t$ et $F(x) = \int_0^{+\infty}
 \end{enumerate}
 Ainsi, l'intégrale $F$ est bien définie sur $\Rp$.
 
-\item Pour la continuité, on ne peut pas espérer appliquer le théorème de convergence dominée directement car le sinus cardinal $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant les fonctions $\fonctionligne[u]{t}{\int_t^{+\infty} \frac{\sin u}{u} \d u}$ et $\fonctionligne[v]{t}{(1 - \e^{-x t})}$. Comme le produit $u\,v$ admet des limites nulles en~$0$ et $+\infty$, 
+\item Pour la continuité, on ne peut pas espérer appliquer le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee} directement car le sinus cardinal $t \mapsto \frac{\sin t}{t}$ n'est pas intégrable. On utilise donc une intégration par parties en considérant les fonctions $\fonctionligne[u]{t}{\int_t^{+\infty} \frac{\sin u}{u} \d u}$ et $\fonctionligne[v]{t}{(1 - \e^{-x t})}$. Comme le produit $u\,v$ admet des limites nulles en~$0$ et $+\infty$, 
 \begin{align*}
 F(x) &= -x \int_{0}^{+\infty} u(t)\, \e^{- x t} \d t \\
 &= -\int_0^{+\infty} u\mathopen{}\left(\frac{v}{x}\right) \e^{-v} \d v.
@@ -263,7 +263,7 @@ Comme $u$ possède des limites en $0$ et $+\infty$, elle est bornée sur $\R_+$ 
 \[
 \abs{u\mathopen{}\left(\frac{v}{x}\right) \e^{-v}} \leqslant M \e^{-v},
 \]
-qui est une fonction intégrable. Ainsi, d'après le théorème de continuité sous le signe intégral, la fonction $F$ est continue sur $\R+$. En particulier,
+qui est une fonction intégrable. Ainsi, d'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, la fonction $F$ est continue sur $\R+$. En particulier,
 \[
 \lim_{x\to0} F(x) = -\int_0^{+\infty} \lim_{t\to+\infty} u(t)\, \e^{-v} \d v = 0.
 \]
@@ -322,7 +322,7 @@ Ainsi, $\lim\limits_{x\to+\infty} F(x) = I$ et $I = \frac{\pi}{2}$.
 \abs{\frac{\partial g}{\partial x}(x, t)} &\leqslant \frac{t \e^{-a t}}{1 + t^2},\\
 \abs{\frac{\partial^2 g}{\partial x^2}(x, t)} &\leqslant \frac{t^2 \e^{-a t}}{1 + t^2}.
 \end{align*}
-Ainsi, d'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{thm:derivsousintegrale}, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\Rpe$ et
+Ainsi, d'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $g$ est de classe $\mathscr{C}^2$ sur $\Rpe$ et
 \begin{align*}
 g''(x)
 &= \int_0^{+\infty} \frac{t^2 \e^{-x t}}{1 + t^2} \d t\\
@@ -376,7 +376,7 @@ Ainsi,
 \forall\, x > 0,\quad \int_0^{+\infty} \frac{\sin t}{t + x} \d t = \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t.
 \]
 
-\item Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leqslant \frac{1}{1 + t^2}$, d'après le \theoremeutilise{théorème de convergence dominée}{thm:convdominee},
+\item Comme $\abs{\frac{\e^{-x t}}{t^2 + 1}} \leqslant \frac{1}{1 + t^2}$, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \[
 \lim_{x\to 0} \int_0^{+\infty} \frac{\e^{-x t}}{t^2 + 1} \d t
 = \int_0^{+\infty} \frac{\d t}{1 + t^2}
