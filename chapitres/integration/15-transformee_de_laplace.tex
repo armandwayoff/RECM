@@ -124,7 +124,7 @@ Ainsi, la transformée de \nom{Laplace} $\mathscr{L}(f)$ est de classe $\mathscr
 
 Soit $p > 0$. Comme $f$ est continue, on note $\fonctionligne[F]{x}{\int_0^x f(t) \d t}$ sa primitive qui s'annule en $0$.
 
-Par hypothèse, $F$ possède une limite finie en $+\infty$. Ainsi, d'après le théorème d'intégration par parties, les intégrales $\int_0^{+\infty} \e^{-p t} f(t) \d t$ et $\int_0^{+\infty} \e^{-p t} F(t) \d t$ sont de même nature.
+Par hypothèse, $F$ possède une limite finie en $+\infty$. Ainsi, d'après le \theoremeutilise{théorème d'intégration par parties}{theo:ippgeneralisees}, les intégrales $\int_0^{+\infty} \e^{-p t} f(t) \d t$ et $\int_0^{+\infty} \e^{-p t} F(t) \d t$ sont de même nature.
 
 Enfin, comme $F$ est continue sur $\Rp$ et admet une limite finie en $+\infty$, alors $F$ est bornée sur $\Rp$. Il existe donc une constante $M$ telle que
 \[
@@ -142,7 +142,7 @@ Ainsi, la fonction $t \mapsto \e^{-p t} F(t)$ est intégrable, donc $\int_0^{+\i
 \]
 De plus, la fonction $t \mapsto f(t) \e^{-\tilde{p} t}$ est intégrable sur $\Rpe$ par hypothèse.
 \end{itemize}
-D'après le \theoremeutilise{théorème de continuité sous le signe intégral}{thm:contsousintegrale}, la transformée $\mathscr{L}(f)$ est continue sur $\interoo{p_0}{+\infty}$.
+D'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, la transformée $\mathscr{L}(f)$ est continue sur $\interoo{p_0}{+\infty}$.
 \end{enumerate}
 \end{demo}
 
@@ -172,7 +172,7 @@ On se place sous les hypothèses du théorème.
 
 \begin{solution}
 \begin{reponses}
-\item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du \theoremeutilise{théorème des bornes}{thm:bornes} assure que $f$ est bornée sur $\Rp$. Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
+\item Comme $f$ est continue sur $\Rp$ et possède une limite en $+\infty$, une généralisation classique du \theoremeutilise{théorème des bornes}{theo:bornes} assure que $f$ est bornée sur $\Rp$. Ainsi, d'après le théorème précédent, la transformée $\mathscr{L}(f)$ est bien définie sur $\Rpe$.
 
 \item On effectue le changement de variable affine $\fonctionligne[\phi]{u}{\frac{u}{p}}$. Alors,
 \[
@@ -187,12 +187,12 @@ p\, \mathscr{L}(f)(p) = \int_0^{+\infty} \e^{-u} f\mathopen{}\left(\frac{u}{p}\r
 
 \item Comme $f$ est bornée par une constante $M$, $\abs{g_n(u)} \leqslant M \e^{-u}$ et la fonction $u \mapsto \e^{-u}$ est intégrable sur $\Rpe$.
 \end{itemize}
-Ainsi, d'après le \theoremeutilise{théorème de convergence dominée}{thm:convdominee},
+Ainsi, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \[
 \lim_{n\to+\infty} p_n\, \mathscr{L}(f)(p_n) = \ell \int_0^{+\infty} \e^{-u} \d u = \ell.
 \]
 
-\item En utilisant la \theoremeutilise{caractérisation séquentielle de la limite}{caracsequlimite},
+\item En utilisant la \theoremeutilise{caractérisation séquentielle de la limite}{theo:caracterisationsequentiellelimite},
 \[
 \lim_{p\to 0} p\, \mathscr{L}(f)(p) = \ell \quad \text{soit} \quad \mathscr{L}(f)(p) \sim_0 \frac{\ell}{p}.
 \]
@@ -303,7 +303,7 @@ Pour une autre formulation de ce théorème dans un cadre légèrement différen
 \begin{questions}
 \item Montrer que $F$ est bien définie sur $\Rp$.
 
-\item À l'aide d'un changement de variable et du théorème de convergence dominée, montrer que
+\item À l'aide d'un changement de variable et du \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee}, montrer que
 \[
 \lim_{t\to+\infty} \sqrt{t} \int_0^1 \e^{-t x^2} f(x) \d x = f(0) \int_0^{+\infty} \e^{-u^2} \d u.
 \]

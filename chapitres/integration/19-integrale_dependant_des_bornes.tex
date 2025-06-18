@@ -65,7 +65,7 @@ Toujours par concavité de la fonction logarithme, la corde reliant les points d
 \frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\abs{x + 1} &\leqslant f(x) \leqslant \ln\abs{x + 1}.
 \end{align*}
 
-Ainsi, d'après le théorème d'encadrement, $\lim\limits_{x\to 1} f(x) = \ln(2)$.
+Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\lim\limits_{x\to 1} f(x) = \ln(2)$.
 
 \item En utilisant la dérivation par rapport aux bornes,
 \begin{align*}
@@ -120,14 +120,14 @@ F(x) \sim_0 -\ln(x).
 \item La fonction $f : t \mapsto \frac{\e^{-t}}{t}$ est positive et continue sur $\R^*$.
 
 \begin{itemize}
-\item D'après le théorème des croissances comparées, $\frac{\e^{-t}}{t} = o_{+\infty}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
+\item D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, $\frac{\e^{-t}}{t} = o_{+\infty}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le \theoremeutilise{théorème de comparaison des intégrales de fonctions à valeurs positives}{theo:comparaisonintegralesfonctionsvaleurspositives}, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
 
 \item Comme $f(t) \sim_0 \frac{1}{t}$, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_0^1 \frac{\e^{-t}}{t} \d t$ diverge.
 \end{itemize}
 
 Ainsi, le domaine de définition de $F$ est $]0, + \infty[$.
 
-\item Les fonctions $u : t \mapsto -\e^{-t}$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{x}{+\infty}$ et $\lim\limits_{t\to+\infty} u(t) v(t) = 0$. Ainsi, d'après le théorème d'intégration par parties, pour $x > 1$, 
+\item Les fonctions $u : t \mapsto -\e^{-t}$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{x}{+\infty}$ et $\lim\limits_{t\to+\infty} u(t) v(t) = 0$. Ainsi, d'après le \theoremeutilise{théorème d'intégration par parties}{theo:ippgeneralisees}, pour $x > 1$, 
 \begin{align*}
 F(x)
 &= \int_x^{+ \infty} \frac{\e^{-t}}{t} \d t 
@@ -174,7 +174,7 @@ De plus, la fonction exponentielle étant convexe, pour tout $t > 0$,
 -\ln(x) - (1 - x) &\leq \int_x^1 \frac{\e^{-t}}{t} \d t \leq -\ln(x).
 \end{align*}
 
-D'après le théorème d'encadrement, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 -\ln(x)$ et
+D'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 -\ln(x)$ et
 \[
 F(x) \sim_0 -\ln(x).
 \]

@@ -40,7 +40,7 @@
 %%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
 \newcommand{\etoile}[1]{
   \ifthenelse{\isodd{\thepage}}
-    {\rightline{#1 $\bigstar$}}
+    {\begin{flushright}#1 $\bigstar$\end{flushright}}
     {$\bigstar$ #1}
 }
 \newcommand{\theoremeutilise}[3][-7pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{#2@\expandafter\MakeUppercase#2}}}

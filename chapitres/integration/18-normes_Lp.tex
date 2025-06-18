@@ -96,7 +96,7 @@ Comme cette propriété est vraie pour tout $\varepsilon > 0$, alors
 (d - c)^{1/p} \norm{f}_\infty \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
 \]
 
-Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty} (b - a)^{1/p} = 1$, le théorème d'encadrement permet de conclure.
+Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty} (b - a)^{1/p} = 1$, le \theoremeutilise{théorème d'encadrement}{theo:encadrement} permet de conclure.
 
 % \item \textbf{Minoration:} soit $\varepsilon > 0$, soit $x_0$ tel que $f(x_0) = M$. Comme $f$ est continue en $x_0$, il existe $[c, d] \subset [a, b]$ tel que $x_0 \in [c, d]$ et pour tout $x \in [c, d]$, $f(x) \geqslant M - \varepsilon$ \emph{(un dessin permet de bien comprendre la stratégie)}.\\
         % On peut ensuite montrer que $u_n \geqslant \left(\frac{d-c}{b-a} \right)^{1/n}(M-\varepsilon) \xrightarrow[n \to + \infty]{} M-\varepsilon$.
@@ -132,7 +132,7 @@ Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs posit
 
 \begin{solution}
 \begin{reponses}
-\item Comme $g$ est dérivable, d'après le théorème de \nom{Taylor}--\nom{Young}, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
+\item Comme $g$ est dérivable, d'après le \theoremeutilise{théorème de \nom{Taylor}--\nom{Young}}{theo:tayloryoung}, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
 \begin{align*}
 g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\}
 = \exp\left\{g'(0) + o(1)\right\}
@@ -150,7 +150,7 @@ La fonction $\ln \circ f$ est continue sur le segment $[0, 1]$ donc elle est bor
 \module{\frac{\partial F}{\partial y}(x, y)} &\leq M \cdot \e^{a M}.
 \end{align*}
 
-D'après le théorème de dérivation sous le signe intégral, la fonction $I$ est dérivable sur $[0, 1[$ et
+D'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I$ est dérivable sur $[0, 1[$ et
 \begin{align*}
 I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
 I'(0) &= \int_0^1 \ln(f(x)) \d x
@@ -192,7 +192,7 @@ Soient $1 < p,\, q < +\infty$, $q$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ et $
 \end{theo}
 
 \begin{remarque}
-Lorsque $p = 2$, alors $q = 2$ et on retrouve l'inégalité de \nom{Cauchy}--\nom{Schwarz}.
+Lorsque $p = 2$, alors $q = 2$ et on retrouve l'\theoremeutilise{inégalité de \nom{Cauchy}--\nom{Schwarz}}{theo:inegalitecs}.
 \end{remarque}
 
 \begin{exercice}
@@ -216,7 +216,7 @@ Soit $x \in I$.
 \begin{reponses}
 \item Pour tout $x$ réel, $F(x)$ et $G(x)$ sont deux réels strictement positifs, on pose $t = p \ln(F(x))$ et $s = q \ln(G(x))$.
 
-\item Rappelons que $\frac{1}{p} + \frac{1}{q} = 1$. Pour tous $s$ et $t$ réels, comme la fonction exponentielle est convexe, d'après l'inégalité de \nom{Jensen},
+\item Rappelons que $\frac{1}{p} + \frac{1}{q} = 1$. Pour tous $s$ et $t$ réels, comme la fonction exponentielle est convexe, d'après l'\theoremeutilise{inégalité de \nom{Jensen}}{theo:inegalitejensen},
 \[
 \e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t.
 \]
@@ -256,7 +256,7 @@ Ainsi, dans tous les cas,
 \module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p.
 \]
 
-\item D'après la question précédente et le théorème de comparaison des intégrales, $f + g \in L^p(I)$.
+\item D'après la question précédente et le \theoremeutilise{théorème de comparaison des intégrales}{theo:comparaison}, $f + g \in L^p(I)$.
 
 \item En utilisant la décomposition proposée, on remarque que
 \begin{align*}

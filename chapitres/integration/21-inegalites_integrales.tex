@@ -2,12 +2,12 @@
 \section{Inégalités intégrales}
 
 %-----------
-\subsection{En utilisant l'inégalité de \nom{Cauchy}--\nom{Schwarz}}
+\subsection{En utilisant l'\theoremeutilise{inégalité de \nom{Cauchy}--\nom{Schwarz}}{theo:inegalitecs}}
 
 %---------------
 
 \begin{prop}%
-\marginpar[0cm]{Oral : ENSAM 2016}
+\source{Oral : ENSAM 2016}
 Soit $f$ une fonction de classe $\mathscr{C}^2$ sur $\R_+$ et à valeurs réelles telle que $f(0) = 0$. On suppose que $f$ et $f''$ sont de carrés intégrables. Montrer que $f'$ est de carré intégrable et que
 \[
 \left(\int_0^{+\infty} (f'(t))^2\d t \right)^2
@@ -224,7 +224,7 @@ $\lim\limits_{a\to 0}
 \int_a^b f(x) f'(x) \cotan(\pi x) \d x
 \to \int_0^b f(x) f'(x) \cotan(\pi x) \d x$.
 
-Ainsi, d'après les théorèmes d'addition des limites, la fonction \mbox{$a \mapsto \int_a^b f(x)^2 (1 + \cotan(\pi x)^2) \d x$} admet une limite en $0$ et
+Ainsi, d'après les \theoremeutilise{théorèmes d'addition des limites}{theo:additionlimites}, la fonction \mbox{$a \mapsto \int_a^b f(x)^2 (1 + \cotan(\pi x)^2) \d x$} admet une limite en $0$ et
 \begin{align*}
 \int_0^b f(x) f'(x) \cotan(\pi x) \d x
 &= - \frac{f(b)^2}{2} \cotan(\pi b) + \frac{\pi}{2} \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
