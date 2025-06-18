@@ -45,11 +45,11 @@
 \marginnote[2cm]{Source : correction du sujet Mines Maths 2 PSI 2021 par Doc Solus.} 
 \begin{solution}
 \begin{reponses}
-\item Les hypothèses de régularité du théorème de continuité des intégrales à paramètre sont immédiates.
+\item Les hypothèses de régularité du \theoremeutilise{théorème de continuité des intégrales à paramètre}{theo:continuiteintegralesparametre} sont immédiates.
     
-Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est continue sur $\interff{a}{b} \times \interff{c}{d}$ qui est une partie fermée bornée de $\R^2$. Ainsi, d'après le théorème des bornes, la fonction $f$ est bornée sur $\interff{a}{b} \times \interff{c}{d}$ par une constante $M \in \Rp$. Les fonctions constantes sont intégrables car l'intégrale s'effectue ici sur un segment.
+Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est continue sur $\interff{a}{b} \times \interff{c}{d}$ qui est une partie fermée bornée de $\R^2$. Ainsi, d'après le \theoremeutilise{théorème des bornes}{theo:bornes}, la fonction $f$ est bornée sur $\interff{a}{b} \times \interff{c}{d}$ par une constante $M \in \Rp$. Les fonctions constantes sont intégrables car l'intégrale s'effectue ici sur un segment.
         
-\item On applique le théorème de dérivation des intégrales à paramètre à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
+\item On applique le \theoremeutilise{théorème de dérivation des intégrales à paramètre}{theo:derivationintegralesparametre} à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
         \begin{itemize}
             \item Pour tout $t \in \interff{c}{d}$, la fonction $x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
             \item Sa dérivée partielle s'écrit $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$.
@@ -61,7 +61,7 @@ Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est c
             \]
         \item Soit $x \in \interff{a}{b}$. D'une part,
         $$\psi(x) = \int_{c}^{d} \mathopen{}\bigg( \int_{a}^{x} f(u,t) \d u \bigg) \d t.$$
-        D'autre part, d'après la question précédente et le théorème fondamental de l'analyse, 
+        D'autre part, d'après la question précédente et le \theoremeutilise{théorème fondamental de l'analyse}{theo:fondamentalanalyse}, 
         \begin{align*}
             \int_{a}^{x} \mathopen{}\bigg( \int_{c}^{d} f(u,t) \d t \bigg) \d u &= \int_{a}^{x} \psi'(u) \d u  = \psi(x) - \psi(a) \\
             \text{Or, } \psi(a) &= \int_{c}^{d} \varphi(a, t) \d t \\

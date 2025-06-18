@@ -47,7 +47,7 @@ En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$.
 
 La fonction $f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
 
-Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les théorèmes de comparaison aux intégrales de \nom{Riemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
+Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les \theoremeutilise{théorèmes de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
 
 Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$.
 
@@ -93,9 +93,9 @@ t^{A-1} \e^{-t} &\text{ si } t \in \interfo{1}{+\infty}
 \]
 La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur~$\Rpe$.
 \end{itemize}
-Finalement, d'après le théorème de continuité sous le signe intégral, $\Gamma$ est continue sur $\interff{a}{A}$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
+Finalement, d'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, $\Gamma$ est continue sur $\interff{a}{A}$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
 
-\item On applique le théorème de dérivation sous le signe intégral sur l'intervalle $\interff{a}{A}$:
+\item On applique le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale} sur l'intervalle $\interff{a}{A}$:
 \begin{itemize}
 \item la fonction $\fonctionligne[f(\,\cdot\,, t)]{t}{t^{x - 1} \e^{-t}}$ est de classe $\mathscr{C}^k$ sur $\interff{a}{A}$.
 
@@ -186,8 +186,8 @@ Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
 %..............
 \subsubsection{Caractérisation de $\Gamma$}
 
-\begin{theo}{}
-\marginpar[0cm]{Source : \cite{rudin2009}}
+\begin{theo}
+\source{\cite{rudin2009}}
 Soit $f$ une fonction définie sur $\Rpe$ telle que
 \begin{enumerate}
 \item pour tout $x > 0$, $f(x + 1) = x f(x)$,
@@ -274,7 +274,7 @@ x \ln(n)
 0 \leq g(x) - \ln \frac{n! n^x}{x (x + 1) \cdots (x + n)} \leq x \ln\left(1 + \frac{1}{n}\right).
 \]
 
-Ainsi, d'après le théorème d'encadrement,
+Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \[
 \lim_{n\to+\infty} \frac{n! n^x}{x (x + 1) \cdots (x + n)} = g(x).
 \]
@@ -287,7 +287,7 @@ La fonction $g$ est donc unique et égale à $\Gamma$.
 \subsubsection{$\Gamma$ et $\gamma$}
 
 \begin{defi}{Constante $\gamma$ d'\nom{Euler}}
-\marginpar[0cm]{Oral : Centrale 2 - 2021}
+\source{Oral : Centrale 2 - 2021}
 La limite suivante est bien définie et appelée constante $\gamma$ d'\nom{Euler} :
 \[
 \gamma = \lim_{n\to+\infty} \left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
@@ -316,7 +316,7 @@ Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
 \]
 
 
-\item En utilisant une intégration par parties généralisée puis une factorisation de $(1 - u)^{n+1} - 1$, montrer que
+\item En utilisant une \theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} puis une factorisation de $(1 - u)^{n+1} - 1$, montrer que
 \[
 (n+1) \int_0^1 (1 - u)^n \ln(u) \d u
 = -\sum_{k=0}^n \int_0^1 (1 - u)^k \d t.
@@ -341,7 +341,7 @@ Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
 
 Posons $f : t \mapsto \ln(t) \e^{-t}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = o_{+\infty}(1/t^2)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$.
 
-On obtient la limite annoncée en utilisant le théorème de convergence dominée.
+On obtient la limite annoncée en utilisant le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee}.
 
 \item En effectuant le changement de variable affine $u \mapsto n u$,
 \begin{align*}
@@ -351,7 +351,7 @@ On obtient la limite annoncée en utilisant le théorème de convergence dominé
 &= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
 \end{align*}
 
-\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'intégration par parties généralisée puis à l'aide de la formule de \nom{Bernoulli},
+\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} puis à l'aide de la formule de \nom{Bernoulli},
 \begin{align*}
 (n+1) \int_0^1 (1 - u)^n \ln(u) \d u
 &= \int_0^1 \frac{\left(1 - u\right)^{n+1} - 1}{u} \d t
@@ -495,7 +495,7 @@ Soit $p \in \Ne$. On dispose de $p$ urnes numérotées de $1$ à $p$. Chaque urn
 \begin{solution}
 On note $U_i$ l'événement \textit{Choisir l'urne $i$}.
 \begin{reponses}
-\item Comme $(U_1,\ldots,U_p)$ est un système complet d'événements, en utilisant la formule des probabilités totales,
+\item Comme $(U_1,\ldots,U_p)$ est un système complet d'événements, en utilisant la \theoremeutilise{formule des probabilités totales}{theo:formuleprobabilitestotales},
 \begin{align*}
 \mathbf{P}(A_n) &= \sum_{i=1}^p \mathbf{P}_{U_i}(A_n) \mathbf{P}(U_i) \\
 &= \sum_{i=1}^n \binom{2n}{n} \left(\frac{p-i}{p}\right)^n \left(\frac{i}{p}\right)^n.
@@ -553,7 +553,7 @@ Montrer que la série $\sum B(n, n)$ converge et déterminer sa somme.
 \begin{solution}
 D'après la définition, $0 \leqslant B(n, n) \leqslant \frac{1}{4^{n-1}}$. Ainsi, $\sum B(n, n)$ converge.
 
-Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le théorème d'interversion série / intégrale,
+Comme $t^p (1 - t)^q \geqslant 0$ pour $t \in \interff{0}{1}$, d'après le \theoremeutilise{théorème d'interversion série / intégrale}{theo:interversionserieintegrale},
 \begin{align*}
 \sum_{n=0}^{+\infty} B(n+1, n+1)
 &= \int_0^1 \left(\sum_{n=0}^{+\infty} t^n (1 - t)^n\right) \d t \\
@@ -584,7 +584,7 @@ Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} 
 \[
 \binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\mathopen{}\left(\frac{1}{n^2}\right).
 \]
-Ainsi, d'après les théorèmes de comparaison des séries à termes positifs, $S(p)$ est bien définie.
+Ainsi, d'après les \theoremeutilise{théorèmes de comparaison des séries à termes positifs}{theo:comparaisonseriestermespositifs}, $S(p)$ est bien définie.
 
 \item D'après le théorème précédent,
 \[
@@ -605,7 +605,7 @@ De plus,
 \quad \text{et} \quad 
 \lim_{N\to+\infty} \sum_{n=0}^N t^n (1 - t)^p = (1 - t)^{p-1}.
 \]
-Comme ces suites sont croissantes et que les fonctions limites sont intégrables sur $\interff{0}{1}$, d'après le théorème de convergence dominée,
+Comme ces suites sont croissantes et que les fonctions limites sont intégrables sur $\interff{0}{1}$, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \begin{align*}
 S(p)
 &= \int_0^1 (1 -t)^{p-2} \d t + \int_0^1 p (1 - t)^{p-1} \d t 
@@ -692,7 +692,7 @@ f(x + 1)
 \]
 D'après les parties précédentes, $x \mapsto \ln(\Gamma(x + y))$ est convexe.
 
-On montre de manière analogue, en utilisant l'inégalité de \nom{Cauchy}--\nom{Schwarz}, que $x \mapsto \ln(B(x, y))$ est convexe.
+On montre de manière analogue, en utilisant l'\theoremeutilise{inégalité de \nom{Cauchy}--\nom{Schwarz}}{theo:inegalitecs}, que $x \mapsto \ln(B(x, y))$ est convexe.
 
 Finalement, $\ln(f)$ est convexe.
 \end{itemize}
@@ -704,7 +704,7 @@ Finalement, d'après la caractérisation de la fonction $\Gamma$,
 \end{demo}
 
 \begin{remarque}
-Pour prouver cette relation entre $B$ et $\Gamma$, une autre méthode utilisant la méthode des rectangles est présentée dans le sujet \textsl{Mathématiques 1, session 2009, filière \textsc{mp}}du concours Centrale-Supélec \cite{cs_1_2009}. \\
+Pour prouver cette relation entre $B$ et $\Gamma$, une autre méthode utilisant la méthode des rectangles est présentée dans le sujet \textsl{Mathématiques 1, session 2009, filière \textsc{mp}} du concours Centrale-Supélec \cite{cs_1_2009}. \\
 Le sujet propose également une démonstration de la relation 
 \[
 B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}.
@@ -715,7 +715,7 @@ B(x, 1 - x) = \Gamma(x) \Gamma(1 - x) = \frac{\pi}{\sin(\pi x)}.
 % \url{https://claude-gimenes.fr/mathematiques/calcul-integral/-i-integrales-euleriennes}
 % }
 
-\begin{theo}{}
+\begin{theo}
 Pour tout $n \in \N$,
 \[
 \Wallis_n = \frac{1}{2} B\mathopen{}\left(\frac{n+1}{2}, \frac{1}{2} \right) = \frac{1}{2} \frac{\Gamma\mathopen{}\left(\frac{n+1}{2}\right) \sqrt{\pi}}{\Gamma\mathopen{}\left(\frac{n}{2}+1\right)}

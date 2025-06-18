@@ -58,7 +58,7 @@ puis $\fonctionligne[g]{x}{\e^{-x}}$ et $h_n = g - g_n$.
 \item En déduire le résultat attendu.
 \end{questions}
 
-\item \textbf{Deuxième méthode: avec le théorème de convergence dominée et les intégrales de \nom{Wallis}.} \\
+\item \textbf{Deuxième méthode: avec le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee} et les intégrales de \nom{Wallis}.} \\
 On pose $f_n(x) = \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(x)$.
 \begin{questions}
 \item Montrer que la suite $(f_n)_{n\in\N}$ converge simplement vers $f$.
@@ -98,13 +98,13 @@ En déduire la valeur de $I$.
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le théorème des croissances comparées, \mbox{$\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le théorème de comparaison aux intégrales de \nom{Riemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
+\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, \mbox{$\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le \theoremeutilise{théorème de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
 \item
 \begin{reponses}
 \item Pour tout $x \geqslant n$, $h_n(x) = \e^{-x} \leqslant \e^{-n} = h_n(n)$. De plus, la restriction de la fonction $h_n$ au segment $\interff{0}{n}$ est continue sur ce segment, donc elle y est bornée et atteint ses bornes. On note $x_n$ l'abscisse d'un point où $h_n$ atteint ce maximum.
 
-\item En utilisant l'\theoremeutilise{inégalité de convexité du logarithme}{inegaliteconvexitelog}, pour $x \in \interff{0}{n}$,
+\item En utilisant l'\theoremeutilise{inégalité de convexité du logarithme}{theo:inegaliteconvexitelogarithme}, pour $x \in \interff{0}{n}$,
 \[
 g_n(x)
 = \exp\mathopen{}\left(n \ln\mathopen{}\left(1 - \frac{x}{n}\right)\right)
@@ -160,7 +160,7 @@ Ainsi,
 \lim_{n\to+\infty} \int_{\sqrt{n}}^{+\infty} \e^{-x^2} \d x = 0.
 \]
 
-Ainsi, d'après le théorème d'encadrement, $\lim_{n\to+\infty} I_n = I$, soit
+Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\lim_{n\to+\infty} I_n = I$, soit
 \[
 \lim_{n\to+\infty} \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x
 = \int_0^{+\infty} \e^{-x^2} \d x.
@@ -183,7 +183,7 @@ Ainsi, d'après la continuité de la fonction exponentielle en $x^2$,
 \lim_{n\to+\infty} f_n(x) = \e^{-x^2}.
 \]
 
-\item On vérifie les hypothèses du théorème de convergence dominée :
+\item On vérifie les hypothèses du \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee} :
 \begin{itemize}
 \item pour tout $n \in \N$, la fonction $f_n$ est continue par morceaux sur $\Rp$, % $t \mapsto \left(1 - \frac{x^2}{n}\right)^n \indicatrice{\interfo{0}{\sqrt{n}}}(t) \in \mathscr{C}^-(\R_+)$.
 
@@ -191,7 +191,7 @@ Ainsi, d'après la continuité de la fonction exponentielle en $x^2$,
 
 % \item la fonction $f \in \mathscr{C}^-(\R_+, \R_+)$.
 
-\item en utilisant l'inégalité de convexité du logarithme, pour $x \in \interff{0}{\sqrt{n}}$,
+\item en utilisant l'\theoremeutilise{inégalité de convexité du logarithme}{theo:inegaliteconvexitelogarithme}, pour $x \in \interff{0}{\sqrt{n}}$,
 \[
 \abs{f_n(x)}
 = \exp\mathopen{}\left(n \ln\left(1 - \frac{x^2}{n}\right)\right)
@@ -200,7 +200,7 @@ Ainsi, d'après la continuité de la fonction exponentielle en $x^2$,
 Ainsi, pour tout $x \in \R_+$, $\abs{f_n(x)} \leqslant f(x)$, qui est bien intégrable.
 \end{itemize}
 
-D'après le théorème de convergence dominée,
+D'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \[
 \lim_{n\to+\infty} \int_{\R_+} f_n = \int_0^{+\infty} \e^{-x^2} \d x.
 \]
@@ -293,7 +293,7 @@ donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \,\cdot\,)$ est continue sur 
 qui est une fonction intégrable.
 \end{itemize}
 
-En utilisant le théorème de dérivation sous le signe intégral, la fonction $I(\,\cdot\,)$ est de classe $\mathscr{C}^\infty$ et pour tout $n$ entier naturel,
+En utilisant le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I(\,\cdot\,)$ est de classe $\mathscr{C}^\infty$ et pour tout $n$ entier naturel,
 \[
 I^{(n)}(\beta)
 = (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x.
@@ -438,12 +438,12 @@ On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
 \]
 qui est intégrable sur $\R$.
 
-Ainsi, en appliquant le théorème de dérivation sous le signe intégral, la fonction $f$ est dérivable et
+Ainsi, en appliquant le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $f$ est dérivable et
 \[
 f'(x) = \int_\R \i t \e^{-t^2 + \i t x} \d t.
 \]
 
-\item En utilisant une intégration par parties généralisée dont le crochet converge,
+\item En utilisant une \theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} dont le crochet converge,
 \begin{align*}
 f'(x) &= \int_\R t \e^{-t^2} \i \e^{\i t x} \d t \\
 &= \left[-\frac{1}{2} \e^{-t^2} \i \e^{\i t x}\right]_{-\infty}^{+\infty} - \int_\R \frac{x}{2} \e^{-t^2} \e^{\i t x} \d t \\
