@@ -3,9 +3,8 @@
   % Place nodes
   \node [block] (init) {$\displaystyle \int_a^b f(t) \d t =~?$};
   %% Dérivées usuelles
-  \node [decision, below=of init] (usuelle) {$f$ fonction usuelle};
-  \node [cloud, right=of usuelle
-  % , yshift=0.5cm
+  \node [decision, below=of init, yshift=-1cm] (usuelle) {$f$ fonction usuelle};
+  \node [cloud, right=of usuelle, xshift=-2cm
   ] (usuelle_oui) {
   $\begin{aligned}
     f(x) = c &\rightsquigarrow \int_a^b f(t) \d t = \left[c\, t\right]_{a}^{b} \\
@@ -15,20 +14,20 @@
   \end{aligned}$ \\
   };
   %% linearite
-  \node [decision, below=of usuelle] (linearite) {$f(x) = a u'(x) + b v'(x)$};
+  \node [decision, below=of usuelle, yshift=-1.5cm] (linearite) {$f(x) = a u'(x) + b v'(x)$};
   \node [cloud, right=of linearite] (linearite_oui) {$\displaystyle \int_a^b f(t) \d t = \left[a u(t) + b v(t)\right]_{a}^{b}$};
   %% puissance
-  \node [decision, below=of linearite] (puissance) {$f(x) = u'(x) u(x)^\alpha$};
+  \node [decision, below=of linearite, yshift=0.8cm] (puissance) {$f(x) = u'(x) u(x)^\alpha$};
   \node [cloud, right=of puissance] (puissance_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\frac{u(t)^{\alpha+1}}{\alpha+1}\right]_{a}^{b},\, \alpha \neq -1$};
   %% logarithme
-  \node [decision, below=of puissance] (logarithme) {$f(x) = \displaystyle \frac{u'(x)}{u(x)}$};
-  \node [cloud, right=of logarithme] (logarithme_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\ln\abs{u(t)}\right]_{a}^{b}$};
+  \node [decision, below=of puissance, yshift=0.8cm] (logarithme) {$f(x) = \displaystyle \frac{u'(x)}{u(x)}$};
+  \node [cloud, right=of logarithme] (logarithme_oui) {$\displaystyle \int_a^b f(t) \d t = \big[\ln\abs{u(t)}\big]_{a}^{b}$};
   %% exponentielle
-  \node [decision, below=of logarithme] (exponentielle) {$f(x) = u'(x)\, \e^{u(x)}$};
+  \node [decision, below=of logarithme, yshift=0.8cm] (exponentielle) {$f(x) = u'(x)\, \e^{u(x)}$};
   \node [cloud, right=of exponentielle] (exponentielle_oui) {$\displaystyle \int_a^b f(t) \d t = \left[\e^{u(t)}\right]_{a}^{b}$};
   %% produit
   \node [decision, below=of exponentielle] (produit) {$f(x) = u'(x) \times v(x)$};
-  \node [cloud, right=of produit] (produit_oui) {Intégration par parties\\
+  \node [cloud, right=of produit, xshift=-0.5cm] (produit_oui) {Intégration par parties\\
   $u$ et $v$ dérivables et de dérivées continues sur $\interff{a}{b}$\\
   $\displaystyle \int_a^b f(t) \d t = \left[u(t) v(t)\right]_{a}^{b} - \int_a^b u(t) v'(t) \d t$\\
   };
@@ -50,7 +49,7 @@
       node [color=black, sloped, midway] {\contour{white}{oui}}
       (linearite_oui);
   \path [line] (linearite) --
-      node [color=black, sloped, midway] {\contour{white}{non}}
+      node [color=black, midway] {\contour{white}{non}}
       (puissance);
   % \path [draw, very thick, color=black] (linearite_oui.east) --
       % ($(produit_oui.east) + (4,0)$);
@@ -77,7 +76,7 @@
       node [color=black, sloped, midway] {\contour{white}{oui}}
       (puissance_oui);
   \path [line] (puissance) --
-      node [color=black, sloped, midway] {\contour{white}{non}}
+      node [color=black, midway] {\contour{white}{non}}
       (logarithme);
   % \path [draw, very thick, color=black] (puissance_oui.east) --
       % ($(produit_oui.east) + (4,0)$);
@@ -86,7 +85,7 @@
       node [color=black, sloped, midway] {\contour{white}{oui}}
       (logarithme_oui);
   \path [line] (logarithme) --
-      node [color=black, sloped, midway] {\contour{white}{non}}
+      node [color=black, midway] {\contour{white}{non}}
       (exponentielle);
   % \path [draw, very thick, color=black] (logarithme_oui.east) --
       % ($(produit_oui.east) + (4,0)$);
