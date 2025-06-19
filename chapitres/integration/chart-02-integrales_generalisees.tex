@@ -22,10 +22,10 @@
   % Draw edges
   \path [line] (init) -- (regularite);
   \path [line] ($(regularite)!0.5!(reel)$) coordinate (rrm)
-      (regularite) -- node [above] {\contour{white}{$1$ pt}}
+      (regularite) -- node [above] {\contour{white}{un point}}
                       node [below] {\contour{white}{$\interof{a}{c}$, $\interfo{c}{a}$}}
       (reel);
-  \path [line] (regularite) -- node [above] {plusieurs} node [below] {pts} (decoupage);
+  \path [line] (regularite) -- node [above] {plusieurs} node [below] {points} (decoupage);
   \path [draw, very thick] (decoupage) |- (rrm);
   \path [line] (reel) -- node [midway] {\contour{white}{oui}} (plg);
   \path [line] (plg) -- node [midway] {\contour{white}{oui}} (cv);
@@ -55,9 +55,6 @@
   \path [line] (ippint.east) -- ([xshift=5.7cm]ippint.east) |- (init.east);
   \path [line] (ipp.west) -- (etc.east);
   \path [line] (chgtvarint.east) -- ([xshift=5cm]chgtvarint.east) |- (init.east);\node [block] (init) {$\displaystyle\int_I f$ ?};
-  \node [decision, below =of init] (regularite) {Régularité ?};
-
+  \node[below =of ipp, xshift=-1cm, yshift=3cm] {$\ast$ Si $g = o_a(f)$ sont positives et $\int_a g$ diverge, alors $\int_a f$ diverge.};
 \end{tikzpicture}
 \end{center}
-%
-$\ast$ Si $g = o_a(f)$ sont positives et $\int_a g$ diverge, alors $\int_a f$ diverge.

@@ -37,13 +37,36 @@
 
 % \newcommand{\nom}[1]{\textsc{#1}\index[mathematiciens]{\textsc{#1}}}
 \newcommand{\nom}[1]{\gls{#1}}
+
 %%%%%%%%%%%%%%% Théorèmes utilisés %%%%%%%%%%%%%%%%%
 \newcommand{\etoile}[1]{
   \ifthenelse{\isodd{\thepage}}
     {\begin{flushright}#1 $\bigstar$\end{flushright}}
     {$\bigstar$ #1}
 }
-\newcommand{\theoremeutilise}[3][-7pt]{#2\marginnote[#1]{\etoile{\hyperref[#3]{\expandafter\MakeUppercase#2}}\index[theoremesutilises]{#2@\expandafter\MakeUppercase#2}}}
+
+\DeclareRobustCommand{\indice}[1]{%
+    % Liste des préfixes à couper
+    \StrSubstitute{#1}{théorème d'}{}[\temp]%
+    \StrSubstitute{\temp}{théorème de la }{}[\temp]%
+    \StrSubstitute{\temp}{théorème de }{}[\temp]%
+    \StrSubstitute{\temp}{théorème des }{}[\temp]%
+    \StrSubstitute{\temp}{théorèmes d'}{}[\temp]%
+    \StrSubstitute{\temp}{théorèmes de }{}[\temp]%
+    \StrSubstitute{\temp}{théorème }{}[\temp]%
+    \index[theoremesutilises]{\temp}%
+}
+
+\DeclareRobustCommand{\theoremeutilise}[3][-7pt]{
+    #2\marginnote[#1]{
+        \etoile{
+            % \hyperref[#3]{ % pour renvoyer vers l'énoncé du théorème
+                \expandafter\MakeUppercase#2
+            % }
+            \indice{#2}
+        }
+    }
+}
 % \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
