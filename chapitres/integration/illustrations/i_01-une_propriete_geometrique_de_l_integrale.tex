@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=0.65, line cap=round, >=latex]
+\begin{tikzpicture}[scale=0.65]
 
     \def\u{0.5}
     \def\v{0.2}
@@ -27,31 +27,31 @@
         %(B') ..controls +(5*\v, 0.5*\u) and ( $(C') + (-2*\v, -2*\v)$ )..
         %(C') |- cycle;
         \foreach \x in {\ya00, \ya01,...,\yc.000}   
-            \draw[blue!15!white, opacity=0.5] (\x,0) -- ++(0,8);
+            \draw[mylightblue, opacity=0.5] (\x,0) -- ++(0,8);
     \end{scope}
     
-    \fill[blue!15!white] (\ya,0) rectangle ++(\yc-\ya,\xa);
+    \fill[mylightblue] (\ya,0) rectangle ++(\yc-\ya,\xa);
  
     \begin{scope}
         \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) |- cycle;
         \foreach \x in {\xa.000, \xa.001,...,\xc.000}   
-            \draw[red!15!white, opacity=0.5] (\x,-\ya) -- ++(0,10);
+            \draw[mylightred, opacity=0.5] (\x,-\ya) -- ++(0,10);
     \end{scope}
 
-    \draw[thick, blue] 
+    \draw[thick, myblue] 
         (A') ..controls +(0.05*\u, 0.05*\u) and ( $(B') + (-5*\v, -0.5*\u)$ )..
         (B') ..controls +(5*\v, 0.5*\u) and ( $(C') + (-2*\v, -2*\v)$ )..
         (C') node[right] {$\mathcal{C}_{f^{-1}}$};
         
-    \draw[thick, red] 
+    \draw[thick, myred] 
         (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) node[above] {$\mathcal{C}_f$};
 
 
-    \fill[red!15!white] (\xa,0) rectangle ++(\xc-\xa,\ya);
+    \fill[mylightred] (\xa,0) rectangle ++(\xc-\xa,\ya);
 
     \draw[gray] (-.5, -.5) -- (\xc + 0.5, \xc + 0.5) node[pos=0.95, above, sloped] {\footnotesize $y = x$};
 
@@ -70,18 +70,18 @@
 
     % \draw[->, black] (5.5,2) node[above] 
     \node at (6.8,0.7)
-    {\footnotesize \contour{red!15!white}{\color{red}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
+    {\footnotesize \contour{mylightred}{\color{myred}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
 
     % \draw[->, black] (3,-0.5) node[below] 
     % {\footnotesize \contour{white}{$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}} to [out=70,in=-70] ($(3,1.5)$);
-    \node at ((2.5, 5.8) [rotate=45] {\footnotesize \contour{blue!15!white}{\color{blue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
+    \node at ((2.5, 5.8) [rotate=45] {\footnotesize \contour{mylightblue}{\color{myblue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
 
-    \draw[thick, ->] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
-    \draw[thick, ->] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
+    \draw[thick, -latex] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
+    \draw[thick, -latex] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
 
 \end{scope}
 
-\draw[ultra thick, ->] (\xc + 1, 2) -- (11, 2);
+\draw[thick, ->] (\xc + 1, 2) -- (11, 2);
 
 \begin{scope}[shift={(12,0))}
 ,baseline=(struct.south)
@@ -93,14 +93,14 @@
         (\yb, \xb)    coordinate (B')
         (\yc, \xc)  coordinate (C');
 
-    \fill[blue!15!white] (0, \ya) rectangle (\xc, \yc);
+    \fill[mylightblue] (0, \ya) rectangle (\xc, \yc);
 
     \begin{scope}
         \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) |- cycle;
         \foreach \x in {\xa.000, \xa.001,...,\xc.000}   
-            \draw[red!15!white, opacity=0.5] (\x,-\ya) -- ++(0,10);
+            \draw[mylightred, opacity=0.5] (\x,-\ya) -- ++(0,10);
     \end{scope}
 
     \draw[dashed] 
@@ -109,10 +109,10 @@
             (C);
 
 
-    \fill[red!15!white] (\xa,0) rectangle ++(\xc-\xa,\ya);
+    \fill[mylightred] (\xa,0) rectangle ++(\xc-\xa,\ya);
 
-    \fill[green!15!white] (0, 0) rectangle (A);
-    \node at (\xa/2, \ya/2) {\footnotesize \color{green!65!black}$a \times f(a)$};
+    \fill[mylightgreen] (0, 0) rectangle (A);
+    \node at (\xa/2, \ya/2) {\footnotesize \color{mygreen}$a \times f(a)$};
 
     \draw[dashed] (\xa, 0) node[black,below]{\footnotesize$a$} -- (A);
     \draw[dashed] (0, \ya) node[black,left]{\footnotesize$f(a)$} -- (A);
@@ -122,16 +122,16 @@
 
     % \draw[->, black] (5.5,2) node[above] 
     \node at (6.8,0.7)
-    {\footnotesize \contour{red!15!white}{\color{red}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
+    {\footnotesize \contour{mylightred}{\color{myred}$\displaystyle \int_a^b f(t)\, \mathrm{d} t$}}; % to [out=-90,in=180] ($(7,1.5)$);
 
-    \node at ((4.8, 2.5) {\footnotesize \contour{blue!15!white}{\color{blue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
+    \node at ((4.8, 2.5) {\footnotesize \contour{mylightblue}{\color{myblue}$\displaystyle \int_{f(a)}^{f(b)} f^{-1}(t)\, \mathrm{d} t$}};
     
     \draw[gray] (-.5, -.5) -- (\xc + 0.5, \xc + 0.5) node[pos=0.95, above, sloped] {\footnotesize $y = x$};
     
-    \draw[thick, ->] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
-    \draw[thick, ->] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
+    \draw[thick, -latex] (-.5, 0) -- (\xc + 0.5, 0) node[above] {$x$};
+    \draw[thick, -latex] (0, -.5) -- (0, \xc + 0.5) node[left] {$y$};
 
-    \draw[ultra thick, orange] (0, 0) rectangle (\xc, \yc) node[above left] {\footnotesize \color{orange} $b \times f(b)$};
+    \draw[ultra thick, myorange] (0, 0) rectangle (\xc, \yc) node[above left] {\footnotesize \color{myorange} $b \times f(b)$};
 \end{scope}
 
 \end{tikzpicture}

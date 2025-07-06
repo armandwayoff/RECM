@@ -17,7 +17,7 @@
     xtick       = \empty,
     ytick       = {0},
     yticklabels = {$0$},
-    samples     = 160,
+    samples     = 60,
     domain      = 0:7,
     xmin = -0.2, xmax = 7.5,
     ymin = -100, ymax = 100,
@@ -41,8 +41,8 @@
   \addplot fill between[ 
     of = poly and line, 
     split, % calculate segments
-    every even segment/.style = {blue!25!white},
-    every odd segment/.style  = {red!25!white}
+    every even segment/.style = {mylightblue},
+    every odd segment/.style  = {mylightred}
   ];
   \nextgroupplot[title={$\lambda=5$}]
   \addplot[black, thick, mark=none, dashed] {f};
@@ -53,8 +53,8 @@
   \addplot fill between[ 
     of = poly and line, 
     split, % calculate segments
-    every even segment/.style = {blue!25!white},
-    every odd segment/.style  = {red!25!white}
+    every even segment/.style = {mylightblue},
+    every odd segment/.style  = {mylightred}
   ];
   \nextgroupplot[title={$\lambda=25$}]
   \addplot[black, thick, mark=none, dashed] {f};
@@ -67,8 +67,8 @@
   \addplot fill between[ 
     of = poly and line, 
     split, % calculate segments
-    every even segment/.style = {blue!25!white},
-    every odd segment/.style  = {red!25!white}
+    every even segment/.style = {mylightblue},
+    every odd segment/.style  = {mylightred}
   ];
 \end{groupplot}
-\end{tikzpicture}
+\end{tikzpicture} 

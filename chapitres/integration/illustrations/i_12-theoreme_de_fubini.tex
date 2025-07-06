@@ -1,9 +1,7 @@
-
 % define colors 
-\colorlet{fillbottom}{yellow!60}
-\colorlet{filltop}{blue!20}
-\colorlet{curvecolor}{cyan}
-\colorlet{meshcolor}{cyan}
+\colorlet{filltop}{mylightblue}
+\colorlet{curvecolor}{myblue}
+\colorlet{meshcolor}{myblue}
 
  \begin{tikzpicture}[
  %3d view={135}{60},
@@ -79,7 +77,7 @@
    \draw[thick,dashed] (\a,\d,0)--(\a,\d,{f(\a,\d)});
 % coupe
 
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\a,\y,0) --
    plot[domain=0:{f(\a,\y)},samples=50,smooth] (\a,\y,\x)
    --
@@ -88,11 +86,11 @@
    plot[domain={f(\b,\y)}:0,samples=50,smooth] (\b,\y,\x)
    --
    cycle;
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\a,\y,0) -- (\a,\y+\ythick,0) -- (\b,\y+\ythick,0) -- (\b,\y,0) -- cycle;
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\a,\y,0) -- (\a,\y+\ythick,0) -- (\a,\y+\ythick,{f(\a,\y+\ythick)}) -- (\a,\y,{f(\a,\y)}) -- cycle;
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\a,\y+\ythick,0) --
    plot[domain=0:{f(\a,\y+\ythick)},samples=50,smooth] (\a,\y+\ythick,\x)
    --
@@ -101,10 +99,10 @@
    plot[domain={f(\b,\y+\ythick)}:0,samples=50,smooth] (\b,\y+\ythick,\x)
    --
    cycle;
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\b,\y,0) -- (\b,\y+\ythick,0) -- (\b,\y+\ythick,{f(\b,\y+\ythick)}) -- (\b,\y,{f(\b,\y)}) -- cycle;
 
-\draw[thick,draw=red,fill=red!50!white,opacity=\opacoupe] 
+\draw[thick,draw=myred,fill=mylightred,opacity=\opacoupe] 
    (\a,\y,{f(\a,\y)})--
    plot[domain=\a:\b,samples=50,smooth] ({\x},{\y},{f(\x,\y)})
    --
@@ -141,10 +139,6 @@
     \draw[meshcolor] plot[domain=\a:\b,samples=50,smooth] (\x,\c+\i+0.1,{f(\x,\c+\i+0.1)});
 }
 \end{comment}
-
-    % Define your color for shading
-    \definecolor{curvecolor}{rgb}{0.1, 0.6, 0.8}
-    \definecolor{filltop}{rgb}{0.3, 0.7, 1.0}
 
     % Draw the shaded surface with lighting effects
     \shade[thick, draw=curvecolor, left color=filltop!80!white, right color=filltop!20!black, opacity=0.4, smooth]

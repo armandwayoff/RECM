@@ -1,5 +1,5 @@
 \newcommand*{\parabolaShading}[6]{
-\fill [cyan!10, domain=(#1:#5), variable=\x] (#1,0)  -- plot 
+\fill [mylightblue, domain=(#1:#5), variable=\x] (#1,0)  -- plot 
     (  {\x},{(#2*(\x-#3)*(\x-#5)/((#1-#3)*(#1-#5)))+
             (#4*(\x-#1)*(\x-#5)/((#3-#1)*(#3-#5)))+
             (#6*(\x-#1)*(\x-#3)/((#5-#1)*(#5-#3)))} )
@@ -40,10 +40,10 @@
 \parabolaShading{5}{4.1}{6}{3.4}{7}{4.1}
 %\parabolaShading{6}{3.4}{7}{4.1}{8}{4.6}
 \parabolaShading{7}{4.1}{8}{4.6}{9}{4}
-\shadeWithBoundedDomainAndColor{5}{4.1}{6}{3.4}{7}{4.1}{5}{6}{cyan!30}
+\shadeWithBoundedDomainAndColor{5}{4.1}{6}{3.4}{7}{4.1}{5}{6}{myblue}
 
 % the curve
-\draw[thick,cyan]
+\draw[thick,myblue]
   (p1) to[out=70,in=180] (p2) to[out=0,in=150]
   (p3) to[out=-50,in=230] (p4) to[out=30,in=220]
   (p5) to[out=50,in=150] (p6) to[out=-30,in=180]
@@ -72,6 +72,6 @@
 \node[below] at (x axis) {$x$};
 \node[left] at (y axis) {$y$};
 % label for the function
-\node[above,text=cyan] at (p11) {$y=f(x)$};
+\node[above,text=myblue] at (p11) {$y=f(x)$};
 
 \end{tikzpicture}

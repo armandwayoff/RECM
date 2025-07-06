@@ -24,16 +24,16 @@ La méthode des rectangles à gauche consiste, pour chacun des intervalles de la
 I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 \]
 
-\begin{marginfigure}[-3cm]
+\begin{prop}
+La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
+\end{prop}
+
+\begin{marginfigure}[0cm]
     \centering
     \input{chapitres/integration/illustrations/i_03-rectangles_a_gauche}
     \caption{Illustration de la méthode des rectangles à gauche}
 \end{marginfigure}
-\marginnote[3cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
-
-\begin{prop}
-La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
-\end{prop}
+\marginnote[6cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
 
 \begin{exercice}
 Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
@@ -121,6 +121,12 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 \end{questions}
 \end{exercice}
 
+\begin{marginfigure}[0cm]
+    \centering
+    \input{chapitres/integration/illustrations/i_03-rectangles_medians_construction}
+    \caption{}
+    \label{fig:i_rectangles_medians_construction}
+\end{marginfigure}
 
 \begin{elemsolution}
 \begin{reponses}
@@ -132,13 +138,6 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$.
 &= \module{\int_{x_i}^{x_{i+1}} \left(f(t) - f(\gamma_i) - (t - \gamma_i) f'(\gamma_i)\right) \d t} \\
 &\leqslant \frac{M_2}{24} (x_{i+1} - x_i)^3.
 \end{align*}
-
-\begin{marginfigure}[0cm]
-    \centering
-    \input{chapitres/integration/illustrations/i_03-rectangles_medians_construction}
-    \caption{}
-    \label{fig:i_rectangles_medians_construction}
-\end{marginfigure}
 
 \item Comme pour la méthode des rectangles à gauche, il s'agit d'une application de la formule de \nom{Chasles}.
 

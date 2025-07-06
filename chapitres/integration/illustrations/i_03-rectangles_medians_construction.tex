@@ -11,7 +11,7 @@
 
 \coordinate (xm) at (3,{f(3)});
 
-\draw[fill=teal!20!white] (2,0) rectangle (4,{f(3)});
+\draw[fill=mylightblue] (2,0) rectangle (4,{f(3)});
 % \fill[red, opacity=0.2,ultra thick] (2,0) -- (2,{g(2)}) -- (4, {g(4)}) -- (4, 0);
 
 \fill[red!30!white, pattern=north east lines] (2,{g(2)}) -- (3,{g(3)}) -- (2,{g(3)}) -- cycle;
@@ -20,15 +20,16 @@
 \draw[dashed] (3, 0) -- (3,{f(3)});
 \draw[dashed] (2, {f(3)}) -- (2,{g(2)});
 
-\draw [-latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$t$};
-\draw [-latex] (0,-0.5) -- (0,5);
+\draw [thick, -latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$t$};
+\draw [thick, -latex] (0,-0.5) -- (0,5);
 % \foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3 , 5/b=x_4}
 \draw[xshift=2 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$x_i$};
 \draw[xshift=3 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\gamma_i$};
 \draw[xshift=4 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$x_{i+1}$};
-\draw[domain=.5:5.3,samples=200,variable=\x,blue,thick] plot ({\x},{f(\x)}) node[right] {$f(t)$};  
-\draw[domain=1.5:4.5,samples=200,variable=\x,red,thick] plot ({\x},{g(\x)}) node[right] {$f(\gamma_i) + (t - \gamma_i) f'(\gamma_i)$}; 
+\draw[domain=.5:5.3,samples=200,variable=\x,myblue,thick] plot ({\x},{f(\x)}) node[right] {$f(t)$};  
+\draw[domain=1.5:4.5,samples=200,variable=\x,myred,ultra thick] plot ({\x},{g(\x)});
+\node[myred, above right, xshift=-20pt] at (1.5,{g(1.5)}) {$f(\gamma_i) + (t - \gamma_i) f'(\gamma_i)$}; 
 % \foreach \n in {0,1,2,3}
-\draw[blue,fill=blue] (xm) circle (2pt) node[font=\normalsize] {$ $};    
+\draw[myblue,fill=myblue] (xm) circle (2pt) node[font=\normalsize] {$ $};    
 % \draw[latex-latex] (2,1)--(3,1) node[midway, anchor=south] {$\frac{b-a}{p}$};      
 \end{tikzpicture}

@@ -1,22 +1,10 @@
 % Author: Izaak Neutelings (August, 2017)
 
-
-\tikzset{>=latex} % for LaTeX arrow head
-\contourlength{1.2pt}
-\usetikzlibrary{positioning,calc}
-\usetikzlibrary{backgrounds}% required for 'inner frame sep'
-%\usepackage{adjustbox} % add whitespace (trim)
-
 % define gaussian pdf and cdf
 \pgfmathdeclarefunction{gauss}{3}{%
   \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*#3^2))}%
 }
-\colorlet{mydarkblue}{blue!30!black}
 
-% to fill an area under function
-\usepgfplotslibrary{fillbetween}
-\usetikzlibrary{patterns}
-\pgfplotsset{compat=1.12} % TikZ coordinates <-> axes coordinates
 % https://tex.stackexchange.com/questions/240642/add-vertical-line-of-equation-x-2-and-shade-a-region-in-graph-by-pgfplots
 
 % plot aspect ratio
@@ -53,14 +41,14 @@
               ]
     
     % PLOTS
-    \addplot[blue,thick,name path=B] {gauss(x,\B,\Bs)};
+    \addplot[myblue,thick,name path=B] {gauss(x,\B,\Bs)};
     % FILL
     \path[name path=xaxis]
       (0,0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
-    \addplot[blue!25, opacity=0.9] fill between[of=xaxis and B];
+    \addplot[mylightblue, opacity=0.9] fill between[of=xaxis and B];
     % LINES
-    \node[blue,above left] at ({-0.7*(\B+\Bs)},{1.2*gauss(\B+\Bs,\B,\Bs)}) {$x \mapsto \mathrm{e}^{-x^2}$};
-    \node[blue!60!black] at ({0},{0.6*gauss(0.85*(\a),\B,\Bs)}) {$\sqrt{\pi}$};
+    \node[myblue,above left] at ({-0.7*(\B+\Bs)},{1.2*gauss(\B+\Bs,\B,\Bs)}) {$x \mapsto \mathrm{e}^{-x^2}$};
+    \node[myblue] at ({0},{0.6*gauss(0.85*(\a),\B,\Bs)}) {$\sqrt{\pi}$};
     
   \end{axis}
 \end{tikzpicture}

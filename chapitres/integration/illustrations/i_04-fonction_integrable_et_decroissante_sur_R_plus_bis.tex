@@ -1,47 +1,29 @@
 \begin{tikzpicture}
-
   % https://copyprogramming.com/howto/how-do-i-draw-arrows-at-coordinate-on-a-plot
   
   \def\xmax{5.5}
-  \def\ymax{1.2}
-  \def\ymin{-0.2}
+  \def\ymax{1.1}
+  \def\ymin{-0.1}
   \def\x{2.5}
   \def\xzero{\x/2}
 
-  \def\colfonc{green!70!black}
+  \pgfmathdeclarefunction{f}{1}{%
+    \pgfmathparse{exp(-#1^2/8)}%
+  }
+
+  \def\colfonc{mygreen}
 
     \begin{axis}[
         restrict x to domain=0:10,
         samples=100, % you don't need 1000, it only slows things down
         ticks=none,
-        xmin = -1, xmax = \xmax+1,
+        xmin = -1, xmax = \xmax+0.5,
         ymin = \ymin, ymax = \ymax,
         unbounded coords=jump,
         axis x line=middle,
         axis y line=middle,
-        axis line style={-latex},
-        % xlabel={$x$},
-        % ylabel={$y$},
-        x label style={
-          at={(axis cs:5.1,0.2)},
-          anchor=west,
-        },
-        every axis y label/.style={
-          at={(axis cs:0,1.5)},
-          anchor=south
-        },
-        legend style={
-          at={(axis cs:-5.2,4)},
-          anchor=west, font=\scriptsize
-        },
-        % ,declare function={f(\x)=e^(-\x^2/8);},
-        ] 
-
-\pgfmathdeclarefunction{f}{1}{%
-\pgfmathparse{e^(-#1^2/8)}%
-}
-      \addplot[name path=A,very thick,color=\colfonc, mark=none, domain=0:\xmax] {f(x)} node [above=2mm,near start] {$f$};
-          
+        axis line style={-latex, thick},
+        ]           
       % \addplot[mark=*,fill=white] coordinates {(\xzero,{f(\xzero)})};
       % \draw[dashed] (axis cs:0,{f(\xzero)}) node[left=1mm] (l) {$f(x_0)$} -| (axis cs:2,0) node[above] (a) {$x_0$}; 
       \draw (\xzero,0) node[below] {$x/2$};
@@ -51,14 +33,14 @@
       % \draw (\x,0) node[below] {$x$};
       \draw (2*\x,0) node[below] {$\vphantom{x/2}2x$};
 
-    \path [name path=B] (0,0)--(\xmax, 0);
-    \addplot [blue!20!white] fill between [of=A and B, soft clip={domain=\xzero:\x}];
+      \addplot[fill=mylightblue, draw=none, domain=\xzero:\x] {f(x)} \closedcycle;
 
-    \addplot [red!20!white] fill between [of=A and B, soft clip={domain=\x:2*\x}];
+      \addplot[fill=mylightred, draw=none, domain=\x:2*\x] {f(x)} \closedcycle;
 
-    \fill[pattern color=blue, pattern=north east lines] (\xzero,0) rectangle (\x,f(\x);
-    \fill[pattern color=red, pattern=north east lines] (\x,0) rectangle (2*\x,f(\x);
-
+      \fill[pattern color=myblue, pattern=north east lines] (\xzero,0) rectangle (\x,f(\x);
+      \fill[pattern color=myred, pattern=north east lines] (\x,0) rectangle (2*\x,{f(\x)});
+      
+      \addplot[name path=A,very thick,color=\colfonc, mark=none, domain=0:\xmax] {f(x)} node [above=10pt,near start] {$f$};
     \end{axis}
 
     % \draw[->, black, thick] (5, 4) node[above] {$f(x_0) (x - x_0)$} to [out=-90,in=90] ($(4.5,2.6)$);

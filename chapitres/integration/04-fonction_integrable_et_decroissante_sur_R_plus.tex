@@ -1,8 +1,5 @@
 \section{Fonctions décroissantes}
 
-\todoarmand{Pour une raison que je ne comprends pas, je n'arrive plus à compiler deux des figures.}
-\todoinline{Pas de problème chez moi}
-
 Lorsque les intégrandes sont décroissantes, la convergence de l'intégrale permet d'obtenir des informations supplémentaires sur la fonction. Nous illustrons ces propriétés à l'aide de deux exemples.
 
 %-----------
@@ -31,12 +28,6 @@ Soit $\fonctionens[f]{\Rp}{\R}$ une fonction continue, décroissante et intégra
 \end{questions}
 \end{exercice}
 
-\begin{marginfigure}[-2cm]
-    \centering
-    % \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus}
-    \caption{ébauche}
-\end{marginfigure}
-
 \begin{elemsolution}
 \begin{reponses}
 \item Comme $f$ est décroissante, d'après le \theoremeutilise{théorème de la limite monotone}{theo:limitemonotone}, il existe $\ell \in \R \cup \ens{-\infty}$ tel que $\lim\limits_{x\to+\infty} f(x) = \ell$.
@@ -50,6 +41,12 @@ Ainsi,
 \forall x \geqslant x_0,\quad \displaystyle\int_{x_0}^x f(t) \d t \leqslant f(x_0) (x - x_0).
 \]
 D'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\lim\limits_{x\to+\infty} \displaystyle\int_{x_0}^x f(t) \d t = -\infty$, ce qui est impossible car $f$ est intégrable. Ainsi, $f$ est à valeurs positives et $\ell \geqslant 0$.
+
+\begin{marginfigure}[0cm]
+    \centering
+    \input{chapitres/integration/illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus}
+    \caption{}
+\end{marginfigure}
 
 \item Supposons par l'absurde que $\ell > 0$. Alors, il existe un réel $A$ tel que
 \[
@@ -75,11 +72,9 @@ De même,
 
 \begin{marginfigure}
     \centering
-    % \input{illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus_bis}
-    \caption{ébauche}
+    \input{chapitres/integration/illustrations/i_04-fonction_integrable_et_decroissante_sur_R_plus_bis}
+    \caption{}
 \end{marginfigure}
-
-\todoinline{Je valide le dessin ici. On peut enlever ce todo à mon avis.}
 
 Ainsi,
 \[

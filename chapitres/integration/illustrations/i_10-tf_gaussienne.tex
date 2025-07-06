@@ -26,16 +26,18 @@
     ]
     
     % Plot Gaussian functions for different sigma values
-    \addplot[blue, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 1^2))};
+    \addplot[myblue, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 1^2))};
     % \addlegendentry{$\sigma = 1$}
-    \addplot[red, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 2^2))};
+    \addplot[myred, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 2^2))};
     % \addlegendentry{$\sigma = 2$}
-    \addplot[orange, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 3^2))};
+    \addplot[myorange, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 3^2))};
      %\addlegendentry{$\sigma = 3$}
-    \addplot[purple, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 4^2))};
+    \addplot[mypurple, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 4^2))};
     % \addlegendentry{$\sigma = 4$}
-    \addplot[green!50!black, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 5^2))};
+    \addplot[mygreen, thick, domain=-15:15, samples=200] {exp(-(x)^2 / (2 * 5^2))};
     % \addlegendentry{$\sigma = 5$}
+
+    \draw[->, black, thick] (-0.7, 0.4) to [out=190,in=-45] ($(-8,0.5)$) node[above, xshift=-10pt] {$\sigma$ croissant};
 
     % Right plot: Fourier Transform magnitudes
     \nextgroupplot[
@@ -49,32 +51,32 @@
     ]
 
     % Plot Fourier Transforms for different sigma values
-    \addplot[blue, thick, domain=-1:1, samples=200] {1 * sqrt(2 * pi) * exp(-2 * pi^2 * 1^2 * x^2)}; \label{sigma1}
+    \addplot[myblue, thick, domain=-1:1, samples=200] {1 * sqrt(2 * pi) * exp(-2 * pi^2 * 1^2 * x^2)}; \label{sigma1}
     
-    \addplot[red, thick, domain=-1:1, samples=200] {2 * sqrt(2 * pi) * exp(-2 * pi^2 * 2^2 * x^2)}; \label{sigma2}
+    \addplot[myred, thick, domain=-1:1, samples=200] {2 * sqrt(2 * pi) * exp(-2 * pi^2 * 2^2 * x^2)}; \label{sigma2}
 
-    \addplot[orange, thick, domain=-1:1, samples=400] {3 * sqrt(2 * pi) * exp(-2 * pi^2 * 3^2 * x^2)}; \label{sigma3}
+    \addplot[myorange, thick, domain=-1:1, samples=400] {3 * sqrt(2 * pi) * exp(-2 * pi^2 * 3^2 * x^2)}; \label{sigma3}
     
-    \addplot[purple, thick, domain=-1:1, samples=400] {4 * sqrt(2 * pi) * exp(-2 * pi^2 * 4^2 * x^2)}; \label{sigma4}
+    \addplot[mypurple, thick, domain=-1:1, samples=400] {4 * sqrt(2 * pi) * exp(-2 * pi^2 * 4^2 * x^2)}; \label{sigma4}
     
-    \addplot[green!50!black, thick, domain=-1:1, samples=400] {5 * sqrt(2 * pi) * exp(-2 * pi^2 * 5^2 * x^2)}; \label{sigma5}
+    \addplot[mygreen, thick, domain=-1:1, samples=400] {5 * sqrt(2 * pi) * exp(-2 * pi^2 * 5^2 * x^2)}; \label{sigma5}
     
     \end{groupplot}
 
     % Add FT arrow and text
-    \draw[thick, -latex] (plots c1r1.east) node[left=10pt] {$\mathrm{e}^{-\frac{x^2}{2 \sigma^2}}$} -- (plots c2r1.west) node[midway, above=5pt] {Transformée} node[midway, below=5pt] {de \nom{Fourier}} node[right=10pt] {$\sigma \sqrt{2\pi}\, \mathrm{e}^{-2 \sigma^2 \pi^2 \xi^2}$};
-    
-    \matrix[
-        matrix of nodes,
-        anchor=south,
-        draw=none,
-        inner sep=5pt
-        ]at([xshift=4.5cm,yshift=-1cm]plots c1r1.north)
-    {
-        \ref{sigma1} $\sigma = 1$
-        \ref{sigma2} $\sigma = 2$
-        \ref{sigma3} $\sigma = 3$\\
-        \ref{sigma4} $\sigma = 4$
-        \ref{sigma5} $\sigma = 5$\\
-    };
+    \draw[thick, ->] (plots c1r1.east) node[left=10pt] {$\mathrm{e}^{-\frac{x^2}{2 \sigma^2}}$} -- (plots c2r1.west) node[midway, above=5pt] {Transformée} node[midway, below=5pt] {de \nom{Fourier}} node[right=10pt] {$\sigma \sqrt{2\pi}\, \mathrm{e}^{-2 \sigma^2 \pi^2 \xi^2}$};
+
+    % \matrix[
+    %     matrix of nodes,
+    %     anchor=south,
+    %     draw=none,
+    %     inner sep=5pt
+    %     ]at([xshift=4.5cm,yshift=-1cm]plots c1r1.north)
+    % {
+    %     \ref{sigma1} $\sigma = 1$
+    %     \ref{sigma2} $\sigma = 2$
+    %     \ref{sigma3} $\sigma = 3$\\
+    %     \ref{sigma4} $\sigma = 4$
+    %     \ref{sigma5} $\sigma = 5$\\
+    % };
 \end{tikzpicture}

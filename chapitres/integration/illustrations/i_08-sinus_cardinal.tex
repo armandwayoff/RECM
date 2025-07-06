@@ -18,13 +18,15 @@
     every axis x label/.style={at={(current axis.right of origin)},anchor=south},
 ]
               
-  \addplot[domain=-15:15, blue, samples=200, name path=B] plot[thick] {sin(deg(x))/x};
+  \addplot[domain=-15:15, myblue, samples=200, name path=B] plot[thick] {sin(deg(x))/x};
 
   \path[name path=xaxis]
       (-15,0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
-    \addplot[blue!25, opacity=0.9] fill between[of=xaxis and B];
+    \addplot[mylightblue, opacity=0.9] fill between[of=xaxis and B];
   
-  \node[blue,above left] at (-2,0.5) {$\displaystyle x \mapsto \frac{\sin(x)}{x}$};
+  \node[myblue,above left] at (-2,0.5) {$\displaystyle x \mapsto \frac{\sin(x)}{x}$};
+
+  \node[myblue] at ({0},{1/3}) {$\displaystyle \frac{\pi}{2}$};
 \end{axis}
 \begin{axis}[
     % width=7.5cm,

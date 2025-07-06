@@ -22,30 +22,30 @@
     ];
 
     % Plot for n=1
-    \addplot[domain=0:sqrt(1), samples=200, color=blue!20!cyan, smooth, thick, line join=round,line cap=round] {(1 - (x^2)/1)^1};
-    \addplot[domain=sqrt(1):2.2, samples=200, color=blue!20!cyan, smooth, thick] {0};
-    \addlegendentry{\textcolor{blue!20!cyan}{$n = 1$}}
+    \addplot[domain=0:sqrt(1), samples=200, color=myblue!20!mycyan, smooth, thick, line join=round,line cap=round] {(1 - (x^2)/1)^1};
+    \addplot[domain=sqrt(1):2.2, samples=200, color=myblue!20!mycyan, smooth, thick] {0};
+    \addlegendentry{\textcolor{myblue!20!mycyan}{$n = 1$}}
 
     % Plot for n=2
-    \addplot[domain=0:sqrt(2), samples=200, color=blue!40!cyan, smooth, thick] {(1 - (x^2)/2)^2};
-    \addplot[domain=sqrt(2):2.2, samples=200, color=blue!40!cyan, smooth, thick] {0};
-    \addlegendentry{\textcolor{blue!40!cyan}{$n = 2$}}
+    \addplot[domain=0:sqrt(2), samples=200, color=myblue!40!mycyan, smooth, thick] {(1 - (x^2)/2)^2};
+    \addplot[domain=sqrt(2):2.2, samples=200, color=myblue!40!mycyan, smooth, thick] {0};
+    \addlegendentry{\textcolor{myblue!40!mycyan}{$n = 2$}}
 
     % Plot for n=3
-    \addplot[domain=0:sqrt(3), samples=200, color=blue!60!cyan, smooth, thick] {(1 - (x^2)/3)^3};
-    \addplot[domain=sqrt(3):2.2, samples=200, color=blue!60!cyan, smooth, thick] {0};
-    \addlegendentry{\textcolor{blue!60!cyan}{$n = 3$}}
+    \addplot[domain=0:sqrt(3), samples=200, color=myblue!60!mycyan, smooth, thick] {(1 - (x^2)/3)^3};
+    \addplot[domain=sqrt(3):2.2, samples=200, color=myblue!60!mycyan, smooth, thick] {0};
+    \addlegendentry{\textcolor{myblue!60!mycyan}{$n = 3$}}
 
     % Plot for n=5
-    \addplot[domain=0:2.2, samples=200, color=blue!80!cyan, smooth, thick] {(1 - (x^2)/5)^5};
-    \addlegendentry{\textcolor{blue!80!cyan}{$n = 5$}}
+    \addplot[domain=0:2.2, samples=200, color=myblue!80!mycyan, smooth, thick] {(1 - (x^2)/5)^5};
+    \addlegendentry{\textcolor{myblue!80!mycyan}{$n = 5$}}
 
     % Plot for n=10
-    \addplot[domain=0:2.2, samples=200, color=blue!100!cyan, smooth, thick] {(1 - (x^2)/10)^10};
-    \addlegendentry{\textcolor{blue!100!cyan}{$n = 10$}}
+    \addplot[domain=0:2.2, samples=200, color=myblue!100!mycyan, smooth, thick] {(1 - (x^2)/10)^10};
+    \addlegendentry{\textcolor{myblue!100!mycyan}{$n = 10$}}
 
     % Plot for exponential function
-    \addplot[domain=0:2.4, red, samples=200, smooth, thick] {exp(-x^2)};
-    \addlegendentry{\textcolor{red}{$x \mapsto \mathrm{e}^{-x^2}$}}
+    \addplot[domain=0:2.4, myred, samples=200, smooth, thick] {exp(-x^2)};
+    \addlegendentry{\textcolor{myred}{$x \mapsto \mathrm{e}^{-x^2}$}}
     \end{axis}
 \end{tikzpicture}
