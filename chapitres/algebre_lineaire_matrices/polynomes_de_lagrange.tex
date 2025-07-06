@@ -1,6 +1,4 @@
 %========
-\section{Polynômes de Lagrange}
-
 \todoinline{Intégré au chapitre polynôme - Supprimer ce thème ?}
 
 \marginnote[0cm]{Source : \href{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}{extrait d'un cours de F. \textsc{Delebecque}}}
@@ -23,7 +21,8 @@ On cherche donc à reconstruire cette fonction $f$ par une autre fonction $f_r$ 
 
 \begin{marginfigure}[-1cm]
     \centering
-    \input{illustrations/i_polynomes_de_lagrange}
+    % \input{illustrations/i_polynomes_de_lagrange}
+    \caption{Polynômes de \nom{Lagrange}}
 \end{marginfigure}
 
 Plus précisément, étant donnés $d+1$ points d'abscisses distinctes $M_i \defeq (a_i, f_i)$ pour $i \in \llbracket 0, d \rrbracket$ dans le plan, le problème de l'interpolation polynomiale consiste à trouver un polynôme de degré inférieur ou égal à $m$ dont le graphe passe par les $d+1$ points $M_i$.\\
@@ -32,7 +31,7 @@ Plus précisément, étant donnés $d+1$ points d'abscisses distinctes $M_i \def
 
 Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ points par un polynôme de degré $n$ qui passe exactement par ces points.
 
-\begin{theo}{Propriété fondamentale des polynômes de \textsc{Lagrange}}
+\begin{theo}[Propriété fondamentale des polynômes de \textsc{Lagrange}]
     Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. \\
     Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un unique polynôme $\Lag_i \in \C_n[X]$ tel que 
     \begin{equation} \label{prop_fondamentale}
@@ -51,8 +50,8 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
     \end{defi}
 }
 
-\begin{preuve}
-    \marginnote[0cm]{Source : \href{https://www.youtube.com/watch?v=blB2SAYpobA}{\textsl{[UT\#29] Unicité des polynômes de \textsc{Lagrange}} -- Øljen - Les maths en finesse}}
+\begin{demo}
+    \source{\href{https://www.youtube.com/watch?v=blB2SAYpobA}{\textsl{[UT\#29] Unicité des polynômes de \textsc{Lagrange}} -- Øljen - Les maths en finesse}}
     On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. Soit l'application
     $$
     \fonction[\varphi]{\R_n[X]}{\R^{n+1}}{P}{\big(P(x_0), \dots, P(x_n) \big)}.
@@ -63,13 +62,13 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
         \item[$\rhd$] En particulier, l'application $\varphi$ est surjective ce qui assure l'\ptnclegras{existence} de ces polynômes. 
     \end{itemize}
     \marginnote[-4cm]{
-        \begin{prop}{}
+        \begin{prop}
             \note Si $f$ est une application linéaire d'un espace de dimension finie $E$ dans un espace de dimension finie $F$ avec $\dim E = \dim F$, il suffit que $f$ soit injective ou surjective pour que $f$ soit un isomorphisme.
         \end{prop}
     }
-\end{preuve}
+\end{demo}
 
-\begin{defi}{Polynômes de \textsc{Lagrange}}
+\begin{defi}[Polynômes de \textsc{Lagrange}]
     Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. On appelle famille des \emph{polynômes de \textsc{Lagrange}} la suite de polynômes $(\Lag_n)_{n \in \N}$ vérifiant la relation (\ref{prop_fondamentale}).
 \end{defi}
 
@@ -77,13 +76,13 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
     Une famille de polynômes de \textsc{Lagrange} est définie à partir d'une famille de complexes deux à deux distincts. 
 \end{remarque}
 
-\begin{prop}{Expression des polynômes de \textsc{Lagrange}}
+\begin{prop}[Expression des polynômes de \textsc{Lagrange}]
     Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. Les polynômes de \textsc{Lagrange} associés à cette famille ont pour expression
     $$\forall i \in \llbracket 0, n \rrbracket,\ \Lag_i(X) = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
 \end{prop}
 
-\begin{preuve}
-    \marginnote[0cm]{Source : \cite{maths-france}}
+\begin{demo}
+    \source{\cite{maths-france}}
     \begin{itemize}
         \item[$\rhd$] On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. \\
         Soit $i \in \llbracket 1, n \rrbracket$. Le polynôme $\Lag_i$ est de degré au plus $n$ et admet $n$ complexes deux à deux distincts $x_j$ pour racines, avec $j \not= i$. Alors, nécessairement, il existe une constante $C$ telle que 
@@ -92,19 +91,19 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
         $$\Lag_i = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
         \item[$\rhd$] Réciproquement, si pour tout $i \in \llbracket 0, n\rrbracket$ on pose $\Lag_i \defeq \prod\limits_{j \neq i} \frac{X-x_j}{x_i - x_j}$, alors le polynôme $\Lag_i$ est bien défini car les $x_j$ sont deux à deux distincts, est bien de degré $n$ et enfin les polynômes $\Lag_i$ vérifient clairement les égalités de dualité.
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 \subsection{Coordonées d'un polynôme dans la base de \textsc{Lagrange}}
 
-\begin{prop}{$(\Lag_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n[X]$}
+\begin{prop}[$(\Lag_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n[X]$]
     La famille $(\Lag_0, \dots, \Lag_n)$ des $n+1$ premiers polynômes de \textsc{Lagrange} forme une base de $\C_n[X]$.
 \end{prop}
 
-\begin{preuve} 
+\begin{demo} 
     Par construction, la famille $\mathscr{L} \defeq (\Lag_0, \dots, \Lag_n)$ est échelonnée en dégré ce qui assure sa liberté d'après le \reflemme{famille_deg_echelonnes_est_libre}. De plus, $|\mathscr{L}| = \dim \C_n[X]$ donc la famille $\mathscr{L}$ forme bien une base de $\C_n[X]$.
-\end{preuve}
+\end{demo}
 
-\begin{theo}{Interpolation lagrangienne}
+\begin{theo}[Interpolation lagrangienne]
 Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts et $(y_0, \dots, y_n)$ des complexes deux à deux distincts. \\
 Il existe un et un seul polynôme $P \in \R_n[X]$ tel que 
 $$\forall i \in \llbracket 0, n \rrbracket, P(x_i) = y_i.$$ 
@@ -114,7 +113,7 @@ $$P = \sum_{i=0}^n y_i \Lag_i = \sum_{i=0}^n P(x_i) \Lag_i.$$
 
 \subsection{Lien avec les déterminants de \textsc{Vandermonde}}
 
-\marginnote[0cm]{Source : \cite{maths-france}}
+\source{\cite{maths-france}}
 En appliquant la formule des coordonnées d'un polynôme de degré au plus $n$ dans la base $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ au cas particulier où le polynôme $P$ est l'un des éléments de la base canonique $(X^j)_{j \in \llbracket 0, n \rrbracket}$ de $\C_n[X]$, on obtient $\sum\limits_{i=0}^{n} \Lag_i = 1$ et plus généralement, 
 $$\forall j \in \llbracket 0, n \rrbracket,\ X^j = \sum_{i=0}^{n} x_i ^j \Lag_i.$$
 Ainsi, 
@@ -125,6 +124,6 @@ Ainsi,
     1 & x_n & x_n^2 & \cdots & x_n^{n-1}
     \end{pmatrix}.$$
 }
-\begin{prop}{}
+\begin{prop}
     La matrice de passage de la base  $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ à la base  $(X^j)_{j \in \llbracket 0, n \rrbracket}$ est la matrice de \textsc{Vandermonde} associée à la famille $(x_i)_{i \in \llbracket 0, n \rrbracket}$.
 \end{prop}

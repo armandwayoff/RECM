@@ -26,18 +26,19 @@
         %\clip (A') ..controls +(0.05*\u, 0.05*\u) and ( $(B') + (-0.5*\v, -0.5*\u)$ )..
         %(B') ..controls +(5*\v, 0.5*\u) and ( $(C') + (-2*\v, -2*\v)$ )..
         %(C') |- cycle;
-        \foreach \x in {\ya00, \ya01,...,\yc.000}   
-            \draw[mylightblue, opacity=0.5] (\x,0) -- ++(0,8);
+        \fill[mylightblue] (\ya,0) rectangle (\yc,8);
     \end{scope}
     
     \fill[mylightblue] (\ya,0) rectangle ++(\yc-\ya,\xa);
- 
+    
+    \fill[mylightred] (\xa,0) rectangle ++(\xc-\xa,\ya);
+
     \begin{scope}
         \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) |- cycle;
-        \foreach \x in {\xa.000, \xa.001,...,\xc.000}   
-            \draw[mylightred, opacity=0.5] (\x,-\ya) -- ++(0,10);
+
+        \fill[mylightred] (\xa,-\ya) rectangle (\xc,-\ya+10);
     \end{scope}
 
     \draw[thick, myblue] 
@@ -49,9 +50,6 @@
         (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) node[above] {$\mathcal{C}_f$};
-
-
-    \fill[mylightred] (\xa,0) rectangle ++(\xc-\xa,\ya);
 
     \draw[gray] (-.5, -.5) -- (\xc + 0.5, \xc + 0.5) node[pos=0.95, above, sloped] {\footnotesize $y = x$};
 
@@ -99,8 +97,7 @@
         \clip (A) ..controls +(0.05*\u, 0.05*\u) and ( $(B) + (-0.5*\u, -5*\v)$ )..
         (B) ..controls +(0.5*\u, 5*\v) and ( $(C) + (-2*\v, -2*\v)$ )..
             (C) |- cycle;
-        \foreach \x in {\xa.000, \xa.001,...,\xc.000}   
-            \draw[mylightred, opacity=0.5] (\x,-\ya) -- ++(0,10);
+        \fill[mylightred] (\xa,-\ya) rectangle (\xc,-\ya+10);
     \end{scope}
 
     \draw[dashed] 

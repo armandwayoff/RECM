@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+\begin{axis}[
+    xtick={0.001,0.5},
+    xticklabels={$10^{-3}$,$0{,}5$},
+    ytick={10},
+    yticklabels={$10$},
+    scaled y ticks=false,
+    xlabel=$x$,
+    width=7cm,
+    axis lines=middle,
+    axis line style=thick,
+    axis line style={-latex},
+    % xlabel style={at={(axis description cs:1.05,0)}, anchor=north},
+    % ylabel style={at={(axis description cs:0,1.05)}, anchor=south},
+    xmin=0,
+    xmax=0.55,
+    ymin=0,
+    ymax=11,
+    restrict x to domain=0.0001:0.5,
+    legend style={
+        draw=none,
+        fill=none,
+        font=\footnotesize,
+        legend image code/.code={\node[anchor=west] {#1};}
+    },
+    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
+]
+
+% Plot from the data file
+\draw[color=mygreen, thick, domain=0.0001:0.5, samples=100] plot (\x,{-ln(\x)});
+\addlegendentry{\textcolor{mygreen}{$x \mapsto -\ln(x)$}}
+
+\addplot[myblue, thick, smooth] table[x=x, y=y] {chapitres/integration/illustrations/i_16-un_developpement_asymptotique.dat};
+% \addlegendentry{\textcolor{myblue}{$\displaystyle x \mapsto \int_x^{+\infty} \frac{\e^{-t}}{t} \d t$}}
+\end{axis}
+\end{tikzpicture}

@@ -1,7 +1,7 @@
 \section{Aire et fonction réciproque}
 
 \begin{prop}
-Soit $f$ de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ telle que $f'$ soit strictement positive sur $\interff{a}{b}$. Alors,
+Soit $f$ de classe $\Cont^1$ sur $\interff{a}{b}$ telle que $f'$ soit strictement positive sur $\interff{a}{b}$. Alors,
 \[
 \int_{a}^{b} f(t) \d t + \int_{f(a)}^{f(b)} f^{-1}(t) \d t = b f(b) - a f(a).
 \]
@@ -11,7 +11,7 @@ Soit $f$ de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ telle que $f'$ soit stri
     \begin{enumerate}
     \item Comme $f' > 0$, alors $f$ est strictement croissante. Comme $f$ est continue, d'après le \theoremeutilise{théorème de la bijection monotone}{theo:bijectionmonotone}, $f$ réalise une bijection de $\interff{a}{b}$ sur $\interff{f(a)}{f(b)}$.
     
-    \item On utilise le changement de variable $\fonctionens[\phi]{\interff{a}{b}}{\interff{f(a)}{f(b)}},\, u \mapsto f(u)$. Alors, $\phi$ est de classe $\mathscr{C}^1$ et
+    \item On utilise le changement de variable $\fonctionens[\phi]{\interff{a}{b}}{\interff{f(a)}{f(b)}}, u \mapsto f(u)$. Alors, $\phi$ est de classe $\Cont^1$ et
     \begin{align*}
     \int_{f(a)}^{f(b)} f^{-1}(t) \d t
     &= \int_a^b f^{-1}\mathopen{}\big(f(u)\big) f'(u) \d u\\

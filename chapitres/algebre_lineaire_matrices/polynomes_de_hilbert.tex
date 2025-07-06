@@ -1,13 +1,13 @@
-\begin{prop}{$(\Hilb_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n[X]$} \labprop{hilbert_base}
-    La famille $(\Hilb_0, \dots, \Hilb_n)$ des $n+1$ premiers polynômes de \textsc{Hilbert} forme une base de $\C_n[X]$.
+\begin{prop}[$(\Hilb_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n[X]$] \labprop{hilbert_base}
+    La famille $(\Hilb_0, \dots, \Hilb_n)$ des $n+1$ premiers polynômes de \nom{Hilbert} forme une base de $\C_n[X]$.
 \end{prop}
 
 \begin{lemme} \lablemme{famille_deg_echelonnes_est_libre}
     Toute famille de polynômes non nuls à degrés échelonnés est libre.
 \end{lemme}
 
-\begin{preuve}
-    \marginnote[0cm]{Source : \href{https://www.bibmath.net/ressources/justeunexo.php?id=815}{Polynômes à degrés échelonnés -- \textsf{Bibm@th.net}}}
+\begin{demo}
+    \source{\href{https://www.bibmath.net/ressources/justeunexo.php?id=815}{Polynômes à degrés échelonnés -- \textsf{Bibm@th.net}}}
     Soit $(P_1, \dots, P_n)$ une famille de polynômes de $\C_n[X]$ non nuls, à degrés échelonnés, i.e. $0 \leqslant \deg P_1 < \cdots < \deg P_n$. \\
     Soit $(\lambda_1, \dots, \lambda_n)$ des scalaires tels que
     \begin{equation}\tag{$\star$} \label{eq}
@@ -17,7 +17,7 @@
     En itérant le raisonnement, on trouve successivement 
     $$\lambda_{n-1} = 0, \dots, \lambda_1 = 0$$
     ce qui assure la liberté de la famille $(P_1, \dots, P_n)$.
-\end{preuve}
+\end{demo}
 
 \marginnote[-3cm]{
     \begin{methode}
@@ -27,7 +27,7 @@
 
 Revenons à la démonstration de la \refprop{hilbert_base}.
 
-\begin{preuve}
+\begin{demo}
     \marginnote[0cm]{
         \note Par définition, 
         $$\Hilb_0 \defeq 1$$
@@ -35,4 +35,4 @@ Revenons à la démonstration de la \refprop{hilbert_base}.
         Donc pour tout $n \in \N$, $\deg \Hilb_n = n$.
     }
     Par construction, la famille $\mathscr{H} \defeq (\Hilb_0, \dots, \Hilb_n)$ est échelonnée en dégré \note ce qui assure sa liberté d'après le \reflemme{famille_deg_echelonnes_est_libre}. De plus, $|\mathscr{H}| = \dim \C_n[X]$ donc la famille $\mathscr{H}$ forme bien une base de $\C_n[X]$.
-\end{preuve}
+\end{demo}

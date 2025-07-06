@@ -4,9 +4,9 @@
 
 \begin{lemme}\label{lemmeLebesgue} Soit $a < b$.
 \begin{enumerate}
-\item On suppose que $f$ est une fonction de classe $\mathscr{C}^1$ sur $\interff{a}{b}$. Alors,
+\item On suppose que $f$ est une fonction de classe $\Cont^1$ sur $\interff{a}{b}$. Alors,
 \[
-\lim_{ \lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0.
+\lim_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0.
 \]
 \item Redémontrer le même résultat en supposant simplement que la fonction $f$ est continue par morceaux sur~$\interff{a}{b}$.
 \end{enumerate}
@@ -33,11 +33,11 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
 
 \begin{solution}
     \begin{reponses}
-        \item Puisque la fonction $f$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour~\mbox{$\lambda > 0$}:
+        \item Puisque la fonction $f$ est de classe $\Cont^1$ sur $\interff{a}{b}$, on peut effectuer une intégration par parties qui fournit pour~\mbox{$\lambda > 0$}:
         \[
         \begin{multlined}[t]
         \left| \int_a^b f(t) \sin(\lambda t) \d t \right| = \left| \frac{1}{\lambda} \mathopen{}\left( -\big[ f(t) \cos(\lambda t) \big]_a^b + \int_a^b f'(t) \cos(\lambda t) \d t  \right) \right| \\
-        \leqslant \frac{1}{\lambda} \left( |f(a)| + |f(b)| + \int_a^b |f'(t)| \d t \right),
+        \leqslant \frac{1}{\lambda} \mathopen{}\left( \module{f(a)} + \module{f(b)} + \int_a^b \module{f'(t)} \d t \right),
         \end{multlined}
         \]
         par inégalité triangulaire et majoration de la fonction cosinus par $1$. \\
@@ -47,18 +47,18 @@ On constate sur la figure ci-contre suivante que plus $\lambda$ est grand, plus 
         Le résultat s'étend aux fonctions constantes par linéarité de l'intégrale puis aux fonctions constantes par morceaux par additivité par rapport à l'intervalle d'intégration, c'est-à-dire aux fonctions en escaliers. 
 
         Considérons donc $f$ une fonction continue par morceaux sur $\interff{a}{b}$. \\
-        Soit $\varepsilon > 0$. D'après le \theoremeutilise{théorème d'approximation par des fonctions en escalier}{theo:approximationescalier}, il existe une fonction en escalier $\varphi$ telle que $\|f - \varphi\|_\infty \leqslant \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
+        Soit $\varepsilon > 0$. D'après le \theoremeutilise{théorème d'approximation par des fonctions en escalier}{theo:approximationescalier}, il existe une fonction en escalier $\varphi$ telle que $\norme{f - \varphi}_\infty \leqslant \varepsilon$. De plus, d'après le point précédent, il existe un réel $\lambda_0$ strictement positif tel que pour tout $\lambda > \lambda_0$,
         \[
-        \left| \int_a^b \varphi(t)  \sin(\lambda t) \d t\right| \leqslant \varepsilon.
+        \module{\int_a^b \varphi(t)  \sin(\lambda t) \d t} \leqslant \varepsilon.
         \]
         Finalement, d'après l'inégalité triangulaire, pour tout $\lambda > \lambda_0$,
         \begin{align*}
-        \left|\int_a^b f(t) \sin(\lambda t) \d t\right|
-        &\leqslant         \left|\int_a^b \big(f(t) - \varphi(t)\big) \sin(\lambda t) \d t\right| + \left|\int_a^b \varphi(t) \sin(\lambda t) \d t\right|\\
+        \module{\int_a^b f(t) \sin(\lambda t) \d t}
+        &\leqslant \module{\int_a^b \big(f(t) - \varphi(t)\big) \sin(\lambda t) \d t} + \module{\int_a^b \varphi(t) \sin(\lambda t) \d t} \\
         &\leqslant \norme{f - \varphi}_\infty (b - a) + \varepsilon\\
-        &\leqslant \varepsilon\, (1 + b - a).
+        &\leqslant \varepsilon (1 + b - a).
         \end{align*}
-Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0$.
+Finalement, $\displaystyle \lim_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d t = 0$.
     \end{reponses}
 \end{solution}
 
@@ -76,12 +76,12 @@ Finalement, $\lim\limits_{\lambda \to +\infty} \int_a^b f(t) \sin(\lambda t) \d 
 
 Nous allons utiliser le \hyperref[lemmeLebesgue]{lemme de \nom{Lebesgue}} pour calculer certaines valeurs de la fonction~$\zeta$~de~\nom{Riemann}. La fonction zêta de \nom{Riemann} est également abordée dans la sous-section \ref{subsec:fonctionZeta}. Nous verrons ultérieurement une autre utilisation du \hyperref[lemmeLebesgue]{lemme de \nom{Lebesgue}} au calcul de la valeur de l'\hyperref[sec:intDirichlet]{intégrale de \nom{Dirichlet}}.
 
-On note $(B_n)$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de \nom{Bernoulli}} et, pour tout $x > 1$, on introduit la fonction $\zeta(x) = \sum\limits_{k=1}^{\infty} \frac{1}{k^x}$.
+On note $(\Bern_n)_{n \in \N}$ la suite des \hyperref[sec:polynomes_de_bernoulli]{polynômes de \nom{Bernoulli}} et, pour tout $x > 1$, on introduit la fonction $\zeta(x) = \sum\limits_{k=1}^{\infty} \frac{1}{k^x}$.
 
 \begin{theo}[Valeurs de $\zeta(2m)$]
 Pour tout entier $m \geqslant 1$, 
 \[
-\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{B_{2m}(0)}{2}.
+\zeta(2m) = (-1)^{m-1} (2 \pi)^{2m} \frac{\Bern_{2m}(0)}{2}.
 \]
 \end{theo}
 
@@ -91,16 +91,16 @@ Pour tout entier $m \geqslant 1$,
 \begin{questions}
     \item Pour tout $k,n \in \Ne$, on définit les intégrales
     \[
-    I_{n,k} = \int_0^1 B_n(t) \cos(2 k \pi t) \d t.
+    I_{n,k} = \int_0^1 \Bern_n(t) \cos(2 k \pi t) \d t.
     \]
     Trouver une relation entre $I_{n,k}$ et $I_{n-2, k}$ et en déduire selon la parité de $n$, l'expression de $I_{n,k}$ en fonction de $n$ et de $k$.
 \end{questions}
     Pour tout entier naturel $n$ strictement positif, on pose:
     \[
-    \forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{B_n(t) - B_n(0)}{\sin(\pi t)}.
+    \forall t \in \interoo{0}{1}, \quad \varphi_n(t) = \frac{\Bern_n(t) - \Bern_n(0)}{\sin(\pi t)}.
     \]
 \begin{questions}[resume]
-    \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\mathscr{C}^1$.
+    \item Montrer que pour tout entier $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et que le prolongement est de classe $\Cont^1$.
     \item Montrer que pour $N$ entier naturel non nul:
     \[
     \forall t \in \interoo{0}{1}, \quad 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
@@ -114,8 +114,8 @@ Pour tout entier $m \geqslant 1$,
         \[
         \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big( (2N+1) \pi t \big) \d t
         \]
-        en fonction de $m$, $N$ et de $B_{2m}(0)$.
-        \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $B_{2m}(0)$.
+        en fonction de $m$, $N$ et de $\Bern_{2m}(0)$.
+        \item En déduire la valeur de $\sum\limits_{k=1}^\infty \frac{1}{k^{2m}}$ en fonction de $m$ et de $\Bern_{2m}(0)$.
         \end{questions}
     %     \item Donner les valeurs de $\sum\limits_{k=1}^\infty \frac{1}{k^2}$ et de $\sum\limits_{k=1}^\infty \frac{1}{k^4}$.
     % \end{enumerate}
@@ -127,13 +127,13 @@ Pour tout entier $m \geqslant 1$,
 \end{questions}
 \end{exercice}
 
-\todoarmand{Faire un encadrement rappel avec à nouveau un lien vers le thème Bernoulli}
+\todoarmand{Faire un encadrement rappel avec à nouveau un lien vers le thème Bernoulli
 On rappelle que 
 \begin{align*}
 B_n(1 - x) &= (-1)^n B_n(x),\\
 B_n'(x) &= n B_{n-1}(x).
 \end{align*}
-
+}
 \begin{elemsolution}
 \begin{reponses}
 \item Pour tout entier $p > 0$,
@@ -143,33 +143,37 @@ I_{2p, k} = \frac{(-1)^{p-1}}{(2 k \pi)^{2p}} \quad \text{et} \quad I_{2p+1,k} =
 
 En effet, en utilisant deux intégrations par parties successives,
 \[
-I_{n,k} = \frac{1}{4k^2 \pi^2} \big(B_{n-1}(1) - B_{n-1}(0) - I_{n-2, k} \big).
+I_{n,k} = \frac{1}{4k^2 \pi^2} \big(\Bern_{n-1}(1) - \Bern_{n-1}(0) - I_{n-2, k} \big).
 \]
-De plus, $I_{0,k} = 0$, $I_{1,k} = 0$, $I_{2,k} = \frac{1}{4 \pi^2}$. Donc,
+De plus, $I_{0,k} = 0$, $I_{1,k} = 0$ et $I_{2,k} = \frac{1}{4 \pi^2}$. Donc,
 \[
 \forall n \geqslant 3,\quad I_{n,k} = - \frac{1}{4 k^2 \pi^2}I_{n-2, k}.
 \]
 On obtient ainsi le résultat annoncé.
-\item Pour tout $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et le prolongement est de classe $\mathscr{C}^1$. En effet,
+\item Pour tout $n \geqslant 2$, la fonction $\varphi_n$ est prolongeable par continuité à $\interff{0}{1}$ et le prolongement est de classe $\Cont^1$. En effet,
 
 \begin{itemize}
-\item D'après les quotients de fonctions de classe $\mathscr{C}^1$ dont le dénominateur ne s'annule pas, la fonction $\varphi_n$ est de classe $\mathscr{C}^1$ sur $\interoo{0}{1}$.
+\item D'après les quotients de fonctions de classe $\Cont^1$ dont le dénominateur ne s'annule pas, la fonction $\varphi_n$ est de classe $\Cont^1$ sur $\interoo{0}{1}$.
 
-\item La fonction $B_n$ étant polynomiale, elle est de classe $\mathscr{C}^1$ en $0$ et, en utilisant la formule de \nom{Taylor}--\nom{Young},
+\item La fonction $\Bern_n$ étant polynomiale, elle est de classe $\Cont^1$ en $0$ et, en utilisant la formule de \nom{Taylor}--\nom{Young},
 \begin{align*}
-\varphi_n(t) &= \frac{B'_n(0)t + \frac{B''_n(0)}{2}t^2 + o(t^2)}{\pi t \big(1 + o(t) \big)} \\
-&= \frac{B'_n(0)}{\pi} + \frac{B''_n(0)}{2 \pi} \, t + o(t).
+\varphi_n(t) &= \frac{\Bern'_n(0)t + \frac{\Bern''_n(0)}{2}t^2 + o(t^2)}{\pi t \big(1 + o(t) \big)} \\
+&= \frac{\Bern'_n(0)}{\pi} + \frac{\Bern''_n(0)}{2 \pi} \, t + o(t).
 \end{align*}
 
-Ainsi, $\lim\limits_{t \to 0} \varphi_n(t) = \frac{B'_n(0)}{\pi}$ et $\varphi_n$ est une fonction prolongeable par continuité en $0$.
+Ainsi, $\lim\limits_{t \to 0} \varphi_n(t) = \frac{\Bern'_n(0)}{\pi}$ et $\varphi_n$ est une fonction prolongeable par continuité en $0$.
 
 \item
 % De plus, $\lim\limits_{t \to 0} \frac{\varphi_n(t) - \frac{B'_n(0)}{\pi}}{t} = \frac{B''_n(0)}{2 \pi}$.
 %
-De plus, pour tout $t$ non nul, $\displaystyle \varphi'_n(t) = \frac{B'_n(t) \sin(\pi t) - \big(B_n(t) - B_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}$. Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, on obtient $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} B''_n(0)$.
-D'après le \theoremeutilise{théorème de prolongement des dérivées}{theo:prolongementDesDerivees}, $\varphi_n$ est prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interfo{0}{1}$.
+De plus, pour tout $t$ non nul, 
+\[
+\varphi'_n(t) = \frac{\Bern'_n(t) \sin(\pi t) - \big(\Bern_n(t) - \Bern_n(0) \big) \pi \cos(\pi t)}{\sin(\pi t)^2}.
+\]
+Ainsi, en effectuant un développement limité à l'ordre $2$ du numérateur, on obtient $\lim\limits_{t \to 0} \varphi'_n(t) = \frac{1}{2 \pi} \Bern''_n(0)$.
+D'après le \theoremeutilise{théorème de prolongement des dérivées}{theo:prolongementDesDerivees}, $\varphi_n$ est prolongeable en une fonction de classe $\Cont^1$ sur $\interfo{0}{1}$.
 
-Enfin, $\varphi_n(1-t) = (-1)^n \frac{B_n(t) - B_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $B_n(0) = B_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
+Enfin, $\varphi_n(1-t) = (-1)^n \frac{\Bern_n(t) - \Bern_n(1)}{\sin(\pi t)}$. Comme pour tout $n \geqslant 2$, $\Bern_n(0) = \Bern_n(1)$, la fonction $\varphi_n$ est bien prolongeable en une fonction de classe $\Cont^1$ sur $\interff{0}{1}$.
 \end{itemize}
 \end{reponses}
 
@@ -179,7 +183,7 @@ D_n(t) = 1 + 2 \sum_{k=1}^N \cos(2k \pi t) = \frac{\sin\mathopen{}\big((2N+1) \p
 \]
 
 \begin{reponses}[resume]
-\item Cette quantité, appelée \textsl{noyau de \nom{Dirichlet}}\marginnote{\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \nom{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}}, s'exprime simplement à l'aide de la fonction sinus :
+\item Cette quantité, appelée \textsl{noyau de \nom{Dirichlet}}\todoarmand{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./n/noyautrigo.html}{Noyaux trigonométriques}, le noyau de \nom{Dirichlet} intervient aussi \href{https://fr.wikipedia.org/wiki/Noyau_de_Dirichlet}{en optique}.}, s'exprime simplement à l'aide de la fonction sinus :
 \[
 D_n(t) = \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)}.
 \]
@@ -199,15 +203,15 @@ En effet, pour tout $t \in \interoo{0}{1}$, $\e^{2 \i k \pi t} \not= 1$. Ainsi, 
     \item Ainsi,
 \[
 \int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t
-= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
+= - \Bern_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
 \]
 
 En effet, d'après la définition de $\varphi_{2m}$,
 \begin{align*}
-\int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t &= \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
-&= \int_0^1 \big( B_{2m}(t) - B_{2m}(0) \big) \d t + \cdots \\
-&\quad \cdots + 2 \sum_{k=1}^N \int_0^1 \big(B_{2m}(t) - B_{2m}(0) \big) \cos(2 k \pi t) \d t \\
-&= - B_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
+\int_0^1 \varphi_{2m}(t) \sin\mathopen{}\big((2N+1) \pi t \big) \d t &= \int_0^1 \big(\Bern_{2m}(t) - \Bern_{2m}(0) \big) \frac{\sin\mathopen{}\big((2N+1) \pi t \big)}{\sin(\pi t)} \d t \\
+&= \int_0^1 \big( \Bern_{2m}(t) - \Bern_{2m}(0) \big) \d t + \cdots \\
+&\quad \cdots + 2 \sum_{k=1}^N \int_0^1 \big(\Bern_{2m}(t) - \Bern_{2m}(0) \big) \cos(2 k \pi t) \d t \\
+&= - \Bern_{2m}(0) + 2 \sum_{k=1}^N \frac{(-1)^{m-1}}{(2 k \pi)^{2m}}.
 \end{align*}
 \item D'après le lemme de \nom{Lebesgue},
 \[
@@ -221,7 +225,7 @@ et on obtient bien le résultat annoncé.
 \begin{remarque}
 En utilisant les valeurs remarquables des premiers polynômes de \nom{Bernoulli}, on obtient
 \begin{align*}
-\sum_{k=1}^{+\infty} \frac{1}{k^2} &= 2 \pi^2 B_2(0) = \frac{\pi^2}{6} \\
-\sum_{k=1}^{+\infty} \frac{1}{k^4} &= -2^3 \pi^4 B_4(0) = \frac{\pi^4}{90}.
+\sum_{k=1}^{+\infty} \frac{1}{k^2} &= 2 \pi^2 \Bern_2(0) = \frac{\pi^2}{6} \\
+\sum_{k=1}^{+\infty} \frac{1}{k^4} &= -2^3 \pi^4 \Bern_4(0) = \frac{\pi^4}{90}.
 \end{align*}
 \end{remarque}

@@ -1,4 +1,4 @@
-\begin{defi}{Matrice de \textsc{Vandermonde}}
+\begin{defi}[Matrice de \textsc{Vandermonde}]
     Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. On définit la \emph{matrice de \textsc{Vandermonde}} de la famille $(\alpha_1, \dots, \alpha_n)$ par
     $$\Vandermonde(\alpha_1, \dots, \alpha_n) \defeq \begin{pmatrix}
     1 & \alpha_1 & \alpha_1^2 & \cdots & \alpha_1^{n-1} \\
@@ -33,7 +33,7 @@
     $$\Vandermonde(\alpha_1, \dots, \alpha_k) = ....$$
 \end{remarque}
 
-\begin{prop}{Déterminant de \textsc{Vandermonde}} \labprop{determinant_vandermonde}
+\begin{prop}[Déterminant de \textsc{Vandermonde}]\labprop{determinant_vandermonde}
     $$\det \big( \Vandermonde(\alpha_1, \dots, \alpha_n) \big) = \smashoperator{\prod_{1\leqslant i < j \leqslant n}}(\alpha_j - \alpha_i).$$
 \end{prop}
 
@@ -58,7 +58,7 @@
 }
 
 
-\begin{preuve}
+\begin{demo}
     Nous allons raisonner par récurrence sur la taille de la matrice. Pour tout $n \in \Ne$ on pose
     $$\mathscr{P}_n: \text{\say{ Soit $(\alpha_1, \dots, \alpha_n) \in \C^n$, $\det \big(\Vandermonde(\alpha_1, \dots, \alpha_n)\big) = \smashoperator{\prod\limits_{1\leqslant i < j \leqslant n}}(\alpha_j - \alpha_i)$}}.$$
     \begin{itemize}
@@ -76,15 +76,15 @@
         \end{align*}
         La proprité est donc vraie au rang $n+1$ et on en déduit par récurrence qu'elle est vraie pour tout $n \in \Ne$.
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 \begin{corol}
     La famille $(\alpha_1, \dots, \alpha_n)$ est libre si et seulement si le déterminant de sa matrice de \textsc{Vandermonde} est non nul.
 \end{corol}
 
-\begin{preuve} 
+\begin{demo} 
     D'après la \refprop{determinant_vandermonde}, la matrice de \textsc{Vandermonde} de la famille $(\alpha_1, \dots, \alpha_n)$ est inversible si et seulement si les $\alpha_i$ sont distincts deux à deux. 
-\end{preuve}
+\end{demo}
 
 \begin{exercice}
     \marginnote[0cm]{Source : \cite{maths-france} Planche no 35. Déterminants}
@@ -104,7 +104,7 @@
 \subsection{Inverse de la matrice de {\textsc{Vandermonde}}}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{exos_oraux} p.81}
+    \source{\cite{exos_oraux} p.81}
     Soient $n \in \Ne$ et $(x_1, \dots, x_n)$ des complexes deux à deux distincts.
     \begin{enumerate}
         \item Montrer que l'application
