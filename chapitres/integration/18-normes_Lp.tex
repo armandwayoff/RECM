@@ -17,7 +17,7 @@ Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$
 \subsection{Limite $p \to +\infty$}
 
 \begin{theo}
-Soit $f$ une fonction continue sur le segment $[a, b]$. Alors,
+Soit $f$ une fonction continue sur le segment $\interff{a}{b}$. Alors,
 \[
 \lim_{p\to+\infty} \norm{f}_{L^p} = \norm{f}_\infty.
 \]
@@ -33,18 +33,18 @@ Voir l'index des notations \ref{indexnotations} pour la définition de la norme 
 
 
 \begin{exercice}
-Soit $f$ une fonction continue sur le segment $[a, b]$.
+Soit $f$ une fonction continue sur le segment $\interff{a}{b}$.
 \begin{questions}
-\item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leq c_p \norm{f}_\infty$.
+\item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leqslant c_p \norm{f}_\infty$.
 
-\item Soit $\varepsilon > 0$. Montrer qu'il existe un segment $[c, d] \subset [a, b]$ tel que
+\item Soit $\varepsilon > 0$. Montrer qu'il existe un segment $\interff{c}{d} \subset \interff{a}{b}$ tel que
 \[
-\forall\, x \in [c, d],\, f(x) \geq \norm{f}_{L^\infty} - \varepsilon.
+\forall x \in \interff{c}{d},\quad f(x) \geqslant \norm{f}_{L^\infty} - \varepsilon.
 \]
 
 \item En déduire qu'il existe un réel $d_p$ tel que
 \[
-d_p (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p}.
+d_p \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p}.
 \]
 
 \item Conclure.
@@ -58,42 +58,41 @@ d_p (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p}.
 \end{marginfigure}
 
 \begin{solution}
-la fonction $f$ est continue sur un segment donc elle est bornée. Ainsi, $\norm{f}_\infty$ est bien définie.
+La fonction $f$ est continue sur un segment donc elle est bornée. Ainsi, $\norm{f}_\infty$ est bien définie.
 
 \begin{reponses}
-\item Comme, pour tout $t \in [a, b]$, $\module{f(t)} \leq \norm{f}_\infty$, la croissance de l'intégrale assure que
+\item Comme, pour tout $t \in \interff{a}{b}$, $\module{f(t)} \leqslant \norm{f}_\infty$, la croissance de l'intégrale assure que
 \[
-\int_a^b \module{f(t)}^p \d t \leq \int_a^b (\norm{f}_\infty)^p \d t.
+\int_a^b \module{f(t)}^p \d t \leqslant \int_a^b \big(\norm{f}_\infty\big)^p \d t.
 \]
 On obtient ainsi la majoration demandée, avec $c_p = (b - a)^{1/p}$.
 
-\item Comme $f$ est continue, elle atteint ses bornes sur $[a, b]$ et il existe un réel $x_0$ tel que $f(x_0) = \norm{f}_\infty$.
+\item Comme $f$ est continue, elle atteint ses bornes sur $\interff{a}{b}$ et il existe un réel $x_0$ tel que $f(x_0) = \norm{f}_\infty$.
 
-Toujours comme $f$ est continue, il existe un réel $\eta$ tel que pour tout $x \in [a, b]$,
+Toujours comme $f$ est continue, il existe un réel $\eta$ tel que pour tout $x \in \interff{a}{b}$,
 \[
-\module{x - x_0} \leq \eta \Rightarrow \module{f(x) - f(x_0)} \leq \varepsilon.
+\module{x - x_0} \leqslant \eta \implies \module{f(x) - f(x_0)} \leqslant \varepsilon.
 \]
-
-En particulier, pour $x \in [x_0-\eta, x_0+\eta] \cap [a, b]$,
+En particulier, pour $x \in \interff{x_0-\eta}{x_0+\eta} \cap \interff{a}{b}$,
 \[
-f(x) \geq f(x_0) - \varepsilon = \norm{f}_\infty - \varepsilon.
+f(x) \geqslant f(x_0) - \varepsilon = \norm{f}_\infty - \varepsilon.
 \]
-On note $[c, d] = [x_0-\eta, x_0+\eta] \cap [a, b]$.
+On note $\interff{c}{d} = \interff{x_0-\eta}{x_0+\eta} \cap \interff{a}{b}$.
 
 \item En utilisant la croissance de l'intégrale, on obtient ainsi
 \[
-(d - c)^{1/p} (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p}.
+(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p}.
 \]
 
 \item D'après les questions précédentes, pour tout $p \in \N$ et pour tout $\varepsilon > 0$,
 \[
-(d - c)^{1/p} (\norm{f}_\infty - \varepsilon) \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
+(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
 \]
 
 Comme cette propriété est vraie pour tout $\varepsilon > 0$, alors
 
 \[
-(d - c)^{1/p} \norm{f}_\infty \leq \norm{f}_{L^p} \leq (b - a)^{1/p} \norm{f}_\infty.
+(d - c)^{1/p} \norm{f}_\infty \leqslant \norm{f}_{L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
 \]
 
 Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty} (b - a)^{1/p} = 1$, le \theoremeutilise{théorème d'encadrement}{theo:encadrement} permet de conclure.
@@ -108,57 +107,57 @@ Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty
 \subsection{Limite $p \to 0$}
 
 \begin{theo}
-Soit $f \in \Cont\big(\interff{0}{1},\Rpe\big)$. Alors,
+Soit $f \in \Cont\big(\mathopen{}\interff{0}{1},\Rpe\big)$. Alors,
 \[
-\lim_{p\to0} \norm{f}_{L^p} = \exp\left\{\int_0^1 \ln\module{f(x)} \d x\right\}.
+\lim_{p\to0} \norm{f}_{L^p} = \exp\mathopen{}\left\{\int_0^1 \ln\mathopen{}\module{f(x)} \d x\right\}.
 \]
 \end{theo}
 
 %---------------
 
 \begin{exercice}%
-Soit $f \in \mathscr{C}([0,1],\R^\ast)$. On suppose que $f$ est à valeurs positives et on pose $I(y) = \int_0^1 f(x)^y \d x$.
+Soit $f \in \Cont\big(\mathopen{}\interff{0}{1},\Re)$. On suppose que $f$ est à valeurs positives et on pose $I(y) = \int_0^1 f(x)^y \d x$.
 \begin{questions}
-\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\R_+^\ast$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim\limits_{y\to0} g(y)^{1/y}$.
+\item Soit $g$ une fonction définie sur un voisinage de $0$ à valeurs dans $\Rpe$, dérivable en $0$, vérifiant $g(0) = 1$. Déterminer $\lim\limits_{y\to0} g(y)^{1/y}$.
 
-\item Montrer que $I$ est une fonction dérivable sur $\R_+$.
+\item Montrer que $I$ est une fonction dérivable sur $\Rp$.
 
 \item En déduire que
 \[
-\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\lim_{y\to0} \mathopen{}\left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\mathopen{}\left\{\int_0^1 \ln\mathopen{}\big(f(x)\big) \d x\right\}.
 \]
 \end{questions}
 \end{exercice}
 
 \begin{solution}
 \begin{reponses}
-\item Comme $g$ est dérivable, d'après le théorème de \nom{Taylor}--\nom{Young}\marginnote[-7pt]{\etoile{Théorème de \nom{Taylor}--\nom{Young}\index[theoremesutilises]{\nom{Taylor}--\nom{Young}}}}, $g(y) = 1 + y g'(0) + o(y)$. Ainsi,
+\item Comme $g$ est dérivable, d'après le théorème de \nom{Taylor}--\nom{Young}\marginnote[-7pt]{\etoile{Théorème de \nom{Taylor}--\nom{Young}\index[theoremesutilises]{\nom{Taylor}--\nom{Young}}}}, $g(y) = 1 + y g'(0)~+~o(y)$. Ainsi,
 \begin{align*}
-g(y)^{1/y} &= \exp\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\}
-= \exp\left\{g'(0) + o(1)\right\}
+g(y)^{1/y} &= \exp\mathopen{}\left\{\frac{1}{y} \ln(g(0) + y g'(0) + o(y))\right\}
+= \exp\mathopen{}\left\{g'(0) + o(1)\right\}
 \to \e^{g'(0)}.
 \end{align*}
 
-\item En posant $F: (x, y) \mapsto f(x)^y$, alors
+\item En posant $\fonctionligne[F]{(x, y)}{f(x)^y}$, alors
 \[
-\abs{\frac{\partial F}{\partial y}(x, y)} = \abs{\ln(f(x)) f(x)^y}.
+\module{\frac{\partial F}{\partial y}(x, y)} = \module{\ln\mathopen{}\big(f(x)\big) f(x)^y}.
 \]
 
-La fonction $\ln \circ f$ est continue sur le segment $[0, 1]$ donc elle est bornée par une constante $M$. Ainsi,
+La fonction $\ln \circ\, f$ est continue sur le segment $\interff{0}{1}$ donc elle est bornée par une constante $M$. Ainsi,
 \begin{align*}
-\module{F(x, y)} &\leq \e^{a M},\\
-\module{\frac{\partial F}{\partial y}(x, y)} &\leq M \cdot \e^{a M}.
+\module{F(x, y)} &\leqslant \e^{a M},\\
+\module{\frac{\partial F}{\partial y}(x, y)} &\leqslant M \e^{a M}.
 \end{align*}
 
-D'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I$ est dérivable sur $[0, 1[$ et
+D'après le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I$ est dérivable sur $\interfo{0}{1}$ et
 \begin{align*}
-I'(y) &= \int_0^1 \ln(f(x)) f(x)^y \d x \\
-I'(0) &= \int_0^1 \ln(f(x)) \d x
+I'(y) &= \int_0^1 \ln\mathopen{}\big(f(x)\big) f(x)^y \d x \\
+I'(0) &= \int_0^1 \ln\mathopen{}\big(f(x)\big) \d x
 \end{align*}
 
 \item Finalement,
 \[
-\lim_{y\to0} \left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\left\{\int_0^1 \ln(f(x)) \d x\right\}.
+\lim_{y\to0} \mathopen{}\left(\int_0^1 f(x)^y \d x\right)^{1/y} = \exp\mathopen{}\left\{\int_0^1 \ln\mathopen{}\big(f(x)\big) \d x\right\}.
 \]
 \end{reponses}
 \end{solution}
@@ -167,16 +166,16 @@ I'(0) &= \int_0^1 \ln(f(x)) \d x
 
 
 %-----------
-\subsection{Cas $p \geq 1$}
+\subsection{Cas $p \geqslant 1$}
 
-Lorsque l'exposant $p$ satisfait $0 < p < 1$, on constate que l'inégalité triangulaire ne peut pas être satisfaite par $\norm{\cdot}_{L^p}$, ce qui justifie, pour bénéficier d’une structure naturelle d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
+Lorsque l'exposant $p$ satisfait $0 < p < 1$, on constate que l'inégalité triangulaire ne peut pas être satisfaite par $\norm{\,\cdot\,}_{L^p}$, ce qui justifie, pour bénéficier d’une structure naturelle d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
 
 \begin{theo}[Inégalité de \nom{Minkowski}]
-Soit $p \geq 1$. Si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
+Soit $p \geqslant 1$. Si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
 \[
-\norm{f + g}_{L^p} \leq \norm{f}_{L^p} + \norm{g}_{L^p}.
+\norm{f + g}_{L^p} \leqslant \norm{f}_{L^p} + \norm{g}_{L^p}.
 \]
-Ainsi, $L^p(I)$ est un espace vectoriel et $\norm{\cdot}_{L^p}$ est une norme.
+Ainsi, $L^p(I)$ est un espace vectoriel et $\norm{\,\cdot\,}_{L^p}$ est une norme.
 \end{theo}
 
 \begin{remarque}
@@ -187,7 +186,7 @@ Cette inégalité repose sur le théorème suivant :
 \begin{theo}[Inégalité de \nom{Hölder}]
 Soient $1 < p,\, q < +\infty$, $q$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ et $f,\, g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $L^p(I)$ et $g \in L^q(I)$, alors $f g$ appartient à $L^1(I)$ et
 \[
-\int_I f g \leq \norm{f}_{L^p} \norm{g}_{L^q}.
+\int_I f g \leqslant \norm{f}_{L^p} \norm{g}_{L^q}.
 \]
 \end{theo}
 
@@ -199,14 +198,14 @@ Lorsque $p = 2$, alors $q = 2$ et on retrouve l'\theoremeutilise{inégalité de 
 Les cas où $\norm{f}_{L^p} = 0$ ou $\norm{g}_{L^q} = 0$ sont triviaux. On se limite donc au cas où ces quantités sont non nulles et on pose
 \[
 F = \frac{f}{\norm{f}_{L^p}}
-\text{ et }
+\quad \text{et} \quad
 G = \frac{g}{\norm{g}_{L^q}}.
 \]
 Soit $x \in I$.
 \begin{questions}
 \item Montrer qu'il existe deux réels $s$ et $t$ tels que $F(x) = \e^{t/p}$ et $G(x) = \e^{s/q}$.
 
-\item Montrer que $\e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t$.
+\item Montrer que $\e^{\frac{s}{p} + \frac{t}{q}} \leqslant \frac{1}{p} \e^s + \frac{1}{q} \e^t$.
 
 \item En déduire l'inégalité de \nom{Hölder}.
 \end{questions}
@@ -214,20 +213,20 @@ Soit $x \in I$.
 
 \begin{solution}
 \begin{reponses}
-\item Pour tout $x$ réel, $F(x)$ et $G(x)$ sont deux réels strictement positifs, on pose $t = p \ln(F(x))$ et $s = q \ln(G(x))$.
+\item Pour tout $x$ réel, $F(x)$ et $G(x)$ sont deux réels strictement positifs, on pose $t~=~p \ln\mathopen{}\big(F(x)\big)$ et $s = q \ln\mathopen{}\big(G(x)\big)$.
 
 \item Rappelons que $\frac{1}{p} + \frac{1}{q} = 1$. Pour tous $s$ et $t$ réels, comme la fonction exponentielle est convexe, d'après l'\theoremeutilise{inégalité de \nom{Jensen}}{theo:inegalitejensen},
 \[
-\e^{\frac{s}{p} + \frac{t}{q}} \leq \frac{1}{p} \e^s + \frac{1}{q} \e^t.
+\e^{\frac{s}{p} + \frac{t}{q}} \leqslant \frac{1}{p} \e^s + \frac{1}{q} \e^t.
 \]
 
 \item Alors,
 \begin{align*}
-F(x) G(x) &\leq \frac{1}{p} F(x)^p + \frac{1}{q} G(x)^q
+F(x) G(x) &\leqslant \frac{1}{p} F(x)^p + \frac{1}{q} G(x)^q
 \end{align*}
 Comme $F^p$ et $G^q$ sont intégrables, alors $F G$ est intégrable et
 \[
-\int_I F G \leq \frac{1}{p} + \frac{1}{q} = 1.
+\int_I F G \leqslant \frac{1}{p} + \frac{1}{q} = 1.
 \]
 La linéarité de l'intégrale permet alors de conclure.
 \end{reponses}
@@ -236,7 +235,7 @@ La linéarité de l'intégrale permet alors de conclure.
 \begin{exercice}
 Soit $f$ et $g$ deux fonctions de classe $L^p$ sur $I$.
 \begin{questions}
-\item Montrer que $\module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p$.
+\item Montrer que $\module{f + g}^p \leqslant 2^p \module{f}^p + 2^p \module{g}^p$.
 
 \item En déduire que $(f + g) \in L^p(I)$.
 
@@ -248,19 +247,19 @@ Soit $f$ et $g$ deux fonctions de classe $L^p$ sur $I$.
 \begin{reponses}
 \item Pour tout $x \in I$,
 \begin{itemize}
-\item soit $\module{f(x)} \leq \module{g(x)}$ et $\module{f(x) + g(x)}^p \leq 2^p \module{g(x)}^p$,
-\item soit $\module{g(x)} \leq \module{f(x)}$ et $\module{f(x) + g(x)}^p \leq 2^p \module{f(x)}^p$.
+\item soit $\module{f(x)} \leqslant \module{g(x)}$ et $\module{f(x) + g(x)}^p \leqslant 2^p \module{g(x)}^p$,
+\item soit $\module{g(x)} \leqslant \module{f(x)}$ et $\module{f(x) + g(x)}^p \leqslant 2^p \module{f(x)}^p$.
 \end{itemize}
 Ainsi, dans tous les cas,
 \[
-\module{f + g}^p \leq 2^p \module{f}^p + 2^p \module{g}^p.
+\module{f + g}^p \leqslant 2^p \module{f}^p + 2^p \module{g}^p.
 \]
 
-\item D'après la question précédente et le \theoremeutilise{théorème de comparaison des intégrales}{theo:comparaison}, $f + g \in L^p(I)$.
+\item D'après la question précédente et le \theoremeutilise{théorème de comparaison des intégrales}{theo:comparaison}, $f + g~\in~L^p(I)$.
 
 \item En utilisant la décomposition proposée, on remarque que
 \begin{align*}
-\left(\module{f + g}^{p-1}\right)^q
+\big(\mathopen{}\module{f + g}^{p-1}\big)^q
 &= \module{f + g}^{q(p-1)}
 = \module{f + g}^p.
 \end{align*}
@@ -268,12 +267,12 @@ Ainsi, $\module{f + g}^{p-1} \in L^q(I)$.
 
 En appliquant deux fois l'inégalité de \nom{Hölder},
 \begin{align*}
-\norme{f + g}_{L^p}^p
-&= \norme{|f| \cdot |f + g|^{p-1}}_{L^1}
-+ \norme{|g| \cdot |f + g|^{p-1}}_{L^1}\\
-&\leq \norm{f}_{L^p}^p \norm{f + g}_{L^p}^{p/q}
+\norm{f + g}_{L^p}^p
+&= \norm{|f| \cdot |f + g|^{p-1}}_{L^1}
++ \norm{|g| \cdot |f + g|^{p-1}}_{L^1}\\
+&\leqslant \norm{f}_{L^p}^p \norm{f + g}_{L^p}^{p/q}
 + \norm{g}_{L^p}^p \norm{f + g}_{L^p}^{p/q}\\
-&\leq \norm{f + g}_{L^p}^{p/q} \left(\norm{f}_{L^p} + \norm{f}_{L^q}\right).
+&\leqslant \norm{f + g}_{L^p}^{p/q} \big(\norm{f}_{L^p} + \norm{f}_{L^q}\big).
 \end{align*}
 
 On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
@@ -294,7 +293,7 @@ On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
 \subsection{Inclusions entre les $L^p$}
 
 \begin{theo}
-Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leq \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leqslant \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
     % Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
 \end{theo}
 
@@ -302,8 +301,8 @@ Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $
 Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à tous les espaces $L^q$. Ainsi, d'après l'inégalité de \nom{Hölder},
 \begin{align*}
 \norm{f}_{L^p}^p
-&\leq \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}
-\leq \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
+&\leqslant \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}
+\leqslant \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
 \end{align*}
 \end{demo}
 

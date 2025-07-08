@@ -27,18 +27,18 @@ La fonction $x \mapsto \int_0^x \frac{1}{\ln(t)} \d t$ est la fonction \textsl{l
 \begin{questions}
 \item En utilisant la concavité du logarithme, montrer que
 \[
-\forall\, t \in \interof{x^2}{1},\,
-\frac{\ln(x^2)}{x^2 - 1} (t - 1) \leq \ln(t).
+\forall\, t \in \big]x^2\,;1\big],\quad
+\frac{\ln(x^2)}{x^2 - 1} (t - 1) \leqslant \ln(t).
 \]
 
 \item En déduire que
 \[
-\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\module{x + 1} \leq f(x) \leq \ln\module{x + 1}.
+\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\module{x + 1} \leqslant f(x) \leqslant \ln\module{x + 1}.
 \]
 
 \item Montrer que $f$ est prolongeable en par continuité en $0$.
 
-\item Calculer $f'$ sur $]0, 1]$ puis montrer que $f$ est dérivable en $0$.
+\item Calculer $f'$ sur $\interof{0}{1}$ puis montrer que $f$ est dérivable en $0$.
 \end{questions}
 \end{exercice}
 
@@ -52,7 +52,7 @@ La fonction $x \mapsto \int_0^x \frac{1}{\ln(t)} \d t$ est la fonction \textsl{l
 
 \medskip
 
-Toujours par concavité de la fonction logarithme, la corde reliant les points de coordonnées $\big(x^2, \ln(x^2)\big)$ et $(1, 0)$ se situe en-dessous de la courbe représentant le logarithme, soit :
+Toujours par concavité de la fonction logarithme, la corde reliant les points de coordonnées $\big(x^2, \ln\big(x^2\big)\big)$ et $(1, 0)$ se situe en-dessous de la courbe représentant le logarithme, soit :
 \[
 \frac{\ln(x^2) - \ln(1)}{x^2 - 1} (t - 1) \leqslant \ln(t).
 \]
@@ -61,8 +61,8 @@ Toujours par concavité de la fonction logarithme, la corde reliant les points d
 \begin{align*}
 \frac{1}{t - 1} \leqslant \frac{1}{\ln(t)} &\leqslant \frac{x^2 - 1}{2 \ln(x)} \times \frac{1}{t - 1}\\
 \frac{x^2 - 1}{2 \ln(x)} \int_x^{x^2} \frac{\d t}{t - 1} &\leqslant f(x) \leqslant \int_x^{x^2} \frac{\d t}{t - 1}\\
-\frac{x^2 - 1}{2 \ln(x)} \ln \abs{\frac{x^2 - 1}{x - 1}} &\leqslant f(x) \leqslant \ln\abs{\frac{x^2 - 1}{x - 1}}\\
-\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\abs{x + 1} &\leqslant f(x) \leqslant \ln\abs{x + 1}.
+\frac{x^2 - 1}{2 \ln(x)} \ln \module{\frac{x^2 - 1}{x - 1}} &\leqslant f(x) \leqslant \ln\module{\frac{x^2 - 1}{x - 1}}\\
+\frac{(x + 1) (x - 1)}{2 \ln(x)} \ln\module{x + 1} &\leqslant f(x) \leqslant \ln\module{x + 1}.
 \end{align*}
 
 Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\lim\limits_{x\to 1} f(x) = \ln(2)$.
@@ -70,11 +70,11 @@ Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \item En utilisant la dérivation par rapport aux bornes,
 \begin{align*}
 f'(x)
-&= 2 x \frac{1}{\ln(x^2)} - x \frac{1}{\ln(x)}\\
-&= \frac{x - 1}{\ln(x)}.
+= 2 x \frac{1}{\ln(x^2)} - x \frac{1}{\ln(x)} 
+= \frac{x - 1}{\ln(x)}.
 \end{align*}
 
-La fonction $f$ est prolongeable par continuité sur $]0, 1]$ et dérivable sur $]0, 1[$. De plus, $\lim\limits_{x\to 1} f'(x) = 1$. D'après le \theoremeutilise{théorème de prolongement dérivable}{theo:prolongementderivable}, $f$ est dérivable en $1$ et $f'(1) = 1$.
+La fonction $f$ est prolongeable par continuité sur $\interof{0}{1}$ et dérivable sur $\interoo{0}{1}$. De plus, $\lim\limits_{x\to 1} f'(x) = 1$. D'après le \theoremeutilise{théorème de prolongement dérivable}{theo:prolongementderivable}, $f$ est dérivable en $1$ et $f'(1) = 1$.
 \end{reponses}
 \end{elemsolution}
 
@@ -85,11 +85,13 @@ La fonction $f$ est prolongeable par continuité sur $]0, 1]$ et dérivable sur 
 
 \begin{prop}
 On pose
-$$F:x \mapsto \int_x^{+\infty} \frac{\e^{-t}}{t} \d t.$$
+\[
+\fonctionligne[F]{x}{\int_x^{+\infty} \frac{\e^{-t}}{t} \d t}.
+\]
 Alors,
 \[
-F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\left(\frac{\e^{-x}}{x^2}\right)
-\text{ et }
+F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\mathopen{}\bigg(\frac{\e^{-x}}{x^2}\bigg)
+\quad \text{et} \quad
 F(x) \sim_0 -\ln(x).
 \]
 \end{prop}
@@ -100,7 +102,7 @@ F(x) \sim_0 -\ln(x).
 
 \item Montrer que $F(x) \sim_{+\infty} \frac{\e^{-x}}{x}$.
 
-\item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\left(\frac{\e^{-x}}{x^2}\right)$.
+\item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\mathopen{}\left(\frac{\e^{-x}}{x^2}\right)$.
        
 \item Montrer que $F(x) \sim_0 -\ln(x)$.
 \end{questions}
@@ -119,17 +121,17 @@ F(x) \sim_0 -\ln(x).
 
 \begin{elemsolution}
 \begin{reponses}
-\item La fonction $f : t \mapsto \frac{\e^{-t}}{t}$ est positive et continue sur $\R^*$.
+\item La fonction $\fonctionligne[f]{t}{\frac{\e^{-t}}{t}}$ est positive et continue sur $\Re$.
 
 \begin{itemize}
-\item D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, $\frac{\e^{-t}}{t} = o_{+\infty}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le \theoremeutilise{théorème de comparaison des intégrales de fonctions à valeurs positives}{theo:comparaisonintegralesfonctionsvaleurspositives}, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
+\item D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, $\frac{\e^{-t}}{t} = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le \theoremeutilise{théorème de comparaison des intégrales de fonctions à valeurs positives}{theo:comparaisonintegralesfonctionsvaleurspositives}, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
 
 \item Comme $f(t) \sim_0 \frac{1}{t}$, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_0^1 \frac{\e^{-t}}{t} \d t$ diverge.
 \end{itemize}
 
-Ainsi, le domaine de définition de $F$ est $]0, + \infty[$.
+Ainsi, le domaine de définition de $F$ est $\interoo{0}{+ \infty}$.
 
-\item Les fonctions $u : t \mapsto -\e^{-t}$ et $v : t \mapsto \frac{1}{t}$ sont de classe $\mathscr{C}^1$ sur $\interfo{x}{+\infty}$ et $\lim\limits_{t\to+\infty} u(t) v(t) = 0$. Ainsi, d'après le \theoremeutilise{théorème d'intégration par parties}{theo:ippgeneralisees}, pour $x > 1$, 
+\item Les fonctions $\fonctionligne[u]{t}{-\e^{-t}}$ et $\fonctionligne[v]{t}{\frac{1}{t}}$ sont de classe $\Cont^1$ sur $\interfo{x}{+\infty}$ et $\lim\limits_{t\to+\infty} u(t) v(t) = 0$. Ainsi, d'après le \theoremeutilise{théorème d'intégration par parties}{theo:ippgeneralisees}, pour $x > 1$, 
 \begin{align*}
 F(x)
 &= \int_x^{+ \infty} \frac{\e^{-t}}{t} \d t 
@@ -139,12 +141,12 @@ F(x)
 De plus,
 \begin{align*}
 \int_x^{+\infty} \frac{\e^{-t}}{t^2} \d t
-&\leq \e^{-x} \int_x^{+\infty} \frac{1}{t^2} \d t
-\leq \frac{\e^{-x}}{x^2}.
+&\leqslant \e^{-x} \int_x^{+\infty} \frac{1}{t^2} \d t
+\leqslant \frac{\e^{-x}}{x^2}.
 \end{align*}
 
 Ainsi,
-$$\frac{\e^{-t}}{t^2} = o_{+\infty}\left( \frac{\e^{-t}}{t} \right).$$
+$$\frac{\e^{-t}}{t^2} = o_{+\infty}\mathopen{}\bigg( \frac{\e^{-t}}{t} \bigg).$$
 
 D'où,
 \[
@@ -155,13 +157,13 @@ D'où,
 On aurait également pu utiliser les théorèmes d'intégration des relations de comparaison car $\e^{-x}/x = o(\e^{-x}/x^2)$.
 \end{remarque}
 
-\item On effectue une nouvelle intégration par parties avec $u : t \mapsto \e^{-t}$ et $v : t \mapsto \frac{1}{t^2}$. On obtient ainsi
+\item On effectue une nouvelle intégration par parties avec $\fonctionligne[u]{t}{\e^{-t}}$ et $\fonctionligne[v]{t}{\frac{1}{t^2}}$. On obtient ainsi
 \begin{align*}
 F(x)
 &= \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} - \int_x^{+\infty} \frac{2 \e^{-t}}{t^3} \d t.
 \end{align*}
 
-On montre alors comme précédemment que l'intégrable est négligeable, en $+\infty$, devant $\frac{\e^{-x}}{x^2}$.
+On montre alors comme précédemment que l'intégrable est négligeable, en $+\infty$, devant~$\frac{\e^{-x}}{x^2}$.
 
 \item En utilisant la relation de \nom{Chasles},
 \begin{align*}
@@ -171,9 +173,9 @@ F(x)
 
 De plus, la fonction exponentielle étant convexe, pour tout $t > 0$,
 \begin{align*}
-1 - t \leq \e^{-t} &\leq 1\\
-\frac{1}{t} - 1 &\leq \frac{\e^{-t}}{t} \leq \frac{1}{t}\\
--\ln(x) - (1 - x) &\leq \int_x^1 \frac{\e^{-t}}{t} \d t \leq -\ln(x).
+1 - t &\leqslant \e^{-t} \leqslant 1\\
+\frac{1}{t} - 1 &\leqslant \frac{\e^{-t}}{t} \leqslant \frac{1}{t}\\
+-\ln(x) - (1 - x) &\leqslant \int_x^1 \frac{\e^{-t}}{t} \d t \leqslant -\ln(x).
 \end{align*}
 
 D'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\int_x^1 \frac{\e^{-t}}{t} \d t \sim_0 -\ln(x)$ et

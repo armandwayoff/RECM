@@ -73,7 +73,7 @@ Le cas d'égalité correspond au cas d'égalité dans l'inégalité de \nom{Cauc
 
 \item soit il existe $\lambda \in \R$ tel que $f = \lambda f''$. Alors,
 \[
-f \in \ens[\big]{t \mapsto A \cos(\omega t + \phi),\, t \mapsto A \cosh(\omega t + \phi) \tq (\omega,\, \phi) \in \R^2}.
+f \in \ens[\Big]{t \mapsto A \cos(\omega t + \phi),\, t \mapsto A \cosh(\omega t + \phi) \tq (\omega,\, \phi) \in \R^2}.
 \]
 La seule fonction de carré intégrable de cet ensemble est la fonction nulle.
 \end{itemize}
@@ -105,9 +105,7 @@ Soit $M \geqslant 0$.
 \begin{reponses}
 \item La fonction $\frac{1}{2} f^2$ est une primitive de la fonction $f f'$.
 
-\item Comme $f$ et $f'$ sont de carré intégrable, alors $M \mapsto \int_0^M f(t) f'(t) \d t$ converge. Ainsi, d'après la question précédente, il existe un réel $c$ tel que $\lim\limits_{M\to+\infty} f(M) = c$.
-
-Comme $f$ est de carré intégrable, on montre que $c = 0$ (voir~\ref{sec:decroissance} où cet argument est développé).
+\item Comme $f$ et $f'$ sont de carré intégrable, alors $M \mapsto \int_0^M f(t) f'(t) \d t$ converge. Ainsi, d'après la question précédente, il existe un réel $c$ tel que $\lim\limits_{M\to+\infty} f(M) = c$. Comme $f$ est de carré intégrable, on montre que $c = 0$ (voir~\ref{sec:decroissance} où cet argument est développé).
 
 \item En passant à la limite dans l'égalité précédente,
 \[
@@ -116,7 +114,7 @@ Comme $f$ est de carré intégrable, on montre que $c = 0$ (voir~\ref{sec:decroi
 
 De plus, en utilisant l'inégalité de \nom{Cauchy}--\nom{Schwarz}, comme $f$ et $f'$ sont de carré intégrable,
 \[
-|f(0)|^2 \leq 2 \int_0^{+\infty} f(t)^2 \d t \cdot \int_0^{+\infty} (f'(t))^2 \d t.
+|f(0)|^2 \leqslant 2 \left(\int_0^{+\infty} f(t)^2 \d t\right) \left(\int_0^{+\infty} \big(f'(t)\big)^2 \d t \right).
 \]
 \end{reponses}
 \end{solution}
@@ -125,14 +123,14 @@ De plus, en utilisant l'inégalité de \nom{Cauchy}--\nom{Schwarz}, comme $f$ et
 \subsubsection{Inégalité de \nom{Poincaré}}
 
 \begin{prop}[Inégalité de \nom{Poincaré}]
-Soit $f : [0, 1] \to \R$ une fonction de classe $\mathscr{C}^1$ telle que \mbox{$f(0) = f(1) = 0$}. Alors,
+Soit $\fonctionens[f]{\interff{0}{1}}{\R}$ une fonction de classe $\Cont^1$ telle que \mbox{$f(0) = f(1) = 0$}. Alors,
 \[
-\int_0^1 f(x)^2 \d x \leq \frac{1}{\pi^2} \int_0^1 f'(x)^2 \d x.
+\int_0^1 f(x)^2 \d x \leqslant \frac{1}{\pi^2} \int_0^1 f'(x)^2 \d x.
 \]
 \end{prop}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^1$ telle que $f(0) = f(1) = 0$.
+Soit $f$ une fonction de classe $\Cont^1$ telle que $f(0) = f(1) = 0$.
 \begin{questions}
 \item Déterminer des équivalents de $x \mapsto \cotan(\pi x)$ en $x = 0$ puis en $x = 1$.
 \end{questions}
@@ -152,13 +150,13 @@ I = \int_0^1 f(x) f'(x) \cotan(\pi x) \d x.
 
 \item En déduire que l'on a
 \[
-2 \pi I = \pi^2 \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
+2 \pi I = \pi^2 \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x.
 \]
 \end{questions}
 
 On considère l'intégrale $J$ définie par
 \[
-J = \int_0^1 \left(f'(x) - \pi f(x) \cotan(\pi x)\right)^2 \d x.
+J = \int_0^1 \big(f'(x) - \pi f(x) \cotan(\pi x)\big)^2 \d x.
 \]
 
 \begin{questions}[resume]
@@ -185,9 +183,9 @@ En effectuant le changement de variable $u = 1 - x$,
 \underset{x\to1}{\sim} -\frac{1}{\pi (1 - x)}.
 \end{align*}
 
-\item Posons $u : x \mapsto f(x) f'(x) \cotan(\pi x)$.
+\item Posons $\fonctionligne[u]{x}{f(x) f'(x) \cotan(\pi x)}$.
 \begin{itemize}
-\item La fonction $u$ est continue sur $]0, 1[$.
+\item La fonction $u$ est continue sur $\interoo{0}{1}$.
 
 \item D'après la question précédente,
 $f(x) f'(x) \cotan(\pi x) \sim_0 \frac{f(x) f'(x)}{\pi x}$.
@@ -200,15 +198,15 @@ $f(x) f'(x) \cotan(\pi x) \sim_1 \frac{f(x) f'(x)}{\pi (x - 1)}$.
 Comme $f$ est dérivable en $1$ et $f(1) = 0$, alors $\lim\limits_{x\to 1} u(x) = \frac{f'(1)^2}{\pi}$ et $u$ est prolongeable par continuité en $1$.
 \end{itemize}
 
-Finalement, la fonction $u$ est prolongeable par continuité sur $[0, 1]$ et l'intégrale $\int_0^1 u(x) \d x$ est donc convergente.
+Finalement, la fonction $u$ est prolongeable par continuité sur $\interff{0}{1}$ et l'intégrale $\int_0^1 u(x) \d x$ est donc convergente.
 
-\item Posons $u(x) = \frac{f(x)^2}{2}$ et $v(x) = \cotan(\pi x)$. Alors, $u'(x) = f'(x) f(x)$ et $v'(x) = -\pi (1 + \cotan^2(\pi x))$. Les fonctions $u$ et $v$ sont donc de classe $\mathscr{C}^1$ sur $[a, b]$. En utilisant la formule d'intégration par parties,
+\item Posons $u(x) = \frac{f(x)^2}{2}$ et $v(x)~=~\cotan(\pi x)$. Alors, $u'(x) = f'(x) f(x)$ et $v'(x)~=~-\pi \big(1 + \cotan^2(\pi x)\big)$. Les fonctions $u$ et $v$ sont donc de classe $\Cont^1$ sur $\interff{a}{b}$. En utilisant la formule d'intégration par parties,
 \begin{align*}
 \int_a^b f(x) f'(x) \cotan(\pi x) \d x
 &= \left[\frac{f(x)^2}{2} \cotan(\pi x)\right]_a^b + \cdots\\
-&\qquad\cdots + \pi \int_a^b \frac{f(x)^2}{2} (1 + \cotan^2(\pi x)) \d x\\
+&\qquad\cdots + \pi \int_a^b \frac{f(x)^2}{2} \big(1 + \cotan^2(\pi x)\big) \d x\\
 &= \frac{f(a)^2}{2} \cotan(\pi a) - \frac{f(b)^2}{2} \cotan(\pi b) + \cdots\\
-&\qquad\cdots + \pi \int_a^b \frac{f(x)^2}{2} (1 + \cotan(\pi x)^2) \d x.
+&\qquad\cdots + \pi \int_a^b \frac{f(x)^2}{2} \big(1 + \cotan(\pi x)^2\big) \d x.
 \end{align*}
 
 \item D'une part,
@@ -227,39 +225,39 @@ $\lim\limits_{a\to 0}
 Ainsi, d'après les \theoremeutilise{théorèmes d'addition des limites}{theo:additionlimites}, la fonction \mbox{$a \mapsto \int_a^b f(x)^2 (1 + \cotan(\pi x)^2) \d x$} admet une limite en $0$ et
 \begin{align*}
 \int_0^b f(x) f'(x) \cotan(\pi x) \d x
-&= - \frac{f(b)^2}{2} \cotan(\pi b) + \frac{\pi}{2} \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
+&= - \frac{f(b)^2}{2} \cotan(\pi b) + \frac{\pi}{2} \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x.
 \end{align*}
 
 \medskip
 
 Un raisonnement analogue montre que
 \[
-\int_0^1 f(x) f'(x) \cotan(\pi x) \d x = \frac{\pi}{2} \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
+\int_0^1 f(x) f'(x) \cotan(\pi x) \d x = \frac{\pi}{2} \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x.
 \]
 
 Finalement, on obtient bien
 \[
-2 \pi I = \pi^2 \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x.
+2 \pi I = \pi^2 \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x.
 \]
 
-\item Nous avons déjà montré que $\lim\limits_{x\to0} \pi f(x) \cotan(\pi x) = f'(0)$ et $\lim\limits_{x\to1} \pi f(x) \cotan(\pi x) = f'(1)$.
+\item Nous avons déjà montré que $\lim\limits_{x\to0} \pi f(x) \cotan(\pi x) = f'(0)$ et $\lim\limits_{x\to1} \pi f(x) \cotan(\pi x)~=~f'(1)$.
 
 Ainsi, $x \mapsto f'(x) - \pi f(x) \cotan(\pi x)$ est prolongeable par continuité par $0$ en $0$ et en $1$.
 
-Comme cette fonction est par ailleurs continue sur $]0, 1[$, l'intégrale $J$ est bien convergente.
+Comme cette fonction est par ailleurs continue sur $\interoo{0}{1}$, l'intégrale $J$ est bien convergente.
 
-\item Comme $J$ est l'intégrale d'une fonction positive, alors $J \geq 0$. De plus, en utilisant la linéarité des intégrales convergentes,
+\item Comme $J$ est l'intégrale d'une fonction positive, alors $J \geqslant 0$. De plus, en utilisant la linéarité des intégrales convergentes,
 \begin{align*}
-0 \leq J &= \int_0^1 \left[f'(x)^2 - 2 \pi f(x) f'(x) \cotan(\pi x) + \pi^2 f(x)^2 \cotan(\pi x)^2\right] \d x\\
+0 \leqslant J &= \int_0^1 \left[f'(x)^2 - 2 \pi f(x) f'(x) \cotan(\pi x) + \pi^2 f(x)^2 \cotan(\pi x)^2\right] \d x\\
 &= \int_0^1 f'(x)^2 \d x - 2 \pi I + \pi^2 \int_0^1 f(x)^2 \cotan(\pi x)^2 \d x\\
-&= \int_0^1 f'(x)^2 \d x - \pi^2 \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x + \cdots\\
-&\qquad\qquad\qquad\qquad\qquad  \cdots + \pi^2 \int_0^1 f(x)^2 (1 + \cotan(\pi x)^2) \d x\\
+&= \int_0^1 f'(x)^2 \d x - \pi^2 \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x + \cdots\\
+&\qquad\qquad\qquad\qquad\qquad  \cdots + \pi^2 \int_0^1 f(x)^2 \big(1 + \cotan(\pi x)^2\big) \d x\\
 &= \int_0^1 f'(x)^2 \d x - \pi^2 \int_0^1 f(x)^2 \d x.
 \end{align*}
 
 Finalement,
 \[
-\int_0^1 f(x)^2 \d x \leq \frac{1}{\pi^2} \int_0^1 f'(x)^2 \d x.
+\int_0^1 f(x)^2 \d x \leqslant \frac{1}{\pi^2} \int_0^1 f'(x)^2 \d x.
 \]
 \end{reponses}
 \end{solution}
