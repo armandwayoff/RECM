@@ -55,16 +55,24 @@
 
     
     \draw[dashed] (\xa, 0) node[black,below]{\footnotesize$a$} -- (A);
+    \tick{\xa,0}{90};
     \draw[dashed] (0, \ya) node[black,left]{\footnotesize$f(a)$} -- (A);
-    
+    \tick{0,\ya}{0};
+
     \draw[dashed] (\xc, 0) node[black,below]{\footnotesize$b$} -- (C);
+    \tick{\xc,0}{90};
     \draw[dashed] (0, \yc) node[black,left]{\footnotesize$f(b)$} -- (C);
+    \tick{0,\yc}{0};
 
     \draw[dashed] (0, \xa) node[black,left]{\footnotesize$a$} -- (A');
+    \tick{0,\xa}{0};
     \draw[dashed] (\ya, 0) node[black,below]{\footnotesize$f(a)$} -- (A');
+    \tick{\ya,0}{90};
     
     \draw[dashed] (0, \xc) node[black,left]{\footnotesize$b$} -- (C');
+    \tick{0,\xc}{0};
     \draw[dashed] (\yc, 0) node[black,below]{\footnotesize$f(b)$} -- (C');
+    \tick{\yc,0}{90};
 
     % \draw[->, black] (5.5,2) node[above] 
     \node at (6.8,0.7)
@@ -112,10 +120,14 @@
     \node at (\xa/2, \ya/2) {\footnotesize \color{mygreen}$a \times f(a)$};
 
     \draw[dashed] (\xa, 0) node[black,below]{\footnotesize$a$} -- (A);
+    \tick{\xa,0}{90};
     \draw[dashed] (0, \ya) node[black,left]{\footnotesize$f(a)$} -- (A);
-    
+    \tick{0,\ya}{0};
+
     \draw[dashed] (\xc, 0) node[black,below]{\footnotesize$b$} -- (C);
+    \tick{\xc,0}{90};
     \draw[dashed] (0, \yc) node[black,left]{\footnotesize$f(b)$} -- (C);
+    \tick{0,\yc}{0};
 
     % \draw[->, black] (5.5,2) node[above] 
     \node at (6.8,0.7)

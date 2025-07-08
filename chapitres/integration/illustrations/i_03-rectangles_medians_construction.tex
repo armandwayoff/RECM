@@ -2,11 +2,11 @@
 % ,declare function={f(\x)=((1/3)*(\x)^(3)-3*(\x)^(2)+8*\x-3;}, declare function={g(\x)=-\x+6;},]
 
 \pgfmathdeclarefunction{f}{1}{%
-    \pgfmathparse{((1/3)*(#1)^(3)-3*(#1)^(2)+8*#1-3}%
+    \pgfmathparse{((1/6)*(#1-3)^(3)-(1/2)*(#1-2)+3}%
 }
 
 \pgfmathdeclarefunction{g}{1}{%
-    \pgfmathparse{-#1 + 6}%
+    \pgfmathparse{-#1/2 + 4}%
 }
 
 \coordinate (xm) at (3,{f(3)});
@@ -21,13 +21,19 @@
 \draw[dashed] (2, {f(3)}) -- (2,{g(2)});
 
 \draw [thick, -latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$t$};
-\draw [thick, -latex] (0,-0.5) -- (0,5);
+\draw [thick, -latex] (0,-0.5) -- (0,4);
 % \foreach \x/\xtext in {1/a=x_0 ,2/x_1, 3/x_2 , 4/x_3 , 5/b=x_4}
 \draw[xshift=2 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$x_i$};
+\tick{2,0}{90};
+
 \draw[xshift=3 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$\gamma_i$};
+\tick{3,0}{90};
+
 \draw[xshift=4 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$x_{i+1}$};
+\tick{4,0}{90};
+
 \draw[domain=.5:5.3,samples=200,variable=\x,myblue,thick] plot ({\x},{f(\x)}) node[right] {$f(t)$};  
-\draw[domain=1.5:4.5,samples=200,variable=\x,myred,ultra thick] plot ({\x},{g(\x)});
+\draw[domain=1.5:4.5,samples=200,variable=\x,myred,thick] plot ({\x},{g(\x)});
 \node[myred, above right, xshift=-20pt] at (1.5,{g(1.5)}) {$f(\gamma_i) + (t - \gamma_i) f'(\gamma_i)$}; 
 % \foreach \n in {0,1,2,3}
 \draw[myblue,fill=myblue] (xm) circle (2pt) node[font=\normalsize] {$ $};    
