@@ -1,5 +1,5 @@
-\begin{defi}{Partie dense}
-    \marginnote[0cm]{Source : \href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./d/dense.html}{Partie dense -- \textsf{Bibm@ath.net}}}
+\begin{defi}[Partie dense]
+    \source{\href{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./d/dense.html}{Partie dense -- \textsf{Bibm@ath.net}}}
     Soit $E$ un espace vectoriel normé et $D$ une partie de $E$. On dit que $D$ est \emph{dense} dans $E$ si l'une des conditions équivalentes suivantes est vérifiée:
     \begin{itemize}
         \item pour tout $x \in E$, il existe une suite $(y_n)$ d'éléments de $D$ qui converge vers $x$,
@@ -10,11 +10,11 @@
 
 \subsection{Le cas des matrices inversibles}
 
-\begin{theo}{Densité de $\Gl_n(\C)$ dans $\M_n(\C)$}
+\begin{theo}[Densité de $\Gl_n(\C)$ dans $\M_n(\C)$]
     L'ensemble des matrices inversibles de $\M_n(\C)$ est dense dans $\M_n(\C)$.
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
     Soit $A \in \M_n(\C)$. Son polynôme caractéristique $\chi_A$ est de degré $n$ et admet donc au plus $n$ racines. \\
     Notons $r \defeq \min \ens[\Big]{ |\lambda| \tq \lambda \in \Sp(A) \setminus \{0\}}$. \\
     Ainsi,
@@ -25,7 +25,7 @@
     $$A_p \defeq A - \frac{1}{p + p_0} \I_n,$$
     la suite $(A_p)_{p \geqslant 0}$ est une suite de matrices inversibles qui converge vers la matrice $A$. \\
     Finalement, pour toute matrice $A \in \M_n(\C)$ nous avons construit une suite de matrices inversibles qui converge vers la matrice $A$, ce qui assure la densité de $\Gl_n(\C)$ dans $\M_n(\C)$.
-\end{preuve}
+\end{demo}
 
 \begin{marginfigure}[-8cm]
     \centering
@@ -62,7 +62,7 @@ La démonstration suivante est \say{ chimique }: la continuité du déterminant 
     \end{itemize}
 \end{solution}
 
-Ce résultat peut être montré par un argument plus \say{ mécanique }. \\
+Ce résultat peut être montré par un argument plus \chevron{mécanique}. \\
 Soient $A, B \in \M_n(\K)$. Pour tout $\lambda \in \K$, on pose
 $$
 U \defeq
@@ -98,21 +98,21 @@ et l'égalité est triviale si $\lambda = 0$. \\
 On a donc montré que 
 $$\chi_{A B} = \chi_{B A}.$$
 
-\begin{prop}{}
+\begin{prop}
     $\Gl_n(\R)$ est un ouvert de $\M_n(\R)$.
 \end{prop}
 
-\begin{prop}{}
+\begin{prop}
     $\M_n(\R) \setminus \Gl_n(\R)$ est fermé mais non compact (pour $n \geqslant 2$).
 \end{prop}
 
 \subsection{Le cas des matrices diagonalisables}
 
-\begin{theo}{Densité de l'ensemble des matrices diagonalisables dans  $\M_n(\C)$}
+\begin{theo}[Densité de l'ensemble des matrices diagonalisables dans  $\M_n(\C)$]
     L'ensemble des matrices diagonalisables de $\M_n(\C)$ est dense dans $\M_n(\C)$.
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
     Soit $M \in \M_n(\C)$. Cette matrice est trigonalisable puisque son polynôme caractéristique est scindé sur $\C$ d'après le théorème de \textsc{d'Alembert}-\textsc{Gauss}. On note $\lambda_1, \dots, \lambda_s$ ses valeurs propres distinctes et $r_1, \dots, r_s$ les multiplicités associées. Il existe donc une matrice $P \in \Gl_n(\C)$ telle que
     $$
     M = P
@@ -174,13 +174,13 @@ $$\chi_{A B} = \chi_{B A}.$$
     Or les $\lambda_{i, r_i}$ ont été choisis dans les disques $D(\lambda_i, \rho)$ et donc pour tout $i \in \llbracket 1, n \rrbracket$,
     $$\big|\lambda_i - \lambda_{i, r_i}\big| \leqslant \rho < \varepsilon.$$
     Ceci achève la démonstration, puisque si $\varepsilon$ tend vers $0$, la matrice $M_\varepsilon$ tend vers la matrice $M$ pour la norme $\norme{\cdot}$ donc pour toute norme puisqu'en dimension finie, toutes les normes sont équivalentes.
-\end{preuve}
+\end{demo}
 
 \begin{exercice}
     Peut-on dire que l'ensemble des matrices diagonalisables dans $\M_n(\C)$ est dense dans $\M_n(\R)$ ?
 \end{exercice}
 
-\begin{prop}{}
+\begin{prop}
     L'ensemble des matrices diagonalisables de $\M_n(\R)$ est connexe par arcs.
 \end{prop}
 

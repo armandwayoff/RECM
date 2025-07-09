@@ -1,5 +1,4 @@
-\begin{defi}{Matrice à diagonale dominante} 
-    \\
+\begin{defi}[Matrice à diagonale dominante]
     Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On dit que $A$ est 
     \begin{itemize}
         \item à \emph{diagonale dominante} si
@@ -20,7 +19,7 @@
     \end{methode}
 }
 
-\begin{preuve}
+\begin{demo}
     Soit $X \defeq \Trsp{(x_1 \cdots x_n)} \in \Ker(A)$. \\
     On pose $\displaystyle \left |x_{i_0} \right| \defeq \max_{1 \leqslant i \leqslant n} |x_i|$. La ligne $i_0$ de la relation $AX = 0$ donne
     $$\sum_{j=1}^n a_{i_0,j}x_j = 0$$
@@ -31,26 +30,26 @@
     Comme $|a_{i_0, i_0}| > \sum\limits_{j \not = i_0} |a_{i_0, j}|$ par définition de $A$, on en déduit que
     $|x_{i_0}| = 0$, autrement dit $X = 0$. Le noyau de $A$ est donc réduit au vecteur i.e. la matrice $A$ est inversible. \\
     Pour une autre démonstration voir \cite{matrices} page 51. 
-\end{preuve}
+\end{demo}
 
 \subsection{Localisation des valeurs propres}
 
-À défaut de ne pas toujours pouvoir calculer exactement les valeurs propres d'une matrice, nous pouvons essayer de les localiser en restreignant autant que faire se peut le \say{ domaine } dans lequel elles se trouvent.
+À défaut de ne pas toujours pouvoir calculer exactement les valeurs propres d'une matrice, nous pouvons essayer de les localiser en restreignant autant que faire se peut le \chevron{domaine} dans lequel elles se trouvent.
 
-\begin{theo}{Localisation des valeurs propres} \labthm{localisation_des_vap}
+\begin{theo}[Localisation des valeurs propres] \labthm{localisation_des_vap}
     Soit $A \in \M_n(\K)$. Alors, $$\Sp(A) \subset \bigcup\limits_{i=1}^{n} \overline{\mathscr{B}} \Bigg( a_{i,i}, \sum\limits_{k \not = i} |a_{i,k}| \Bigg).$$
 \end{theo}
 
-\begin{preuve}
+\begin{demo}
     Soit $\lambda \in \Sp(A)$. La matrice $A - \lambda \I_n$ n'est pas inversible \note 
     \marginnote[0cm]{\note Par définition $\det(A-\lambda \I_n) = \chi_A(\lambda) = 0$.}
     donc n'est pas à \textsc{dsd} i.e. pour tout $i \in \llbracket 1, n \rrbracket$,
     $$|a_{i,i} - \lambda| \leqslant \sum_{k \not= i} |a_{i,k}|.$$
     Le spectre de la matrice $A$ est donc inclus dans la réunion des disques de centre $a_{i,i}$ et de rayon $\sum\limits_{k \not=i} a_{i,k}$.
-\end{preuve} 
+\end{demo} 
 
-\begin{defi}{Disques de \textsc{Gerschgorin}}
-    Ces disques sont nommés les disques de \textsc{Gerschgorin} \note (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes})
+\begin{defi}[Disques de \nom{Gerschgorin}]
+    Ces disques sont nommés les disques de \nom{Gerschgorin} \note (cf. thème \textit{Localisation des valeurs propres}, Ch. 11 \cite{acamanes})
 \end{defi}
 
 \marginnote[-2cm]{
@@ -63,7 +62,7 @@
         1 & 2 & 0 & \textcolor{orange}{-8-\i2}
     \end{pmatrix}.
     $$
-    Ci-dessous sont représentés ses disques de \textsc{Gerschgorin} et les croix correspondent à ses valeurs propres.
+    Ci-dessous sont représentés ses disques de \nom{Gerschgorin} et les croix correspondent à ses valeurs propres.
 }
 
 %%% Commente par Alain car pb de compilation %%%
@@ -72,6 +71,7 @@
     % \centering
     % \input{illustrations/i_disques_de_gerschgorin}
 % \end{marginfigure}
+\todoarmand{Figure disques de Gerschgorin à compiler}
 
 \begin{corol}
     Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$. On note
@@ -83,18 +83,18 @@
     $$\Sp(A) \subset E \cap E'.$$
 \end{corol}
 
-\begin{preuve}
+\begin{demo}
     D'après le théorème \ref{localisation_des_vap}, 
     $$\Sp(A) \subset E \text{ et } \Sp \big( \Trsp{A} \big) \subset E'.$$
     Or $\Sp(A) = \Sp \big( \Trsp{A} \big)$ donc $\Sp(A) \subset E \cap E'$.
-\end{preuve}    
+\end{demo}    
 
 Ce corollaire permet de restreindre davantage le domaine où se trouvent les valeurs propres d'une matrice. 
 
-\begin{prop}{}
+\begin{prop}
     Soit $A \in \M_n(\R)$ à \textsc{dsd} telle que $a_{i,i} > 0$ pour tout $i \in \llbracket 1, n \rrbracket$. Alors $\mathrm{det}(A) > 0$. 
 \end{prop}
 
-\begin{preuve}
-        $\det(A) = \prod\limits_{\lambda \in \Sp(A)} \lambda$. Distinguer les vap complexes et réelles...
-\end{preuve}
+\begin{demo}
+    $\det(A) = \prod\limits_{\lambda \in \Sp(A)} \lambda$. Distinguer les vap complexes et réelles...
+\end{demo}

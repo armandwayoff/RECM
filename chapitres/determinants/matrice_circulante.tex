@@ -1,6 +1,6 @@
-\begin{defi}{Matrice circulante}
+\begin{defi}[Matrice circulante]
 Une \emph{matrice circulante} est une matrice carrée dans laquelle on passe d'une ligne à la suivante par permutation circulaire des coefficients. Soit $(c_0, \dots, c_{n-1}) \in \C^n$, une matrice circulante est de la forme:
-$$
+\[
 \mathrm{C}(c_0, \dots, c_{n-1}) \defeq
 \begin{pmatrix}
 c_0 & c_1 & c_2 & \cdots & c_{n-1} \\
@@ -9,16 +9,18 @@ c_{n-2} & c_{n-1} & c_0 & \cdots & c_{n-3} \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 c_1 & c_2 & c_3 & \cdots & c_0
 \end{pmatrix}.
-$$
+\]
 \end{defi}
 
 \subsection{Réduction d'une matrice circulante}
 
-\begin{prop}{Spectre d'une matrice circulante}
-    $$\Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \ens[\Bigg]{ \sum_{k=0}^{n-1} c_k \exp \left( \i \frac{2kj \pi}{n} \right) \tq k \in \llbracket 0, n-1 \rrbracket }.$$
+\begin{prop}[Spectre d'une matrice circulante]
+    \[
+    \Sp \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \ens[\Bigg]{ \sum_{k=0}^{n-1} c_k \exp \left( \i \frac{2kj \pi}{n} \right) \tq k \in \llbracket 0, n-1 \rrbracket }.
+    \]
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     Pour alléger les notations, on pose 
     $$\mathrm{C} \defeq \mathrm{C}(c_0, \dots, c_{n-1}).$$
     Nous cherchons à déterminer le spectre de la matrice $\mathrm{C}$, ce qui ne semble pas évident au premier abord (on se rend rapidement compte que le calcul direct du polynôme caractéristique n'est pas une bonne approche). \\
@@ -82,7 +84,7 @@ $$
     et donc, comme $\mathrm{C} = \mathrm{P}_{\mathrm{C}}(\mathrm{J}_n)$, par linéarité \note, 
     $$\mathrm{C} \sim \Diag \left(\mathrm{P}_\mathrm{C}(1), \mathrm{P}_\mathrm{C}(\omega), \mathrm{P}_\mathrm{C}(\omega^2), \dots,\mathrm{P}_\mathrm{C}(\omega^{n-1}) \right).$$
     Ainsi, $\Sp(\mathrm{C}) = \ens[\Big]{ \mathrm{P}_\mathrm{C}(\omega^k) \tq k \in \llbracket 0, n-1 \rrbracket }$.
-\end{preuve}    
+\end{demo}    
 
 \marginnote[-3cm]{
     \note Si $A = P D \Inv{P}$ alors $A^k = P D^k \Inv{P}$. \\
@@ -94,13 +96,13 @@ $$
     \end{align*}
 }
 
-\begin{prop}{Déterminant d'une matrice circulaire}
+\begin{prop}[Déterminant d'une matrice circulaire]
     $$\det \big( \mathrm{C}(c_0, \dots, c_{n-1}) \big) = \prod_{j=0}^{n-1} \left( \sum_{k=0}^{n-1} c_k \exp \left( \i \frac{2kj \pi}{n} \right) \right).$$
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     Le déterminant d'une matrice est égal au produit de ses valeurs propres.
-\end{preuve}
+\end{demo}
 
 \subsection{Calcul des matrices de changement de base}
 
@@ -130,14 +132,14 @@ $$
     $ \\ 
     et $\omega^k \times \omega^{(n-1)k} = \big( \omega ^n \big)^k = 1^k = 1$.
 }
-\marginnote[0cm]{\href{https://fr.wikipedia.org/wiki/Matrice_circulante}{Matrice circulante -- \textsf{wikipedia.org}}}
+\source{\href{https://fr.wikipedia.org/wiki/Matrice_circulante}{Matrice circulante -- \textsf{wikipedia.org}}}
 Nous avons donc exhibé une famille de $n$ vecteurs propres associés à des valeurs propres distinctes, soit une base propre pour $\mathrm{J}_n$. \\
 Par conséquent, c'est aussi une base propre pour tout polynôme en $\mathrm{J}_n$, c'est-à-dire pour toute matrice circulante. \\
 Nous avons donc déterminé la première matrice de passage à savoir
 $$P \defeq \big[ \mathrm{X}_1 \cdots \mathrm{X}_n \big].$$
 Le prochain exercice propose de calculer $\Inv{P}$.
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
+    \source{\cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
     Soient $n \geqslant 2$ et $\omega \defeq \e^{2 \i \pi / n}$. \\
     Soit $P \defeq \big( \omega^{(k-1)(\ell-1)} \big)_{1 \leqslant k, \ell \leqslant n}$. Montrer que la matrice $P$ est inversible et calculer $\Inv{P}$.
 \end{exercice}

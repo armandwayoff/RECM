@@ -1,9 +1,9 @@
-\begin{prop}{Critère de diagonalisabilité dans un $\R$-ev}
+\begin{prop}[Critère de diagonalisabilité dans un $\R$-ev]
     Soit $E$ un $\R$-espace vectoriel de dimension finie, soit $f \in \Endo(E)$. Alors $f$ est diagonalisable si et seulement si tout sous-espace vectoriel de $E$ admet un supplémentaire stable par $f$.
 \end{prop}
 
-\begin{preuve}
-    \marginnote[0cm]{Source : à compléter}
+\begin{demo}
+    \source{à compléter}
     \begin{itemize}
         \item[$(\Leftarrow)$] Supposons $f$ diagonalisable. Soit $F$ un sous-espace vectoriel quelconque de $E$. Soit $(e_1, \dots, e_m)$ une base de $F$. Puisqu'on a supposé $f$ diagonalisable, il exsite une base $(v_1, \dots, v_n)$ de $E$ formée de vecteurs propres pour $f$. D'après le théorème de la base incomplète, on peut compléter la base $(e_1, \dots, e_m)$ de $F$ en une base $(e_1, \dots, e_m, e_{m+1}, \dots, e_n)$ de $E$, où on rajouté uniquement des vecteurs de notre base de vecteurs propres (c'est-à-dire $e_{m+1}, \dots, e_n$ ont été pris parmi les $v_i$). En effet, la famille $(e_1, \dots, e_m)$ est libre, et elle est contenue dans la famille génératrice $(e_1, \dots, e_m, v_1, \dots, v_n)$, donc il existe une famille $\mathcal{F}$ de vecteurs de $E$, telle que 
         $$(e_1, \dots, e_m) \subseteq \mathcal{F} \subseteq (e_1, \dots, e_m, v_1, \dots, v_n)$$
@@ -14,31 +14,31 @@
         $$F \defeq \smashoperator{\bigoplus_{\lambda \in \Sp f}} \Ker(f - \lambda \Id)$$
         le sous-espace vectoriel de $E$ formé de la somme directe des sous-espaces propres de $f$. Si $f$ n'était pas diagonalisable, $F$ serait strictement inclus dans $E$. Soit $H$ un hyperplan de $E$ contenant $F$. Alors par hypothèse $H$ admet un supplémentaire stable par $f$. Ce supplémentaire est une droite, engendrée par un vecteur propre de $f$. Mais c'est une contradiction car tous les vecteurs propres de $f$ sont dans $H$. Ainsi, $f$ est diagonalisable. 
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 Nous allons maintenant définir la notion d'endomorphisme semi-simple en relâchant un peu la
 condition de l'exercice ci-dessus : nous allons seulement demander aux sous-espaces stables de posséder
 un supplémentaire stable.
 
-\begin{defi}{Endomorphisme semi-simple}
+\begin{defi}[Endomorphisme semi-simple]
     Un endomorphisme $u$ est dit \emph{semi-simple} si tout sous-espace stable par $u$ admet un supplémentaire stable par $u$.
 \end{defi}
 
-\begin{prop}{Critère de diagonalisabilité sur un $\C$-ev}
+\begin{prop}[Critère de diagonalisabilité sur un $\C$-ev]
     Soient $E$ un $\C$-espace vectoriel de dimension finie non nulle et $u \in \Endo(E)$. Alors l'endomorphisme $u$ est semi-simple si et seulement s'il est diagonalisable.
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     \begin{itemize}
         \item[$(\Leftarrow)$] On suppose que l'endomorphisme $u$ est diagonalisable. \\
         Son polynôme caractéristique est scindé ce que l'on voit en mettant $u$ sous forme diagonale, et par invariance de $\chi$ par changement de base. \\
         Soit $F$ un sous-espace de $E$. Soit $(e_1, \dots, e_n)$ une base de vecteurs propres de $u$ et $(f_1, \dots, f_p)$ une base de $F$. Par le théorème de la base incomplète, on peut compléter la famille libre $(f_1, \dots, f_p)$ en une base de $E$ en rajoutant $n-p$ vecteurs parmi la base $(e_1, \dots, e_n)$, quitte à réindexer, on peut supposer que c'est $(e_{p+1}, \dots, e_n)$, ces vecteurs engendrent alors un sous-espace stable supplémentaire de $F$.
         \item[$(\Rightarrow)$] On construit une base de vecteurs propres de la manière suivante: prenons un hyperplan $H$ quelconque, il existe une droite stable supplémentaire, donc dirigée par un vecteur propre $e_1$. Si on a construit une famille libre de vecteurs propres $(e_1, \dots, e_k)$, on prend un hyperplan contenant $\Vect(e_1, \dots, e_k)$, et on trouve une droite stable $\Vect(e_{k+1})$ supplémentaire à $H$. On conclut par récurrence.
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 Notes de la correction vue en cours.
-\begin{preuve}
+\begin{demo}
     \begin{itemize}
         \item[$(\Leftarrow)$] Soit $F$ un sev de $E$ stable par $f$.
         Posons $g \defeq f_{\vert F}$ qui est diagonalisable car $f$ l'est par hypothèse. \\
@@ -60,7 +60,7 @@ Notes de la correction vue en cours.
         \end{enumerate}
         \item Considérer $R_\theta$. \textcolor{green}{à revoir}
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 \begin{exercice}
     Décrire un contre-exemple à la réciproque dans $\R$, en dimension 2.

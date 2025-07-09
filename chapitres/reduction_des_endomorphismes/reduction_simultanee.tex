@@ -1,15 +1,15 @@
-\begin{defi}{Endomorphismes codiagonalisables/cotrigonalisables}
+\begin{defi}[Endomorphismes codiagonalisables/cotrigonalisables]
     Soit $E$ un espace vectoriel de dimension finie. Soient $u$ et $v$ deux endomorphismes de $E$ diagonalisables (resp. trigonalisables). \\
     On dit que $u$ et $v$ sont \emph{codiagonalisables} (resp. \emph{cotrigonalisables}) s'ils sont diagonalisables (resp. trigonalisables) dans une même base de $E$.
 \end{defi}
 
-\begin{prop}{CNS de réduction simultanée}
+\begin{prop}[CNS de réduction simultanée]
     Soient $u$ et $v$ deux endomorphimes diagonalisables (resp. trigonalisables). Alors, 
     $$u, v \text{ codiagonalisables (resp. cotrigonalisables)} \iff u, v \text{ commutent}.$$
 \end{prop}
 
-\begin{preuve} 
-    \marginnote[0cm]{Source : \cite{acamanes} (Thème \emph{Diagonalisation simultanée} Ch. 11)}
+\begin{demo} 
+    \source{\cite{acamanes} (Thème \emph{Diagonalisation simultanée} Ch. 11)}
     Montrons la résultat pour la codiagonalisation. Raisonnons par double implication.
     \begin{itemize}
         \item[$(\Rightarrow)$] Supponsons que les endomorphismes $u$ et $v$ sont codiagonalisables. On note $D$ (resp. $\widetilde{D}$) la matrice diagonale de $u$ dans une base de $E$ (resp. celle de $v$ dans cette même base). Comme ces matrices sont diagonales, $D \times \widetilde{D} = \widetilde{D} \times D$ \note \marginnote[0cm]{\note Le produit de matrices diagonales commute.} et on en déduit que $u$ et $v$ commutent.
@@ -27,10 +27,10 @@
         En notant $v_i$ l'endomorphisme induit par $v$ sur $E_{\lambda_i}(u)$, comme $v$ est diagonalisable, $v_i$ est aussi diagonalisable. Ainsi, il existe $(e_{i, 1}, \dots, e_{i, r_i})$ une base de $E_{\lambda_i}(u)$ formée de vecteurs propres de $v_i$. De plus, $e_{i, j} \in E_{\lambda_i}(u) = \Ker(u - \lambda_i \Id_E)$. Ainsi, $u(e_{i,j}) = \lambda_i e_{i,j}$ et $e_{i,j}$ est un vecteur propre de $u$. \\
         Finalement, $(e_{i, 1}, \dots, e_{i, r_i})_{1 \leqslant i \leqslant p}$ est une base de $E$ constituée de vecteurs propres de $u$ et de $v$. Ainsi, $u$ et $v$ sont diagonalisables dans cette même base. 
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 \begin{remarque}
-    \marginnote[0cm]{Source : \cite{objectif_agregation} p. 167}
+    \source{\cite{objectif_agregation} p. 167}
     \begin{itemize}
         \item La proposition établit que la commutativité est une condition suffisante pour réduire simultanément plusieurs endomorphismes. Remarquez que dans le cas de la diagonalisabilité, elle est aussi nécessaire: si des endomorphismes sont codiagonalisables, alors ils commutent. 
         \item Le seul fait que deux endomorphismes commutent n'implique par leur codiagonalisabilité, ni leur cotrigonalisabilité! Il ne faut pas oublier l'hypothèse faite sur chacun des endomorphismes (diagonalisabilité ou trigonalisabilité).

@@ -45,7 +45,7 @@
 \input{chapitres/reduction_des_endomorphismes/reduction_simultanee}
 
 \marginnote[-10cm]{
-    \begin{theo}{Décomposition de $E$ en somme de sous-espaces stables supplémentaire}
+    \begin{theo}[Décomposition de $E$ en somme de sous-espaces stables supplémentaire]
         Si $E$ est de dimension finie non nulle et $\chi_f = \prod\limits_{i=1}^{k}(f-\lambda_i)^{\alpha_i}$, alors
         $$E = \bigoplus_{i=1}^{k} \Ker(f-\lambda_i \Id_E)^{\alpha_i}.$$
         \begin{itemize}
@@ -53,7 +53,7 @@
             \item La restriction de $f$ à $\Ker(f-\lambda_i)^{\alpha_i}$ induit un endomorphisme $f_i$ de ce sous-espace. $f_i$ admet une et une seule valeur propre à savoir $\lambda_i$ et $f_i - \lambda_i \Id_{\Ker(f-\lambda_i)^{\alpha_i}}$ est nilpotente d'indice inférieur ou égal à $\alpha_i$. 
         \end{itemize}
     \end{theo}
-    Source: fiche de \cite{maths-france}.
+    \source{fiche de \cite{maths-france}}
 }
 
 \section{Critère de nilpotence par la trace} \labsec{critere_de_nilpotence_par_la_trace}
@@ -62,7 +62,7 @@
 \section{Supplémentaire stable}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 102}
+    \source{\cite{reduc_des_endo} p. 102}
     Soit $u$ un endomorphisme diagonalisable de $E$ et $F$ un sous-espace de $E$. Montrer que $F$ admet un supplémentaire stable par $u$. 
 \end{exercice}
 
@@ -71,32 +71,32 @@
 \end{solution} 
 
 \section{Endomorphisme \texorpdfstring{$\mathrm{ad}_u$}{ad_u}}
-\marginnote[0cm]{Source : \cite{reduc_des_endo} p.30}
-\begin{defi}{Endomorphisme $\mathrm{ad}_u$}
+\source{\cite{reduc_des_endo} p.30}
+\begin{defi}[Endomorphisme $\mathrm{ad}_u$]
     Soit $u$ un endomorphisme de $E$. L'endomorphisme $\mathrm{ad}_u$ de $\Endo(E)$ est défini par
-    $$
+    \[
         \fonction[\mathrm{ad}_u]{\Endo(E)}{\Endo(E)}{v}{u \circ v - v \circ u}
-    $$
+    \]
 \end{defi}
 
 Cet endomorphisme nous sert essentiellement à mesurer le défaut de commutativité. Une première remarque dans ce sens est que le commutant de $u$ est $\mathscr{C}(u) = \Ker(\mathrm{ad}_u)$. 
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 103}
+    \source{\cite{reduc_des_endo} p. 103}
     Soit $A \in \M_n(\K)$ une matrice diagonalisable. Montrer que $\mathrm{ad}_A$ est diagonalisable.
 \end{exercice}
 
-\section{\textsc{Grain de raisin:} Décomposition de \textsc{Dunford}}
+\section{\textsc{Grain de raisin:} Décomposition de \nom{Dunford}}
 
 \begin{Large}
     Trigonalisation
 \end{Large}
 
-\textsl{La diagonalisation ne permet pas de caractériser toutes les classes de similitude de $\M_n(\K)$. Lorsque le corps de base est égal à $\C$, le polynôme caractéristique d'une matrice $A \in \M_n(\C)$ est toujours scindé et $A$ est alors trigonalisable. Le lemme des noyaux permet même dans ce cas de trigonaliser $A$ sous une forme diagonale par blocs avec pour chaque bloc diagonal une unique valeur propre. Cela conduit à la notion de sous-espace caractéristique et à la décomposition de \textsc{Jordan}-\textsc{Dunford}: dans le cas abstrait, tout endomorphisme $u$ d'un $\C$-espace vectoriel de dimension finie s'écrit de manière unique sous la forme $u = d + n$ où $d$ est diagonalisable, $n$ est nilpotent et commute avec $d$. (\textsc{h.p. cpge}). Cette décomposition amène l'attention sur les classes de similitude des endomorphismes nilpotents. Avec un peu de travail il est alors possible d'obtenir le théorème de \textsc{Jordan} qui règle complètement la question de la détermination des classes de similitude sur un corps algébriquement clos. \\
+\textsl{La diagonalisation ne permet pas de caractériser toutes les classes de similitude de $\M_n(\K)$. Lorsque le corps de base est égal à $\C$, le polynôme caractéristique d'une matrice $A \in \M_n(\C)$ est toujours scindé et $A$ est alors trigonalisable. Le lemme des noyaux permet même dans ce cas de trigonaliser $A$ sous une forme diagonale par blocs avec pour chaque bloc diagonal une unique valeur propre. Cela conduit à la notion de sous-espace caractéristique et à la décomposition de \nom{Jordan}--\nom{Dunford}: dans le cas abstrait, tout endomorphisme $u$ d'un $\C$-espace vectoriel de dimension finie s'écrit de manière unique sous la forme $u = d + n$ où $d$ est diagonalisable, $n$ est nilpotent et commute avec $d$. (\textsc{h.p. cpge}). Cette décomposition amène l'attention sur les classes de similitude des endomorphismes nilpotents. Avec un peu de travail il est alors possible d'obtenir le théorème de \nom{Jordan} qui règle complètement la question de la détermination des classes de similitude sur un corps algébriquement clos. \\
 Dans le cadre général, l'outil fondamental pour élucider les classes de similitude de $\M_n(\K)$ est la notion d'endomorphisme cyclique.
 }
 
-\marginnote[0cm]{Source : \cite{maths-france} Planche no 5. Réduction}
+\source{\cite{maths-france} Planche no 5. Réduction}
 \begin{exercice}
     Soit $E$ un $\K$-espace vectoriel de dimension finie non nulle et $f$ un endomorphisme de $E$ dont le polynôme caractéristique est scindé sur $\K$.
     Montrer qu’il existe un couple d’endomorphismes $(d, n)$ et un seul tel que $d$ est diagonalisable, $n$ est nilpotent, $n$ et $d$ commutent, et $f = d + n$.
@@ -150,3 +150,5 @@ A rajouter:
 % \begin{figure*}[h!]
     % \input{illustrations/i_diagramme_red_des_endo}
 % \end{figure*}
+
+\todoarmand{figure à compiler}
