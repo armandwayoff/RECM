@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+\begin{axis}[
+    xtick={0,1},
+    xticklabels={$0$, $1$},
+    ytick={0,ln(2)},
+    yticklabels={$0$,$\ln(2)$},
+    width=7cm,
+    axis lines=middle,
+    axis line style=thick,
+    axis line style={-latex},
+    xlabel={$x$},
+    xmin=-0.05, xmax=1.1,
+    ymin=-0.05, ymax=0.8,
+    grid=major,
+    every axis x label/.style={at={(current axis.right of origin)},anchor=north},
+]
+\addplot[blue, thick] table {chapitres/integration/illustrations/i_16-logarithme_integral.dat} node[midway, above=20pt] {$\displaystyle \int_x^{x^2} \frac{1}{\ln(t)} \d t$};
+\end{axis}
+\end{tikzpicture}
