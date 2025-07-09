@@ -9,11 +9,11 @@
         \mathcal{T} & \text{ l'ensemble des matrices de trace nulle.}
     \end{align*}
     \marginnote[0cm]{
-        \begin{defi}{Hyperplan}
+        \begin{defi}[Hyperplan]
             Soit $E$ un $\K$-espace vectoriel de dimension $n \in \Ne$.
             Un sous-espace vectoriel $H$ de $E$ est un \emph{hyperplan} de $E$ si $\dim H = n-1$.
         \end{defi}
-        \begin{theo}{Hyperplan \& Formes linéaires}
+        \begin{theo}[Hyperplan \& Formes linéaires]
             Si $\varphi$ est une forme linéaire sur $E$ non nulle, alors $\Ker \varphi$ est un hyperplan de $E$.
         \end{theo}
     }
@@ -23,7 +23,7 @@
     \begin{itemize}
         \item[$(\subset)$] Comme le spectre d'une matrice nilpotente est réduit à $0$, toute matrice nilpotente est semblable à une matrice triangulaire à éléments diagonaux nuls. La \emph{trace} étant un invariant de similitude, toute matrice nilpotente est de trace nulle. \\
         On en déduit le même résultat sur la trace de toute combinaison linéaire de matrices nilpotentes.
-        \marginnote[0cm]{Source : \cite{oraux_x_ens_2} p. 12}
+        \source{\cite{oraux_x_ens_2} p. 12}
         \item[$(\supset)$] Les matrices $\mathrm{E}_{ij}$ de la base canonique avec $i \not= j$ sont nilpotentes d'ordre $2$. Ces matrices engendrent l'espace des matrices de diagonale nulle. Il nous reste donc à obtenir l'espace des matrices diagonales de trace nulle. L'ensemble $\mathcal{T}$ est engendré par
         $$\ens[\Big]{\mathrm{E}_{k \ell} + \mathrm{E}_{ii} - \mathrm{E}_{jj} \tq k \not= \ell, i \not= j }.$$
         Les matrices $\mathrm{E}_{ii} - \mathrm{E}_{jj}$ avec $i \not= j$ engendrent l'espace des matrices diagonales de trace nulle. Ces matrices ne sont pas nilpotentes mais on va pouvoir les obtenir comme combinaisons linéaires de matrices nilpotentes. \\
@@ -37,7 +37,7 @@
 \end{solution}
 
 \marginnote[-7cm]{
-    $$
+    \[
     F_i=
     \begin{pmatrix}
         1 & 0 & \cdots & 0 & -1 & 0 & \cdots & 0 \\
@@ -49,5 +49,5 @@
         \vdots & & & & \vdots & & & \vdots \\
         0 & & \cdots & & 0 & & \cdots & 0 \\
     \end{pmatrix}
-    $$
+    \]
 }

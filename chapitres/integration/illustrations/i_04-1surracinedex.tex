@@ -8,5 +8,6 @@
 \draw [thick, -latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$x$};
 \draw [thick, -latex] (0,-0.5) -- (0,5) node [left] {$\displaystyle \frac{1}{\sqrt{x}}$};
 \draw[xshift=5cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$1$};
+\tick{5,0}{90};
 \draw[domain=.06:5,samples=200,variable=\x,myblue,thick] plot ({\x},{f(\x)});  
 \end{tikzpicture}

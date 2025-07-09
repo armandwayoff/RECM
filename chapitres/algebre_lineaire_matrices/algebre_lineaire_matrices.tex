@@ -29,8 +29,6 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \section{Semblables sur \texorpdfstring{$\C$, sur $\R$}{C, sur R}}
 \input{chapitres/algebre_lineaire_matrices/semblables_sur_C_sur_R}
 
-\begin{comment}
-
 \section{Noyaux itérés}
 \input{chapitres/algebre_lineaire_matrices/noyaux_iteres}
 
@@ -60,7 +58,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 
 \section{Produit de matrices nilpotentes commutantes} \labsec{titre_a_completer}
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{acamanes}}
+    \source{\cite{acamanes}}
     Soient $A$ et $B$ deux matrices de $\M_n(\C)$ qui commutent. 
     \begin{enumerate}
         \item On suppose que $B$ est nilpotente. 
@@ -73,7 +71,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \end{exercice}
 
 \begin{solution}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 5. Réduction. Corrigé}
+    \source{\cite{maths-france} Planche no 5. Réduction. Corrigé}
     \begin{itemize}
         \item[$\rhd$] Si $u$ est inversible,
         $$\det(u+v) = \det(u) \Leftrightarrow \det(u) \times \det(\Id + \Inv{u}v) = \det(u) \Leftrightarrow \det(\Id + \Inv{u}v) = 1.$$
@@ -108,7 +106,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
             \end{pmatrix}
             $$
         }
-        \item \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 117}
+        \item \source{\cite{reduc_des_endo} p. 117}
         Comme les matrices $A_1, \dots, A_n$ sont trigonalisables et commutent, elles sont cotrigonalisables: il existe donc $T_1, \dots, T_n$ triangulaires supérieures strictes et $P$ inversible telles que $A_i = P T_i \Inv{P_i}$ pour tout $i \in \llbracket 1, n \rrbracket$. \\
         Montrons par récurrence sur $k \in \llbracket 1, n \rrbracket$ que les coefficients en position $(i, j)$ avec $i \geqslant j - k + 1$ de la matrice $T_1 \cdots T_k$ sont nuls. 
         \begin{itemize}
@@ -125,15 +123,15 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
         \end{itemize}
         \underline{Deuxième démonstration:} \\
         \begin{lemme}
-            \marginnote[0cm]{Source : \cite{reduc_des_endo} p. 33}
+            \source{\cite{reduc_des_endo} p. 33}
             Soit $u$ et $n$ deux endomorphismes de $E$ tels que $u$ est non nul, $n$ est nilpotent et $u \circ n = n \circ u$. Montrer que $\Rg(u \circ n) < \Rg(u)$.
         \end{lemme}
-        \begin{preuve}
+        \begin{demo}
             Comme $u$ et $n$ commutent, $n$ laisse stable $\Im u$. Notons $\widetilde{n}$ l'endomorphisme induit par $n$ sur $\Im u$. Comme $n$ est nilpotent, $\widetilde{n}$ est également nilpotent et donc, en particulier, non inversible. \\
             La formule du rang appliquée à $\widetilde{n}$ donne alors:
             $$\Rg u = \dim \Im u = \Rg \widetilde{n} + \dim \Ker \widetilde{n} > \Rg \widetilde{n}.$$
             On conclut en remarquant que $\Im \widetilde{n} = n(\Im u) = \Im (n \circ u)$.
-        \end{preuve}
+        \end{demo}
     \end{enumerate}
     Revenons à la démonstration du résultat. \\
     Soit $A_1, \dots, A_n$ des matrices nilpotentes qui commutent deux à deux. On suppose qu'elles sont toutes non nulles car si ça n'est pas le cas, le résultat est immédiat. \\
@@ -145,12 +143,12 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 
 \section{Si \texorpdfstring{$AB - BA = A \dots$}{AB-BA=A...}}
 \begin{exercice}
-    \marginnote[0cm]{Source : \href{http://exo7.emath.fr/ficpdf/fic00118.pdf}{Exercices de J.-L. \textsc{Rouget} (fic00118 exo 28)}}
+    \source{\href{http://exo7.emath.fr/ficpdf/fic00118.pdf}{Exercices de J.-L. \textsc{Rouget} (fic00118 exo 28)}}
     Soient $n \in \Ne$, $A$ et $B$ deux matrices de $\M_n(\R)$ telles que $AB - BA = A$. Montrer que pour tout $p \in \Ne$, $\Tr(A^p) = 0$.
 \end{exercice}
 
 \marginnote[2cm]{
-    \begin{prop}{Propriétés de la trace}
+    \begin{prop}[Propriétés de la trace]
         Soit $(A, B) \in \M_n(\K)^2$.
         \begin{align*}
             \Tr(AB) &= \Tr(BA), \\
@@ -173,7 +171,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \end{solution}
 
 \begin{exercice} \labexercice{a_comp}
-    \marginnote[0cm]{Source : \cite{exos_oraux} p. 47}
+    \source{\cite{exos_oraux} p. 47}
     Soient $n \in \Ne$, $A$ et $B$ deux matrices de $\M_n(\R)$ telles que $AB - BA = A.$
     \begin{enumerate}
         \item Montrer que la matrice $A$ n'est pas inversible.
@@ -184,7 +182,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 \section{Application du théorème de recollement}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{acamanes}}
+    \source{\cite{acamanes}}
     Soient $E$ et $F$ deux espaces vectoriels de dimension finie et $f \in \Endo(E, F)$. On note 
     $$\mathscr{H} \defeq \ens[\Big]{ g \in \Endo(F, E) \tq f \circ g \circ f = 0}.$$ 
     Déterminer la dimension de $\mathscr{H}$ en fonction de $\dim E$, $\dim F$ et $\Rg f$.
@@ -192,7 +190,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 
 \marginnote[0cm]{
     Source : \cite{acamanes} Ch3, Th2
-    \begin{theo}{Sommes directe \& Applications linéaires}
+    \begin{theo}[Sommes directe \& Applications linéaires]
         On suppose que $E = \bigoplus\limits_{i=1}^m E_i$. Pour tout indice $i \in \llbracket 1, m \rrbracket$, on considère une application linéaire $\varphi_i$ de $E_i$ dans $F$. Alors, il existe une unique application linéaire $\varphi$ de $E$ dans $F$ telle que pour tout $i \in \llbracket 1, m \rrbracket$, la restriction de $\varphi$ à $E_i$ soit égale à $\varphi$.
     \end{theo}
 }
@@ -264,7 +262,7 @@ Faisons la transition entre le chapitre sur les polynômes et celui sur l'algèb
 
 \section{Rang des puissances d'un endomorphisme nilpotent} \labsec{rang_des_puissances_d_un_endomorphisme_nilpotent}
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{reduc_des_endo}}
+    \source{\cite{reduc_des_endo}}
     Soient $E$ un $\K$-espace espace vectoriel de dimension $n$ et $u \in \Endo(E)$ nilpotent de rang $n-1$. Déterminer le rang $u^k$ pour $k \in \Ne$. 
 \end{exercice}
 
@@ -306,7 +304,7 @@ Il s'agit de la réciproque de l'exercice précédent.
 \section{\cite{maths-france} Planche no 3. Révision algèbre linéaire. Matrices}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
+    \source{\cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
     Soient $E$ un $\C$-espace vectoriel non nul de dimension finie $n$ et $f$ un endomorphisme de $E$ tel que pour tout $x \in E$, il existe $p \in \Ne$ tel que $f^p(x) = 0$. Montrer que $f$ est nilpotent. 
 \end{exercice}
 
@@ -405,7 +403,7 @@ Il s'agit de la réciproque de l'exercice précédent.
 \section{Un endomorphisme nilpotent}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{fmaalouf}}
+    \source{\cite{fmaalouf}}
     Soit $E$ un $\C$-espace vectoriel de dimension finie, $\alpha \in \Ce$, et $f, g$ des endomorphismes de $E$ tels que:
     $$f \circ g - g \circ f = \alpha f \quad \text{et} \quad g \text{ est diagonalisable}.$$
     \begin{enumerate}
@@ -413,4 +411,3 @@ Il s'agit de la réciproque de l'exercice précédent.
         \item En déduire que $f$ est nilpotent. 
     \end{enumerate}
 \end{exercice}
-\end{comment}

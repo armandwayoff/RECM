@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale=0.8] % ,declare function={f(\x)=((1/3)*(\x)^(3)-3*(\x)^(2)+8*\x-3;}]
+\pgfmathdeclarefunction{f}{1}{%
+    % \pgfmathparse{((1/3)*(#1)^(3)-3*(#1)^(2)+8*#1-3}%
+    \pgfmathparse{((1/6)*(#1-3)^(3)-(1/2)*(#1-2)+3}%
+}
+\foreach \k in {5,...,24}{
+    \draw[fill=mylightblue] (\k/5,0) rectangle ({(\k+1)/5},{f(\k/5)});
+    \draw[myblue,fill=myblue] (\k/5,{f(\k/5)}) circle (1.5pt) node[font=\normalsize] {$ $}; 
+}
+%\draw (5,0)--(5,{f(5)});
+\draw [thick, -latex] (-0.5,0) -- (6,0) node (xaxis) [below] {$x$};
+\draw [thick, -latex] (0,-0.5) -- (0,4) node [left] {$f(x)$};
+
+\draw[xshift=1 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$a=x_0$};
+\tick{1,0}{90};
+
+\draw[xshift=3 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$x_i$};
+\tick{3,0}{90};
+
+\draw[xshift=5 cm] node[below=2pt,fill=white,font=\small, anchor=south, yshift=-5mm] {$b=x_{20}$};
+\tick{5,0}{90};
+
+\draw[domain=.5:5.3,samples=200,variable=\x,myblue,thick] plot ({\x},{f(\x)});                 
+\end{tikzpicture}

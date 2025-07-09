@@ -16,11 +16,12 @@ On introduit les fonctions auxiliaires
 \end{cases}
 \]
 
-\begin{defi}{Matrice compagnon}
+\begin{defi}[Matrice compagnon]
     Soit $P$ le polynôme définit par 
     $$P(X) \defeq X^p + \sum\limits_{k=0}^{p-1} c_k X^k \in \K[X].$$
     On appelle \emph{matrice compagnon} de $P$ la matrice
-$$ C_P \defeq
+\[
+C_P \defeq
 \begin{pmatrix}
 0 & 0 & \cdots & 0 & -c_0\\
 1 & 0 & \cdots & 0 & -c_1\\
@@ -28,16 +29,16 @@ $$ C_P \defeq
 \vdots & \vdots & \ddots & \vdots & \vdots\\
 0 & 0 & \cdots & 1 & -c_{p-1}
 \end{pmatrix}.
-$$
+\]
 \end{defi}
 
-\begin{theo}{} \labthm{poly_carac_mat_comp}
+\begin{theo} \labthm{poly_carac_mat_comp}
     Soit $P \in \K[X]$. Le polynôme $P$ est égal au polynôme caractéristique de sa matrice compagnon:
     $$\chi_{C_P}(X) = P(X).$$
 \end{theo}   
 
 \marginnote[2cm]{
-    \begin{defi}{Cofacteurs}
+    \begin{defi}[Cofacteurs]
         \cite{acamanes} ch4 \\
         Soient $A \in \M_n(\K)$ et $i, j \in \llbracket 1, n \rrbracket$. On note $\Delta_{i,j}$ le déterminant de la matrice de $\M_{n-1}(\K)$ obtenue à partir de la matrice $A$ en supprimant la ligne $i$ et la colonne $j$.
         \begin{itemize}
@@ -45,7 +46,7 @@ $$
             \item Le \emph{cofacteur} d'indice $i,j$ de la matrice $A$ est $(-1)^{i+j}\Delta_{i,j}$.
         \end{itemize}
     \end{defi}
-    \begin{prop}{Développement selon une ligne / colonne}
+    \begin{prop}[Développement selon une ligne / colonne]
         Soit $A \defeq (a_{i,j})_{1 \leqslant i, j \leqslant n} \in \M_n(\K)$.
         $$\forall j \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{i=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}.$$
         $$\forall i \in \llbracket 1, n \rrbracket, \det(A) = \sum\limits_{j=1}^n a_{i,j}(-1)^{i+j} \Delta_{i,j}.$$
@@ -54,7 +55,7 @@ $$
 
 \begin{demo}
     Par définition,
-    $$
+    \[
     \chi_{C_P}(X) = \det(X \I_p - C_P) = 
     \begin{vmatrix}
         X & 0 & \cdots & 0 & c_0 \\
@@ -63,35 +64,35 @@ $$
         \vdots & \ddots & \ddots & X & c_{d-2} \\
         0 & \cdots & 0 & -1 & X + c_{d-1}
     \end{vmatrix}.
-    $$
+    \]
     Notons $D_p(X, c_0, \dots, c_{p-1})$ ce déterminant. \\
     Le $(1,1)$-cofacteur de $(X \I_p - C_P)$ est $D_{p-1}(X, c_1, \dots, c_{p-1})$ et son $(1,p)$-cofacteur est $(-1)^{p+1} \delta$ où $\delta$ est le déterminant d'une matrice triangulaire supérieure de taille $d-1$ et dont tous les éléments valent $-1$; ainsi $\delta = (-1)^{p-1}$ et ce $(1,p)$-cofacteur vaut $1$. \\
     Le développement du déterminant $D_p(X, c_0, \dots, c_{p-1})$ par rapport à sa première ligne fournit donc la relation:
     $$D_p(X, c_0, \dots, c_{p-1}) = X D_{p-1}(X, c_1, \dots, c_{p-1}) + c_0.$$
     Comme $D_1(X, c_{p-1}) = X + c_{p-1}$,
     $$\det(X \I_p - C_P) = X \bigg(X \Big(\cdots \big(X(X+c_{p-1}) + c_{p-2} \big) \cdots \Big) + c_1 \bigg) + c_0.$$
-    On reconnaît la construction de $P$ par le schéma de \textsc{Hörner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
+    On reconnaît la construction de $P$ par le schéma de \nom{Hörner}. Ainsi le polynôme caractéristique de $C_P$ n'est autre que $P$. 
 \end{demo} 
 
 \subsection{Endomorphisme cyclique}
 
-\begin{defi}{Endomorphisme cyclique}
-    \marginnote[0cm]{Source : \href{https://bibmath.net/dico/index.php?action=affiche&quoi=./c/cyclique.html}{Endomorphisme cyclique -- \textsf{Bibm@th.net}}}
+\begin{defi}[Endomorphisme cyclique]
+    \source{\href{https://bibmath.net/dico/index.php?action=affiche&quoi=./c/cyclique.html}{Endomorphisme cyclique -- \textsf{Bibm@th.net}}}
     Soit $E$ un $\K$-espace vectoriel de dimension finie $n$ et soit $u$ un endomorphisme de $E$. On dit que $u$ est \emph{cyclique} s'il existe $x \in E$ tel que $\big(x, u(x), \dots, u^{n-1}(x) \big)$ est une base de $E$. 
 \end{defi}
 
 Les endomorphismes cycliques admettent des matrices particulières dans la base précédente :
 
-\begin{prop}{} 
+\begin{prop}
     Soit $u$ un endomorphisme de $E$. Alors $u$ est cyclique si et seulement s'il existe une base de $E$ dans laquelle la matrice de $u$ est la matrice compagnon de son polynôme caractéristique.
 \end{prop}
 
-\begin{prop}{}
+\begin{prop}
     Soit $f$ un endomorphisme cyclique. Tout endomorphisme qui commute avec $f$ est un polynôme en $f$.
 \end{prop}
 
 \begin{demo}
-    \marginnote[0cm]{Source : \cite{exos_oraux} p. 58}
+    \source{\cite{exos_oraux} p. 58}
     Tous les polynômes en $f$ commutent avec $f$. \\
     Réciproquement, on va montrer que seuls les polynômes en $f$ commutent avec $f$. On note $\mathscr{B} \defeq (e_0, \dots, e_{n-1})$ la base dans laquelle $f$ admet pour matrice la matrice compagnon de son polynôme caractéristique (qui existe d'après \textcolor{red}{lien}). Par définition, on a donc:
     $$\forall p \in \llbracket 0, n-2 \rrbracket, f(e_p) = e_{p+1}. \quad (\star)$$
@@ -112,14 +113,14 @@ Les endomorphismes cycliques admettent des matrices particulières dans la base 
     \end{itemize}
 \end{demo}
 
-\subsection{Théorème de \textsc{Cayley}-\textsc{Hamilton}}
+\subsection{Théorème de \nom{Cayley}--\nom{Hamilton}}
 
-\begin{theo}{\textsc{Cayley}-\textsc{Hamilton}}
+\begin{theo}[\nom{Cayley}--\nom{Hamilton}]
     Le polynôme caractéristique est un polynôme annulateur.
 \end{theo}
 
-\marginnote[0cm]{Source : note de \cite{contre-exemples}}
-En recherchant l'inverse d'un quaternion, William \textsc{Hamilton} démontre, en 1853, le résultat pour la dimension 4 sans vraiment l'exprimer. Arthur \textsc{Cayley} énonce le résultat pour de matrices carrées d'ordre $n$, le démontre pour $n=2$, prétend l'avoir fait pour $n=3$ et dit qu'il ne lui semble pas nécessaire de le démontrer dans le cas général \dots Georg \textsc{Frobenius} fournit la première démonstration génrérale en 1878. \\
+\source{note de \cite{contre-exemples}}
+En recherchant l'inverse d'un quaternion, William \nom{Hamilton} démontre, en 1853, le résultat pour la dimension 4 sans vraiment l'exprimer. Arthur \nom{Cayley} énonce le résultat pour de matrices carrées d'ordre $n$, le démontre pour $n=2$, prétend l'avoir fait pour $n=3$ et dit qu'il ne lui semble pas nécessaire de le démontrer dans le cas général \dots Georg \nom{Frobenius} fournit la première démonstration génrérale en 1878. \\
 
 L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, démontre ce résultat. Cette preuve est basée sur le calcul du polynôme caractéristique d'une matrice compagnon et de l'étude du plus petit sous-espace stabilisé par une matrice et contenant un vecteur donné. \\
 
@@ -129,7 +130,7 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
     $$\mu \defeq \min \ens[\Big]{ r \geqslant 1 \tq \big(x, Mx, \dots, M^r x \big) \text{ est liée dans } \C^p}.$$
     \begin{enumerate}
         \item Montrer qu'il existe un élément $(\alpha_0, \dots, \alpha_{\mu-1})$ de $\C^{\mu}$ et une matrice $N$ de $\M_{p-\mu}(\C)$ tels que la matrice $M$ soit semblable à une matrice $M'$ de la forme suivante
-        $$
+        \[
         \begin{pmatrix}
         0 & \cdots & \cdots & 0 & -\alpha_0 & \star \\
         1 & 0 & & \vdots & -\alpha_1 & \star \\
@@ -138,7 +139,7 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
         0 & \cdots & 0 & 1 & -\alpha_{\mu-1} & \star \\
         O & \cdots & \cdots & O & O & N
         \end{pmatrix}
-        $$
+        \]
         où les $\star$ représentent des lignes d'éléments de $\C$ et les $O$ représentent des colonnes nulles. 
         \item Montrer que $\chi_M(M)x = 0$.
         \item Montrer que $\chi_M$ est un polynôme annulateur de $M$.
@@ -146,7 +147,7 @@ L'exercice suivant, issu du premier sujet de l'agrégation interne de 2022, dém
 \end{exercice}
 
 \begin{solution}
-    \marginnote[0cm]{Source : Correction de la RMS 132 3}
+    \source{Correction de la RMS 132 3}
     \begin{enumerate}
         \item 
         \begin{itemize}

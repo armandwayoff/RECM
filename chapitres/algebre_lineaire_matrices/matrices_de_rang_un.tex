@@ -1,8 +1,8 @@
-\begin{prop}{Caractérisation des matrices de rang $1$} \labprop{caracterisation_matrice_de_rang_1}
+\begin{prop}[Caractérisation des matrices de rang $1$] \labprop{caracterisation_matrice_de_rang_1}
     Une matrice $A \in \M_{n,p}(\R)$ est de rang $1$ si et seulement s'il existe deux matrices colonnes non nulles (pas nécessairement uniques) $X \in \M_{n,1}(\R)$ et $Y \in \M_{p,1}(\R)$ telles que $A = X \Trsp{Y}$. 
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     \begin{itemize}
         \item[$(\Rightarrow)$] Soit $A \in \M_{n,p}(\R)$, une matrice de rang $1$. On note $C_1, \dots, C_p$ ses colonnes. L'hypothèse $\Rg A = 1$ se traduit par le fait que les colonnes de la matrice $A$ sont proportionnelles. Autrement dit, il existe un vecteur $X \defeq \Trsp{(x_1 \cdots x_n)}$ et $(\lambda_1, \dots, \lambda_p)$ tous non nuls tels que 
         $$\forall k \in \llbracket 1, p \rrbracket,\ C_k = \lambda_k X.$$
@@ -17,7 +17,7 @@
         $$
         Les colonnes de la matrice résultante sont proportionnelles donc cette matrice est de rang égal à $1$. 
     \end{itemize}
-\end{preuve}
+\end{demo}
 
 \begin{remarque}
     Il n'y a pas unicité du couple $(X, Y)$. En effet si ce couple convient, le couple $\big(2X, \frac{1}{2}Y \big)$ convient aussi.
@@ -40,7 +40,7 @@
 Compléter avec le problème 2 Partie I de \textsc{ccinp} \textsc{psi} 2022.
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \href{https://www.elearning-cpge.com/classique/classiques-reduction/}{Classiques réduction -- \textsf{elearning-cpge.com}}} \\
+    \source{\href{https://www.elearning-cpge.com/classique/classiques-reduction/}{Classiques réduction -- \textsf{elearning-cpge.com}}} \\
     \begin{enumerate}
         \item Montrer que $A^2 = \Tr (A) A$.
         \item En déduire que la matrice $A$ est diagonalisable si et seulement si $\Tr A \not= 0$.

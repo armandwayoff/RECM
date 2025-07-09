@@ -1,17 +1,18 @@
-\begin{prop}{Caractérisation des homothéties}
+\begin{prop}[Caractérisation des homothéties]
     Soit $E$ un espace vectoriel et $f \in \Endo(E)$. L'application $f$ est une homothétie si et seulement si la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$.
 \end{prop}
 
 \begin{marginfigure}
     \centering
-    \input{illustrations/i_homothetie}
+    % \input{illustrations/i_homothetie}
+    \caption{Figure à compiler}
 \end{marginfigure}
 
-\begin{preuve}
+\begin{demo}
     Raisonnons par double implication. 
     \begin{itemize}
         \item[$(\Rightarrow)$] On suppose que l'application $f$ est une homothétie. Alors il existe un scalaire non nul $\lambda$ tel que pour tout $x \in E, f(x) = \lambda x$. Ainsi, la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. 
-        \item[$(\Leftarrow)$] \marginnote[0cm]{Source : \href{http://marocprepa.com/site/homothetiecarac}{Une caractérisation des homothéties -- \textsf{marocprepa.com}}} On suppose que la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. On pose 
+        \item[$(\Leftarrow)$] \source{\href{http://marocprepa.com/site/homothetiecarac}{Une caractérisation des homothéties -- \textsf{marocprepa.com}}} On suppose que la famille $\big(x, f(x) \big)$ est liée pour tout $x \in E$. On pose 
         $$\fonctionligne{x}{\lambda_x x}.$$
         Soient $y \in E$ non nul et $x \in E$. Montrons que $\lambda_x = \lambda_{y}$ ce qui assurera que $f$ est une homothétie. \\
         Distinguons deux cas:
@@ -27,8 +28,10 @@
             \item \textbf{Cas où $x \not \in \Vect(y)$.} On pose $z \defeq x + y$. Par définition de l'application $f$, $f(z) = \lambda_z z$ soit $f(z) = \lambda_z(x + y)$. \\
             On peut aussi écrire $f(z) = f(x) + f(y) = \lambda_x x + \lambda_y y$. \\
             En égalant ces deux expressions, on obtient 
-            $$(\lambda_x - \lambda_z) x + (\lambda_{y} - \lambda_z) y = 0$$
+            \[
+            (\lambda_x - \lambda_z) x + (\lambda_{y} - \lambda_z) y = 0
+            \]
             et par liberté de la famille $(x, y)$, on aboutit à $\lambda_x = \lambda_{y}$.
         \end{itemize}
     \end{itemize}
-\end{preuve}
+\end{demo}

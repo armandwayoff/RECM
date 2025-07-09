@@ -1,11 +1,11 @@
-\begin{defi}[Matrice de \textsc{Vandermonde}]
-    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. On définit la \emph{matrice de \textsc{Vandermonde}} de la famille $(\alpha_1, \dots, \alpha_n)$ par
+\begin{defi}[Matrice de \nom{Vandermonde}]
+    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. On définit la \emph{matrice de \nom{Vandermonde}} de la famille $(\alpha_1, \dots, \alpha_n)$ par
     $$\Vandermonde(\alpha_1, \dots, \alpha_n) \defeq \begin{pmatrix}
     1 & \alpha_1 & \alpha_1^2 & \cdots & \alpha_1^{n-1} \\
     \vdots & \vdots & \vdots & \ddots & \vdots \\
     1 & \alpha_n & \alpha_n^2 & \cdots & \alpha_n^{n-1}
     \end{pmatrix}.$$
-    On considère ici une matrice de \textsc{Vandermonde} carrée.
+    On considère ici une matrice de \nom{Vandermonde} carrée.
 \end{defi}
 
 \newcommand{\vandk}{
@@ -29,11 +29,11 @@
 }
 
 \begin{remarque}
-    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. Les matrices de \textsc{Vandermonde} des familles $(\alpha_1, \dots, \alpha_k)$ pour $2 \leqslant k \leqslant n$ sont imbriquées les unes dans les autres de la manière suivante
+    Soit $(\alpha_1, \dots, \alpha_n)$ une famille de complexes. Les matrices de \nom{Vandermonde} des familles $(\alpha_1, \dots, \alpha_k)$ pour $2 \leqslant k \leqslant n$ sont imbriquées les unes dans les autres de la manière suivante
     $$\Vandermonde(\alpha_1, \dots, \alpha_k) = ....$$
 \end{remarque}
 
-\begin{prop}[Déterminant de \textsc{Vandermonde}]\labprop{determinant_vandermonde}
+\begin{prop}[Déterminant de \nom{Vandermonde}]\labprop{determinant_vandermonde}
     $$\det \big( \Vandermonde(\alpha_1, \dots, \alpha_n) \big) = \smashoperator{\prod_{1\leqslant i < j \leqslant n}}(\alpha_j - \alpha_i).$$
 \end{prop}
 
@@ -83,11 +83,11 @@
 \end{corol}
 
 \begin{demo} 
-    D'après la \refprop{determinant_vandermonde}, la matrice de \textsc{Vandermonde} de la famille $(\alpha_1, \dots, \alpha_n)$ est inversible si et seulement si les $\alpha_i$ sont distincts deux à deux. 
+    D'après la \refprop{determinant_vandermonde}, la matrice de \nom{Vandermonde} de la famille $(\alpha_1, \dots, \alpha_n)$ est inversible si et seulement si les $\alpha_i$ sont distincts deux à deux. 
 \end{demo}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 35. Déterminants}
+    \source{\cite{maths-france} Planche no 35. Déterminants}
     Pour $a \in \C$, on pose pour tout $x \in \R$, $f_a(x) \defeq \e^{ax}$. Soit $(a_1, \dots, a_n)$, $n$ complexes deux à deux distincts. Montrer que la famille de fonctions $(f_{a_k})_{1 \leqslant k \leqslant n}$ est libre.
 \end{exercice}
 
@@ -98,10 +98,10 @@
         \text{soit } & \forall p \in \llbracket 0, n-1 \rrbracket, \forall x \in \R, \sum_{k=1}^n \lambda_k a_k^p \e^{a_k x} = 0, \\
         \text{pour $x=0$ } & \forall p \in \llbracket 0, n-1 \rrbracket, \sum_{k=1}^n \lambda_k a_k^p = 0.
     \end{align*}
-    Les $n$ dernières égalités écrites constituent un système $(\mathscr{S})$ de $n$ équations linéaires à $n$ inconnues $\lambda_1, \dots, \lambda_n$. Le déterminant de ce système est $\Vandermonde(a_1, \dots, a_n)$ et ce déterminant est non nul car les $a_k$ sont deux à deux distincts. Par suite, $(\mathscr{S})$ est un système de \textsc{Cramer} homogène. Le système $(\mathscr{S})$ admet donc l'unique solution $(\lambda_1, \dots, \lambda_n) = (0, \dots, 0)$ et on a ainsi montré la liberté de la famille $(f_{a_k})_{1 \leqslant k \leqslant n}$.
+    Les $n$ dernières égalités écrites constituent un système $(\mathscr{S})$ de $n$ équations linéaires à $n$ inconnues $\lambda_1, \dots, \lambda_n$. Le déterminant de ce système est $\Vandermonde(a_1, \dots, a_n)$ et ce déterminant est non nul car les $a_k$ sont deux à deux distincts. Par suite, $(\mathscr{S})$ est un système de \nom{Cramer} homogène. Le système $(\mathscr{S})$ admet donc l'unique solution $(\lambda_1, \dots, \lambda_n) = (0, \dots, 0)$ et on a ainsi montré la liberté de la famille $(f_{a_k})_{1 \leqslant k \leqslant n}$.
 \end{solution}
 
-\subsection{Inverse de la matrice de {\textsc{Vandermonde}}}
+\subsection{Inverse de la matrice de {\nom{Vandermonde}}}
 
 \begin{exercice}
     \source{\cite{exos_oraux} p.81}

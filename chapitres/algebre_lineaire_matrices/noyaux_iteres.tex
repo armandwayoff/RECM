@@ -1,13 +1,17 @@
-\begin{prop}{}
+\begin{prop}
     Soit $E$ un espace vectoriel de dimension finie $n \in \Ne$. On considère $f \in \Endo(E)$.
     \begin{itemize}
         \item La suite $\left( \Ker(f^k) \right)_{k \in \N}$ est une suite croissante pour l'inclusion et stationnaire à partir d'un certain rang $r \in \llbracket 0, n \rrbracket$.
         \item La suite $\left( \Im(f^k) \right)_{k \in \N}$ est une suite décroissante pour l'inclusion et stationnaire à partir du même rang $r$. \\
         (la suite vient de \href{https://bibmath.net/dico/index.php?action=affiche&quoi=./n/noyauxiteres.html}{Noyaux itérés -- \textsf{Bibm@th.net}}) \\
         De plus
-        $$\Ker(f^r) \oplus \Im(f^r) = E.$$
+        \[
+        \Ker(f^r) \oplus \Im(f^r) = E.
+        \]
         Si on note $d_k \defeq \dim \big(\Ker(f^k) \big)$, alors pour tout $k \in \N$, 
-        $$d_{k+1} - d_k \geqslant d_{k+2} - d_{k+1},$$
+        \[
+        d_{k+1} - d_k \geqslant d_{k+2} - d_{k+1},
+        \]
         autrement dit la suite de la différence des dimensions entre deux noyaux itérés consécutifs est décroissante. 
     \end{itemize}
 \end{prop} 
@@ -32,7 +36,7 @@ Voir aussi énoncé de \cite{exos_oraux} p. 44.
 \end{remarque}
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
+    \source{\cite{maths-france} Planche no 2. Révisions algèbre linéaire. Espaces vectoriels}
     Soient $E$ un espace vectoriel et $f$ un endomorphisme de $E$. Pour $k \in \N$, on pose $N_k \defeq \Ker(f^k)$ et $I_k \defeq \Im(f^k)$ puis $N \defeq \bigcup\limits_{k \in \N} N_k$ et $I \defeq \bigcap\limits_{k \in \N} I_k$. ($N$ est le nilespace de $f$ et $I$ le coeur de $f$).
     \begin{enumerate}
         \item 

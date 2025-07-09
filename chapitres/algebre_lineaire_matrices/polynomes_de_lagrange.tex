@@ -1,7 +1,7 @@
 %========
 \todoinline{Intégré au chapitre polynôme - Supprimer ce thème ?}
 
-\marginnote[0cm]{Source : \href{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}{extrait d'un cours de F. \textsc{Delebecque}}}
+\source{\href{https://perso.math.univ-toulouse.fr/fdelebec/files/2018/03/chap01-L2.pdf}{extrait d'un cours de F. \textsc{Delebecque}}}
 \subsection{Motivations de l'interpolation polynomiale}
 En analyse numérique, une fonction $f$ inconnue explicitement est souvent connue seulement en certains points $x_0, \dots, x_d$, ou évaluable uniquement au moyen de l'appel à un code coûteux. \\
 Mais dans de nombreux cas, on a besoin d'effectuer des opérations (dérivation, intégration, \dots) sur la fonction $f$. \\
@@ -11,11 +11,11 @@ On cherche donc à reconstruire cette fonction $f$ par une autre fonction $f_r$ 
 \end{center}
 \marginnote[0cm]{\note cf. p. [...]}
 \begin{itemize}
-    \item \textbf{Le théorème d'approximation de \textsc{Weierstrass}:} \note \\
+    \item \textbf{Le théorème d'approximation de \nom{Weierstrass}:} \note \\
     pour toute fonction $f$ définie et continue sur un intervalle $[a, b]$ et pour tout $\varepsilon > 0$, il existe un polynôme $P$ tel que 
     $$\forall x \in [a, b],\ |f(x) - P(x)| < \varepsilon.$$
     Plus $\varepsilon$ est petit, plus le degré du polynôme est grand.
-    \item \textbf{La simplicité de l'évaluation d'un polynôme par le schéma de \textsc{Hörner}:}
+    \item \textbf{La simplicité de l'évaluation d'un polynôme par le schéma de \nom{Hörner}:}
     $$\sum_{j=0}^n c_j x^j = \Big( \cdots \big( (c_n x + c_{n-1})x + c_{n-2} \big)x + \cdots c_1 \Big)x + c_0.$$
 \end{itemize}
 
@@ -29,9 +29,9 @@ Plus précisément, étant donnés $d+1$ points d'abscisses distinctes $M_i \def
 
 \subsection{Interpolation lagrangienne}
 
-Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ points par un polynôme de degré $n$ qui passe exactement par ces points.
+Les polynômes de \nom{Lagrange} permettent d'interpoler une série de $n+1$ points par un polynôme de degré $n$ qui passe exactement par ces points.
 
-\begin{theo}[Propriété fondamentale des polynômes de \textsc{Lagrange}]
+\begin{theo}[Propriété fondamentale des polynômes de \nom{Lagrange}]
     Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. \\
     Pour tout $i \in \llbracket 0, n \rrbracket$, il existe un unique polynôme $\Lag_i \in \C_n[X]$ tel que 
     \begin{equation} \label{prop_fondamentale}
@@ -40,7 +40,7 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 \end{theo}
 
 \marginnote[-4cm]{
-    \begin{defi}{\note Symbole de \textsc{Kronecker}}
+    \begin{defi}[\note Symbole de \textsc{Kronecker}]
     $$
     \delta_{i,j} \defeq \begin{cases}
     1 \quad \text{ si } i=j, \\
@@ -53,11 +53,11 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 \begin{demo}
     \source{\href{https://www.youtube.com/watch?v=blB2SAYpobA}{\textsl{[UT\#29] Unicité des polynômes de \textsc{Lagrange}} -- Øljen - Les maths en finesse}}
     On considère $n + 1$ complexes deux à deux distincts, notés $x_0, \dots, x_n$. Soit l'application
-    $$
+    \[
     \fonction[\varphi]{\R_n[X]}{\R^{n+1}}{P}{\big(P(x_0), \dots, P(x_n) \big)}.
-    $$
+    \]
     \begin{itemize}
-        \item[$\rhd$] Soit $P \in \Ker \varphi$. Alors le polynôme $P$ a $n+1$ racines discintes. Or il est de degré inférieur à $n$ donc est le polynôme nul. On en déduit que $\varphi$ est injective ce qui assure l'\ptnclegras{unicité} des polynômes interpolateurs de \textsc{Lagrange}.
+        \item[$\rhd$] Soit $P \in \Ker \varphi$. Alors le polynôme $P$ a $n+1$ racines discintes. Or il est de degré inférieur à $n$ donc est le polynôme nul. On en déduit que $\varphi$ est injective ce qui assure l'\ptnclegras{unicité} des polynômes interpolateurs de \nom{Lagrange}.
         \item[$\rhd$] Comme $\dim \R_n[X] = \dim \R^{n+1}$ et que l'application $\varphi$ est injective, c'est un isomorphisme \note.
         \item[$\rhd$] En particulier, l'application $\varphi$ est surjective ce qui assure l'\ptnclegras{existence} de ces polynômes. 
     \end{itemize}
@@ -68,17 +68,19 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
     }
 \end{demo}
 
-\begin{defi}[Polynômes de \textsc{Lagrange}]
-    Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. On appelle famille des \emph{polynômes de \textsc{Lagrange}} la suite de polynômes $(\Lag_n)_{n \in \N}$ vérifiant la relation (\ref{prop_fondamentale}).
+\begin{defi}[Polynômes de \nom{Lagrange}]
+    Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. On appelle famille des \emph{polynômes de \nom{Lagrange}} la suite de polynômes $(\Lag_n)_{n \in \N}$ vérifiant la relation (\ref{prop_fondamentale}).
 \end{defi}
 
 \begin{remarque}
-    Une famille de polynômes de \textsc{Lagrange} est définie à partir d'une famille de complexes deux à deux distincts. 
+    Une famille de polynômes de \nom{Lagrange} est définie à partir d'une famille de complexes deux à deux distincts. 
 \end{remarque}
 
-\begin{prop}[Expression des polynômes de \textsc{Lagrange}]
-    Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. Les polynômes de \textsc{Lagrange} associés à cette famille ont pour expression
-    $$\forall i \in \llbracket 0, n \rrbracket,\ \Lag_i(X) = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.$$
+\begin{prop}[Expression des polynômes de \nom{Lagrange}]
+    Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts. Les polynômes de \nom{Lagrange} associés à cette famille ont pour expression
+    \[
+    forall i \in \llbracket 0, n \rrbracket,\ \Lag_i(X) = \prod_{j \neq i} \frac{X-x_j}{x_i - x_j}.
+    \]
 \end{prop}
 
 \begin{demo}
@@ -93,9 +95,9 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
     \end{itemize}
 \end{demo}
 
-\subsection{Coordonées d'un polynôme dans la base de \textsc{Lagrange}}
+\subsection{Coordonées d'un polynôme dans la base de \nom{Lagrange}}
 
-\begin{prop}[$(\Lag_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n[X]$]
+\begin{prop}[$(\Lag_i)_{0 \leqslant i \leqslant n}$ forme une base de $\C_n{[X]}$]
     La famille $(\Lag_0, \dots, \Lag_n)$ des $n+1$ premiers polynômes de \textsc{Lagrange} forme une base de $\C_n[X]$.
 \end{prop}
 
@@ -106,12 +108,16 @@ Les polynômes de \textsc{Lagrange} permettent d'interpoler une série de $n+1$ 
 \begin{theo}[Interpolation lagrangienne]
 Soient $n \in \N$ et $(x_0, \dots, x_n)$ des complexes deux à deux distincts et $(y_0, \dots, y_n)$ des complexes deux à deux distincts. \\
 Il existe un et un seul polynôme $P \in \R_n[X]$ tel que 
-$$\forall i \in \llbracket 0, n \rrbracket, P(x_i) = y_i.$$ 
-Ce polynôme à pour expression dans la base des polynômes de \textsc{Lagrange} associ
-$$P = \sum_{i=0}^n y_i \Lag_i = \sum_{i=0}^n P(x_i) \Lag_i.$$
+\[
+\forall i \in \llbracket 0, n \rrbracket, P(x_i) = y_i.
+\]
+Ce polynôme à pour expression dans la base des polynômes de \nom{Lagrange} associée
+\[
+P = \sum_{i=0}^n y_i \Lag_i = \sum_{i=0}^n P(x_i) \Lag_i.
+\]
 \end{theo}
 
-\subsection{Lien avec les déterminants de \textsc{Vandermonde}}
+\subsection{Lien avec les déterminants de \nom{Vandermonde}}
 
 \source{\cite{maths-france}}
 En appliquant la formule des coordonnées d'un polynôme de degré au plus $n$ dans la base $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ au cas particulier où le polynôme $P$ est l'un des éléments de la base canonique $(X^j)_{j \in \llbracket 0, n \rrbracket}$ de $\C_n[X]$, on obtient $\sum\limits_{i=0}^{n} \Lag_i = 1$ et plus généralement, 
@@ -125,5 +131,5 @@ Ainsi,
     \end{pmatrix}.$$
 }
 \begin{prop}
-    La matrice de passage de la base  $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ à la base  $(X^j)_{j \in \llbracket 0, n \rrbracket}$ est la matrice de \textsc{Vandermonde} associée à la famille $(x_i)_{i \in \llbracket 0, n \rrbracket}$.
+    La matrice de passage de la base  $(\Lag_i)_{i \in \llbracket 0, n \rrbracket}$ à la base  $(X^j)_{j \in \llbracket 0, n \rrbracket}$ est la matrice de \nom{Vandermonde} associée à la famille $(x_i)_{i \in \llbracket 0, n \rrbracket}$.
 \end{prop}

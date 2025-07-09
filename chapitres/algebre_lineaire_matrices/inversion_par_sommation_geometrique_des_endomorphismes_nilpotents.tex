@@ -4,7 +4,7 @@
 \end{exercice}
 
 \marginnote[0cm]{
-    \begin{prop}{Formule de \textsc{Bernoulli}}
+    \begin{prop}[Formule de \nom{Bernoulli}]
     $$a^n - b^n = (a-b) \sum_{k=0}^{n-1} a^k b^{n-k-1}$$
     \end{prop}
 }
@@ -17,12 +17,12 @@
 \end{solution}
 
 Un résultat analogue : [cite: Fred JEAN]\\
-\begin{prop}{Série de \textsc{Neumann}}
+\begin{prop}[Série de \nom{Neumann}]
     Si une matrice $A \in \M_n(\R)$ vérifie $\norme{A} < 1$, alors la matrice $\I_n - A$ est inversible. 
 \end{prop}
 
-\begin{preuve}
+\begin{demo}
     En effet, pour une telle matrice $A$, la série $\sum\limits_{k=0}^\infty A^k$ est convergente (car normalement convergente). En faisant alors tendre $p$ vers l'infini dans l'identité
     $$\left( \sum_{k=0}^p A^k \right) (\I_n - A) = (\I_n - A) \left( \sum_{k=0}^p A^k \right) = \I_n - A^{p+1},$$
     on obtient que la matrice $\I_n - A$ est inversible, d'inverse $\sum\limits_{k=0}^\infty A^k$, puisque $A^p \to 0$ quand $p \to \infty$.
-\end{preuve}
+\end{demo}
