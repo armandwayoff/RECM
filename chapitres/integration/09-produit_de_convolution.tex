@@ -12,9 +12,9 @@
 \begin{defi}[Produit de convolution]
 Soient $f$ et $g$ deux fonctions continues par morceaux sur $\R$. Pour tout $x \in \R$, on définit, lorsque l'intégrale converge,
 \begin{equation}\label{defconvolution}
-(f \ast g)(x) = \int_{\R} f(x-y) g(y) \d y.
+(f \ast g)(x) \defeq \int_{\R} f(x-y) g(y) \d y.
 \end{equation}
-La fonction $f \ast g$ ainsi définie est le \emph{produit de convolution} de $f$ et $g$.
+La fonction $f \ast g$ ainsi définie est le \definir{produit de convolution} de $f$ et $g$.
 \end{defi}
 
 Ce thème est inspiré du sujet Maths 1 - Centrale Supélec 2012~\cite{cs_1_2012}.
@@ -25,7 +25,7 @@ Ce thème est inspiré du sujet Maths 1 - Centrale Supélec 2012~\cite{cs_1_2012
 \begin{theo}
 Le produit de convolution est bien défini lorsque :
 \begin{enumerate}
-\item $f$ est intégrable et $g$ est continue et bornée.
+\item la fonction $f$ est intégrable et la fonction $g$ est continue et bornée.
 
 \item les fonctions $f$ et $g$ sont de carré intégrable.
 \end{enumerate}
@@ -33,14 +33,14 @@ Le produit de convolution est bien défini lorsque :
 
 \begin{demo}
 \begin{enumerate}
-\item On remarque que $\module{f(x - \cdot) g(\cdot)} \leq \norm{g}_\infty \module{f(x - \cdot)}$. Ainsi, la fonction $y \mapsto \module{f(x - \cdot) g(\cdot)}$ est dominée par une fonction intégrable, donc est intégrable.
+\item On remarque que $\module{f(x - \,\cdot\,) g(\,\cdot\,)} \leqslant \norm{g}_\infty \module{f(x - \,\cdot\,)}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
 
-\item On remarque que $\module{f(x - \cdot) g(\cdot)} \leq \frac{f(x - \cdots)^2 + g(\cdot)^2}{2}$. Ainsi, la fonction $y \mapsto \module{f(x - \cdot) g(\cdot)}$ est dominée par une fonction intégrable, donc est intégrable.
+\item On remarque que $\module{f(x - \,\cdot\,) g(\,\cdot\,)} \leqslant \frac{f(x - \,\cdot\,)^2 + g(\,\cdot\,)^2}{2}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
 \end{enumerate}
 \end{demo}
 
 \begin{theo}
-Si $f \ast g$ est bien défini, alors $f \ast g = g \ast f$.
+Si le produit de convolution $f \ast g$ est bien défini, alors $f \ast g = g \ast f$.
 \end{theo}
 
 \begin{demo}
@@ -62,122 +62,127 @@ Il suffit d'effectuer le changement de variable affine $u = x - y$.
 %-----------
 \subsection{Approximation de l'unité}
 
+\todoarmand{Ajouter du contexte}
+
 Pour tout entier naturel $n$, on note
 \[
-h_n : t \mapsto \frac{(1 - t^2)^n}{\lambda_n} \indicatrice{\interff{-1}{1}},
+\fonctionligne[h_n]{t}{\frac{\big(1 - t^2\big)^n}{\lambda_n} \indicatrice{\interff{-1}{1}}},
+\quad
+\text{où}
+\quad \lambda_n = \displaystyle\int_{-1}^1 \big(1 - t^2\big)^n \d t.
 \]
-où $\lambda_n = \displaystyle\int_{-1}^1 (1 - t^2)^n \d t$.
+
+\todoarmand{
+Au passage, $\lambda_n = \frac{\sqrt{\pi}\Gamma(n+1)}{\Gamma\mathopen{}\left(n + \frac{3}{2}\right)}$
+}
 
 \begin{theo}
 Pour tout $n$ entier naturel,
 \begin{enumerate}
-\item $h_n$ est positive sur $\R$ ;
-\item $\int_{-\infty}^{+\infty} h_n(t) \d t = 1$ ;
-
-\item $\forall\, \varepsilon > 0$, $\displaystyle\lim_{n\to+\infty} \int_{-\infty}^{-\varepsilon} h_n(t) \d t = 0$ et $\displaystyle\lim_{n\to+\infty} \int_{\varepsilon}^{+\infty} h_n(t) \d t = 0$.
+\item la fonction $h_n$ est positive sur $\R$ ;
+\item $\displaystyle \int_{-\infty}^{+\infty} h_n(t) \d t = 1$ ;
+\item $\forall \varepsilon > 0$, $\displaystyle\lim_{n\to+\infty} \int_{-\infty}^{-\varepsilon} h_n(t) \d t = 0$ et $\displaystyle\lim_{n\to+\infty} \int_{\varepsilon}^{+\infty} h_n(t) \d t = 0$.
 \end{enumerate}
-La suite $(h_n)$ est une \definir{approximation de l'unité}.
-
-De plus, pour toute fonction $f$ continue bornée sur $\R$, $(f \ast h_n)_{n\in\N}$ converge simplement vers $f$ sur $\R$ 
+La suite $(h_n)_{n \in \N}$ est une \definir{approximation de l'unité}. \\
+\noindent De plus, pour toute fonction $f$ continue bornée sur $\R$, $(f \ast h_n)_{n\in\N}$ converge simplement vers $f$ sur $\R$.
 \end{theo}
+
+\begin{marginfigure}[0cm]
+    \centering
+    \input{chapitres/integration/illustrations/i_07-approximation_de_unite}
+    \caption{}
+\end{marginfigure}
 
 \begin{exercice}
 Soit $f$ une fonction continue bornée et $n \in \N$.
 \begin{questions}
 \item Montrer que $h_n$ est positive sur $\R$ et que $\displaystyle\int_{-\infty}^{+\infty} h_n(t) \d t = 1$.
-
-\item Montrer que $\lambda_n \geq \frac{1}{n + 1}$.
+\item Montrer que $\lambda_n \geqslant \frac{1}{n + 1}$.
 \end{questions}
-
 Soit $\varepsilon > 0$.
-
 \begin{questions}[resume]
-\item Si $\module{\varepsilon} \geq 1$, calculer $\int_\varepsilon^{+\infty} h_n(t) \d t$ et $\int_{-\infty}^{-\varepsilon} h_n(t) \d t$.
-
-\item Si $\module{\varepsilon} < 1$, montrer que $\int_\varepsilon^1 h_n(t) \d t \leq (n + 1) (1 - \varepsilon^2)^n$.
-
-\item En déduire que $(h_n)$ est une approximation de l'unité.
+\item Si $\module{\varepsilon} \geqslant 1$, calculer les intégrales $\displaystyle \int_{-\infty}^{-\varepsilon} h_n(t) \d t$ et $\displaystyle \int_\varepsilon^{+\infty} h_n(t) \d t$.
+\item Si $\module{\varepsilon} < 1$, montrer que $\displaystyle \int_\varepsilon^1 h_n(t) \d t \leqslant (n + 1) \big(1 - \varepsilon^2\big)^n$.
+\item En déduire que la suite $(h_n)_{n \in \N}$ est une approximation de l'unité.
 \end{questions}
-
 Soit $x \in \R$ et $\varepsilon > 0$.
 \begin{questions}[resume]
 \item Montrer qu'il existe $\delta > 0$ tel que
 \[
-\module{t} \leq \delta \, \Rightarrow\, \module{f(x - t) - f(x)} \leq \varepsilon.
+\module{t} \leqslant \delta \implies \module{f(x - t) - f(x)} \leqslant \varepsilon.
 \]
-
-\item Montrer qu'il existe un réel $n_0$ tel que pour tout $n \geq n_0$,
+\item Montrer qu'il existe un réel $n_0$ tel que pour tout $n \geqslant n_0$,
 \[
-\int_{-\infty}^{-\delta} h_n(t) \d t \leq \varepsilon
-\text{ et }
-\int_{\delta}^{+\infty} h_n(t) \d t \leq \varepsilon.
+\int_{-\infty}^{-\delta} h_n(t) \d t \leqslant \varepsilon
+\quad \text{et} \quad
+\int_{\delta}^{+\infty} h_n(t) \d t \leqslant \varepsilon.
 \]
-
-\item En déduire que $(f \ast h_n)$ converge simplement vers $f$ sur $\R$.
+\item En déduire que la suite $(f \ast h_n)_{n \in \N}$ converge simplement vers $f$ sur $\R$.
 \end{questions}
 \end{exercice}
 
 
-\begin{demo}
-\begin{questions}
+\begin{solution}
+\begin{reponses}
 \item Ces deux premiers points sont des conséquences de la définition de $h_n$.
 
-\item Si $t \in [-1, 1]$, alors $t^2 \leq t$. Ainsi, d'après la définition,
+\item Si $t \in \interff{-1}{1}$, alors $t^2 \leqslant t$. Ainsi, d'après la définition,
 \[
 \lambda_n
-= \int_{-1}^1 (1 - t^2)^n \d t
-\geq \int_{-1}^1 (1 - t)^n \d t
-= \frac{1}{n + 1}.
+= \int_{-1}^1 \big(1 - t^2\big)^n \d t
+\geqslant \int_{-1}^1 (1 - t)^n \d t
+= \frac{2^{n+1}}{n + 1} \geqslant \frac{1}{n+1}.
 \]
 
 
-\item Comme $h_n$ est nulle en dehors de $[-1, 1]$, alors 
+\item Comme $h_n$ est nulle en dehors de $\interff{-1}{1}$, alors 
 \[
 \int_\varepsilon^{+\infty} h_n(t) \d t
 = \int_{-\infty}^{-\varepsilon} h_n(t) \d t
 = 0.
 \]
 
-\item Si $0 \leq \varepsilon \leq t < 1$, alors $\varepsilon^2 \leq t^2$. Ainsi,
+\item Si $0 \leqslant \varepsilon \leqslant t < 1$, alors $\varepsilon^2 \leqslant t^2$. Ainsi,
 \[
 \int_\varepsilon^1 h_n(t) \d t
-\leq \int_\varepsilon^2 \frac{(1 - \varepsilon^2)^n}{\lambda_n} \d t
-\leq (n + 1) (1 - \varepsilon^2)^n.
+\leqslant
+\int_\varepsilon^1 \frac{\big(1 - \varepsilon^2\big)^n}{\lambda_n} \d t
+\leqslant
+(n + 1) \big(1 - \varepsilon^2\big)^n.
 \]
-
-De manière analogue, si $-1 \leq \varepsilon \leq 0$, alors
+De manière analogue, si $-1 \leqslant \varepsilon \leqslant 0$, alors
 \[
-\int_{-1}^{-\varepsilon} h_n(t) \d t \leq (n + 1) (1 - \varepsilon^2)^n.
+\int_{-1}^{-\varepsilon} h_n(t) \d t \leqslant (n + 1) \big(1 - \varepsilon^2\big)^n.
 \]
 
 \item Finalement, d'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees},
 \[
-\forall \varepsilon > 0,\,
+\forall \varepsilon > 0,\quad
 \displaystyle\lim_{n\to+\infty} \int_{-\infty}^{-\varepsilon} h_n(t) \d t
 = \displaystyle\lim_{n\to+\infty} \int_{\varepsilon}^{+\infty} h_n(t) \d t
 = 0.
 \]
 
-\item Comme $f$ est continue en $x$, il existe un réel $\delta$ tel que pour tout $t \in [-\delta, \delta]$,
+\item Comme $f$ est continue en $x$, il existe un réel $\delta$ tel que pour tout $t \in \interff{-\delta}{\delta}$,
 \[
-\module{f(x - t) - f(x)} \leq \varepsilon.
+\module{f(x - t) - f(x)} \leqslant \varepsilon.
 \]
 
 \item Il suffit de traduire avec des quantificateurs la limite démontrée dans les questions précédentes.
 
-\item On utilise la relation de \nom{Chasles} ainsi que les questions précédentes, pour $n \geq n_0$, :
+\item On utilise la relation de \nom{Chasles} ainsi que les questions précédentes, pour $n \geqslant n_0$, :
 \begin{align*}
 \module{(f \ast h_n)(x) - f(x)}
 &= \module{\int_{-\infty}^{+\infty} f(x - t) h_n(t) \d t - f(x) \int_{-\infty}^{+\infty} h_n(t) \d t}\\
-&\leq
+&\leqslant
 \int_{-\infty}^{-\delta} \module{f(x - t) - f(t)} h_n(t) \d t
 + \int_{-\delta}^{\delta} \module{f(x - t) - f(t)} h_n(t) \d t
 + \int_{\delta}^{+\infty} \module{f(x - t) - f(t)} h_n(t) \d t\\
-&\leq 2 \norm{f}_{\infty} \left(\int_{-\infty}^{-\delta} h_n(t) \d t + \int_{\delta}^{+\infty} h_n(t) \d t\right) + \varepsilon \int_{-\delta}^{\delta} h_n(t) \d t\\
-&\leq 4 \norm{f}_{\infty} \varepsilon + \varepsilon \int_{-\delta}^{\delta} h_n(t) \d t\\
-&\leq 4 \norm{f}_{\infty} \varepsilon + \varepsilon \int_{-\infty}^{+\infty} h_n(t) \d t\\\\
-&\leq (4 \norm{f}_\infty + 1) \varepsilon.
+&\leqslant 2 \norm{f}_{\infty} \mathopen{}\left(\int_{-\infty}^{-\delta} h_n(t) \d t + \int_{\delta}^{+\infty} h_n(t) \d t\right) + \varepsilon \int_{-\delta}^{\delta} h_n(t) \d t\\
+&\leqslant 4 \norm{f}_{\infty} \varepsilon + \varepsilon \int_{-\delta}^{\delta} h_n(t) \d t\\
+&\leqslant 4 \norm{f}_{\infty} \varepsilon + \varepsilon \int_{-\infty}^{+\infty} h_n(t) \d t\\
+&\leqslant \big(4 \norm{f}_\infty + 1\big) \varepsilon.
 \end{align*}
 On obtient ainsi la convergence simple annoncée.
-\end{questions}
-\end{demo}
+\end{reponses}
+\end{solution}

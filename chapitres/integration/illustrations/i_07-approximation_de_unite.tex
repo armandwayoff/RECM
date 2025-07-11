@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        xmin=-1.25, xmax=1.25,
+        ymin=-0.05, ymax=2.85,
+        axis lines=middle,
+        axis line style=thick,
+        axis line style={-latex},
+        legend cell align={left}, 
+        legend style={
+            draw=none,
+            fill=none,
+            font=\footnotesize,
+            legend image code/.code={\node[anchor=west] {#1};}
+        },
+        xtick=\empty,
+        xtick={-1, 1},
+        xticklabels={$-1$, $1$},
+        ytick={1},
+        yticklabels={$1$},
+        xlabel=$x$,
+        ylabel=$h_n(x)$,
+        every axis x label/.style={at={(current axis.right of origin)},anchor=north},
+    ];
+
+    \addplot[domain=-1:1, samples=200, color=myblue!25!mycyan, smooth, thick, line join=round,line cap=round] {(1 - x^2)^1/(4/3)};
+    \addplot[domain=-1.25:-1, samples=200, color=myblue!25!mycyan, smooth, thick] {0};
+    \addplot[domain=1:1.15, samples=200, color=myblue!25!mycyan, smooth, thick] {0};
+    \addlegendentry{\textcolor{myblue!20!mycyan}{$n = 1$}}
+
+    \addplot[domain=-1:1, samples=200, color=myblue!50!mycyan, smooth, thick, line join=round,line cap=round] {(1 - x^2)^2/(32/30)};
+    \addlegendentry{\textcolor{myblue!40!mycyan}{$n = 2$}}
+
+    \addplot[domain=-1:1, samples=200, color=myblue!75!mycyan, smooth, thick, line join=round,line cap=round] {(1 - x^2)^5/0.73881};
+    \addlegendentry{\textcolor{myblue!80!mycyan}{$n = 5$}}
+
+    \addplot[domain=-1:1, samples=200, color=myblue!100!mycyan, smooth, thick, line join=round,line cap=round] {(1 - x^2)^20/0.38909};
+    \addlegendentry{\textcolor{myblue!100!mycyan}{$n = 20$}}
+    \end{axis}
+\end{tikzpicture}

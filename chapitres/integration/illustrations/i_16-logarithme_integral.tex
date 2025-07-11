@@ -14,6 +14,7 @@
     grid=major,
     every axis x label/.style={at={(current axis.right of origin)},anchor=north},
 ]
-\addplot[blue, thick] table {chapitres/integration/illustrations/i_16-logarithme_integral.dat} node[midway, above=20pt] {$\displaystyle \int_x^{x^2} \frac{1}{\ln(t)} \d t$};
+\addplot[myblue, thick] table {chapitres/integration/illustrations/i_16-logarithme_integral.dat};
+\node[myblue] at (0.4,0.5) {$\displaystyle x \mapsto \int_x^{x^2} \frac{1}{\ln(t)} \d t$};
 \end{axis}
 \end{tikzpicture}

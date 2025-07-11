@@ -31,12 +31,10 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
     À un changement de variable près, la fonction $\Gamma$ est la \nameref{transformee_laplace} de la fonction $t \mapsto t^x$. 
 \end{remarque} 
 
-\begin{theo}
+\begin{theo}[Propriétés fondamentales]
 \begin{itemize}
 \item La fonction $\Gamma$ est définie sur $\Rpe$.
-
 \item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
-
 En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
 \end{itemize}
 \end{theo}
@@ -51,9 +49,9 @@ Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les 
 
 Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$.
 
-Finalement, $\Gamma$ est définie sur $\R_+^\star$.
+Finalement, $\Gamma$ est définie sur $\Rpe$.
 
-\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\mathscr{C}^1$ sur $\R_+^\star$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. 
+\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\Cont^1$ sur $\Rpe$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. 
 \item D'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees},
 \[
 \int_0^{+\infty} t^x \e^{-t} \d t = x \int_0^{+\infty} t^{x-1} \e^{-t} \d t
@@ -69,9 +67,9 @@ et $\Gamma(x+1) = x \Gamma(x)$.
 % Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
 
 \begin{theo}[Régularité]
-La fonction $\Gamma$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$. De plus,
+La fonction $\Gamma$ est de classe $\Cont^\infty$ sur $\Rpe$. De plus,
 \[
-\forall k \in \N,\quad \forall x \in \R_+^\star,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
+\forall k \in \N,\quad \forall x \in \Rpe,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
 \]
 \end{theo}
 
