@@ -9,7 +9,7 @@
   \def\x{5}
 
   \pgfmathdeclarefunction{f}{1}{%
-    \pgfmathparse{2*exp(-#1^2/2)-(#1/7)^2-1}%
+    \pgfmathparse{(2*exp(-#1^2/2)-(#1/7)^2-1)/2}%
   }
   
   \def\colfonc{mygreen}
@@ -17,9 +17,10 @@
     \begin{axis}[
         restrict x to domain=0:8,
         samples=100,
+        unit vector ratio*=1 2.7 1,
         ticks=none,
         xmin = -1, xmax = \xmax+0.5,
-        ymin = \ymin, ymax = \ymax,
+        ymin = \ymin/2, ymax = \ymax/2,
         unbounded coords=jump,
         axis x line=middle,
         axis y line=middle,

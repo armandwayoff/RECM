@@ -1,18 +1,18 @@
 \section{Intégrales eulériennes}\label{secinteuleriennes}
 
 \source{\href{https://lescoursdemathsdepjh.monsite-orange.fr/file/7bcfcf82249b1046f185e9a3495845cd.pdf}{Fonction eulériennes -- Pierre-Jean \nompropre{Hormière}}}
+\marginnote[0cm]{
 \todoarmand{Glossaire des mathématiciens : distinguer entre les Bernoulli}
-De premières tentatives pour définir la factorielle de valeurs non entières remontent à James \nom{Stirling} et Daniel \nom{Bernoulli}. Dans une lettre à Christian \nom{Goldbach} du 13 octobre 1729, \nom{Euler} découvre (ou invente ?) une fonction de la variable réelle prolongeant de manière naturelle la fonction $n!$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
-
+De premières tentatives pour définir la factorielle de valeurs non entières remontent à James \nom{Stirling} et Daniel \nom{Bernoulli}. Dans une lettre à Christian \nom{Goldbach} du 13 octobre 1729, \nom{Euler} découvre (ou invente ?) une fonction de la variable réelle prolongeant de manière naturelle la fonction $\fact{n}$. D'abord introduite comme limite de produits, cette fonction fut plus tard présentée sous forme intégrale et reliée à des fonctions voisines.
 Les fonctions eulériennes sont les plus importantes \say{ fonctions spéciales } de l'analyse classique, réelle et complexe. \nom{Legendre} les a nommées, classifiées et étudiées. Elles ont aussi été étudiées par \nom{Gauss}, \nom{Binet}, \textsc{Plana}, \textsc{Malmsten}, \textsc{Raabe}, \textsc{Weierstrass}, \textsc{Hankel}, H. \textsc{Bohr}, \textsc{Mollerup}, \textsc{Artin}, \ldots
 \todoarmand{Utiliser la commande nom}
-
+}
 On trouvera une présentation du contexte historique de l'extension de la fonction factorielle dans l'article~\cite{davis1959}.
 
 \todoarmand{
-\url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $n!$.}
+\url{https://people.math.osu.edu/gautam.42/S20/DavisGammaFunction.pdf} : un texte passionnant qui raconte en détail toute l'aventure intellectuelle autour de la fonction Gamma et qui explique (p. 18-20) la manière dont on peut construire des pseudo fonctions Gamma qui vérifient l'essentiel des propriétés d'un prolongement de la fonction $\fact{n}$.}
 
-Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle n! = \int_{0}^{+ \infty} t^n \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \e^{-t} \d t$. Cette fonction, définie sur $\interoo{-1}{+\infty}$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \e^{-t} \d t$.
+Il y a bien des façons de prolonger la fonction $\fact{n}$ au domaine réel, même en se limitant aux fonctions continues. Une idée naturelle est de partir de la formule $\displaystyle \fact{n} = \int_{0}^{+ \infty} t^n\, \e^{-t} \d t$. Cette forme intégrale de la factorielle suggère de considérer la fonction $\displaystyle F(x)=\int_{0}^{+ \infty} t^x \, \e^{-t} \d t$. Cette fonction, définie sur $\interoo{-1}{+\infty}$, prolonge intelligemment la factorielle, en ce sens qu'elle possède des propriétés nombreuses et cohérentes. Par commodité, on considère plutôt $\displaystyle \Gamma(x) = \int_{0}^{+ \infty} t^{x-1} \, \e^{-t} \d t$.
 \todoarmand{Introduction à réécrire à partir de la ressource ci-dessus.}
 
 \subsection{Fonction Gamma d'\nom{Euler}}\label{subsec:FonctionGammaEuler}
@@ -24,7 +24,7 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 
 \begin{defi}[Fonction Gamma d'\nom{Euler}]
     La \emph{fonction Gamma d'\nom{Euler}} est définie par: 
-    $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \e^{-t} \d t.$$
+    $$\Gamma(x) \defeq \int_{0}^{+\infty} t^{x-1} \, \e^{-t} \d t.$$
 \end{defi}
 
 \begin{remarque}
@@ -34,91 +34,77 @@ Il y a bien des façons de prolonger la fonction $n!$ au domaine réel, même en
 \begin{theo}[Propriétés fondamentales]
 \begin{itemize}
 \item La fonction $\Gamma$ est définie sur $\Rpe$.
-\item Pour tout $x > 0$, $\Gamma(x+1) = x\Gamma(x)$.
-En particulier, pour tout $n \in \N$, $\Gamma(n+1) = n!$. 
+\item Pour tout $x > 0$, $\Gamma(x+1) = x \, \Gamma(x)$.
+En particulier, pour tout $n \in \N$, $\Gamma(n+1)~=~\fact{n}$. 
 \end{itemize}
 \end{theo}
 
 \begin{demo}
-\begin{itemize}
-\item On pose $\fonctionligne[f_x]{t}{t^{x - 1} \e^{-t}}$.
+On pose $\fonctionligne[f_x]{t}{t^{x - 1} \, \e^{-t}}$. La fonction $f_x$ est continue sur $\Rpe$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale. \\
+D'une part, comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les \theoremeutilise{théorèmes de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$. D'autre part, comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$. Finalement, la fonction $\Gamma$ est définie sur $\Rpe$. 
 
-La fonction $f_x$ est continue sur $\R_+^\star$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale.
-
-Comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les \theoremeutilise{théorèmes de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$.
-
-Comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$.
-
-Finalement, $\Gamma$ est définie sur $\Rpe$.
-
-\item Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\Cont^1$ sur $\Rpe$. D'après les croissances comparées, $\lim_{t\to0} t^x \e^{-t} = \lim_{t\to+\infty} t^x \e^{-t} = 0$. 
-\item D'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees},
+Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\Cont^1$ sur $\Rpe$. D'après les croissances comparées, $\lim_{t\to0} t^x \, \e^{-t} = \lim_{t\to+\infty} t^x \, \e^{-t} = 0$. Ainsi, d'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees},
 \[
-\int_0^{+\infty} t^x \e^{-t} \d t = x \int_0^{+\infty} t^{x-1} \e^{-t} \d t
+\int_0^{+\infty} t^x \, \e^{-t} \d t = x \int_0^{+\infty} t^{x-1} \, \e^{-t} \d t
 \]
-et $\Gamma(x+1) = x \Gamma(x)$.
-
-\item On remarque que $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = n!$.
-\end{itemize}
+et $\Gamma(x+1) = x \, \Gamma(x)$. Finalement, on remarque que $\Gamma(1) = 1$ et on montre par récurrence que $\Gamma(n+1) = \fact{n}$.
 \end{demo}
 
 % La démonstration est donnée dans \ref{prolongementFonctionGamma}.
 
 % Cette fonction, introduite en 1729 par le mathématicien suisse, prolonge la fonction factorielle à l'ensemble des réels strictement positifs.
 
-\begin{theo}[Régularité]
+\begin{theo}[Régularité] \label{theo:regularite_fonction_gamma}
 La fonction $\Gamma$ est de classe $\Cont^\infty$ sur $\Rpe$. De plus,
 \[
-\forall k \in \N,\quad \forall x \in \Rpe,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k t^{x-1} \e^{-t} \d t.
+\forall k \in \N,\quad \forall x \in \Rpe,\quad \Gamma^{(k)}(x) = \int_{0}^{+\infty} (\ln t)^k \, t^{x-1} \, \e^{-t} \d t.
 \]
 \end{theo}
 
-\begin{demo}
-\begin{itemize}
-\item \textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $\fonctionligne[f]{(x, t)}{t^{x-1} \e^{-t}}$.
+\begin{demo} \\
+\textbf{Étude de la continuité.} Soit $0 < a < A$. On pose $\fonctionligne[f]{(x, t)}{t^{x-1} \, \e^{-t}}$.
 \begin{itemize}
 \item Soit $t \in \Rpe$. Alors, $f(\,\cdot\,, t)$ est continue sur $\interff{a}{A}$.
 
-\item Soit $x \in \interff{a}{A}$. Alors, $f(x, \cdot)$ est continue sur $\Rpe$.
+\item Soit $x \in \interff{a}{A}$. Alors, $f(x, \,\cdot\,)$ est continue sur $\Rpe$.
 
 \item Pour tout $(x, t) \in \interff{a}{A} \times \Rpe$,
 \[
 \abs{f(x, t)} \leqslant \phi(t) = 
 \begin{cases}
-\frac{\e^{-t}}{t^{1-a}} &\text{ si } t \in \interof{0}{1},\\
-t^{A-1} \e^{-t} &\text{ si } t \in \interfo{1}{+\infty}
+\displaystyle \frac{\e^{-t}}{t^{1-a}} &\text{si } t \in \interof{0}{1},\\
+t^{A-1} \, \e^{-t} &\text{si } t \in \interfo{1}{+\infty}
 \end{cases}
 \]
 La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur~$\Rpe$.
 \end{itemize}
-Finalement, d'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, $\Gamma$ est continue sur $\interff{a}{A}$ pour tous $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
+Finalement, d'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, la fonction $\Gamma$ est continue sur $\interff{a}{A}$ pour tout $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
 
-\item On applique le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale} sur l'intervalle $\interff{a}{A}$:
+\textbf{Étude de la dérivabilité.} On applique le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale} sur l'intervalle $\interff{a}{A}$:
 \begin{itemize}
-\item la fonction $\fonctionligne[f(\,\cdot\,, t)]{t}{t^{x - 1} \e^{-t}}$ est de classe $\mathscr{C}^k$ sur $\interff{a}{A}$.
+\item la fonction $\fonctionligne[f(\,\cdot\,, t)]{t}{t^{x - 1} \, \e^{-t}}$ est de classe $\Cont^k$ sur $\interff{a}{A}$.
 
-\item la dérivée partielle $\partial_1^j f(x, t) = \ln(t)^j t^{x - 1} \e^{-t}$ et $t \mapsto \partial_1^j f(x, t)$ est continue sur $\Rpe$.
+\item la dérivée partielle $\partial_1^j f(x, t) = \ln(t)^j \, t^{x - 1} \, \e^{-t}$ et $t \mapsto \partial_1^j f(x, t)$ est continue sur $\Rpe$.
 
 \item pour tout $x \in \interff{a}{A}$,
 \[
 \abs{\partial_1^j f(x, t)} \leqslant
 \begin{cases}
-\abs{\ln(t)}^j \e^{-t} t^{a-1} &\text{ si } t < 1 \\
-\abs{\ln(t)}^j \e^{-t} t^{A-1} &\text{ si } t \geqslant 1
+\abs{\ln(t)}^j \, \e^{-t} \, t^{a-1} &\text{si } t < 1 \\
+\abs{\ln(t)}^j \, \e^{-t} \, t^{A-1} &\text{si } t \geqslant 1
 \end{cases}
 \]
 
 En notant $\phi_j$ cette fonction,
 \begin{itemize}
 \item $\phi_j$ est continue sur $\Rpe$.
-\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0(t^{a/2-1})$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
+\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0\mathopen{}\big(t^{a/2-1}\big)$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
 \end{itemize}
 \end{itemize}
-Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
+Finalement, $\Gamma$ est de classe $\Cont^\infty$ et
 \[
-\Gamma^{(j)}(x) = \int_0^{+\infty} (\ln t)^j t^{x-1} \e^{-t} \d t.
+\Gamma^{(j)}(x) = \int_0^{+\infty} (\ln t)^j \, t^{x-1} \, \e^{-t} \d t.
 \]
-\end{itemize}
 \end{demo}
 
 % \begin{elem_preuve}
@@ -146,38 +132,35 @@ Finalement, $\Gamma$ est de classe $\mathscr{C}^\infty$ et
 
 \begin{solution}
 \begin{reponses}
-\item Comme $\Gamma$ est continue en $1$, 
+\item Comme la fonction $\Gamma$ est continue en $1$, 
 \[
 \lim_{x\to0} \Gamma(x + 1) = \Gamma(1) = \int_0^{+\infty} \e^{-t} \d t = 1.
 \]
-
-De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \Gamma(x)$. Ainsi,
+De plus, pour tout $x > 0$, $\Gamma(x + 1) = x \, \Gamma(x)$. Ainsi,
 \[
 \Gamma(x) \sim_0 \frac{1}{x}.
 \]
 
 \item D'après l'étude de régularité précédente, pour tout $x > 0$,
 \[
-\Gamma''(x) = \int_0^{+\infty} (\ln t)^2 t^{x-1} \e^{-t} \d t.
+\Gamma''(x) = \int_0^{+\infty} (\ln t)^2 \, t^{x-1} \, \e^{-t} \d t.
 \]
-Ainsi, $\Gamma'' > 0$ et $\Gamma$ est convexe.
+Ainsi, $\Gamma'' > 0$ et la fonction $\Gamma$ est convexe.
 
-\item Comme $\Gamma$ est à valeurs strictement positives, alors la fonction $f = \ln(\Gamma)$ est bien définie. De plus, comme la fonction $\Gamma$ est de classe $\mathscr{C}^2$, alors $f$ est de classe $\mathscr{C}^2$ et
+\item Comme la fonction $\Gamma$ est à valeurs strictement positives, alors la fonction $f = \ln(\Gamma)$ est bien définie. De plus, comme la fonction $\Gamma$ est de classe $\Cont^2$, alors $f$ est de classe $\Cont^2$ et
 \begin{align*}
-f' &= \frac{\Gamma'}{\Gamma},\,
-%
-f'' = \frac{\Gamma'' \Gamma - (\Gamma')^2}{\Gamma^2}.
+f' &= \frac{\Gamma'}{\Gamma},\quad
+f'' = \frac{\Gamma'' \, \Gamma - (\Gamma')^2}{\Gamma^2}.
 \end{align*}
-
-De plus, d'après l'inégalité de \nom{Cauchy}--\nom{Schwarz}, pour tout $x > 0$,
+De plus, d'après l'\theoremeutilise{inégalité de \nom{Cauchy}--\nom{Schwarz}}{theo:inegalitecs}, pour tout $x > 0$,
 \begin{align*}
 \Gamma'(x)^2
-&= \left(\int_0^{+\infty} \ln(t) t^{x-1} \e^{-t} \d t\right)^2 \\
-&= \left(\int_0^{+\infty} \left(t^{(x-1)/2} \e^{-t/2}\right) \times \left(\ln(t) t^{(x-1)/2} \e^{-t/2}\right) \d t\right)^2 \\
-&\leq \left(\int_0^{+\infty} t^{x-1} \e^{-t} \d t\right) \times \left(\int_0^{+\infty} \ln(t)^2 t^{x-1} \e^{-t} \d t\right)^2 \\
-&\leq \Gamma(x) \Gamma''(x).
+&= \left(\int_0^{+\infty} \ln(t) \, t^{x-1} \, \e^{-t} \d t\right)^2 \\
+&= \left(\int_0^{+\infty} \left(t^{(x-1)/2} \, \e^{-t/2}\right) \times \left(\ln(t) \, t^{(x-1)/2} \, \e^{-t/2}\right) \d t\right)^2 \\
+&\leqslant \left(\int_0^{+\infty} t^{x-1} \, \e^{-t} \d t\right) \times \left(\int_0^{+\infty} \ln(t)^2 \, t^{x-1} \, \e^{-t} \d t\right) \\
+&\leqslant \Gamma(x) \, \Gamma''(x).
 \end{align*}
-Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
+Ainsi, $f'' \geqslant 0$ et la fonction $\ln(\Gamma)$ est convexe.
 \end{reponses}
 \end{solution}
 
@@ -188,14 +171,14 @@ Ainsi, $f'' \geq 0$ et la fonction $\ln(\Gamma)$ est convexe.
 \source{\cite{rudin2009}}
 Soit $f$ une fonction définie sur $\Rpe$ telle que
 \begin{enumerate}
-\item pour tout $x > 0$, $f(x + 1) = x f(x)$,
+\item pour tout $x > 0$, $f(x + 1) = x \, f(x)$,
 \item $f(1) = 1$,
 \item $\ln(f)$ est convexe.
 \end{enumerate}
 Alors, $f = \Gamma$ et
 \[
-\forall\, x > 0,\,
-\Gamma(x) = \lim_{n\to+\infty} \frac{n! n^x}{x (x + 1) \cdots (x + n)}.
+\forall x > 0,\quad
+\Gamma(x) = \lim_{n\to+\infty} \frac{\fact{n} \, n^x}{x (x + 1) \cdots (x + n)}.
 \]
 \end{theo}
 
@@ -211,12 +194,12 @@ Soit $x \in \Rpe$ et $n \in \Ne$.
 \begin{questions}[resume]
 \item Montrer que
 \[
-g(n + 1) - g(n) \leq \frac{g(n + 1 + x) - g(n + 1)}{x} \leq g(n + 2) - g(n + 1).
+g(n + 1) - g(n) \leqslant \frac{g(n + 1 + x) - g(n + 1)}{x} \leqslant g(n + 2) - g(n + 1).
 \]
 
 \item En déduire que
 \[
-x \ln(n) \leq g(x) + \ln\left(x (x + 1) \cdots (x + n)\right) - \ln(n!) \leq x \ln(n + 1).
+x \, \ln(n) \leqslant g(x) + \ln\mathopen{}\big(x (x + 1) \cdots (x + n)\big) - \ln(\fact{n}) \leqslant x \, \ln(n + 1).
 \]
 
 \item Conclure.
@@ -225,56 +208,60 @@ x \ln(n) \leq g(x) + \ln\left(x (x + 1) \cdots (x + n)\right) - \ln(n!) \leq x \
 
 \begin{solution}
 \begin{reponses}
-\item Comme $f(1) = 1$ et $f(n + 1) = n f(n)$, on montre par récurrence que, pour tout $n \in \Ne$, $f(n) = n!$.
+\item Comme $f(1) = 1$ et $f(n + 1) = n \, f(n)$, on montre par récurrence que, pour tout $n \in \Ne$, $f(n+1) = \fact{n}$.
 
-\item D'après la question précédente, $f$ et $\Gamma$ sont égales sur $\Ne$.
+\item D'après la question précédente, les fonctions $f$ et $\Gamma$ sont égales sur $\Ne$.
 
-Supposons que $f = \Gamma$ sur $\interof{0}{1}$. On montre alors par récurrence sur $n$ que $f = \Gamma$ sur $]n, n + 1]$ car, si $x \in ]n, n + 1]$, alors
+Supposons que $f = \Gamma$ sur $\interof{0}{1}$. On montre alors par récurrence sur $n$ que $f = \Gamma$ sur $\interof{n}{n + 1}$ car, si $x \in \interof{n}{n + 1}$, alors
 \begin{align*}
 f(x) = (x - 1) f(x - 1)
-\text{ et }
+\quad
+\text{et}
+\quad
 \Gamma(x) = (x - 1) \Gamma(x - 1)
 \end{align*}
-et $x - 1 \in ]n-1, n]$.
+et $x - 1 \in \interof{n-1}{n}$.
 
-\item Comme la fonction $g$ est convexe, son taux d'accroissement est croissant. En appliquant ce résultat à $t \mapsto \frac{g(n + 1) - g(t)}{n + 1 - t}$ successivement en $n$, $(n + 1 + x)$ et $(n + 2)$, alors
+\item Comme la fonction $g$ est convexe, son taux d'accroissement est croissant. En appliquant ce résultat à la fonction $t \mapsto \frac{g(n + 1) - g(t)}{n + 1 - t}$ successivement en $n$, $(n + 1 + x)$ et $(n + 2)$, alors
 \begin{align*}
 \frac{g(n + 1) - g(n)}{(n + 1) - n}
-&\leq \frac{g(n + 1) - g(n + 1 + x)}{(n + 1) - (n + 1 + x)}
-\leq \frac{g(n + 1) - g(n + 1)}{(n + 1) - (n + 2)}\\
-g(n + 1) - g(n) &\leq \frac{g(n + 1 + x) - g(n + 1)}{x} \leq g(n + 2) - g(n + 1).
+\leqslant \frac{g(n + 1) - g(n + 1 + x)}{(n + 1) - (n + 1 + x)}
+\leqslant \frac{g(n + 1) - g(n + 2)}{(n + 1) - (n + 2)}
 \end{align*}
-
-\item Comme $g(n + 1) = \ln(n!)$, d'après l'inégalité précédente,
+puis
 \begin{align*}
-\ln(n) &\leq \frac{g(n + 1 + x) - \ln(n!)}{x} \leq ln(n + 1)\\
-x \ln(n) &\leq g(n + 1 + x) - \ln(n!) \leq x \ln(n + 1).
+g(n + 1) - g(n) &\leqslant \frac{g(n + 1 + x) - g(n + 1)}{x} \leqslant g(n + 2) - g(n + 1).
 \end{align*}
 
-Enfin, d'après la propriété de $f$,
+\item Comme $g(n + 1) = \ln(\fact{n})$, d'après l'inégalité précédente,
+\begin{align*}
+\ln(n) &\leqslant \frac{g(n + 1 + x) - \ln(\fact{n})}{x} \leqslant \ln(n + 1)\\
+x \, \ln(n) &\leqslant g(n + 1 + x) - \ln(\fact{n}) \leqslant x \, \ln(n + 1).
+\end{align*}
+
+Enfin, d'après la première propriété de $f$,
 \begin{align*}
 g(n + 1 + x)
-&= \ln\left(f(n + 1 + x)\right)
-= \ln\left((n + x) f(n + x)\right)
-= \cdots
-= \ln\left((n + x) (n + x - 1) \cdots x f(x)\right)\\
-&= g(x) + \ln\left(x (x + 1) \cdots (x + n)\right).
+&= \ln\mathopen{}\big(f(n + 1 + x)\big) \\
+&= \ln\mathopen{}\big((n + x) f(n + x)\big) \\
+& = \ln\mathopen{}\big((n + x) (n + x - 1) \cdots x \, f(x)\big) \\
+&= g(x) + \ln\mathopen{}\big(x (x + 1) \cdots (x + n)\big).
 \end{align*}
 
 On obtient ainsi l'encadrement souhaité :
 \[
-x \ln(n)
-\leq g(x) - \ln\frac{n!}{x (x + 1) \cdots (x + n)} \leq x \ln(n + 1).
+x \, \ln(n)
+\leqslant g(x) - \ln\mathopen{}\left(\frac{\fact{n}}{x (x + 1) \cdots (x + n)}\right) \leqslant x \, \ln(n + 1).
 \]
 
 \item D'après la question précédente,
 \[
-0 \leq g(x) - \ln \frac{n! n^x}{x (x + 1) \cdots (x + n)} \leq x \ln\left(1 + \frac{1}{n}\right).
+0 \leqslant g(x) - \ln\mathopen{}\left(\frac{\fact{n} \, n^x}{x (x + 1) \cdots (x + n)}\right) \leqslant x \, \ln\mathopen{}\left(1 + \frac{1}{n}\right).
 \]
 
 Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \[
-\lim_{n\to+\infty} \frac{n! n^x}{x (x + 1) \cdots (x + n)} = g(x).
+\lim_{n\to+\infty} \frac{\fact{n} \, n^x}{x (x + 1) \cdots (x + n)} = g(x).
 \]
 
 La fonction $g$ est donc unique et égale à $\Gamma$.
@@ -282,13 +269,13 @@ La fonction $g$ est donc unique et égale à $\Gamma$.
 \end{solution}
 
 %..............
-\subsubsection{$\Gamma$ et $\gamma$}
+\subsubsection{Fonction $\Gamma$ et constante $\gamma$}
 
-\begin{defi}{Constante $\gamma$ d'\nom{Euler}}
+\begin{defi}[Constante $\gamma$ d'\nom{Euler}]
 \source{Oral : Centrale 2 - 2021}
 La limite suivante est bien définie et appelée constante $\gamma$ d'\nom{Euler} :
 \[
-\gamma = \lim_{n\to+\infty} \left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
+\gamma \defeq \lim_{n\to+\infty} \mathopen{}\left(\ln(n) - \sum_{k=1}^n \frac{1}{k}\right).
 \]
 \end{defi}
 
@@ -300,30 +287,30 @@ La limite suivante est bien définie et appelée constante $\gamma$ d'\nom{Euler
 
 \source{Patrice \nompropre{Lassère}, p. 210}
 \begin{exercice}
-Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
+Pour tout $n \in \Ne$, on note $H_n = \sum\limits_{k=1}^n \frac{1}{k}$.
 \begin{questions}
 \item Montrer que 
 \[
-\Gamma'(1) = \lim_{x \to \infty} \int_0^n \left(1 - \frac{t}{n} \right)^n \ln(t) \d t
+\Gamma'(1) = \lim_{n \to \infty} \int_0^n \left(1 - \frac{t}{n} \right)^n \, \ln(t) \d t
 \]
 
 \item En utilisant un changement de variable affine, montrer que
 \[
-\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
-= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
+\int_0^n \left(1 - \frac{t}{n}\right)^n \, \ln(t) \d t
+= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \, \ln(u) \d u.
 \]
 
 
 \item En utilisant une \theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} puis une factorisation de $(1 - u)^{n+1} - 1$, montrer que
 \[
-(n+1) \int_0^1 (1 - u)^n \ln(u) \d u
-= -\sum_{k=0}^n \int_0^1 (1 - u)^k \d t.
+(n+1) \int_0^1 (1 - u)^n \, \ln(u) \d u
+= -\sum_{k=0}^n \int_0^1 (1 - u)^k \d u.
 \]
 
 \item En déduire que
 \[
-\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
-= \frac{n}{n + 1} (\ln(n) - H_{n+1}).
+\int_0^n \left(1 - \frac{t}{n}\right)^n \, \ln(t) \d t
+= \frac{n}{n + 1} \mathopen{}\big(\ln(n) - H_{n+1}\big).
 \]
 
 \item Conclure.
@@ -334,22 +321,23 @@ Pour tout $n \in \Ne$, on note $H_n = \sum_{k=1}^n \frac{1}{k}$.
 \begin{reponses}
 \item La convexité de la fonction exponentielle assure que pour tout $t \in \interff{0}{n}$,
 \[
-\left(1 - \frac{t}{n}\right)^n \leq \e^{-t}.
+\left(1 - \frac{t}{n}\right)^n \leqslant \e^{-t}.
 \]
+Posons $\fonctionligne[f]{t}{\ln(t) \, \e^{-t}}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$. \\
 
-Posons $f : t \mapsto \ln(t) \e^{-t}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = o_{+\infty}(1/t^2)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$.
+D'après le théorème \ref{theo:regularite_fonction_gamma}, $\Gamma'(1) = \int_0^{+\infty} \ln(t) \, \e^{-t} \d t$. 
 
 On obtient la limite annoncée en utilisant le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee}.
 
-\item En effectuant le changement de variable affine $u \mapsto n u$,
+\item En effectuant le changement de variable affine $u \mapsto n \, u$,
 \begin{align*}
-\int_0^n \left(1 - \frac{t}{n}\right)^n \ln(t) \d t
-&= n \int_0^1 \left(1 - u\right)^n \ln(n u) \d u\\
-&= n \ln(n) \int_0^1 \left(1 - u\right)^n \d u + n \int_0^1 (1 - u)^n \ln(u) \d u\\
-&= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \ln(u) \d u.
+\int_0^n \left(1 - \frac{t}{n}\right)^n \, \ln(t) \d t
+&= n \int_0^1 (1 - u)^n \, \ln(n \, u) \d u \\
+&= n \, \ln(n) \int_0^1 (1 - u)^n \d u + n \int_0^1 (1 - u)^n \, \ln(u) \d u\\
+&= \frac{n}{n+1} \ln(n) + n \int_0^1 (1 - u)^n \, \ln(u) \d u.
 \end{align*}
 
-\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\mathscr{C}^1$ sur $]0, 1]$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} puis à l'aide de la formule de \nom{Bernoulli},
+\item Les fonctions $u \mapsto -\frac{(1 - u)^{n+1} - 1}{n+1}$ et $u \mapsto \ln(u)$ sont de classe $\Cont^1$ sur $\interof{0}{1}$ et, d'après les croissances comparées, leur produit tend vers $0$ en $0$. Ainsi, d'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees} puis à l'aide de la formule de \nom{Bernoulli},
 \begin{align*}
 (n+1) \int_0^1 (1 - u)^n \ln(u) \d u
 &= \int_0^1 \frac{\left(1 - u\right)^{n+1} - 1}{u} \d t
@@ -377,7 +365,7 @@ On obtient la limite annoncée en utilisant le \theoremeutilise{théorème de co
 \begin{theo}
 $\Gamma\mathopen{}\left(\frac{1}{2}\right) = \sqrt{\pi}$
 et pour tout $n \in \Ne$,
-$\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.
+$\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n \fact{n}} \sqrt{\pi}$.
 \end{theo}
 % \begin{exercice}
     \source{\cite{fmaalouf}}
@@ -511,7 +499,7 @@ b_{n,p}
 \]
 Cette limite vaut donc
 \[
-\frac{2n+1}{n+1} \cdot \frac{n! (n+1)!}{(2n+2)!} \cdot \frac{(2n+1)!}{n! n!}  = \frac{2n+1}{2n+2}.
+\frac{2n+1}{n+1} \cdot \frac{\fact{n} (n+1)!}{(2n+2)!} \cdot \frac{(2n+1)!}{\fact{n} \fact{n}}  = \frac{2n+1}{2n+2}.
 \]
 \end{reponses}
 \end{solution}

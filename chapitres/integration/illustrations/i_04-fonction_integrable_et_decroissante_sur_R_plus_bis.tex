@@ -2,8 +2,8 @@
   % https://copyprogramming.com/howto/how-do-i-draw-arrows-at-coordinate-on-a-plot
   
   \def\xmax{5.5}
-  \def\ymax{1.1}
-  \def\ymin{-0.1}
+  \def\ymax{1.2}
+  \def\ymin{-0.2}
   \def\x{2.5}
   \def\xzero{\x/2}
 
@@ -16,6 +16,7 @@
     \begin{axis}[
         restrict x to domain=0:10,
         samples=100, % you don't need 1000, it only slows things down
+        unit vector ratio*=1 2.5 1,
         ticks=none,
         xmin = -1, xmax = \xmax+0.5,
         ymin = \ymin, ymax = \ymax,
@@ -27,8 +28,6 @@
       % \addplot[mark=*,fill=white] coordinates {(\xzero,{f(\xzero)})};
       % \draw[dashed] (axis cs:0,{f(\xzero)}) node[left=1mm] (l) {$f(x_0)$} -| (axis cs:2,0) node[above] (a) {$x_0$}; 
       \draw (\xzero,0) node[below] {$x/2$};
-
-      \draw[dashed] (axis cs:0,{f(\x)}) node[left=1mm] (l) {$f(x)$} -| (axis cs:\x,0) node[below] (a) {$\vphantom{x/2}x$};
       
       % \draw (\x,0) node[below] {$x$};
       \draw (2*\x,0) node[below] {$\vphantom{x/2}2x$};
@@ -39,6 +38,8 @@
 
       \fill[pattern color=myblue, pattern=north east lines] (\xzero,0) rectangle (\x,f(\x);
       \fill[pattern color=myred, pattern=north east lines] (\x,0) rectangle (2*\x,{f(\x)});
+
+      \draw[dashed] (axis cs:0,{f(\x)}) node[left=1mm] (l) {$f(x)$} -| (axis cs:\x,0) node[below] (a) {$\vphantom{x/2}x$};
       
       \addplot[name path=A,very thick,color=\colfonc, mark=none, domain=0:\xmax] {f(x)} node [above=10pt,near start] {$f$};
     \end{axis}

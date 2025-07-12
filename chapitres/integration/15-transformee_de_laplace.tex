@@ -4,9 +4,9 @@
 \todoarmand{Un thème assez développé sur la transformée de Laplace : \url{https://cahier-de-prepa.fr/ecg2-saintlouis/download?id=289}
 }
 
-La transformation de \nom{Laplace} généralise la transformation de \nom{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.
+\marginnote[0cm]{La transformation de \nom{Laplace} généralise la transformation de \nom{Fourier} qui est également utilisée pour résoudre les équations différentielles : contrairement à cette dernière, elle tient compte des conditions initiales et peut ainsi être utilisée en théorie des vibrations mécaniques ou en électricité dans l'étude des régimes forcés sans négliger le régime transitoire. De manière générale, ses propriétés vis-à-vis de la dérivation permettent un traitement plus simple de certaines équations différentielles, et elle est de ce fait très utilisée en automatique.}
 
-Dans ce type d'analyse, la transformation de \nom{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique). 
+\marginnote[0cm]{Dans ce type d'analyse, la transformation de \nom{Laplace} est souvent interprétée comme un passage du domaine temps, dans lequel les entrées et sorties sont des fonctions du temps, dans le domaine des fréquences, dans lequel les mêmes entrées et sorties sont des fonctions de la \say{ fréquence } (complexe) $p$. Ainsi, il est possible d'analyser simplement l'effet du système sur l'entrée pour donner la sortie en matière d'opérations algébriques simples (cf. théorie des fonctions de transfert en électronique ou en mécanique).}
 
 \begin{defi}[Fonction causale]
 \begin{comment}
@@ -80,9 +80,6 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \]
 \end{reponses}
 \end{solution}
-
-\todoarmand{Ajouter les derniers graphes}
-\input{chapitres/integration/illustrations/15-transformee_de_laplace-tableau}
 
 \begin{remarque}
 À un changement de variable près, on reconnaît, pour la dernière transformée de \nom{Laplace}, la fonction Gamma d'\nom{Euler}.\marginnote[0pt]{\href{subsec:FonctionGammaEuler}{\faLink~Fonction Gamma d'\nom{Euler}}}
@@ -232,6 +229,20 @@ p \int_h^{+\infty} \module{f(t)} \e^{-p t} \d t
 \item Conclure.
 \end{questions}
 \end{exercice}
+
+\begingroup
+% https://tex.stackexchange.com/questions/670034/centering-tikzpicture-in-tabularray/670036#670036
+\tikzset{baseshift/.style={yshift=-\the\dimexpr\fontdimen22\textfont2}}
+\tikzset{every picture/.style={scale=0.6, baseline={([baseshift]current bounding box.center)}}}
+
+\begin{margintable}
+\footnotesize{
+\input{chapitres/integration/illustrations/15-transformee_de_laplace-tableau}
+}
+\caption{Transformées de \nom{Laplace} usuelles}
+\end{margintable}
+
+\endgroup
 
 \begin{solution}
 \begin{reponses}

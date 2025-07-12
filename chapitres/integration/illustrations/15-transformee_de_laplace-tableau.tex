@@ -1,9 +1,3 @@
-\begingroup
-% https://tex.stackexchange.com/questions/670034/centering-tikzpicture-in-tabularray/670036#670036
-\tikzset{baseshift/.style={yshift=-\the\dimexpr\fontdimen22\textfont2}}
-\tikzset{every picture/.style={scale=0.6, baseline={([baseshift]current bounding box.center)}}}
-
-\begin{table}[h!]
     \centering
     \SetTblrInner{rowsep=3pt}
     \def\colplot{mycyan}
@@ -17,11 +11,13 @@
     \def\samp{200}
     \begin{tblr}{
         vspan=even, hspan=minimal,
-        colspec={| Q[c] Q[c] | Q[c] Q[c] |}, rowspec={Q[m] Q[m] Q[m] Q[m] Q[m] Q[m] Q[m]}
+        % colspec={| Q[c] Q[c] | Q[c] Q[c] |},
+        colspec={| Q[c] Q[c] | Q[c] |}, 
+        rowspec={Q[m] Q[m] Q[m] Q[m] Q[m]}
     }
         \hline
-        $f(t) \mathbf{1}_{t > 0}$ & $f(t)$ & $\mathcal{L}(f)(p)$ & \\ \hline\hline
-        % Row 2
+        $f(t) \mathbf{1}_{t > 0}$ & $f(t)$ & $\mathcal{L}(f)(p)$ \\ \hline\hline
+
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.2) -- (0,1.5);
@@ -29,17 +25,10 @@
                 \draw[\colplot, thick] (0,0) -- (0,1) -- (\b,1);
             \end{tikzpicture}%
 
-        & $ A $ & $\displaystyle \frac{A}{p} $ & 
-
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.2) -- (0,1.5);
-                \draw[\colplot, thick, domain=1/6:\b, samples=\samp] plot (\x, {1/(6*\x)});
-            \end{tikzpicture}%
+        & $ A $ & $\displaystyle \frac{A}{p} $ 
 
         \\ \hline
 
-        % Row 3
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.2) -- (0,1.5);
@@ -48,17 +37,10 @@
             \end{tikzpicture}%
 
         & $ a\,t$ % \cdot u(t) $ 
-        & $\displaystyle \frac{a}{p^2} $ & 
-        % \adjustbox{valign=c}{%
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.2) -- (0,1.5);
-                \draw[\colplot, thick, domain=0.40824829046:\b, samples=\samp] plot (\x, {1/(6*\x^2)});
-            \end{tikzpicture}%
+        & $\displaystyle \frac{a}{p^2} $ 
 
         \\ \hline
 
-        % Row 4
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.2) -- (0,1.5);
@@ -68,18 +50,10 @@
             \end{tikzpicture}%
 
         & $ \mathrm{e}^{-at}$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{1}{p + a} $ & 
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (2,-0.2) -- (2,1.5);
-                \draw[dashed] (1/6,-0.2) -- (1/6,1.5);
-                \node at (1/6, 0) {\footnotesize $a$};
-                \draw[\colplot, thick, domain=1/3:\b, samples=\samp] plot (\x, {1/(6*(\x-1/6))});
-            \end{tikzpicture}%
-            
+        & $\displaystyle \frac{1}{p + a} $ 
+
         \\ \hline
 
-        % Row 5
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.2) -- (0,1.5);
@@ -88,15 +62,10 @@
             \end{tikzpicture}%
 
         & $ t\, \mathrm{e}^{-at}$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{1}{(p + a)^2} $ & 
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.2) -- (0,1.5);
-            \end{tikzpicture}%
+        & $\displaystyle \frac{1}{(p + a)^2} $ 
 
         \\ \hline
 
-        % Row 6
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.65) -- (0,1.05);
@@ -105,15 +74,10 @@
             \end{tikzpicture}%
 
         & $ \sin(\omega t)$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{\omega}{p^2 + \omega^2} $ & 
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.65) -- (0,1.05);
-            \end{tikzpicture}%
+        & $\displaystyle \frac{\omega}{p^2 + \omega^2} $ 
 
         \\ \hline
 
-        % Row 7
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.65) -- (0,1.05);
@@ -123,16 +87,10 @@
             \end{tikzpicture}%
 
         & $ \cos(\omega t)$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{p}{p^2 + \omega^2} $ & 
-
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.65) -- (0,1.05);
-            \end{tikzpicture}%
+        & $\displaystyle \frac{p}{p^2 + \omega^2} $ 
 
         \\ \hline
 
-        % Row 8
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.65) -- (0,1.05);
@@ -141,16 +99,10 @@
             \end{tikzpicture}%
 
         & $ \mathrm{e}^{-at} \sin(\omega t)$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{\omega}{(p + a)^2 + \omega^2} $ & 
-
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.65) -- (0,1.05);
-            \end{tikzpicture}%
+        & $\displaystyle \frac{\omega}{(p + a)^2 + \omega^2} $ 
 
         \\ \hline
 
-        % Row 9
             \begin{tikzpicture}
                 \draw[-latex] (\xmin,0) -- (\xmax,0);
                 \draw[-latex] (0,-0.65) -- (0,1.05);
@@ -160,15 +112,7 @@
             \end{tikzpicture}%
 
         & $ \mathrm{e}^{-at} \cos(\omega t)$ % $ \cdot u(t) $ 
-        & $\displaystyle \frac{p + a}{(p + a)^2 + \omega^2} $ & 
-
-            \begin{tikzpicture}
-                \draw[-latex] (\xmin,0) -- (\xmax,0);
-                \draw[-latex] (0,-0.65) -- (0,1.05);
-            \end{tikzpicture}%
+        & $\displaystyle \frac{p + a}{(p + a)^2 + \omega^2} $ 
 
         \\ \hline
     \end{tblr}
-    \caption{Transformées de \nom{Laplace} usuelles}
-\end{table}
-\endgroup
