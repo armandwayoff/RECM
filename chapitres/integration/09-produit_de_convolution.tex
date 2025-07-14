@@ -12,7 +12,7 @@
 \begin{defi}[Produit de convolution]
 Soient $f$ et $g$ deux fonctions continues par morceaux sur $\R$. Pour tout $x \in \R$, on définit, lorsque l'intégrale converge,
 \begin{equation}\label{defconvolution}
-(f \ast g)(x) \defeq \int_{\R} f(x-y) g(y) \d y.
+(f \ast g)(x) \defeq \int_{\R} f(x-y) \, g(y) \d y.
 \end{equation}
 La fonction $f \ast g$ ainsi définie est le \definir{produit de convolution} de $f$ et $g$.
 \end{defi}
@@ -33,9 +33,9 @@ Le produit de convolution est bien défini lorsque :
 
 \begin{demo}
 \begin{enumerate}
-\item On remarque que $\module{f(x - \,\cdot\,) g(\,\cdot\,)} \leqslant \norm{g}_\infty \module{f(x - \,\cdot\,)}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
+\item On remarque que $\module{f(x - \,\cdot\,) \, g(\,\cdot\,)} \leqslant \norm{g}_\infty \module{f(x - \,\cdot\,)}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) \, g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
 
-\item On remarque que $\module{f(x - \,\cdot\,) g(\,\cdot\,)} \leqslant \frac{f(x - \,\cdot\,)^2 + g(\,\cdot\,)^2}{2}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
+\item On remarque que $\module{f(x - \,\cdot\,) \, g(\,\cdot\,)} \leqslant \frac{f(x - \,\cdot\,)^2 + g(\,\cdot\,)^2}{2}$. Ainsi, la fonction $y \mapsto \module{f(x - \,\cdot\,) \, g(\,\cdot\,)}$ est dominée par une fonction intégrable, donc est intégrable.
 \end{enumerate}
 \end{demo}
 

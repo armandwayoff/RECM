@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=2]
+    \def\eps{0.3}
+    \draw[thick, ->] (-1-\eps,0) -- (1+\eps,0); % node[below] {$x$};
+    \draw[thick, ->] (0,-1-\eps) -- (0,1+\eps); % node[right] {$y$};
+    \draw[thick, myblue] (0,0) circle (1);
+    \draw[thick, myred] (-1,-1) rectangle (1,1);
+    \draw[thick, mygreen, rotate=45] (-{sqrt(2)/2},-{sqrt(2)/2}) rectangle ({sqrt(2)/2},{sqrt(2)/2});
+
+    \node[mygreen] at (45:{sqrt(2)/2}) {\contour{white}{$p=1$}};
+    \node[myblue] at (45:1) {\contour{white}{$p=2$}};
+    \node[myred] at (45:{sqrt(2)}) {\contour{white}{$p=\infty$}};
+
+    \node[above] at (0,1+\eps) {$\big(\module{x}^p + \module{y}^p\big)^{1/p} = 1$};
+    
+    \node[below right] at (1,0) {$1$};
+    \node[below left] at (-1,0) {$-1$};
+    \node[below right] at (0,-1) {$-1$};
+    \node[above left] at (0,1) {$1$};
+\end{tikzpicture}

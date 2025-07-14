@@ -32,13 +32,13 @@
 %\addtokomafont{pagenumber}{\color{Maroon}}
 
 % Set KOMA fonts for book-specific elements
-\addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\scshape\bfseries}
-\addtokomafont{partentry}{\normalfont\scshape\bfseries} 
-\addtokomafont{chapter}{\normalfont\scshape\bfseries\fontsize{26pt}{28pt}\selectfont\color{BlueViolet}}
+\addtokomafont{part}{\normalfont\fontsize{26pt}{28pt}\selectfont\bfseries}
+\addtokomafont{partentry}{\normalfont\bfseries} 
+\addtokomafont{chapter}{\normalfont\bfseries\fontsize{26pt}{28pt}\selectfont\color{black}}
 \addtokomafont{chapterentry}{\normalfont\bfseries}
 
 % Set KOMA fonts for elements common to all classes
-\addtokomafont{section}{\normalfont\bfseries\color{BlueViolet}}
+\addtokomafont{section}{\normalfont\bfseries\color{black}}
 \addtokomafont{subsection}{\normalfont\bfseries}
 \addtokomafont{subsubsection}{\normalfont\bfseries}
 \addtokomafont{paragraph}{\normalfont\bfseries}
@@ -57,8 +57,8 @@
 	breaklinks=true,
 	colorlinks=true,
 	%allcolors=DarkGreen,
-    linkcolor = BlueViolet,
-	anchorcolor=BlueViolet, 
+    linkcolor = mydarkblue,
+	anchorcolor=mydarkblue, 
 	citecolor=myred,
 	filecolor=myred,
 	menucolor=myred,
@@ -72,6 +72,37 @@
 \renewcommand{\bfdefault}{b} % https://tex.stackexchange.com/questions/27843/level-of-boldness-changeable
 
 \renewcommand{\sfdefault}{xcmss} % https://ctan.tetaneutral.net/fonts/sansmathfonts/sansmathfonts.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format titre partie
+\makeatletter
+\renewcommand*\l@part[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \addpenalty{-\@highpenalty}%
+    \addvspace{2.25em \@plus\p@}%
+    \begingroup
+      \parindent \z@ 
+      \rightskip \z@
+      \parfillskip \z@
+      \leavevmode
+      {\Large\bfseries
+       \centering \MakeUppercase{#1}\par}% Actually center the text
+      \nobreak
+      \global\@nobreaktrue
+      \everypar{\global\@nobreakfalse\everypar{}}%
+    \endgroup
+  \fi}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareTOCStyleEntry[
+  entryformat=\large\bfseries,
+]{tocline}{chapter}
+
+\DeclareTOCStyleEntry[
+  entryformat=\bfseries,
+  pagenumberformat=\bfseries
+]{tocline}{section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % https://tex.stackexchange.com/questions/88281/how-to-change-font-for-the-integral-symbol

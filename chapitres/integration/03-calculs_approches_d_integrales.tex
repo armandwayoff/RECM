@@ -361,24 +361,28 @@ On peut montrer que~\cite{demailly2016} :
 \begin{itemize}
 \item lorsque $n = 1$, on retrouve la formule des trapèzes.
 
-\item lorque $n = 2$, on retrouve la méthode de \nom{Simpson}.
+\item lorsque $n = 2$, on retrouve la méthode de \nom{Simpson}.
 \end{itemize}
 
 On peut montrer que la méthode de \nom{Simpson} est d'ordre $3$. On peut augmenter le nombre des n\oe{}uds où est évaluée la fonction à intégrer ($2$ n\oe{}uds pour la méthode des trapèzes, $3$ pour la méthode de \nom{Simpson},\ldots). Cependant, lorsque le nombre de n\oe{}uds dépasse $8$, des coefficients négatifs apparaissent ce qui engendre des erreurs d'arrondis. \\
 
-\begin{table}[]
+
+\begin{margintable}[-5cm]
+\footnotesize{
     \centering
     \begin{tblr}{
     hlines,vlines,
     hline{2} = {2pt},
-    cells={c}
+    cells={c},
+    rowspec={Q[c,m]}
     }
-    \textbf{Méthode} & \textbf{Ordre} & \textbf{Vitesse de conv.} & \textbf{\nom{Newton}--\nom{Cotes}} \\
-    À gauche & $0$ & $O(1/p)$ & X\\
-    À droite & $0$ & $O(1/p)$ & X\\
-    Médians & $1$ & $O(1/p^2)$ & X\\
-    Trapèzes & $1$ & $O(1/p^2)$ & 1\\
-    \nom{Simpson} & $3$ & $O(1/p^4)$ & 2
+    \textbf{Méthode} & \textbf{Ordre} & {\textbf{Vitesse} \\ \textbf{de conv.}} & {\textbf{\nom{Newton}} \\ \textbf{\nom{Cotes}}} \\
+    À gauche & $0$ & $O(1/p)$ & X \\
+    À droite & $0$ & $O(1/p)$ & X \\
+    Médians & $1$ & $O(1/p^2)$ & X \\
+    Trapèzes & $1$ & $O(1/p^2)$ & $1$ \\
+    \nom{Simpson} & $3$ & $O(1/p^4)$ & $2$
     \end{tblr}
     \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
-\end{table} % margintable
+}
+\end{margintable}

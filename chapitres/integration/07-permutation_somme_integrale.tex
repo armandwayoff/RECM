@@ -3,16 +3,16 @@
 %-----------
 \subsection{Du continu au discret}
 
-\begin{prop}{Développement asymptotique de la factorielle}
+\begin{prop}[Développement asymptotique de la factorielle]
 Il existe une constante $\delta$ telle que
 \[
-n! = \delta n^{n + \frac{1}{2}} \e^{-n} \left(1 + \frac{1}{12 n} + o\left(\frac{1}{n}\right)\right).
+\fact{n} = \delta \, n^{n + \frac{1}{2}} \, \e^{-n} \mathopen{}\left(1 + \frac{1}{12 n} + o\mathopen{}\left(\frac{1}{n}\right)\right).
 \]
 Le résultat sur la formule de \nom{Stirling} montre que $\delta = \sqrt{2\pi}$.
 \end{prop}
 
 \begin{remarque}
-Une méthode pour déterminer la valeur de la constante $\delta$ est développée dans la partie~\ref{preuve_stirling}.
+Une méthode pour déterminer la valeur de la constante $\delta$ est développée dans le thème~\cref{preuve_stirling}.
 \end{remarque}
 
 \begin{exercice}
@@ -21,13 +21,13 @@ Soient $f$, $g$ deux fonctions continues sur $\Rp$ à valeurs positives. On supp
 b_0 = 0,\,
 b_1 = 1
 \text{ et }
-b_n = 1 + \left(n - \frac{1}{2}\right) \ln\left(1 - \frac{1}{n}\right),\, \forall\, n \in \N.
+b_n = 1 + \left(n - \frac{1}{2}\right) \ln\mathopen{}\left(1 - \frac{1}{n}\right),\, \forall\, n \in \N.
 \]
 On considère enfin une suite $(a_n)_{n\in\N}$ de réels positifs.
 \begin{questions}
 \item Si $f(x) \sim_{+\infty} g(x)$, montrer que $\displaystyle \int_x^{+\infty} f(t) \d t \sim_{+\infty} \int_x^{+\infty} g(t) \d t$.
 
-\item En appliquant la question précédente aux fonctions en escalier $f(t) = \sum_{k=0}^{+\infty} a_k \indicatrice{[k,k+1[}(t)$ et \mbox{$g(t) = \sum_{k=0}^{+\infty} b_k \indicatrice{[k, k+1[}(t)$}, montrer que si $a_n \sim b_n$ et $\sum a_n$ converge, alors $\sum\limits_{k=n+1}^{+\infty} a_k \sim \sum\limits_{k=n+1}^{+\infty} b_k$.
+\item En appliquant la question précédente aux fonctions en escalier de la forme $f(t) = \sum\limits_{k=0}^{+\infty} a_k \, \indicatrice{[k,k+1[}(t)$ et \mbox{$g(t) = \sum\limits_{k=0}^{+\infty} b_k \, \indicatrice{[k, k+1[}(t)$}, montrer que si $a_n \sim b_n$ et $\sum a_n$ converge, alors $\sum\limits_{k=n+1}^{+\infty} a_k \sim \sum\limits_{k=n+1}^{+\infty} b_k$.
 
 \item Montrer que $\sum b_n$ converge.
 
@@ -41,7 +41,7 @@ On considère enfin une suite $(a_n)_{n\in\N}$ de réels positifs.
 \begin{reponses}
 \item Soit $\varepsilon > 0$. La fonction $g$ étant strictement positive et comme $f \sim g$, il existe $a \in \Rp$ tel que
 \[
-\forall\, t \in [a, +\infty[,\, 0 < \abs{f(t) - g(t)} \leq \varepsilon g(t).
+\forall t \in \interfo{a}{+\infty},\quad 0 < \abs{f(t) - g(t)} \leqslant \varepsilon \, g(t).
 \]
 Ainsi, comme $g$ est intégrable sur $[a, +\infty[$, alors $f - g$ l'est également. D'après la croissance de l'intégrale et l'inégalité triangulaire,
 \[
@@ -219,18 +219,18 @@ Soit $a$ un nombre réel et $f$ une application de classe $\mathscr{C}^1$ sur $\
 
 \todoinline{Je pense que l'intérêt de l'écriture sur la somme est d'avoir une approximation de l'intégrale. On tente une illustration de cette rapidité de convergence ?}
 
-\begin{prop}{}
+\begin{prop}
 \[
-\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (xt)}{\ch t} \d t = \sum_{n=0}^{+ \infty} \frac{(-1)^n (2n+1)}{(2n+1)^2 + x^2}.
+\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (x \, t)}{\ch(t)} \d t = \sum_{n=0}^{+ \infty} \frac{(-1)^n \, (2n+1)}{(2n+1)^2 + x^2}.
 \]
 \end{prop}
 
 \begin{exercice}
-On pose $f : t \mapsto \frac{\cos(x t)}{\e^t + \e^{-t}}$ et $f_n : t \mapsto (-1)^n \cos(x t) \e^{-(n + 1) t}$.
+On pose $\displaystyle \fonctionligne[f]{t}{\frac{\cos(x \, t)}{\e^t + \e^{-t}}}$ et $\displaystyle \fonctionligne[f_n]{t}{(-1)^n \, \cos(x \, t) \, \e^{-(n + 1) t}}$.
 \begin{questions}
-\item Justifier la convergence de $\displaystyle\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (xt)}{\ch t} \d t$.
+\item Justifier la convergence de $\displaystyle\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (x \, t)}{\ch(t)} \d t$.
 
-\item Montrer que $f(x) = \sum\limits_{n=0}^{+\infty} (-1)^n \cos(x t) \e^{-(2 n + 1) t}$.
+\item Montrer que $f(x) = \sum\limits_{n=0}^{+\infty} (-1)^n \, \cos(x \, t) \, \e^{-(2 n + 1) t}$.
 
 \item Déterminer $\displaystyle\int_0^{+\infty} f_n(t) \d t$.
 
@@ -240,44 +240,45 @@ On pose $f : t \mapsto \frac{\cos(x t)}{\e^t + \e^{-t}}$ et $f_n : t \mapsto (-1
 
 \begin{elemsolution}
 \begin{reponses}
-\item La fonction $f \colon t \mapsto \frac{\cos(x t)}{2 \ch(t)}$ est continue sur $[0, +\infty[$. De plus, $|f(t)| \leq \frac{1}{\ch(t)}$ et $\frac{1}{\ch(t)} \sim_{+\infty} 2 \e^{-t}$. Ainsi, la fonction $f$ est intégrable sur $[0, +\infty[$ et l'intégrale converge.
+\item La fonction $\fonctionligne[f]{t}{\frac{\cos(x t)}{2 \ch(t)}}$ est continue sur $\interfo{0}{+\infty}$. De plus, $\module{f(t)} \leqslant \frac{1}{\ch(t)}$ et $\frac{1}{\ch(t)} \sim_{+\infty} 2 \, \e^{-t}$. Ainsi, la fonction $f$ est intégrable sur $\interfo{0}{+\infty}$ et l'intégrale converge.
 
-\item En utilisant le développement en série entière de la fonction inverse, comme $0 < \e^{-2t} < 1$ sur $]0, +\infty[$, 
+\item En utilisant le développement en série entière de la fonction inverse, comme $0 < \e^{-2t} < 1$ sur $\interoo{0}{+\infty}$, 
 \begin{align*}
 f(t)
-&= \frac{\cos(x t)}{\e^t + \e^{-t}}
-= \e^{-t} \cos(x t) (1 + \e^{-2t})^{-1}\\
-&= \e^{-t} \cos(x t) \sum_{n=0}^{+\infty} (-1)^n \e^{-2 n t}\\
-&= \sum_{n=0}^{+\infty} (-1)^n \cos(x t) \e^{- (2 n + 1) t}.
+&= \frac{\cos(x \, t)}{\e^t + \e^{-t}}
+= \e^{-t} \, \cos(x \, t) \, (1 + \e^{-2t})^{-1}\\
+&= \e^{-t} \, \cos(x \, t) \sum_{n=0}^{+\infty} (-1)^n \, \e^{-2 n t}\\
+&= \sum_{n=0}^{+\infty} (-1)^n \, \cos(x t) \, \e^{- (2 n + 1) t}.
 \end{align*}
 
 \item En utilisant la formule d'\nom{Euler},
 \begin{align*}
 (-1)^n \int_0^{+\infty} f_n(t) \d t
-&= \Reel\mathopen{}\left(\int_0^{+\infty} \e^{(\i x - (2 n + 1)) t} \d t\right)\\
-&= \Reel\mathopen{}\left(-\frac{1}{\i x - (2 n + 1)}\right)\\
+&= \Reel\mathopen{}\left(\int_0^{+\infty} \e^{(\i x - (2 n + 1)) t} \d t\right) 
+= \Reel\mathopen{}\left(-\frac{1}{\i x - (2 n + 1)}\right)\\
 &= \frac{2 n + 1}{x^2 + (2 n + 1)^2}.
 \end{align*}
 
-\item Remarquons que la série de terme général $(-1)^n \e^{- (2 n + 1) t}$ est une série alternée. Ainsi,
+\item Remarquons que la série de terme général $(-1)^n \, \e^{- (2 n + 1) t}$ est une série alternée. Ainsi,
 \begin{align*}
-\left|\sum_{n=N+1}^{+\infty} (-1)^n \e^{-(2 n + 1) t}\right|
-&\leq \e^{-(2 N + 1) t}.
+\module{\sum_{n=N+1}^{+\infty} (-1)^n \, \e^{-(2 n + 1) t}}
+&\leqslant \e^{-(2 N + 1) t}.
 \end{align*}
 Alors,
 \begin{align*}
 \module{\sum_{n=0}^N f_n(t)}
-&\leq \module{f(t) - \sum_{n=0}^N f_n(t)} + \module{f(t)}
-= \module{\sum_{n=N+1}^{+\infty} f_n(t)} + \module{f(t)}
-&\leq |f(t)| + \e^{-(2N+1) t} \leq \module{f(t)} + \e^{-t}.
+\leqslant \module{f(t) - \sum_{n=0}^N f_n(t)} + \module{f(t)}
+= \module{\sum_{n=N+1}^{+\infty} f_n(t)} + \module{f(t)} \\
+\leqslant |f(t)| + \e^{-(2N+1) t} 
+\leqslant \module{f(t)} + \e^{-t}.
 \end{align*}
 
-Ainsi, $\left(\sum\limits_{n=0}^N f_n\right)_{n\in\N}$ converge simplement vers $f$ et ses sommes partielles sont dominées par une fonction intégrable. Donc, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
+Ainsi, $\bigg(\sum\limits_{n=0}^N f_n\bigg)_{n\in\N}$ converge simplement vers $f$ et ses sommes partielles sont dominées par une fonction intégrable. Donc, d'après le \theoremeutilise{théorème de convergence dominée}{theo:convergencedominee},
 \begin{align*}
 \int_0^{+\infty} f(t) \d t
 &= \lim_{N\to+\infty} \sum_{n=0}^N \int_0^{+\infty} f_n(t) \d t\\
-\int_0^{+\infty} \frac{\cos(x t)}{2 \ch(t)} \d t
-&= \sum_{n=0}^{+\infty} \frac{(-1)^n (2 n + 1)}{x^2 + (2 n + 1)^2}.
+\int_0^{+\infty} \frac{\cos(x \, t)}{2 \, \ch(t)} \d t
+&= \sum_{n=0}^{+\infty} \frac{(-1)^n \, (2 n + 1)}{x^2 + (2 n + 1)^2}.
 \end{align*}
 \end{reponses}
 \end{elemsolution}
