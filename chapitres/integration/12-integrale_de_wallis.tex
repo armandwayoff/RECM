@@ -53,7 +53,7 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 \begin{solution}
 \begin{reponses}
 \item Par linéarité de l'intégrale, pour tout $n \in \N$, $\Wallis_{n+1} - \Wallis_n = \int_0^{\frac{\pi}{2}} \sin(t)^n \big(\sin(t) - 1\big) \d t$. Or, pour tout $t \in \interff{0}{\frac{\pi}{2}}$, $0 \leqslant \sin(t) \leqslant 1$. Ainsi, l'intégrande est à valeurs négatives et en utilisant la croissance de l'intégrale, on obtient bien $0 \leqslant \Wallis_{n+1} \leqslant \Wallis_n$. La suite $(\Wallis_n)_{n\in\N}$ converge donc par le \theoremeutilise{théorème de la limite monotone}{theo:limitemonotone}.
-\item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
+\item Calculons $\Wallis_{n+2}$ en effectuant une intégration par parties. On pose $u(t) = - \cos(t)$ et $v(t) = \sin(t)^{n+1}$, toutes deux de classe $\Cont^1$ sur $\interff{0}{\frac{\pi}{2}}$ et on calcule
     \begin{align*}
         \Wallis_{n+2} &= \underbrace{\left[ -\cos(t) \sin(t)^{n+1} \right]_0^{\pi/2}}_{=0} + (n+1) \int_0^{\pi/2} \cos(t)^2 \sin(t)^n \d t \\
         &= (n+1) \int_0^{\frac{\pi}{2}} \big(1 - \sin(t)^2 \big) \sin(t)^n \d t \\
@@ -153,9 +153,9 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac
 \item En utilisant les développements limités classiques,
 \begin{align*}
 \left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1
-&= \left(n + \frac{1}{2}\right) \left(\frac{1}{n} - \frac{1}{2 n^2} + \frac{1}{3 n^3} + o\mathopen{}\left(\frac{1}{n^3}\right)\right) - 1\\
-&= 1 - \frac{1}{2 n} + \frac{1}{3 n^2} + \frac{1}{2 n} - \frac{1}{4 n^2} + o\mathopen{}\left(\frac{1}{n^2}\right) - 1\\
-&= \frac{1}{12 n^2} + o\mathopen{}\left(\frac{1}{n^2}\right).
+&= \left(n + \frac{1}{2}\right) \left(\frac{1}{n} - \frac{1}{2 n^2} + \frac{1}{3 n^3} + \petito\mathopen{}\left(\frac{1}{n^3}\right)\right) - 1\\
+&= 1 - \frac{1}{2 n} + \frac{1}{3 n^2} + \frac{1}{2 n} - \frac{1}{4 n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right) - 1\\
+&= \frac{1}{12 n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right).
 \end{align*}
 
 On obtient ainsi l'équivalent annoncé.
@@ -264,7 +264,7 @@ Or, pour tout $x \in \interoo{-1}{1}$, $\sum \module{x}^{2p+1}$ converge. Ainsi,
 &= \int_0^{\pi/2} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
 \end{align*}
 
-\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonctionens[\varphi]{\interff{0}{x}}{\interff{0}{\pi/2}},\, u \mapsto \arcsin\frac{u}{x}$ est de classe $\mathscr{C}^1$. De plus,
+\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonctionens[\varphi]{\interff{0}{x}}{\interff{0}{\pi/2}},\, u \mapsto \arcsin\frac{u}{x}$ est de classe $\Cont^1$. De plus,
 \[
 \cos(\varphi(u)) = \sqrt{1 - \frac{u^2}{x^2}}
 \quad \text{et} \quad 

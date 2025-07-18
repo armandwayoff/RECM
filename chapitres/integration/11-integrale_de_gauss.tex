@@ -98,7 +98,7 @@ En déduire la valeur de $I$.
 
 \begin{solution}
 \begin{reponses}
-\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, \mbox{$\e^{-x^2} = o_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le \theoremeutilise{théorème de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
+\item La fonction $x \mapsto \e^{-x^2}$ est continue sur $\interfo{0}{+\infty}$. D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, \mbox{$\e^{-x^2} = \petito_{+\infty}\mathopen{}\left(\frac{1}{x^2}\right)$}. Ainsi, d'après le \theoremeutilise{théorème de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, la fonction $x \mapsto \e^{-x^2}$ est intégrable sur $\interfo{0}{+\infty}$.
 
 \item
 \begin{reponses}
@@ -206,7 +206,7 @@ D'après le \theoremeutilise{théorème de convergence dominée}{theo:convergenc
 \]
 \end{reponses}
 
-\item En effectuant le changement de variable $\fonction[\varphi]{\interff{0}{\pi/2}}{\interff{0}{\sqrt{n}}}{t}{\sqrt{n} \sin(t)}$ qui est bien de classe $\mathscr{C}^1$ et strictement croissant,
+\item En effectuant le changement de variable $\fonction[\varphi]{\interff{0}{\pi/2}}{\interff{0}{\sqrt{n}}}{t}{\sqrt{n} \sin(t)}$ qui est bien de classe $\Cont^1$ et strictement croissant,
 \begin{align*}
 \int_0^{\sqrt{n}} \left(1 - \frac{x^2}{n}\right)^n \d x &= \int_0^{\pi/2} \big(1 - \sin(t)^2\big)^n \sqrt{n} \cos(t) \d t \\
 &= \sqrt{n} \int_0^{\pi/2} \cos^{2n+1}(t) \d t \xrightarrow[n \to \infty]{} \frac{\sqrt{\pi}}{2}.
@@ -279,7 +279,7 @@ f_n'(\beta)
 
 \item Posons $\fonctionligne[g]{(\beta, x)}{\e^{-\beta x^2}}$ et $I(\beta) = \int_{-\infty}^{+\infty} g(\beta, x) \d x$.
 \begin{itemize}
-\item Pour tout $x \in \R$, la fonction $g(\,\cdot\,, x)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
+\item Pour tout $x \in \R$, la fonction $g(\,\cdot\,, x)$ est de classe $\Cont^\infty$ sur $\Rpe$.
 
 \item Pour tout $n \in \N$ et $x \in \R$,
 \[
@@ -293,7 +293,7 @@ donc $\frac{\partial^n g}{\partial \beta^n}(\beta, \,\cdot\,)$ est continue sur 
 qui est une fonction intégrable.
 \end{itemize}
 
-En utilisant le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I(\,\cdot\,)$ est de classe $\mathscr{C}^\infty$ et pour tout $n$ entier naturel,
+En utilisant le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}, la fonction $I(\,\cdot\,)$ est de classe $\Cont^\infty$ et pour tout $n$ entier naturel,
 \[
 I^{(n)}(\beta)
 = (-1)^n \int_\R x^{2n} \e^{-\beta x^2} \d x.

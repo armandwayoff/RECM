@@ -6,7 +6,7 @@
 \begin{prop}[Développement asymptotique de la factorielle]
 Il existe une constante $\delta$ telle que
 \[
-\fact{n} = \delta \, n^{n + \frac{1}{2}} \, \e^{-n} \mathopen{}\left(1 + \frac{1}{12 n} + o\mathopen{}\left(\frac{1}{n}\right)\right).
+\fact{n} = \delta \, n^{n + \frac{1}{2}} \, \e^{-n} \mathopen{}\left(1 + \frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right)\right).
 \]
 Le résultat sur la formule de \nom{Stirling} montre que $\delta = \sqrt{2\pi}$.
 \end{prop}
@@ -82,17 +82,17 @@ Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 
 \item D'après la question précédente,
 \[
-\sum_{k=n+1}^{+\infty} b_k = -\frac{1}{12 n} + o\left(\frac{1}{n}\right).
+\sum_{k=n+1}^{+\infty} b_k = -\frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right).
 \]
 
 Ainsi, en notant $\ell = \sum_{k=1}^{+\infty} \frac{1}{k^2}$, alors
 \[
-\sum_{k=0}^n b_k = \ln\left(\frac{n! \e^n}{n^{n+\frac{1}{2}}}\right) = \ell + \frac{1}{12 n} + o\left(\frac{1}{n}\right).
+\sum_{k=0}^n b_k = \ln\left(\frac{n! \e^n}{n^{n+\frac{1}{2}}}\right) = \ell + \frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right).
 \]
 
 En utilisant la fonction expontentielle,
 \[
-\frac{n! \e^n}{n^{n+\frac{1}{2}}} = \e^{\ell} \times \e^{\frac{1}{12 n} + o\left(\frac{1}{n}\right)}.
+\frac{n! \e^n}{n^{n+\frac{1}{2}}} = \e^{\ell} \times \e^{\frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right)}.
 \]
 
 On obtient le résultat attendu en utilisant le développement limité à l'ordre $1$ de la fonction exponentielle.

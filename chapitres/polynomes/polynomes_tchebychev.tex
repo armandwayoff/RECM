@@ -1,5 +1,5 @@
-\begin{defi}{Polynômes de \textsc{Tchebychev}}
-    Les \emph{polynômes de \textsc{Tchebychev}} de première espèce sont les uniques polynômes $(\Tcheby_n)_{n \geqslant 0}$ définis sur $]-1, 1[$ par
+\begin{defi}[Polynômes de \nom{Tchebychev}]
+    Les \emph{polynômes de \nom{Tchebychev}} de première espèce sont les uniques polynômes $(\Tcheby_n)_{n \geqslant 0}$ définis sur $]-1, 1[$ par
     $$\forall \theta \in \R,\ \Tcheby_n (\cos \theta) = \cos(n \theta).$$
 \end{defi}
 
@@ -7,8 +7,8 @@ Vérifions tout d'abord qu'une telle suite existe bien et qu'elle est unique.
 
 \begin{marginfigure}[-4.5cm]
     \centering
-	\input{illustrations/i_polynomes_tchebychev}
-	\caption*{\centering Polynômes de \textsc{Tchebychev} de première espèce}
+	\input{chapitres/polynomes/illustrations/i_polynomes_tchebychev}
+	\caption*{\centering Polynômes de \nom{Tchebychev} de première espèce}
 	\begin{align*}
 	   	\color{blue} \Tcheby_0 = 1 \\
     	\color{red} \Tcheby_1 = x \\
@@ -19,7 +19,7 @@ Vérifions tout d'abord qu'une telle suite existe bien et qu'elle est unique.
 	\end{align*}
 \end{marginfigure}
 
-\begin{preuve}
+\begin{demo}
     \begin{description}
         \item[Existence] Nous allons montrer que la suite $(\Tcheby_n)_{n \geqslant 0}$ vérifie une relation de récurrence. \\
         Soit $n \in \N$,
@@ -33,10 +33,10 @@ Vérifions tout d'abord qu'une telle suite existe bien et qu'elle est unique.
         $$\Tcheby_{n+2} = 2X \Tcheby_{n+1} - \Tcheby_n.$$
         \item[Unicité] L'unicité de $\Tcheby_n$ pour $n$ fixé est garantie pas l'identification de \ptnclegras{deux polynômes coïncidant} sur $]-1, 1[$. 
     \end{description}
-\end{preuve}
+\end{demo}
 
 \marginnote[-6cm]{
-    \begin{prop}{Formule de trigonométrie}
+    \begin{prop}[Formule de trigonométrie]
         $$\sin a \sin b = \frac{1}{2} \big( \cos(a-b) - \cos(a+b) \big)$$
     \end{prop}
 }
@@ -54,7 +54,7 @@ Vérifions tout d'abord qu'une telle suite existe bien et qu'elle est unique.
     $$\forall n \in \N,\ \Tcheby_n = \sum_{k=0}^{\lfloor n / 2 \rfloor} (-1)^k \binom{n}{2k} X^{n-2k} (1-X^2)^k.$$
 \end{solution}
 
-\begin{prop}{}
+\begin{prop}
     \begin{enumerate}
         \item $$\deg \Tcheby_n = n \text{ et } \mathrm{cd}\, \Tcheby_n = 2^{n-1}$$
         \item $\Tcheby_n$ est pair si $n$ est pair et vice versa. \\
@@ -67,9 +67,7 @@ Vérifions tout d'abord qu'une telle suite existe bien et qu'elle est unique.
     \end{enumerate}
 \end{prop}
 
-\begin{preuve}
-    \begin{enumerate}
+\begin{demo}
 
-    \end{enumerate}
-\end{preuve}
+\end{demo}
 

@@ -3,10 +3,10 @@
 
 Il arrive fréquemment que le calcul exact d’une intégrale soit difficile, voire
 impossible pour certaines fonctions et il est courant, dans ce cas, de chercher à
-approcher la valeur de l’intégrale en utilisant des polynômes comme les polynômes de \textsc{Bernoulli} par exemple.
+approcher la valeur de l’intégrale en utilisant des polynômes comme les polynômes de \nom{Bernoulli} par exemple.
 
-\begin{defi}{Polynômes de \textsc{Bernoulli}}
-    Les \emph{polynômes de \textsc{Bernoulli}} forment l'unique suite de polynômes $(\Bern_n)_{n \in \N}$ telle que:
+\begin{defi}[Polynômes de \nom{Bernoulli}]
+    Les \emph{polynômes de \nom{Bernoulli}} forment l'unique suite de polynômes $(\Bern_n)_{n \in \N}$ telle que:
     \begin{align*}
         &\Bern_0 = 1, \\
         \forall n \in \N,\ &\Bern'_{n+1} = (n+1)\Bern_n, \\
@@ -14,8 +14,8 @@ approcher la valeur de l’intégrale en utilisant des polynômes comme les poly
     \end{align*}
 \end{defi}
 
-\begin{defi}{Nombres de \textsc{Bernoulli}}
-    Pour tout $n \geqslant 0$, on pose $\mathrm{b}_n \defeq \Bern_n(0)$. La suite de réels $(\mathrm{b}_n)_{n \in \N}$ est appelée suite des \emph{nombres de \textsc{Bernoulli}}.
+\begin{defi}[Nombres de \nom{Bernoulli}]
+    Pour tout $n \geqslant 0$, on pose $\mathrm{b}_n \defeq \Bern_n(0)$. La suite de réels $(\mathrm{b}_n)_{n \in \N}$ est appelée suite des \emph{nombres de \nom{Bernoulli}}.
 \end{defi}  
 
 \begin{table}[H]
@@ -33,7 +33,7 @@ approcher la valeur de l’intégrale en utilisant des polynômes comme les poly
 \end{table}
 
 \begin{exercice}
-    \begin{enumerate}
+    \begin{questions}
         \item Déterminer le degré de $\Bern_n(X)$ pour $n \geqslant 0$. 
         \item Montrer que, pour tout $n \geqslant 2$, $\Bern_n(0) = \Bern_n(1)$.
         \item Soient $n \in \N$ et $x \in \R$. Montrer que 
@@ -48,5 +48,5 @@ approcher la valeur de l’intégrale en utilisant des polynômes comme les poly
             \forall n \geqslant 0, \Bern_{2n+1}(\frac{1}{2}) = 0.
         \end{cases}
         $$
-    \end{enumerate}    
+    \end{questions}    
 \end{exercice}

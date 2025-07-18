@@ -41,7 +41,7 @@ En particulier, pour tout $n \in \N$, $\Gamma(n+1)~=~\fact{n}$.
 
 \begin{demo}
 On pose $\fonctionligne[f_x]{t}{t^{x - 1} \, \e^{-t}}$. La fonction $f_x$ est continue sur $\Rpe$. Comme $f_x$ est à valeurs positives, son intégrabilité est équivalente à la convergence de l'intégrale. \\
-D'une part, comme $f_x(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les \theoremeutilise{théorèmes de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$. D'autre part, comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$. Finalement, la fonction $\Gamma$ est définie sur $\Rpe$. 
+D'une part, comme $f_x(t) = \petito_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, d'après les \theoremeutilise{théorèmes de comparaison aux intégrales de \nom{Riemann}}{theo:comparaisonintegralesriemann}, $f_x$ est intégrable sur $\interfo{1}{+\infty}$. D'autre part, comme $f_x(t) \sim_0 \frac{1}{t^{1-x}}$, alors $f_x$ est intégrable sur $\interof{0}{1}$ si et seulement si $x > 0$. Finalement, la fonction $\Gamma$ est définie sur $\Rpe$. 
 
 Les fonctions $t \mapsto \e^{-t}$ et $t \mapsto t^x$ sont de classe $\Cont^1$ sur $\Rpe$. D'après les croissances comparées, $\lim_{t\to0} t^x \, \e^{-t} = \lim_{t\to+\infty} t^x \, \e^{-t} = 0$. Ainsi, d'après la formule d'\theoremeutilise{intégration par parties généralisée}{theo:ippgeneralisees},
 \[
@@ -76,7 +76,7 @@ La fonction $\Gamma$ est de classe $\Cont^\infty$ sur $\Rpe$. De plus,
 t^{A-1} \, \e^{-t} &\text{si } t \in \interfo{1}{+\infty}
 \end{cases}
 \]
-La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur~$\Rpe$.
+La fonction $\phi$ est continue sur $\Rpe$. De plus, $\phi(t) \sim_0 \frac{1}{t^{1 - a}}$ et $\phi(t) = \petito_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$, donc $\phi$ est intégrable sur~$\Rpe$.
 \end{itemize}
 Finalement, d'après le \theoremeutilise{théorème de continuité sous le signe intégral}{theo:continuitesoussigneintegral}, la fonction $\Gamma$ est continue sur $\interff{a}{A}$ pour tout $0 < a < A$ et $\Gamma$ est donc continue sur $\Rpe$.
 
@@ -98,7 +98,7 @@ Finalement, d'après le \theoremeutilise{théorème de continuité sous le signe
 En notant $\phi_j$ cette fonction,
 \begin{itemize}
 \item $\phi_j$ est continue sur $\Rpe$.
-\item $\phi_j(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = o_0\mathopen{}\big(t^{a/2-1}\big)$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
+\item $\phi_j(t) = \petito_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$ et $\phi_j(t) = \petito_0\mathopen{}\big(t^{a/2-1}\big)$. Ainsi, $\phi_j$ est intégrable sur $\Rp$.
 \end{itemize}
 \end{itemize}
 Finalement, $\Gamma$ est de classe $\Cont^\infty$ et
@@ -323,7 +323,7 @@ Pour tout $n \in \Ne$, on note $H_n = \sum\limits_{k=1}^n \frac{1}{k}$.
 \[
 \left(1 - \frac{t}{n}\right)^n \leqslant \e^{-t}.
 \]
-Posons $\fonctionligne[f]{t}{\ln(t) \, \e^{-t}}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$. \\
+Posons $\fonctionligne[f]{t}{\ln(t) \, \e^{-t}}$. La fonction $f$ est continue sur $\Rpe$, $f(t) \sim_0 \ln(t)$ et $f(t) = \petito_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, la fonction $f$ est intégrable sur $\Rpe$. \\
 
 D'après le théorème \ref{theo:regularite_fonction_gamma}, $\Gamma'(1) = \int_0^{+\infty} \ln(t) \, \e^{-t} \d t$. 
 
@@ -375,7 +375,7 @@ $\Gamma\mathopen{}\left(n + \frac{1}{2}\right) = \frac{(2n)!}{4^n \fact{n}} \sqr
 % \marginnote[0cm]{Source : \href{https://fr.wikipedia.org/wiki/Intégrale_de_Gauss#Calcul_de_l'intégrale_de_Gauss}{Intégrale de Gauss -- \textsf{wikipedia.org}}}
 
 \begin{elemdemo}
-On utilise le changement de variable $\mathscr{C}^1$ et bijectif $u \mapsto u^2$. Alors,
+On utilise le changement de variable $\Cont^1$ et bijectif $u \mapsto u^2$. Alors,
 \begin{align*}
 \Gamma\mathopen{}\left( \frac{1}{2} \right)
 &= \int_0^{+ \infty} t^{\frac{1}{2}-1} \e^{-t} \d t
@@ -451,7 +451,7 @@ Pour tout $(p,q) \in \N^2$,
 \begin{reponses}
 \item On a immédiatement $B(p+1, 1) = \int_0^1 t^p \d t = \frac{1}{p + 1}$.
 
-\item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\mathscr{C}^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
+\item On pose $\fonctionligne[u]{t}{\frac{1}{p+1} t^{p+1}}$ et $\fonctionligne[v]{t}{(1-t)^q}$, toutes deux de classe $\Cont^1$ sur $\interff{0}{1}$. Alors, d'après la formule d'intégration par parties, 
 \begin{align*}
 B(p+1, q+1)
 &= \left[ \frac{1}{p+1}t^{p+1} \times (1-t)^q \right]_0^1 + \frac{q}{p+1} \int_0^1 t^{p+1} (1-t)^{q-1} \d t
@@ -568,7 +568,7 @@ Soit $p \geqslant 2$ et $q \in \N$. On pose $S(p) = \sum\limits_{n=p}^{+\infty} 
 \begin{reponses}
 \item D'après la définition des coefficients binomiaux,
 \[
-\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = o\mathopen{}\left(\frac{1}{n^2}\right).
+\binom{n}{p}^{-1} = \frac{p (p-1) \cdots 2 \cdot 1}{n (n-1) \cdots (n-p+2) (n-p+1)} = \petito\mathopen{}\left(\frac{1}{n^2}\right).
 \]
 Ainsi, d'après les \theoremeutilise{théorèmes de comparaison des séries à termes positifs}{theo:comparaisonseriestermespositifs}, $S(p)$ est bien définie.
 
@@ -636,13 +636,13 @@ B(x, y) = \frac{x}{x + y} B(x, y).
 
 \item Simple calcul de primitive.
 
-\item Pour la première égalité, on effectue une intégration par parties avec les fonctions $t \mapsto t^x$ et $t \mapsto -\frac{(1 - t)^y}{y}$, de classe $\mathscr{C}^1$ sur $\interff{0}{1}$.
+\item Pour la première égalité, on effectue une intégration par parties avec les fonctions $t \mapsto t^x$ et $t \mapsto -\frac{(1 - t)^y}{y}$, de classe $\Cont^1$ sur $\interff{0}{1}$.
 
 Pour la deuxième égalité, on décompose $t^x = (1 - t + t) t^{x - 1}$.
 
 Enfin, on résout le système linéaire.
 
-\item On utilise le changement de variable $\mathscr{C}^1$ et bijectif $t \mapsto \frac{t}{1 - t}$.
+\item On utilise le changement de variable $\Cont^1$ et bijectif $t \mapsto \frac{t}{1 - t}$.
 \end{enumerate}
 \end{demo}
 

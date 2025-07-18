@@ -21,7 +21,7 @@
     On pose alors, pour tout $x  \in \interff{a}{b}$,
     $$\psi(x) \defeq \int_{c}^{d} \varphi(x, t) \d t.$$
     \begin{questions}[resume]
-        \item Montrer que $\psi$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ et donner une expression de $\psi'$.
+        \item Montrer que $\psi$ est de classe $\Cont^1$ sur $\interff{a}{b}$ et donner une expression de $\psi'$.
         \item En déduire que pour tout $x \in \interff{a}{b}$,
         \[
         \int_{a}^{x} \mathopen{}\bigg( \int_{c}^{d} f(u,t) \d t \bigg) \d u = \int_{c}^{d} \mathopen{}\bigg( \int_{a}^{x} f(u,t) \d u \bigg) \d t.
@@ -52,7 +52,7 @@ Pour vérifier l'hypothèse de domination, on constate que la fonction $f$ est c
         
 \item On applique le \theoremeutilise{théorème de dérivation des intégrales à paramètre}{theo:derivationintegralesparametre} à la fonction $x \mapsto \int_{c}^{d} \varphi(x, t) \d t$:
         \begin{itemize}
-            \item Pour tout $t \in \interff{c}{d}$, la fonction $x \mapsto \varphi(x, t)$ est de classe $\mathscr{C}^1$ sur $\interff{a}{b}$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
+            \item Pour tout $t \in \interff{c}{d}$, la fonction $x \mapsto \varphi(x, t)$ est de classe $\Cont^1$ sur $\interff{a}{b}$ car c'est la primitive s'annulant en $a$ de la fonction continue $x \mapsto f(x, t)$. 
             \item Sa dérivée partielle s'écrit $\frac{\partial \varphi}{\partial x}(x, t) = f(x, t)$.
             \item La domination se fait par la même constante $M$ que précédemment. 
             \end{itemize}

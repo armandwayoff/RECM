@@ -1,5 +1,5 @@
-\begin{defi}{Polynômes de \textsc{Legendre}}
-    On appelle famille des \emph{polynômes de \textsc{Legendre}} la suite de polynômes $\suite{\Leg}{n}{n \in \Ne}$ définie par
+\begin{defi}[Polynômes de \textsc{Legendre}]
+    On appelle famille des \emph{polynômes de \nom{Legendre}} la suite de polynômes $\suite{\Leg}{n}{n \in \Ne}$ définie par
     $$\Leg_n(X) \defeq \frac{1}{2^n} \sum_{k=0}^{n} \binom{n}{k}^2 (X-1)^{n-k}(X+1)^{k}.$$
 \end{defi}
 
@@ -8,21 +8,21 @@
 }
 
 \begin{exercice}
-    \marginnote[0cm]{Source : \cite{exos_oraux} p. 25} 
-    \begin{enumerate}
+    \source{\cite{exos_oraux} p. 25} 
+    \begin{questions}
         \item Montrer que $\Leg_n(X) = \frac{1}{2^n \fact{n}} \left[ \big(X^2-1\big)^n \right]^{(n)}$. En déduire la parité de $\Leg_n$ et l'égalité $\sum\limits_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$.
         \item Soit $n \in \Ne$, montrer que $\Leg_n(X)$ est scindé à racines simples dans $\interoo{-1}{1}$. 
         \item Montrer que pour tout $n \in \N$, $$\big(X^2-1\big) \Leg''_n(X) + 2X \Leg'_n(X) = n(n+1) \Leg_n.$$
-    \end{enumerate}
+    \end{questions}
 \end{exercice}  
 
-\begin{elem_sol}
+\begin{elemsolution}
     Pour montrer que $\Leg_n(X)$ est scindé à racines simples dans $\interoo{-1}{1}$, raisonner par récurrence et penser à \textsc{Rolle}. 
-\end{elem_sol}
+\end{elemsolution}
 
 \begin{marginfigure}[-11.5cm]
     \centering
-	\input{illustrations/i_polynomes_legendre}
+	\input{chapitres/polynomes/illustrations/i_polynomes_legendre}
 	\caption*{\centering Les premiers polynômes de \textsc{Legendre}}
 	\small
 	\begin{align*}

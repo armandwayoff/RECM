@@ -25,7 +25,7 @@ I_p^\mathrm{g}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f(x_i).
 \]
 
 \begin{prop}
-La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\mathscr{C}^1$, l'erreur commise est en $O(1/p)$.
+La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de classe $\Cont^1$, l'erreur commise est en $\grando(1/p)$.
 \end{prop}
 
 \begin{marginfigure}[0cm]
@@ -36,7 +36,7 @@ La méthode des rectangles à gauche est d'ordre $0$. De plus, si $f$ est de cla
 \marginnote[6cm]{Animation de la méthode des rectangles à gauche : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/01-methode_des_rectangles_a_gauche.mp4}}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
+Soit $f$ une fonction de classe $\Cont^1$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_1 = \sup_{\interff{a}{b}} \module{f'}$.
 \begin{questions}
 \item Montrer que
 \[
@@ -91,7 +91,7 @@ I_p^\mathrm{m}(f) = \frac{b-a}{p} \sum_{i=0}^{p-1} f\left(\frac{x_i + x_{i+1}}{2
 \]
 
 \begin{prop}
-La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
+La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de classe $\Cont^2$, l'erreur commise est en $\grando(1/p^2)$.
 \end{prop}
 
 \begin{marginfigure}[-3cm]
@@ -102,7 +102,7 @@ La méthode des rectangles médians est d'ordre $1$. De plus, si $f$ est de clas
 \marginnote[3cm]{Animation de la méthode des rectangles médians : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/02-methode_des_rectangles_medians.mp4}}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
+Soit $f$ une fonction de classe $\Cont^2$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_2 = \sup_{\interff{a}{b}} \module{f''}$. Pour tout entier $i \in \interent{0}{p-1}$, on pose $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu du segment $\interff{x_i}{x_{i+1}}$.
 \begin{questions}
 \item Montrer que
 \[
@@ -169,11 +169,11 @@ I_p^\mathrm{t}(f) =  \frac{b-a}{p} \sum_{i=0}^{p-1} \frac{f(x_i) + f(x_{i+1})}{2
 \marginnote[6cm]{Animation de la méthode des trapèzes : \url{https://acamanes.github.io/psi/psi_doc/animations/integration_segment/03-methode_des_trapezes.mp4}}
 
 \begin{prop}
-La méthode des trapèzes est d'ordre $1$. De plus, si $f$ est de classe $\mathscr{C}^2$, l'erreur commise est en $O(1/p^2)$.
+La méthode des trapèzes est d'ordre $1$. De plus, si $f$ est de classe $\Cont^2$, l'erreur commise est en $\grando(1/p^2)$.
 \end{prop}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
+Soit $f$ une fonction de classe $\Cont^2$. On note $M_2 = \sup_{[a,b]} \module{f''}$. Pour tout $i \in \interent{0}{p-1}$, on note $\phi_i$ l'approximation affine sur $\interff{x_i}{x_{i+1}}$ de $f$ et $g_i = f - \phi_i$.
 \begin{questions}
 \item Montrer que
 \[
@@ -234,7 +234,7 @@ Soit $f$ une fonction de classe $\mathscr{C}^2$. On note $M_2 = \sup_{[a,b]} \mo
 \end{marginfigure}
 
 \begin{remarque}\label{remarquemethodetrapezes}
-Lorsque $f$ est de classe $\mathscr{C}^2$ et convexe (resp. concave), alors $f'' \geqslant 0$ (resp. $\leqslant 0$) et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leqslant I_p^\mathrm{t}(f)$} (resp. \mbox{$\int_{[a,b]} f \geqslant I_p^\mathrm{t}(f)$}). On obtient ainsi une valeur approchée par excès (resp. par défaut) de l'intégrale.
+Lorsque $f$ est de classe $\Cont^2$ et convexe (resp. concave), alors $f'' \geqslant 0$ (resp. $\leqslant 0$) et, pour tout $p$ entier naturel, \mbox{$\int_{[a,b]} f \leqslant I_p^\mathrm{t}(f)$} (resp. \mbox{$\int_{[a,b]} f \geqslant I_p^\mathrm{t}(f)$}). On obtient ainsi une valeur approchée par excès (resp. par défaut) de l'intégrale.
 \end{remarque}
 
 \subsection{Méthode de \nom{Simpson}}
@@ -245,14 +245,14 @@ I_p^\mathrm{s}(f) = \frac{b-a}{6 p} \sum_{i=0}^{p-1} \left[f(x_i)+ 4 f\left(\fra
 \]
 
 \begin{prop}
-Dans la méthode de \nom{Simpson}, si $f$ est de classe $\mathscr{C}^4$, l'erreur commise est en $O(1/p^4)$.
+Dans la méthode de \nom{Simpson}, si $f$ est de classe $\Cont^4$, l'erreur commise est en $\grando(1/p^4)$.
 \end{prop}
 
 \todoinline{Tu aurais le courage de vérifier le calcul suivant ?}
 \todoarmand{Je suis en train de le reprendre}
 
 \begin{exercice}
-Soit $f$ une fonction de classe $\mathscr{C}^4$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
+Soit $f$ une fonction de classe $\Cont^4$ sur le segment $\interff{a}{b}$. On note $F$ une primitive de $f$ et $M_4 = \sup_{[a,b]} \big\vert f^{(4)} \big\vert$.
 
 Pour tout $i \in \interent{0}{p-1}$, notons $\gamma_i = \frac{x_i + x_{i+1}}{2}$ le milieu de la subdivision et $h_i = \frac{x_{i+1} - x_i}{2}$ la moitié de sa longueur.
 \begin{questions}
@@ -377,11 +377,11 @@ On peut montrer que la méthode de \nom{Simpson} est d'ordre $3$. On peut augmen
     rowspec={Q[c,m]}
     }
     \textbf{Méthode} & \textbf{Ordre} & {\textbf{Vitesse} \\ \textbf{de conv.}} & {\textbf{\nom{Newton}} \\ \textbf{\nom{Cotes}}} \\
-    À gauche & $0$ & $O(1/p)$ & X \\
-    À droite & $0$ & $O(1/p)$ & X \\
-    Médians & $1$ & $O(1/p^2)$ & X \\
-    Trapèzes & $1$ & $O(1/p^2)$ & $1$ \\
-    \nom{Simpson} & $3$ & $O(1/p^4)$ & $2$
+    À gauche & $0$ & $\grando(1/p)$ & X \\
+    À droite & $0$ & $\grando(1/p)$ & X \\
+    Médians & $1$ & $\grando(1/p^2)$ & X \\
+    Trapèzes & $1$ & $\grando(1/p^2)$ & $1$ \\
+    \nom{Simpson} & $3$ & $\grando(1/p^4)$ & $2$
     \end{tblr}
     \caption{Résumé des propriétés des méthodes de calculs approchés d’intégrales}
 }

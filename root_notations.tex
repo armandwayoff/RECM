@@ -94,6 +94,15 @@
   \fi
 }
 
+% https://tex.stackexchange.com/questions/30944/mathcalo-and-font-size
+\DeclareMathOperator*{\grando}{\mathcal{O}}
+\DeclareMathOperator*{\petito}{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\interoo}[2]{\left]#1\,;#2\right[}

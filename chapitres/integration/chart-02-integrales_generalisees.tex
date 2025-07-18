@@ -10,7 +10,7 @@
   \node [decision, below =of reel] (primitive) {$\displaystyle\int^x f = F(x)$};
   \node [decision, right =of primitive] (limfct) {$F(a) \to \ell \in \mathbb{R}$};
   \node [decision, below =of primitive] (positive) {$f \geqslant 0$};
-  \node [decision, right =of positive] (comparaison) {$f = O_a(g)$};
+  \node [decision, right =of positive] (comparaison) {$f = \grando_a(g)$};
   \node [cloud, above right =of comparaison, yshift=-1.7cm] (dv) {diverge${}^\ast$};
   \node [decision, left =of positive] (integrable) {$\displaystyle\int_I |f|$};
   \node [decision, below =of positive] (chgtvar) {Changement \\ de variables};
@@ -49,12 +49,12 @@
 
 
   \path [draw, very thick] (comparaison.south) |- (pcm);
-  \path [line] (chgtvar) -- node [midway] {\contour{white}{$\mathscr{C}^1$ bijectif}} (chgtvarint);
+  \path [line] (chgtvar) -- node [midway] {\contour{white}{$\Cont^1$ bijectif}} (chgtvarint);
   \path [line] (chgtvarint.south west) -- node [midway, sloped] {\contour{white}{non}} (ipp.north east);
   \path [line] (ipp) -- node [above] {crochet} node [below] {converge} (ippint);
   \path [line] (ippint.east) -- ([xshift=5.7cm]ippint.east) |- (init.east);
   \path [line] (ipp.west) -- (etc.east);
   \path [line] (chgtvarint.east) -- ([xshift=5cm]chgtvarint.east) |- (init.east);\node [block] (init) {$\displaystyle\int_I f$ ?};
-  \node[below =of ipp, xshift=-1cm, yshift=3cm] {$\ast$ Si $g = o_a(f)$ sont positives et $\int_a g$ diverge, alors $\int_a f$ diverge.};
+  \node[below =of ipp, xshift=-1cm, yshift=3cm] {$\ast$ Si $g = \petito_a(f)$ sont positives et $\int_a g$ diverge, alors $\int_a f$ diverge.};
 \end{tikzpicture}
 \end{center}

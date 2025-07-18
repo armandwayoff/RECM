@@ -70,7 +70,7 @@ Soient $\lambda \in \C$ et $n \in \N$. Pour chacune des fonctions suivantes, dé
 \item Soit $n \in \Ne$ et $\fonctionligne[f_n]{t}{t^n \e^{-pt}}$.
 \begin{itemize}
 \item La fonction $f_n$ est continue sur $\Rpe$.
-\item Si $p > 0$, alors $f(t) = o_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\Rpe$.
+\item Si $p > 0$, alors $f(t) = \petito_{+\infty}(1/t^2)$ et $f$ est intégrable sur $\Rpe$.
 
 Si $p \leqslant 0$, alors $\lim_{+\infty} f = +\infty$ et $f$ n'est pas intégrable sur $\Rpe$.
 \end{itemize}
@@ -88,7 +88,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 
 \begin{theo}
 \begin{enumerate}
-\item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\mathscr{C}^\infty$ sur $\Rpe$.
+\item Si la fonction $f$ est bornée, alors $\mathscr{L}(f)$ est définie et de classe $\Cont^\infty$ sur $\Rpe$.
 
 \item Si $\int_0^{+\infty} f(t) \d t$ converge, alors $\mathscr{L}(f)$ est définie sur $\Rp$.
 
@@ -100,7 +100,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \begin{enumerate}
 \item La fonction $f$ est bornée par une constante $M$. On utilise le \theoremeutilise{théorème de dérivation sous le signe intégral}{theo:derivationsoussigneintegrale}. Notons $\fonctionligne[g]{(p, t)}{f(t) \e^{-pt}}$.
 \begin{itemize}
-\item Pour tout $t \in \Rpe$, la fonction $\fonctionligne[g(\,\cdot\,, t)]{p}{\e^{-p t} f(t)}$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$ et
+\item Pour tout $t \in \Rpe$, la fonction $\fonctionligne[g(\,\cdot\,, t)]{p}{\e^{-p t} f(t)}$ est de classe $\Cont^\infty$ sur $\Rpe$ et
 \[
 \forall j \in \N,\quad \frac{\partial^j g}{\partial p^j} g(p, t) = (-1)^j t^j f(t) \e^{-pt}.
 \]
@@ -113,7 +113,7 @@ Ainsi, $f_n$ est intégrable si et seulement si $p > 0$. Une récurrence classiq
 \]
 De plus, la fonction $\fonctionligne[\phi_j]{t}{M t^j \e^{-\tilde{p} t}}$ est continue sur $\Rp$, et est négligeable devant $1/t^2$ en $+\infty$. Ainsi, $\phi_j$ est intégrable.
 \end{itemize}
-Ainsi, la transformée de \nom{Laplace} $\mathscr{L}(f)$ est de classe $\mathscr{C}^\infty$ sur $\Rpe$.
+Ainsi, la transformée de \nom{Laplace} $\mathscr{L}(f)$ est de classe $\Cont^\infty$ sur $\Rpe$.
 
 \item Lorsque $p = 0$, l'intégrale $\int_0^{+\infty} \e^{-0\cdot t} f(t) \d t$ converge par hypothèse et $\mathscr{L}(f)(0)$ est donc bien définie.
 
@@ -297,7 +297,7 @@ Ainsi, d'après la définition de la limite,
 
 \begin{theo}{Méthode de Laplace}
 \source{\cite{rouviere2009}}
-Soient $f$ une fonction de classe $\mathscr{C}^2$ et intégrable sur $\Rp$. Alors,
+Soient $f$ une fonction de classe $\Cont^2$ et intégrable sur $\Rp$. Alors,
 \[
 F(t) = \int_0^{+\infty} \e^{-t x^2} f(t) \d x
 \sim_{t\to+\infty} \frac{\sqrt{\pi}}{2} \cdot \frac{f(0)}{\sqrt{t}}.

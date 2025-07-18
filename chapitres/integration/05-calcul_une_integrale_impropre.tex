@@ -68,7 +68,7 @@ On utilise ensuite la question précédente puis le changement de variable affin
 \begin{reponses}
 \item La fonction $x \mapsto \ln(\sin x)$ est continue sur $\interof{0}{\pi/2}$. De plus, en $0$,
 \[
-\ln(\sin x) = \ln\mathopen{}\big(x + o(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + o(1)\big) \sim_0 \ln x.
+\ln(\sin x) = \ln\mathopen{}\big(x + \petito(x)\big) = \ln(x) + \ln\mathopen{}\big(1 + \petito(1)\big) \sim_0 \ln x.
 \]
 Ainsi, d'après le \theoremeutilise{théorème de comparaison des fonctions de signe constant}{theo:comparaisonfonctionssigneconstant}, la fonction $x \mapsto \ln(\sin x)$ est intégrable en $0$.
 
@@ -106,7 +106,7 @@ On pose $I = \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$.
 
 Comme $f$ tend vers $0$ en $0$ par croissances comparées, on peut la prolonger par continuité en $0$ en posant $f(0) = 0$.
 
-De plus, $\frac{x \ln(x)}{(1+x^2)^2} = o_{+\infty}\mathopen{}\left( \frac{1}{x^2} \right)$.
+De plus, $\frac{x \ln(x)}{(1+x^2)^2} = \petito\limits_{+\infty}\mathopen{}\left( \frac{1}{x^2} \right)$.
 
 On en déduit que l'intégrale $\int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x$ converge.
 
@@ -116,7 +116,7 @@ On en déduit que l'intégrale $\int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d
 = \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int_1^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x.
 \]
 
-Dans la seconde intégrale, on effectue le changement de variable $\fonction[\varphi]{\interfo{1}{+\infty}}{\interof{0}{1}}{u}{\frac{1}{u}}$ qui est bien $\mathscr{C}^1$ et bijectif :
+Dans la seconde intégrale, on effectue le changement de variable $\fonction[\varphi]{\interfo{1}{+\infty}}{\interof{0}{1}}{u}{\frac{1}{u}}$ qui est bien $\Cont^1$ et bijectif :
 \begin{align*}
 \int_0^{+\infty} \frac{x \ln(x)}{(1 + x^2)^2} \d x
 &= \int_0^1 \frac{x \ln(x)}{(1 + x^2)^2} \d x + \int_0^1 \frac{\frac{1}{u} \ln \frac{1}{u}}{\big(1 + \frac{1}{u^2}\big)^2} \times \frac{1}{u^2} \d u\\

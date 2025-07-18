@@ -90,7 +90,7 @@ On pose
 \]
 Alors,
 \[
-F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\mathopen{}\bigg(\frac{\e^{-x}}{x^2}\bigg)
+F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + \petito_{+\infty}\mathopen{}\bigg(\frac{\e^{-x}}{x^2}\bigg)
 \quad \text{et} \quad
 F(x) \sim_0 -\ln(x).
 \]
@@ -102,7 +102,7 @@ F(x) \sim_0 -\ln(x).
 
 \item Montrer que $F(x) \sim_{+\infty} \frac{\e^{-x}}{x}$.
 
-\item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + o_{+\infty}\mathopen{}\left(\frac{\e^{-x}}{x^2}\right)$.
+\item Montrer que $F(x) = \frac{\e^{-x}}{x} + \frac{\e^{-x}}{x^2} + \petito_{+\infty}\mathopen{}\left(\frac{\e^{-x}}{x^2}\right)$.
        
 \item Montrer que $F(x) \sim_0 -\ln(x)$.
 \end{questions}
@@ -124,7 +124,7 @@ F(x) \sim_0 -\ln(x).
 \item La fonction $\fonctionligne[f]{t}{\frac{\e^{-t}}{t}}$ est positive et continue sur $\Re$.
 
 \begin{itemize}
-\item D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, $\frac{\e^{-t}}{t} = o_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le \theoremeutilise{théorème de comparaison des intégrales de fonctions à valeurs positives}{theo:comparaisonintegralesfonctionsvaleurspositives}, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
+\item D'après le \theoremeutilise{théorème des croissances comparées}{theo:croissancescomparees}, $\frac{\e^{-t}}{t} = \petito_{+\infty}\mathopen{}\left(\frac{1}{t^2}\right)$. Ainsi, d'après le \theoremeutilise{théorème de comparaison des intégrales de fonctions à valeurs positives}{theo:comparaisonintegralesfonctionsvaleurspositives}, $\int_1^{+\infty} \frac{\e^{-t}}{t} \d t$ converge.
 
 \item Comme $f(t) \sim_0 \frac{1}{t}$, d'après le théorème de comparaison des intégrales de fonctions à valeurs positives, $\int_0^1 \frac{\e^{-t}}{t} \d t$ diverge.
 \end{itemize}
@@ -146,7 +146,7 @@ De plus,
 \end{align*}
 
 Ainsi,
-$$\frac{\e^{-t}}{t^2} = o_{+\infty}\mathopen{}\bigg( \frac{\e^{-t}}{t} \bigg).$$
+$$\frac{\e^{-t}}{t^2} = \petito_{+\infty}\mathopen{}\bigg( \frac{\e^{-t}}{t} \bigg).$$
 
 D'où,
 \[
@@ -154,7 +154,7 @@ D'où,
 \]
 
 \begin{remarque}
-On aurait également pu utiliser les théorèmes d'intégration des relations de comparaison car $\e^{-x}/x = o(\e^{-x}/x^2)$.
+On aurait également pu utiliser les théorèmes d'intégration des relations de comparaison car $\e^{-x}/x = \petito(\e^{-x}/x^2)$.
 \end{remarque}
 
 \item On effectue une nouvelle intégration par parties avec $\fonctionligne[u]{t}{\e^{-t}}$ et $\fonctionligne[v]{t}{\frac{1}{t^2}}$. On obtient ainsi
