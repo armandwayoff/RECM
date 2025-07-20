@@ -57,7 +57,7 @@
     \index[theoremesutilises]{\temp}%
 }
 
-\DeclareRobustCommand{\theoremeutilise}[3][-7pt]{
+\DeclareRobustCommand{\theoremeutilise}[3][-7pt]{%
     #2\marginnote[#1]{
         \etoile{
             % \hyperref[#3]{ % pour renvoyer vers l'énoncé du théorème
@@ -65,7 +65,7 @@
             % }
             \indice{#2}
         }
-    }
+    }%
 }
 % \theoremeutilise[arg. optionel : décalage vertical de la marginnote]{nom du théorème}{label}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

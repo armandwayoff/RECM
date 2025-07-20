@@ -6,7 +6,7 @@
 \begin{prop}[Développement asymptotique de la factorielle]
 Il existe une constante $\delta$ telle que
 \[
-\fact{n} = \delta \, n^{n + \frac{1}{2}} \, \e^{-n} \mathopen{}\left(1 + \frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right)\right).
+\fact{n} = \delta \, n^{n + \frac{1}{2}} \, \e^{-n} \mathopen{}\left(1 + \frac{1}{12 \, n} + \petito\mathopen{}\left(\frac{1}{n}\right)\right).
 \]
 Le résultat sur la formule de \nom{Stirling} montre que $\delta = \sqrt{2\pi}$.
 \end{prop}
@@ -16,20 +16,28 @@ Une méthode pour déterminer la valeur de la constante $\delta$ est développé
 \end{remarque}
 
 \begin{exercice}
-Soient $f$, $g$ deux fonctions continues sur $\Rp$ à valeurs positives. On suppose que $\int_0^{+\infty} f(t) \d t$ converge. On définit la suite $(b_n)_{n\in\N}$ par
+Soient $f$, $g$ deux fonctions continues sur $\Rp$ à valeurs positives. On suppose que l'intégrale $\displaystyle \int_0^{+\infty} f(t) \d t$ converge. On définit la suite $(b_n)_{n\in\N}$ par
 \[
-b_0 = 0,\,
-b_1 = 1
-\text{ et }
-b_n = 1 + \left(n - \frac{1}{2}\right) \ln\mathopen{}\left(1 - \frac{1}{n}\right),\, \forall\, n \in \N.
+b_0 = 0,\quad
+b_1 = 1 \quad
+\text{et} \quad
+b_n = 1 + \left(n - \frac{1}{2}\right) \ln\mathopen{}\left(1 - \frac{1}{n}\right), \quad \forall n \in \N.
 \]
 On considère enfin une suite $(a_n)_{n\in\N}$ de réels positifs.
 \begin{questions}
-\item Si $f(x) \sim_{+\infty} g(x)$, montrer que $\displaystyle \int_x^{+\infty} f(t) \d t \sim_{+\infty} \int_x^{+\infty} g(t) \d t$.
+\item Si $f(x) \sim_{+\infty} g(x)$, montrer que $\int_x^{+\infty} f(t) \d t \sim_{+\infty} \int_x^{+\infty} g(t) \d t$.
 
-\item En appliquant la question précédente aux fonctions en escalier de la forme $f(t) = \sum\limits_{k=0}^{+\infty} a_k \, \indicatrice{[k,k+1[}(t)$ et \mbox{$g(t) = \sum\limits_{k=0}^{+\infty} b_k \, \indicatrice{[k, k+1[}(t)$}, montrer que si $a_n \sim b_n$ et $\sum a_n$ converge, alors $\sum\limits_{k=n+1}^{+\infty} a_k \sim \sum\limits_{k=n+1}^{+\infty} b_k$.
+\item En appliquant la question précédente aux fonctions en escalier de la forme 
+\[
+f(t) = \sum_{k=0}^{+\infty} a_k \, \indicatrice{[k,k+1[}(t)
+\quad
+\text{et}
+\quad 
+g(t) = \sum_{k=0}^{+\infty} b_k \, \indicatrice{[k, k+1[}(t),
+\]
+montrer que si $a_n \sim b_n$ et $\sum a_n$ converge, alors $\sum\limits_{k=n+1}^{+\infty} a_k \sim \sum\limits_{k=n+1}^{+\infty} b_k$.
 
-\item Montrer que $\sum b_n$ converge.
+\item Montrer que la série $\sum b_n$ converge.
 
 \item Montrer que $\sum\limits_{k=n+1}^{+\infty} \frac{1}{k^2} \sim \frac{1}{n}$.
 
@@ -45,11 +53,11 @@ On considère enfin une suite $(a_n)_{n\in\N}$ de réels positifs.
 \]
 Ainsi, comme $g$ est intégrable sur $[a, +\infty[$, alors $f - g$ l'est également. D'après la croissance de l'intégrale et l'inégalité triangulaire,
 \[
-\forall\, x \in [a, +\infty[,\, 0 \leq \abs{\int_x^{+\infty} f(t) \d t - \int_x^{+\infty} g(t) \d t} \leq \varepsilon \int_x^{+\infty} g(t) \d t.
+\forall x \in \interfo{a}{+\infty},\quad 0 \leqslant \abs{\int_x^{+\infty} f(t) \d t - \int_x^{+\infty} g(t) \d t} \leqslant \varepsilon \int_x^{+\infty} g(t) \d t.
 \]
 Ainsi, $\int_x^{+\infty} f(t) \d t \sim_{+\infty} \int_x^{+\infty} g(t) \d t$.
 
-\item Posons $f_k : t \mapsto a_k \indicatrice{[k,k+1[}(t)$. Alors, $\sum f_k$ converge simplement sur $\Rp$ vers $f$. De plus, la fonction $f$ est continue par morceaux. Enfin,
+\item Posons $\fonctionligne[f_k]{t}{a_k \, \indicatrice{[k,k+1[}(t)}$. Alors, $\sum f_k$ converge simplement sur $\Rp$ vers $f$. De plus, la fonction $f$ est continue par morceaux. Enfin,
 \[
 \sum \int_0^{+\infty} f_k(t) \d t = \sum a_k
 \]
@@ -68,12 +76,12 @@ Il suffit alors d'appliquer la question précédente aux fonctions $f$ et $g$.
 \sum_{k=n+1}^{+\infty} a_n \sim \sum_{k=n+1}^{+\infty} b_n.
 \]
 
-\item On utilise une comparaison série / intégrale. La fonction $x \mapsto \frac{1}{x^2}$ est décroissante. Pour $k > 2$ et $t \in [k, k + 1]$,
+\item On utilise une comparaison série / intégrale. La fonction $x \mapsto \frac{1}{x^2}$ est décroissante. Pour $k > 2$ et $t \in \interff{k}{k + 1}$,
 \begin{align*}
-\frac{1}{t^2} &\leq \frac{1}{k^2} \leq \frac{1}{(t - 1)^2}\\
-\int_k^{k+1} \frac{\d t}{t^2} &\leq \frac{1}{k^2} \leq \int_k^{k+1} \frac{\d t}{(t - 1)^2}\\
-\int_{n+1}^{+\infty} \frac{\d t}{t^2} &\leq \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leq \int_{n+1}^{+\infty} \frac{\d t}{(t - 1)^2}\\
-\frac{1}{n + 1} &\leq \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leq \frac{1}{n}.
+\frac{1}{t^2} &\leqslant \frac{1}{k^2} \leqslant \frac{1}{(t - 1)^2}\\
+\int_k^{k+1} \frac{\d t}{t^2} &\leqslant \frac{1}{k^2} \leqslant \int_k^{k+1} \frac{\d t}{(t - 1)^2}\\
+\int_{n+1}^{+\infty} \frac{\d t}{t^2} &\leqslant \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leqslant \int_{n+1}^{+\infty} \frac{\d t}{(t - 1)^2}\\
+\frac{1}{n + 1} &\leqslant \sum_{k=n+1}^{+\infty} \frac{1}{k^2} \leqslant \frac{1}{n}.
 \end{align*}
 Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \[
@@ -85,9 +93,9 @@ Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement},
 \sum_{k=n+1}^{+\infty} b_k = -\frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right).
 \]
 
-Ainsi, en notant $\ell = \sum_{k=1}^{+\infty} \frac{1}{k^2}$, alors
+Ainsi, en notant $\ell = \sum\limits_{k=1}^{+\infty} \frac{1}{k^2}$, alors
 \[
-\sum_{k=0}^n b_k = \ln\left(\frac{n! \e^n}{n^{n+\frac{1}{2}}}\right) = \ell + \frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right).
+\sum_{k=0}^n b_k = \ln\mathopen{}\left(\frac{\fact{n} \, \e^n}{n^{n+\frac{1}{2}}}\right) = \ell + \frac{1}{12 n} + \petito\mathopen{}\left(\frac{1}{n}\right).
 \]
 
 En utilisant la fonction expontentielle,
@@ -226,13 +234,13 @@ Soit $a$ un nombre réel et $f$ une application de classe $\mathscr{C}^1$ sur $\
 \end{prop}
 
 \begin{exercice}
-On pose $\displaystyle \fonctionligne[f]{t}{\frac{\cos(x \, t)}{\e^t + \e^{-t}}}$ et $\displaystyle \fonctionligne[f_n]{t}{(-1)^n \, \cos(x \, t) \, \e^{-(n + 1) t}}$.
+On pose les fonctions $\displaystyle \fonctionligne[f]{t}{\frac{\cos(x \, t)}{\e^t + \e^{-t}}}$ et $\displaystyle \fonctionligne[f_n]{t}{(-1)^n \, \cos(x \, t) \, \e^{-(n + 1) t}}$.
 \begin{questions}
-\item Justifier la convergence de $\displaystyle\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (x \, t)}{\ch(t)} \d t$.
+\item Justifier la convergence de l'intégrale $\displaystyle\frac{1}{2} \int_{0}^{+ \infty} \frac{\cos (x \, t)}{\ch(t)} \d t$.
 
 \item Montrer que $f(x) = \sum\limits_{n=0}^{+\infty} (-1)^n \, \cos(x \, t) \, \e^{-(2 n + 1) t}$.
 
-\item Déterminer $\displaystyle\int_0^{+\infty} f_n(t) \d t$.
+\item Pour $n \in \N$, déterminer la valeur de l'intégrale $\displaystyle\int_0^{+\infty} f_n(t) \d t$.
 
 \item Conclure en utilisant le \theoremeutilise{théorème des séries alternées}{theo:seriesalternees}.
 \end{questions}

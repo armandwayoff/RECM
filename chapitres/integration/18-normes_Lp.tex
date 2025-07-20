@@ -1,4 +1,4 @@
-\section{Normes $L^p$}
+\section{Normes $\L^p$}
 \ref{normes_lp_et_inegalites}
 
 \begin{marginfigure}
@@ -7,15 +7,15 @@
     \caption{Exemples (des frontières) de boules unités de $\R^2$}
 \end{marginfigure}
 \begin{defi}
-Soient $p \in \N$ et $I$ une intervalle de $\R$. La fonction $f$ est de classe $L^p$ sur $I$ si $f^p$ est intégrable sur $I$. On note alors
+Soient $p \in \N$ et $I$ une intervalle de $\R$. La fonction $f$ est de classe $\L^p$ sur $I$ si $f^p$ est intégrable sur $I$. On note alors
 \[
-\norm{f}_{L^p} = \left(\int_I \module{f}^p\right)^{1/p}.
+\norm{f}_{\L^p} = \left(\int_I \module{f}^p\right)^{1/p}.
 \]
-On note $L^p(I)$ l'ensemble des fonctions de classes $L^p$ sur $I$.
+On note $\L^p(I)$ l'ensemble des fonctions de classes $\L^p$ sur $I$.
 \end{defi}
 
 \begin{remarque}
-Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$. La positivité de l'intégrale assure alors que, si $\norm{f}_{L^p} = 0$, alors $f$ est identiquement nulle sur $I$.
+Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$. La positivité de l'intégrale assure alors que, si $\norm{f}_{\L^p} = 0$, alors $f$ est identiquement nulle sur $I$.
 \end{remarque}
 
 %-----------
@@ -24,7 +24,7 @@ Dans la suite de ce thème, on ne considère que des fonctions continues sur $I$
 \begin{theo}
 Soit $f$ une fonction continue sur le segment $\interff{a}{b}$. Alors,
 \[
-\lim_{p\to+\infty} \norm{f}_{L^p} = \norm{f}_\infty.
+\lim_{p\to+\infty} \norm{f}_{\L^p} = \norm{f}_\infty.
 \]
 \end{theo}
 Voir l'index des notations \ref{indexnotations} pour la définition de la norme $\norm{\,\cdot\,}_\infty$.
@@ -40,16 +40,16 @@ Voir l'index des notations \ref{indexnotations} pour la définition de la norme 
 \begin{exercice}
 Soit $f$ une fonction continue sur le segment $\interff{a}{b}$.
 \begin{questions}
-\item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{L^p} \leqslant c_p \norm{f}_\infty$.
+\item Montrer qu'il existe un réel $c_p$ tel que $\norm{f}_{\L^p} \leqslant c_p \norm{f}_\infty$.
 
 \item Soit $\varepsilon > 0$. Montrer qu'il existe un segment $\interff{c}{d} \subset \interff{a}{b}$ tel que
 \[
-\forall x \in \interff{c}{d},\quad f(x) \geqslant \norm{f}_{L^\infty} - \varepsilon.
+\forall x \in \interff{c}{d},\quad f(x) \geqslant \norm{f}_{\L^\infty} - \varepsilon.
 \]
 
 \item En déduire qu'il existe un réel $d_p$ tel que
 \[
-d_p \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p}.
+d_p \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{\L^p}.
 \]
 
 \item Conclure.
@@ -86,18 +86,18 @@ On note $\interff{c}{d} = \interff{x_0-\eta}{x_0+\eta} \cap \interff{a}{b}$.
 
 \item En utilisant la croissance de l'intégrale, on obtient ainsi
 \[
-(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p}.
+(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{\L^p}.
 \]
 
 \item D'après les questions précédentes, pour tout $p \in \N$ et pour tout $\varepsilon > 0$,
 \[
-(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
+(d - c)^{1/p} \big(\norm{f}_\infty - \varepsilon\big) \leqslant \norm{f}_{\L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
 \]
 
 Comme cette propriété est vraie pour tout $\varepsilon > 0$, alors
 
 \[
-(d - c)^{1/p} \norm{f}_\infty \leqslant \norm{f}_{L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
+(d - c)^{1/p} \norm{f}_\infty \leqslant \norm{f}_{\L^p} \leqslant (b - a)^{1/p} \norm{f}_\infty.
 \]
 
 Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty} (b - a)^{1/p} = 1$, le \theoremeutilise{théorème d'encadrement}{theo:encadrement} permet de conclure.
@@ -114,7 +114,7 @@ Enfin, comme $\lim\limits_{p\to+\infty} (d - c)^{1/p} = \lim\limits_{p\to+\infty
 \begin{theo}
 Soit $f \in \Cont\big(\mathopen{}\interff{0}{1},\Rpe\big)$. Alors,
 \[
-\lim_{p\to0} \norm{f}_{L^p} = \exp\mathopen{}\left\{\int_0^1 \ln\mathopen{}\module{f(x)} \d x\right\}.
+\lim_{p\to0} \norm{f}_{\L^p} = \exp\mathopen{}\left\{\int_0^1 \ln\mathopen{}\module{f(x)} \d x\right\}.
 \]
 \end{theo}
 
@@ -173,14 +173,14 @@ I'(0) &= \int_0^1 \ln\mathopen{}\big(f(x)\big) \d x
 %-----------
 \subsection{Cas $p \geqslant 1$}
 
-Lorsque l'exposant $p$ satisfait $0 < p < 1$, on constate que l'inégalité triangulaire ne peut pas être satisfaite par $\norm{\,\cdot\,}_{L^p}$, ce qui justifie, pour bénéficier d’une structure naturelle d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
+Lorsque l'exposant $p$ satisfait $0 < p < 1$, on constate que l'inégalité triangulaire ne peut pas être satisfaite par $\norm{\,\cdot\,}_{\L^p}$, ce qui justifie, pour bénéficier d’une structure naturelle d’espace vectoriel, de se restreindre à supposer $1 < p < +\infty$.
 
 \begin{theo}[Inégalité de \nom{Minkowski}]
-Soit $p \geqslant 1$. Si $f$ et $g$ sont deux fonctions appartenant à $L^p(I)$, alors
+Soit $p \geqslant 1$. Si $f$ et $g$ sont deux fonctions appartenant à $\L^p(I)$, alors
 \[
-\norm{f + g}_{L^p} \leqslant \norm{f}_{L^p} + \norm{g}_{L^p}.
+\norm{f + g}_{\L^p} \leqslant \norm{f}_{\L^p} + \norm{g}_{\L^p}.
 \]
-Ainsi, $L^p(I)$ est un espace vectoriel et $\norm{\,\cdot\,}_{L^p}$ est une norme.
+Ainsi, $\L^p(I)$ est un espace vectoriel et $\norm{\,\cdot\,}_{\L^p}$ est une norme.
 \end{theo}
 
 \begin{remarque}
@@ -189,9 +189,9 @@ Les cas $p = 1$ et $p = +\infty$ sont aisément vérifiables. On se limite par l
 
 Cette inégalité repose sur le théorème suivant :
 \begin{theo}[Inégalité de \nom{Hölder}]
-Soient $1 < p,\, q < +\infty$, $q$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ et $f,\, g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $L^p(I)$ et $g \in L^q(I)$, alors $f g$ appartient à $L^1(I)$ et
+Soient $1 < p,\, q < +\infty$, $q$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ et $f,\, g$ deux fonctions à valeurs strictement positives. Si $f$ appartient à $\L^p(I)$ et $g \in \L^q(I)$, alors $f g$ appartient à $\L^1(I)$ et
 \[
-\int_I f g \leqslant \norm{f}_{L^p} \norm{g}_{L^q}.
+\int_I f g \leqslant \norm{f}_{\L^p} \norm{g}_{\L^q}.
 \]
 \end{theo}
 
@@ -200,11 +200,11 @@ Lorsque $p = 2$, alors $q = 2$ et on retrouve l'\theoremeutilise{inégalité de 
 \end{remarque}
 
 \begin{exercice}
-Les cas où $\norm{f}_{L^p} = 0$ ou $\norm{g}_{L^q} = 0$ sont triviaux. On se limite donc au cas où ces quantités sont non nulles et on pose
+Les cas où $\norm{f}_{\L^p} = 0$ ou $\norm{g}_{\L^q} = 0$ sont triviaux. On se limite donc au cas où ces quantités sont non nulles et on pose
 \[
-F = \frac{f}{\norm{f}_{L^p}}
+F = \frac{f}{\norm{f}_{\L^p}}
 \quad \text{et} \quad
-G = \frac{g}{\norm{g}_{L^q}}.
+G = \frac{g}{\norm{g}_{\L^q}}.
 \]
 Soit $x \in I$.
 \begin{questions}
@@ -238,11 +238,11 @@ La linéarité de l'intégrale permet alors de conclure.
 \end{solution}
 
 \begin{exercice}
-Soit $f$ et $g$ deux fonctions de classe $L^p$ sur $I$.
+Soit $f$ et $g$ deux fonctions de classe $\L^p$ sur $I$.
 \begin{questions}
 \item Montrer que $\module{f + g}^p \leqslant 2^p \module{f}^p + 2^p \module{g}^p$.
 
-\item En déduire que $(f + g) \in L^p(I)$.
+\item En déduire que $(f + g) \in \L^p(I)$.
 
 \item En décomposant $(f + g)^p = f (f + g)^{p-1} + g (f + g)^{p-1}$, en déduire l'inégalité de \nom{Minkowski}.
 \end{questions}
@@ -260,7 +260,7 @@ Ainsi, dans tous les cas,
 \module{f + g}^p \leqslant 2^p \module{f}^p + 2^p \module{g}^p.
 \]
 
-\item D'après la question précédente et le \theoremeutilise{théorème de comparaison des intégrales}{theo:comparaison}, $f + g~\in~L^p(I)$.
+\item D'après la question précédente et le \theoremeutilise{théorème de comparaison des intégrales}{theo:comparaison}, $f + g~\in~\L^p(I)$.
 
 \item En utilisant la décomposition proposée, on remarque que
 \begin{align*}
@@ -268,52 +268,52 @@ Ainsi, dans tous les cas,
 &= \module{f + g}^{q(p-1)}
 = \module{f + g}^p.
 \end{align*}
-Ainsi, $\module{f + g}^{p-1} \in L^q(I)$.
+Ainsi, $\module{f + g}^{p-1} \in \L^q(I)$.
 
 En appliquant deux fois l'inégalité de \nom{Hölder},
 \begin{align*}
-\norm{f + g}_{L^p}^p
-&= \norm{|f| \cdot |f + g|^{p-1}}_{L^1}
-+ \norm{|g| \cdot |f + g|^{p-1}}_{L^1}\\
-&\leqslant \norm{f}_{L^p}^p \norm{f + g}_{L^p}^{p/q}
-+ \norm{g}_{L^p}^p \norm{f + g}_{L^p}^{p/q}\\
-&\leqslant \norm{f + g}_{L^p}^{p/q} \big(\norm{f}_{L^p} + \norm{f}_{L^q}\big).
+\norm{f + g}_{\L^p}^p
+&= \norm{|f| \cdot |f + g|^{p-1}}_{\L^1}
++ \norm{|g| \cdot |f + g|^{p-1}}_{\L^1}\\
+&\leqslant \norm{f}_{\L^p}^p \norm{f + g}_{\L^p}^{p/q}
++ \norm{g}_{\L^p}^p \norm{f + g}_{\L^p}^{p/q}\\
+&\leqslant \norm{f + g}_{\L^p}^{p/q} \big(\norm{f}_{\L^p} + \norm{f}_{\L^q}\big).
 \end{align*}
 
-On conclut en simplifiant par $\norm{f + g}_{L^p}^{p/q}$.
+On conclut en simplifiant par $\norm{f + g}_{\L^p}^{p/q}$.
 \end{reponses}
 \end{solution}
 
 % \todoinline{Pointer vers
 % Exercice 2 de \url{https://www.imo.universite-paris-saclay.fr/~joel.merker/Enseignement/Integration/l-p-espaces.pdf}}
 % \begin{exercice}
-    % On considère les espaces $L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
+    % On considère les espaces $\L^p(\R^d)$ pour  $0 < p < +\infty$. Montrer que si l'on a 
     % \[
-    % \norm{f + g}_{L^p} \leqslant  \norm{f}_{L^p} + \norm{g}_{L^p}
+    % \norm{f + g}_{\L^p} \leqslant  \norm{f}_{\L^p} + \norm{g}_{\L^p}
     % \]
-    % pour toutes fonctions $f, g \in L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
+    % pour toutes fonctions $f, g \in \L^p(\R^d )$, alors nécessairement $p \geqslant 1$.
 % \end{exercice}
 
 %-----------
-\subsection{Inclusions entre les $L^p$}
+\subsection{Inclusions entre les $\L^p$}
 
 \begin{theo}
-Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $L^q(I) \subset L^p(I)$ et $\|f\|_p \leqslant \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
-    % Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $L^q(\Omega) \subset L^p(\Omega)$ et pour tout $f \in L^q(\Omega)$, $\norm{f}_{L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{L^q}$.
+Si $I$ est un intervalle borné, on note $|I|$ sa longueur. Pour tout $p < q$, $\L^q(I) \subset \L^p(I)$ et $\|f\|_p \leqslant \module{I}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{\L^q}$.
+    % Si $\Omega$ est de mesure $\module{\Omega}$ finie, alors pour $p<q$, $\L^q(\Omega) \subset \L^p(\Omega)$ et pour tout $f \in \L^q(\Omega)$, $\norm{f}_{\L^p} \leqslant \module{\Omega}^{\frac{1}{p} - \frac{1}{q}} \norm{f}_{\L^q}$.
 \end{theo}
 
 \begin{demo}
-Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à tous les espaces $L^q$. Ainsi, d'après l'inégalité de \nom{Hölder},
+Comme $I$ est borné, alors la fonction constante égale à $1$ appartient à tous les espaces $\L^q$. Ainsi, d'après l'inégalité de \nom{Hölder},
 \begin{align*}
-\norm{f}_{L^p}^p
+\norm{f}_{\L^p}^p
 &\leqslant \left(\int_I \module{f}^q\right)^{p/q} \left(\int_I 1\right)^{1-p/q}
-\leqslant \norm{f}_{L^q}^p \cdot \module{I}^{1-p/q}.
+\leqslant \norm{f}_{\L^q}^p \cdot \module{I}^{1-p/q}.
 \end{align*}
 \end{demo}
 
 \begin{remarque}
 En utilisant des intégrales de \nom{Riemann}, on montre que ces inclusions sont fausses dès que $I$ n'est pas borné. \\
-En effet, choisissons $p$ et $q$ tels que $p > q$ et considérons $\alpha > 0$ avec la fonction $f(x) = \frac{1}{1+\module{x}^\alpha}$ pour $x \in \R$. Si on choisit $1/p < \alpha < 1/q$, alors $f \in L^p(\R)$ mais $f \not\in L^q(\R)$, donc $L^p(\R) \not\subset L^q(\R)$. \\
-Considérons maintenant la fonction $g(x) = \frac{1}{\module{x}^\alpha (1+x^2)}$ pour $x \in \R$. Si on choisit encore $\alpha$ tel que $1/p <  \alpha < 1/q$, alors $g \in L^q(\R)$ mais $g \not\in L^p(\R)$, donc $L^q(\R) \not\subset L^p(\R)$.\\
-Des résultats plus précis concernant les inclusions entre espaces $L^p$ peuvent être trouvés dans~\cite{rudin2009}.
+En effet, choisissons $p$ et $q$ tels que $p > q$ et considérons $\alpha > 0$ avec la fonction $f(x) = \frac{1}{1+\module{x}^\alpha}$ pour $x \in \R$. Si on choisit $1/p < \alpha < 1/q$, alors $f \in \L^p(\R)$ mais $f \not\in \L^q(\R)$, donc $\L^p(\R) \not\subset \L^q(\R)$. \\
+Considérons maintenant la fonction $g(x) = \frac{1}{\module{x}^\alpha (1+x^2)}$ pour $x \in \R$. Si on choisit encore $\alpha$ tel que $1/p <  \alpha < 1/q$, alors $g \in \L^q(\R)$ mais $g \not\in \L^p(\R)$, donc $\L^q(\R) \not\subset \L^p(\R)$.\\
+Des résultats plus précis concernant les inclusions entre espaces $\L^p$ peuvent être trouvés dans~\cite{rudin2009}.
 \end{remarque}

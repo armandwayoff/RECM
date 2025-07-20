@@ -104,6 +104,47 @@
   pagenumberformat=\bfseries
 ]{tocline}{section}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Définition du format personnalisé pour le type @sujetconcours
+\DeclareBibliographyDriver{sujetconcours}{%
+  \usebibmacro{begentry}% 
+  \printfield{note}%
+  \addcomma\space
+  \printfield{title}%
+  \space
+  (\printfield{year}).%
+  \iffieldundef{url}{}{%
+    \space
+    \printfield{url}%
+  }%
+  % Ajout explicite des back references
+  \newunit\newblock
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}%
+}
+
+% Définition du format de citation des sujetconcours avec \cite{}
+\DeclareCiteCommand{\cite}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifentrytype{sujetconcours}
+    {\textsl{\bibhyperref{%
+       \printfield{title}%
+       \space
+       (\printfield{year})%
+       \addcomma\space
+       \printfield{note}}}}
+    {\usebibmacro{citeindex}%
+     \bibhyperref{\usebibmacro{cite}}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+  
+\DeclareFieldFormat{title}{#1}
+
+\renewbibmacro*{begentry}{\textbullet~}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % https://tex.stackexchange.com/questions/88281/how-to-change-font-for-the-integral-symbol
 % \makeatletter

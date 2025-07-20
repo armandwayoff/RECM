@@ -26,9 +26,9 @@ Effectuer le changement de variable $t = \frac{\pi}{2} - x$.
 \begin{theo}{} \labprop{prop_wallis} Pour tout $n$ entier naturel, les intégrales de \nom{Wallis} vérifient les propriétés suivantes
 \begin{enumerate}[label=(\roman*)]
     \item $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$,  
-    \item $\displaystyle \Wallis_{2n} = \frac{\pi}{2^{2n+1}} \binom{2n}{n}$ et $\Wallis_{2n+1} = \frac{2^{2n} (n!)^2}{(2n+1)!}$,
-    \item $\displaystyle \Wallis_n \Wallis_{n+1} = \frac{\pi}{2(n+1)}$,
-    \item $\Wallis_{n+1} \sim \Wallis_n$ et $\displaystyle \Wallis_n \sim \sqrt{\frac{\pi}{2n}}$.
+    \item $\displaystyle \Wallis_{2n} = \frac{\pi}{2^{2n+1}} \binom{2n}{n}$ et $\displaystyle \Wallis_{2n+1} = \frac{2^{2n} (\fact{n})^2}{\fact{(2n+1)}}$,
+    \item $\displaystyle \Wallis_n \, \Wallis_{n+1} = \frac{\pi}{2(n+1)}$,
+    \item $\Wallis_{n+1} \sim \Wallis_n$ et $\displaystyle \Wallis_n \sim \sqrt{\frac{\pi}{2 \, n}}$.
 \end{enumerate}
 \end{theo}
 Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
@@ -38,15 +38,15 @@ Démontrons l'ensemble de ces résultats grâce à l'exercice suivant.
 
 \item Pour tout $n$ entier naturel non nul, montrer que $(n + 2) \Wallis_{n+2} = (n + 1) \Wallis_n$.
 
-\item Pour tout $p \in \N$, en déduire que $\Wallis_{2p} = \frac{1}{2^{2p}} \binom{2p}{p} \frac{\pi}{2}$.
+\item Pour tout $p \in \N$, en déduire que $\displaystyle \Wallis_{2p} = \frac{1}{2^{2p}} \binom{2p}{p} \frac{\pi}{2}$.
 
-\item Pour tout $p \in \N$, montrer de manière analogue que $\Wallis_{2p+1} = \frac{2^{2p} (p!)^2}{(2p+1)!}$.
+\item Pour tout $p \in \N$, montrer de manière analogue que $\displaystyle \Wallis_{2p+1} = \frac{2^{2p} (\fact{p})^2}{\fact{(2p+1)}}$.
 
 \item En déduire que $\Wallis_{n+1} \sim \Wallis_n$.
 
-\item Montrer que $\Wallis_n \Wallis_{n+1} = \frac{\pi}{2 (n + 1)}$.
+\item Montrer que $\displaystyle \Wallis_n \, \Wallis_{n+1} = \frac{\pi}{2 (n + 1)}$.
 
-\item En déduire que $\Wallis_n \sim \sqrt{\frac{\pi}{2n}}$.
+\item En déduire que $\Wallis_n \sim \sqrt{\frac{\pi}{2 \, n}}$.
 \end{questions}
 \end{exercice}
 
@@ -75,7 +75,7 @@ et en utilisant un produit télescopique pour $k \in \interent{1}{p}$,
 \] 
 Nous pouvons récrire le produit de la manière suivante
 \begin{align*}
-\Wallis_{2p} &= \frac{\prod\limits_{k=1}^p (2k-1)}{\prod\limits_{k=1}^{p} 2 k} \Wallis_0 = \frac{\left[\prod\limits_{k=1}^p (2k-1)\right] \times \left[\prod\limits_{k=1}^{p} (2k)\right]}{\left[\prod\limits_{k=1}^p (2k)\right]^2} \Wallis_0 = \frac{(2p)!}{2^{2p}(p!)^2} \frac{\pi}{2},
+\Wallis_{2p} &= \frac{\prod\limits_{k=1}^p (2k-1)}{\prod\limits_{k=1}^{p} 2 k} \Wallis_0 = \frac{\left[\prod\limits_{k=1}^p (2k-1)\right] \times \left[\prod\limits_{k=1}^{p} (2k)\right]}{\left[\prod\limits_{k=1}^p (2k)\right]^2} \Wallis_0 = \frac{\fact{(2p)}}{2^{2p}(\fact{p})^2} \frac{\pi}{2},
 \end{align*}
 ce qui fournit le résultat demandé. 
 
@@ -83,7 +83,7 @@ ce qui fournit le résultat demandé.
 \[
 \Wallis_1
 = \int_0^{\frac{\pi}{2}} \sin(t) \d t
-= \left[-\cos(t)\right]_0^{\frac{\pi}{2}}
+= \big[-\cos(t)\big]_0^{\frac{\pi}{2}}
 = 1.
 \]
 
@@ -96,7 +96,7 @@ et comme précédemment, en utilisant un produit télescopique,
 \prod_{k=1}^p \frac{\Wallis_{2k+1}}{\Wallis_{2k-1}} &= \prod_{k=1}^p \frac{2k}{2k+1}\\
 \frac{\Wallis_{2p+1}}{\Wallis_1} &= \frac{\left[\prod\limits_{k=1}^p (2k)\right]^2}{\left[\prod\limits_{k=1}^p (2k+1)\right] \times \left[\prod\limits_{k=1}^p (2k)\right]}\\
 \intertext{soit}
-\Wallis_{2p+1} &= \frac{2^{2p} (p!)^2}{(2p+1)!}.
+\Wallis_{2p+1} &= \frac{2^{2p} (\fact{p})^2}{\fact{(2p+1)}}.
 \end{align*}
 
 \item D'après les questions précédentes, pour tout $n$ entier naturel non nul,
@@ -104,17 +104,17 @@ et comme précédemment, en utilisant un produit télescopique,
 \Wallis_{n-1} &\leqslant \Wallis_n \leqslant \Wallis_{n+1}\\
 \frac{\Wallis_{n-1}}{\Wallis_{n+1}} &\leqslant \frac{\Wallis_n}{\Wallis_{n+1}} \leqslant 1.
 \end{align*}
-Or, d'après la question précédente, $\frac{\Wallis_{n-1}}{\Wallis_{n+1}} = \frac{n+1}{n}$. Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\Wallis_n \sim \Wallis_{n+1}$.
+Or, d'après la question précédente, $\displaystyle \frac{\Wallis_{n-1}}{\Wallis_{n+1}} = \frac{n+1}{n}$. Ainsi, d'après le \theoremeutilise{théorème d'encadrement}{theo:encadrement}, $\Wallis_n \sim \Wallis_{n+1}$.
 
 \item D'après la question précédente,
 \[
-\Wallis_{2p} \Wallis_{2p+1} = \frac{\pi}{2 (2 p + 1)}
+\Wallis_{2p} \, \Wallis_{2p+1} = \frac{\pi}{2 (2 p + 1)}
 \quad \text{et} \quad
-\Wallis_{2p+1} \Wallis_{2p+2} = \frac{\pi}{2 (2p+2)}.
+\Wallis_{2p+1} \, \Wallis_{2p+2} = \frac{\pi}{2 (2p+2)}.
 \]
 Ainsi, pour tout $n$ entier naturel,
 \[
-\Wallis_n \Wallis_{n+1} = \frac{\pi}{2 (n + 1)}.
+\Wallis_n \, \Wallis_{n+1} = \frac{\pi}{2 (n + 1)}.
 \]
 
 \item En utilisant les propriétés des équivalents, $\Wallis_n{}^2 \sim \frac{\pi}{2 n}$ soit
@@ -129,14 +129,14 @@ Ainsi, pour tout $n$ entier naturel,
 
 \begin{theo}[Formule de \nom{Stirling}]
 \[
-n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n
+\fact{n} \sim \sqrt{2 \, \pi \, n} \left(\frac{n}{\e}\right)^n
 \]
 \end{theo}
 
 \begin{exercice}
-Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac{1}{2}}}$.
+Pour tout $n$ entier naturel non nul, on pose $\displaystyle u_n = \frac{\fact{n} \, \e^n}{n^{n + \frac{1}{2}}}$.
 \begin{questions}
-\item Montrer que $\left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1\sim \frac{1}{12 n^2}$.
+\item Montrer que $\left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1\sim \frac{1}{12 \, n^2}$.
 
 \item En déduire que la série $\sum \ln \frac{u_{n+1}}{u_n}$ converge.
 
@@ -153,9 +153,9 @@ Pour tout $n$ entier naturel non nul, on pose $u_n = \frac{n! \e^n}{n^{n + \frac
 \item En utilisant les développements limités classiques,
 \begin{align*}
 \left(n + \frac{1}{2}\right) \ln\mathopen{}\left(1 + \frac{1}{n}\right) - 1
-&= \left(n + \frac{1}{2}\right) \left(\frac{1}{n} - \frac{1}{2 n^2} + \frac{1}{3 n^3} + \petito\mathopen{}\left(\frac{1}{n^3}\right)\right) - 1\\
-&= 1 - \frac{1}{2 n} + \frac{1}{3 n^2} + \frac{1}{2 n} - \frac{1}{4 n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right) - 1\\
-&= \frac{1}{12 n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right).
+&= \left(n + \frac{1}{2}\right) \left(\frac{1}{n} - \frac{1}{2 \, n^2} + \frac{1}{3 \, n^3} + \petito\mathopen{}\left(\frac{1}{n^3}\right)\right) - 1\\
+&= 1 - \frac{1}{2 \, n} + \frac{1}{3 \, n^2} + \frac{1}{2 \, n} - \frac{1}{4 \, n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right) - 1\\
+&= \frac{1}{12 \, n^2} + \petito\mathopen{}\left(\frac{1}{n^2}\right).
 \end{align*}
 
 On obtient ainsi l'équivalent annoncé.
@@ -163,7 +163,7 @@ On obtient ainsi l'équivalent annoncé.
 \item On remarque que
 \[
 \frac{u_{n+1}}{u_n}
-= \frac{(n + 1)!\, \e^{n+1}}{(n+1)^{n+\frac{3}{2}}} \times \frac{n^{n+\frac{1}{2}}}{n!\, \e^n}
+= \frac{\fact{(n + 1)}\, \e^{n+1}}{(n+1)^{n+\frac{3}{2}}} \times \frac{n^{n+\frac{1}{2}}}{\fact{n}\, \e^n}
 = \e \left(1 + \frac{1}{n}\right)^{-\mathopen{}\left(n + \frac{1}{2}\right)}.
 \]
 Ainsi, d'après la question précédente et le \theoremeutilise{théorème de comparaison aux séries de \nom{Riemann}}{theo:comparaisonseriesriemann}, la série de terme général $\ln\frac{u_{n+1}}{u_n}$ converge.
@@ -173,37 +173,37 @@ Ainsi, d'après la question précédente et le \theoremeutilise{théorème de co
 \sum_{n=1}^{N-1} \ln\frac{u_{n+1}}{u_n} = \ln(u_N) - \ln(u_1).
 \]
 
-Ainsi, d'après la question précédente, la suite $(\ln(u_n))_{n\in\Ne}$ converge vers un réel $\tilde{\ell}$.
+Ainsi, d'après la question précédente, la suite $\big(\ln(u_n)\big)_{n\in\Ne}$ converge vers un réel $\tilde{\ell}$.
 
 D'après la continuité de la fonction exponentielle, la suite $(u_n)_{n\in\Ne}$ converge vers $\ell = \e^{\tilde{\ell}}$ qui est bien un réel strictement positif.
 
-Ainsi, $n! \sim \ell \left(\frac{n}{\e}\right)^n \sqrt{n}$.
+Ainsi, $\displaystyle \fact{n} \sim \ell \left(\frac{n}{\e}\right)^n \sqrt{n}$.
 
 \item D'après les résultats sur les intégrales de \nom{Wallis},
 \[
 \Wallis_{2p}
-\sim \sqrt{\frac{\pi}{2\times 2p}}
-\sim \sqrt{\frac{\pi}{4 p}}.
+\sim \sqrt{\frac{\pi}{2\times 2 \, p}}
+\sim \sqrt{\frac{\pi}{4 \, p}}.
 \]
 
 Par ailleurs,
 \begin{align*}
 \Wallis_{2p}
-= \frac{(2p)!}{2^{2p} (p!)^2} \frac{\pi}{2}
-\sim \frac{\ell\, \e^{2p} (2p)^{2p} \sqrt{2p}}{\ell^2\, \e^{2p} (2p)^{2p} p} \times \frac{\pi}{2}
-\sim \frac{\pi}{\ell \sqrt{2 p}}.
+= \frac{\fact{(2 \, p)}}{2^{2p} (\fact{p})^2} \times \frac{\pi}{2}
+\sim \frac{\ell\, \e^{2p} \, (2 \, p)^{2p} \, \sqrt{2 \, p}}{\ell^2\, \e^{2p} \, (2 \, p)^{2p} \, p} \times \frac{\pi}{2}
+\sim \frac{\pi}{\ell \, \sqrt{2 \, p}}.
 \end{align*}
 
 Ainsi,
 \begin{align*}
-\sqrt{\frac{\pi}{4 p}} \sim \frac{\pi}{\ell \sqrt{2p}}
+\sqrt{\frac{\pi}{4 \, p}} \sim \frac{\pi}{\ell \, \sqrt{2 \, p}}
 \quad \text{soit} \quad 
-\ell = \sqrt{2 \pi}.
+\ell = \sqrt{2 \, \pi}.
 \end{align*}
 
 \item D'après les questions précédentes, on obtient l'équivalent annoncé
 \[
-n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n.
+\fact{n} \sim \sqrt{2 \, \pi \, n} \left(\frac{n}{\e}\right)^n.
 \]
 \end{reponses}
 \end{solution}
@@ -213,16 +213,16 @@ n! \sim \sqrt{2 \pi n} \left(\frac{n}{\e}\right)^n.
 
 % \todoinline{C'est rigolo ! Est-ce qu'on pourrait retrouver l'expression de $\Wallis_n$ à l'aide d'un produit de DSE ? Il y a aussi une application ici : https://math-os.com/coefficient-binomial-central/}
 
-\begin{prop}{}
+\begin{prop}
 Pour tout $x \in \interoo{-1}{1}$, la série génératrice des termes impairs est
-$$\sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1} = \frac{\arcsin x}{\sqrt{1-x^2}}.$$
+$$\sum_{p=0}^\infty \Wallis_{2p+1} \, x^{2p+1} = \frac{\arcsin x}{\sqrt{1-x^2}}.$$
 
 Pour tout $x \in \interoo{-1}{1}$, la série génératrice des termes pairs est 
-$$\sum_{p=0}^\infty \Wallis_{2p} x^{2p} = \frac{\pi}{2} \frac{1}{\sqrt{1-x^2}}.$$
+$$\sum_{p=0}^\infty \Wallis_{2p} \, x^{2p} = \frac{\pi}{2} \frac{1}{\sqrt{1-x^2}}.$$
 
 Pour tout $x \in \interoo{-1}{1}$,
 \[
-\sum_{n=0}^{+\infty} \Wallis_n x^n = \frac{2}{\sqrt{1 - x^2}} \arctan\sqrt{\frac{x + 1}{x - 1}}.
+\sum_{n=0}^{+\infty} \Wallis_n \, x^n = \frac{2}{\sqrt{1 - x^2}} \arctan\sqrt{\frac{x + 1}{x - 1}}.
 \]
 \end{prop}
 
@@ -230,13 +230,13 @@ Pour tout $x \in \interoo{-1}{1}$,
 
 \source{Exercice inspiré de l'article \href{https://math-os.com/coefficient-binomial-central/}{Coefficient Binomial Central : un aperçu} (Annexe 2) du site \href{https://math-os.com/bienvenue/}{math-os.com} de René \textsc{Adad}}
 \begin{exercice}
-On considère la formule dans le cas des termes impairs. Pour tout $p$ entier naturel, on pose $\fonctionligne[f_p]{t}{\cos(t)^{2p+1} x^{2p+1}}$.
+On considère la formule dans le cas des termes impairs. Pour tout $p$ entier naturel, on pose $\fonctionligne[f_p]{t}{\cos(t)^{2p+1} \, x^{2p+1}}$.
 \begin{questions}
 \item Montrer que $\sum f_p$ converge normalement sur $\interff{0}{\frac{\pi}{2}}$.
 
 \item En déduire que
 \[
-\sum_{p=0}^{+\infty} \Wallis_{2p+1} x^{2p+1} = \int_0^{\frac{\pi}{2}} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
+\sum_{p=0}^{+\infty} \Wallis_{2p+1} \, x^{2p+1} = \int_0^{\frac{\pi}{2}} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
 \]
 
 \item Utiliser le changement de variable $\fonctionligne[\varphi]{u}{\arcsin(u/x)}$ pour conclure.
@@ -258,15 +258,15 @@ Or, pour tout $x \in \interoo{-1}{1}$, $\sum \module{x}^{2p+1}$ converge. Ainsi,
 
 \item Soit $x \in \interoo{-1}{1}$. D'après le \theoremeutilise{théorème d'interversion série / intégrale}{theo:interversionserieintegrale},
 \begin{align*}
-\sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1}
+\sum_{p=0}^\infty \Wallis_{2p+1} \, x^{2p+1}
 &= \sum_{p=0}^\infty x^{2p+1} \int_0^{\pi/2} \cos(t)^{2p+1} \d t\\
 &= \int_0^{\pi/2} x\cos(t) \sum_{p=0}^\infty \Big(\big(x\cos(t) \big)^2 \Big)^p \d t \\
 &= \int_0^{\pi/2} \frac{x \cos(t)}{1 - x^2 \cos(t)^2} \d t.
 \end{align*}
 
-\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonctionens[\varphi]{\interff{0}{x}}{\interff{0}{\pi/2}},\, u \mapsto \arcsin\frac{u}{x}$ est de classe $\Cont^1$. De plus,
+\item Le cas $x = 0$ est trivial. Pour $x \neq 0$, la fonction $\fonction[\varphi]{\interff{0}{x}}{\interff{0}{\pi/2}}{u}{\arcsin\frac{u}{x}}$ est de classe $\Cont^1$. De plus,
 \[
-\cos(\varphi(u)) = \sqrt{1 - \frac{u^2}{x^2}}
+\cos\mathopen{}\big(\varphi(u)\big) = \sqrt{1 - \frac{u^2}{x^2}}
 \quad \text{et} \quad 
 \varphi'(u) = \frac{1}{x \sqrt{1 - \frac{u^2}{x^2}}}.
 \]
@@ -274,8 +274,8 @@ Or, pour tout $x \in \interoo{-1}{1}$, $\sum \module{x}^{2p+1}$ converge. Ainsi,
 Ainsi,
 % On voit rapidement que le changement de variable $u = x \cos(t)$ ne permet pas d'aboutir mais ne remplaçant $\cos(t)^2$ par $1 - \sin(t)^2$ au dénominateur puis en posant $u = x \sin(t)$, il vient:
 \begin{align*}
-\sum_{p=0}^\infty \Wallis_{2p+1} x^{2p+1}
-&= \int_0^x \frac{x \sqrt{1 - \frac{u^2}{x^2}}}{1 - x^2 \left(1 - \frac{u^2}{x^2}\right)} \times \frac{1}{x \sqrt{1 - \frac{u^2}{x^2}}}\d u \\
+\sum_{p=0}^\infty \Wallis_{2p+1} \, x^{2p+1}
+&= \int_0^x \frac{x \, \sqrt{1 - \frac{u^2}{x^2}}}{1 - x^2 \left(1 - \frac{u^2}{x^2}\right)} \times \frac{1}{x \, \sqrt{1 - \frac{u^2}{x^2}}}\d u \\
 &= \int_0^x \frac{1}{1 - x^2 + u^2} \d u\\
 &= \frac{1}{\sqrt{1 - x^2}} \int_0^x \frac{\frac{1}{\sqrt{1 - x^2}}}{1 + \left(\frac{u}{\sqrt{1-x^2}}\right)^2} \d u \\
 &= \frac{1}{\sqrt{1 - x^2}} \left[ \arctan \frac{u}{\sqrt{1 - x^2}} \right]^x_0 \\
@@ -286,7 +286,7 @@ On obtient le résultat annoncé en utilisant le fait que pour tout $x \in \inte
 \input{chapitres/integration/illustrations/i_09-triangle}
 }
 
-\item Pour le cas pair, $\big\Vert t \mapsto \cos(t)^{2p} x^{2p} \big\Vert_{\infty} = \abs{x}^{2p}$ et la série est normalement convergente sur $\interoo{-1}{1}$. Ainsi,
+\item Pour le cas pair, $\big\Vert t \mapsto \cos(t)^{2p} \, x^{2p} \big\Vert_{\infty} = \abs{x}^{2p}$ et la série est normalement convergente sur $\interoo{-1}{1}$. Ainsi,
 \begin{align*}
 \sum_{p=0}^\infty \Wallis_{2p} x^{2p} &= \int_0^{\pi/2} \frac{1}{1 - x^2 \cos(t)^2} \d t \\
 &= \int_0^1 \frac{1}{1 - x^2 \left(\frac{1-u^2}{1+u^2}\right)^2} \frac{2}{1 + u^2} \d u \quad \text{en posant } u = \tan \frac{t}{2} \\

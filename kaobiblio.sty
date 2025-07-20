@@ -62,7 +62,14 @@
 	\clearfield{arxivId}
 	\clearfield{pmid}
 	\clearfield{eprint}
-	\ifentrytype{online}{}{\ifentrytype{misc}{}{\clearfield{url}}}
+	\ifentrytype{online}{}{
+        \ifentrytype{misc}{}{
+            \ifentrytype{sujetconcours}{}{
+            \clearfield{url}
+            }
+        }
+    }
+    \ifentrytype{misc}{\clearfield{year}}{}
 	\ifentrytype{book}{\clearfield{doi}}{}
 }
 
