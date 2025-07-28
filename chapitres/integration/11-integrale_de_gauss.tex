@@ -236,11 +236,55 @@ En utilisant un changement de variable puis les intégrales de \nom{Wallis}, on 
 En raison de la parité de la fonction $x \mapsto \e^{-x^2}$, $\int_\R \e^{-x^2} \d x = \sqrt{\pi}$.
 \end{remarque}
 
-\todoinline{Ajouter une remarque pour son utilisation en probas ? Avec un dessin d'une planche de Galton ?}
+\begin{marginfigure}
+    \centering
+    \input{chapitres/integration/illustrations/i_10-planche_de_galton}
+    \caption{Planche de \nom{Galton} qui illustre la convergence d'une loi binomiale vers une loi normale}
+\end{marginfigure}
+
+\todoarmand{
+Loi normale
+Loi normale centrée réduite
+
+On dit qu'une variable aléatoire $X$ suit la loi normale centrée réduite, ce que l'on note $X↪N(0,1)$ si elle est continue et admet pour densité : $f(x)=1√2πexp(−x22)$. Une telle variable aléatoire $X$ admet alors une espérance et une variance : $E(X)=0 et V(X)=1$.
+
+Si X suit une loi normale centrée réduite, on a donc $(X∈[a,b])=∫ba1√2πexp(−x22)$. Ce calcul d'intégrale ne peut en général pas être mené de façon exacte, car on ne connait pas de primitive à la densité f. On cherche des valeurs approchées en utilisant une table de la loi normale, ou à l'aide d'un tableur
+
+Cas général
+
+On dit qu'une variable aléatoire X
+suit la loi normale de paramètres m∈R et σ2, avec σ>0, ce que l'on note X↪N(m,σ2) si elle est continue et admet pour densité : f(x)=1σ√2πexp(−(x−m)22σ2). Ceci revient à dire que X−mσ suit une loi normale centrée réduite N(0,1). Remarquons que si X suit une loi N(m,σ2), alors X admet alors une espérance et une variance : E(X)=m et V(X)=σ2.
+
+Interprétation :
+
+Par le théorème limite central, ou par sa version simple le théorème de de Moivre Laplace, la loi normale arrive naturellement quand on regarde la distribution "limite" du résultat d'un grand nombre d'expériences identiques réalisées de manière indépendante. C'est pourquoi la loi normale est la loi des phénomènes naturels, ce qui est conforté par l'expérience qui montre qu'un grand nombre de grandeurs physiques suivent une loi normale.
+
+Par exemple, si une usine fabrique des barres métalliques de longueur 2m, la longueur d'une barre donnée n'est jamais exactement 2m. Elle suit une loi normale d'espérance 2, et de variance d'autant plus petite que les tolérances des machines sont faibles.
+
+On remarquera que la loi normale se concentre essentiellement autour de sa moyenne. Par exemple, si X
+suit une loi normale centrée réduite, la probabilité pour que X
+
+soit compris entre -3 et 3 est supérieur à 0,998.
+La loi normale porte de nombreux noms différents. Introduite en 1780 par Laplace, popularisée par Gauss en 1809 qui montre que les erreurs de mesures en astronomie fluctuent selon cette loi, reconsidérée par Laplace en 1810 qui montre qu'elle est la loi de nombreux phénomènes naturels en donnant une première version du théorème limite central, on l'appelle parfois loi des erreurs, loi de Gauss ou loi de Laplace-Gauss. C'est le célèbre statisticien Pearson qui la nomma loi normale dans un article de 1893 pour éviter tout conflit de paternité. Il le regretta plus tard, allant jusqu'à dire :
+Cela a l'inconvénient de laisser croire aux gens que les autres distributions sont d'une façon ou d'une autre anormales.
+
+\url{https://www.bibmath.net/dico/index.php?action=affiche&quoi=./l/loinormale.html}
+}
+
+\todoarmand{
+Une planche de Galton est un dispositif inventé par Sir Francis Galton qui illustre la convergence d'une loi binomiale vers une loi normale.
+
+Des clous sont plantés sur la partie supérieure de la planche, de telle sorte qu'une bille lâchée sur la planche passe soit à droite soit à gauche pour chaque rangée de clous. Dans la partie inférieure les billes sont rassemblées en fonction du nombre de passages à gauche et à droite qu'elles ont fait.
+
+Ainsi chaque case correspond à un résultat possible d'une expérience binomiale (en tant qu'une expérience de Bernoulli répétée) et on peut remarquer que la répartition des billes dans les cases approche la forme d'une courbe de Gauss, ceci étant d'autant plus vrai que le nombre de rangées augmente ; autrement dit : la loi binomiale converge vers la loi normale. Il s'agit donc d'une illustration du théorème de Moivre-Laplace. 
+
+\url{https://fr.wikipedia.org/wiki/Planche_de_Galton}
+}
+
 
 \subsection{Moments de la gaussienne}
 
-\todoinline{Je prends $\sigma = \frac{1}{\sqrt{2}}$ pour plus coller à la section précédente et simplifier les notations. On peut bien sûr revenir à un $\sigma$ qcq si tu préfères. J'ai rédigé la dérivation sous le signe intégral}
+% \todoinline{Je prends $\sigma = \frac{1}{\sqrt{2}}$ pour plus coller à la section précédente et simplifier les notations. On peut bien sûr revenir à un $\sigma$ qcq si tu préfères. J'ai rédigé la dérivation sous le signe intégral}
 
 \begin{theo} Pour tout $n$ entier naturel,
     \[
@@ -402,7 +446,7 @@ En notant $I_n = \int_0^{\pi/2} \cos^{2n+1}(t) \d t$, comme la suite $(I_n)$ est
 \begin{theo}
 Pour tout $x$ réel,
 \[
-\int_{-\infty}^{+\infty} \e^{\i t x} \e^{-t^2} \d t
+\int_{-\infty}^{+\infty} \e^{\i t x} \, \e^{-t^2} \d t
 = \sqrt{\pi}\, \e^{-\frac{x^2}{4}}.
 \]
 \end{theo}
@@ -410,7 +454,7 @@ Pour tout $x$ réel,
 \begin{remarque}
 Un changement de variable affine permet de montrer que pour tout $a > 0$,
 \[
-\int_{-\infty}^{+\infty} \e{\i t x} \e^{-a t^2} \d t = \sqrt{\frac{\pi}{a}} \e^{-\frac{x^2}{4 a}}.
+\int_{-\infty}^{+\infty} \e^{\i t x} \, \e^{-a t^2} \d t = \sqrt{\frac{\pi}{a}} \, \e^{-\frac{x^2}{4 a}}.
 \]
 \end{remarque}
 
@@ -419,7 +463,7 @@ On pose $f(x) = \int_{-\infty}^{+\infty} \e^{-t^2 + \i t x} \d t$.
 \begin{questions}
 \item Montrer que la fonction $f$  est définie sur $\R$.
 
-\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} \i t \e^{-t^2 + \i t x} \d t$.
+\item Montrer que $f$ est dérivable sur $\R$ et que $f'(x) = \int_{-\infty}^{+\infty} \i t \, \e^{-t^2 + \i t x} \d t$.
 
 \item Montrer que $f$ vérifie l'équation différentielle $2 y' + x y = 0$.\\
 \emph{Indication :} On pourra utiliser une intégration par parties.
